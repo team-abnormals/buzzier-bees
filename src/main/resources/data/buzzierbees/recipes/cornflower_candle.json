@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:candle"
+        },
+        {
+            "item": "minecraft:blaze_powder"
+        },
+        {
+            "item": "minecraft:cornflower"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:cornflower_candle",
+        "count": 1
+    }
+}

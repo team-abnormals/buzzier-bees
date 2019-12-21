@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "tag": "buzzierbees:candles"
+        },
+        {
+            "item": "minecraft:light_blue_dye"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:light_blue_candle",
+        "count": 1
+    }
+}

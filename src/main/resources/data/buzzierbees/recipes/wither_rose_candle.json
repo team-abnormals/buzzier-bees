@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:candle"
+        },
+        {
+            "item": "minecraft:nether_wart"
+        },
+        {
+            "item": "minecraft:wither_rose"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:wither_rose_candle",
+        "count": 1
+    }
+}

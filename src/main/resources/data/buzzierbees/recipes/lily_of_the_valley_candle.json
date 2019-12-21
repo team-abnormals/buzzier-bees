@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:candle"
+        },
+        {
+            "item": "minecraft:blaze_powder"
+        },
+        {
+            "item": "minecraft:lily_of_the_valley"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:lily_of_the_valley_candle",
+        "count": 1
+    }
+}

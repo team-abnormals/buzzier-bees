@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "buzzierbees:wax"
+    }
+  },
+  "result": {
+    "item": "buzzierbees:wax_block"
+  }
+}
