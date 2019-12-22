@@ -1,6 +1,51 @@
 {
 	"item.buzzierbees.wax": "Воск",
-	"item.buzzierbees.crystallized_honey": "Кристаллизированый мёд",
+	"item.buzzierbees.crystallized_honey": "Кристаллизированный мёд",
+	"item.buzzierbees.bee_soup": "Пчелиный суп",
+	
 	"block.buzzierbees.wax_block": "Восковый блок",
-	"block.buzzierbees.candle": "Свечка"
+	"block.buzzierbees.crystallized_honey_block": "Кристаллизированный блок мёда",
+	
+	"block.buzzierbees.hive_block": "Ульевый блок",
+	"block.buzzierbees.hive_stairs": "Ульевые ступеньки",
+	"block.buzzierbees.hive_slab": "Ульевая плита",
+	"block.buzzierbees.hive_fence": "Ульевый забор",
+	"block.buzzierbees.hive_fence_gate": "Ульевая калитка",
+	"block.buzzierbees.hive_button": "Ульевая кнопка",
+	"block.buzzierbees.hive_pressure_plate": "Ульевая нажимная плита",
+	"block.buzzierbees.hive_door": "Ульевый дверь",
+	"block.buzzierbees.hive_trapdoor": "Ульевый люк",
+	
+	"block.buzzierbees.candle": "Свечка",
+	
+	"block.buzzierbees.white_candle": "Белая свечка",
+	"block.buzzierbees.orange_candle": "Оранжевая свечка",
+	"block.buzzierbees.magenta_candle": "Пурпурная свечка",
+	"block.buzzierbees.light_blue_candle": "Голубая свечка",
+	"block.buzzierbees.yellow_candle": "Жёлтая свечка",
+	"block.buzzierbees.lime_candle": "Лаймовая свечка",
+	"block.buzzierbees.pink_candle": "Розовая свечка",
+	"block.buzzierbees.gray_candle": "Серая свечка",
+	"block.buzzierbees.light_gray_candle": "Светло-серая свечка",
+	"block.buzzierbees.cyan_candle": "Бирюзовая свечка",
+	"block.buzzierbees.purple_candle": "Фиолетовая свечка",
+	"block.buzzierbees.blue_candle": "Синяя свечка",
+	"block.buzzierbees.brown_candle": "Коричневая свечка",
+	"block.buzzierbees.green_candle": "Зелёная свечка",
+	"block.buzzierbees.red_candle": "Красная свечка",
+	"block.buzzierbees.black_candle": "Чёрная свечка",
+	
+	"block.buzzierbees.allium_candle": "Лук-батуновая свечка",
+	"block.buzzierbees.azure_bluet_candle": "Свечка из хаустонии серой",
+	"block.buzzierbees.blue_orchid_candle": "Свечка из синей орхидеи",
+	"block.buzzierbees.dandelion_candle": "Одуванчиковая свечка",
+	"block.buzzierbees.cornflower_candle": "Васильковая свечка",
+	"block.buzzierbees.lily_of_the_valley_candle": "Ландышевая свечка",
+	"block.buzzierbees.oxeye_daisy_candle": "Ромашковая свечка",
+	"block.buzzierbees.poppy_candle": "Маковая свечка",
+	"block.buzzierbees.white_tulip_candle": "Свечка из белого тюльпана",
+	"block.buzzierbees.orange_tulip_candle": "Свечка из оранжевого тюльпана",
+	"block.buzzierbees.pink_tulip_candle": "Свечка из розового тюльпана",
+	"block.buzzierbees.red_tulip_candle": "Свечка из красного тюльпана",
+	"block.buzzierbees.wither_rose_candle": "Свечка из розы визера"
 }
