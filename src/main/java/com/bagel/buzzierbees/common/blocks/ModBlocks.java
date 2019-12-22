@@ -82,6 +82,8 @@ public class ModBlocks
 	public static Block HIVE_TRAPDOOR;
 
 	public static Block CLOVER;
+	public static Block CLOVER_HONEY_BLOCK;
+	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 	
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
@@ -152,6 +154,8 @@ public class ModBlocks
 		}
 
 		CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY)), "clover", ItemGroup.DECORATIONS);
+		CLOVER_HONEY_BLOCK = registerBlock(new HoneyBlock(Block.Properties.from(Blocks.HAY_BLOCK)), "clover_honey_block", ItemGroup.DECORATIONS);
+		CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 
     }
 
