@@ -18,6 +18,7 @@ public class ModItems
 	public static Item CRYSTALLIZED_HONEY;
 	public static Item BEE_SOUP;
 	public static Item CLOVER_HONEY_BOTTLE;
+	public static Item FOUR_LEAF_CLOVER;
 
 	public static Food CRYSTALLIZED_HONEY_FOOD;
 	public static Food BEE_SOUP_FOOD;
@@ -37,6 +38,7 @@ public class ModItems
         WAX = registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	BEE_SOUP = registerItem(new BeeSoupItem(new Item.Properties().maxStackSize(1).food(BEE_SOUP_FOOD).group(ItemGroup.FOOD)), "bee_soup");
     	CLOVER_HONEY_BOTTLE = registerItem(new HoneyBottleItem(new Item.Properties().maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
+		FOUR_LEAF_CLOVER = registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
 
 	}
 	

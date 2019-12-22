@@ -1,15 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TrapDoorBlock;
-import net.minecraft.block.WoodButtonBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -89,6 +80,8 @@ public class ModBlocks
 	public static Block HIVE_BUTTON;
 	public static Block HIVE_DOOR;
 	public static Block HIVE_TRAPDOOR;
+
+	public static Block CLOVER;
 	
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
@@ -157,6 +150,9 @@ public class ModBlocks
 			SLATE_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "slate_gray_candle", ItemGroup.DECORATIONS);
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
+
+		CLOVER = registerBlock(new CloverFlowerBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY)), "clover", ItemGroup.DECORATIONS);
+
     }
 
     public static Block registerBlock(Block block, String name, ItemGroup group)
