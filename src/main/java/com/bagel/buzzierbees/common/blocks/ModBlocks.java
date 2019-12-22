@@ -96,7 +96,7 @@ public class ModBlocks
     {
 		
 		WAX_BLOCK = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
-		CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
+		CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
 		HIVE_BLOCK = registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_block", ItemGroup.DECORATIONS);
 		HIVE_STAIRS = registerBlock(new StairsBlock(HIVE_BLOCK.getDefaultState(), Block.Properties.from(HIVE_BLOCK)), "hive_stairs", ItemGroup.DECORATIONS);
 		HIVE_SLAB = registerBlock(new SlabBlock(Block.Properties.from(HIVE_BLOCK)), "hive_slab", ItemGroup.DECORATIONS);
