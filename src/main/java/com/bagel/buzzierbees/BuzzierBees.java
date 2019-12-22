@@ -1,6 +1,8 @@
 package com.bagel.buzzierbees;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -45,6 +47,7 @@ public class BuzzierBees
 
     
     private void doClientStuff(final FMLClientSetupEvent event) {
+		RenderTypeLookup.setRenderLayer(com.bagel.buzzierbees.common.blocks.ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
 
