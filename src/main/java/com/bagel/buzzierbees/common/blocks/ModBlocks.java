@@ -1,7 +1,15 @@
 package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -13,6 +21,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlocks
 {
@@ -69,12 +78,34 @@ public class ModBlocks
 	public static Block WITHER_ROSE_CANDLE;
 	
 	public static Block WAX_BLOCK;
+	public static Block CRYSTALLIZED_HONEY_BLOCK;
 	
+	public static Block HIVE_BLOCK;
+	public static Block HIVE_STAIRS;
+	public static Block HIVE_SLAB;
+	public static Block HIVE_FENCE;
+	public static Block HIVE_FENCE_GATE;
+	public static Block HIVE_PRESSURE_PLATE;
+	public static Block HIVE_BUTTON;
+	public static Block HIVE_DOOR;
+	public static Block HIVE_TRAPDOOR;
+	
+	@SuppressWarnings("deprecation")
 	@SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
 		
 		WAX_BLOCK = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
+		CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
+		HIVE_BLOCK = registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_block", ItemGroup.DECORATIONS);
+		HIVE_STAIRS = registerBlock(new StairsBlock(HIVE_BLOCK.getDefaultState(), Block.Properties.from(HIVE_BLOCK)), "hive_stairs", ItemGroup.DECORATIONS);
+		HIVE_SLAB = registerBlock(new SlabBlock(Block.Properties.from(HIVE_BLOCK)), "hive_slab", ItemGroup.DECORATIONS);
+        //HIVE_FENCE = registerBlock(new FenceBlock(Block.Properties.from(HIVE_BLOCK)), "hive_fence", ItemGroup.DECORATIONS);
+        //HIVE_FENCE_GATE = registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_BLOCK)), "hive_fence_gate", ItemGroup.REDSTONE);
+        //HIVE_BUTTON = registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_BLOCK)), "hive_button", ItemGroup.REDSTONE);
+		//HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_BLOCK)), "hive_pressure_plate", ItemGroup.REDSTONE);
+		//HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_door", ItemGroup.REDSTONE);
+        //HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_trapdoor", ItemGroup.REDSTONE);
 		
 		CANDLE = registerBlock(new CandleBlock(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD)), "candle", ItemGroup.DECORATIONS);
 		WHITE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "white_candle", ItemGroup.DECORATIONS);
