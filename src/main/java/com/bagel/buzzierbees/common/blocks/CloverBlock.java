@@ -14,9 +14,9 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class CloverFlowerBlock extends FlowerBlock implements IGrowable {
+public class CloverBlock extends FlowerBlock implements IGrowable {
 
-    public CloverFlowerBlock(Effect p_i49984_1_, Properties p_i49984_3_) {
+    public CloverBlock(Effect p_i49984_1_, Properties p_i49984_3_) {
         super(p_i49984_1_, 8, p_i49984_3_);
     }
 

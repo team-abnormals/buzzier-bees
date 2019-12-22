@@ -151,7 +151,7 @@ public class ModBlocks
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
 
-		CLOVER = registerBlock(new CloverFlowerBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY)), "clover", ItemGroup.DECORATIONS);
+		CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY)), "clover", ItemGroup.DECORATIONS);
 
     }
 
