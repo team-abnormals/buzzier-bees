@@ -15,8 +15,12 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
+import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.server.ServerWorld;
 
+import java.util.List;
 import java.util.Random;
 
 public class CloverPatchBlock extends FlowerBlock implements IGrowable {
@@ -41,32 +45,33 @@ public class CloverPatchBlock extends FlowerBlock implements IGrowable {
 
     @Override
     public void func_225535_a_(ServerWorld world, Random random, BlockPos blockPos, BlockState state) {
-        CloverPatchBlock cloverBlock = (CloverPatchBlock)ModBlocks.CLOVER;
         if (state.get(AGE) == 0) {
             int i = Math.min(1, state.get(AGE) + 1);
             world.setBlockState(blockPos, state.with(AGE, Integer.valueOf(i)), 1);
         } else {
-            //TEMP IMPLEMENTATION
-            //It should spread clover patches around it if bonemealed...
-            if(!world.isRemote) {
-                BlockState blockstate = state.with(AGE, Integer.valueOf(0));
-                cont:
-                for(int i = 0; i < 128; ++i) {
-                    BlockPos newBlockPos = blockPos;
+            BlockState cloverPatchState  = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0));
+            BlockState cloverFlowerState = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1));
 
-                    for(int j = 0; j < i / 16; j++) {
-                         newBlockPos = newBlockPos.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                        if(Block.isOpaque(world.getBlockState(newBlockPos).getCollisionShape(world, newBlockPos))) {
-                            continue cont;
-                        }
-                    }
+            label:
+            for(int lvt_7_1_ = 0; lvt_7_1_ < 64; ++lvt_7_1_) {
+                BlockPos newBlockPos = blockPos;
 
-                    if(blockstate.isValidPosition(world, newBlockPos) && world.isAirBlock(newBlockPos) && random.nextFloat() <= 0.10F) {
-                        world.setBlockState(newBlockPos, state.with(AGE, Integer.valueOf(random.nextInt(2))));
+                for(int lvt_9_1_ = 0; lvt_9_1_ < lvt_7_1_ / 16; ++lvt_9_1_) {
+                    newBlockPos = newBlockPos.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+                    if(Block.isOpaque(world.getBlockState(newBlockPos).getCollisionShape(world, newBlockPos))) {
+                        continue label;
                     }
                 }
+
+                if (cloverPatchState.isValidPosition(world, newBlockPos) && world.isAirBlock(newBlockPos) && random.nextInt() < 36) {
+                    world.setBlockState(newBlockPos, cloverPatchState);
+                }
+
+                BlockState lookedBlockState = world.getBlockState(newBlockPos);
+                if (lookedBlockState.getBlock() == cloverPatchState.getBlock() && random.nextInt() < 6) {
+                    world.setBlockState(newBlockPos, cloverFlowerState);
+                }
             }
-            //spawnAsEntity(world, pos, new ItemStack(this));
         }
     }
 
