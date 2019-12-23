@@ -1,14 +1,10 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import javafx.beans.property.BooleanProperty;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.pathfinding.PathType;
 import net.minecraft.potion.Effect;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 

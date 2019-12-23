@@ -2,31 +2,23 @@ package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.TNTEntity;
 import net.minecraft.entity.item.minecart.AbstractMinecartEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.particles.BlockParticleData;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.Direction;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
-import java.util.Random;
 
 // TODO...
 public class CloverHoneyBlock extends FallingBlock {
@@ -56,7 +48,8 @@ public class CloverHoneyBlock extends FallingBlock {
 
     }
 
-    public void onEntityCollision(BlockState p_196262_1_, World p_196262_2_, BlockPos p_196262_3_, Entity p_196262_4_) {
+    @SuppressWarnings("deprecation")
+	public void onEntityCollision(BlockState p_196262_1_, World p_196262_2_, BlockPos p_196262_3_, Entity p_196262_4_) {
         if (this.func_226935_a_(p_196262_3_, p_196262_4_)) {
             this.func_226933_a_(p_196262_4_, p_196262_3_);
             this.func_226938_d_(p_196262_4_);
