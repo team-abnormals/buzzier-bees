@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder("buzzierbees")
 public class ScentedCandleTileEntity extends TileEntity implements ITickableTileEntity {
+
     public ScentedCandleTileEntity() {
 		super(ModTileEntities.SCENTED_CANDLE.get());
 	}

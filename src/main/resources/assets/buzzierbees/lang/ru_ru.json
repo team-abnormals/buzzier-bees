@@ -2,9 +2,18 @@
 	"item.buzzierbees.wax": "Воск",
 	"item.buzzierbees.crystallized_honey": "Кристаллизированный мёд",
 	"item.buzzierbees.bee_soup": "Пчелиный суп",
+
+	"item.buzzierbees.four_leaf_clover": "Четырёхлистный клевер",
+	"item.buzzierbees.crystallized_clover_honey": "Кристаллизированный клеверный мёд",
+	"item.buzzierbees.clover_honey_bottle": "Clover Honey Bottle",
 	
 	"block.buzzierbees.wax_block": "Восковый блок",
 	"block.buzzierbees.crystallized_honey_block": "Кристаллизированный блок мёда",
+
+	"block.buzzierbees.clover": "Клевер",
+	"block.buzzierbees.clover_block": "Клеверный блок",
+	"block.buzzierbees.clover_honey_block": "Блок клеверного мёда",
+	"block.buzzierbees.crystallized_clover_honey_block": "Кристаллизированный блок клеверного мёда",
 	
 	"block.buzzierbees.hive_block": "Ульевый блок",
 	"block.buzzierbees.hive_stairs": "Ульевые ступеньки",

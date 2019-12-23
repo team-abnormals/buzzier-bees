@@ -2,10 +2,18 @@
 	"item.buzzierbees.wax": "Wax",
 	"item.buzzierbees.crystallized_honey": "Crystallized Honey",
 	"item.buzzierbees.bee_soup": "Bee Soup",
+
+	"item.buzzierbees.four_leaf_clover": "Four-Leaf Clover",
+	"item.buzzierbees.crystallized_clover_honey": "Crystallized Clover Honey",
 	"item.buzzierbees.clover_honey_bottle": "Clover Honey Bottle",
 	
 	"block.buzzierbees.wax_block": "Wax Block",
 	"block.buzzierbees.crystallized_honey_block": "Crystallized Honey Block",
+
+	"block.buzzierbees.clover": "Clover",
+	"block.buzzierbees.clover_block": "Clover Block",
+	"block.buzzierbees.clover_honey_block": "Clover Honey Block",
+	"block.buzzierbees.crystallized_clover_honey_block": "Crystallized Clover Honey Block",
 	
 	"block.buzzierbees.hive_block": "Hive Block",
 	"block.buzzierbees.hive_stairs": "Hive Stairs",
