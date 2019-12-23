@@ -44,7 +44,7 @@ public class CloverPatchBlock extends FlowerBlock implements IGrowable {
             world.setBlockState(blockPos, state.with(AGE, Integer.valueOf(i)), 1);
         } else {
             BlockState cloverPatchState  = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0));
-            BlockState cloverFlowerState = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1));
+            //BlockState cloverFlowerState = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1));
 
             label:
             for(int lvt_7_1_ = 0; lvt_7_1_ < 64; ++lvt_7_1_) {
@@ -57,13 +57,13 @@ public class CloverPatchBlock extends FlowerBlock implements IGrowable {
                     }
                 }
 
-                if (cloverPatchState.isValidPosition(world, newBlockPos) && world.isAirBlock(newBlockPos) && random.nextInt() < 36) {
-                    world.setBlockState(newBlockPos, cloverPatchState);
-                }
-
-                BlockState lookedBlockState = world.getBlockState(newBlockPos);
-                if (lookedBlockState.getBlock() == cloverPatchState.getBlock() && random.nextInt() < 6) {
+                /*BlockState lookedBlockState = world.getBlockState(newBlockPos);
+                if (lookedBlockState.getBlock() == cloverPatchState.getBlock()) {
                     world.setBlockState(newBlockPos, cloverFlowerState);
+                }*/
+
+                if (cloverPatchState.isValidPosition(world, newBlockPos) && world.isAirBlock(newBlockPos)) {
+                    world.setBlockState(newBlockPos, cloverPatchState);
                 }
             }
         }
