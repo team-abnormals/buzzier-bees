@@ -1,11 +1,13 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effect;
 import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -35,7 +37,8 @@ public class CloverPatchBlock extends FlowerBlock implements IGrowable {
     public boolean canUseBonemeal(World world, Random random, BlockPos blockPos, BlockState blockState) {
         return true;
     }
-
+    
+    
     @Override
     public void func_225535_a_(ServerWorld serverWorld, Random random, BlockPos blockPos, BlockState state) {
         //CloverBlock cloverBlock = (CloverBlock)ModBlocks.CLOVER;
@@ -61,5 +64,8 @@ public class CloverPatchBlock extends FlowerBlock implements IGrowable {
     public OffsetType getOffsetType() {
         return OffsetType.NONE;
     }
-
+    
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(AGE);
+     }
 }
