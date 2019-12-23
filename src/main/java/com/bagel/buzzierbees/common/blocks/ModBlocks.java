@@ -6,7 +6,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.text.NBTTextComponent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -73,7 +72,6 @@ public class ModBlocks
 	public static Block CRYSTALLIZED_HONEY_BLOCK;
 
 	public static Block CLOVER;
-	public static Block CLOVER_PATCH;
 	public static Block CLOVER_HONEY_BLOCK;
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 	
@@ -155,7 +153,7 @@ public class ModBlocks
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
 
-		CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "clover", ItemGroup.DECORATIONS);
+		CLOVER = registerBlock(new CloverPatchBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "clover", ItemGroup.DECORATIONS);
 		CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(Blocks.field_226907_mc_)), "clover_honey_block", ItemGroup.DECORATIONS);
     }
