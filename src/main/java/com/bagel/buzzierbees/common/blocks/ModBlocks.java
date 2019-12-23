@@ -1,15 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TrapDoorBlock;
-import net.minecraft.block.WoodButtonBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -89,6 +80,10 @@ public class ModBlocks
 	public static Block HIVE_BUTTON;
 	public static Block HIVE_DOOR;
 	public static Block HIVE_TRAPDOOR;
+
+	public static Block CLOVER;
+	public static Block CLOVER_HONEY_BLOCK;
+	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 	
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
@@ -157,6 +152,11 @@ public class ModBlocks
 			SLATE_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "slate_gray_candle", ItemGroup.DECORATIONS);
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
+
+		CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY)), "clover", ItemGroup.DECORATIONS);
+		CLOVER_HONEY_BLOCK = registerBlock(new HoneyBlock(Block.Properties.from(Blocks.HAY_BLOCK)), "clover_honey_block", ItemGroup.DECORATIONS);
+		CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_clover_honey_block", ItemGroup.DECORATIONS);
+
     }
 
     public static Block registerBlock(Block block, String name, ItemGroup group)
