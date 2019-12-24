@@ -17,12 +17,12 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class CloverPatchBlock extends FlowerBlock implements IGrowable {
+public class CloverBlock extends FlowerBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
     protected static final VoxelShape SHAPE_ONE = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     protected static final VoxelShape SHAPE_TWO = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
-    public CloverPatchBlock(Effect p_i49984_1_, Properties p_i49984_3_) {
+    public CloverBlock(Effect p_i49984_1_, Properties p_i49984_3_) {
         super(p_i49984_1_, 8, p_i49984_3_);
         this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1)));
     }
@@ -47,23 +47,15 @@ public class CloverPatchBlock extends FlowerBlock implements IGrowable {
             //BlockState cloverFlowerState = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1));
 
             label:
-            for(int lvt_7_1_ = 0; lvt_7_1_ < 64; ++lvt_7_1_) {
+            for(int x = 0; x < 64; ++x) {
                 BlockPos newBlockPos = blockPos;
 
-                for(int lvt_9_1_ = 0; lvt_9_1_ < lvt_7_1_ / 16; ++lvt_9_1_) {
+                for(int y = 0; y < x / 16; ++y) {
                     newBlockPos = newBlockPos.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                    if(Block.isOpaque(world.getBlockState(newBlockPos).getCollisionShape(world, newBlockPos))) {
-                        continue label;
+                    if (cloverPatchState.isValidPosition(world, newBlockPos) && world.isAirBlock(newBlockPos)) {
+                        world.setBlockState(newBlockPos, cloverPatchState);
+                        break label;
                     }
-                }
-
-                /*BlockState lookedBlockState = world.getBlockState(newBlockPos);
-                if (lookedBlockState.getBlock() == cloverPatchState.getBlock()) {
-                    world.setBlockState(newBlockPos, cloverFlowerState);
-                }*/
-
-                if (cloverPatchState.isValidPosition(world, newBlockPos) && world.isAirBlock(newBlockPos)) {
-                    world.setBlockState(newBlockPos, cloverPatchState);
                 }
             }
         }

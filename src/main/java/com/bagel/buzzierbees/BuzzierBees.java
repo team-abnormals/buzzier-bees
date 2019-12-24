@@ -1,5 +1,6 @@
 package com.bagel.buzzierbees;
 
+import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -47,8 +48,9 @@ public class BuzzierBees
 
     
     private void doClientStuff(final FMLClientSetupEvent event) {
-		RenderTypeLookup.setRenderLayer(com.bagel.buzzierbees.common.blocks.ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(com.bagel.buzzierbees.common.blocks.ModBlocks.CLOVER,RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER,RenderType.func_228641_d_());
+        RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER,RenderType.func_228641_d_());
 
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
