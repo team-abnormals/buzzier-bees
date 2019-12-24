@@ -4,7 +4,7 @@
 	"item.buzzierbees.bee_soup": "Bee Soup",
 
 	"item.buzzierbees.clover_leaf": "Clover Leaf",
-	"item.buzzierbees.four_leaf_clover": "Four-Leaf Clover",
+	"item.buzzierbees.four_leaf_clover": "Four Leaf Clover",
 	"item.buzzierbees.crystallized_clover_honey": "Crystallized Clover Honey",
 	"item.buzzierbees.clover_honey_bottle": "Clover Honey Bottle",
 	
@@ -58,5 +58,25 @@
 	"block.buzzierbees.orange_tulip_candle": "Orange Tulip Candle",
 	"block.buzzierbees.pink_tulip_candle": "Pink Tulip Candle",
 	"block.buzzierbees.red_tulip_candle": "Red Tulip Candle",
-	"block.buzzierbees.wither_rose_candle": "Wither Rose Candle"
+	"block.buzzierbees.wither_rose_candle": "Wither Rose Candle",
+	
+	"item.buzzierbees.cure.effect.water": "Water Cure",
+	"item.buzzierbees.cure.effect.mundane": "Mundane Cure",
+	"item.buzzierbees.cure.effect.thick": "Thick Cure",
+	"item.buzzierbees.cure.effect.awkward": "Awkward Cure",
+	"item.buzzierbees.cure.effect.night_vision": "Cure of Night Vision",
+	"item.buzzierbees.cure.effect.invisibility": "Cure of Invisibility",
+	"item.buzzierbees.cure.effect.leaping": "Cure of Leaping",
+	"item.buzzierbees.cure.effect.fire_resistance": "Cure of Fire Resistance",
+	"item.buzzierbees.cure.effect.swiftness": "Cure of Swiftness",
+	"item.buzzierbees.cure.effect.slowness": "Cure of Slowness",
+	"item.buzzierbees.cure.effect.water_breathing": "Cure of Water Breathing",
+	"item.buzzierbees.cure.effect.healing": "Cure of Healing",
+	"item.buzzierbees.cure.effect.harming": "Cure of Harming",
+	"item.buzzierbees.cure.effect.poison": "Cure of Poison",
+	"item.buzzierbees.cure.effect.regeneration": "Cure of Regeneration",
+	"item.buzzierbees.cure.effect.strength": "Cure of Strength",
+	"item.buzzierbees.cure.effect.weakness": "Cure of Weaknesss",
+	"item.buzzierbees.cure.effect.luck": "Cure of Luck",
+	"item.buzzierbees.cure.effect.slow_falling": "Cure of Slow Falling"
 }

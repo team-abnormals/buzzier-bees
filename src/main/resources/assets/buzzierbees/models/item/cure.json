@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures": {
         "layer0": "item/potion_overlay",
-        "layer1": "buzzierbees:item/cure_potion"
+        "layer1": "buzzierbees:item/cure"
     }
 }

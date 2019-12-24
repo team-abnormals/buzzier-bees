@@ -22,7 +22,7 @@ public class ModItems
 	public static Item FOUR_LEAF_CLOVER;
 	public static Item CRYSTALLIZED_CLOVER_HONEY;
 	public static Item CLOVER_HONEY_BOTTLE;
-	public static Item CURE_POTION;
+	public static Item CURE;
 
 	public static Food CRYSTALLIZED_HONEY_FOOD;
 	public static Food BEE_SOUP_FOOD;
@@ -44,9 +44,9 @@ public class ModItems
 
     	CLOVER_LEAF = registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER = registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
-    	CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
+    	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
     	CLOVER_HONEY_BOTTLE = registerItem(new HoneyBottleItem(new Item.Properties().maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
-		CURE_POTION = registerItem(new CurePotionItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure_potion");
+		CURE = registerItem(new CurePotionItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
 
 	}
 	
