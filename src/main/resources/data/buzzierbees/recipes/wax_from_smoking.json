@@ -1,5 +1,6 @@
 {
     "type": "minecraft:smoking",
+    "group": "wax",
     "ingredient": {
         "item": "minecraft:honeycomb"
     },

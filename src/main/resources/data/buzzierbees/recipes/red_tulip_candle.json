@@ -1,5 +1,6 @@
 {
     "type": "minecraft:crafting_shapeless",
+    "group": "scented_candle",
     "ingredients": [
         {
             "item": "buzzierbees:candle"

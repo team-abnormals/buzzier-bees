@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "buzzierbees:hive_block"
+    }
+  },
+  "result": {
+    "item": "buzzierbees:hive_fence_gate"
+  }
+}

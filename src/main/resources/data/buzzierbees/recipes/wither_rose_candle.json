@@ -1,11 +1,12 @@
 {
     "type": "minecraft:crafting_shapeless",
+    "group": "scented_candle",
     "ingredients": [
         {
             "item": "buzzierbees:candle"
         },
         {
-            "item": "minecraft:nether_wart"
+            "item": "minecraft:blaze_powder"
         },
         {
             "item": "minecraft:wither_rose"

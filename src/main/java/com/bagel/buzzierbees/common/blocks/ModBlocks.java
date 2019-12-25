@@ -96,14 +96,14 @@ public class ModBlocks
     {
 		
 		WAX_BLOCK = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
-		CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
+		//CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
 		HIVE_BLOCK = registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_block", ItemGroup.DECORATIONS);
 		HIVE_STAIRS = registerBlock(new StairsBlock(HIVE_BLOCK.getDefaultState(), Block.Properties.from(HIVE_BLOCK)), "hive_stairs", ItemGroup.DECORATIONS);
 		HIVE_SLAB = registerBlock(new SlabBlock(Block.Properties.from(HIVE_BLOCK)), "hive_slab", ItemGroup.DECORATIONS);
-        //HIVE_FENCE = registerBlock(new FenceBlock(Block.Properties.from(HIVE_BLOCK)), "hive_fence", ItemGroup.DECORATIONS);
-        //HIVE_FENCE_GATE = registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_BLOCK)), "hive_fence_gate", ItemGroup.REDSTONE);
-        //HIVE_BUTTON = registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_BLOCK)), "hive_button", ItemGroup.REDSTONE);
-		//HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_BLOCK)), "hive_pressure_plate", ItemGroup.REDSTONE);
+        HIVE_FENCE = registerBlock(new FenceBlock(Block.Properties.from(HIVE_BLOCK)), "hive_fence", ItemGroup.DECORATIONS);
+        HIVE_FENCE_GATE = registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_BLOCK)), "hive_fence_gate", ItemGroup.REDSTONE);
+        HIVE_BUTTON = registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_BLOCK)), "hive_button", ItemGroup.REDSTONE);
+		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_BLOCK)), "hive_pressure_plate", ItemGroup.REDSTONE);
 		//HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_door", ItemGroup.REDSTONE);
         //HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_trapdoor", ItemGroup.REDSTONE);
 		

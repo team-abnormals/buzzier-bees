@@ -1,5 +1,6 @@
 {
     "type": "minecraft:smelting",
+    "group": "wax",
     "ingredient": {
         "item": "minecraft:honeycomb"
     },
