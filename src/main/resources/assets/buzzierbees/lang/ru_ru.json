@@ -2,9 +2,19 @@
 	"item.buzzierbees.wax": "Воск",
 	"item.buzzierbees.crystallized_honey": "Кристаллизированный мёд",
 	"item.buzzierbees.bee_soup": "Пчелиный суп",
+
+	"item.buzzierbees.four_leaf_clover": "Четырёхлистный клевер",
+	"item.buzzierbees.crystallized_clover_honey": "Кристаллизированный клеверный мёд",
+	"item.buzzierbees.clover_honey_bottle": "Бутылочка клеверного мёда>",
 	
 	"block.buzzierbees.wax_block": "Восковый блок",
 	"block.buzzierbees.crystallized_honey_block": "Кристаллизированный блок мёда",
+
+	"block.buzzierbees.white_clover": "Белый клевер",
+	"block.buzzierbees.pink_clover": "Розовый клевер",
+	"block.buzzierbees.clover_block": "Клеверный блок",
+	"block.buzzierbees.clover_honey_block": "Блок клеверного мёда",
+	"block.buzzierbees.crystallized_clover_honey_block": "Кристаллизированный блок клеверного мёда",
 	
 	"block.buzzierbees.hive_block": "Ульевый блок",
 	"block.buzzierbees.hive_stairs": "Ульевые ступеньки",
@@ -47,5 +57,25 @@
 	"block.buzzierbees.orange_tulip_candle": "Свечка из оранжевого тюльпана",
 	"block.buzzierbees.pink_tulip_candle": "Свечка из розового тюльпана",
 	"block.buzzierbees.red_tulip_candle": "Свечка из красного тюльпана",
-	"block.buzzierbees.wither_rose_candle": "Свечка из розы визера"
+	"block.buzzierbees.wither_rose_candle": "Свечка из розы визера",
+
+	"item.buzzierbees.cure.effect.water": "Водянистое лекарство",
+	"item.buzzierbees.cure.effect.mundane": "Заурядное лекарство",
+	"item.buzzierbees.cure.effect.thick": "Густое лекарство",
+	"item.buzzierbees.cure.effect.awkward": "Мутное лекарство",
+	"item.buzzierbees.cure.effect.night_vision": "Лекарство от ночного видения",
+	"item.buzzierbees.cure.effect.invisibility": "Лекарство от невидимости",
+	"item.buzzierbees.cure.effect.leaping": "Лекарство от прыгучески",
+	"item.buzzierbees.cure.effect.fire_resistance": "Лекарство от огнестойкости",
+	"item.buzzierbees.cure.effect.swiftness": "Лекарство от стремительности",
+	"item.buzzierbees.cure.effect.slowness": "Лекарство от замедления",
+	"item.buzzierbees.cure.effect.water_breathing": "Лекарство от водного дыхания",
+	"item.buzzierbees.cure.effect.healing": "Лекарство от исцеления",
+	"item.buzzierbees.cure.effect.harming": "Лекарство от вреда",
+	"item.buzzierbees.cure.effect.poison": "Лекарство от отравления",
+	"item.buzzierbees.cure.effect.regeneration": "Лекарство от регенерации",
+	"item.buzzierbees.cure.effect.strength": "Лекарство от силы",
+	"item.buzzierbees.cure.effect.weakness": "Лекарство от слабости",
+	"item.buzzierbees.cure.effect.luck": "Лекарство от удачи",
+	"item.buzzierbees.cure.effect.slow_falling": "Лекарство от замедленного падения"
 }
