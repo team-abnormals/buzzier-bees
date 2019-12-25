@@ -16,11 +16,6 @@ public class ModItems
 	public static Item WAX;
 	public static Item CRYSTALLIZED_HONEY;
 	public static Item BEE_SOUP;
-	public static Item CLOVER_LEAF;
-	public static Item FOUR_LEAF_CLOVER;
-	public static Item CRYSTALLIZED_CLOVER_HONEY;
-	public static Item CLOVER_HONEY_BOTTLE;
-	public static Item CURE;
 
 	public static Food CRYSTALLIZED_HONEY_FOOD;
 	public static Food BEE_SOUP_FOOD;
@@ -35,13 +30,8 @@ public class ModItems
     public static void registerItems(RegistryEvent.Register<Item> event)
 	{
     	CRYSTALLIZED_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_honey");
-      WAX = registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
+        WAX = registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	BEE_SOUP = registerItem(new BeeSoupItem(new Item.Properties().maxStackSize(1).food(BEE_SOUP_FOOD).group(ItemGroup.FOOD)), "bee_soup");
-    	CLOVER_LEAF = registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
-    	FOUR_LEAF_CLOVER = registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
-    	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
-    	CLOVER_HONEY_BOTTLE = registerItem(new HoneyBottleItem(new Item.Properties().maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
-      CURE = registerItem(new CurePotionItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
 	}
 	
     public static Item registerItem(Item item, String name)
