@@ -47,7 +47,6 @@ public class CloverHoneyBlock extends FallingBlock {
         return p_226937_0_ instanceof LivingEntity || p_226937_0_ instanceof AbstractMinecartEntity || p_226937_0_ instanceof TNTEntity || p_226937_0_ instanceof BoatEntity;
     }
 
-    @SuppressWarnings("deprecation")
     public VoxelShape getCollisionShape(BlockState p_220071_1_, IBlockReader p_220071_2_, BlockPos p_220071_3_, ISelectionContext p_220071_4_) {
         return field_226930_a_;
     }
