@@ -38,6 +38,11 @@ public class CloverHoneyBlock extends FallingBlock {
         return p_200122_2_.getBlock() == this ? true : super.isSideInvisible(p_200122_1_, p_200122_2_, p_200122_3_);
     }
 
+    @Override
+    public boolean isStickyBlock(BlockState state) {
+        return true;
+    }
+
     @OnlyIn(Dist.CLIENT)
     public int getDustColor(BlockState p_189876_1_) {
         return -8356741;
