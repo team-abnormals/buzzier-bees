@@ -44,7 +44,8 @@ public class ModItems
     	FOUR_LEAF_CLOVER = registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
     	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
     	CLOVER_HONEY_BOTTLE = registerItem(new HoneyBottleItem(new Item.Properties().maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
-      	CURE = registerItem(new CurePotionItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
+
+      	CURE = registerItem(new CureItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
 	}
 	
     public static Item registerItem(Item item, String name)
