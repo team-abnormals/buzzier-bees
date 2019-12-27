@@ -16,13 +16,16 @@ public class ModItems
 {
 	public static Item WAX;
 	public static Item CRYSTALLIZED_HONEY;
+	//public static Item CRYSTALLIZED_CLOVER_HONEY;
+	
 	public static Item BEE_SOUP;
 	public static Item CLOVER_LEAF;
 	public static Item FOUR_LEAF_CLOVER;
-	//public static Item CRYSTALLIZED_CLOVER_HONEY;
 	public static Item CLOVER_HONEY_BOTTLE;
 	public static Item CURE;
 
+	public static Item HONEY_WAND;
+	
 	public static Food CRYSTALLIZED_HONEY_FOOD;
 	public static Food BEE_SOUP_FOOD;
 	public static Food CLOVER_HONEY_BOTTLE_FOOD;
@@ -46,6 +49,8 @@ public class ModItems
     	CLOVER_HONEY_BOTTLE = registerItem(new HoneyBottleItem(new Item.Properties().maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
 
       	CURE = registerItem(new CureItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
+      	
+      	HONEY_WAND = registerItem(new Item(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)), "honey_wand");
 	}
 	
     public static Item registerItem(Item item, String name)
