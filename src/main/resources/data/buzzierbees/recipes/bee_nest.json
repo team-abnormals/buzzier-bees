@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "GGG",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "buzzierbees:hive_block"
+        },
+        "G": {
+            "item": "minecraft:honeycomb"
+        }
+    },
+    "result": {
+        "item": "minecraft:bee_nest",
+        "count": 1
+    }
+}
