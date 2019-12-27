@@ -11,6 +11,7 @@ import net.minecraft.entity.item.minecart.AbstractMinecartEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.particles.BlockParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.pathfinding.PathType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -48,6 +49,7 @@ public class CloverHoneyBlock extends FallingBlock {
         return p_226937_0_ instanceof LivingEntity || p_226937_0_ instanceof AbstractMinecartEntity || p_226937_0_ instanceof TNTEntity || p_226937_0_ instanceof BoatEntity;
     }
 
+    @SuppressWarnings("deprecation")
     public VoxelShape getCollisionShape(BlockState blockState, IBlockReader blockReader, BlockPos blockPos, ISelectionContext selectionContext) {
         return field_226930_a_;
     }
@@ -67,6 +69,7 @@ public class CloverHoneyBlock extends FallingBlock {
     @SuppressWarnings("deprecation")
     public void onEntityCollision(BlockState blockState, World worldIn, BlockPos blockPos, Entity entity) {
         if (this.func_226935_a_(blockPos, entity)) {
+            entity.setMotionMultiplier(blockState, new Vec3d(0.5D, (double)0.15F, 0.5D));
             this.func_226933_a_(entity, blockPos);
             this.func_226938_d_(entity);
             this.func_226934_a_(worldIn, entity);
@@ -130,24 +133,15 @@ public class CloverHoneyBlock extends FallingBlock {
     @Override
     public void func_225534_a_(BlockState blockState, ServerWorld serverWorld, BlockPos blockPos, Random random) {
         if (serverWorld.isAirBlock(blockPos.down()) || canFallThrough(serverWorld.getBlockState(blockPos.down())) && blockPos.getY() >= 0) {
-
             int east    = serverWorld.isAirBlock(blockPos.east())   ? 1 : 0;;
             int north   = serverWorld.isAirBlock(blockPos.north())  ? 1 : 0;;
             int west    = serverWorld.isAirBlock(blockPos.west())   ? 1 : 0;;
             int south   = serverWorld.isAirBlock(blockPos.south())  ? 1 : 0;;
 
-            //boolean isEastStickyBlock = serverWorld.getBlockState(blockPos.east()).isStickyBlock();
-            //boolean isNorthStickyBlock = serverWorld.getBlockState(blockPos.north()).isStickyBlock();
-            //boolean isWestStickyBlock = serverWorld.getBlockState(blockPos.west()).isStickyBlock();
-            //boolean isSouthStickyBlock = serverWorld.getBlockState(blockPos.south()).isStickyBlock();
-            //boolean isUpStickyBlock = serverWorld.getBlockState(blockPos.up()).isStickyBlock();
-
             if (east + north + west + south >= 3) {
-                //if (!isEastStickyBlock || !isNorthStickyBlock || !isSouthStickyBlock || !isUpStickyBlock || !isWestStickyBlock) {
                 FallingBlockEntity fallingblockentity = new FallingBlockEntity(serverWorld, (double)blockPos.getX() + 0.5D, (double)blockPos.getY(), (double)blockPos.getZ() + 0.5D, serverWorld.getBlockState(blockPos));
                 this.onStartFalling(fallingblockentity);
                 serverWorld.addEntity(fallingblockentity);
-                //}
             }
         }
     }
