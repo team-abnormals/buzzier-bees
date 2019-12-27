@@ -1,6 +1,17 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.TallFlowerBlock;
+import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -77,6 +88,14 @@ public class ModBlocks
 	public static Block CLOVER_HONEY_BLOCK;
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 	
+	public static Block CARTWHEEL;
+	public static Block BLUEBELL;
+	public static Block VIOLET;
+	public static Block COLUMBINE;
+	public static Block JOLYCE;
+	public static Block DAYBLOOM;
+	public static Block BIRD_OF_PARADISE;
+	
 	public static Block HIVE_BLOCK;
 	public static Block HIVE_STAIRS;
 	public static Block HIVE_SLAB;
@@ -103,6 +122,14 @@ public class ModBlocks
 		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_BLOCK)), "hive_pressure_plate", ItemGroup.REDSTONE);
 		//HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_door", ItemGroup.REDSTONE);
         //HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_trapdoor", ItemGroup.REDSTONE);
+		
+		CARTWHEEL = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cartwheel", ItemGroup.DECORATIONS);
+		BLUEBELL = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);
+		DAYBLOOM = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "daybloom", ItemGroup.DECORATIONS);
+		VIOLET = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "violet", ItemGroup.DECORATIONS);
+		JOLYCE = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "jolyce", ItemGroup.DECORATIONS);
+		COLUMBINE = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "columbine", ItemGroup.DECORATIONS);
+		//BIRD_OF_PARADISE = registerBlock(new TallFlowerBlock(Block.Properties.from(CARTWHEEL)), "cartwheel", ItemGroup.DECORATIONS);
 		
 		CANDLE = registerBlock(new CandleBlock(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD)), "candle", ItemGroup.DECORATIONS);
 		WHITE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "white_candle", ItemGroup.DECORATIONS);
