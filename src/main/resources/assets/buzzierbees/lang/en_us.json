@@ -65,10 +65,7 @@
 	"block.buzzierbees.red_tulip_candle": "Red Tulip Candle",
 	"block.buzzierbees.wither_rose_candle": "Wither Rose Candle",
 	
-	"item.buzzierbees.cure.water": "Water Cure",
-	"item.buzzierbees.cure.mundane": "Mundane Cure",
-	"item.buzzierbees.cure.thick": "Thick Cure",
-	"item.buzzierbees.cure.awkward": "Awkward Cure",
+	"item.buzzierbees.cure.placebo": "Placebo",
 	"item.buzzierbees.cure.minecraft:night_vision": "Cure of Night Vision",
 	"item.buzzierbees.cure.minecraft:speed": "Cure of Swiftness",
 	"item.buzzierbees.cure.minecraft:haste": "Cure of Haste",                               //unobtainable

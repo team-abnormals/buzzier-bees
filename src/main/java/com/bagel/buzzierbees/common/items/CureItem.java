@@ -1,19 +1,35 @@
 package com.bagel.buzzierbees.common.items;
 
+import com.google.common.collect.Lists;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.EffectType;
+import net.minecraft.potion.EffectUtils;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class CureItem extends Item {
     public CureItem(Properties properties) {
@@ -73,7 +89,7 @@ public class CureItem extends Item {
     }
 
     public String getTranslationKey(ItemStack itemStack) {
-        return this.getTranslationKey() + "." + getEffectFromItem(itemStack).getRegistryName();
+        return this.getTranslationKey() + "." + (getEffectFromItem(itemStack) == null ? "placebo" : getEffectFromItem(itemStack).getRegistryName());
     }
 
     public static Effect getEffectFromItem(ItemStack itemStack) {
@@ -100,13 +116,46 @@ public class CureItem extends Item {
                     itemStacks.add(addCureToItemStack(new ItemStack(this), effect));
                 }
             }
+            itemStacks.add(addCureToItemStack(new ItemStack(this), null));
         }
     }
 
     public static ItemStack addCureToItemStack(ItemStack itemStack, Effect effect) {
         ResourceLocation resourceLocation = ForgeRegistries.POTIONS.getKey(effect);
         ItemStack newItemStack = new ItemStack(ModItems.CURE);
-        newItemStack.getOrCreateTag().putString("Cure", resourceLocation.toString());
+        if (resourceLocation != null){
+            newItemStack.getOrCreateTag().putString("Cure", resourceLocation.toString());
+        }
+        else {
+            newItemStack.getOrCreateTag().putString("Cure", "placebo");
+        }
         return newItemStack;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void addInformation(ItemStack p_77624_1_, @Nullable World p_77624_2_, List<ITextComponent> p_77624_3_, ITooltipFlag p_77624_4_) {
+        addCureTooltip(p_77624_1_, p_77624_3_);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void addCureTooltip(ItemStack itemStack, List<ITextComponent> text) {
+        Effect effect = getEffectFromItem(itemStack);
+        Effect lvt_8_1_ = effect;
+        if (effect == null) {
+            text.add((new TranslationTextComponent("effect.none", new Object[0])).applyTextStyle(TextFormatting.GRAY));
+        }
+        else {
+            text.add(new StringTextComponent(""));
+            text.add((new TranslationTextComponent("potion.whenDrank", new Object[0])).applyTextStyle(TextFormatting.DARK_PURPLE));
+
+            EffectType lvt_8_2_ = effect.getEffectType();
+
+            if (lvt_8_2_ == EffectType.HARMFUL) {
+                text.add(new TranslationTextComponent("attribute.name." + effect.getRegistryName(), new Object[0]).applyTextStyle(TextFormatting.GREEN));
+
+            } else {
+                text.add(new TranslationTextComponent("attribute.name." + effect.getRegistryName(), new Object[0]).applyTextStyle(TextFormatting.RED));
+            }
+        }
     }
 }
