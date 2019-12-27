@@ -22,10 +22,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import sun.security.jca.GetInstance;
 
 import java.util.Random;
-import java.util.logging.Logger;
 
 //TODO...
 public class CloverHoneyBlock extends FallingBlock {
@@ -50,7 +48,6 @@ public class CloverHoneyBlock extends FallingBlock {
         return p_226937_0_ instanceof LivingEntity || p_226937_0_ instanceof AbstractMinecartEntity || p_226937_0_ instanceof TNTEntity || p_226937_0_ instanceof BoatEntity;
     }
 
-    @SuppressWarnings("deprecation")
     public VoxelShape getCollisionShape(BlockState blockState, IBlockReader blockReader, BlockPos blockPos, ISelectionContext selectionContext) {
         return field_226930_a_;
     }
@@ -139,11 +136,11 @@ public class CloverHoneyBlock extends FallingBlock {
             int west    = serverWorld.isAirBlock(blockPos.west())   ? 1 : 0;;
             int south   = serverWorld.isAirBlock(blockPos.south())  ? 1 : 0;;
 
-            boolean isEastStickyBlock = serverWorld.getBlockState(blockPos.east()).isStickyBlock();
-            boolean isNorthStickyBlock = serverWorld.getBlockState(blockPos.north()).isStickyBlock();
-            boolean isWestStickyBlock = serverWorld.getBlockState(blockPos.west()).isStickyBlock();
-            boolean isSouthStickyBlock = serverWorld.getBlockState(blockPos.south()).isStickyBlock();
-            boolean isUpStickyBlock = serverWorld.getBlockState(blockPos.up()).isStickyBlock();
+            //boolean isEastStickyBlock = serverWorld.getBlockState(blockPos.east()).isStickyBlock();
+            //boolean isNorthStickyBlock = serverWorld.getBlockState(blockPos.north()).isStickyBlock();
+            //boolean isWestStickyBlock = serverWorld.getBlockState(blockPos.west()).isStickyBlock();
+            //boolean isSouthStickyBlock = serverWorld.getBlockState(blockPos.south()).isStickyBlock();
+            //boolean isUpStickyBlock = serverWorld.getBlockState(blockPos.up()).isStickyBlock();
 
             if (east + north + west + south >= 3) {
                 //if (!isEastStickyBlock || !isNorthStickyBlock || !isSouthStickyBlock || !isUpStickyBlock || !isWestStickyBlock) {

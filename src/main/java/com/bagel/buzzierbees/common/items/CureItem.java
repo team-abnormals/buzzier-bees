@@ -7,7 +7,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.Effect;
-import net.minecraft.potion.PotionUtils;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -92,7 +91,8 @@ public class CureItem extends Item {
     @Override
     public void fillItemGroup(ItemGroup itemGroup, NonNullList<ItemStack> itemStacks) {
         if (this.isInGroup(itemGroup)) {
-            Iterator iterator = ForgeRegistries.POTIONS.iterator();
+            @SuppressWarnings("rawtypes")
+			Iterator iterator = ForgeRegistries.POTIONS.iterator();
 
             while(iterator.hasNext()) {
                 Effect effect = (Effect)iterator.next();
