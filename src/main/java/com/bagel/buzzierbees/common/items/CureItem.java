@@ -82,7 +82,7 @@ public class CureItem extends Item {
     }
 
     public String getTranslationKey(ItemStack itemStack) {
-        return this.getTranslationKey() + "." + (getEffectFromItem(itemStack) == null ? "placebo" : getEffectFromItem(itemStack).getRegistryName());
+        return this.getTranslationKey() + "." + (getEffectFromItem(itemStack) == null ? "placebo" : getEffectFromItem(itemStack).getRegistryName().getPath());
     }
 
     public static Effect getEffectFromItem(ItemStack itemStack) {
@@ -141,10 +141,10 @@ public class CureItem extends Item {
             EffectType lvt_8_2_ = effect.getEffectType();
 
             if (lvt_8_2_ == EffectType.HARMFUL) {
-                text.add(new TranslationTextComponent("attribute.modifier.take.2", new Object[]{ItemStack.DECIMALFORMAT.format(1), new TranslationTextComponent("effect." + effect.getRegistryName().toString(), new Object[0])}).applyTextStyle(TextFormatting.GREEN));
+                text.add(new TranslationTextComponent("attribute.modifier.take.0", new Object[]{"", new TranslationTextComponent("effect.minecraft." + effect.getRegistryName().getPath(), new Object[0])}).applyTextStyle(TextFormatting.GREEN));
 
             } else {
-                text.add(new TranslationTextComponent("attribute.modifier.take.2", new Object[]{ItemStack.DECIMALFORMAT.format(1), new TranslationTextComponent("effect." + effect.getRegistryName().toString(), new Object[0])}).applyTextStyle(TextFormatting.RED));
+                text.add(new TranslationTextComponent("attribute.modifier.take.0", new Object[]{"", new TranslationTextComponent("effect.minecraft." + effect.getRegistryName().getPath(), new Object[0])}).applyTextStyle(TextFormatting.RED));
 
             }
         }

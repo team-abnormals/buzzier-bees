@@ -66,36 +66,36 @@
 	"block.buzzierbees.wither_rose_candle": "Wither Rose Candle",
 	
 	"item.buzzierbees.cure.placebo": "Placebo",
-	"item.buzzierbees.cure.minecraft:night_vision": "Cure of Night Vision",
-	"item.buzzierbees.cure.minecraft:speed": "Cure of Swiftness",
-	"item.buzzierbees.cure.minecraft:haste": "Cure of Haste",                               //unobtainable
-	"item.buzzierbees.cure.minecraft:mining_fatigue": "Cure of Mining Fatigue",             //unobtainable (would be good for Ocean Monument though)
-	"item.buzzierbees.cure.minecraft:nausea": "Cure of Nausea",                             //unobtainable
-	"item.buzzierbees.cure.minecraft:invisibility": "Cure of Invisibility",
-	"item.buzzierbees.cure.minecraft:jump_boost": "Cure of Leaping",
-	"item.buzzierbees.cure.minecraft:resistance": "Cure of Resistance",                     //unobtainable
-	"item.buzzierbees.cure.minecraft:fire_resistance": "Cure of Fire Resistance",
-	"item.buzzierbees.cure.minecraft:slowness": "Cure of Slowness",
-	"item.buzzierbees.cure.minecraft:blindness": "Cure of Blindness",                       //unobtainable
-	"item.buzzierbees.cure.minecraft:hunger": "Cure of Hunger",                             //unobtainable
-	"item.buzzierbees.cure.minecraft:wither": "Cure of Wither",                             //unobtainable (would be good for Nether Fortress though)
-	"item.buzzierbees.cure.minecraft:health_boost": "Cure of Health Boost",                 //unobtainable
-	"item.buzzierbees.cure.minecraft:absorption": "Cure of Absorption",                     //unobtainable
-	"item.buzzierbees.cure.minecraft:saturation": "Cure of Saturation",                     //unobtainable
-	"item.buzzierbees.cure.minecraft:glowing": "Cure of Glowing",                           //unobtainable
-	"item.buzzierbees.cure.minecraft:levitation": "Cure of Levitation",                     //unobtainable (would be good for End City though)
-	"item.buzzierbees.cure.minecraft:unluck": "Cure of Unluck",                             //unobtainable
-	"item.buzzierbees.cure.minecraft:conduit_power": "Cure of Conduit Power",               //unobtainable
-	"item.buzzierbees.cure.minecraft:dolphins_grace": "Cure of Dolphin's Grace'",           //unobtainable
-	"item.buzzierbees.cure.minecraft:bad_omen": "Cure of Bad Omen",                         //unobtainable (would be good for Raids though)
-	"item.buzzierbees.cure.minecraft:hero_of_the_village": "Cure of Hero of the Village",   //unobtainable
-	"item.buzzierbees.cure.minecraft:water_breathing": "Cure of Water Breathing",
-	"item.buzzierbees.cure.minecraft:instant_health": "Cure of Healing",                    //unobtainable
-	"item.buzzierbees.cure.minecraft:instant_damage": "Cure of Harming",                    //unobtainable
-	"item.buzzierbees.cure.minecraft:poison": "Cure of Poison",
-	"item.buzzierbees.cure.minecraft:regeneration": "Cure of Regeneration",
-	"item.buzzierbees.cure.minecraft:strength": "Cure of Strength",
-	"item.buzzierbees.cure.minecraft:weakness": "Cure of Weakness",
-	"item.buzzierbees.cure.minecraft:luck": "Cure of Luck",
-	"item.buzzierbees.cure.minecraft:slow_falling": "Cure of Slow Falling"
+	"item.buzzierbees.cure.night_vision": "Cure of Night Vision",
+	"item.buzzierbees.cure.speed": "Cure of Swiftness",
+	"item.buzzierbees.cure.haste": "Cure of Haste",                               //unobtainable
+	"item.buzzierbees.cure.mining_fatigue": "Cure of Mining Fatigue",             //unobtainable (would be good for Ocean Monument though)
+	"item.buzzierbees.cure.nausea": "Cure of Nausea",                             //unobtainable
+	"item.buzzierbees.cure.invisibility": "Cure of Invisibility",
+	"item.buzzierbees.cure.jump_boost": "Cure of Leaping",
+	"item.buzzierbees.cure.resistance": "Cure of Resistance",                     //unobtainable
+	"item.buzzierbees.cure.fire_resistance": "Cure of Fire Resistance",
+	"item.buzzierbees.cure.slowness": "Cure of Slowness",
+	"item.buzzierbees.cure.blindness": "Cure of Blindness",                       //unobtainable
+	"item.buzzierbees.cure.hunger": "Cure of Hunger",                             //unobtainable
+	"item.buzzierbees.cure.wither": "Cure of Wither",                             //unobtainable (would be good for Nether Fortress though)
+	"item.buzzierbees.cure.health_boost": "Cure of Health Boost",                 //unobtainable
+	"item.buzzierbees.cure.absorption": "Cure of Absorption",                     //unobtainable
+	"item.buzzierbees.cure.saturation": "Cure of Saturation",                     //unobtainable
+	"item.buzzierbees.cure.glowing": "Cure of Glowing",                           //unobtainable
+	"item.buzzierbees.cure.levitation": "Cure of Levitation",                     //unobtainable (would be good for End City though)
+	"item.buzzierbees.cure.unluck": "Cure of Unluck",                             //unobtainable
+	"item.buzzierbees.cure.conduit_power": "Cure of Conduit Power",               //unobtainable
+	"item.buzzierbees.cure.dolphins_grace": "Cure of Dolphin's Grace'",           //unobtainable
+	"item.buzzierbees.cure.bad_omen": "Cure of Bad Omen",                         //unobtainable (would be good for Raids though)
+	"item.buzzierbees.cure.hero_of_the_village": "Cure of Hero of the Village",   //unobtainable
+	"item.buzzierbees.cure.water_breathing": "Cure of Water Breathing",
+	"item.buzzierbees.cure.instant_health": "Cure of Healing",                    //unobtainable
+	"item.buzzierbees.cure.instant_damage": "Cure of Harming",                    //unobtainable
+	"item.buzzierbees.cure.poison": "Cure of Poison",
+	"item.buzzierbees.cure.regeneration": "Cure of Regeneration",
+	"item.buzzierbees.cure.strength": "Cure of Strength",
+	"item.buzzierbees.cure.weakness": "Cure of Weakness",
+	"item.buzzierbees.cure.luck": "Cure of Luck",
+	"item.buzzierbees.cure.slow_falling": "Cure of Slow Falling"
 }
