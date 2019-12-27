@@ -1,19 +1,14 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.google.common.collect.Lists;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
-import net.minecraft.potion.EffectUtils;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
@@ -28,8 +23,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 public class CureItem extends Item {
     public CureItem(Properties properties) {
@@ -140,7 +133,6 @@ public class CureItem extends Item {
     @OnlyIn(Dist.CLIENT)
     private static void addCureTooltip(ItemStack itemStack, List<ITextComponent> text) {
         Effect effect = getEffectFromItem(itemStack);
-        Effect lvt_8_1_ = effect;
         if (effect == null) {
             text.add((new TranslationTextComponent("effect.none", new Object[0])).applyTextStyle(TextFormatting.GRAY));
         }
