@@ -134,10 +134,10 @@ public class CloverHoneyBlock extends FallingBlock {
     public void func_225534_a_(BlockState blockState, ServerWorld serverWorld, BlockPos blockPos, Random random) {
         if (serverWorld.isAirBlock(blockPos.down()) || canFallThrough(serverWorld.getBlockState(blockPos.down())) && blockPos.getY() >= 0) {
 
-            boolean east    = serverWorld.isAirBlock(blockPos.east());
-            boolean north   = serverWorld.isAirBlock(blockPos.north());
-            boolean west    =  serverWorld.isAirBlock(blockPos.west());
-            boolean south   = serverWorld.isAirBlock(blockPos.south());
+            int east    = serverWorld.isAirBlock(blockPos.east())   ? 1 : 0;;
+            int north   = serverWorld.isAirBlock(blockPos.north())  ? 1 : 0;;
+            int west    = serverWorld.isAirBlock(blockPos.west())   ? 1 : 0;;
+            int south   = serverWorld.isAirBlock(blockPos.south())  ? 1 : 0;;
 
             boolean isEastStickyBlock = serverWorld.getBlockState(blockPos.east()).isStickyBlock();
             boolean isNorthStickyBlock = serverWorld.getBlockState(blockPos.north()).isStickyBlock();
@@ -145,11 +145,11 @@ public class CloverHoneyBlock extends FallingBlock {
             boolean isSouthStickyBlock = serverWorld.getBlockState(blockPos.south()).isStickyBlock();
             boolean isUpStickyBlock = serverWorld.getBlockState(blockPos.up()).isStickyBlock();
 
-            if ((east && north) || (east && west) || (east && south) || (north && west) || (north && south) || (west && south)) {
+            if (east + north + west + south >= 3) {
                 //if (!isEastStickyBlock || !isNorthStickyBlock || !isSouthStickyBlock || !isUpStickyBlock || !isWestStickyBlock) {
-                    FallingBlockEntity fallingblockentity = new FallingBlockEntity(serverWorld, (double)blockPos.getX() + 0.5D, (double)blockPos.getY(), (double)blockPos.getZ() + 0.5D, serverWorld.getBlockState(blockPos));
-                    this.onStartFalling(fallingblockentity);
-                    serverWorld.addEntity(fallingblockentity);
+                FallingBlockEntity fallingblockentity = new FallingBlockEntity(serverWorld, (double)blockPos.getX() + 0.5D, (double)blockPos.getY(), (double)blockPos.getZ() + 0.5D, serverWorld.getBlockState(blockPos));
+                this.onStartFalling(fallingblockentity);
+                serverWorld.addEntity(fallingblockentity);
                 //}
             }
         }
@@ -168,7 +168,7 @@ public class CloverHoneyBlock extends FallingBlock {
     @OnlyIn(Dist.CLIENT)
     private static void func_226932_a_(Entity entity, int p_226932_1_) {
         if (entity.world.isRemote) {
-            BlockState lvt_2_1_ = Blocks.field_226907_mc_.getDefaultState();
+            BlockState lvt_2_1_ = ModBlocks.CLOVER_HONEY_BLOCK.getDefaultState();
 
             for(int lvt_3_1_ = 0; lvt_3_1_ < p_226932_1_; ++lvt_3_1_) {
                 entity.world.addParticle(new BlockParticleData(ParticleTypes.BLOCK, lvt_2_1_), entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), 0.0D, 0.0D, 0.0D);

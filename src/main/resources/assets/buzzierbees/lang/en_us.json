@@ -2,7 +2,6 @@
 	"item.buzzierbees.wax": "Wax",
 	"item.buzzierbees.crystallized_honey": "Crystallized Honey",
 	"item.buzzierbees.bee_soup": "Bee Soup",
-
 	"item.buzzierbees.clover_leaf": "Clover Leaf",
 	"item.buzzierbees.four_leaf_clover": "Four Leaf Clover",
 	"item.buzzierbees.crystallized_clover_honey": "Crystallized Clover Honey",
@@ -10,12 +9,18 @@
 	
 	"block.buzzierbees.wax_block": "Wax Block",
 	"block.buzzierbees.crystallized_honey_block": "Crystallized Honey Block",
-
-	"block.buzzierbees.white_clover": "White Clover",
-	"block.buzzierbees.pink_clover": "Pink Clover",
-	"block.buzzierbees.clover_block": "Clover Patch",
+	"block.buzzierbees.clover_block": "Clover Block",
 	"block.buzzierbees.clover_honey_block": "Clover Honey Block",
 	"block.buzzierbees.crystallized_clover_honey_block": "Crystallized Clover Honey Block",
+	
+	"block.buzzierbees.white_clover": "White Clover",
+	"block.buzzierbees.pink_clover": "Pink Clover",
+	"block.buzzierbees.violet": "Violet",
+	"block.buzzierbees.jolyce" : "Jolyce",
+	"block.buzzierbees.bluebell" : "Bluebell",
+	"block.buzzierbees.columbine" : "Columbine",
+	"block.buzzierbees.cartwheel" : "Cartwheel",
+	"block.buzzierbees.daybloom" : "Daybloom",
 	
 	"block.buzzierbees.hive_block": "Hive Block",
 	"block.buzzierbees.hive_stairs": "Hive Stairs",
