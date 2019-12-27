@@ -38,9 +38,9 @@ public class CureItem extends Item {
 
     @Override
     public ItemStack onItemUseFinish(ItemStack item, World world, LivingEntity livingEntity) {
-        PlayerEntity playerEntity = livingEntity instanceof PlayerEntity ? (PlayerEntity)livingEntity : null;
+        PlayerEntity playerEntity = livingEntity instanceof PlayerEntity ? (PlayerEntity) livingEntity : null;
         if (playerEntity instanceof ServerPlayerEntity) {
-            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayerEntity)playerEntity, item);
+            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayerEntity) playerEntity, item);
         }
 
         if (!world.isRemote) {
@@ -108,10 +108,10 @@ public class CureItem extends Item {
     public void fillItemGroup(ItemGroup itemGroup, NonNullList<ItemStack> itemStacks) {
         if (this.isInGroup(itemGroup)) {
             @SuppressWarnings("rawtypes")
-			Iterator iterator = ForgeRegistries.POTIONS.iterator();
+            Iterator iterator = ForgeRegistries.POTIONS.iterator();
 
-            while(iterator.hasNext()) {
-                Effect effect = (Effect)iterator.next();
+            while (iterator.hasNext()) {
+                Effect effect = (Effect) iterator.next();
                 if (effect != null) {
                     itemStacks.add(addCureToItemStack(new ItemStack(this), effect));
                 }
@@ -123,10 +123,9 @@ public class CureItem extends Item {
     public static ItemStack addCureToItemStack(ItemStack itemStack, Effect effect) {
         ResourceLocation resourceLocation = ForgeRegistries.POTIONS.getKey(effect);
         ItemStack newItemStack = new ItemStack(ModItems.CURE);
-        if (resourceLocation != null){
+        if (resourceLocation != null) {
             newItemStack.getOrCreateTag().putString("Cure", resourceLocation.toString());
-        }
-        else {
+        } else {
             newItemStack.getOrCreateTag().putString("Cure", "placebo");
         }
         return newItemStack;
@@ -143,18 +142,18 @@ public class CureItem extends Item {
         Effect lvt_8_1_ = effect;
         if (effect == null) {
             text.add((new TranslationTextComponent("effect.none", new Object[0])).applyTextStyle(TextFormatting.GRAY));
-        }
-        else {
+        } else {
             text.add(new StringTextComponent(""));
             text.add((new TranslationTextComponent("potion.whenDrank", new Object[0])).applyTextStyle(TextFormatting.DARK_PURPLE));
 
             EffectType lvt_8_2_ = effect.getEffectType();
 
             if (lvt_8_2_ == EffectType.HARMFUL) {
-                text.add(new TranslationTextComponent("attribute.name." + effect.getRegistryName(), new Object[0]).applyTextStyle(TextFormatting.GREEN));
+                text.add(new TranslationTextComponent("attribute.modifier.take.2", new Object[]{ItemStack.DECIMALFORMAT.format(1), new TranslationTextComponent("effect." + effect.getRegistryName().toString(), new Object[0])}).applyTextStyle(TextFormatting.GREEN));
 
             } else {
-                text.add(new TranslationTextComponent("attribute.name." + effect.getRegistryName(), new Object[0]).applyTextStyle(TextFormatting.RED));
+                text.add(new TranslationTextComponent("attribute.modifier.take.2", new Object[]{ItemStack.DECIMALFORMAT.format(1), new TranslationTextComponent("effect." + effect.getRegistryName().toString(), new Object[0])}).applyTextStyle(TextFormatting.RED));
+
             }
         }
     }
