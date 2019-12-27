@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.BuzzierBees;
+import com.bagel.buzzierbees.common.BuzzierBees;
 
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
