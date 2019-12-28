@@ -69,7 +69,8 @@ public class CloverHoneyBlock extends FallingBlock {
     @SuppressWarnings("deprecation")
     public void onEntityCollision(BlockState blockState, World worldIn, BlockPos blockPos, Entity entity) {
         if (this.func_226935_a_(blockPos, entity)) {
-            entity.setMotionMultiplier(blockState, new Vec3d(0.5D, (double)0.15F, 0.5D));
+            entity.setMotionMultiplier(blockState, new Vec3d(0, 0, 0));
+
             this.func_226933_a_(entity, blockPos);
             this.func_226938_d_(entity);
             this.func_226934_a_(worldIn, entity);
@@ -100,16 +101,16 @@ public class CloverHoneyBlock extends FallingBlock {
 
     }
 
-    private void func_226938_d_(Entity entity) {
-        Vec3d lvt_2_1_ = entity.getMotion();
+    private void func_226938_d_(Entity p_226938_1_) {
+        Vec3d lvt_2_1_ = p_226938_1_.getMotion();
         if (lvt_2_1_.y < -0.13D) {
             double lvt_3_1_ = -0.05D / lvt_2_1_.y;
-            entity.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, -0.05D, lvt_2_1_.z * lvt_3_1_));
+            p_226938_1_.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, -0.05D, lvt_2_1_.z * lvt_3_1_));
         } else {
-            entity.setMotion(new Vec3d(lvt_2_1_.x, -0.05D, lvt_2_1_.z));
+            p_226938_1_.setMotion(new Vec3d(lvt_2_1_.x, -0.05D, lvt_2_1_.z));
         }
 
-        entity.fallDistance = 0.0F;
+        p_226938_1_.fallDistance = 0.0F;
     }
 
     private void func_226934_a_(World worldIn, Entity entity) {

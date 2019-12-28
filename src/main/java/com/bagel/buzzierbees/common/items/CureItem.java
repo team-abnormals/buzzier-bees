@@ -149,4 +149,9 @@ public class CureItem extends Item {
             }
         }
     }
+
+    public static Item getCureFromEffect(ItemStack itemStack, Effect effect) {
+        itemStack = addCureToItemStack(itemStack, effect);
+        return itemStack.getItem();
+    }
 }

@@ -1,12 +1,15 @@
 package com.bagel.buzzierbees.common;
 
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
+import com.bagel.buzzierbees.common.items.CureItem;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.Effects;
+import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -40,12 +43,25 @@ public class BuzzierBees
     {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(Items.field_226638_pX_), 
-				Ingredient.fromItems(Items.SUGAR),
-				new ItemStack(ModItems.CRYSTALLIZED_HONEY));
+        addBrewingRecipes();
     }
 
+    private void addBrewingRecipes() {
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(Items.field_226638_pX_),
+				Ingredient.fromItems(Items.SUGAR),
+				new ItemStack(ModItems.CRYSTALLIZED_HONEY));
+
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(ModItems.CLOVER_LEAF),
+				new ItemStack(CureItem.getCureFromEffect(new ItemStack(ModItems.CURE), null)));
+
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(CureItem.getCureFromEffect(new ItemStack(ModItems.CURE), null)),
+				Ingredient.fromItems(Items.SUGAR),
+				new ItemStack(CureItem.getCureFromEffect(new ItemStack(ModItems.CURE), Effects.SPEED)));
+	}
     
     private void doClientStuff(final FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
