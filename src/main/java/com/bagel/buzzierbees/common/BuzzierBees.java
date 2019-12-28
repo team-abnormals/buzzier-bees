@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -51,10 +50,16 @@ public class BuzzierBees
 				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(Items.SUGAR),
 				new ItemStack(ModItems.CRYSTALLIZED_HONEY));
-
+		
+		//temporary Clover Honey recipe (until we get hive situation sorted out)
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(Items.field_226638_pX_),
+				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
+		
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
-				Ingredient.fromItems(ModItems.CLOVER_LEAF),
+				Ingredient.fromItems(Items.POPPED_CHORUS_FRUIT),
 				new ItemStack(CureItem.getCureFromEffect(new ItemStack(ModItems.CURE), null)));
 
 		BrewingRecipeRegistry.addRecipe(

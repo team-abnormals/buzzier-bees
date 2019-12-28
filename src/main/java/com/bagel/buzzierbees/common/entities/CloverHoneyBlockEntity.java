@@ -40,7 +40,8 @@ public class CloverHoneyBlockEntity extends FallingBlockEntity {
         return super.getCollisionBorderSize();
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void tick() {
         if (this.fallTile.isAir()) {
             this.remove();
