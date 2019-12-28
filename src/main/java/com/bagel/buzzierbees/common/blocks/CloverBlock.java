@@ -4,11 +4,19 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -59,6 +67,24 @@ public class CloverBlock extends FlowerBlock implements IGrowable {
                 }
             }
         }
+    }
+    
+    @SuppressWarnings("deprecation")
+	public ActionResultType func_225533_a_(BlockState state, World worldIn, BlockPos pos, PlayerEntity entity, Hand hand, BlockRayTraceResult p_225533_6_) {
+        ItemStack itemstack = entity.getHeldItem(hand);
+        int i = state.get(AGE);
+        if (i >= 1) {
+           if (itemstack.getItem() == Items.SHEARS) {
+              worldIn.playSound(entity, entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+              spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
+              itemstack.damageItem(1, entity, (p_226874_1_) -> {
+                 p_226874_1_.sendBreakAnimation(hand);
+              });
+              worldIn.setBlockState(pos, state.with(AGE, 0), 1);
+              return ActionResultType.SUCCESS;
+           }
+        }
+        return super.func_225533_a_(state, worldIn, pos, entity, hand, p_225533_6_);
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {

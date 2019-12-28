@@ -1,0 +1,77 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "item": "minecraft:shears"
+                  }
+                },
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.0025
+                }
+              ],
+              "name": "buzzierbees:four_leaf_clover"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "item": "minecraft:shears"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:uniform_bonus_count",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "buzzierbees:clover_leaf"
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "buzzierbees:white_clover"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+		{
+          	    "condition": "minecraft:block_state_property",
+          	    "block": "buzzierbees:white_clover",
+          	    "properties": {
+            	      "age": "1"
+			}
+		}
+      ]
+    }
+  ]
+}
