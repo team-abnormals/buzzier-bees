@@ -6,6 +6,7 @@ import net.minecraft.block.DoorBlock;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
@@ -95,6 +96,15 @@ public class ModBlocks
 	public static Block WHITE_CLOVER;
 	public static Block PINK_CLOVER;
 	
+	public static Block POTTED_CARTWHEEL;
+	public static Block POTTED_BLUEBELL;
+	public static Block POTTED_VIOLET;
+	public static Block POTTED_COLUMBINE;
+	public static Block POTTED_JOLYCE;
+	public static Block POTTED_DAYBLOOM;
+	public static Block POTTED_WHITE_CLOVER;
+	public static Block POTTED_PINK_CLOVER;
+	
 	//public static Block CARTWHEEL_CANDLE;
 	//public static Block BLUEBELL_CANDLE;
 	//public static Block VIOLET_CANDLE;
@@ -135,15 +145,24 @@ public class ModBlocks
         //HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_BLOCK)), "hive_trapdoor", ItemGroup.REDSTONE);
 		
 		CARTWHEEL = registerBlock(new FlowerBlock(Effects.SPEED, 11, Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cartwheel", ItemGroup.DECORATIONS);
-		//BLUEBELL = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);
+		BLUEBELL = registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);
 		DAYBLOOM = registerBlock(new FlowerBlock(Effects.GLOWING, 8, Block.Properties.from(CARTWHEEL)), "daybloom", ItemGroup.DECORATIONS);
-		//VIOLET = registerBlock(new FlowerBlock(Effects.JUMP_BOOST, 6, Block.Properties.from(CARTWHEEL)), "violet", ItemGroup.DECORATIONS);
+		VIOLET = registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, Block.Properties.from(CARTWHEEL)), "violet", ItemGroup.DECORATIONS);
 		JOLYCE = registerBlock(new FlowerBlock(Effects.NAUSEA, 6, Block.Properties.from(CARTWHEEL)), "jolyce", ItemGroup.DECORATIONS);
 		COLUMBINE = registerBlock(new FlowerBlock(Effects.MINING_FATIGUE, 6, Block.Properties.from(CARTWHEEL)), "columbine", ItemGroup.DECORATIONS);
 		BIRD_OF_PARADISE = registerBlock(new TallFlowerBlock(Block.Properties.from(CARTWHEEL)), "bird_of_paradise", ItemGroup.DECORATIONS);
 		WHITE_CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
 		PINK_CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
 		
+	    POTTED_CARTWHEEL = registerBlockNoItem(new FlowerPotBlock(CARTWHEEL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_cartwheel");
+	    POTTED_BLUEBELL = registerBlockNoItem(new FlowerPotBlock(BLUEBELL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_bluebell");
+	    POTTED_DAYBLOOM = registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_daybloom");
+	    POTTED_VIOLET = registerBlockNoItem(new FlowerPotBlock(VIOLET, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_violet");
+	    POTTED_JOLYCE = registerBlockNoItem(new FlowerPotBlock(JOLYCE, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_jolyce");
+	    POTTED_COLUMBINE = registerBlockNoItem(new FlowerPotBlock(COLUMBINE, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_columbine");
+	    POTTED_WHITE_CLOVER = registerBlockNoItem(new FlowerPotBlock(WHITE_CLOVER, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_white_clover");
+	    POTTED_PINK_CLOVER = registerBlockNoItem(new FlowerPotBlock(PINK_CLOVER, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_pink_clover");
+
 		//vanilla candles
 		CANDLE = registerBlock(new CandleBlock(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD)), "candle", ItemGroup.DECORATIONS);
 		WHITE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "white_candle", ItemGroup.DECORATIONS);
@@ -208,6 +227,8 @@ public class ModBlocks
 			SLATE_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "slate_gray_candle", ItemGroup.DECORATIONS);
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
+		
+		
     }
 
     public static Block registerBlock(Block block, String name, ItemGroup group)
@@ -217,6 +238,13 @@ public class ModBlocks
         itemBlock.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
         ForgeRegistries.ITEMS.register(itemBlock);
+        return block;
+    }
+    
+    public static Block registerBlockNoItem(Block block, String name)
+    {
+        block.setRegistryName(name);
+        ForgeRegistries.BLOCKS.register(block);
         return block;
     }
 
