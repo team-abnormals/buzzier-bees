@@ -33,6 +33,8 @@ public class ModEntities
         ForgeRegistries.ENTITIES.register(type);
         return type;
     }
+    
+    
 
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()

@@ -14,10 +14,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.SlimeEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -31,11 +29,9 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
@@ -319,13 +315,7 @@ public EntityType<? extends HoneySlimeEntity> getType() {
       } else {
          if (p_223366_1_.getDifficulty() != Difficulty.PEACEFUL) {
             Biome biome = p_223366_1_.func_226691_t_(p_223366_3_);
-            if (biome == Biomes.SWAMP && p_223366_3_.getY() > 50 && p_223366_3_.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < p_223366_1_.getCurrentMoonPhaseFactor() && p_223366_1_.getLight(p_223366_3_) <= randomIn.nextInt(8)) {
-               return func_223315_a(p_223366_0_, p_223366_1_, reason, p_223366_3_, randomIn);
-            }
-
-            ChunkPos chunkpos = new ChunkPos(p_223366_3_);
-            boolean flag = SharedSeedRandom.seedSlimeChunk(chunkpos.x, chunkpos.z, p_223366_1_.getSeed(), 987234911L).nextInt(10) == 0;
-            if (randomIn.nextInt(10) == 0 && flag && p_223366_3_.getY() < 40) {
+            if (biome == Biomes.FLOWER_FOREST && p_223366_3_.getY() > 50 && p_223366_3_.getY() < 70 && randomIn.nextFloat() < 0.5F && p_223366_1_.getLight(p_223366_3_) <= randomIn.nextInt(8)) {
                return func_223315_a(p_223366_0_, p_223366_1_, reason, p_223366_3_, randomIn);
             }
          }
