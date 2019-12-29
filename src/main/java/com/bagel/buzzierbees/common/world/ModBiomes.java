@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.world;
+/*package com.bagel.buzzierbees.common.world;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -18,4 +18,4 @@ public class ModBiomes {
    }
 
 
-}
+}*/
