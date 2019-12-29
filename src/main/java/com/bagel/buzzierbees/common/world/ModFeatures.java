@@ -37,11 +37,12 @@ public class ModFeatures {
 		COLUMBINE_FEATURE = registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), "columbine_feature", Biomes.FLOWER_FOREST);
 		DAYBLOOM_FEATURE = registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), "daybloom_feature", Biomes.SUNFLOWER_PLAINS);
 
-		for (Biome biome : ForgeRegistries.BIOMES) {
+		for (Biome biome : new Biome[] { Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.FLOWER_FOREST }) {
 			BLUEBELL_FEATURE = registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", biome);
 			VIOLET_FEATURE = registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), "violet_feature", biome);
 			JOLYCE_FEATURE = registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), "jolyce_feature", biome);
 		}
+		
 		addDoubleFlowers(Biomes.JUNGLE);
 	}
 
