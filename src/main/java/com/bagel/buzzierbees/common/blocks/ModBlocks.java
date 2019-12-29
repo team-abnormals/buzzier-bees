@@ -1,31 +1,11 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.world.ModFeatures;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.FlowerBlock;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.block.TrapDoorBlock;
-import net.minecraft.block.WoodButtonBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effects;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.DefaultFlowersFeature;
-import net.minecraft.world.gen.placement.FrequencyConfig;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -234,19 +214,6 @@ public class ModBlocks
 			SLATE_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "slate_gray_candle", ItemGroup.DECORATIONS);
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
-
-		//TEMP
-		//CARTWHEEL_FEATURE = registerFeature("cartwheel_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//BLUEBELL_FEATURE = registerFeature("bluebell_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//VIOLET_FEATURE = registerFeature("violet_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//COLUMBINE_FEATURE = registerFeature("columbine_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//JOLYCE_FEATURE = registerFeature("jolyce_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//DAYBLOOM_FEATURE = registerFeature("daybloom_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//BIRD_OF_PARADISE_FEATURE = registerFeature("bird_of_paradise_feature", new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_));
-		//TEMP
-		//for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-		//	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ModFeatures.CARTWHEEL_FEATURE.func_225566_b_(field_226826_u_).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(5))));
-		//}
     }
 
     public static Block registerBlock(Block block, String name, ItemGroup group)
