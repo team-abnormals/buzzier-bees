@@ -1,6 +1,6 @@
 {
     "parent": "block/fence_inventory",
     "textures": {
-        "texture": "buzzierbees:block/hive_block"
+        "texture": "buzzierbees:block/hive_planks"
     }
 }

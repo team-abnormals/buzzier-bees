@@ -15,14 +15,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
 {
-	public static EntityType<? extends HoneySlimeEntity> honey_slime;
+	public static EntityType<? extends HoneySlimeEntity> HONEY_SLIME;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        ModEntities.honey_slime= EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F).build("buzzierbees:honey_slime");
-        ModEntities.honey_slime.setRegistryName("honey_slime");
-        ForgeRegistries.ENTITIES.register(ModEntities.honey_slime);
+        ModEntities.HONEY_SLIME= EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F).build("buzzierbees:honey_slime");
+        ModEntities.HONEY_SLIME.setRegistryName("honey_slime");
+        ForgeRegistries.ENTITIES.register(ModEntities.HONEY_SLIME);
     }
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
@@ -39,6 +39,6 @@ public class ModEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)ModEntities.honey_slime, HoneySlimeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)ModEntities.HONEY_SLIME, HoneySlimeRenderer::new);
     }
 }

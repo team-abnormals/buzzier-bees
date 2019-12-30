@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "buzzierbees:hive_block"
+      "item": "buzzierbees:hive_planks"
     }
   ],
   "result": {

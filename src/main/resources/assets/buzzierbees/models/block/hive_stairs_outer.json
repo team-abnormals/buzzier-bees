@@ -1,8 +1,8 @@
 {
     "parent": "block/outer_stairs",
     "textures": {
-        "bottom": "buzzierbees:block/hive_block",
-        "top": "buzzierbees:block/hive_block",
-        "side": "buzzierbees:block/hive_block"
+        "bottom": "buzzierbees:block/hive_planks",
+        "top": "buzzierbees:block/hive_planks",
+        "side": "buzzierbees:block/hive_planks"
     }
 }

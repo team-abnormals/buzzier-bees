@@ -2,7 +2,7 @@ package com.bagel.buzzierbees.common;
 
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.items.CureItem;
-import com.bagel.buzzierbees.common.items.FullHoneyWandItem;
+import com.bagel.buzzierbees.common.items.HoneyWandItem;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
@@ -80,7 +80,7 @@ public class BuzzierBees
     	ModItems.HONEY_WAND.addPropertyOverride(new ResourceLocation(MODID, "sticky"),
                 (stack, world, entity) -> {
                 	CompoundNBT nbt = stack.getOrCreateTag(); 
-    				return entity != null && nbt.getBoolean(FullHoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
+    				return entity != null && nbt.getBoolean(HoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
                 });
     	
     	ModEntities.registerRendering();

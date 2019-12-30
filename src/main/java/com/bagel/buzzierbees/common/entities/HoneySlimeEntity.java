@@ -125,15 +125,18 @@ public class HoneySlimeEntity extends MobEntity implements IMob {
    
    public boolean processInteract(PlayerEntity player, Hand hand) {
 	      ItemStack itemstack = player.getHeldItem(hand);
-	      if (itemstack.getItem() == Items.GLASS_BOTTLE && !player.abilities.isCreativeMode) {
+	      if (itemstack.getItem() == Items.GLASS_BOTTLE) {
 	         player.playSound(SoundEvents.ENTITY_SLIME_SQUISH, 1.0F, 1.0F);
+	         
 	         itemstack.shrink(1);
 	         if (itemstack.isEmpty()) {
 	            player.setHeldItem(hand, new ItemStack(Items.field_226638_pX_));
 	         } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
 	            player.dropItem(new ItemStack(Items.field_226638_pX_), false);
 	         }
+	         if (!player.abilities.isCreativeMode ){
 	         performEffect(this, 1);
+	         }
 	         return true;
 	      } else {
 	         return super.processInteract(player, hand);

@@ -12,18 +12,18 @@ public class ModTileEntities {
     
     public static final RegistryObject<TileEntityType<ScentedCandleTileEntity>> SCENTED_CANDLE = TILE_ENTITY_TYPES.register("scented_candle",
         () -> TileEntityType.Builder.create(ScentedCandleTileEntity::new, 
-        		ModBlocks.ALLIUM_CANDLE, //fire resistance
-        		ModBlocks.AZURE_BLUET_CANDLE, //blindness
-        		ModBlocks.BLUE_ORCHID_CANDLE, //saturation
-        		ModBlocks.DANDELION_CANDLE, //saturation
-        		ModBlocks.CORNFLOWER_CANDLE, //jump boost
-        		ModBlocks.LILY_OF_THE_VALLEY_CANDLE, //poison
-        		ModBlocks.OXEYE_DAISY_CANDLE, //regeneration
-        		ModBlocks.POPPY_CANDLE, //night vision
-        		ModBlocks.WHITE_TULIP_CANDLE, //weakness
-        		ModBlocks.ORANGE_TULIP_CANDLE, //weakness 
-        		ModBlocks.PINK_TULIP_CANDLE, //weakness
-        		ModBlocks.RED_TULIP_CANDLE, //weakness
-        		ModBlocks.WITHER_ROSE_CANDLE) //wither
+        		ModBlocks.ALLIUM_SCENTED_CANDLE, //fire resistance
+        		ModBlocks.AZURE_BLUET_SCENTED_CANDLE, //blindness
+        		ModBlocks.BLUE_ORCHID_SCENTED_CANDLE, //saturation
+        		ModBlocks.DANDELION_SCENTED_CANDLE, //saturation
+        		ModBlocks.CORNFLOWER_SCENTED_CANDLE, //jump boost
+        		ModBlocks.LILY_OF_THE_VALLEY_SCENTED_CANDLE, //poison
+        		ModBlocks.OXEYE_DAISY_SCENTED_CANDLE, //regeneration
+        		ModBlocks.POPPY_SCENTED_CANDLE, //night vision
+        		ModBlocks.WHITE_TULIP_SCENTED_CANDLE, //weakness
+        		ModBlocks.ORANGE_TULIP_SCENTED_CANDLE, //weakness 
+        		ModBlocks.PINK_TULIP_SCENTED_CANDLE, //weakness
+        		ModBlocks.RED_TULIP_SCENTED_CANDLE, //weakness
+        		ModBlocks.WITHER_ROSE_SCENTED_CANDLE) //wither
         		.build(null));
 }
