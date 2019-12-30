@@ -91,9 +91,6 @@ public class FullHoneyWandItem extends Item {
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		CompoundNBT nbt = stack.getOrCreateTag();
 		if (nbt.getBoolean(STICKY_KEY)) {
-			super.onItemUseFinish(stack, worldIn, entityLiving);
-			stack.damageItem(1, entityLiving, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(entityLiving.getActiveHand());});
-			nbt.putBoolean(STICKY_KEY, false);
 			if (entityLiving instanceof ServerPlayerEntity) {
 				ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)entityLiving;
 				CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
@@ -104,7 +101,7 @@ public class FullHoneyWandItem extends Item {
 				}
 			if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode) {
 				nbt.putBoolean(STICKY_KEY, false);
-				return stack;
+				stack.damageItem(1, entityLiving, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(entityLiving.getActiveHand());});
 				}
 			}
 		return stack;

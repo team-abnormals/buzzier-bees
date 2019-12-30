@@ -4,7 +4,7 @@
     "overrides": 
     [
         {
-            "predicate": { "sticky": 1 }, "model": "buzzierbees:item/sticky_honey_wand"
+            "predicate": { "buzzierbees:sticky": 1 }, "model": "buzzierbees:item/sticky_honey_wand"
         }
     ]
 }
