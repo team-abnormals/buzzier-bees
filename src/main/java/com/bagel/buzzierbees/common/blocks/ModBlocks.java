@@ -129,8 +129,8 @@ public class ModBlocks
         HIVE_FENCE_GATE = registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
         HIVE_BUTTON = registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS)), "hive_button", ItemGroup.REDSTONE);
 		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS)), "hive_pressure_plate", ItemGroup.REDSTONE);
-		//HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(HIVE_PLANKS)), "hive_door", ItemGroup.REDSTONE);
-        //HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_PLANKS)), "hive_trapdoor", ItemGroup.REDSTONE);
+		HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(Blocks.ACACIA_DOOR)), "hive_door", ItemGroup.REDSTONE);
+        HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(Blocks.ACACIA_TRAPDOOR)), "hive_trapdoor", ItemGroup.REDSTONE);
 		
 		CARTWHEEL = registerBlock(new FlowerBlock(Effects.SPEED, 11, Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cartwheel", ItemGroup.DECORATIONS);
 		BLUEBELL = registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);

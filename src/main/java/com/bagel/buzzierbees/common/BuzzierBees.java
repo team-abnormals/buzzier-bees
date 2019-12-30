@@ -108,6 +108,8 @@ public class BuzzierBees
 		
 		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE,RenderType.func_228641_d_());
 
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR,RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR,RenderType.func_228645_f_());
 
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
