@@ -143,7 +143,7 @@ public class HoneySlimeEntity extends MobEntity implements IMob {
    public void performEffect(LivingEntity entity, int amplifier) {
 	   if(entity instanceof HoneySlimeEntity) {
 	         SlimeEntity slime = EntityType.SLIME.create(entity.world);
-	         	slime.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw - 270), entity.rotationPitch);
+	         	slime.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw), entity.rotationPitch);
 	    		slime.setNoAI(((MobEntity) entity).isAIDisabled());
 	    		if(entity.hasCustomName()) {
 	    			slime.setCustomName(entity.getCustomName());

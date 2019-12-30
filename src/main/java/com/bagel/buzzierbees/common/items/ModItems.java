@@ -25,16 +25,19 @@ public class ModItems
 	public static Item CURE;
 
 	public static Item HONEY_WAND;
+	public static Item STICKY_HONEY_WAND;
+
 	
 	public static Food CRYSTALLIZED_HONEY_FOOD;
 	public static Food BEE_SOUP_FOOD;
 	public static Food CLOVER_HONEY_BOTTLE_FOOD;
+	public static Food STICKY_HONEY_WAND_FOOD;
 	
 	static {
 		CRYSTALLIZED_HONEY_FOOD = (new Food.Builder()).hunger(1).saturation(1.5F).fastToEat().setAlwaysEdible().effect(new EffectInstance(Effects.SPEED, 160, 1), 0.8F).build();
 		BEE_SOUP_FOOD = (new Food.Builder()).hunger(8).saturation(0.6F).setAlwaysEdible().effect(new EffectInstance(Effects.SLOWNESS, 240, 2), 0.5F).build();
 		CLOVER_HONEY_BOTTLE_FOOD = (new Food.Builder()).hunger(6).saturation(2.5F).setAlwaysEdible().effect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 1), 0.8F).build();
-
+		STICKY_HONEY_WAND_FOOD = (new Food.Builder()).hunger(6).saturation(0.1F).setAlwaysEdible().build();
 	}
 	
     @SubscribeEvent
@@ -50,7 +53,8 @@ public class ModItems
 
       	CURE = registerItem(new CureItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
       	
-      	HONEY_WAND = registerItem(new Item(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)), "honey_wand");
+      	HONEY_WAND = registerItem(new FullHoneyWandItem(new Item.Properties().food(STICKY_HONEY_WAND_FOOD).defaultMaxDamage(128).group(ItemGroup.TOOLS)), "honey_wand");
+
 	}
 	
     public static Item registerItem(Item item, String name)
