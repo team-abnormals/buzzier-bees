@@ -10,10 +10,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.DefaultFlowersFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.event.RegistryEvent;
@@ -28,6 +25,8 @@ public class ModFeatures {
 	public static DefaultFlowersFeature COLUMBINE_FEATURE;
 	public static DefaultFlowersFeature JOLYCE_FEATURE;
 	public static DefaultFlowersFeature DAYBLOOM_FEATURE;
+	public static MultipleWithChanceRandomFeature BIRD_OF_PARADISE_FEATURE;
+	public static DefaultFlowersFeature CLOVER_FEATURE;
 
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
@@ -42,7 +41,7 @@ public class ModFeatures {
 			JOLYCE_FEATURE = registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), "jolyce_feature", biome);
 		}
 
-		addDoubleFlowers(Biomes.JUNGLE);
+		registerDoubleFlowersFeature(Biomes.JUNGLE);
 	}
 
 	private static DefaultFlowersFeature registerFlowerFeature(BlockState blockState, String name, Biome biomeIn)
@@ -53,8 +52,14 @@ public class ModFeatures {
 		return feature;
 	}
 	
-	public static void addDoubleFlowers(Biome biomeIn) {
+	public static void registerDoubleFlowersFeature(Biome biomeIn) {
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(ModBlocks.BIRD_OF_PARADISE.getDefaultState()), new DoublePlantBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.func_225566_b_(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.field_227248_z_.func_225566_b_(config)), 0)).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(1))));
+	}
+
+	public static void addClover(BlockState blockState, String name, Biome biomeIn) {
+		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new DoublePlantBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
+		DefaultFlowersFeature feature = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature.func_225566_b_(config).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(1))));
 	}
 }
