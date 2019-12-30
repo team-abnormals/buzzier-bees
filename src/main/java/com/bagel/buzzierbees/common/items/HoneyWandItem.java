@@ -34,9 +34,9 @@ public class HoneyWandItem extends Item {
 		if (nbt.getBoolean(STICKY_KEY)) {
 			return UseAction.EAT;
 		}
-	    return UseAction.NONE;
-	   }
-	
+		return UseAction.NONE;
+	}
+
 	public ActionResultType onItemUse(ItemUseContext context) {
 	      World world = context.getWorld();
 	      BlockPos blockpos = context.getPos();
