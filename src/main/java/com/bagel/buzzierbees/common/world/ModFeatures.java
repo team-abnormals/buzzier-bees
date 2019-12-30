@@ -41,7 +41,7 @@ public class ModFeatures {
 			VIOLET_FEATURE = registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), "violet_feature", biome);
 			JOLYCE_FEATURE = registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), "jolyce_feature", biome);
 		}
-		
+
 		addDoubleFlowers(Biomes.JUNGLE);
 	}
 
