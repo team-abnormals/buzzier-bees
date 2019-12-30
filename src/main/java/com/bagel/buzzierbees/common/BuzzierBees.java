@@ -2,13 +2,19 @@ package com.bagel.buzzierbees.common;
 
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.items.CureItem;
+import com.bagel.buzzierbees.common.items.FullHoneyWandItem;
+
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -35,7 +41,7 @@ public class BuzzierBees
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -69,7 +75,14 @@ public class BuzzierBees
 				new ItemStack(CureItem.getCureFromEffect(new ItemStack(ModItems.CURE), Effects.SPEED)));
 	}
     
-    private void doClientStuff(final FMLClientSetupEvent event) {
+    @OnlyIn(Dist.CLIENT)
+    private void setupClient(final FMLClientSetupEvent event) {
+    	ModItems.HONEY_WAND.addPropertyOverride(new ResourceLocation(MODID, "sticky"),
+                (stack, world, entity) -> {
+                	CompoundNBT nbt = stack.getOrCreateTag(); 
+    				return entity != null && nbt.getBoolean(FullHoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
+                });
+    	
     	ModEntities.registerRendering();
     	
     	RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
