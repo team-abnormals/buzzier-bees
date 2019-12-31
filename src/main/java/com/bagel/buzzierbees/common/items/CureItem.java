@@ -150,9 +150,19 @@ public class CureItem extends Item {
         }
     }
 
-    /*public static Item getCureFromItemGroup(ItemGroup itemGroup, Effect effect) {
+    public static void GetCureRecipe() {
 
-    }*/
+    }
+
+    public static ItemStack getCure(ItemStack item, Effect effect) {
+        if (effect != null) {
+            item.getOrCreateTag().putString("Cure", ForgeRegistries.POTIONS.getKey(effect).toString());
+        }
+        else {
+            item.getOrCreateTag().putString("Cure", "placebo");
+        }
+        return item;
+    }
 
     public static ItemStack getCureFromEffect(ItemStack itemStack, Effect effect) {
         itemStack = addCureToItemStack(itemStack, effect);
