@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -24,9 +25,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
-
+//with(PATCH, Boolean.valueOf(true)
 public class CloverBlock extends FlowerBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
+    //public static final BooleanProperty PATCH = BooleanProperty.create("patch");
     protected static final VoxelShape SHAPE_ONE = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     protected static final VoxelShape SHAPE_TWO = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
@@ -72,8 +74,8 @@ public class CloverBlock extends FlowerBlock implements IGrowable {
     @SuppressWarnings("deprecation")
 	public ActionResultType func_225533_a_(BlockState state, World worldIn, BlockPos pos, PlayerEntity entity, Hand hand, BlockRayTraceResult p_225533_6_) {
         ItemStack itemstack = entity.getHeldItem(hand);
-        int i = state.get(AGE);
-        if (i >= 1) {
+        int age = state.get(AGE);
+        if (age >= 1) {
            if (itemstack.getItem() == Items.SHEARS) {
               worldIn.playSound(entity, entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
               spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
