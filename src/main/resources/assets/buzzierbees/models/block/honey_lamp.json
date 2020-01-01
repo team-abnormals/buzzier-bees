@@ -1,9 +1,21 @@
-{
-	"credit": "Made with Blockbench",
+{   "parent": "block/block",
+    "display": {
+        "head": {
+            "rotation": [ -60, 0, 0 ],
+            "translation": [ 0, 5, -9],
+            "scale":[ 1, 1, 1]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        }
+    },
+    "ambientocclusion": false,
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "buzzierbees:block/honey_lamp",
-		"particle": "buzzierbees:block/honey_lamp"
+		"particle": "block/honey_block_top"
 	},
 	"elements": [
 		{

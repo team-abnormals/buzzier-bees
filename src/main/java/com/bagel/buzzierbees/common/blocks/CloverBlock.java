@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks;
+ package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -8,7 +8,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
-import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;

@@ -61,7 +61,7 @@ public class BuzzierBees
 		//temporary Clover Honey recipe (until we get hive situation sorted out)
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(Items.field_226638_pX_),
-				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(ModItems.CLOVER_LEAF),
 				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
 		
 		BrewingRecipeRegistry.addRecipe(
