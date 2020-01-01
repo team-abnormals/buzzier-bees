@@ -123,36 +123,44 @@ public class BuzzierBees
     				return entity != null && nbt.getBoolean(HoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
                 });
     	
-    	ModEntities.registerRendering();
-    	
-    	RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
+    	setupRenderLayer();
+
+        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+    }
+
+    private void setupRenderLayer()
+	{
+		ModEntities.registerRendering();
+
+		RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
-		
+		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP_BLOCK,RenderType.func_228645_f_());
+
+		//Flowers
 		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER,RenderType.func_228641_d_());
-        RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER,RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM,RenderType.func_228641_d_());
-		
+		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE,RenderType.func_228641_d_());
+
+		//Potted Flowers
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER,RenderType.func_228641_d_());
-        RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER,RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM,RenderType.func_228641_d_());
-		
-		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE,RenderType.func_228641_d_());
 
+		//Doors and Trapdoors
 		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR,RenderType.func_228645_f_());
-
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-    }
+	}
 
     /*private void enqueueIMC(final InterModEnqueueEvent event)
     {

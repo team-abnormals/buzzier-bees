@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -71,6 +72,7 @@ public class ModBlocks
 	public static Block CRYSTALLIZED_HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
+	public static Block HONEY_LAMP_BLOCK;
 	
 	public static Block CARTWHEEL;
 	public static Block BLUEBELL;
@@ -215,6 +217,8 @@ public class ModBlocks
 			SLATE_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "slate_gray_candle", ItemGroup.DECORATIONS);
 			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
 		}
+
+		HONEY_LAMP_BLOCK = registerBlock(new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD)), "honey_lamp", ItemGroup.DECORATIONS);
     }
 
     public static Block registerBlock(Block block, String name, ItemGroup group)
