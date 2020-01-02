@@ -63,7 +63,7 @@ public class BuzzierBees
 				Ingredient.fromItems(ModItems.CLOVER_LEAF),
 				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
 		
-		BrewingRecipeRegistry.addRecipe(
+		/*BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
 				Ingredient.fromItems(Items.POPPED_CHORUS_FRUIT),
 				CureItem.getCure(new ItemStack(ModItems.CURE), null));
@@ -111,7 +111,7 @@ public class BuzzierBees
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
 				Ingredient.fromItems(Items.PHANTOM_MEMBRANE),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.SLOW_FALLING));
+				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.SLOW_FALLING));*/
 	}
     
     @OnlyIn(Dist.CLIENT)
