@@ -122,7 +122,7 @@ public class ModBlocks
 		//CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.from(Blocks.field_226907_mc_).func_226896_b_()), "clover_honey_block", ItemGroup.DECORATIONS);
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
-		HONEY_LAMP_BLOCK = registerBlock(new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.GLASS)), "honey_lamp", ItemGroup.DECORATIONS);
+		HONEY_LAMP_BLOCK = registerBlock(new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
 		
 		HIVE_PLANKS = registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
 		HIVE_STAIRS = registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
@@ -134,7 +134,7 @@ public class ModBlocks
 		HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(Blocks.ACACIA_DOOR)), "hive_door", ItemGroup.REDSTONE);
         HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(Blocks.ACACIA_TRAPDOOR)), "hive_trapdoor", ItemGroup.REDSTONE);
 		
-		CARTWHEEL = registerBlock(new FlowerBlock(Effects.SPEED, 11, Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cartwheel", ItemGroup.DECORATIONS);
+		CARTWHEEL = registerBlock(new CartwheelBlock(Effects.SPEED, 11, Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cartwheel", ItemGroup.DECORATIONS);
 		BLUEBELL = registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);
 		DAYBLOOM = registerBlock(new FlowerBlock(Effects.GLOWING, 8, Block.Properties.from(CARTWHEEL)), "daybloom", ItemGroup.DECORATIONS);
 		VIOLET = registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, Block.Properties.from(CARTWHEEL)), "violet", ItemGroup.DECORATIONS);
@@ -144,7 +144,7 @@ public class ModBlocks
 		WHITE_CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
 		PINK_CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
 		
-	    POTTED_CARTWHEEL = registerBlockNoItem(new FlowerPotBlock(CARTWHEEL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_cartwheel");
+	    POTTED_CARTWHEEL = registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_cartwheel");
 	    POTTED_BLUEBELL = registerBlockNoItem(new FlowerPotBlock(BLUEBELL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_bluebell");
 	    POTTED_DAYBLOOM = registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_daybloom");
 	    POTTED_VIOLET = registerBlockNoItem(new FlowerPotBlock(VIOLET, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_violet");
