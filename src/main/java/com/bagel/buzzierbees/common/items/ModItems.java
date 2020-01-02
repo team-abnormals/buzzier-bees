@@ -1,7 +1,6 @@
 package com.bagel.buzzierbees.common.items;
 
 import net.minecraft.item.Food;
-import net.minecraft.item.HoneyBottleItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.EffectInstance;
