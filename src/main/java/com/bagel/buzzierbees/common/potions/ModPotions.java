@@ -9,6 +9,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModPotions {
+    public static Potion LONG_LUCK;
+    public static Potion STRONG_LUCK;
+    public static Potion BAD_LUCK;
+    public static Potion LONG_UNLUCK;
+    public static Potion STRONG_UNLUCK;
+
+    //Cures
     public static Potion CLOVER_HONEY_BOTTLE;
 	public static Potion PLACEBO;
     public static Potion NIGHT_VISION_CURE;
@@ -31,24 +38,31 @@ public class ModPotions {
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> event)
     {
+        LONG_LUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.LUCK, 9600)}), "long_luck");
+        STRONG_LUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.LUCK, 3600, 1)}), "strong_luck");
+        BAD_LUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600)}), "bad_luck");
+        LONG_UNLUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 9600)}), "long_bad_luck");
+        STRONG_UNLUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600, 1)}), "strong_bad_luck");
+
+        //Cures
         CLOVER_HONEY_BOTTLE = registerPotion(new Potion("clover_honey_bottle"), "clover_honey_bottle");
     	PLACEBO = registerPotion(new Potion("placebo"), "placebo");
-        NIGHT_VISION_CURE = registerPotion(new Potion("night_vision_cure", new EffectInstance(ModEffects.ANTI_NIGHT_VISION)), "night_vision_cure");
-        INVISIBILITY_CURE = registerPotion(new Potion("invisibility_cure", new EffectInstance(ModEffects.ANTI_INVISIBILITY)), "invisibility_cure");
-        LEAPING_CURE = registerPotion(new Potion("leaping_cure", new EffectInstance(ModEffects.ANTI_JUMP_BOOST)), "leaping_cure");
-        FIRE_RESISTANCE_CURE = registerPotion(new Potion("fire_resistance_cure", new EffectInstance(ModEffects.ANTI_FIRE_RESISTANCE)), "fire_resistance_cure");
-        SWIFTNESS_CURE = registerPotion(new Potion("speed_cure", new EffectInstance(ModEffects.ANTI_SPEED)), "swiftness_cure");
-        SLOWNESS_CURE = registerPotion(new Potion("slowness_cure", new EffectInstance(ModEffects.ANTI_SLOWNESS)), "slowness_cure");
-        WATER_BREATHING_CURE = registerPotion(new Potion("water_breathing_cure", new EffectInstance(ModEffects.ANTI_WATER_BREATHING)), "water_breathing_cure");
-        REGENERATION_CURE = registerPotion(new Potion("regeneration_cure", new EffectInstance(ModEffects.ANTI_REGENERATION)), "regeneration_cure");
-        STRENGTH_CURE = registerPotion(new Potion("strength_cure", new EffectInstance(ModEffects.ANTI_STRENGTH)), "strength_cure");
-        WEAKNESS_CURE = registerPotion(new Potion("weakness_cure", new EffectInstance(ModEffects.ANTI_WEAKNESS)), "weakness_cure");
-        LUCK_CURE = registerPotion(new Potion("luck_cure", new EffectInstance(ModEffects.ANTI_LUCK)), "luck_cure");
-        SLOW_FALLING_CURE = registerPotion(new Potion("slow_falling_cure", new EffectInstance(ModEffects.ANTI_SLOW_FALLING)), "slow_falling_cure");
-        HASTE_CURE = registerPotion(new Potion("haste_cure", new EffectInstance(ModEffects.ANTI_SLOWNESS)), "haste_cure");
-        MINING_FATIGUE_CURE = registerPotion(new Potion("mining_fatigue_cure", new EffectInstance(ModEffects.ANTI_MINING_FATIGUE)), "mining_fatigue_cure");
-        NAUSEA_CURE = registerPotion(new Potion("nausea_cure", new EffectInstance(ModEffects.ANTI_NAUSEA)), "nausea_cure");
-        BAD_OMEN_CURE = registerPotion(new Potion("bad_omen_cure", new EffectInstance(ModEffects.ANTI_BAD_OMEN)), "bad_omen_cure");
+        NIGHT_VISION_CURE = registerPotion(new Potion("night_vision_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_NIGHT_VISION)}), "night_vision_cure");
+        INVISIBILITY_CURE = registerPotion(new Potion("invisibility_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INVISIBILITY)}), "invisibility_cure");
+        LEAPING_CURE = registerPotion(new Potion("leaping_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_JUMP_BOOST)}), "leaping_cure");
+        FIRE_RESISTANCE_CURE = registerPotion(new Potion("fire_resistance_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_FIRE_RESISTANCE)}), "fire_resistance_cure");
+        SWIFTNESS_CURE = registerPotion(new Potion("speed_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_SPEED)}), "swiftness_cure");
+        SLOWNESS_CURE = registerPotion(new Potion("slowness_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_SLOWNESS)}), "slowness_cure");
+        WATER_BREATHING_CURE = registerPotion(new Potion("water_breathing_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_WATER_BREATHING)}), "water_breathing_cure");
+        REGENERATION_CURE = registerPotion(new Potion("regeneration_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_REGENERATION)}), "regeneration_cure");
+        STRENGTH_CURE = registerPotion(new Potion("strength_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_STRENGTH)}), "strength_cure");
+        WEAKNESS_CURE = registerPotion(new Potion("weakness_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_WEAKNESS)}), "weakness_cure");
+        LUCK_CURE = registerPotion(new Potion("luck_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_LUCK)}), "luck_cure");
+        SLOW_FALLING_CURE = registerPotion(new Potion("slow_falling_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_SLOW_FALLING)}), "slow_falling_cure");
+        HASTE_CURE = registerPotion(new Potion("haste_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_SLOWNESS)}), "haste_cure");
+        MINING_FATIGUE_CURE = registerPotion(new Potion("mining_fatigue_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_MINING_FATIGUE)}), "mining_fatigue_cure");
+        NAUSEA_CURE = registerPotion(new Potion("nausea_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_NAUSEA)}), "nausea_cure");
+        BAD_OMEN_CURE = registerPotion(new Potion("bad_omen_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_BAD_OMEN)}), "bad_omen_cure");
     }
 
     public static Potion registerPotion(Potion potion, String name)

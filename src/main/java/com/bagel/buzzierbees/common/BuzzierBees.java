@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.PotionItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.PotionBrewing;
@@ -59,12 +58,22 @@ public class BuzzierBees
 				Ingredient.fromItems(Items.SUGAR),
 				new ItemStack(ModItems.CRYSTALLIZED_HONEY));
 		
-		//temporary Clover Honey recipe (until we get hive situation sorted out)
+		//Temporary Clover Honey recipe (until we get hive situation sorted out)
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(ModItems.CLOVER_LEAF),
 				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
 
+		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER, Potions.LUCK);
+		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, ModPotions.LONG_LUCK);
+		PotionBrewing.addMix(Potions.LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_LUCK);
+		PotionBrewing.addMix(Potions.LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.BAD_LUCK);
+		PotionBrewing.addMix(ModPotions.BAD_LUCK, Items.REDSTONE, ModPotions.LONG_UNLUCK);
+		PotionBrewing.addMix(ModPotions.BAD_LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_UNLUCK);
+		PotionBrewing.addMix(ModPotions.LONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.LONG_UNLUCK);
+		PotionBrewing.addMix(ModPotions.STRONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.STRONG_UNLUCK);
+
+		//Cures Brewing
 		PotionBrewing.addMix(ModPotions.CLOVER_HONEY_BOTTLE, Items.POPPED_CHORUS_FRUIT, ModPotions.PLACEBO);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GOLDEN_CARROT, ModPotions.NIGHT_VISION_CURE);
 		PotionBrewing.addMix(ModPotions.NIGHT_VISION_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.INVISIBILITY_CURE);

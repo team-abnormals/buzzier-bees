@@ -240,5 +240,29 @@
 	"effect.buzzierbees.anti_strength": "Anti Strength",
 	"effect.buzzierbees.anti_weakness": "Anti Weakness",
 	"effect.buzzierbees.anti_luck": "Anti Luck",
-	"effect.buzzierbees.anti_slow_falling": "Anti Slow Falling"
+	"effect.buzzierbees.anti_slow_falling": "Anti Slow Falling",
+
+	"item.minecraft.potion.effect.long_luck": "Potion of Luck",
+	"item.minecraft.potion.effect.strong_luck": "Potion of Luck",
+	"item.minecraft.potion.effect.bad_luck": "Potion of Bad Luck",
+	"item.minecraft.potion.effect.long_bad_luck": "Potion of Bad Luck",
+	"item.minecraft.potion.effect.strong_bad_luck": "Potion of Bad Luck",
+
+	"item.minecraft.splash_potion.effect.long_luck": "Splash Potion of Luck",
+	"item.minecraft.splash_potion.effect.strong_luck": "Splash Potion of Luck",
+	"item.minecraft.splash_potion.effect.bad_luck": "Splash Potion of Bad Luck",
+	"item.minecraft.splash_potion.effect.long_bad_luck": "Splash Potion of Bad Luck",
+	"item.minecraft.splash_potion.effect.strong_bad_luck": "Splash Potion of Bad Luck",
+
+	"item.minecraft.lingering_potion.effect.long_luck": "Lingering Potion of Luck",
+	"item.minecraft.lingering_potion.effect.strong_luck": "Lingering Potion of Luck",
+	"item.minecraft.lingering_potion.effect.bad_luck": "Lingering Potion of Bad Luck",
+	"item.minecraft.lingering_potion.effect.long_bad_luck": "Lingering Potion of Bad Luck",
+	"item.minecraft.lingering_potion.effect.strong_bad_luck": "Lingering Potion of Bad Luck",
+
+	"item.minecraft.tipped_arrow.effect.long_luck": "Arrow of Luck",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "Arrow of Luck",
+	"item.minecraft.tipped_arrow.effect.bad_luck": "Arrow of Bad Luck",
+	"item.minecraft.tipped_arrow.effect.long_bad_luck": "Arrow of Bad Luck",
+	"item.minecraft.tipped_arrow.effect.strong_bad_luck": "Arrow of Bad Luck"
 }
