@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModPotions {
+    public static Potion CLOVER_HONEY_BOTTLE;
 	public static Potion PLACEBO;
     public static Potion NIGHT_VISION_CURE;
     public static Potion INVISIBILITY_CURE;
@@ -30,6 +31,7 @@ public class ModPotions {
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> event)
     {
+        CLOVER_HONEY_BOTTLE = registerPotion(new Potion("clover_honey_bottle"), "clover_honey_bottle");
     	PLACEBO = registerPotion(new Potion("placebo"), "placebo");
         NIGHT_VISION_CURE = registerPotion(new Potion("night_vision_cure", new EffectInstance(ModEffects.ANTI_NIGHT_VISION)), "night_vision_cure");
         INVISIBILITY_CURE = registerPotion(new Potion("invisibility_cure", new EffectInstance(ModEffects.ANTI_INVISIBILITY)), "invisibility_cure");
