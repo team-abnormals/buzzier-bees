@@ -37,6 +37,11 @@ public class ModEffects {
     public static Effect ANTI_UNLUCK;
     public static Effect ANTI_SLOW_FALLING;
     public static Effect ANTI_BAD_OMEN;
+    public static Effect ANTI_INSTANT_HEALTH;
+    public static Effect ANTI_INSTANT_DAMAGE;
+    public static Effect ANTI_HERO_OF_THE_VILLAGE;
+    public static Effect ANTI_DOLPHINS_GRACE;
+    public static Effect ANTI_CONDUIT_POWER;
 
     @SubscribeEvent
     public static void registerEffects(RegistryEvent.Register<Effect> event)
@@ -68,6 +73,12 @@ public class ModEffects {
         ANTI_UNLUCK = registerEffect(new AntiEffect(Effects.UNLUCK, EffectType.BENEFICIAL, 0), "anti_unluck");
         ANTI_SLOW_FALLING = registerEffect(new AntiEffect(Effects.SLOW_FALLING, EffectType.HARMFUL, 0), "anti_slow_falling");
         ANTI_BAD_OMEN = registerEffect(new AntiEffect(Effects.BAD_OMEN, EffectType.BENEFICIAL, 0), "anti_bad_omen");
+        ANTI_INSTANT_HEALTH = registerEffect(new AntiEffect(Effects.INSTANT_HEALTH, EffectType.HARMFUL, 0), "anti_instant_health");
+        ANTI_INSTANT_DAMAGE = registerEffect(new AntiEffect(Effects.INSTANT_DAMAGE, EffectType.BENEFICIAL, 0), "anti_instant_damage");
+        ANTI_HERO_OF_THE_VILLAGE = registerEffect(new AntiEffect(Effects.HERO_OF_THE_VILLAGE, EffectType.HARMFUL, 0), "anti_hero_of_the_village");
+        ANTI_DOLPHINS_GRACE = registerEffect(new AntiEffect(Effects.DOLPHINS_GRACE, EffectType.HARMFUL, 0), "anti_dolphins_grace");
+        ANTI_CONDUIT_POWER = registerEffect(new AntiEffect(Effects.CONDUIT_POWER, EffectType.HARMFUL, 0), "anti_conduit_power");
+
     }
 
     public static Effect registerEffect(Effect effect, String name)

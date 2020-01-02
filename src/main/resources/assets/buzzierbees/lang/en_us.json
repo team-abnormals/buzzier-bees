@@ -80,7 +80,7 @@
 	"item.minecraft.potion.effect.mining_fatigue_cure": "Cure of Mining Fatigue",             //unobtainable (would be good for Ocean Monument though)
 	"item.minecraft.potion.effect.nausea_cure": "Cure of Nausea",                             //unobtainable
 	"item.minecraft.potion.effect.invisibility_cure": "Cure of Invisibility",
-	"item.minecraft.potion.effect.leaping_cure": "Cure of Leaping",
+	"item.minecraft.potion.effect.jump_boost_cure": "Cure of Leaping",
 	"item.minecraft.potion.effect.resistance_cure": "Cure of Resistance",                     //unobtainable
 	"item.minecraft.potion.effect.fire_resistance_cure": "Cure of Fire Resistance",
 	"item.minecraft.potion.effect.slowness_cure": "Cure of Slowness",
@@ -92,7 +92,7 @@
 	"item.minecraft.potion.effect.saturation_cure": "Cure of Saturation",                     //unobtainable
 	"item.minecraft.potion.effect.glowing_cure": "Cure of Glowing",                           //unobtainable
 	"item.minecraft.potion.effect.levitation_cure": "Cure of Levitation",                     //unobtainable (would be good for End City though)
-	"item.minecraft.potion.effect.unluck_cure": "Cure of Unluck",                             //unobtainable
+	"item.minecraft.potion.effect.unluck_cure": "Cure of Bad Luck",                             //unobtainable
 	"item.minecraft.potion.effect.conduit_power_cure": "Cure of Conduit Power",               //unobtainable
 	"item.minecraft.potion.effect.dolphins_grace_cure": "Cure of Dolphin's Grace'",           //unobtainable
 	"item.minecraft.potion.effect.bad_omen_cure": "Cure of Bad Omen",                         //unobtainable (would be good for Raids though)
@@ -114,7 +114,7 @@
 	"item.minecraft.splash_potion.effect.mining_fatigue_cure": "Splash Cure of Mining Fatigue",
 	"item.minecraft.splash_potion.effect.nausea_cure": "Splash Cure of Nausea",
 	"item.minecraft.splash_potion.effect.invisibility_cure": "Splash Cure of Invisibility",
-	"item.minecraft.splash_potion.effect.leaping_cure": "Splash Cure of Leaping",
+	"item.minecraft.splash_potion.effect.jump_boost_cure": "Splash Cure of Leaping",
 	"item.minecraft.splash_potion.effect.resistance_cure": "Splash Cure of Resistance",
 	"item.minecraft.splash_potion.effect.fire_resistance_cure": "Splash Cure of Fire Resistance",
 	"item.minecraft.splash_potion.effect.slowness_cure": "Splash Cure of Slowness",
@@ -126,7 +126,7 @@
 	"item.minecraft.splash_potion.effect.saturation_cure": "Splash Cure of Saturation",
 	"item.minecraft.splash_potion.effect.glowing_cure": "Splash Cure of Glowing",
 	"item.minecraft.splash_potion.effect.levitation_cure": "Splash Cure of Levitation",
-	"item.minecraft.splash_potion.effect.unluck_cure": "Splash Cure of Unluck",
+	"item.minecraft.splash_potion.effect.unluck_cure": "Splash Cure of Bad Luck",
 	"item.minecraft.splash_potion.effect.conduit_power_cure": "Splash Cure of Conduit Power",
 	"item.minecraft.splash_potion.effect.dolphins_grace_cure": "Splash Cure of Dolphin's Grace'",
 	"item.minecraft.splash_potion.effect.bad_omen_cure": "Splash Cure of Bad Omen",
@@ -148,7 +148,7 @@
 	"item.minecraft.lingering_potion.effect.mining_fatigue_cure": "Lingering Cure of Mining Fatigue",
 	"item.minecraft.lingering_potion.effect.nausea_cure": "Lingering Cure of Nausea",
 	"item.minecraft.lingering_potion.effect.invisibility_cure": "Lingering Cure of Invisibility",
-	"item.minecraft.lingering_potion.effect.leaping_cure": "Lingering Cure of Leaping",
+	"item.minecraft.lingering_potion.effect.jump_boost_cure": "Lingering Cure of Leaping",
 	"item.minecraft.lingering_potion.effect.resistance_cure": "Lingering Cure of Resistance",
 	"item.minecraft.lingering_potion.effect.fire_resistance_cure": "Lingering Cure of Fire Resistance",
 	"item.minecraft.lingering_potion.effect.slowness_cure": "Lingering Cure of Slowness",
@@ -160,7 +160,7 @@
 	"item.minecraft.lingering_potion.effect.saturation_cure": "Lingering Cure of Saturation",
 	"item.minecraft.lingering_potion.effect.glowing_cure": "Lingering Cure of Glowing",
 	"item.minecraft.lingering_potion.effect.levitation_cure": "Lingering Cure of Levitation",
-	"item.minecraft.lingering_potion.effect.unluck_cure": "Lingering Cure of Unluck",
+	"item.minecraft.lingering_potion.effect.unluck_cure": "Lingering Cure of Bad Luck",
 	"item.minecraft.lingering_potion.effect.conduit_power_cure": "Lingering Cure of Conduit Power",
 	"item.minecraft.lingering_potion.effect.dolphins_grace_cure": "Lingering Cure of Dolphin's Grace'",
 	"item.minecraft.lingering_potion.effect.bad_omen_cure": "Lingering Cure of Bad Omen",
@@ -182,7 +182,7 @@
 	"item.minecraft.tipped_arrow.effect.mining_fatigue_cure": "Arrow of Mining Fatigue Cure",
 	"item.minecraft.tipped_arrow.effect.nausea_cure": "Arrow of Nausea Cure",
 	"item.minecraft.tipped_arrow.effect.invisibility_cure": "Arrow of Invisibility Cure",
-	"item.minecraft.tipped_arrow.effect.leaping_cure": "Arrow of Leaping Cure",
+	"item.minecraft.tipped_arrow.effect.jump_boost_cure": "Arrow of Leaping Cure",
 	"item.minecraft.tipped_arrow.effect.resistance_cure": "Arrow of Resistance Cure",
 	"item.minecraft.tipped_arrow.effect.fire_resistance_cure": "Arrow of Fire Resistance Cure",
 	"item.minecraft.tipped_arrow.effect.slowness_cure": "Arrow of Slowness Cure",
@@ -194,7 +194,7 @@
 	"item.minecraft.tipped_arrow.effect.saturation_cure": "Arrow of Saturation Cure",
 	"item.minecraft.tipped_arrow.effect.glowing_cure": "Arrow of Glowing Cure",
 	"item.minecraft.tipped_arrow.effect.levitation_cure": "Arrow of Levitation Cure",
-	"item.minecraft.tipped_arrow.effect.unluck_cure": "Arrow of Unluck Cure",
+	"item.minecraft.tipped_arrow.effect.unluck_cure": "Arrow of Bad Luck Cure",
 	"item.minecraft.tipped_arrow.effect.conduit_power_cure": "Arrow of Conduit Power Cure",
 	"item.minecraft.tipped_arrow.effect.dolphins_grace_cure": "Arrow of Dolphin's Grace' Cure",
 	"item.minecraft.tipped_arrow.effect.bad_omen_cure": "Arrow of Bad Omen Cure",
@@ -227,7 +227,7 @@
 	"effect.buzzierbees.anti_saturation": "Anti Saturation",
 	"effect.buzzierbees.anti_glowing": "Anti Glowing",
 	"effect.buzzierbees.anti_levitation": "Anti Levitation",
-	"effect.buzzierbees.anti_unluck": "Anti Unluck",
+	"effect.buzzierbees.anti_unluck": "Anti Bad Luck",
 	"effect.buzzierbees.anti_conduit_power": "Anti Conduit Power",
 	"effect.buzzierbees.anti_dolphins_grace": "Anti Dolphin's Grace'",
 	"effect.buzzierbees.anti_bad_omen": "Anti Bad Omen",
