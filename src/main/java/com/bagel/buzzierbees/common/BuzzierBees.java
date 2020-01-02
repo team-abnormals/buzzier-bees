@@ -5,6 +5,8 @@ import com.bagel.buzzierbees.common.blocks.ModTileEntities;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.ModItems;
+import com.bagel.buzzierbees.common.potions.ModPotions;
+
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -12,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.PotionBrewing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -46,6 +49,8 @@ public class BuzzierBees
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
         addBrewingRecipes();
+        PotionBrewing.addMix(ModPotions.PLACEBO, Items.SUGAR, ModPotions.SWIFTNESS_CURE);
+        PotionBrewing.addMix(ModPotions.PLACEBO, Items.RABBIT_FOOT, ModPotions.LEAPING_CURE);
     }
 
     private void addBrewingRecipes() {
