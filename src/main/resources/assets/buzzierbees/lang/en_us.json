@@ -73,7 +73,7 @@
 	"block.buzzierbees.red_tulip_scented_candle": "Red Tulip Scented Candle",
 	"block.buzzierbees.wither_rose_scented_candle": "Wither Rose Scented Candle",
 	
-	"item.minecraft.potion.effect.placebo_cure": "Placebo",
+	"item.minecraft.potion.effect.placebo": "Placebo",
 	"item.minecraft.potion.effect.night_vision_cure": "Cure of Night Vision",
 	"item.minecraft.potion.effect.speed_cure": "Cure of Swiftness",
 	"item.minecraft.potion.effect.haste_cure": "Cure of Haste",                               //unobtainable
@@ -107,7 +107,7 @@
 	"item.minecraft.potion.effect.luck_cure": "Cure of Luck",
 	"item.minecraft.potion.effect.slow_falling_cure": "Cure of Slow Falling",
 
-	"item.minecraft.splash_potion.effect.placebo_cure": "Splash Placebo",
+	"item.minecraft.splash_potion.effect.placebo": "Splash Placebo",
 	"item.minecraft.splash_potion.effect.night_vision_cure": "Splash Cure of Night Vision",
 	"item.minecraft.splash_potion.effect.speed_cure": "Splash Cure of Swiftness",
 	"item.minecraft.splash_potion.effect.haste_cure": "Splash Cure of Haste", 
@@ -141,7 +141,7 @@
 	"item.minecraft.splash_potion.effect.luck_cure": "Splash Cure of Luck",
 	"item.minecraft.splash_potion.effect.slow_falling_cure": "Splash Cure of Slow Falling",
 
-	"item.minecraft.lingering_potion.effect.placebo_cure": "Placebo",
+	"item.minecraft.lingering_potion.effect.placebo": "Placebo",
 	"item.minecraft.lingering_potion.effect.night_vision_cure": "Lingering Cure of Night Vision",
 	"item.minecraft.lingering_potion.effect.speed_cure": "Lingering Cure of Swiftness",
 	"item.minecraft.lingering_potion.effect.haste_cure": "Lingering Cure of Haste", 
@@ -175,7 +175,7 @@
 	"item.minecraft.lingering_potion.effect.luck_cure": "Lingering Cure of Luck",
 	"item.minecraft.lingering_potion.effect.slow_falling_cure": "Lingering Cure of Slow Falling",
 	
-	"item.minecraft.tipped_arrow.effect.placebo_cure": "Placebo Arrow",
+	"item.minecraft.tipped_arrow.effect.placebo": "Placebo Arrow",
 	"item.minecraft.tipped_arrow.effect.night_vision_cure": "Arrow of Night Vision Cure",
 	"item.minecraft.tipped_arrow.effect.speed_cure": "Arrow of Swiftness Cure",
 	"item.minecraft.tipped_arrow.effect.haste_cure": "Arrow of Haste Cure", 
