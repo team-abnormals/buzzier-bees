@@ -1,9 +1,10 @@
 package com.bagel.buzzierbees.common;
 
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
-import com.bagel.buzzierbees.common.items.CureItem;
+import com.bagel.buzzierbees.common.blocks.ModTileEntities;
+import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
-
+import com.bagel.buzzierbees.common.items.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -11,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -24,10 +24,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.bagel.buzzierbees.common.blocks.ModTileEntities;
-import com.bagel.buzzierbees.common.entities.ModEntities;
-import com.bagel.buzzierbees.common.items.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
