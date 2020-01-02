@@ -63,56 +63,6 @@ public class BuzzierBees
 				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
 				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
-		
-		/*BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
-				Ingredient.fromItems(Items.POPPED_CHORUS_FRUIT),
-				CureItem.getCure(new ItemStack(ModItems.CURE), null));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.SUGAR),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.SPEED));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.RABBIT_FOOT),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.JUMP_BOOST));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.BLAZE_POWDER),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.STRENGTH));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.SPIDER_EYE),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.POISON));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.GHAST_TEAR),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.REGENERATION));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.MAGMA_CREAM),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.FIRE_RESISTANCE));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.PUFFERFISH),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.WATER_BREATHING));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.GOLDEN_CARROT),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.NIGHT_VISION));
-
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(CureItem.getCure(new ItemStack(ModItems.CURE), null).getItem()),
-				Ingredient.fromItems(Items.PHANTOM_MEMBRANE),
-				CureItem.getCure(new ItemStack(ModItems.CURE), Effects.SLOW_FALLING));*/
 	}
     
     @OnlyIn(Dist.CLIENT)
