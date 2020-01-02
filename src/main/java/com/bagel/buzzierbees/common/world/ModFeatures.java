@@ -31,24 +31,24 @@ public class ModFeatures {
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
-		CARTWHEEL_FEATURE = registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), "cartwheel_feature", Biomes.FLOWER_FOREST);
-		COLUMBINE_FEATURE = registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), "columbine_feature", Biomes.FLOWER_FOREST);
-		DAYBLOOM_FEATURE = registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), "daybloom_feature", Biomes.SUNFLOWER_PLAINS);
+		CARTWHEEL_FEATURE = registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), "cartwheel_feature", Biomes.FLOWER_FOREST, 4);
+		COLUMBINE_FEATURE = registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), "columbine_feature", Biomes.FLOWER_FOREST, 4);
+		DAYBLOOM_FEATURE = registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), "daybloom_feature", Biomes.SUNFLOWER_PLAINS, 4);
 
 		for (Biome biome : new Biome[] { Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.FLOWER_FOREST }) {
-			BLUEBELL_FEATURE = registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", biome);
-			VIOLET_FEATURE = registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), "violet_feature", biome);
-			JOLYCE_FEATURE = registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), "jolyce_feature", biome);
+			BLUEBELL_FEATURE = registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", biome, 2);
+			VIOLET_FEATURE = registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), "violet_feature", biome, 4);
+			JOLYCE_FEATURE = registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), "jolyce_feature", biome, 1);
 		}
 
 		registerDoubleFlowersFeature(Biomes.JUNGLE);
 	}
 
-	private static DefaultFlowersFeature registerFlowerFeature(BlockState blockState, String name, Biome biomeIn)
+	private static DefaultFlowersFeature registerFlowerFeature(BlockState blockState, String name, Biome biomeIn, int frequency)
 	{
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).func_227315_a_(32).func_227322_d_();
 		DefaultFlowersFeature feature = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature.func_225566_b_(config).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(5))));
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature.func_225566_b_(config).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(frequency))));
 		return feature;
 	}
 	
