@@ -73,37 +73,172 @@
 	"block.buzzierbees.red_tulip_scented_candle": "Red Tulip Scented Candle",
 	"block.buzzierbees.wither_rose_scented_candle": "Wither Rose Scented Candle",
 	
-	"item.buzzierbees.cure.placebo": "Placebo",
-	"item.buzzierbees.cure.night_vision": "Cure of Night Vision",
-	"item.buzzierbees.cure.speed": "Cure of Swiftness",
-	"item.buzzierbees.cure.haste": "Cure of Haste",                               //unobtainable
-	"item.buzzierbees.cure.mining_fatigue": "Cure of Mining Fatigue",             //unobtainable (would be good for Ocean Monument though)
-	"item.buzzierbees.cure.nausea": "Cure of Nausea",                             //unobtainable
-	"item.buzzierbees.cure.invisibility": "Cure of Invisibility",
-	"item.buzzierbees.cure.jump_boost": "Cure of Leaping",
-	"item.buzzierbees.cure.resistance": "Cure of Resistance",                     //unobtainable
-	"item.buzzierbees.cure.fire_resistance": "Cure of Fire Resistance",
-	"item.buzzierbees.cure.slowness": "Cure of Slowness",
-	"item.buzzierbees.cure.blindness": "Cure of Blindness",                       //unobtainable
-	"item.buzzierbees.cure.hunger": "Cure of Hunger",                             //unobtainable
-	"item.buzzierbees.cure.wither": "Cure of Wither",                             //unobtainable (would be good for Nether Fortress though)
-	"item.buzzierbees.cure.health_boost": "Cure of Health Boost",                 //unobtainable
-	"item.buzzierbees.cure.absorption": "Cure of Absorption",                     //unobtainable
-	"item.buzzierbees.cure.saturation": "Cure of Saturation",                     //unobtainable
-	"item.buzzierbees.cure.glowing": "Cure of Glowing",                           //unobtainable
-	"item.buzzierbees.cure.levitation": "Cure of Levitation",                     //unobtainable (would be good for End City though)
-	"item.buzzierbees.cure.unluck": "Cure of Unluck",                             //unobtainable
-	"item.buzzierbees.cure.conduit_power": "Cure of Conduit Power",               //unobtainable
-	"item.buzzierbees.cure.dolphins_grace": "Cure of Dolphin's Grace'",           //unobtainable
-	"item.buzzierbees.cure.bad_omen": "Cure of Bad Omen",                         //unobtainable (would be good for Raids though)
-	"item.buzzierbees.cure.hero_of_the_village": "Cure of Hero of the Village",   //unobtainable
-	"item.buzzierbees.cure.water_breathing": "Cure of Water Breathing",
-	"item.buzzierbees.cure.instant_health": "Cure of Healing",                    //unobtainable
-	"item.buzzierbees.cure.instant_damage": "Cure of Harming",                    //unobtainable
-	"item.buzzierbees.cure.poison": "Cure of Poison",
-	"item.buzzierbees.cure.regeneration": "Cure of Regeneration",
-	"item.buzzierbees.cure.strength": "Cure of Strength",
-	"item.buzzierbees.cure.weakness": "Cure of Weakness",
-	"item.buzzierbees.cure.luck": "Cure of Luck",
-	"item.buzzierbees.cure.slow_falling": "Cure of Slow Falling"
+	"item.minecraft.potion.effect.placebo_cure": "Placebo",
+	"item.minecraft.potion.effect.night_vision_cure": "Cure of Night Vision",
+	"item.minecraft.potion.effect.speed_cure": "Cure of Swiftness",
+	"item.minecraft.potion.effect.haste_cure": "Cure of Haste",                               //unobtainable
+	"item.minecraft.potion.effect.mining_fatigue_cure": "Cure of Mining Fatigue",             //unobtainable (would be good for Ocean Monument though)
+	"item.minecraft.potion.effect.nausea_cure": "Cure of Nausea",                             //unobtainable
+	"item.minecraft.potion.effect.invisibility_cure": "Cure of Invisibility",
+	"item.minecraft.potion.effect.leaping_cure": "Cure of Leaping",
+	"item.minecraft.potion.effect.resistance_cure": "Cure of Resistance",                     //unobtainable
+	"item.minecraft.potion.effect.fire_resistance_cure": "Cure of Fire Resistance",
+	"item.minecraft.potion.effect.slowness_cure": "Cure of Slowness",
+	"item.minecraft.potion.effect.blindness_cure": "Cure of Blindness",                       //unobtainable
+	"item.minecraft.potion.effect.hunger_cure": "Cure of Hunger",                             //unobtainable
+	"item.minecraft.potion.effect.wither_cure": "Cure of Wither",                             //unobtainable (would be good for Nether Fortress though)
+	"item.minecraft.potion.effect.health_boost_cure": "Cure of Health Boost",                 //unobtainable
+	"item.minecraft.potion.effect.absorption_cure": "Cure of Absorption",                     //unobtainable
+	"item.minecraft.potion.effect.saturation_cure": "Cure of Saturation",                     //unobtainable
+	"item.minecraft.potion.effect.glowing_cure": "Cure of Glowing",                           //unobtainable
+	"item.minecraft.potion.effect.levitation_cure": "Cure of Levitation",                     //unobtainable (would be good for End City though)
+	"item.minecraft.potion.effect.unluck_cure": "Cure of Unluck",                             //unobtainable
+	"item.minecraft.potion.effect.conduit_power_cure": "Cure of Conduit Power",               //unobtainable
+	"item.minecraft.potion.effect.dolphins_grace_cure": "Cure of Dolphin's Grace'",           //unobtainable
+	"item.minecraft.potion.effect.bad_omen_cure": "Cure of Bad Omen",                         //unobtainable (would be good for Raids though)
+	"item.minecraft.potion.effect.hero_of_the_village_cure": "Cure of Hero of the Village",   //unobtainable
+	"item.minecraft.potion.effect.water_breathing_cure": "Cure of Water Breathing",
+	"item.minecraft.potion.effect.instant_health_cure": "Cure of Healing",                    //unobtainable
+	"item.minecraft.potion.effect.instant_damage_cure": "Cure of Harming",                    //unobtainable
+	"item.minecraft.potion.effect.poison_cure": "Cure of Poison",
+	"item.minecraft.potion.effect.regeneration_cure": "Cure of Regeneration",
+	"item.minecraft.potion.effect.strength_cure": "Cure of Strength",
+	"item.minecraft.potion.effect.weakness_cure": "Cure of Weakness",
+	"item.minecraft.potion.effect.luck_cure": "Cure of Luck",
+	"item.minecraft.potion.effect.slow_falling_cure": "Cure of Slow Falling",
+
+	"item.minecraft.splash_potion.effect.placebo_cure": "Splash Placebo",
+	"item.minecraft.splash_potion.effect.night_vision_cure": "Splash Cure of Night Vision",
+	"item.minecraft.splash_potion.effect.speed_cure": "Splash Cure of Swiftness",
+	"item.minecraft.splash_potion.effect.haste_cure": "Splash Cure of Haste", 
+	"item.minecraft.splash_potion.effect.mining_fatigue_cure": "Splash Cure of Mining Fatigue",
+	"item.minecraft.splash_potion.effect.nausea_cure": "Splash Cure of Nausea",
+	"item.minecraft.splash_potion.effect.invisibility_cure": "Splash Cure of Invisibility",
+	"item.minecraft.splash_potion.effect.leaping_cure": "Splash Cure of Leaping",
+	"item.minecraft.splash_potion.effect.resistance_cure": "Splash Cure of Resistance",
+	"item.minecraft.splash_potion.effect.fire_resistance_cure": "Splash Cure of Fire Resistance",
+	"item.minecraft.splash_potion.effect.slowness_cure": "Splash Cure of Slowness",
+	"item.minecraft.splash_potion.effect.blindness_cure": "Splash Cure of Blindness",
+	"item.minecraft.splash_potion.effect.hunger_cure": "Splash Cure of Hunger",
+	"item.minecraft.splash_potion.effect.wither_cure": "Splash Cure of Wither",
+	"item.minecraft.splash_potion.effect.health_boost_cure": "Splash Cure of Health Boost",
+	"item.minecraft.splash_potion.effect.absorption_cure": "Splash Cure of Absorption",
+	"item.minecraft.splash_potion.effect.saturation_cure": "Splash Cure of Saturation",
+	"item.minecraft.splash_potion.effect.glowing_cure": "Splash Cure of Glowing",
+	"item.minecraft.splash_potion.effect.levitation_cure": "Splash Cure of Levitation",
+	"item.minecraft.splash_potion.effect.unluck_cure": "Splash Cure of Unluck",
+	"item.minecraft.splash_potion.effect.conduit_power_cure": "Splash Cure of Conduit Power",
+	"item.minecraft.splash_potion.effect.dolphins_grace_cure": "Splash Cure of Dolphin's Grace'",
+	"item.minecraft.splash_potion.effect.bad_omen_cure": "Splash Cure of Bad Omen",
+	"item.minecraft.splash_potion.effect.hero_of_the_village_cure": "Splash Cure of Hero of the Village",
+	"item.minecraft.splash_potion.effect.water_breathing_cure": "Splash Cure of Water Breathing",
+	"item.minecraft.splash_potion.effect.instant_health_cure": "Splash Cure of Healing",
+	"item.minecraft.splash_potion.effect.instant_damage_cure": "Splash Cure of Harming",
+	"item.minecraft.splash_potion.effect.poison_cure": "Splash Cure of Poison",
+	"item.minecraft.splash_potion.effect.regeneration_cure": "Splash Cure of Regeneration",
+	"item.minecraft.splash_potion.effect.strength_cure": "Splash Cure of Strength",
+	"item.minecraft.splash_potion.effect.weakness_cure": "Splash Cure of Weakness",
+	"item.minecraft.splash_potion.effect.luck_cure": "Splash Cure of Luck",
+	"item.minecraft.splash_potion.effect.slow_falling_cure": "Splash Cure of Slow Falling",
+
+	"item.minecraft.lingering_potion.effect.placebo_cure": "Placebo",
+	"item.minecraft.lingering_potion.effect.night_vision_cure": "Lingering Cure of Night Vision",
+	"item.minecraft.lingering_potion.effect.speed_cure": "Lingering Cure of Swiftness",
+	"item.minecraft.lingering_potion.effect.haste_cure": "Lingering Cure of Haste", 
+	"item.minecraft.lingering_potion.effect.mining_fatigue_cure": "Lingering Cure of Mining Fatigue",
+	"item.minecraft.lingering_potion.effect.nausea_cure": "Lingering Cure of Nausea",
+	"item.minecraft.lingering_potion.effect.invisibility_cure": "Lingering Cure of Invisibility",
+	"item.minecraft.lingering_potion.effect.leaping_cure": "Lingering Cure of Leaping",
+	"item.minecraft.lingering_potion.effect.resistance_cure": "Lingering Cure of Resistance",
+	"item.minecraft.lingering_potion.effect.fire_resistance_cure": "Lingering Cure of Fire Resistance",
+	"item.minecraft.lingering_potion.effect.slowness_cure": "Lingering Cure of Slowness",
+	"item.minecraft.lingering_potion.effect.blindness_cure": "Lingering Cure of Blindness",
+	"item.minecraft.lingering_potion.effect.hunger_cure": "Lingering Cure of Hunger",
+	"item.minecraft.lingering_potion.effect.wither_cure": "Lingering Cure of Wither",
+	"item.minecraft.lingering_potion.effect.health_boost_cure": "Lingering Cure of Health Boost",
+	"item.minecraft.lingering_potion.effect.absorption_cure": "Lingering Cure of Absorption",
+	"item.minecraft.lingering_potion.effect.saturation_cure": "Lingering Cure of Saturation",
+	"item.minecraft.lingering_potion.effect.glowing_cure": "Lingering Cure of Glowing",
+	"item.minecraft.lingering_potion.effect.levitation_cure": "Lingering Cure of Levitation",
+	"item.minecraft.lingering_potion.effect.unluck_cure": "Lingering Cure of Unluck",
+	"item.minecraft.lingering_potion.effect.conduit_power_cure": "Lingering Cure of Conduit Power",
+	"item.minecraft.lingering_potion.effect.dolphins_grace_cure": "Lingering Cure of Dolphin's Grace'",
+	"item.minecraft.lingering_potion.effect.bad_omen_cure": "Lingering Cure of Bad Omen",
+	"item.minecraft.lingering_potion.effect.hero_of_the_village_cure": "Lingering Cure of Hero of the Village",
+	"item.minecraft.lingering_potion.effect.water_breathing_cure": "Lingering Cure of Water Breathing",
+	"item.minecraft.lingering_potion.effect.instant_health_cure": "Lingering Cure of Healing",
+	"item.minecraft.lingering_potion.effect.instant_damage_cure": "Lingering Cure of Harming",
+	"item.minecraft.lingering_potion.effect.poison_cure": "Lingering Cure of Poison",
+	"item.minecraft.lingering_potion.effect.regeneration_cure": "Lingering Cure of Regeneration",
+	"item.minecraft.lingering_potion.effect.strength_cure": "Lingering Cure of Strength",
+	"item.minecraft.lingering_potion.effect.weakness_cure": "Lingering Cure of Weakness",
+	"item.minecraft.lingering_potion.effect.luck_cure": "Lingering Cure of Luck",
+	"item.minecraft.lingering_potion.effect.slow_falling_cure": "Lingering Cure of Slow Falling",
+	
+	"item.minecraft.tipped_arrow.effect.placebo_cure": "Placebo Arrow",
+	"item.minecraft.tipped_arrow.effect.night_vision_cure": "Arrow of Night Vision Cure",
+	"item.minecraft.tipped_arrow.effect.speed_cure": "Arrow of Swiftness Cure",
+	"item.minecraft.tipped_arrow.effect.haste_cure": "Arrow of Haste Cure", 
+	"item.minecraft.tipped_arrow.effect.mining_fatigue_cure": "Arrow of Mining Fatigue Cure",
+	"item.minecraft.tipped_arrow.effect.nausea_cure": "Arrow of Nausea Cure",
+	"item.minecraft.tipped_arrow.effect.invisibility_cure": "Arrow of Invisibility Cure",
+	"item.minecraft.tipped_arrow.effect.leaping_cure": "Arrow of Leaping Cure",
+	"item.minecraft.tipped_arrow.effect.resistance_cure": "Arrow of Resistance Cure",
+	"item.minecraft.tipped_arrow.effect.fire_resistance_cure": "Arrow of Fire Resistance Cure",
+	"item.minecraft.tipped_arrow.effect.slowness_cure": "Arrow of Slowness Cure",
+	"item.minecraft.tipped_arrow.effect.blindness_cure": "Arrow of Blindness Cure",
+	"item.minecraft.tipped_arrow.effect.hunger_cure": "Arrow of Hunger Cure",
+	"item.minecraft.tipped_arrow.effect.wither_cure": "Arrow of Wither Cure",
+	"item.minecraft.tipped_arrow.effect.health_boost_cure": "Arrow of Health Boost Cure",
+	"item.minecraft.tipped_arrow.effect.absorption_cure": "Arrow of Absorption Cure",
+	"item.minecraft.tipped_arrow.effect.saturation_cure": "Arrow of Saturation Cure",
+	"item.minecraft.tipped_arrow.effect.glowing_cure": "Arrow of Glowing Cure",
+	"item.minecraft.tipped_arrow.effect.levitation_cure": "Arrow of Levitation Cure",
+	"item.minecraft.tipped_arrow.effect.unluck_cure": "Arrow of Unluck Cure",
+	"item.minecraft.tipped_arrow.effect.conduit_power_cure": "Arrow of Conduit Power Cure",
+	"item.minecraft.tipped_arrow.effect.dolphins_grace_cure": "Arrow of Dolphin's Grace' Cure",
+	"item.minecraft.tipped_arrow.effect.bad_omen_cure": "Arrow of Bad Omen Cure",
+	"item.minecraft.tipped_arrow.effect.hero_of_the_village_cure": "Arrow of Hero of the Village Cure",
+	"item.minecraft.tipped_arrow.effect.water_breathing_cure": "Arrow of Water Breathing Cure",
+	"item.minecraft.tipped_arrow.effect.instant_health_cure": "Arrow of Healing Cure",
+	"item.minecraft.tipped_arrow.effect.instant_damage_cure": "Arrow of Harming Cure",
+	"item.minecraft.tipped_arrow.effect.poison_cure": "Arrow of Poison Cure",
+	"item.minecraft.tipped_arrow.effect.regeneration_cure": "Arrow of Regeneration Cure",
+	"item.minecraft.tipped_arrow.effect.strength_cure": "Arrow of Strength Cure",
+	"item.minecraft.tipped_arrow.effect.weakness_cure": "Arrow of Weakness Cure",
+	"item.minecraft.tipped_arrow.effect.luck_cure": "Arrow of Luck Cure",
+	"item.minecraft.tipped_arrow.effect.slow_falling_cure": "Arrow of Slow Falling Cure",
+	
+	"effect.buzzierbees.anti_night_vision": "Anti Night Vision",
+	"effect.buzzierbees.anti_speed": "Anti Swiftness",
+	"effect.buzzierbees.anti_haste": "Anti Haste", 
+	"effect.buzzierbees.anti_mining_fatigue": "Anti Mining Fatigue",
+	"effect.buzzierbees.anti_nausea": "Anti Nausea",
+	"effect.buzzierbees.anti_invisibility": "Anti Invisibility",
+	"effect.buzzierbees.anti_jump_boost": "Anti Leaping",
+	"effect.buzzierbees.anti_resistance": "Anti Resistance",
+	"effect.buzzierbees.anti_fire_resistance": "Anti Fire Resistance",
+	"effect.buzzierbees.anti_slowness": "Anti Slowness",
+	"effect.buzzierbees.anti_blindness": "Anti Blindness",
+	"effect.buzzierbees.anti_hunger": "Anti Hunger",
+	"effect.buzzierbees.anti_wither": "Anti Wither",
+	"effect.buzzierbees.anti_health_boost": "Anti Health Boost",
+	"effect.buzzierbees.anti_absorption": "Anti Absorption",
+	"effect.buzzierbees.anti_saturation": "Anti Saturation",
+	"effect.buzzierbees.anti_glowing": "Anti Glowing",
+	"effect.buzzierbees.anti_levitation": "Anti Levitation",
+	"effect.buzzierbees.anti_unluck": "Anti Unluck",
+	"effect.buzzierbees.anti_conduit_power": "Anti Conduit Power",
+	"effect.buzzierbees.anti_dolphins_grace": "Anti Dolphin's Grace'",
+	"effect.buzzierbees.anti_bad_omen": "Anti Bad Omen",
+	"effect.buzzierbees.anti_hero_of_the_village": "Anti Hero of the Village",
+	"effect.buzzierbees.anti_water_breathing": "Anti Water Breathing",
+	"effect.buzzierbees.anti_instant_health": "Anti Healing",
+	"effect.buzzierbees.anti_instant_damage": "Anti Harming",
+	"effect.buzzierbees.anti_poison": "Anti Poison",
+	"effect.buzzierbees.anti_regeneration": "Anti Regeneration",
+	"effect.buzzierbees.anti_strength": "Anti Strength",
+	"effect.buzzierbees.anti_weakness": "Anti Weakness",
+	"effect.buzzierbees.anti_luck": "Anti Luck",
+	"effect.buzzierbees.anti_slow_falling": "Anti Slow Falling"
 }
