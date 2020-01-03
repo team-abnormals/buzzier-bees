@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:candle"
+        },
+        {
+            "item": "buzzierbees:daybloom"
+        }
+        {
+            "item": "minecraft:blaze_powder"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:daybloom_scented_candle",
+        "count": 1
+    }
+}

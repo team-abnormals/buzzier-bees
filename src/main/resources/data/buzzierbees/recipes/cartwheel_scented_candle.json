@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:candle"
+        },
+        {
+            "item": "buzzierbees:cartwheel"
+        }
+        {
+            "item": "minecraft:blaze_powder"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:cartwheel_scented_candle",
+        "count": 1
+    }
+}

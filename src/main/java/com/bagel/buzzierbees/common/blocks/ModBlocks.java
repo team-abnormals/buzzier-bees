@@ -1,5 +1,7 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import com.bagel.buzzierbees.common.effects.ModEffects;
+
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -92,14 +94,14 @@ public class ModBlocks
 	public static Block POTTED_WHITE_CLOVER;
 	public static Block POTTED_PINK_CLOVER;
 	
-	//public static Block CARTWHEEL_SCENTED_CANDLE;
-	//public static Block BLUEBELL_SCENTED_CANDLE;
-	//public static Block VIOLET_SCENTED_CANDLE;
-	//public static Block COLUMBINE_SCENTED_CANDLE;
-	//public static Block JOLYCE_SCENTED_CANDLE;
-	//public static Block DAYBLOOM_SCENTED_CANDLE;
-	//public static Block WHITE_CLOVER_SCENTED_CANDLE;
-	//public static Block PINK_CLOVER_SCENTED_CANDLE;
+	public static Block CARTWHEEL_SCENTED_CANDLE;
+	public static Block BLUEBELL_SCENTED_CANDLE;
+	public static Block VIOLET_SCENTED_CANDLE;
+	public static Block COLUMBINE_SCENTED_CANDLE;
+	public static Block JOLYCE_SCENTED_CANDLE;
+	public static Block DAYBLOOM_SCENTED_CANDLE;
+	public static Block WHITE_CLOVER_SCENTED_CANDLE;
+	public static Block PINK_CLOVER_SCENTED_CANDLE;
 	
 	public static Block HIVE_PLANKS;
 	public static Block HIVE_STAIRS;
@@ -138,11 +140,11 @@ public class ModBlocks
 		BLUEBELL = registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);
 		DAYBLOOM = registerBlock(new FlowerBlock(Effects.GLOWING, 8, Block.Properties.from(CARTWHEEL)), "daybloom", ItemGroup.DECORATIONS);
 		VIOLET = registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, Block.Properties.from(CARTWHEEL)), "violet", ItemGroup.DECORATIONS);
-		JOLYCE = registerBlock(new FlowerBlock(Effects.NAUSEA, 6, Block.Properties.from(CARTWHEEL)), "jolyce", ItemGroup.DECORATIONS);
+		JOLYCE = registerBlock(new FlowerBlock(Effects.STRENGTH, 8, Block.Properties.from(CARTWHEEL)), "jolyce", ItemGroup.DECORATIONS);
 		COLUMBINE = registerBlock(new FlowerBlock(Effects.MINING_FATIGUE, 6, Block.Properties.from(CARTWHEEL)), "columbine", ItemGroup.DECORATIONS);
 		BIRD_OF_PARADISE = registerBlock(new TallFlowerBlock(Block.Properties.from(CARTWHEEL)), "bird_of_paradise", ItemGroup.DECORATIONS);
-		WHITE_CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
-		PINK_CLOVER = registerBlock(new CloverBlock(Effects.LUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
+		WHITE_CLOVER = registerBlock(new CloverBlock(Effects.UNLUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
+		PINK_CLOVER = registerBlock(new CloverBlock(Effects.UNLUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
 		
 	    POTTED_CARTWHEEL = registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_cartwheel");
 	    POTTED_BLUEBELL = registerBlockNoItem(new FlowerPotBlock(BLUEBELL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_bluebell");
@@ -188,14 +190,14 @@ public class ModBlocks
 		WITHER_ROSE_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.WITHER, Block.Properties.from(CANDLE)), "wither_rose_scented_candle", ItemGroup.DECORATIONS);
 		
 		//mod scented candles
-		//CARTWHEEL_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.SPEED, Block.Properties.from(CANDLE)), "cartwheel_scented_candle", ItemGroup.DECORATIONS);
-		//BLUEBELL_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.___, Block.Properties.from(CANDLE)), "bluebell_scented_candle", ItemGroup.DECORATIONS);
-		//DAYBLOOM_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.GLOWING, Block.Properties.from(CANDLE)), "daybloom_scented_candle", ItemGroup.DECORATIONS);
-		//VIOLET_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.___, Block.Properties.from(CANDLE)), "violet_scented_candle", ItemGroup.DECORATIONS);
-		//JOLYCE_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.NAUSUA, Block.Properties.from(CANDLE)), "jolyce_scented_candle", ItemGroup.DECORATIONS);
-		//COLUMBINE_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.MINING_FATIGUE, Block.Properties.from(CANDLE)), "columbine_scented_candle", ItemGroup.DECORATIONS);
-		//WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.LUCK, Block.Properties.from(CANDLE)), "white_clover_scented_candle", ItemGroup.DECORATIONS);
-		//PINK_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.LUCK, Block.Properties.from(CANDLE)), "pink_clover_scented_candle", ItemGroup.DECORATIONS);
+		CARTWHEEL_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.SPEED, Block.Properties.from(CANDLE)), "cartwheel_scented_candle", ItemGroup.DECORATIONS);
+		BLUEBELL_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.WATER_BREATHING, Block.Properties.from(CANDLE)), "bluebell_scented_candle", ItemGroup.DECORATIONS);
+		DAYBLOOM_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.GLOWING, Block.Properties.from(CANDLE)), "daybloom_scented_candle", ItemGroup.DECORATIONS);
+		VIOLET_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.INVISIBILITY, Block.Properties.from(CANDLE)), "violet_scented_candle", ItemGroup.DECORATIONS);
+		JOLYCE_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.STRENGTH, Block.Properties.from(CANDLE)), "jolyce_scented_candle", ItemGroup.DECORATIONS);
+		COLUMBINE_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.MINING_FATIGUE, Block.Properties.from(CANDLE)), "columbine_scented_candle", ItemGroup.DECORATIONS);
+		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK, Block.Properties.from(CANDLE)), "white_clover_scented_candle", ItemGroup.DECORATIONS);
+		PINK_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK, Block.Properties.from(CANDLE)), "pink_clover_scented_candle", ItemGroup.DECORATIONS);
 
 		
 		//flamboyant candles

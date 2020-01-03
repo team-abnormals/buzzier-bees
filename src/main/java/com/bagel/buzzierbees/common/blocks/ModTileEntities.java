@@ -24,6 +24,14 @@ public class ModTileEntities {
         		ModBlocks.ORANGE_TULIP_SCENTED_CANDLE, //weakness 
         		ModBlocks.PINK_TULIP_SCENTED_CANDLE, //weakness
         		ModBlocks.RED_TULIP_SCENTED_CANDLE, //weakness
-        		ModBlocks.WITHER_ROSE_SCENTED_CANDLE) //wither
+        		ModBlocks.WITHER_ROSE_SCENTED_CANDLE, //wither
+        		ModBlocks.CARTWHEEL_SCENTED_CANDLE,
+        		ModBlocks.BLUEBELL_SCENTED_CANDLE,
+        		ModBlocks.COLUMBINE_SCENTED_CANDLE,
+        		ModBlocks.JOLYCE_SCENTED_CANDLE,
+        		ModBlocks.PINK_CLOVER_SCENTED_CANDLE,
+        		ModBlocks.WHITE_CLOVER_SCENTED_CANDLE,
+        		ModBlocks.DAYBLOOM_SCENTED_CANDLE,
+        		ModBlocks.VIOLET_SCENTED_CANDLE) 
         		.build(null));
 }
