@@ -43,9 +43,8 @@ public class ModPotions {
         BAD_LUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600)}), "bad_luck");
         LONG_UNLUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 9600)}), "long_bad_luck");
         STRONG_UNLUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600, 1)}), "strong_bad_luck");
-
+        
         //Cures
-        CLOVER_HONEY_BOTTLE = registerPotion(new Potion("clover_honey_bottle"), "clover_honey_bottle");
     	PLACEBO = registerPotion(new Potion("placebo"), "placebo");
         NIGHT_VISION_CURE = registerPotion(new Potion("night_vision_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_NIGHT_VISION)}), "night_vision_cure");
         INVISIBILITY_CURE = registerPotion(new Potion("invisibility_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INVISIBILITY)}), "invisibility_cure");
@@ -54,8 +53,8 @@ public class ModPotions {
         SWIFTNESS_CURE = registerPotion(new Potion("speed_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_SPEED)}), "speed_cure");
         SLOWNESS_CURE = registerPotion(new Potion("slowness_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_SLOWNESS)}), "slowness_cure");
         WATER_BREATHING_CURE = registerPotion(new Potion("water_breathing_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_WATER_BREATHING)}), "water_breathing_cure");
-        INSTANT_HEALTH_CURE = registerPotion(new Potion("instant_health_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INSTANT_HEALTH)}), "instant_health_cure");
-        INSTANT_DAMAGE_CURE = registerPotion(new Potion("instant_damage_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INSTANT_DAMAGE)}), "instant_damage_cure");
+        //INSTANT_HEALTH_CURE = registerPotion(new Potion("instant_health_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INSTANT_HEALTH)}), "instant_health_cure");
+        //INSTANT_DAMAGE_CURE = registerPotion(new Potion("instant_damage_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INSTANT_DAMAGE)}), "instant_damage_cure");
         POISON_CURE = registerPotion(new Potion("poison_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_POISON)}), "poison_cure");
         REGENERATION_CURE = registerPotion(new Potion("regeneration_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_REGENERATION)}), "regeneration_cure");
         STRENGTH_CURE = registerPotion(new Potion("strength_cure", new EffectInstance[] {new EffectInstance(ModEffects.ANTI_STRENGTH)}), "strength_cure");

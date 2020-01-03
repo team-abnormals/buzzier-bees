@@ -10,11 +10,15 @@ import com.bagel.buzzierbees.common.potions.ModPotions;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionBrewing;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -51,6 +55,7 @@ public class BuzzierBees
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
         addBrewingRecipes();
     }
+    
 
     private void addBrewingRecipes() {
 		BrewingRecipeRegistry.addRecipe(
@@ -63,6 +68,18 @@ public class BuzzierBees
 				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(ModItems.CLOVER_LEAF),
 				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
+		
+		ItemStack weakCure = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.WEAKNESS_CURE);
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(Items.FERMENTED_SPIDER_EYE),
+				weakCure);
+
+		ItemStack placebo = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.PLACEBO);
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(Items.POPPED_CHORUS_FRUIT),
+				placebo);
 
 		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER, Potions.LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, ModPotions.LONG_LUCK);
@@ -74,7 +91,6 @@ public class BuzzierBees
 		PotionBrewing.addMix(ModPotions.STRONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.STRONG_UNLUCK);
 
 		//Cures Brewing
-		PotionBrewing.addMix(ModPotions.CLOVER_HONEY_BOTTLE, Items.POPPED_CHORUS_FRUIT, ModPotions.PLACEBO);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GOLDEN_CARROT, ModPotions.NIGHT_VISION_CURE);
 		PotionBrewing.addMix(ModPotions.NIGHT_VISION_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.INVISIBILITY_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.MAGMA_CREAM, ModPotions.FIRE_RESISTANCE_CURE);
@@ -85,8 +101,10 @@ public class BuzzierBees
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.PUFFERFISH, ModPotions.WATER_BREATHING_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GHAST_TEAR, ModPotions.REGENERATION_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.BLAZE_POWDER, ModPotions.STRENGTH_CURE);
-		PotionBrewing.addMix(ModPotions.PLACEBO, Items.FERMENTED_SPIDER_EYE, ModPotions.WEAKNESS_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.PHANTOM_MEMBRANE, ModPotions.SLOW_FALLING_CURE);
+		PotionBrewing.addMix(ModPotions.PLACEBO, Items.SPIDER_EYE, ModPotions.POISON_CURE);
+		PotionBrewing.addMix(ModPotions.PLACEBO, ModItems.FOUR_LEAF_CLOVER, ModPotions.LUCK_CURE);
+		PotionBrewing.addMix(ModPotions.LUCK_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.UNLUCK_CURE);
 	}
     
     @OnlyIn(Dist.CLIENT)
