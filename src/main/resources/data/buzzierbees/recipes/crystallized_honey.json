@@ -1,12 +1,18 @@
 {
-  "type": "crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "buzzierbees:crystallized_honey_block"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "item": "minecraft:sugar"
+        },
+        {
+            "item": "minecraft:sugar"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:crystallized_honey",
+        "count": 1
     }
-  ],
-  "result": {
-    "item": "buzzierbees:crystallized_honey",
-    "count": 4
-  }
 }

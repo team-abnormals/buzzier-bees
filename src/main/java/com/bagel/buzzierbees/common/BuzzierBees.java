@@ -54,12 +54,7 @@ public class BuzzierBees
     }
     
 
-    private void addBrewingRecipes() {
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(Items.field_226638_pX_),
-				Ingredient.fromItems(Items.SUGAR),
-				new ItemStack(ModItems.CRYSTALLIZED_HONEY));
-		
+    private void addBrewingRecipes() {		
 		//Temporary Clover Honey recipe (until we get hive situation sorted out)
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(Items.field_226638_pX_),
