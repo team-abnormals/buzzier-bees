@@ -140,27 +140,27 @@ public class ModBlocks
 		//Flowers Section
 		Block.Properties CARTWHEEL_PROPERTIES = Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
 
-		CARTWHEEL 			= registerBlock(new CartwheelBlock	(Effects.SPEED, 			11, CARTWHEEL_PROPERTIES), "cartwheel", ItemGroup.DECORATIONS);
-		BLUEBELL 			= registerBlock(new FlowerBlock		(Effects.WATER_BREATHING, 	6, Block.Properties.from(CARTWHEEL)),"bluebell", 			ItemGroup.DECORATIONS);
-		DAYBLOOM 			= registerBlock(new FlowerBlock		(Effects.GLOWING, 			8, Block.Properties.from(CARTWHEEL)), "daybloom", 			ItemGroup.DECORATIONS);
-		VIOLET 				= registerBlock(new FlowerBlock		(Effects.INVISIBILITY, 		6, Block.Properties.from(CARTWHEEL)), "violet", 			ItemGroup.DECORATIONS);
-		JOLYCE 				= registerBlock(new FlowerBlock		(Effects.STRENGTH, 			8, Block.Properties.from(CARTWHEEL)), "jolyce", 			ItemGroup.DECORATIONS);
-		COLUMBINE 			= registerBlock(new FlowerBlock		(Effects.MINING_FATIGUE, 	6, Block.Properties.from(CARTWHEEL)), "columbine", 		ItemGroup.DECORATIONS);
-		BIRD_OF_PARADISE 	= registerBlock(new TallFlowerBlock	(CARTWHEEL_PROPERTIES), 										"bird_of_paradise", 	ItemGroup.DECORATIONS);
-		WHITE_CLOVER 		= registerBlock(new CloverBlock		(Effects.UNLUCK, Block.Properties.from(CARTWHEEL).func_226896_b_()), 		"white_clover", 		ItemGroup.DECORATIONS);
-		PINK_CLOVER 		= registerBlock(new CloverBlock		(Effects.UNLUCK, Block.Properties.from(CARTWHEEL).func_226896_b_()), 		"pink_clover", 		ItemGroup.DECORATIONS);
+		CARTWHEEL 			= registerBlock(new CartwheelBlock	(Effects.SPEED, 			11, 	CARTWHEEL_PROPERTIES), 	"cartwheel", 		ItemGroup.DECORATIONS);
+		BLUEBELL 			= registerBlock(new FlowerBlock		(Effects.WATER_BREATHING, 	6, 		CARTWHEEL_PROPERTIES),	"bluebell", 			ItemGroup.DECORATIONS);
+		DAYBLOOM 			= registerBlock(new FlowerBlock		(Effects.GLOWING, 			8, 		CARTWHEEL_PROPERTIES), 	"daybloom", 			ItemGroup.DECORATIONS);
+		VIOLET 				= registerBlock(new FlowerBlock		(Effects.INVISIBILITY, 		6, 		CARTWHEEL_PROPERTIES), 	"violet", 			ItemGroup.DECORATIONS);
+		JOLYCE 				= registerBlock(new FlowerBlock		(Effects.STRENGTH, 			8, 		CARTWHEEL_PROPERTIES), 	"jolyce", 			ItemGroup.DECORATIONS);
+		COLUMBINE 			= registerBlock(new FlowerBlock		(Effects.MINING_FATIGUE, 	6, 		CARTWHEEL_PROPERTIES), 	"columbine", 		ItemGroup.DECORATIONS);
+		BIRD_OF_PARADISE 	= registerBlock(new TallFlowerBlock	(CARTWHEEL_PROPERTIES),												 	"bird_of_paradise", 	ItemGroup.DECORATIONS);
+		WHITE_CLOVER 		= registerBlock(new CloverBlock		(Effects.UNLUCK, CARTWHEEL_PROPERTIES.func_226896_b_()),			 	"white_clover", 		ItemGroup.DECORATIONS);
+		PINK_CLOVER 		= registerBlock(new CloverBlock		(Effects.UNLUCK, CARTWHEEL_PROPERTIES.func_226896_b_()), 				"pink_clover", 		ItemGroup.DECORATIONS);
 
 		//Potted Flowers Section
-	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_cartwheel");
-	    POTTED_BLUEBELL 	= registerBlockNoItem(new FlowerPotBlock(BLUEBELL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()),			"potted_bluebell");
-	    POTTED_DAYBLOOM 	= registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 			"potted_daybloom");
-	    POTTED_VIOLET 		= registerBlockNoItem(new FlowerPotBlock(VIOLET, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 			"potted_violet");
-	    POTTED_JOLYCE 		= registerBlockNoItem(new FlowerPotBlock(JOLYCE, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 			"potted_jolyce");
-	    POTTED_COLUMBINE 	= registerBlockNoItem(new FlowerPotBlock(COLUMBINE, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 			"potted_columbine");
-	    POTTED_WHITE_CLOVER = registerBlockNoItem(new FlowerPotBlock(WHITE_CLOVER, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 		"potted_white_clover");
-	    POTTED_PINK_CLOVER 	= registerBlockNoItem(new FlowerPotBlock(PINK_CLOVER, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 		"potted_pink_clover");
+	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, 	Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_cartwheel");
+	    POTTED_BLUEBELL 	= registerBlockNoItem(new FlowerPotBlock(BLUEBELL, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()),	"potted_bluebell");
+	    POTTED_DAYBLOOM 	= registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_daybloom");
+	    POTTED_VIOLET 		= registerBlockNoItem(new FlowerPotBlock(VIOLET, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_violet");
+	    POTTED_JOLYCE 		= registerBlockNoItem(new FlowerPotBlock(JOLYCE, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_jolyce");
+	    POTTED_COLUMBINE 	= registerBlockNoItem(new FlowerPotBlock(COLUMBINE, 		Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_columbine");
+	    POTTED_WHITE_CLOVER = registerBlockNoItem(new FlowerPotBlock(WHITE_CLOVER, 		Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_white_clover");
+	    POTTED_PINK_CLOVER 	= registerBlockNoItem(new FlowerPotBlock(PINK_CLOVER, 		Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_pink_clover");
 
-		//vanilla candles
+		//Vanilla Candles Section
 		Block.Properties CANDLE_PROPERTIES = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
 
 		CANDLE 				= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "candle", 			ItemGroup.DECORATIONS);
@@ -181,32 +181,32 @@ public class ModBlocks
 		RED_CANDLE 			= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "red_candle", 		ItemGroup.DECORATIONS);
 		BLACK_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "black_candle", 		ItemGroup.DECORATIONS);
 		
-		//vanilla scented candles
-		ALLIUM_SCENTED_CANDLE 				= registerBlock(new ScentedCandleBlock(Effects.FIRE_RESISTANCE, CANDLE_PROPERTIES), "allium_scented_candle", 			ItemGroup.DECORATIONS);
-		AZURE_BLUET_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.BLINDNESS, 		CANDLE_PROPERTIES), "azure_bluet_scented_candle", 		ItemGroup.DECORATIONS);
-		BLUE_ORCHID_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.SATURATION, 		CANDLE_PROPERTIES), "blue_orchid_scented_candle", 		ItemGroup.DECORATIONS);
-		DANDELION_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.SATURATION, 		CANDLE_PROPERTIES), "dandelion_scented_candle", 			ItemGroup.DECORATIONS);
-		CORNFLOWER_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.JUMP_BOOST, 		CANDLE_PROPERTIES), "cornflower_scented_candle",			ItemGroup.DECORATIONS);
-		LILY_OF_THE_VALLEY_SCENTED_CANDLE 	= registerBlock(new ScentedCandleBlock(Effects.POISON, 			CANDLE_PROPERTIES), "lily_of_the_valley_scented_candle",	ItemGroup.DECORATIONS);
-		OXEYE_DAISY_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.REGENERATION, 	CANDLE_PROPERTIES), "oxeye_daisy_scented_candle", 		ItemGroup.DECORATIONS);
-		POPPY_SCENTED_CANDLE 				= registerBlock(new ScentedCandleBlock(Effects.NIGHT_VISION, 	CANDLE_PROPERTIES), "poppy_scented_candle", 				ItemGroup.DECORATIONS);
-		WHITE_TULIP_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.WEAKNESS, 		CANDLE_PROPERTIES), "white_tulip_scented_candle",		ItemGroup.DECORATIONS);
-		ORANGE_TULIP_SCENTED_CANDLE 		= registerBlock(new ScentedCandleBlock(Effects.WEAKNESS, 		CANDLE_PROPERTIES), "orange_tulip_scented_candle",		ItemGroup.DECORATIONS);
-		PINK_TULIP_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.WEAKNESS, 		CANDLE_PROPERTIES), "pink_tulip_scented_candle",			ItemGroup.DECORATIONS);
-		RED_TULIP_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.WEAKNESS, 		CANDLE_PROPERTIES), "red_tulip_scented_candle",			ItemGroup.DECORATIONS);
-		WITHER_ROSE_SCENTED_CANDLE 			= registerBlock(new ScentedCandleBlock(Effects.WITHER, 			CANDLE_PROPERTIES), "wither_rose_scented_candle",		ItemGroup.DECORATIONS);
+		//Vanilla Scented Candles Section
+		ALLIUM_SCENTED_CANDLE             = registerBlock(new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, CANDLE_PROPERTIES), "allium_scented_candle",             ItemGroup.DECORATIONS);
+		AZURE_BLUET_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, CANDLE_PROPERTIES), "azure_bluet_scented_candle",        ItemGroup.DECORATIONS);
+		BLUE_ORCHID_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.SATURATION,      70, 0, CANDLE_PROPERTIES), "blue_orchid_scented_candle",        ItemGroup.DECORATIONS);
+		DANDELION_SCENTED_CANDLE          = registerBlock(new ScentedCandleBlock(Effects.SATURATION,      70, 0, CANDLE_PROPERTIES), "dandelion_scented_candle",          ItemGroup.DECORATIONS);
+		CORNFLOWER_SCENTED_CANDLE         = registerBlock(new ScentedCandleBlock(Effects.JUMP_BOOST,      70, 0, CANDLE_PROPERTIES), "cornflower_scented_candle",         ItemGroup.DECORATIONS);
+		LILY_OF_THE_VALLEY_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.POISON,          70, 0, CANDLE_PROPERTIES), "lily_of_the_valley_scented_candle", ItemGroup.DECORATIONS);
+		OXEYE_DAISY_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.REGENERATION,    70, 0, CANDLE_PROPERTIES), "oxeye_daisy_scented_candle",        ItemGroup.DECORATIONS);
+		POPPY_SCENTED_CANDLE              = registerBlock(new ScentedCandleBlock(Effects.NIGHT_VISION,    70, 0, CANDLE_PROPERTIES), "poppy_scented_candle",              ItemGroup.DECORATIONS);
+		WHITE_TULIP_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "white_tulip_scented_candle",        ItemGroup.DECORATIONS);
+		ORANGE_TULIP_SCENTED_CANDLE       = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "orange_tulip_scented_candle",       ItemGroup.DECORATIONS);
+		PINK_TULIP_SCENTED_CANDLE         = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "pink_tulip_scented_candle",         ItemGroup.DECORATIONS);
+		RED_TULIP_SCENTED_CANDLE          = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "red_tulip_scented_candle",          ItemGroup.DECORATIONS);
+		WITHER_ROSE_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.WITHER,          70, 0, CANDLE_PROPERTIES), "wither_rose_scented_candle",        ItemGroup.DECORATIONS);
 		
-		//mod scented candles
-		CARTWHEEL_SCENTED_CANDLE 	= registerBlock(new ScentedCandleBlock(Effects.SPEED, 				CANDLE_PROPERTIES), "cartwheel_scented_candle", 		ItemGroup.DECORATIONS);
-		BLUEBELL_SCENTED_CANDLE 	= registerBlock(new ScentedCandleBlock(Effects.WATER_BREATHING, 	CANDLE_PROPERTIES), "bluebell_scented_candle", 		ItemGroup.DECORATIONS);
-		DAYBLOOM_SCENTED_CANDLE 	= registerBlock(new ScentedCandleBlock(Effects.GLOWING, 			CANDLE_PROPERTIES), "daybloom_scented_candle", 		ItemGroup.DECORATIONS);
-		VIOLET_SCENTED_CANDLE 		= registerBlock(new ScentedCandleBlock(Effects.INVISIBILITY, 		CANDLE_PROPERTIES), "violet_scented_candle", 		ItemGroup.DECORATIONS);
-		JOLYCE_SCENTED_CANDLE 		= registerBlock(new ScentedCandleBlock(Effects.STRENGTH, 			CANDLE_PROPERTIES), "jolyce_scented_candle", 		ItemGroup.DECORATIONS);
-		COLUMBINE_SCENTED_CANDLE 	= registerBlock(new ScentedCandleBlock(Effects.MINING_FATIGUE, 		CANDLE_PROPERTIES), "columbine_scented_candle", 		ItemGroup.DECORATIONS);
-		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK, 				CANDLE_PROPERTIES), "white_clover_scented_candle", 	ItemGroup.DECORATIONS);
-		PINK_CLOVER_SCENTED_CANDLE 	= registerBlock(new ScentedCandleBlock(ModEffects.ANTI_BAD_OMEN, 	CANDLE_PROPERTIES), "pink_clover_scented_candle", 	ItemGroup.DECORATIONS);
+		//Mod Scented Candles Section
+		CARTWHEEL_SCENTED_CANDLE    = registerBlock(new ScentedCandleBlock(Effects.SPEED,           70, 0, Block.Properties.from(CANDLE)), "cartwheel_scented_candle",    ItemGroup.DECORATIONS);
+		BLUEBELL_SCENTED_CANDLE     = registerBlock(new ScentedCandleBlock(Effects.WATER_BREATHING, 70, 0, Block.Properties.from(CANDLE)), "bluebell_scented_candle",     ItemGroup.DECORATIONS);
+		DAYBLOOM_SCENTED_CANDLE     = registerBlock(new ScentedCandleBlock(Effects.GLOWING,         70, 0, Block.Properties.from(CANDLE)), "daybloom_scented_candle",     ItemGroup.DECORATIONS);
+		VIOLET_SCENTED_CANDLE       = registerBlock(new ScentedCandleBlock(Effects.INVISIBILITY,    70, 0, Block.Properties.from(CANDLE)), "violet_scented_candle",       ItemGroup.DECORATIONS);
+		JOLYCE_SCENTED_CANDLE       = registerBlock(new ScentedCandleBlock(Effects.STRENGTH,        70, 0, Block.Properties.from(CANDLE)), "jolyce_scented_candle",       ItemGroup.DECORATIONS);
+		COLUMBINE_SCENTED_CANDLE    = registerBlock(new ScentedCandleBlock(Effects.MINING_FATIGUE,  70, 0, Block.Properties.from(CANDLE)), "columbine_scented_candle",    ItemGroup.DECORATIONS);
+		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, Block.Properties.from(CANDLE)), "white_clover_scented_candle", ItemGroup.DECORATIONS);
+		PINK_CLOVER_SCENTED_CANDLE  = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, Block.Properties.from(CANDLE)), "pink_clover_scented_candle",  ItemGroup.DECORATIONS);
 
-		//flamboyant candles
+		//Flamboyant Candles Section
 		if (ModList.get().isLoaded("flamboyant")) {
 			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 			ItemGroup.DECORATIONS);
 			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 			ItemGroup.DECORATIONS);
