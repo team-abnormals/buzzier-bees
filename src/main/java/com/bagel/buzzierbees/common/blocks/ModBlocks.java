@@ -70,6 +70,9 @@ public class ModBlocks
 	
 	public static Block WAX_BLOCK;
 	public static Block HONEY_BRICKS;
+	public static Block HONEY_BRICK_STAIRS;
+	public static Block HONEY_BRICK_SLAB;
+	public static Block HONEY_BRICK_WALL;
 	public static Block CRYSTALLIZED_HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
@@ -124,12 +127,16 @@ public class ModBlocks
 		Block.Properties CANDLE_PROPERTIES 		= Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
 		Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
 		Block.Properties PLANK_PROPERTIES  		= Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD);
-		Block.Properties HONEY_BLOCK_PROPERTIES = Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).func_226898_c_(0.0F).func_226896_b_().sound(SoundType.field_226947_m_);
+		Block.Properties HONEY_BLOCK_PROPERTIES = Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_);
 
 		WAX_BLOCK          = registerBlock(new Block           (Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block",          ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(HONEY_BLOCK_PROPERTIES),                            										 "clover_honey_block", ItemGroup.DECORATIONS);
 		HONEY_LAMP         = registerBlock(new HoneyLamp       (Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)),                     "honey_lamp",         ItemGroup.DECORATIONS);
-		HONEY_BRICKS       = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)), 																 "honey_bricks", ItemGroup.BUILDING_BLOCKS);
+		
+		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);
+		HONEY_BRICK_STAIRS = registerBlock(new StairsBlock(HONEY_BRICKS.getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)),"honey_brick_stairs", ItemGroup.BUILDING_BLOCKS);
+		HONEY_BRICK_SLAB = registerBlock(new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)),"honey_brick_slab", ItemGroup.BUILDING_BLOCKS);
+		HONEY_BRICK_WALL = registerBlock(new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)),"honey_brick_wall", ItemGroup.DECORATIONS);
 		
 		//CRYSTALLIZED_HONEY_BLOCK        = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);

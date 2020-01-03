@@ -71,7 +71,7 @@ public class BuzzierBees
 		ItemStack placebo = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.PLACEBO);
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
-				Ingredient.fromItems(Items.POPPED_CHORUS_FRUIT),
+				Ingredient.fromItems(Items.NETHER_WART),
 				placebo);
 
 		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER, Potions.LUCK);

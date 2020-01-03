@@ -27,7 +27,7 @@ public class ModEntities
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
     {
-        ResourceLocation location = new ResourceLocation("buzzie", name);
+        ResourceLocation location = new ResourceLocation("buzzierbees", name);
         EntityType<T> type = EntityType.Builder.<T>create(factory, classification).setTrackingRange(trackingRange).setUpdateInterval(updateFrequency).setShouldReceiveVelocityUpdates(sendsVelocityUpdates).build(location.toString());
         type.setRegistryName(name);
         ForgeRegistries.ENTITIES.register(type);
