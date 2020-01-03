@@ -11,9 +11,13 @@ import net.minecraft.world.IBlockReader;
 
 public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
 	public Effect candleEffectInstance;
-	protected ScentedCandleBlock(Effect candleEffectInstance, Block.Properties properties) {
+	public int duration;
+	public int level;
+	protected ScentedCandleBlock(Effect candleEffectInstance, int duration, int level, Block.Properties properties) {
 		super(properties);
 		this.candleEffectInstance = candleEffectInstance;	
+		this.duration = duration;
+		this.level = level;
 	}
 
    @Override
