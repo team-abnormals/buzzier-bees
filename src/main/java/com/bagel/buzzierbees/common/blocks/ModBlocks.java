@@ -1,7 +1,5 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.effects.ModEffects;
-
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
