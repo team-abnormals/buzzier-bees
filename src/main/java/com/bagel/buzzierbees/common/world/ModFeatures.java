@@ -26,14 +26,18 @@ public class ModFeatures {
 	public static DefaultFlowersFeature JOLYCE_FEATURE;
 	public static DefaultFlowersFeature DAYBLOOM_FEATURE;
 	public static MultipleWithChanceRandomFeature BIRD_OF_PARADISE_FEATURE;
-	public static DefaultFlowersFeature CLOVER_FEATURE;
+	public static DefaultFlowersFeature PINK_CLOVER_FEATURE;
+	public static DefaultFlowersFeature WHITE_CLOVER_FEATURE;
 
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
-		CARTWHEEL_FEATURE = registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), "cartwheel_feature", Biomes.FLOWER_FOREST, 4);
+		CARTWHEEL_FEATURE = registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), "cartwheel_feature", Biomes.FLOWER_FOREST, 2);
 		COLUMBINE_FEATURE = registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), "columbine_feature", Biomes.FLOWER_FOREST, 4);
 		DAYBLOOM_FEATURE = registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), "daybloom_feature", Biomes.SUNFLOWER_PLAINS, 4);
+		
+		PINK_CLOVER_FEATURE = registerFlowerFeature(ModBlocks.PINK_CLOVER.getDefaultState(), "pink_clover_feature", Biomes.PLAINS, 1);
+		WHITE_CLOVER_FEATURE = registerFlowerFeature(ModBlocks.WHITE_CLOVER.getDefaultState(), "white_clover_feature", Biomes.PLAINS, 1);
 
 		for (Biome biome : new Biome[] { Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.FLOWER_FOREST }) {
 			BLUEBELL_FEATURE = registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", biome, 2);
