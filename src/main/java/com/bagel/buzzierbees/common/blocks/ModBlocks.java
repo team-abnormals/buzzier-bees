@@ -73,7 +73,7 @@ public class ModBlocks
 	public static Block CRYSTALLIZED_HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
-	public static Block HONEY_LAMP_BLOCK;
+	public static Block HONEY_LAMP;
 	
 	public static Block CARTWHEEL;
 	public static Block BLUEBELL;
@@ -124,72 +124,79 @@ public class ModBlocks
 		//CRYSTALLIZED_HONEY_BLOCK = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.from(Blocks.field_226907_mc_).func_226896_b_()), "clover_honey_block", ItemGroup.DECORATIONS);
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
-		HONEY_LAMP_BLOCK = registerBlock(new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
-		
-		HIVE_PLANKS = registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
-		HIVE_STAIRS = registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
-		HIVE_SLAB = registerBlock(new SlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_slab", ItemGroup.BUILDING_BLOCKS);
-        HIVE_FENCE = registerBlock(new FenceBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence", ItemGroup.DECORATIONS);
-        HIVE_FENCE_GATE = registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
-        HIVE_BUTTON = registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS)), "hive_button", ItemGroup.REDSTONE);
-		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS)), "hive_pressure_plate", ItemGroup.REDSTONE);
-		HIVE_DOOR = registerBlock(new DoorBlock(Block.Properties.from(Blocks.ACACIA_DOOR)), "hive_door", ItemGroup.REDSTONE);
-        HIVE_TRAPDOOR = registerBlock(new TrapDoorBlock(Block.Properties.from(Blocks.ACACIA_TRAPDOOR)), "hive_trapdoor", ItemGroup.REDSTONE);
-		
-		CARTWHEEL = registerBlock(new CartwheelBlock(Effects.SPEED, 11, Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)), "cartwheel", ItemGroup.DECORATIONS);
-		BLUEBELL = registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, Block.Properties.from(CARTWHEEL)), "bluebell", ItemGroup.DECORATIONS);
-		DAYBLOOM = registerBlock(new FlowerBlock(Effects.GLOWING, 8, Block.Properties.from(CARTWHEEL)), "daybloom", ItemGroup.DECORATIONS);
-		VIOLET = registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, Block.Properties.from(CARTWHEEL)), "violet", ItemGroup.DECORATIONS);
-		JOLYCE = registerBlock(new FlowerBlock(Effects.STRENGTH, 8, Block.Properties.from(CARTWHEEL)), "jolyce", ItemGroup.DECORATIONS);
-		COLUMBINE = registerBlock(new FlowerBlock(Effects.MINING_FATIGUE, 6, Block.Properties.from(CARTWHEEL)), "columbine", ItemGroup.DECORATIONS);
-		BIRD_OF_PARADISE = registerBlock(new TallFlowerBlock(Block.Properties.from(CARTWHEEL)), "bird_of_paradise", ItemGroup.DECORATIONS);
-		WHITE_CLOVER = registerBlock(new CloverBlock(Effects.UNLUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
-		PINK_CLOVER = registerBlock(new CloverBlock(Effects.UNLUCK, Block.Properties.from(Blocks.POPPY).func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
-		
-	    POTTED_CARTWHEEL = registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_cartwheel");
-	    POTTED_BLUEBELL = registerBlockNoItem(new FlowerPotBlock(BLUEBELL, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_bluebell");
-	    POTTED_DAYBLOOM = registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_daybloom");
-	    POTTED_VIOLET = registerBlockNoItem(new FlowerPotBlock(VIOLET, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_violet");
-	    POTTED_JOLYCE = registerBlockNoItem(new FlowerPotBlock(JOLYCE, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_jolyce");
-	    POTTED_COLUMBINE = registerBlockNoItem(new FlowerPotBlock(COLUMBINE, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_columbine");
-	    POTTED_WHITE_CLOVER = registerBlockNoItem(new FlowerPotBlock(WHITE_CLOVER, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_white_clover");
-	    POTTED_PINK_CLOVER = registerBlockNoItem(new FlowerPotBlock(PINK_CLOVER, Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), "potted_pink_clover");
+		HONEY_LAMP = registerBlock(new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
 
-		//vanilla candles
-		CANDLE = registerBlock(new CandleBlock(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD)), "candle", ItemGroup.DECORATIONS);
-		WHITE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "white_candle", ItemGroup.DECORATIONS);
-		ORANGE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "orange_candle", ItemGroup.DECORATIONS);
-		MAGENTA_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "magenta_candle", ItemGroup.DECORATIONS);
-		LIGHT_BLUE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "light_blue_candle", ItemGroup.DECORATIONS);
-		YELLOW_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "yellow_candle", ItemGroup.DECORATIONS);
-		LIME_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "lime_candle", ItemGroup.DECORATIONS);
-		PINK_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "pink_candle", ItemGroup.DECORATIONS);
-		GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "gray_candle", ItemGroup.DECORATIONS);
-		LIGHT_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "light_gray_candle", ItemGroup.DECORATIONS);
-		CYAN_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "cyan_candle", ItemGroup.DECORATIONS);
-		PURPLE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "purple_candle", ItemGroup.DECORATIONS);
-		BLUE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "blue_candle", ItemGroup.DECORATIONS);
-		BROWN_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "brown_candle", ItemGroup.DECORATIONS);
-		GREEN_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "green_candle", ItemGroup.DECORATIONS);
-		RED_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "red_candle", ItemGroup.DECORATIONS);
-		BLACK_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "black_candle", ItemGroup.DECORATIONS);
+		//Hive Planks Section
+		HIVE_PLANKS 		= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
+		HIVE_STAIRS 		= registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
+		HIVE_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_slab", ItemGroup.BUILDING_BLOCKS);
+        HIVE_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence", ItemGroup.DECORATIONS);
+        HIVE_FENCE_GATE 	= registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
+        HIVE_BUTTON 		= registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS)), "hive_button", ItemGroup.REDSTONE);
+		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS)), "hive_pressure_plate", ItemGroup.REDSTONE);
+		HIVE_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(Blocks.ACACIA_DOOR)), "hive_door", ItemGroup.REDSTONE);
+        HIVE_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(Blocks.ACACIA_TRAPDOOR)), "hive_trapdoor", ItemGroup.REDSTONE);
+
+		//Flowers Section
+		Block.Properties CARTWHEEL_PROPERTIES = Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
+
+		CARTWHEEL 			= registerBlock(new CartwheelBlock	(Effects.SPEED, 			11, 	CARTWHEEL_PROPERTIES), 	"cartwheel", 		ItemGroup.DECORATIONS);
+		BLUEBELL 			= registerBlock(new FlowerBlock		(Effects.WATER_BREATHING, 	6, 		CARTWHEEL_PROPERTIES),	"bluebell", 			ItemGroup.DECORATIONS);
+		DAYBLOOM 			= registerBlock(new FlowerBlock		(Effects.GLOWING, 			8, 		CARTWHEEL_PROPERTIES), 	"daybloom", 			ItemGroup.DECORATIONS);
+		VIOLET 				= registerBlock(new FlowerBlock		(Effects.INVISIBILITY, 		6, 		CARTWHEEL_PROPERTIES), 	"violet", 			ItemGroup.DECORATIONS);
+		JOLYCE 				= registerBlock(new FlowerBlock		(Effects.STRENGTH, 			8, 		CARTWHEEL_PROPERTIES), 	"jolyce", 			ItemGroup.DECORATIONS);
+		COLUMBINE 			= registerBlock(new FlowerBlock		(Effects.MINING_FATIGUE, 	6, 		CARTWHEEL_PROPERTIES), 	"columbine", 		ItemGroup.DECORATIONS);
+		BIRD_OF_PARADISE 	= registerBlock(new TallFlowerBlock	(CARTWHEEL_PROPERTIES),												 	"bird_of_paradise", 	ItemGroup.DECORATIONS);
+		WHITE_CLOVER 		= registerBlock(new CloverBlock		(Effects.UNLUCK, CARTWHEEL_PROPERTIES.func_226896_b_()),			 	"white_clover", 		ItemGroup.DECORATIONS);
+		PINK_CLOVER 		= registerBlock(new CloverBlock		(Effects.UNLUCK, CARTWHEEL_PROPERTIES.func_226896_b_()), 				"pink_clover", 		ItemGroup.DECORATIONS);
+
+		//Potted Flowers Section
+	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, 	Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_cartwheel");
+	    POTTED_BLUEBELL 	= registerBlockNoItem(new FlowerPotBlock(BLUEBELL, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()),	"potted_bluebell");
+	    POTTED_DAYBLOOM 	= registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_daybloom");
+	    POTTED_VIOLET 		= registerBlockNoItem(new FlowerPotBlock(VIOLET, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_violet");
+	    POTTED_JOLYCE 		= registerBlockNoItem(new FlowerPotBlock(JOLYCE, 			Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_jolyce");
+	    POTTED_COLUMBINE 	= registerBlockNoItem(new FlowerPotBlock(COLUMBINE, 		Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_columbine");
+	    POTTED_WHITE_CLOVER = registerBlockNoItem(new FlowerPotBlock(WHITE_CLOVER, 		Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_white_clover");
+	    POTTED_PINK_CLOVER 	= registerBlockNoItem(new FlowerPotBlock(PINK_CLOVER, 		Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_()), 	"potted_pink_clover");
+
+		//Vanilla Candles Section
+		Block.Properties CANDLE_PROPERTIES = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
+
+		CANDLE 				= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "candle", 			ItemGroup.DECORATIONS);
+		WHITE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "white_candle", 		ItemGroup.DECORATIONS);
+		ORANGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "orange_candle", 	ItemGroup.DECORATIONS);
+		MAGENTA_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "magenta_candle", 	ItemGroup.DECORATIONS);
+		LIGHT_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "light_blue_candle",	ItemGroup.DECORATIONS);
+		YELLOW_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "yellow_candle", 	ItemGroup.DECORATIONS);
+		LIME_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "lime_candle", 		ItemGroup.DECORATIONS);
+		PINK_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pink_candle", 		ItemGroup.DECORATIONS);
+		GRAY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "gray_candle", 		ItemGroup.DECORATIONS);
+		LIGHT_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "light_gray_candle",	ItemGroup.DECORATIONS);
+		CYAN_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cyan_candle", 		ItemGroup.DECORATIONS);
+		PURPLE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "purple_candle", 	ItemGroup.DECORATIONS);
+		BLUE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "blue_candle", 		ItemGroup.DECORATIONS);
+		BROWN_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "brown_candle", 		ItemGroup.DECORATIONS);
+		GREEN_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "green_candle", 		ItemGroup.DECORATIONS);
+		RED_CANDLE 			= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "red_candle", 		ItemGroup.DECORATIONS);
+		BLACK_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "black_candle", 		ItemGroup.DECORATIONS);
 		
-		//vanilla scented candles
-		ALLIUM_SCENTED_CANDLE             = registerBlock(new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, Block.Properties.from(CANDLE)), "allium_scented_candle",             ItemGroup.DECORATIONS);
-		AZURE_BLUET_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, Block.Properties.from(CANDLE)), "azure_bluet_scented_candle",        ItemGroup.DECORATIONS);
-		BLUE_ORCHID_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.SATURATION,      70, 0, Block.Properties.from(CANDLE)), "blue_orchid_scented_candle",        ItemGroup.DECORATIONS);
-		DANDELION_SCENTED_CANDLE           = registerBlock(new ScentedCandleBlock(Effects.SATURATION,     70, 0, Block.Properties.from(CANDLE)), "dandelion_scented_candle",          ItemGroup.DECORATIONS);
-		CORNFLOWER_SCENTED_CANDLE         = registerBlock(new ScentedCandleBlock(Effects.JUMP_BOOST,      70, 0, Block.Properties.from(CANDLE)), "cornflower_scented_candle",         ItemGroup.DECORATIONS);
-		LILY_OF_THE_VALLEY_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.POISON,          70, 0, Block.Properties.from(CANDLE)), "lily_of_the_valley_scented_candle", ItemGroup.DECORATIONS);
-		OXEYE_DAISY_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.REGENERATION,    70, 0, Block.Properties.from(CANDLE)), "oxeye_daisy_scented_candle",        ItemGroup.DECORATIONS);
-		POPPY_SCENTED_CANDLE              = registerBlock(new ScentedCandleBlock(Effects.NIGHT_VISION,    70, 0, Block.Properties.from(CANDLE)), "poppy_scented_candle",              ItemGroup.DECORATIONS);
-		WHITE_TULIP_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, Block.Properties.from(CANDLE)), "white_tulip_scented_candle",        ItemGroup.DECORATIONS);
-		ORANGE_TULIP_SCENTED_CANDLE       = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, Block.Properties.from(CANDLE)), "orange_tulip_scented_candle",       ItemGroup.DECORATIONS);
-		PINK_TULIP_SCENTED_CANDLE         = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, Block.Properties.from(CANDLE)), "pink_tulip_scented_candle",         ItemGroup.DECORATIONS);
-		RED_TULIP_SCENTED_CANDLE          = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, Block.Properties.from(CANDLE)), "red_tulip_scented_candle",          ItemGroup.DECORATIONS);
-		WITHER_ROSE_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.WITHER,          70, 0, Block.Properties.from(CANDLE)), "wither_rose_scented_candle",        ItemGroup.DECORATIONS);
+		//Vanilla Scented Candles Section
+		ALLIUM_SCENTED_CANDLE             = registerBlock(new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, CANDLE_PROPERTIES), "allium_scented_candle",             ItemGroup.DECORATIONS);
+		AZURE_BLUET_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, CANDLE_PROPERTIES), "azure_bluet_scented_candle",        ItemGroup.DECORATIONS);
+		BLUE_ORCHID_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.SATURATION,      70, 0, CANDLE_PROPERTIES), "blue_orchid_scented_candle",        ItemGroup.DECORATIONS);
+		DANDELION_SCENTED_CANDLE          = registerBlock(new ScentedCandleBlock(Effects.SATURATION,      70, 0, CANDLE_PROPERTIES), "dandelion_scented_candle",          ItemGroup.DECORATIONS);
+		CORNFLOWER_SCENTED_CANDLE         = registerBlock(new ScentedCandleBlock(Effects.JUMP_BOOST,      70, 0, CANDLE_PROPERTIES), "cornflower_scented_candle",         ItemGroup.DECORATIONS);
+		LILY_OF_THE_VALLEY_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.POISON,          70, 0, CANDLE_PROPERTIES), "lily_of_the_valley_scented_candle", ItemGroup.DECORATIONS);
+		OXEYE_DAISY_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.REGENERATION,    70, 0, CANDLE_PROPERTIES), "oxeye_daisy_scented_candle",        ItemGroup.DECORATIONS);
+		POPPY_SCENTED_CANDLE              = registerBlock(new ScentedCandleBlock(Effects.NIGHT_VISION,    70, 0, CANDLE_PROPERTIES), "poppy_scented_candle",              ItemGroup.DECORATIONS);
+		WHITE_TULIP_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "white_tulip_scented_candle",        ItemGroup.DECORATIONS);
+		ORANGE_TULIP_SCENTED_CANDLE       = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "orange_tulip_scented_candle",       ItemGroup.DECORATIONS);
+		PINK_TULIP_SCENTED_CANDLE         = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "pink_tulip_scented_candle",         ItemGroup.DECORATIONS);
+		RED_TULIP_SCENTED_CANDLE          = registerBlock(new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, CANDLE_PROPERTIES), "red_tulip_scented_candle",          ItemGroup.DECORATIONS);
+		WITHER_ROSE_SCENTED_CANDLE        = registerBlock(new ScentedCandleBlock(Effects.WITHER,          70, 0, CANDLE_PROPERTIES), "wither_rose_scented_candle",        ItemGroup.DECORATIONS);
 		
-		//mod scented candles
+		//Mod Scented Candles Section
 		CARTWHEEL_SCENTED_CANDLE    = registerBlock(new ScentedCandleBlock(Effects.SPEED,           70, 0, Block.Properties.from(CANDLE)), "cartwheel_scented_candle",    ItemGroup.DECORATIONS);
 		BLUEBELL_SCENTED_CANDLE     = registerBlock(new ScentedCandleBlock(Effects.WATER_BREATHING, 70, 0, Block.Properties.from(CANDLE)), "bluebell_scented_candle",     ItemGroup.DECORATIONS);
 		DAYBLOOM_SCENTED_CANDLE     = registerBlock(new ScentedCandleBlock(Effects.GLOWING,         70, 0, Block.Properties.from(CANDLE)), "daybloom_scented_candle",     ItemGroup.DECORATIONS);
@@ -199,25 +206,24 @@ public class ModBlocks
 		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, Block.Properties.from(CANDLE)), "white_clover_scented_candle", ItemGroup.DECORATIONS);
 		PINK_CLOVER_SCENTED_CANDLE  = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, Block.Properties.from(CANDLE)), "pink_clover_scented_candle",  ItemGroup.DECORATIONS);
 
-		
-		//flamboyant candles
+		//Flamboyant Candles Section
 		if (ModList.get().isLoaded("flamboyant")) {
-			AMBER_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "amber_candle", ItemGroup.DECORATIONS);
-			BEIGE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "beige_candle", ItemGroup.DECORATIONS);
-			CREAM_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "cream_candle", ItemGroup.DECORATIONS);
-			DARK_GREEN_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "dark_green_candle", ItemGroup.DECORATIONS);
-			FOREST_GREEN_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "forest_green_candle", ItemGroup.DECORATIONS);
-			HOT_PINK_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "hot_pink_candle", ItemGroup.DECORATIONS);
-			INDIGO_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "indigo_candle", ItemGroup.DECORATIONS);
-			MAROON_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "maroon_candle", ItemGroup.DECORATIONS);
-			NAVY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "navy_candle", ItemGroup.DECORATIONS);
-			OLIVE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "olive_candle", ItemGroup.DECORATIONS);
-			PALE_GREEN_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "pale_green_candle", ItemGroup.DECORATIONS);
-			PALE_PINK_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "pale_pink_candle", ItemGroup.DECORATIONS);
-			PALE_YELLOW_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "pale_yellow_candle", ItemGroup.DECORATIONS);
-			SKY_BLUE_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "sky_blue_candle", ItemGroup.DECORATIONS);
-			SLATE_GRAY_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "slate_gray_candle", ItemGroup.DECORATIONS);
-			VIOLET_CANDLE = registerBlock(new CandleBlock(Block.Properties.from(CANDLE)), "violet_candle", ItemGroup.DECORATIONS);
+			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 			ItemGroup.DECORATIONS);
+			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 			ItemGroup.DECORATIONS);
+			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 			ItemGroup.DECORATIONS);
+			DARK_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "dark_green_candle", 	ItemGroup.DECORATIONS);
+			FOREST_GREEN_CANDLE	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "forest_green_candle", 	ItemGroup.DECORATIONS);
+			HOT_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "hot_pink_candle", 		ItemGroup.DECORATIONS);
+			INDIGO_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "indigo_candle", 		ItemGroup.DECORATIONS);
+			MAROON_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "maroon_candle", 		ItemGroup.DECORATIONS);
+			NAVY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "navy_candle", 			ItemGroup.DECORATIONS);
+			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 			ItemGroup.DECORATIONS);
+			PALE_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_green_candle", 	ItemGroup.DECORATIONS);
+			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 		ItemGroup.DECORATIONS);
+			PALE_YELLOW_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_yellow_candle", 	ItemGroup.DECORATIONS);
+			SKY_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "sky_blue_candle", 		ItemGroup.DECORATIONS);
+			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ItemGroup.DECORATIONS);
+			VIOLET_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "violet_candle", 		ItemGroup.DECORATIONS);
 		}
     }
 
@@ -238,7 +244,7 @@ public class ModBlocks
         return block;
     }
 
-    public static Block registerBlockNoGroup(Block block, String name)
+    /*public static Block registerBlockNoGroup(Block block, String name)
     {
         BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(null));
         block.setRegistryName(name);
@@ -246,9 +252,9 @@ public class ModBlocks
         ForgeRegistries.BLOCKS.register(block);
         ForgeRegistries.ITEMS.register(itemBlock);
         return block;
-    }
+    }*/
     
-    public static Block registerBlock(Block block, BlockItem itemBlock, String name) {
+    /*public static Block registerBlock(Block block, BlockItem itemBlock, String name) {
         block.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
 
@@ -258,5 +264,5 @@ public class ModBlocks
         }
 
         return block;
-    }
+    }*/
 }

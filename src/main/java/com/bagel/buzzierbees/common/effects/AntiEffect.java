@@ -1,20 +1,35 @@
 package com.bagel.buzzierbees.common.effects;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
-import net.minecraft.potion.InstantEffect;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.*;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Iterator;
 
 public class AntiEffect extends InstantEffect {
-    private final Effect counteredEffect;
+    private final ImmutableList<EffectInstance> counteredEffects;
 
-    protected AntiEffect(Effect countered, EffectType typeIn, int liquidColorIn) {
+    protected AntiEffect(EffectType typeIn, int liquidColorIn, EffectInstance... counteredEffectsIn) {
         super(typeIn, liquidColorIn);
-        counteredEffect = countered;
+        counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
     }
 
     @Override
     public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-        entityLivingBaseIn.removePotionEffect(counteredEffect);
+        Iterator entityEffects = entityLivingBaseIn.getActivePotionEffects().iterator();
+        while (entityEffects.hasNext()) {
+            EffectInstance entityEffect = (EffectInstance) entityEffects.next();
+            Iterator effectsIterator = counteredEffects.iterator();
+            while(effectsIterator.hasNext()) {
+                EffectInstance counteredEffectInstance = (EffectInstance) effectsIterator.next();
+                Effect counteredEffect = counteredEffectInstance.getPotion();
+                if (entityEffect.getPotion() == counteredEffect) {
+                    entityLivingBaseIn.removePotionEffect(counteredEffect);
+                }
+            }
+        }
     }
 }
