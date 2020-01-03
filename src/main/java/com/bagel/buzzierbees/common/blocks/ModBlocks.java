@@ -1,7 +1,5 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.effects.ModEffects;
-
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -71,6 +69,7 @@ public class ModBlocks
 	public static Block WITHER_ROSE_SCENTED_CANDLE;
 	
 	public static Block WAX_BLOCK;
+	public static Block HONEY_BRICKS;
 	public static Block CRYSTALLIZED_HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
@@ -126,10 +125,11 @@ public class ModBlocks
 		Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
 		Block.Properties PLANK_PROPERTIES  		= Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD);
 		Block.Properties HONEY_BLOCK_PROPERTIES = Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).func_226898_c_(0.0F).func_226896_b_().sound(SoundType.field_226947_m_);
-		
-		WAX_BLOCK          = registerBlock(new Block           (Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), 	"wax_block",          ItemGroup.DECORATIONS);
-		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(HONEY_BLOCK_PROPERTIES),																		"clover_honey_block", ItemGroup.DECORATIONS);
-		HONEY_LAMP         = registerBlock(new HoneyLamp       (Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)),                     	"honey_lamp",         ItemGroup.DECORATIONS);
+
+		WAX_BLOCK          = registerBlock(new Block           (Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block",          ItemGroup.DECORATIONS);
+		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(HONEY_BLOCK_PROPERTIES),                            										 "clover_honey_block", ItemGroup.DECORATIONS);
+		HONEY_LAMP         = registerBlock(new HoneyLamp       (Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)),                     "honey_lamp",         ItemGroup.DECORATIONS);
+		HONEY_BRICKS       = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)), 																 "honey_bricks", ItemGroup.BUILDING_BLOCKS);
 		
 		//CRYSTALLIZED_HONEY_BLOCK        = registerBlock(new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), "crystallized_honey_block", ItemGroup.DECORATIONS);
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);

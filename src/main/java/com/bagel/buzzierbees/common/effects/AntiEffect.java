@@ -2,11 +2,7 @@ package com.bagel.buzzierbees.common.effects;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.*;
-import net.minecraft.util.registry.Registry;
-import net.minecraftforge.registries.ForgeRegistries;
-
 import java.util.Iterator;
 
 public class AntiEffect extends InstantEffect {
@@ -17,12 +13,13 @@ public class AntiEffect extends InstantEffect {
         counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
         Iterator entityEffects = entityLivingBaseIn.getActivePotionEffects().iterator();
         while (entityEffects.hasNext()) {
             EffectInstance entityEffect = (EffectInstance) entityEffects.next();
-            Iterator effectsIterator = counteredEffects.iterator();
+			Iterator effectsIterator = counteredEffects.iterator();
             while(effectsIterator.hasNext()) {
                 EffectInstance counteredEffectInstance = (EffectInstance) effectsIterator.next();
                 Effect counteredEffect = counteredEffectInstance.getPotion();
