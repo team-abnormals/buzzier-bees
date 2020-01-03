@@ -118,7 +118,7 @@ public class BuzzierBees
 
 		RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP_BLOCK,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP,RenderType.func_228645_f_());
 
 		//Flowers
 		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER,RenderType.func_228641_d_());

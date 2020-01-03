@@ -85,30 +85,30 @@
 	"item.minecraft.potion.effect.placebo": "Placebo",
 	"item.minecraft.potion.effect.night_vision_cure": "Cure of Night Vision",
 	"item.minecraft.potion.effect.speed_cure": "Cure of Swiftness",
-	"item.minecraft.potion.effect.haste_cure": "Cure of Haste",                               //unobtainable
-	"item.minecraft.potion.effect.mining_fatigue_cure": "Cure of Mining Fatigue",             //unobtainable (would be good for Ocean Monument though)
-	"item.minecraft.potion.effect.nausea_cure": "Cure of Nausea",                             //unobtainable
+	"item.minecraft.potion.effect.haste_cure": "Cure of Haste",
+	"item.minecraft.potion.effect.mining_fatigue_cure": "Cure of Mining Fatigue",
+	"item.minecraft.potion.effect.nausea_cure": "Cure of Nausea",
 	"item.minecraft.potion.effect.invisibility_cure": "Cure of Invisibility",
 	"item.minecraft.potion.effect.jump_boost_cure": "Cure of Leaping",
-	"item.minecraft.potion.effect.resistance_cure": "Cure of Resistance",                     //unobtainable
+	"item.minecraft.potion.effect.resistance_cure": "Cure of Resistance",
 	"item.minecraft.potion.effect.fire_resistance_cure": "Cure of Fire Resistance",
 	"item.minecraft.potion.effect.slowness_cure": "Cure of Slowness",
-	"item.minecraft.potion.effect.blindness_cure": "Cure of Blindness",                       //unobtainable
-	"item.minecraft.potion.effect.hunger_cure": "Cure of Hunger",                             //unobtainable
-	"item.minecraft.potion.effect.wither_cure": "Cure of Wither",                             //unobtainable (would be good for Nether Fortress though)
-	"item.minecraft.potion.effect.health_boost_cure": "Cure of Health Boost",                 //unobtainable
-	"item.minecraft.potion.effect.absorption_cure": "Cure of Absorption",                     //unobtainable
-	"item.minecraft.potion.effect.saturation_cure": "Cure of Saturation",                     //unobtainable
-	"item.minecraft.potion.effect.glowing_cure": "Cure of Glowing",                           //unobtainable
-	"item.minecraft.potion.effect.levitation_cure": "Cure of Levitation",                     //unobtainable (would be good for End City though)
-	"item.minecraft.potion.effect.unluck_cure": "Cure of Bad Luck",                             //unobtainable
-	"item.minecraft.potion.effect.conduit_power_cure": "Cure of Conduit Power",               //unobtainable
-	"item.minecraft.potion.effect.dolphins_grace_cure": "Cure of Dolphin's Grace'",           //unobtainable
-	"item.minecraft.potion.effect.bad_omen_cure": "Cure of Bad Omen",                         //unobtainable (would be good for Raids though)
-	"item.minecraft.potion.effect.hero_of_the_village_cure": "Cure of Hero of the Village",   //unobtainable
+	"item.minecraft.potion.effect.blindness_cure": "Cure of Blindness",
+	"item.minecraft.potion.effect.hunger_cure": "Cure of Hunger",
+	"item.minecraft.potion.effect.wither_cure": "Cure of Wither",
+	"item.minecraft.potion.effect.health_boost_cure": "Cure of Health Boost",
+	"item.minecraft.potion.effect.absorption_cure": "Cure of Absorption",
+	"item.minecraft.potion.effect.saturation_cure": "Cure of Saturation",
+	"item.minecraft.potion.effect.glowing_cure": "Cure of Glowing",
+	"item.minecraft.potion.effect.levitation_cure": "Cure of Levitation",
+	"item.minecraft.potion.effect.unluck_cure": "Cure of Bad Luck",
+	"item.minecraft.potion.effect.conduit_power_cure": "Cure of Conduit Power",
+	"item.minecraft.potion.effect.dolphins_grace_cure": "Cure of Dolphin's Grace'",
+	"item.minecraft.potion.effect.bad_omen_cure": "Cure of Bad Omen",
+	"item.minecraft.potion.effect.hero_of_the_village_cure": "Cure of Hero of the Village",
 	"item.minecraft.potion.effect.water_breathing_cure": "Cure of Water Breathing",
-	"item.minecraft.potion.effect.instant_health_cure": "Cure of Healing",                    //unobtainable
-	"item.minecraft.potion.effect.instant_damage_cure": "Cure of Harming",                    //unobtainable
+	"item.minecraft.potion.effect.instant_health_cure": "Cure of Healing",
+	"item.minecraft.potion.effect.instant_damage_cure": "Cure of Harming",
 	"item.minecraft.potion.effect.poison_cure": "Cure of Poison",
 	"item.minecraft.potion.effect.regeneration_cure": "Cure of Regeneration",
 	"item.minecraft.potion.effect.strength_cure": "Cure of Strength",
