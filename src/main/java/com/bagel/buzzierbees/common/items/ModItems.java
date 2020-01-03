@@ -3,6 +3,7 @@ package com.bagel.buzzierbees.common.items;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.event.RegistryEvent;
@@ -49,7 +50,7 @@ public class ModItems
     	CLOVER_LEAF = registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER = registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
     	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
-    	CLOVER_HONEY_BOTTLE = registerItem(new CloverHoneyBottleItem(new Item.Properties().maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
+    	CLOVER_HONEY_BOTTLE = registerItem(new CloverHoneyBottleItem(new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
       	//CURE = registerItem(new CureItem(new Item.Properties().maxStackSize(1).group(ItemGroup.BREWING)), "cure");
       	HONEY_WAND = registerItem(new HoneyWandItem(new Item.Properties().food(STICKY_HONEY_WAND_FOOD).defaultMaxDamage(128).group(ItemGroup.TOOLS)), "honey_wand");
       	HONEY_SLIME_SPAWN_EGG = registerItem(new HoneySlimeSpawnEggItem(15281931, 16111310, new Item.Properties().group(ItemGroup.MISC)), "honey_slime_spawn_egg");
