@@ -100,13 +100,14 @@ public class CloverHoneyBlock extends FallingBlock {
     }
 
     private void func_226938_d_(Entity entityIn) {
-        Vec3d lvt_2_1_ = entityIn.getMotion();
-        double lvt_3_1_ = -0.05D / lvt_2_1_.y;
-        if (lvt_2_1_.y < -0.13D) {
-            entityIn.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, 0, lvt_2_1_.z * lvt_3_1_));
+        Vec3d entityMotion = entityIn.getMotion();
+        double lvt_3_1_ = -0.05D / entityMotion.y;
+        if (entityMotion.y < -0.13D) {
+            entityIn.setMotion(new Vec3d(entityMotion.x * lvt_3_1_, entityMotion.y * 0.75, entityMotion.z * lvt_3_1_));
         } else {
-            entityIn.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, 0D, lvt_2_1_.z * lvt_3_1_));
+            entityIn.setMotion(new Vec3d(entityMotion.x * lvt_3_1_, entityMotion.y * 0.75, entityMotion.z * lvt_3_1_));
         }
+
         entityIn.fallDistance = 0.0F;
     }
 
