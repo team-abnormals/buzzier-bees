@@ -99,16 +99,15 @@ public class CloverHoneyBlock extends FallingBlock {
 
     }
 
-    private void func_226938_d_(Entity p_226938_1_) {
-        Vec3d lvt_2_1_ = p_226938_1_.getMotion();
+    private void func_226938_d_(Entity entityIn) {
+        Vec3d lvt_2_1_ = entityIn.getMotion();
+        double lvt_3_1_ = -0.05D / lvt_2_1_.y;
         if (lvt_2_1_.y < -0.13D) {
-            double lvt_3_1_ = -0.05D / lvt_2_1_.y;
-            p_226938_1_.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, -0.05D, lvt_2_1_.z * lvt_3_1_));
+            entityIn.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, 0, lvt_2_1_.z * lvt_3_1_));
         } else {
-            p_226938_1_.setMotion(new Vec3d(lvt_2_1_.x, -0.05D, lvt_2_1_.z));
+            entityIn.setMotion(new Vec3d(lvt_2_1_.x * lvt_3_1_, 0D, lvt_2_1_.z * lvt_3_1_));
         }
-
-        p_226938_1_.fallDistance = 0.0F;
+        entityIn.fallDistance = 0.0F;
     }
 
     private void func_226934_a_(World worldIn, Entity entity) {
@@ -121,7 +120,16 @@ public class CloverHoneyBlock extends FallingBlock {
                 worldIn.setEntityState(entity, (byte)53);
             }
         }
+    }
 
+    public void konEntityWal(World p_176199_1_, BlockPos p_176199_2_, Entity p_176199_3_) {
+        double lvt_4_1_ = Math.abs(p_176199_3_.getMotion().y);
+        if (lvt_4_1_ < 0.1D && !p_176199_3_.func_226271_bk_()) {
+            double lvt_6_1_ = 0.4D + lvt_4_1_ * 0.2D;
+            p_176199_3_.setMotion(p_176199_3_.getMotion().mul(lvt_6_1_, 1.0D, lvt_6_1_));
+        }
+
+        super.onEntityWalk(p_176199_1_, p_176199_2_, p_176199_3_);
     }
 
     @OnlyIn(Dist.CLIENT)
