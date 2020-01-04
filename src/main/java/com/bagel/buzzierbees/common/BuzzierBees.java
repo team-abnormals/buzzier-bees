@@ -121,6 +121,10 @@ public class BuzzierBees
 		RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP,RenderType.func_228645_f_());
 
+		//Doors and Trapdoors
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR,RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR,RenderType.func_228643_e_());
+
 		//Flowers
 		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER,RenderType.func_228641_d_());
@@ -141,10 +145,6 @@ public class BuzzierBees
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM,RenderType.func_228641_d_());
-
-		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR,RenderType.func_228645_f_());
 	}
 
     /*private void enqueueIMC(final InterModEnqueueEvent event)
