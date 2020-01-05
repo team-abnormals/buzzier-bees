@@ -44,7 +44,7 @@ public class ModPotions {
         STRONG_BAD_LUCK = registerPotion(new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK,    3600, 1)}),"strong_bad_luck");
         
         //Cures
-    	PLACEBO                 = registerPotion(new Potion("placebo"), "placebo");
+    	PLACEBO                 = registerPotion(new Potion("placebo", new EffectInstance[0]), "placebo");
         NIGHT_VISION_CURE       = registerPotion(new Potion("night_vision_cure",    new EffectInstance[] {new EffectInstance(ModEffects.ANTI_NIGHT_VISION)}),       "night_vision_cure");
         INVISIBILITY_CURE       = registerPotion(new Potion("invisibility_cure",    new EffectInstance[] {new EffectInstance(ModEffects.ANTI_INVISIBILITY)}),       "invisibility_cure");
         LEAPING_CURE            = registerPotion(new Potion("jump_boost_cure",      new EffectInstance[] {new EffectInstance(ModEffects.ANTI_JUMP_BOOST)}),         "jump_boost_cure");

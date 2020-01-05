@@ -1,5 +1,6 @@
 package com.bagel.buzzierbees.common.items;
 
+import com.bagel.buzzierbees.common.entities.ModEntities;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -75,7 +76,7 @@ public class ModItems
 		HONEY_WAND = registerItem(new HoneyWandItem(new Item.Properties().containerItem(HONEY_WAND).food(STICKY_HONEY_WAND_FOOD).defaultMaxDamage(128).group(ItemGroup.TOOLS)), "honey_wand");
 
 		//Spawn Eggs
-		HONEY_SLIME_SPAWN_EGG = registerItem(new HoneySlimeSpawnEggItem(15281931, 16111310, new Item.Properties().group(ItemGroup.MISC)), "honey_slime_spawn_egg");
+		HONEY_SLIME_SPAWN_EGG = registerItem(new ModSpawnEggItem(() -> ModEntities.HONEY_SLIME,16361240, 16361240, new Item.Properties().group(ItemGroup.MISC)), "honey_slime_spawn_egg");
 	}
 	
     public static Item registerItem(Item item, String name)
