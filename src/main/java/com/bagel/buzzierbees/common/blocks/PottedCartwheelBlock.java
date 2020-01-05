@@ -8,6 +8,7 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 
+//TODO: Fix bug, that limits your ability to face flower in pot
 public class PottedCartwheelBlock extends FlowerPotBlock {
 	@SuppressWarnings("deprecation")
 	public PottedCartwheelBlock(Block block, Properties properties) {

@@ -15,13 +15,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
 {
-	public static EntityType<? extends HoneySlimeEntity> HONEY_SLIME;
+	public static EntityType<?> HONEY_SLIME;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        ModEntities.HONEY_SLIME= EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F).build("buzzierbees:honey_slime");
+        ModEntities.HONEY_SLIME = EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F).build("buzzierbees:honey_slime");
         ModEntities.HONEY_SLIME.setRegistryName("honey_slime");
+
         ForgeRegistries.ENTITIES.register(ModEntities.HONEY_SLIME);
     }
 
@@ -33,8 +34,6 @@ public class ModEntities
         ForgeRegistries.ENTITIES.register(type);
         return type;
     }
-    
-    
 
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()

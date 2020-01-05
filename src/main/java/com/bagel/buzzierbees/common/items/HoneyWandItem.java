@@ -21,7 +21,6 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-
 public class HoneyWandItem extends Item {
 	public static final String STICKY_KEY = "sticky";
 	

@@ -48,6 +48,7 @@ public class CloverHoneyBlock extends FallingBlock {
         return p_226937_0_ instanceof LivingEntity || p_226937_0_ instanceof AbstractMinecartEntity || p_226937_0_ instanceof TNTEntity || p_226937_0_ instanceof BoatEntity;
     }
 
+    @SuppressWarnings("deprecation")
     public VoxelShape getCollisionShape(BlockState blockState, IBlockReader blockReader, BlockPos blockPos, ISelectionContext selectionContext) {
         return field_226930_a_;
     }
@@ -99,11 +100,12 @@ public class CloverHoneyBlock extends FallingBlock {
 
     }
 
+    //TODO: Sliding down should be slower. Also, figure out how does this method works (double temp)
     private void func_226938_d_(Entity entityIn) {
         Vec3d entityMotion = entityIn.getMotion();
-        double lvt_3_1_ = -0.05D / entityMotion.y;
+        double temp = -0.05D / entityMotion.y;
         if (entityMotion.y < -0.13D) {
-            entityIn.setMotion(new Vec3d(entityMotion.x * lvt_3_1_, -0.05D, entityMotion.z * lvt_3_1_));
+            entityIn.setMotion(new Vec3d(entityMotion.x * temp, -0.05D, entityMotion.z * temp));
         } else {
             entityIn.setMotion(new Vec3d(entityMotion.x, -0.05D, entityMotion.z));
         }
@@ -123,21 +125,13 @@ public class CloverHoneyBlock extends FallingBlock {
         }
     }
 
-    public void konEntityWal(World p_176199_1_, BlockPos p_176199_2_, Entity p_176199_3_) {
-        double lvt_4_1_ = Math.abs(p_176199_3_.getMotion().y);
-        if (lvt_4_1_ < 0.1D && !p_176199_3_.func_226271_bk_()) {
-            double lvt_6_1_ = 0.4D + lvt_4_1_ * 0.2D;
-            p_176199_3_.setMotion(p_176199_3_.getMotion().mul(lvt_6_1_, 1.0D, lvt_6_1_));
-        }
-
-        super.onEntityWalk(p_176199_1_, p_176199_2_, p_176199_3_);
-    }
-
+    //TODO: Proper dust color
     @OnlyIn(Dist.CLIENT)
     public int getDustColor(BlockState blockState) {
         return -8356741;
     }
 
+    //TODO: Boolean equation
     @Override
     public void func_225534_a_(BlockState blockState, ServerWorld serverWorld, BlockPos blockPos, Random random) {
         if (serverWorld.isAirBlock(blockPos.down()) || canFallThrough(serverWorld.getBlockState(blockPos.down())) && blockPos.getY() >= 0) {

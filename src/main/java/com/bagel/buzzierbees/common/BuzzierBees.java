@@ -35,9 +35,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod("buzzierbees")
 public class BuzzierBees
 {
+	public static final String MODID = "buzzierbees";
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
-	public static final String MODID = "buzzierbees";
 
     public BuzzierBees() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -51,12 +52,26 @@ public class BuzzierBees
     {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
         addBrewingRecipes();
     }
+
+	@OnlyIn(Dist.CLIENT)
+	private void setupClient(final FMLClientSetupEvent event) {
+		ModItems.HONEY_WAND.addPropertyOverride(new ResourceLocation(MODID, "sticky"),
+				(stack, world, entity) -> {
+					CompoundNBT nbt = stack.getOrCreateTag();
+					return entity != null && nbt.getBoolean(HoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
+				});
+
+		setupRenderLayer();
+
+		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+	}
     
 
-    private void addBrewingRecipes() {		
-		//Temporary Clover Honey recipe (until we get hive situation sorted out)
+    private void addBrewingRecipes() {
+		//TODO: Temporary Clover Honey recipe (until hive situation sorted out)
 		BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(ModItems.CLOVER_LEAF),
@@ -78,12 +93,13 @@ public class BuzzierBees
 		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, ModPotions.LONG_LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.BAD_LUCK);
-		PotionBrewing.addMix(ModPotions.BAD_LUCK, Items.REDSTONE, ModPotions.LONG_UNLUCK);
-		PotionBrewing.addMix(ModPotions.BAD_LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_UNLUCK);
-		PotionBrewing.addMix(ModPotions.LONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.LONG_UNLUCK);
-		PotionBrewing.addMix(ModPotions.STRONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.STRONG_UNLUCK);
+		PotionBrewing.addMix(ModPotions.BAD_LUCK, Items.REDSTONE, ModPotions.LONG_BAD_LUCK);
+		PotionBrewing.addMix(ModPotions.BAD_LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_BAD_LUCK);
+		PotionBrewing.addMix(ModPotions.LONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.LONG_BAD_LUCK);
+		PotionBrewing.addMix(ModPotions.STRONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.STRONG_BAD_LUCK);
 
 		//Cures Brewing
+		//TODO: Placebo recipe
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GOLDEN_CARROT, ModPotions.NIGHT_VISION_CURE);
 		PotionBrewing.addMix(ModPotions.NIGHT_VISION_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.INVISIBILITY_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.MAGMA_CREAM, ModPotions.FIRE_RESISTANCE_CURE);
@@ -97,27 +113,16 @@ public class BuzzierBees
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.PHANTOM_MEMBRANE, ModPotions.SLOW_FALLING_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.SPIDER_EYE, ModPotions.POISON_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, ModItems.FOUR_LEAF_CLOVER, ModPotions.LUCK_CURE);
-		PotionBrewing.addMix(ModPotions.LUCK_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.UNLUCK_CURE);
+		PotionBrewing.addMix(ModPotions.LUCK_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.BAD_LUCK_CURE);
 	}
     
-    @OnlyIn(Dist.CLIENT)
-    private void setupClient(final FMLClientSetupEvent event) {
-    	ModItems.HONEY_WAND.addPropertyOverride(new ResourceLocation(MODID, "sticky"),
-                (stack, world, entity) -> {
-                	CompoundNBT nbt = stack.getOrCreateTag(); 
-    				return entity != null && nbt.getBoolean(HoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
-                });
-    	
-    	setupRenderLayer();
 
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-    }
 
     private void setupRenderLayer()
 	{
 		ModEntities.registerRendering();
 
-		RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
+		//RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP,RenderType.func_228645_f_());
 
@@ -147,6 +152,7 @@ public class BuzzierBees
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM,RenderType.func_228641_d_());
 	}
 
+	//TODO: These methods
     /*private void enqueueIMC(final InterModEnqueueEvent event)
     {
         InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});

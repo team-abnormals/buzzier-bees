@@ -24,8 +24,8 @@ public class HoneyLamp extends EndRodBlock {
         super(p_i48404_1_);
     }
 
-    public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
-        switch(((Direction)p_220053_1_.get(FACING)).getAxis()) {
+    public VoxelShape getShape(BlockState blockState, IBlockReader blockReader, BlockPos blockPos, ISelectionContext selectionContext) {
+        switch(((Direction)blockState.get(FACING)).getAxis()) {
             case X:
             default:
                 return HONEY_LAMP_EW_AABB;
@@ -37,14 +37,14 @@ public class HoneyLamp extends EndRodBlock {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
-        Direction lvt_5_1_ = (Direction)p_180655_1_.get(FACING);
-        double lvt_6_1_ = (double)p_180655_3_.getX() + 0.55D - (double)(p_180655_4_.nextFloat() * 0.1F);
-        double lvt_8_1_ = (double)p_180655_3_.getY() + 0.55D - (double)(p_180655_4_.nextFloat() * 0.1F);
-        double lvt_10_1_ = (double)p_180655_3_.getZ() + 0.55D - (double)(p_180655_4_.nextFloat() * 0.1F);
-        double lvt_12_1_ = (double)(0.4F - (p_180655_4_.nextFloat() + p_180655_4_.nextFloat()) * 0.4F);
-        if (p_180655_4_.nextInt(5) == 0) {
-            p_180655_2_.addParticle(ParticleTypes.field_229429_ai_, lvt_6_1_ + (double)lvt_5_1_.getXOffset() * lvt_12_1_, lvt_8_1_ + (double)lvt_5_1_.getYOffset() * lvt_12_1_, lvt_10_1_ + (double)lvt_5_1_.getZOffset() * lvt_12_1_, p_180655_4_.nextGaussian() * 0.005D, p_180655_4_.nextGaussian() * 0.005D, p_180655_4_.nextGaussian() * 0.005D);
+    public void animateTick(BlockState blockState, World worldIn, BlockPos blockPos, Random random) {
+        Direction lvt_5_1_ = (Direction)blockState.get(FACING);
+        double lvt_6_1_ = (double)blockPos.getX() + 0.55D - (double)(random.nextFloat() * 0.1F);
+        double lvt_8_1_ = (double)blockPos.getY() + 0.55D - (double)(random.nextFloat() * 0.1F);
+        double lvt_10_1_ = (double)blockPos.getZ() + 0.55D - (double)(random.nextFloat() * 0.1F);
+        double lvt_12_1_ = (double)(0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F);
+        if (random.nextInt(5) == 0) {
+            worldIn.addParticle(ParticleTypes.field_229429_ai_, lvt_6_1_ + (double)lvt_5_1_.getXOffset() * lvt_12_1_, lvt_8_1_ + (double)lvt_5_1_.getYOffset() * lvt_12_1_, lvt_10_1_ + (double)lvt_5_1_.getZOffset() * lvt_12_1_, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D);
         }
 
     }

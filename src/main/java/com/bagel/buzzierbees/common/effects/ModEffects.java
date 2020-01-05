@@ -88,7 +88,4 @@ public class ModEffects {
         ForgeRegistries.POTIONS.register(effect);
         return effect;
     }
-    
-    
-    
 }
