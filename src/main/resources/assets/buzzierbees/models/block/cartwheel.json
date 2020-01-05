@@ -1,8 +1,9 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "block/flower_pot_cross",
+	"parent": "block/cross",
 	"ambientocclusion": false,
 	"textures": {
+		"particle": "buzzierbees:block/cartwheel",
 		"3": "buzzierbees:block/cartwheel_stem_flipped",
 		"cross": "buzzierbees:block/cartwheel_stem",
 		"back": "buzzierbees:block/cartwheel_back",

@@ -17,6 +17,7 @@ public class PottedCartwheelBlock extends FlowerPotBlock {
 
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 	
+	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
 	}
