@@ -22,6 +22,9 @@ public class ModItems
 	public static Item CLOVER_LEAF;
 	public static Item FOUR_LEAF_CLOVER;
 	public static Item CLOVER_HONEY_BOTTLE;
+	public static Item HONEY_APPLE;
+	public static Item HONEY_BREAD;
+	public static Item GLAZED_HAM;
 	
 	public static Item HONEY_SLIME_SPAWN_EGG;
 
@@ -32,12 +35,14 @@ public class ModItems
 	public static Food BEE_SOUP_FOOD;
 	public static Food CLOVER_HONEY_BOTTLE_FOOD;
 	public static Food STICKY_HONEY_WAND_FOOD;
+	public static Food HONEY_APPLE_FOOD;
 	
 	static {
 		CRYSTALLIZED_HONEY_FOOD = (new Food.Builder()).hunger(1).saturation(1.5F).fastToEat().setAlwaysEdible().effect(new EffectInstance(Effects.SPEED, 160, 1), 0.8F).build();
 		BEE_SOUP_FOOD = (new Food.Builder()).hunger(8).saturation(0.6F).setAlwaysEdible().effect(new EffectInstance(Effects.SLOWNESS, 240, 2), 0.5F).build();
 		CLOVER_HONEY_BOTTLE_FOOD = (new Food.Builder()).hunger(6).saturation(2.5F).setAlwaysEdible().effect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 1), 0.8F).build();
 		STICKY_HONEY_WAND_FOOD = (new Food.Builder()).hunger(6).saturation(0.1F).setAlwaysEdible().build();
+		HONEY_APPLE_FOOD = (new Food.Builder()).hunger(7).saturation(0.4F).build();
 	}
 	
     @SubscribeEvent
@@ -46,6 +51,7 @@ public class ModItems
     	CRYSTALLIZED_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_honey");
       	WAX = registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	BEE_SOUP = registerItem(new BeeSoupItem(new Item.Properties().maxStackSize(1).food(BEE_SOUP_FOOD).group(ItemGroup.FOOD)), "bee_soup");
+    	HONEY_APPLE = registerItem(new CuringItem(new Item.Properties().food(HONEY_APPLE_FOOD).group(ItemGroup.FOOD), Effects.POISON), "honey_apple");
     	CLOVER_LEAF = registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER = registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
     	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
