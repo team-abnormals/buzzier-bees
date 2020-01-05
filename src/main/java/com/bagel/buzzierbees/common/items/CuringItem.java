@@ -21,6 +21,7 @@ public class CuringItem extends Item {
 		counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		super.onItemUseFinish(stack, worldIn, entityLiving);
 		if (entityLiving instanceof ServerPlayerEntity) {
