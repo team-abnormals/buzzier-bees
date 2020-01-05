@@ -1,6 +1,7 @@
 package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.block.*;
+import net.minecraft.block.PressurePlateBlock.Sensitivity;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -128,7 +129,9 @@ public class ModBlocks
 		Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
 		Block.Properties PLANK_PROPERTIES  		= Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD);
 		Block.Properties HONEY_BLOCK_PROPERTIES = Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_);
-
+		Sensitivity SENSITIVITY       = PressurePlateBlock.Sensitivity.EVERYTHING;
+		
+		
 		WAX_BLOCK          = registerBlock(new Block           (Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block",          ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(HONEY_BLOCK_PROPERTIES),                            										 "clover_honey_block", ItemGroup.DECORATIONS);
 		HONEY_LAMP         = registerBlock(new HoneyLamp       (Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)),                     "honey_lamp",         ItemGroup.DECORATIONS);
@@ -142,15 +145,15 @@ public class ModBlocks
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 
 		//Hive Planks Section
-		HIVE_PLANKS 		= registerBlock(new Block             (PLANK_PROPERTIES),                                            "hive_planks",         ItemGroup.BUILDING_BLOCKS);
-		HIVE_STAIRS 		= registerBlock(new StairsBlock       (HIVE_PLANKS.getDefaultState(), PLANK_PROPERTIES),             "hive_stairs",         ItemGroup.BUILDING_BLOCKS);
-		HIVE_SLAB 			= registerBlock(new SlabBlock         (PLANK_PROPERTIES),                                            "hive_slab",           ItemGroup.BUILDING_BLOCKS);
-        HIVE_FENCE 			= registerBlock(new FenceBlock        (PLANK_PROPERTIES),                                            "hive_fence",          ItemGroup.DECORATIONS);
-        HIVE_FENCE_GATE 	= registerBlock(new FenceGateBlock    (PLANK_PROPERTIES),                                            "hive_fence_gate",     ItemGroup.REDSTONE);
-        HIVE_BUTTON 		= registerBlock(new WoodButtonBlock   (PLANK_PROPERTIES),                                            "hive_button",         ItemGroup.REDSTONE);
-		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, PLANK_PROPERTIES), "hive_pressure_plate", ItemGroup.REDSTONE);
-		HIVE_DOOR 			= registerBlock(new DoorBlock         (PLANK_PROPERTIES),                                            "hive_door",           ItemGroup.REDSTONE);
-        HIVE_TRAPDOOR 		= registerBlock(new TrapDoorBlock     (PLANK_PROPERTIES),                                            "hive_trapdoor",       ItemGroup.REDSTONE);
+		HIVE_PLANKS 		= registerBlock(new Block             (PLANK_PROPERTIES),                                     "hive_planks",         ItemGroup.BUILDING_BLOCKS);
+		HIVE_STAIRS 		= registerBlock(new StairsBlock       (HIVE_PLANKS.getDefaultState(), PLANK_PROPERTIES),      "hive_stairs",         ItemGroup.BUILDING_BLOCKS);
+		HIVE_SLAB 			= registerBlock(new SlabBlock         (PLANK_PROPERTIES),                                     "hive_slab",           ItemGroup.BUILDING_BLOCKS);
+        HIVE_FENCE 			= registerBlock(new FenceBlock        (PLANK_PROPERTIES),                                     "hive_fence",          ItemGroup.DECORATIONS);
+        HIVE_FENCE_GATE 	= registerBlock(new FenceGateBlock    (PLANK_PROPERTIES),                                     "hive_fence_gate",     ItemGroup.REDSTONE);
+        HIVE_BUTTON 		= registerBlock(new WoodButtonBlock   (PLANK_PROPERTIES.doesNotBlockMovement()),              "hive_button",         ItemGroup.REDSTONE);
+		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(SENSITIVITY, PLANK_PROPERTIES.doesNotBlockMovement()), "hive_pressure_plate", ItemGroup.REDSTONE);
+		HIVE_DOOR 			= registerBlock(new DoorBlock         (PLANK_PROPERTIES.func_226896_b_()),                    "hive_door",           ItemGroup.REDSTONE);
+        HIVE_TRAPDOOR 		= registerBlock(new TrapDoorBlock     (PLANK_PROPERTIES.func_226896_b_()),                    "hive_trapdoor",       ItemGroup.REDSTONE);
 
 		//Flowers Section
 		CARTWHEEL 			= registerBlock(new CartwheelBlock	(Effects.SPEED, 			11, 	FLOWER_PROPERTIES), "cartwheel", 		ItemGroup.DECORATIONS);
