@@ -10,8 +10,6 @@ import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.SlimeEntity;
-import net.minecraft.entity.monster.ZombieEntity;
-import net.minecraft.entity.monster.ZombiePigmanEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -273,6 +271,17 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
 
 
    }
+   
+   protected void dealDamage(LivingEntity entityIn) {
+	      if (this.isAlive()) {
+	         int i = this.getSlimeSize();
+	         if (this.getDistanceSq(entityIn) < 0.6D * (double)i * 0.6D * (double)i && this.canEntityBeSeen(entityIn) && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), this.func_225512_er_())) {
+	            this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+	            this.applyEnchantments(this, entityIn);
+	         }
+	      }
+
+	   }
 
    /**
     * Called by a player entity when they collide with an entity
@@ -393,9 +402,6 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
          this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
       }
 
-      /**
-       * Returns whether the EntityAIBase should begin execution.
-       */
       public boolean shouldExecute() {
          LivingEntity livingentity = this.slime.getAttackTarget();
          if (livingentity == null) {
@@ -407,17 +413,11 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
          }
       }
 
-      /**
-       * Execute a one shot task or start executing a continuous task
-       */
       public void startExecuting() {
          this.growTieredTimer = 300;
          super.startExecuting();
       }
 
-      /**
-       * Returns whether an in-progress EntityAIBase should continue executing
-       */
       public boolean shouldContinueExecuting() {
          LivingEntity livingentity = this.slime.getAttackTarget();
          if (livingentity == null) {
@@ -431,14 +431,18 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
          }
       }
 
-      /**
-       * Keep ticking a continuous task that has already been started
-       */
       public void tick() {
          this.slime.faceEntity(this.slime.getAttackTarget(), 10.0F, 10.0F);
          ((HoneySlimeEntity.MoveHelperController) this.slime.getMoveHelper()).setDirection(this.slime.rotationYaw, this.slime.canDamagePlayer());
       }
    }
+   
+   public void onCollideWithPlayer(PlayerEntity entityIn) {
+	      if (this.canDamagePlayer()) {
+	         this.dealDamage(entityIn);
+	      }
+
+	   }
 
    static class FaceRandomGoal extends Goal {
       private final HoneySlimeEntity slime;
