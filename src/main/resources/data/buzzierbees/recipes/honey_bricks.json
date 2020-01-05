@@ -1,20 +1,19 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "GGG",
-        "###"
+        "#S",
+        "S#"
     ],
     "key": {
         "#": {
-            "item": "buzzierbees:hive_planks"
-        },
-        "G": {
             "item": "minecraft:honeycomb"
+        },
+        "S": {
+            "item": "minecraft:brick"
         }
     },
     "result": {
-        "item": "minecraft:bee_nest",
+        "item": "buzzierbees:honey_bricks",
         "count": 1
     }
 }

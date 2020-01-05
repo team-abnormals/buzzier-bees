@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "buzzierbees:honey_bricks"
+    }
+  },
+  "result": {
+    "item": "buzzierbees:honey_brick_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:crystallized_honey"
+        }
+    ],
+    "result": {
+        "item": "minecraft:sugar",
+        "count": 6
+    }
+}
