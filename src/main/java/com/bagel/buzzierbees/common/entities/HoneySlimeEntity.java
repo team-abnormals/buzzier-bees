@@ -42,6 +42,7 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    public float squishFactor;
    public float prevSquishFactor;
    private boolean wasOnGround;
+   public boolean isAngry;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
@@ -415,19 +416,29 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
 
       public void startExecuting() {
          this.growTieredTimer = 300;
+         this.slime.isAngry = true;
          super.startExecuting();
       }
 
       public boolean shouldContinueExecuting() {
          LivingEntity livingentity = this.slime.getAttackTarget();
          if (livingentity == null) {
+            this.slime.isAngry = false;
             return false;
          } else if (!livingentity.isAlive()) {
+            this.slime.isAngry = false;
             return false;
          } else if (livingentity instanceof PlayerEntity && ((PlayerEntity) livingentity).abilities.disableDamage) {
+            this.slime.isAngry = false;
             return false;
          } else {
-            return --this.growTieredTimer > 0;
+            if (--this.growTieredTimer > 0) {
+               return true;
+            }
+            else {
+               this.slime.isAngry = false;
+               return false;
+            }
          }
       }
 
@@ -438,10 +449,9 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    }
    
    public void onCollideWithPlayer(PlayerEntity entityIn) {
-	      if (this.canDamagePlayer()) {
+	      if (this.canDamagePlayer() && this.isAngry) {
 	         this.dealDamage(entityIn);
 	      }
-
 	   }
 
    static class FaceRandomGoal extends Goal {
