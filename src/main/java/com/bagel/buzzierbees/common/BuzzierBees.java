@@ -83,12 +83,6 @@ public class BuzzierBees
 				Ingredient.fromItems(Items.FERMENTED_SPIDER_EYE),
 				weakCure);
 
-		ItemStack placebo = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.PLACEBO);
-		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
-				Ingredient.fromItems(Items.NETHER_WART),
-				placebo);
-
 		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER, Potions.LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, ModPotions.LONG_LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_LUCK);
@@ -99,7 +93,11 @@ public class BuzzierBees
 		PotionBrewing.addMix(ModPotions.STRONG_LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.STRONG_BAD_LUCK);
 
 		//Cures Brewing
-		//TODO: Placebo recipe
+		ItemStack placebo = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.PLACEBO);
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(Items.NETHER_WART),
+				placebo);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GOLDEN_CARROT, ModPotions.NIGHT_VISION_CURE);
 		PotionBrewing.addMix(ModPotions.NIGHT_VISION_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.INVISIBILITY_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.MAGMA_CREAM, ModPotions.FIRE_RESISTANCE_CURE);
