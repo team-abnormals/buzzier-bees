@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntities
 {
-	public static EntityType<?> HONEY_SLIME;
+	public static EntityType<HoneySlimeEntity> HONEY_SLIME;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)

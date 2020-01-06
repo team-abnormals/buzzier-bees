@@ -1,18 +1,17 @@
 package com.bagel.buzzierbees.common;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.blocks.ModTileEntities;
+import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -21,6 +20,9 @@ import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,6 +32,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
@@ -52,7 +56,9 @@ public class BuzzierBees
     {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        
+
+		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::func_223366_c);
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 100, 4, 4));
 
         addBrewingRecipes();
     }
