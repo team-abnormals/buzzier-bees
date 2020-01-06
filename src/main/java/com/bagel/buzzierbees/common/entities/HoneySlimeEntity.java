@@ -8,11 +8,13 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -50,11 +52,12 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    }
 
    protected void registerGoals() {
-      this.goalSelector.addGoal(1, new HoneySlimeEntity.FloatGoal(this));
+	  this.goalSelector.addGoal(1, new TemptGoal(this, 1.25D, Ingredient.fromItems(Items.SUGAR), false));   
+	  this.goalSelector.addGoal(2, new HoneySlimeEntity.FloatGoal(this));
       this.goalSelector.addGoal(3, new HoneySlimeEntity.FaceRandomGoal(this));
-      this.goalSelector.addGoal(5, new HoneySlimeEntity.HopGoal(this));
-      this.goalSelector.addGoal(7, new HurtByTargetGoal(this, new Class[0]));
-      this.goalSelector.addGoal(9, new HoneySlimeEntity.AttackGoal(this));
+      this.goalSelector.addGoal(4, new HoneySlimeEntity.HopGoal(this));
+      this.goalSelector.addGoal(6, new HurtByTargetGoal(this, new Class[0]));
+      this.goalSelector.addGoal(5, new HoneySlimeEntity.AttackGoal(this));
    }
 
    protected void registerData() {
