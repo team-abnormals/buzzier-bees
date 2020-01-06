@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -20,12 +21,13 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.ILightReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 //with(PATCH, Boolean.valueOf(true)
-public class CloverBlock extends FlowerBlock implements IGrowable {
+public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
 
     protected static final VoxelShape SHAPE_ONE = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
@@ -35,6 +37,7 @@ public class CloverBlock extends FlowerBlock implements IGrowable {
         super(p_i49984_1_, 8, p_i49984_3_);
         this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1)));
     }
+	
 
     @Override
     public boolean canGrow(IBlockReader iBlockReader, BlockPos blockPos, BlockState blockState, boolean b) {
@@ -104,4 +107,14 @@ public class CloverBlock extends FlowerBlock implements IGrowable {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(AGE);
     }
+
+
+	@Override
+	public int getColor(BlockState p_getColor_1_, ILightReader p_getColor_2_, BlockPos p_getColor_3_,
+			int p_getColor_4_) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }

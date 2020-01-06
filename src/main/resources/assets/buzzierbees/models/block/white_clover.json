@@ -1,22 +1,23 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/tinted_cross",
 	"ambientocclusion": false,
 	"textures": {
-		"0": "buzzierbees:block/clover_patch",
+		"cross": "buzzierbees:block/clover_patch",
 		"particle": "buzzierbees:block/white_clover",
-		"cross": "buzzierbees:block/white_clover"
+		"flower": "buzzierbees:block/white_clover"
 	},
 	"elements": [
 		{
 			"from": [0, 1, 0],
 			"to": [16, 1, 16],
 			"faces": {
-				"north": {"uv": [0, 0, 16, 0], "texture": "#0", "tintindex": 0 },
-				"east": {"uv": [0, 0, 16, 0], "texture": "#0", "tintindex": 0 },
-				"south": {"uv": [0, 0, 16, 0], "texture": "#0", "tintindex": 0 },
-				"west": {"uv": [0, 0, 16, 0], "texture": "#0", "tintindex": 0 },
-				"up": {"uv": [0, 0, 16, 16], "texture": "#0", "tintindex": 0 },
-				"down": {"uv": [0, 0, 16, 16], "texture": "#0", "tintindex": 0 }
+				"north": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"east": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"south": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"west": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"up": {"uv": [0, 0, 16, 16], "texture": "cross", "tintindex": 0 },
+				"down": {"uv": [0, 0, 16, 16], "texture": "cross", "tintindex": 0 }
 			}
 		},
 		{
@@ -25,8 +26,8 @@
 			"shade": false,
 			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#cross"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#cross"}
+				"north": {"uv": [0, 0, 16, 16], "texture": "#flower"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#flower"}
 			}
 		},
 		{
@@ -35,14 +36,14 @@
 			"shade": false,
 			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
 			"faces": {
-				"east": {"uv": [0, 0, 16, 16], "texture": "#cross"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#cross"}
+				"east": {"uv": [0, 0, 16, 16], "texture": "#flower"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#flower"}
 			}
 		}
 	],
 	"groups": [0,
 		{
-			"name": "cross",
+			"name": "flower",
 			"origin": [8, 8, 8],
 			"children": [1, 2]
 		}
