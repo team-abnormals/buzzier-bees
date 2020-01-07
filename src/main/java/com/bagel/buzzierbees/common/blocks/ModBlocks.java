@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlocks
-{
+{	
 	//Properties
 	public static final Block.Properties FLOWER_PROPERTIES 		= Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
 	public static final Block.Properties CANDLE_PROPERTIES 		= Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
@@ -227,18 +227,18 @@ public class ModBlocks
 
 		//Flamboyant Candles Section
 		if (ModList.get().isLoaded("flamboyant")) {
-			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 			ItemGroup.DECORATIONS);
-			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 			ItemGroup.DECORATIONS);
-			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 			ItemGroup.DECORATIONS);
+			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 		ItemGroup.DECORATIONS);
+			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 		ItemGroup.DECORATIONS);
+			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 		ItemGroup.DECORATIONS);
 			DARK_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "dark_green_candle", 	ItemGroup.DECORATIONS);
 			FOREST_GREEN_CANDLE	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "forest_green_candle", 	ItemGroup.DECORATIONS);
 			HOT_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "hot_pink_candle", 		ItemGroup.DECORATIONS);
 			INDIGO_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "indigo_candle", 		ItemGroup.DECORATIONS);
 			MAROON_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "maroon_candle", 		ItemGroup.DECORATIONS);
 			NAVY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "navy_candle", 			ItemGroup.DECORATIONS);
-			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 			ItemGroup.DECORATIONS);
+			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 		ItemGroup.DECORATIONS);
 			PALE_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_green_candle", 	ItemGroup.DECORATIONS);
-			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 		ItemGroup.DECORATIONS);
+			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 	ItemGroup.DECORATIONS);
 			PALE_YELLOW_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_yellow_candle", 	ItemGroup.DECORATIONS);
 			SKY_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "sky_blue_candle", 		ItemGroup.DECORATIONS);
 			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ItemGroup.DECORATIONS);
