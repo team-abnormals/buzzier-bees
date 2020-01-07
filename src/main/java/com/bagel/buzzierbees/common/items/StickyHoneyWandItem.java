@@ -27,11 +27,11 @@ public class StickyHoneyWandItem extends Item {
 		World world = context.getWorld();
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
-		if (blockstate.getBlock() instanceof BeehiveBlock && (context.getFace() == blockstate.get(BeehiveBlock.field_226872_b_)) && blockstate.get(BeehiveBlock.field_226873_c_) == 5) {
+		if (blockstate.getBlock() instanceof BeehiveBlock && (context.getFace() == blockstate.get(BeehiveBlock.field_226872_b_)) && blockstate.get(BeehiveBlock.field_226873_c_) == 0) {
 			PlayerEntity playerentity = context.getPlayer();
 			BlockState blockstate2 = null;
 			world.playSound((PlayerEntity) null, blockpos, SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-			blockstate2 = blockstate.with(BeehiveBlock.field_226873_c_, Integer.valueOf(0));
+			blockstate2 = blockstate.with(BeehiveBlock.field_226873_c_, Integer.valueOf(5));
 			if (blockstate2 != null) {
 				if (!world.isRemote) {
 					world.setBlockState(blockpos, blockstate2, 11);

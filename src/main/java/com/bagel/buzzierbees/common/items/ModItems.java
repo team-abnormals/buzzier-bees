@@ -73,7 +73,7 @@ public class ModItems
 		//GLAZED_HAM		= registerItem(new CuringItem(new Item.Properties().food(GLAZED_HAM_FOOD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.WEAKNESS), new EffectInstance(Effects.POISON)}), "glazed_ham"); TODO: Texture (model file is already in), proper food
 
 		//Tools
-		HONEY_WAND = registerItem(new HoneyWandItem(new Item.Properties().containerItem(HONEY_WAND).maxStackSize(1).group(ItemGroup.TOOLS)), "honey_wand");
+		HONEY_WAND = registerItem(new HoneyWandItem(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)), "honey_wand");
 		STICKY_HONEY_WAND = registerItem(new StickyHoneyWandItem(new Item.Properties().containerItem(HONEY_WAND).food(STICKY_HONEY_WAND_FOOD).maxStackSize(1).group(ItemGroup.TOOLS)), "sticky_honey_wand");
 		//Spawn Eggs
 		HONEY_SLIME_SPAWN_EGG = registerItem(new ModSpawnEggItem(() -> ModEntities.HONEY_SLIME,16361240, 16361240, new Item.Properties().group(ItemGroup.MISC)), "honey_slime_spawn_egg");
