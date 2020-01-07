@@ -5,11 +5,11 @@
             "item": "buzzierbees:sticky_honey_wand"
         },
         {
-            "item": "minecraft:bottle"
+            "item": "minecraft:glass_bottle"
         }
     ],
     "result": {
-        "item": "minecraft:honey_botte",
+        "item": "minecraft:honey_bottle",
         "count": 1
     }
 }

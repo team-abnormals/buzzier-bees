@@ -49,6 +49,7 @@ public class StickyHoneyWandItem extends Item {
 	}
 	
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+		super.onItemUseFinish(stack, worldIn, entityLiving);
 		CompoundNBT nbt = stack.getOrCreateTag();
 			if (entityLiving instanceof ServerPlayerEntity) {
 				ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)entityLiving;
@@ -58,14 +59,20 @@ public class StickyHoneyWandItem extends Item {
 			if (!worldIn.isRemote) {
 				entityLiving.removePotionEffect(Effects.POISON);
 			}
-		return new ItemStack(ModItems.HONEY_WAND);
+			if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode){
+				return new ItemStack(ModItems.HONEY_WAND);
+			}
+		return stack;
 	}
+
 	
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-			target.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 2, true, true));
-			//replace item?
+		target.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 160, 4, true, true));
+		if (attacker instanceof PlayerEntity && !((PlayerEntity)attacker).abilities.isCreativeMode){
+			attacker.setHeldItem(attacker.getActiveHand(), new ItemStack(ModItems.HONEY_WAND));
+		}
 			//stack.damageItem(1, attacker, (p_220048_0_) -> { p_220048_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);});
-			return true;
+		return true;
 	}	
 }
 
