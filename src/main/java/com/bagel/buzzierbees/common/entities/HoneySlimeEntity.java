@@ -134,9 +134,7 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
          } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
             player.dropItem(new ItemStack(Items.field_226638_pX_), false);
          }
-         if (!player.abilities.isCreativeMode) {
-            performEffect(this, 1);
-         }
+         performEffect(this, 1);
          return true;
       } else {
          return super.processInteract(player, hand);
