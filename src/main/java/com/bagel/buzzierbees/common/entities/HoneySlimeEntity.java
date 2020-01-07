@@ -4,6 +4,7 @@ import java.util.EnumSet;
 import java.util.Random;
 import javax.annotation.Nullable;
 
+import com.bagel.buzzierbees.common.items.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
@@ -139,9 +140,13 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
          }
          performEffect(this, 1);
          return true;
-      } else {
-         return super.processInteract(player, hand);
+      } else if (itemstack.getItem() == ModItems.HONEY_WAND) {
+         player.playSound(SoundEvents.ENTITY_SLIME_SQUISH, 1.0F, 1.0F);
+         player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND));
+         performEffect(this, 1);
+         return true;
       }
+      return super.processInteract(player, hand);
    }
 
    public void performEffect(LivingEntity entity, int amplifier) {
