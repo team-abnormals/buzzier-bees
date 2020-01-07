@@ -36,7 +36,7 @@ public class StickyHoneyWandItem extends Item {
 				if (!world.isRemote) {
 					world.setBlockState(blockpos, blockstate2, 11);
 					if (playerentity != null && playerentity instanceof PlayerEntity && !((PlayerEntity)playerentity).abilities.isCreativeMode) {
-						context.getPlayer().setHeldItem(context.getPlayer().getActiveHand(), new ItemStack(ModItems.HONEY_WAND));
+						context.getPlayer().setHeldItem(context.getPlayer().swingingHand, new ItemStack(ModItems.HONEY_WAND));
 						// replace item here
 						// context.getItem().damageItem(1, playerentity, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(context.getHand());});
 					}
