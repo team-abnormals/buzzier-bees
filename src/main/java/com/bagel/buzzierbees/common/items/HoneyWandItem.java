@@ -10,12 +10,13 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -27,14 +28,22 @@ public class HoneyWandItem extends Item {
 	public HoneyWandItem(Item.Properties properties) {
 		super(properties);
 	}
+	
 	@Override
-	public UseAction getUseAction(ItemStack stack) {
-		CompoundNBT nbt = stack.getOrCreateTag();
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+		CompoundNBT nbt = playerIn.getHeldItem(handIn).getOrCreateTag();  
 		if (nbt.getBoolean(STICKY_KEY)) {
-			return UseAction.EAT;
-		}
-		return UseAction.NONE;
-	}
+	         ItemStack itemstack = playerIn.getHeldItem(handIn);
+	         if (playerIn.canEat(this.getFood().canEatWhenFull())) {
+	            playerIn.setActiveHand(handIn);
+	            return ActionResult.func_226249_b_(itemstack);
+	         } else {
+	            return ActionResult.func_226251_d_(itemstack);
+	         }
+	      } else {
+	         return ActionResult.func_226250_c_(playerIn.getHeldItem(handIn));
+	      }
+	   }
 
 	public ActionResultType onItemUse(ItemUseContext context) {
 	      World world = context.getWorld();
@@ -100,7 +109,7 @@ public class HoneyWandItem extends Item {
 				}
 			if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode) {
 				nbt.putBoolean(STICKY_KEY, false);
-				stack.damageItem(1, entityLiving, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(entityLiving.getActiveHand());});
+				
 				}
 			}
 		return stack;

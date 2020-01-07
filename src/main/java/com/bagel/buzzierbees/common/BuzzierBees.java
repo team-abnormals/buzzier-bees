@@ -135,8 +135,8 @@ public class BuzzierBees
 		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP,RenderType.func_228645_f_());
 
 		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR,RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR,RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.WAXED_WOOD_DOOR,RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.WAXED_WOOD_TRAPDOOR,RenderType.func_228643_e_());
 
 		//Flowers
 		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER,RenderType.func_228641_d_());

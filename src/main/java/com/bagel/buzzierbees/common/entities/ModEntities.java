@@ -35,8 +35,7 @@ public class ModEntities
         return type;
     }
 
-    @SuppressWarnings("unchecked")
-	@OnlyIn(Dist.CLIENT)
+    @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)ModEntities.HONEY_SLIME, HoneySlimeRenderer::new);

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "buzzierbees:block/waxed_wood_pressure_plate" },
+        "powered=true": { "model": "buzzierbees:block/waxed_wood_pressure_plate_down" }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north,pickles=1": { "model": "buzzierbees:block/hot_pink_candle" },
+        "facing=south,pickles=1": { "model": "buzzierbees:block/hot_pink_candle", "y": 180 },
+        "facing=west,pickles=1":  { "model": "buzzierbees:block/hot_pink_candle", "y": 270 },
+        "facing=east,pickles=1":  { "model": "buzzierbees:block/hot_pink_candle", "y": 90 },
+        "facing=north,pickles=2": { "model": "buzzierbees:block/two_hot_pink_candles" },
+        "facing=south,pickles=2": { "model": "buzzierbees:block/two_hot_pink_candles", "y": 180 },
+        "facing=west,pickles=2":  { "model": "buzzierbees:block/two_hot_pink_candles", "y": 270 },
+        "facing=east,pickles=2":  { "model": "buzzierbees:block/two_hot_pink_candles", "y": 90 },
+        "facing=north,pickles=3": { "model": "buzzierbees:block/three_hot_pink_candles" },
+        "facing=south,pickles=3": { "model": "buzzierbees:block/three_hot_pink_candles", "y": 180 },
+        "facing=west,pickles=3":  { "model": "buzzierbees:block/three_hot_pink_candles", "y": 270 },
+        "facing=east,pickles=3":  { "model": "buzzierbees:block/three_hot_pink_candles", "y": 90 },
+        "facing=north,pickles=4": { "model": "buzzierbees:block/four_hot_pink_candles" },
+        "facing=south,pickles=4": { "model": "buzzierbees:block/four_hot_pink_candles", "y": 180 },
+        "facing=west,pickles=4":  { "model": "buzzierbees:block/four_hot_pink_candles", "y": 270 },
+        "facing=east,pickles=4":  { "model": "buzzierbees:block/four_hot_pink_candles", "y": 90 }
+  }
+}

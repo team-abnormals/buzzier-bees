@@ -1,0 +1,6 @@
+{
+    "parent": "block/button",
+    "textures": {
+        "texture": "buzzierbees:block/waxed_wood_planks"
+    }
+}
