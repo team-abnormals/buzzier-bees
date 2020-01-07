@@ -37,6 +37,8 @@ public class ModBlocks
 	public static Block WAXED_WOOD_BUTTON;
 	public static Block WAXED_WOOD_DOOR;
 	public static Block WAXED_WOOD_TRAPDOOR;
+	public static Block WAXED_WOOD_SIGN;
+	public static Block WAXED_WOOD_WALL_SIGN;
 
 	//Honey Bricks
 	public static Block HONEY_BRICKS;
@@ -88,24 +90,6 @@ public class ModBlocks
 	public static Block WHITE_CLOVER_SCENTED_CANDLE;
 	public static Block PINK_CLOVER_SCENTED_CANDLE;
 
-	//Flamboyant Candles
-	public static Block AMBER_CANDLE;
-	public static Block BEIGE_CANDLE;
-	public static Block CREAM_CANDLE;
-	public static Block DARK_GREEN_CANDLE;
-	public static Block FOREST_GREEN_CANDLE;
-	public static Block HOT_PINK_CANDLE;
-	public static Block INDIGO_CANDLE;
-	public static Block MAROON_CANDLE;
-	public static Block NAVY_CANDLE;
-	public static Block OLIVE_CANDLE;
-	public static Block PALE_GREEN_CANDLE;
-	public static Block PALE_PINK_CANDLE;
-	public static Block PALE_YELLOW_CANDLE;
-	public static Block SKY_BLUE_CANDLE;
-	public static Block SLATE_GRAY_CANDLE;
-	public static Block VIOLET_CANDLE;
-
 	//Flowers
 	public static Block CARTWHEEL;
 	public static Block BLUEBELL;
@@ -126,6 +110,32 @@ public class ModBlocks
 	public static Block POTTED_DAYBLOOM;
 	public static Block POTTED_WHITE_CLOVER;
 	public static Block POTTED_PINK_CLOVER;
+
+	//Flamboyant Compat
+	public static Block AMBER_CANDLE;
+	public static Block BEIGE_CANDLE;
+	public static Block CREAM_CANDLE;
+	public static Block DARK_GREEN_CANDLE;
+	public static Block FOREST_GREEN_CANDLE;
+	public static Block HOT_PINK_CANDLE;
+	public static Block INDIGO_CANDLE;
+	public static Block MAROON_CANDLE;
+	public static Block NAVY_CANDLE;
+	public static Block OLIVE_CANDLE;
+	public static Block PALE_GREEN_CANDLE;
+	public static Block PALE_PINK_CANDLE;
+	public static Block PALE_YELLOW_CANDLE;
+	public static Block SKY_BLUE_CANDLE;
+	public static Block SLATE_GRAY_CANDLE;
+	public static Block VIOLET_CANDLE;
+
+	//Quark Compat
+	public static Block WAXED_WOOD_BOOKSHELF;
+	public static Block WAXED_WOOD_CHEST;
+	public static Block WAXED_WOOD_LADDER;
+	public static Block WAXED_WOOD_VERTICAL_PLANKS;
+	public static Block WAXED_WOOD_VERTICAL_SLAB;
+	public static Block HONEY_BRICKS_VERTICAL_SLAB;
 
 	//TODO: 1.2
 	public static Block HIVE_BLOCK;
@@ -153,6 +163,8 @@ public class ModBlocks
 		WAXED_WOOD_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_pressure_plate", ItemGroup.REDSTONE);
 		WAXED_WOOD_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_door", ItemGroup.REDSTONE);
 		WAXED_WOOD_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_trapdoor", ItemGroup.REDSTONE);
+		WAXED_WOOD_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.WAXED_WOOD_TYPE), "waxed_wood_sign");
+		WAXED_WOOD_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(WAXED_WOOD_SIGN), ModWoodType.WAXED_WOOD_TYPE),"waxed_wood_wall_sign");
 
 		//Honey Bricks Section
 		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);
@@ -225,20 +237,20 @@ public class ModBlocks
 		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "white_clover_scented_candle", ItemGroup.DECORATIONS);
 		PINK_CLOVER_SCENTED_CANDLE  = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "pink_clover_scented_candle",  ItemGroup.DECORATIONS);
 
-		//Flamboyant Candles Section
+		//Flamboyant Compat Section
 		if (ModList.get().isLoaded("flamboyant")) {
-			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 		ItemGroup.DECORATIONS);
-			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 		ItemGroup.DECORATIONS);
-			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 		ItemGroup.DECORATIONS);
+			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 			ItemGroup.DECORATIONS);
+			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 			ItemGroup.DECORATIONS);
+			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 			ItemGroup.DECORATIONS);
 			DARK_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "dark_green_candle", 	ItemGroup.DECORATIONS);
 			FOREST_GREEN_CANDLE	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "forest_green_candle", 	ItemGroup.DECORATIONS);
 			HOT_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "hot_pink_candle", 		ItemGroup.DECORATIONS);
 			INDIGO_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "indigo_candle", 		ItemGroup.DECORATIONS);
 			MAROON_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "maroon_candle", 		ItemGroup.DECORATIONS);
 			NAVY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "navy_candle", 			ItemGroup.DECORATIONS);
-			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 		ItemGroup.DECORATIONS);
+			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 			ItemGroup.DECORATIONS);
 			PALE_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_green_candle", 	ItemGroup.DECORATIONS);
-			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 	ItemGroup.DECORATIONS);
+			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 		ItemGroup.DECORATIONS);
 			PALE_YELLOW_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_yellow_candle", 	ItemGroup.DECORATIONS);
 			SKY_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "sky_blue_candle", 		ItemGroup.DECORATIONS);
 			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ItemGroup.DECORATIONS);
@@ -263,15 +275,12 @@ public class ModBlocks
         return block;
     }
 
-    /*public static Block registerBlockNoGroup(Block block, String name)
+    public static Block registerBlockNoGroupNoItem(Block block, String name)
     {
-        BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(null));
         block.setRegistryName(name);
-        itemBlock.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
-        ForgeRegistries.ITEMS.register(itemBlock);
         return block;
-    }*/
+    }
     
     /*public static Block registerBlock(Block block, BlockItem itemBlock, String name) {
         block.setRegistryName(name);

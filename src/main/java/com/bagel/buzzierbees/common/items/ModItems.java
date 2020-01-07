@@ -1,10 +1,8 @@
 package com.bagel.buzzierbees.common.items;
 
+import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.entities.ModEntities;
-import net.minecraft.item.Food;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.event.RegistryEvent;
@@ -18,6 +16,7 @@ public class ModItems
 	public static Item WAX;
 	public static Item CRYSTALLIZED_HONEY;
 	//public static Item CRYSTALLIZED_CLOVER_HONEY;
+	public static Item WAXED_WOOD_SIGN;
 
 	//Food Items
 	public static Item BEE_SOUP;
@@ -60,6 +59,7 @@ public class ModItems
       	WAX 				= registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	CLOVER_LEAF 		= registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER 	= registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
+		WAXED_WOOD_SIGN 	= registerItem(new SignItem(new Item.Properties().group(ItemGroup.DECORATIONS), ModBlocks.WAXED_WOOD_SIGN, ModBlocks.WAXED_WOOD_WALL_SIGN), "waxed_wood_sign");
 
     	//Cut Content
     	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
