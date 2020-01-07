@@ -7,7 +7,7 @@
     ],
     "key": {
         "#": {
-            "tag": "minecraft:planks"
+            "item": "minecraft:bee_nest"
         },
         "/": {
             "item": "minecraft:stick"

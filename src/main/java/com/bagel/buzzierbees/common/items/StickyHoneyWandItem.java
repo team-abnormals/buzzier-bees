@@ -6,11 +6,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
@@ -36,7 +34,7 @@ public class StickyHoneyWandItem extends Item {
 				if (!world.isRemote) {
 					world.setBlockState(blockpos, blockstate2, 11);
 					if (playerentity != null && playerentity instanceof PlayerEntity && !((PlayerEntity)playerentity).abilities.isCreativeMode) {
-						context.getPlayer().setHeldItem(context.getPlayer().swingingHand, new ItemStack(ModItems.HONEY_WAND));
+						context.getPlayer().setHeldItem(context.getHand(), new ItemStack(ModItems.HONEY_WAND));
 						// replace item here
 						// context.getItem().damageItem(1, playerentity, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(context.getHand());});
 					}
@@ -50,8 +48,7 @@ public class StickyHoneyWandItem extends Item {
 	
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		super.onItemUseFinish(stack, worldIn, entityLiving);
-		CompoundNBT nbt = stack.getOrCreateTag();
-			if (entityLiving instanceof ServerPlayerEntity) {
+		if (entityLiving instanceof ServerPlayerEntity) {
 				ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)entityLiving;
 				CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
 				serverplayerentity.addStat(Stats.ITEM_USED.get(this));
