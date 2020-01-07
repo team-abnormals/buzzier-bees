@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:honey_wand"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:sticky_honey_wand",
+        "count": 1
+    }
+}

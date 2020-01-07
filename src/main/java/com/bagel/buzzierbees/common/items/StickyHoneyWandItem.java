@@ -27,7 +27,7 @@ public class StickyHoneyWandItem extends Item {
 		World world = context.getWorld();
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
-		if (blockstate.getBlock() instanceof BeehiveBlock && (context.getFace() == blockstate.get(BeehiveBlock.field_226872_b_)) && blockstate.get(BeehiveBlock.field_226873_c_) == 0) {
+		if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.field_226873_c_) == 0) {
 			PlayerEntity playerentity = context.getPlayer();
 			BlockState blockstate2 = null;
 			world.playSound((PlayerEntity) null, blockpos, SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
@@ -35,7 +35,7 @@ public class StickyHoneyWandItem extends Item {
 			if (blockstate2 != null) {
 				if (!world.isRemote) {
 					world.setBlockState(blockpos, blockstate2, 11);
-					if (playerentity != null) {
+					if (playerentity != null && playerentity instanceof PlayerEntity && !((PlayerEntity)playerentity).abilities.isCreativeMode) {
 						context.getPlayer().setHeldItem(context.getPlayer().getActiveHand(), new ItemStack(ModItems.HONEY_WAND));
 						// replace item here
 						// context.getItem().damageItem(1, playerentity, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(context.getHand());});
@@ -71,7 +71,7 @@ public class StickyHoneyWandItem extends Item {
 		if (attacker instanceof PlayerEntity && !((PlayerEntity)attacker).abilities.isCreativeMode){
 			attacker.setHeldItem(attacker.getActiveHand(), new ItemStack(ModItems.HONEY_WAND));
 		}
-			//stack.damageItem(1, attacker, (p_220048_0_) -> { p_220048_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);});
+			//stack.damageItem(1, attacker, (p_220048_0_) -> { p_220048_0_.sendBreakAnimatison(EquipmentSlotType.MAINHAND);});
 		return true;
 	}	
 }

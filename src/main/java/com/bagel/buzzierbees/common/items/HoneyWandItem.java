@@ -32,7 +32,7 @@ public class HoneyWandItem extends Item {
 	      World world = context.getWorld();
 	      BlockPos blockpos = context.getPos();
 	      BlockState blockstate = world.getBlockState(blockpos);
-	      if (blockstate.getBlock() instanceof BeehiveBlock && (context.getFace() == blockstate.get(BeehiveBlock.field_226872_b_)) && blockstate.get(BeehiveBlock.field_226873_c_) == 5) {
+	      if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.field_226873_c_) == 5) {
 	    	  PlayerEntity playerentity = context.getPlayer();
 	    	  BlockState blockstate2 = null;
 	    	  world.playSound((PlayerEntity)null, blockpos, SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
@@ -40,7 +40,7 @@ public class HoneyWandItem extends Item {
 	    	  if (blockstate2 != null) {
 	    		  if (!world.isRemote) {
 	    			  world.setBlockState(blockpos, blockstate2, 11);
-	    			  if (playerentity != null) {
+	    			  if (playerentity != null && playerentity instanceof PlayerEntity && !((PlayerEntity)playerentity).abilities.isCreativeMode) {
 						  context.getPlayer().setHeldItem(context.getPlayer().getActiveHand(), new ItemStack(ModItems.STICKY_HONEY_WAND));
 	    				  //context.getItem().damageItem(1, playerentity, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(context.getHand());});
 	    			  }
