@@ -63,12 +63,6 @@ public class BuzzierBees
 
 	@OnlyIn(Dist.CLIENT)
 	private void setupClient(final FMLClientSetupEvent event) {
-		ModItems.HONEY_WAND.addPropertyOverride(new ResourceLocation(MODID, "sticky"),
-				(stack, world, entity) -> {
-					CompoundNBT nbt = stack.getOrCreateTag();
-					return entity != null && nbt.getBoolean(HoneyWandItem.STICKY_KEY) ? 1.0F : 0.0F;
-				});
-
 		setupRenderLayer();
 
 		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);

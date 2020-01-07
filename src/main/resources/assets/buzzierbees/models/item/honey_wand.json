@@ -1,10 +1,6 @@
 {
     "parent": "item/handheld",
-    "textures": { "layer0": "buzzierbees:item/honey_wand" },
-    "overrides": 
-    [
-        {
-            "predicate": { "buzzierbees:sticky": 1 }, "model": "buzzierbees:item/sticky_honey_wand"
-        }
-    ]
+    "textures": {
+        "layer0": "buzzierbees:item/honey_wand"
+    }
 }
