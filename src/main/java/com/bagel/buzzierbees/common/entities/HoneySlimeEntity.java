@@ -40,11 +40,14 @@ import net.minecraft.world.storage.loot.LootTables;
 
 public class HoneySlimeEntity extends CreatureEntity implements IMob {
    private static final DataParameter<Integer> SLIME_SIZE = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.VARINT);
+
    public float squishAmount;
    public float squishFactor;
    public float prevSquishFactor;
-   private boolean wasOnGround;
+
    public boolean isAngry;
+
+   private boolean wasOnGround;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
@@ -323,7 +326,7 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
       return this.getSlimeSize() == 1 ? this.getType().getLootTable() : LootTables.EMPTY;
    }
 
-   public static boolean func_223366_c(EntityType<HoneySlimeEntity> p_223366_0_, IWorld p_223366_1_, SpawnReason reason, BlockPos p_223366_3_, Random randomIn) {
+   public static boolean honeySlimeCondition(EntityType<HoneySlimeEntity> p_223366_0_, IWorld p_223366_1_, SpawnReason reason, BlockPos p_223366_3_, Random randomIn) {
       if (p_223366_1_.getWorldInfo().getGenerator().handleSlimeSpawnReduction(randomIn, p_223366_1_) && randomIn.nextInt(4) != 1) {
          return false;
       } else {

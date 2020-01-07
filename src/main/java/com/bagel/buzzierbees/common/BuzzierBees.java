@@ -57,9 +57,7 @@ public class BuzzierBees
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
-		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::func_223366_c);
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 100, 4, 4));
-
+        addEntitySpawns();
         addBrewingRecipes();
     }
 
@@ -75,7 +73,14 @@ public class BuzzierBees
 
 		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 	}
-    
+
+	private void addEntitySpawns() {
+    	//Condition Registry
+		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
+
+		//Spawn Registry
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 100, 4, 4));
+	}
 
     private void addBrewingRecipes() {
 		//TODO: Temporary Clover Honey recipe (until hive situation sorted out)
@@ -120,8 +125,6 @@ public class BuzzierBees
 		PotionBrewing.addMix(ModPotions.PLACEBO, ModItems.FOUR_LEAF_CLOVER, ModPotions.LUCK_CURE);
 		PotionBrewing.addMix(ModPotions.LUCK_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.UNLUCK_CURE);
 	}
-    
-
 
     private void setupRenderLayer()
 	{
