@@ -3,6 +3,7 @@ package com.bagel.buzzierbees.common.entities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModEntities
 {
 	public static EntityType<HoneySlimeEntity> HONEY_SLIME;
+	public static EntityType<BoatEntity> WAXED_WOOD_BOAT;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
