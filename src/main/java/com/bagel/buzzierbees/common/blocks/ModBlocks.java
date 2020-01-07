@@ -28,15 +28,15 @@ public class ModBlocks
 	//public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 
 	//Hive Planks
-	public static Block HIVE_PLANKS;
-	public static Block HIVE_STAIRS;
-	public static Block HIVE_SLAB;
-	public static Block HIVE_FENCE;
-	public static Block HIVE_FENCE_GATE;
-	public static Block HIVE_PRESSURE_PLATE;
-	public static Block HIVE_BUTTON;
-	public static Block HIVE_DOOR;
-	public static Block HIVE_TRAPDOOR;
+	public static Block WAXED_WOOD_PLANKS;
+	public static Block WAXED_WOOD_STAIRS;
+	public static Block WAXED_WOOD_SLAB;
+	public static Block WAXED_WOOD_FENCE;
+	public static Block WAXED_WOOD_FENCE_GATE;
+	public static Block WAXED_WOOD_PRESSURE_PLATE;
+	public static Block WAXED_WOOD_BUTTON;
+	public static Block WAXED_WOOD_DOOR;
+	public static Block WAXED_WOOD_TRAPDOOR;
 
 	//Honey Bricks
 	public static Block HONEY_BRICKS;
@@ -144,15 +144,15 @@ public class ModBlocks
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 
 		//Hive Planks Section
-		HIVE_PLANKS 		= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
-		HIVE_STAIRS 		= registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
-		HIVE_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_slab", ItemGroup.BUILDING_BLOCKS);
-        HIVE_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence", ItemGroup.DECORATIONS);
-        HIVE_FENCE_GATE 	= registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
-        HIVE_BUTTON 		= registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_button", ItemGroup.REDSTONE);
-		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_pressure_plate", ItemGroup.REDSTONE);
-		HIVE_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_door", ItemGroup.REDSTONE);
-		HIVE_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_trapdoor", ItemGroup.REDSTONE);
+		WAXED_WOOD_PLANKS 		= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "waxed_wood_planks", ItemGroup.BUILDING_BLOCKS);
+		WAXED_WOOD_STAIRS 		= registerBlock(new StairsBlock(WAXED_WOOD_PLANKS.getDefaultState(), Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_stairs", ItemGroup.BUILDING_BLOCKS);
+		WAXED_WOOD_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_slab", ItemGroup.BUILDING_BLOCKS);
+        WAXED_WOOD_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence", ItemGroup.DECORATIONS);
+        WAXED_WOOD_FENCE_GATE 	= registerBlock(new FenceGateBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence_gate", ItemGroup.REDSTONE);
+        WAXED_WOOD_BUTTON 		= registerBlock(new WoodButtonBlock(Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_button", ItemGroup.REDSTONE);
+		WAXED_WOOD_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_pressure_plate", ItemGroup.REDSTONE);
+		WAXED_WOOD_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_door", ItemGroup.REDSTONE);
+		WAXED_WOOD_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_trapdoor", ItemGroup.REDSTONE);
 
 		//Honey Bricks Section
 		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);

@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "powered=false": { "model": "buzzierbees:block/hive_pressure_plate" },
-        "powered=true": { "model": "buzzierbees:block/hive_pressure_plate_down" }
-    }
-}
