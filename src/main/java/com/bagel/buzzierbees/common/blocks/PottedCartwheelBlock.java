@@ -8,19 +8,19 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 
-//TODO: Fix bug, that limits your ability to face flower in pot
+//Use the forge event that fires when a player right-clicks a block
+//if the block is a flower pot and the player is holding a cartwheel, then set the blockstate to the correct state
 public class PottedCartwheelBlock extends FlowerPotBlock {
 	@SuppressWarnings("deprecation")
-	public PottedCartwheelBlock(Block block, Properties properties) {
-		super(block, properties);
-		// TODO Auto-generated constructor stub
+	public PottedCartwheelBlock(Block flower, Properties properties) {
+		super(flower, properties);
 	}
 
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 	
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
+		return this.getDefaultState().with(FACING, context.getPlayer().getHorizontalFacing());
 	}
 	
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
