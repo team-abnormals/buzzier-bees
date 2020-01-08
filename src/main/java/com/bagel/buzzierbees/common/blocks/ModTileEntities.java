@@ -2,6 +2,8 @@ package com.bagel.buzzierbees.common.blocks;
 
 import com.bagel.buzzierbees.common.BuzzierBees;
 
+import com.bagel.buzzierbees.common.blocks.pistons.NewPistonTileEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.tileentity.SignTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -43,4 +45,10 @@ public class ModTileEntities {
 					ModBlocks.WAXED_WOOD_SIGN,
 					ModBlocks.WAXED_WOOD_WALL_SIGN)
 					.build(null));
+
+    public static final RegistryObject<TileEntityType<NewPistonTileEntity>> PISTON = TILE_ENTITY_TYPES.register("piston",
+			() -> TileEntityType.Builder.create(NewPistonTileEntity::new,
+					ModBlocks.MOVING_PISTON)
+					.build(null));
+
 }
