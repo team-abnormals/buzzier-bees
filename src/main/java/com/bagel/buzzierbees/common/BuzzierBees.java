@@ -6,6 +6,10 @@ import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.EntityClassification;
@@ -16,6 +20,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
+import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
@@ -23,6 +28,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -31,6 +37,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Set;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
@@ -46,24 +54,26 @@ public class BuzzierBees
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+		//FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.LOWEST, this::replaceBeehiveTag);
         MinecraftForge.EVENT_BUS.register(this);    
     }
-
-    /*
-    private static final Set<BlockState> BEEHIVES = ImmutableList.of(
-			Blocks.field_226906_mb_, 
-			ModBlocks.ACACIA_BEEHIVE, 
-			ModBlocks.BIRCH_BEEHIVE, 
-			ModBlocks.SPRUCE_BEEHIVE, 
-			ModBlocks.DARK_OAK_BEEHIVE, 
-			ModBlocks.JUNGLE_BEEHIVE)
-			.stream().flatMap((p_221043_0_) -> {
-			      return p_221043_0_.getStateContainer().getValidStates().stream();
-			   }).collect(ImmutableSet.toImmutableSet());
-
+/*
 	@OnlyIn(Dist.CLIENT)
-	public static final PointOfInterestType field_226356_s_ = PointOfInterestType.func_226359_a_("beehive", BEEHIVES, 1, 1);
-    */
+    void replaceBeehiveTag() {
+		final Set<BlockState> BEEHIVES = ImmutableList.of(
+				Blocks.field_226906_mb_,
+				ModBlocks.ACACIA_BEEHIVE,
+				ModBlocks.BIRCH_BEEHIVE,
+				ModBlocks.SPRUCE_BEEHIVE,
+				ModBlocks.DARK_OAK_BEEHIVE,
+				ModBlocks.JUNGLE_BEEHIVE)
+				.stream().flatMap((p_221043_0_) -> {
+					return p_221043_0_.getStateContainer().getValidStates().stream();
+				}).collect(ImmutableSet.toImmutableSet());
+
+
+		final PointOfInterestType field_226356_s_ = PointOfInterestType.func_226359_a_("beehive", BEEHIVES, 1, 1);
+	}*/
     
     private void setup(final FMLCommonSetupEvent event)
     {
