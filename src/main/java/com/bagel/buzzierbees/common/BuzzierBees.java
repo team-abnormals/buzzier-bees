@@ -4,10 +4,8 @@ import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.blocks.ModTileEntities;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.ModEntities;
-import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.EntityClassification;
@@ -15,11 +13,9 @@ import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
@@ -32,6 +28,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -49,14 +46,28 @@ public class BuzzierBees
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(this);    
     }
 
+    /*
+    private static final Set<BlockState> BEEHIVES = ImmutableList.of(
+			Blocks.field_226906_mb_, 
+			ModBlocks.ACACIA_BEEHIVE, 
+			ModBlocks.BIRCH_BEEHIVE, 
+			ModBlocks.SPRUCE_BEEHIVE, 
+			ModBlocks.DARK_OAK_BEEHIVE, 
+			ModBlocks.JUNGLE_BEEHIVE)
+			.stream().flatMap((p_221043_0_) -> {
+			      return p_221043_0_.getStateContainer().getValidStates().stream();
+			   }).collect(ImmutableSet.toImmutableSet());
+
+	@OnlyIn(Dist.CLIENT)
+	public static final PointOfInterestType field_226356_s_ = PointOfInterestType.func_226359_a_("beehive", BEEHIVES, 1, 1);
+    */
+    
     private void setup(final FMLCommonSetupEvent event)
     {
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
+    	
         addEntitySpawns();
         addBrewingRecipes();
     }

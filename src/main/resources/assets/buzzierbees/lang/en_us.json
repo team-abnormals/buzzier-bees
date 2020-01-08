@@ -16,6 +16,12 @@
 	"item.buzzierbees.royal_bee_spawn_egg": "Royal Bee Spawn Egg",
 	"item.buzzierbees.butterfly_spawn_egg": "Butterfly Spawn Egg",
 	
+	"block.buzzierbees.spruce_beehive": "Spruce Beehive",
+	"block.buzzierbees.birch_beehive": "Birch Beehive",
+	"block.buzzierbees.jungle_beehive": "Jungle Beehive",
+	"block.buzzierbees.acacia_beehive": "Acacia Beehive",
+	"block.buzzierbees.dark_oak_beehive": "Dark Oak Beehive",
+	
 	"block.buzzierbees.wax_block": "Wax Block",
 	
 	"block.buzzierbees.crystallized_honey_block": "Crystallized Honey Block",
@@ -297,5 +303,7 @@
 	"item.minecraft.tipped_arrow.effect.strong_luck": "Arrow of Luck",
 	"item.minecraft.tipped_arrow.effect.unluck": "Arrow of Bad Luck",
 	"item.minecraft.tipped_arrow.effect.long_unluck": "Arrow of Bad Luck",
-	"item.minecraft.tipped_arrow.effect.strong_unluck": "Arrow of Bad Luck"
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "Arrow of Bad Luck",
+	
+	"block.minecraft.beehive": "Oak Beehive"
 }

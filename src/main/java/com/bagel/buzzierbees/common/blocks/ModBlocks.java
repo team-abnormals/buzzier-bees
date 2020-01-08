@@ -15,7 +15,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlocks
-{	
+{
+	
 	//Properties
 	public static final Block.Properties FLOWER_PROPERTIES 		= Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
 	public static final Block.Properties CANDLE_PROPERTIES 		= Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
@@ -27,6 +28,12 @@ public class ModBlocks
 	//public static Block CRYSTALLIZED_HONEY_BLOCK;
 	//public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 
+	public static Block SPRUCE_BEEHIVE;
+	public static Block BIRCH_BEEHIVE;
+	public static Block JUNGLE_BEEHIVE;
+	public static Block ACACIA_BEEHIVE;
+	public static Block DARK_OAK_BEEHIVE;
+	
 	//Hive Planks
 	public static Block WAXED_WOOD_PLANKS;
 	public static Block WAXED_WOOD_STAIRS;
@@ -144,6 +151,12 @@ public class ModBlocks
 	@SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
+		SPRUCE_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "spruce_beehive", ItemGroup.DECORATIONS);
+		BIRCH_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "birch_beehive", ItemGroup.DECORATIONS);
+		JUNGLE_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "jungle_beehive", ItemGroup.DECORATIONS);
+		ACACIA_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "acacia_beehive", ItemGroup.DECORATIONS);
+		DARK_OAK_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "dark_oak_beehive", ItemGroup.DECORATIONS);
+		
 		WAX_BLOCK          = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 		HONEY_LAMP         = registerBlock(new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);

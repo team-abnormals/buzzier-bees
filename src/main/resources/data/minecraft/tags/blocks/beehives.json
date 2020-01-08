@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "buzzierbees:spruce_beehive",
+    "buzzierbees:birch_beehive",
+    "buzzierbees:jungle_beehive",
+    "buzzierbees:acacia_beehive",
+    "buzzierbees:dark_oak_beehive"
+  ]
+}
