@@ -16,6 +16,7 @@
 	"item.buzzierbees.royal_bee_spawn_egg": "Royal Bee Spawn Egg",
 	"item.buzzierbees.butterfly_spawn_egg": "Butterfly Spawn Egg",
 	
+	"block.minecraft.beehive": "Oak Beehive",
 	"block.buzzierbees.spruce_beehive": "Spruce Beehive",
 	"block.buzzierbees.birch_beehive": "Birch Beehive",
 	"block.buzzierbees.jungle_beehive": "Jungle Beehive",
@@ -305,5 +306,12 @@
 	"item.minecraft.tipped_arrow.effect.long_unluck": "Arrow of Bad Luck",
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Arrow of Bad Luck",
 	
-	"block.minecraft.beehive": "Oak Beehive"
+	"advancements.husbandry.clover_honey.title": "It Ain't Clover Yet",
+	"advancements.husbandry.clover_honey.description": "Create Clover Honey using a Clover Leaf",
+	
+	"advancements.husbandry.four_leaf_clover.title": "Better Luck This Time",
+	"advancements.husbandry.four_leaf_clover.description": "Find a Four Leaf Clover",
+	
+	"advancements.nether.scented_candle.title": "Aromatherapy",
+	"advancements.nether.scented_candle.description": "Craft a Scented Candle"
 }

@@ -2,21 +2,7 @@
   "replace": false,
   "values": [
     "buzzierbees:candle",
-    "buzzierbees:white_candle",
-    "buzzierbees:orange_candle",
-    "buzzierbees:magenta_candle",
-    "buzzierbees:light_blue_candle",
-    "buzzierbees:yellow_candle",
-    "buzzierbees:lime_candle",
-    "buzzierbees:pink_candle",
-    "buzzierbees:gray_candle",
-    "buzzierbees:light_gray_candle",
-    "buzzierbees:cyan_candle",
-    "buzzierbees:purple_candle",
-    "buzzierbees:blue_candle",
-    "buzzierbees:brown_candle",
-    "buzzierbees:green_candle",
-    "buzzierbees:red_candle",
-    "buzzierbees:black_candle"
+    "#buzzierbees:dyed_candles",
+    "#buzzierbees:flamboyant_candles"
   ]
 }

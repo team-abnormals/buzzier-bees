@@ -89,10 +89,10 @@ public class BuzzierBees
 
     private void addBrewingRecipes() {
 		//TODO: Temporary Clover Honey recipe (until hive situation sorted out)
-		BrewingRecipeRegistry.addRecipe(
+		/*BrewingRecipeRegistry.addRecipe(
 				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(ModItems.CLOVER_LEAF),
-				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));
+				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));*/
 		
 		ItemStack weakCure = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.WEAKNESS_CURE);
 		BrewingRecipeRegistry.addRecipe(

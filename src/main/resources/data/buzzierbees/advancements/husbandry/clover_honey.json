@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "display": {
+    "icon": {
+      "item": "buzzierbees:clover_honey_bottle"
+    },
+    "title": {
+      "translate": "advancements.husbandry.clover_honey.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.clover_honey.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "clover_honey_bottle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "buzzierbees:clover_honey_bottle"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "clover_honey_bottle"
+    ]
+  ]
+}
