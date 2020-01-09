@@ -158,8 +158,9 @@ public class ModBlocks
 		DARK_OAK_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "dark_oak_beehive", ItemGroup.DECORATIONS);
 		
 		WAX_BLOCK          = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
-		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 		HONEY_LAMP         = registerBlock(new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
+
+		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 
 		//TODO: Decide either it going to stay or not
 		//Cut Content Section
