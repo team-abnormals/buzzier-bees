@@ -8,8 +8,11 @@ import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -23,6 +26,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -48,12 +52,12 @@ public class BuzzierBees
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
         MinecraftForge.EVENT_BUS.register(this);    
     }
-    
+
     /*public static void doBeeAIReplacement(EntityJoinWorldEvent event) {
         Entity entity = event.getEntity();
         if(entity instanceof BeeEntity) {
             ((MobEntity) entity).goalSelector.goals.forEach((goal) -> {
-                if(goal instanceof UpdateBeehiveGoal) {
+                if(goal.getGoal() instanceof BeeEntity.UpdateBeehiveGoal) {
                     ((MobEntity) entity).goalSelector.removeGoal(goal);
                     ((MobEntity) entity).goalSelector.addGoal(0, goal);
                 }
