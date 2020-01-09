@@ -1,8 +1,5 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.blocks.pistons.NewMovingPistonBlock;
-import com.bagel.buzzierbees.common.blocks.pistons.NewPistonBlock;
-import com.bagel.buzzierbees.common.blocks.pistons.NewPistonHeadBlock;
 import com.bagel.buzzierbees.common.blocks.stickyblocks.NewCloverHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.stickyblocks.NewHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.stickyblocks.NewSlimeBlock;
@@ -20,9 +17,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ObjectHolder;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlocks
 {	
@@ -38,14 +32,6 @@ public class ModBlocks
 	@ObjectHolder("minecraft:honey_block")
 	public static Block HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
-
-	@ObjectHolder("minecraft:sticky_piston")
-	public static Block SLIMY_PISTON;
-	public static Block HONEY_PISTON;
-	@ObjectHolder("minecraft:moving_piston")
-	public static Block MOVING_PISTON;
-	@ObjectHolder("minecraft:piston_head")
-	public static Block PISTON_HEAD;
 
 	//public static Block CRYSTALLIZED_HONEY_BLOCK;
 	//public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
@@ -176,11 +162,6 @@ public class ModBlocks
 		HONEY_BLOCK 		= registerBlock(new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), "minecraft:honey_block", ItemGroup.DECORATIONS);
 		//CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 		CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
-
-		PISTON_HEAD = registerBlock(new NewPistonHeadBlock(Block.Properties.create(Material.PISTON).hardnessAndResistance(0.5F).noDrops()), "minecraft:piston_head", ItemGroup.DECORATIONS);
-		MOVING_PISTON = registerBlock(new NewMovingPistonBlock(Block.Properties.create(Material.PISTON).hardnessAndResistance(-1.0F).variableOpacity().noDrops().func_226896_b_()), "minecraft:moving_piston", ItemGroup.REDSTONE);
-		SLIMY_PISTON = registerBlock(new NewPistonBlock(true, Block.Properties.create(Material.PISTON).hardnessAndResistance(0.5F)), "minecraft:sticky_piston", ItemGroup.REDSTONE);
-		HONEY_PISTON = registerBlock(new NewPistonBlock(true, Block.Properties.create(Material.PISTON).hardnessAndResistance(0.5F)), "honey_piston", ItemGroup.REDSTONE);
 
 		//TODO: Decide either it going to stay or not
 		//Cut Content Section
