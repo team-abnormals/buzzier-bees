@@ -1,5 +1,8 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import com.bagel.buzzierbees.common.blocks.stickyblocks.NewCloverHoneyBlock;
+import com.bagel.buzzierbees.common.blocks.stickyblocks.NewHoneyBlock;
+import com.bagel.buzzierbees.common.blocks.stickyblocks.NewSlimeBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -12,6 +15,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ObjectHolder;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlocks
@@ -23,8 +27,13 @@ public class ModBlocks
 	public static final Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
 
 	public static Block WAX_BLOCK;
+
+	@ObjectHolder("minecraft:slime_block")
+	public static Block SLIME_BLOCK;
+	@ObjectHolder("minecraft:honey_block")
+	public static Block HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
-	public static Block HONEY_LAMP;
+
 	//public static Block CRYSTALLIZED_HONEY_BLOCK;
 	//public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 
@@ -33,7 +42,9 @@ public class ModBlocks
 	public static Block JUNGLE_BEEHIVE;
 	public static Block ACACIA_BEEHIVE;
 	public static Block DARK_OAK_BEEHIVE;
-	
+
+	public static Block HONEY_LAMP;
+
 	//Hive Planks
 	public static Block WAXED_WOOD_PLANKS;
 	public static Block WAXED_WOOD_STAIRS;
@@ -160,6 +171,10 @@ public class ModBlocks
 		WAX_BLOCK          = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
 		HONEY_LAMP         = registerBlock(new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
 
+		HONEY_BLOCK 		= registerBlock(new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), "minecraft:slime_block", ItemGroup.DECORATIONS);
+		HONEY_BLOCK 		= registerBlock(new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), "minecraft:honey_block", ItemGroup.DECORATIONS);
+		CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.75F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
+
 		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 
 		//TODO: Decide either it going to stay or not
@@ -271,6 +286,22 @@ public class ModBlocks
 			VIOLET_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "violet_candle", 		ItemGroup.DECORATIONS);
 		}
     }
+
+	/*@SubscribeEvent
+	public static void registerBlocksReplacements(RegistryEvent.Register<Block> event) {
+		event.getRegistry().registerAll(
+				new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()).setRegistryName("minecraft:slime_block"),
+				new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)).setRegistryName("minecraft:honey_block")
+		);
+	}
+
+	@SubscribeEvent
+	public static void registerItemsReplacements(RegistryEvent.Register<Item> event) {
+		event.getRegistry().registerAll(
+				new BlockItem(ModBlocks.SLIME_BLOCK, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName("minecraft:slime_block"),
+				new BlockItem(ModBlocks.HONEY_BLOCK, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName("minecraft:honey_block")
+		);
+	}*/
 
     public static Block registerBlock(Block block, String name, ItemGroup group)
     {

@@ -1,23 +1,15 @@
 package com.bagel.buzzierbees.common;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.blocks.ModTileEntities;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
-
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.passive.BeeEntity;
-import net.minecraft.entity.passive.BeeEntity.UpdateBeehiveGoal;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -31,13 +23,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
@@ -93,6 +85,7 @@ public class BuzzierBees
 	@OnlyIn(Dist.CLIENT)
 	private void setupClient(final FMLClientSetupEvent event) {
 		setupRenderLayer();
+		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 
 		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 	}
