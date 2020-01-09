@@ -6,6 +6,7 @@
 	"item.buzzierbees.clover_leaf": "Трилистник",
 	"item.buzzierbees.four_leaf_clover": "Четырёхлистный клевер",
 	"item.buzzierbees.honey_wand": "Медовая палочка",
+	"item.buzzierbees.sticky_honey_wand": "Медовая палочка в меду",
 	"item.buzzierbees.honey_apple": "Яблоко в меду",
 	"item.buzzierbees.honey_bread": "Хлеб с мёдом",
 
@@ -14,6 +15,13 @@
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Яйцо призыва гризли",
 	"item.buzzierbees.royal_bee_spawn_egg": "Яйцо призыва пчелиной матки",
 	"item.buzzierbees.butterfly_spawn_egg": "Яйцо призыва бабочки",
+
+	"block.minecraft.beehive": "Дубовый улей",
+	"block.buzzierbees.spruce_beehive": "Еловый улей",
+	"block.buzzierbees.birch_beehive": "Берёзовый улей",
+	"block.buzzierbees.jungle_beehive": "Улей из тропического дерева",
+	"block.buzzierbees.acacia_beehive": "Акациевый улей",
+	"block.buzzierbees.dark_oak_beehive": "Улей из тёмного дуба",
 
 	"block.buzzierbees.wax_block": "Восковый блок",
 
@@ -80,7 +88,7 @@
 	"block.buzzierbees.pale_yellow_candle": "Бледно-жёлтая свечка",
 	"block.buzzierbees.sky_blue_candle": "Небесно-голубая свечка",
 	"block.buzzierbees.slate_gray_candle": "Шиферно-серая свечка",
-	"block.buzzierbees.violet_candle": "Лиловая свечк	а",
+	"block.buzzierbees.violet_candle": "Лиловая свечка",
 	
 	"block.buzzierbees.allium_scented_candle": "Лук-батуновая свечка",
 	"block.buzzierbees.azure_bluet_scented_candle": "Свечка из хаустонии серой",

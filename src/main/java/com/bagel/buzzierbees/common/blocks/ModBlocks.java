@@ -173,9 +173,7 @@ public class ModBlocks
 
 		HONEY_BLOCK 		= registerBlock(new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), "minecraft:slime_block", ItemGroup.DECORATIONS);
 		HONEY_BLOCK 		= registerBlock(new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), "minecraft:honey_block", ItemGroup.DECORATIONS);
-		CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.75F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
-
-		CLOVER_HONEY_BLOCK = registerBlock(new CloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
+		CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 
 		//TODO: Decide either it going to stay or not
 		//Cut Content Section
@@ -183,13 +181,13 @@ public class ModBlocks
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 
 		//Hive Planks Section
-		WAXED_WOOD_PLANKS 		= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "waxed_wood_planks", ItemGroup.BUILDING_BLOCKS);
-		WAXED_WOOD_STAIRS 		= registerBlock(new StairsBlock(WAXED_WOOD_PLANKS.getDefaultState(), Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_stairs", ItemGroup.BUILDING_BLOCKS);
+		WAXED_WOOD_PLANKS 			= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "waxed_wood_planks", ItemGroup.BUILDING_BLOCKS);
+		WAXED_WOOD_STAIRS 			= registerBlock(new StairsBlock(WAXED_WOOD_PLANKS.getDefaultState(), Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_stairs", ItemGroup.BUILDING_BLOCKS);
 		WAXED_WOOD_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_slab", ItemGroup.BUILDING_BLOCKS);
         WAXED_WOOD_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence", ItemGroup.DECORATIONS);
-        WAXED_WOOD_FENCE_GATE 	= registerBlock(new FenceGateBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence_gate", ItemGroup.REDSTONE);
-        WAXED_WOOD_BUTTON 		= registerBlock(new WoodButtonBlock(Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_button", ItemGroup.REDSTONE);
-		WAXED_WOOD_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_pressure_plate", ItemGroup.REDSTONE);
+        WAXED_WOOD_FENCE_GATE 		= registerBlock(new FenceGateBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence_gate", ItemGroup.REDSTONE);
+        WAXED_WOOD_BUTTON 			= registerBlock(new WoodButtonBlock(Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_button", ItemGroup.REDSTONE);
+		WAXED_WOOD_PRESSURE_PLATE 	= registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_pressure_plate", ItemGroup.REDSTONE);
 		WAXED_WOOD_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_door", ItemGroup.REDSTONE);
 		WAXED_WOOD_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_trapdoor", ItemGroup.REDSTONE);
 		WAXED_WOOD_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.WAXED_WOOD_TYPE), "waxed_wood_sign");
