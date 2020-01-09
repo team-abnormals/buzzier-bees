@@ -2,7 +2,7 @@
   "parent": "minecraft:nether/obtain_blaze_rod",
   "display": {
     "icon": {
-      "item": "buzzierbees:wither_rose_scented_candle"
+      "item": "buzzierbees:dandelion_scented_candle"
     },
     "title": {
       "translate": "advancements.nether.scented_candle.title"

@@ -313,5 +313,8 @@
 	"advancements.husbandry.four_leaf_clover.description": "Find a Four Leaf Clover",
 	
 	"advancements.nether.scented_candle.title": "Aromatherapy",
-	"advancements.nether.scented_candle.description": "Craft a Scented Candle"
+	"advancements.nether.scented_candle.description": "Obtain a Scented Candle",
+	
+	"advancements.nether.all_scented_candles.title": "Full Scent",
+	"advancements.nether.all_scented_candles.description": "Obtain all Scented Candles"
 }

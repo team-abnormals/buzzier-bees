@@ -1,26 +1,29 @@
 package com.bagel.buzzierbees.common;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.blocks.ModTileEntities;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.entity.passive.BeeEntity.UpdateBeehiveGoal;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
-import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
@@ -28,17 +31,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.Set;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
@@ -48,18 +47,29 @@ public class BuzzierBees
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
-
+    
+    
     public BuzzierBees() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
-		//FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.LOWEST, this::replaceBeehiveTag);
         MinecraftForge.EVENT_BUS.register(this);    
     }
-/*
-	@OnlyIn(Dist.CLIENT)
-    void replaceBeehiveTag() {
+    
+    /*public static void doBeeAIReplacement(EntityJoinWorldEvent event) {
+        Entity entity = event.getEntity();
+        if(entity instanceof BeeEntity) {
+            ((MobEntity) entity).goalSelector.goals.forEach((goal) -> {
+                if(goal instanceof UpdateBeehiveGoal) {
+                    ((MobEntity) entity).goalSelector.removeGoal(goal);
+                    ((MobEntity) entity).goalSelector.addGoal(0, goal);
+                }
+            });
+        }
+    }*/
+
+    /*void replaceBeehivePOI(final FMLCommonSetupEvent event) {
 		final Set<BlockState> BEEHIVES = ImmutableList.of(
 				Blocks.field_226906_mb_,
 				ModBlocks.ACACIA_BEEHIVE,
@@ -70,14 +80,12 @@ public class BuzzierBees
 				.stream().flatMap((p_221043_0_) -> {
 					return p_221043_0_.getStateContainer().getValidStates().stream();
 				}).collect(ImmutableSet.toImmutableSet());
-
-
-		final PointOfInterestType field_226356_s_ = PointOfInterestType.func_226359_a_("beehive", BEEHIVES, 1, 1);
+    	
+    	PointOfInterestType.field_226356_s_.field_221075_w = BEEHIVES;
 	}*/
     
     private void setup(final FMLCommonSetupEvent event)
     {
-    	
         addEntitySpawns();
         addBrewingRecipes();
     }
@@ -174,6 +182,8 @@ public class BuzzierBees
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL,RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM,RenderType.func_228641_d_());
 	}
+    
+
 
 	//TODO: These methods
     /*private void enqueueIMC(final InterModEnqueueEvent event)
