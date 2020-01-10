@@ -25,7 +25,7 @@ public class StickyHoneyWandItem extends Item {
 		World world = context.getWorld();
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
-		if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.field_226873_c_) == 0) {
+		if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.field_226873_c_) == 0 && !context.getPlayer().isCrouching()) {
 			PlayerEntity playerentity = context.getPlayer();
 			BlockState blockstate2 = null;
 			world.playSound((PlayerEntity) null, blockpos, SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);

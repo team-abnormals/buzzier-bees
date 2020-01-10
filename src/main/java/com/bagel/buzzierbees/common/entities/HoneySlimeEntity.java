@@ -26,6 +26,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -128,21 +129,23 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    }
 
    public boolean processInteract(PlayerEntity player, Hand hand) {
-      ItemStack itemstack = player.getHeldItem(hand);
-      if (itemstack.getItem() == Items.GLASS_BOTTLE) {
-         player.playSound(SoundEvents.ENTITY_SLIME_SQUISH, 1.0F, 1.0F);
-
-         itemstack.shrink(1);
-         if (itemstack.isEmpty()) {
-            player.setHeldItem(hand, new ItemStack(Items.field_226638_pX_));
-         } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
-            player.dropItem(new ItemStack(Items.field_226638_pX_), false);
-         }
+	   ItemStack itemstack = player.getHeldItem(hand);
+	   World world = player.getEntityWorld();
+	   if (itemstack.getItem() == Items.GLASS_BOTTLE) {
+		   world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+			   itemstack.shrink(1);
+			   if (itemstack.isEmpty()) {
+				   player.setHeldItem(hand, new ItemStack(Items.field_226638_pX_));     
+			   } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
+				   player.dropItem(new ItemStack(Items.field_226638_pX_), false);   
+			   }   
+		   
          performEffect(this, 1);
          return true;
       } else if (itemstack.getItem() == ModItems.HONEY_WAND) {
-         player.playSound(SoundEvents.ENTITY_SLIME_SQUISH, 1.0F, 1.0F);
-         player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND));
+    	 world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ENTITY_SLIME_SQUISH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+        	 player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND));
+         
          performEffect(this, 1);
          return true;
       }
