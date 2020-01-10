@@ -34,8 +34,8 @@ public class ModBlocks
 	public static Block HONEY_BLOCK;
 	public static Block CLOVER_HONEY_BLOCK;
 
-	//public static Block CRYSTALLIZED_HONEY_BLOCK;
-	//public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
+	public static Block CRYSTALLIZED_HONEY_BLOCK;
+	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
 
 	public static Block SPRUCE_BEEHIVE;
 	public static Block BIRCH_BEEHIVE;
@@ -55,8 +55,8 @@ public class ModBlocks
 	public static Block WAXED_WOOD_BUTTON;
 	public static Block WAXED_WOOD_DOOR;
 	public static Block WAXED_WOOD_TRAPDOOR;
-	//public static Block WAXED_WOOD_SIGN;
-	//public static Block WAXED_WOOD_WALL_SIGN;
+	public static Block WAXED_WOOD_SIGN;
+	public static Block WAXED_WOOD_WALL_SIGN;
 
 	//Honey Bricks
 	public static Block HONEY_BRICKS;
@@ -190,8 +190,8 @@ public class ModBlocks
 		WAXED_WOOD_PRESSURE_PLATE 	= registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_pressure_plate", ItemGroup.REDSTONE);
 		WAXED_WOOD_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_door", ItemGroup.REDSTONE);
 		WAXED_WOOD_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_trapdoor", ItemGroup.REDSTONE);
-		WAXED_WOOD_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.WAXED_WOOD_TYPE), "waxed_wood_sign");
-		WAXED_WOOD_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(WAXED_WOOD_SIGN), ModWoodType.WAXED_WOOD_TYPE),"waxed_wood_wall_sign");
+		//WAXED_WOOD_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.WAXED_WOOD_TYPE), "waxed_wood_sign");
+		//WAXED_WOOD_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(WAXED_WOOD_SIGN), ModWoodType.WAXED_WOOD_TYPE),"waxed_wood_wall_sign");
 
 		//Honey Bricks Section
 		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);

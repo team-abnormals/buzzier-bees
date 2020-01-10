@@ -8,7 +8,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.Set;
 
 public class ModWoodType extends WoodType {
-    private static final Set<WoodType> woodTypes = new ObjectArraySet();
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private static final Set<WoodType> woodTypes = new ObjectArraySet();
     public static final WoodType WAXED_WOOD_TYPE = func_227047_a_(new ModWoodType("waxed_wood"));
     private final String name;
 

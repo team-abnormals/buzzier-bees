@@ -1,6 +1,5 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 
 import net.minecraft.block.Block;
@@ -53,8 +52,8 @@ public class ModItems
 		CLOVER_HONEY_BOTTLE_FOOD 	= (new Food.Builder()).hunger(6).saturation(0.2F).setAlwaysEdible().effect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 1), 0.8F).build();
 		STICKY_HONEY_WAND_FOOD 		= (new Food.Builder()).hunger(6).saturation(0.1F).setAlwaysEdible().build();
 		HONEY_APPLE_FOOD 			= (new Food.Builder()).hunger(5).saturation(0.4F).build();
-		HONEY_BREAD_FOOD 			= (new Food.Builder()).hunger(6).saturation(0.8F).build(); //TODO: Proper food (bagel)
-		GLAZED_HAM_FOOD				= (new Food.Builder()).hunger(9).saturation(0.8F).build(); //TODO: Proper food (bagel)
+		HONEY_BREAD_FOOD 			= (new Food.Builder()).hunger(6).saturation(0.8F).build();
+		GLAZED_HAM_FOOD				= (new Food.Builder()).hunger(9).saturation(0.8F).build();
 	}
 	
     @SubscribeEvent
