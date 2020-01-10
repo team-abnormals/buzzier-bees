@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "buzzierbees:block/waxed_wood_planks",
-        "top": "buzzierbees:block/waxed_wood_planks",
-        "side": "buzzierbees:block/waxed_wood_planks"
-    }
-}

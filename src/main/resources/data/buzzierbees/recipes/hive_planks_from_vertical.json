@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "buzzierbees:vertical_hive_planks"
+    }
+  ],
+  "result": {
+    "item": "buzzierbees:hive_planks"
+  }
+}

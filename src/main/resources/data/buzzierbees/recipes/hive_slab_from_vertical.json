@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "buzzierbees:hive_vertical_slab"
+    }
+  },
+  "result": {
+    "item": "buzzierbees:hive_slab",
+    "count": 1
+  }
+}

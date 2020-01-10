@@ -36,10 +36,10 @@ public class ModTileEntities {
 					.build(null));
 
 
-    /*public static final RegistryObject<TileEntityType<SignTileEntity>> SIGNS = TILE_ENTITY_TYPES.register("waxed_wood_sign",
+    /*public static final RegistryObject<TileEntityType<SignTileEntity>> SIGNS = TILE_ENTITY_TYPES.register("hive_sign",
 			() -> TileEntityType.Builder.create(SignTileEntity::new,
-					ModBlocks.WAXED_WOOD_SIGN,
-					ModBlocks.WAXED_WOOD_WALL_SIGN)
+					ModBlocks.HIVE_SIGN,
+					ModBlocks.HIVE_WALL_SIGN)
 					.build(null));*/
 
 }

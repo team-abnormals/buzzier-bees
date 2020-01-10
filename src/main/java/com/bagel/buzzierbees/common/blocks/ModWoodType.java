@@ -10,7 +10,7 @@ import java.util.Set;
 public class ModWoodType extends WoodType {
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private static final Set<WoodType> woodTypes = new ObjectArraySet();
-    public static final WoodType WAXED_WOOD_TYPE = func_227047_a_(new ModWoodType("waxed_wood"));
+    public static final WoodType HIVE_TYPE = func_227047_a_(new ModWoodType("hive"));
     private final String name;
 
     protected ModWoodType(String typeName) {

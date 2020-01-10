@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModEntities
 {
 	public static EntityType<HoneySlimeEntity> HONEY_SLIME;
-	public static EntityType<BoatEntity> WAXED_WOOD_BOAT;
+	public static EntityType<BoatEntity> HIVE_BOAT;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)

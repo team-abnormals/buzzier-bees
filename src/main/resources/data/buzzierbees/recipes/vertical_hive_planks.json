@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "buzzierbees:hive_planks"
+    }
+  },
+  "result": {
+    "item": "buzzierbees:vertical_hive_planks",
+    "count": 3
+  }
+}

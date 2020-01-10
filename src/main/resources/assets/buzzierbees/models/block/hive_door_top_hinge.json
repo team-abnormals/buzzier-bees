@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "buzzierbees:block/hive_door_bottom",
+        "top": "buzzierbees:block/hive_door_top"
+    }
+}

@@ -46,17 +46,17 @@ public class ModBlocks
 	public static Block HONEY_LAMP;
 
 	//Hive Planks
-	public static Block WAXED_WOOD_PLANKS;
-	public static Block WAXED_WOOD_STAIRS;
-	public static Block WAXED_WOOD_SLAB;
-	public static Block WAXED_WOOD_FENCE;
-	public static Block WAXED_WOOD_FENCE_GATE;
-	public static Block WAXED_WOOD_PRESSURE_PLATE;
-	public static Block WAXED_WOOD_BUTTON;
-	public static Block WAXED_WOOD_DOOR;
-	public static Block WAXED_WOOD_TRAPDOOR;
-	public static Block WAXED_WOOD_SIGN;
-	public static Block WAXED_WOOD_WALL_SIGN;
+	public static Block HIVE_PLANKS;
+	public static Block HIVE_STAIRS;
+	public static Block HIVE_SLAB;
+	public static Block HIVE_FENCE;
+	public static Block HIVE_FENCE_GATE;
+	public static Block HIVE_PRESSURE_PLATE;
+	public static Block HIVE_BUTTON;
+	public static Block HIVE_DOOR;
+	public static Block HIVE_TRAPDOOR;
+	public static Block HIVE_SIGN;
+	public static Block HIVE_WALL_SIGN;
 
 	//Honey Bricks
 	public static Block HONEY_BRICKS;
@@ -148,15 +148,15 @@ public class ModBlocks
 	public static Block VIOLET_CANDLE;
 
 	//Quark Compat
-	public static Block WAXED_WOOD_BOOKSHELF;
-	public static Block WAXED_WOOD_CHEST;
-	public static Block WAXED_WOOD_LADDER;
-	public static Block VERTICAL_WAXED_WOOD_PLANKS;
-	public static Block WAXED_WOOD_VERTICAL_SLAB;
+	public static Block HIVE_BOOKSHELF;
+	public static Block HIVE_CHEST;
+	public static Block HIVE_LADDER;
+	public static Block VERTICAL_HIVE_PLANKS;
+	public static Block HIVE_VERTICAL_SLAB;
 	public static Block HONEY_BRICK_VERTICAL_SLAB;
 
 	//TODO: 1.2
-	public static Block HIVE_BLOCK;
+	public static Block BEEHIVE_BLOCK;
 	
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
@@ -181,17 +181,17 @@ public class ModBlocks
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 
 		//Hive Planks Section
-		WAXED_WOOD_PLANKS 			= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "waxed_wood_planks", ItemGroup.BUILDING_BLOCKS);
-		WAXED_WOOD_STAIRS 			= registerBlock(new StairsBlock(WAXED_WOOD_PLANKS.getDefaultState(), Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_stairs", ItemGroup.BUILDING_BLOCKS);
-		WAXED_WOOD_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_slab", ItemGroup.BUILDING_BLOCKS);
-        WAXED_WOOD_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence", ItemGroup.DECORATIONS);
-        WAXED_WOOD_FENCE_GATE 		= registerBlock(new FenceGateBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_fence_gate", ItemGroup.REDSTONE);
-        WAXED_WOOD_BUTTON 			= registerBlock(new WoodButtonBlock(Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_button", ItemGroup.REDSTONE);
-		WAXED_WOOD_PRESSURE_PLATE 	= registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(WAXED_WOOD_PLANKS).doesNotBlockMovement()), "waxed_wood_pressure_plate", ItemGroup.REDSTONE);
-		WAXED_WOOD_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_door", ItemGroup.REDSTONE);
-		WAXED_WOOD_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_trapdoor", ItemGroup.REDSTONE);
-		//WAXED_WOOD_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.WAXED_WOOD_TYPE), "waxed_wood_sign");
-		//WAXED_WOOD_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(WAXED_WOOD_SIGN), ModWoodType.WAXED_WOOD_TYPE),"waxed_wood_wall_sign");
+		HIVE_PLANKS 			= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
+		HIVE_STAIRS 			= registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
+		HIVE_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_slab", ItemGroup.BUILDING_BLOCKS);
+        HIVE_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence", ItemGroup.DECORATIONS);
+        HIVE_FENCE_GATE 		= registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
+        HIVE_BUTTON 			= registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_button", ItemGroup.REDSTONE);
+		HIVE_PRESSURE_PLATE 	= registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_pressure_plate", ItemGroup.REDSTONE);
+		HIVE_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_door", ItemGroup.REDSTONE);
+		HIVE_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_trapdoor", ItemGroup.REDSTONE);
+		//HIVE_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.HIVE_TYPE), "hive_sign");
+		//HIVE_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(HIVE_SIGN), ModWoodType.HIVE_TYPE),"hive_wall_sign");
 		
 		//Honey Bricks Section
 		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);
@@ -266,8 +266,8 @@ public class ModBlocks
 
 		//Quark Compat Section
 		if (ModList.get().isLoaded("buzzierbees")) {
-			VERTICAL_WAXED_WOOD_PLANKS 			= registerBlock(new Block(Block.Properties.from(WAXED_WOOD_PLANKS)), "vertical_waxed_wood_planks", ItemGroup.BUILDING_BLOCKS);
-			WAXED_WOOD_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_vertical_slab", ItemGroup.BUILDING_BLOCKS);
+			VERTICAL_HIVE_PLANKS 			= registerBlock(new Block(Block.Properties.from(HIVE_PLANKS)), "vertical_hive_planks", ItemGroup.BUILDING_BLOCKS);
+			HIVE_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_vertical_slab", ItemGroup.BUILDING_BLOCKS);
 			HONEY_BRICK_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS)), "honey_brick_vertical_slab", ItemGroup.BUILDING_BLOCKS);
 		}
 		

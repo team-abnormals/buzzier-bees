@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#G#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:planks"
+        },
+        "G": {
+            "item": "buzzierbees:wax"
+        }
+    },
+    "result": {
+        "item": "buzzierbees:hive_planks",
+        "count": 8
+    }
+}
