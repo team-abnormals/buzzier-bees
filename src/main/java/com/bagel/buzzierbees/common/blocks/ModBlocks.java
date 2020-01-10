@@ -25,8 +25,6 @@ public class ModBlocks
 	public static final Block.Properties FLOWER_PROPERTIES 		= Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
 	public static final Block.Properties CANDLE_PROPERTIES 		= Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
 	public static final Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
-
-	public static BlockItem CARTWHEEL_ITEM;
 	
 	public static Block WAX_BLOCK;
 
@@ -213,7 +211,7 @@ public class ModBlocks
 		BIRD_OF_PARADISE 	= registerBlock(new TallFlowerBlock(FLOWER_PROPERTIES), "bird_of_paradise", ItemGroup.DECORATIONS);
 		
 		//Potted Flowers Section
-	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(POT_PROPERTIES), "potted_cartwheel");
+	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, POT_PROPERTIES), "potted_cartwheel");
 	    POTTED_BLUEBELL 	= registerBlockNoItem(new FlowerPotBlock(BLUEBELL, POT_PROPERTIES), "potted_bluebell");
 	    POTTED_DAYBLOOM 	= registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, POT_PROPERTIES), "potted_daybloom");
 	    POTTED_VIOLET 		= registerBlockNoItem(new FlowerPotBlock(VIOLET, POT_PROPERTIES), "potted_violet");

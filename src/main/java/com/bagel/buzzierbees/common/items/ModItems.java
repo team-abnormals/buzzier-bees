@@ -58,8 +58,6 @@ public class ModItems
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
 	{
-    	//CARTWHEEL 		= new CartwheelItem(ModBlocks.CARTWHEEL, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName("cartwheel");
-		//ForgeRegistries.ITEMS.register(CARTWHEEL);
       	WAX 				= registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	CLOVER_LEAF 		= registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER 	= registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");

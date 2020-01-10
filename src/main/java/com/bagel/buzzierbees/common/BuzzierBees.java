@@ -1,6 +1,7 @@
 package com.bagel.buzzierbees.common;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,7 +30,6 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
-import net.minecraft.tileentity.BeehiveTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
@@ -39,9 +39,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -68,13 +66,6 @@ public class BuzzierBees
         MinecraftForge.EVENT_BUS.register(this);    
     }
 
-    
-    @SubscribeEvent
-    public static void replaceCartwheel(PlayerInteractEvent.RightClickBlock event) {
-
-    }
-    
-
     void replaceBeehivePOI(final FMLCommonSetupEvent event) {
 		final Set<BlockState> BEEHIVES = ImmutableList.of(
 				Blocks.field_226906_mb_,
@@ -96,13 +87,21 @@ public class BuzzierBees
     	ModBlocks.ACACIA_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.DARK_OAK_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	PointOfInterestType.field_221073_u.putAll(pointOfInterestTypeMap);
-    	
-    	//((Set<Block>) TileEntityType<BeehiveTileEntity> field_226985_G_.validBlocks.add(ModBlocks.ACACIA_BEEHIVE)); 
-    	//.add(ModBlocks.ACACIA_BEEHIVE);  
 	}
     
     private void setup(final FMLCommonSetupEvent event)
     {
+    	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
+				Blocks.field_226906_mb_,
+				ModBlocks.ACACIA_BEEHIVE,
+				ModBlocks.BIRCH_BEEHIVE,
+				ModBlocks.SPRUCE_BEEHIVE,
+				ModBlocks.DARK_OAK_BEEHIVE,
+				ModBlocks.JUNGLE_BEEHIVE);
+    	
+    	Set<Block> newSet = new HashSet<>(TileEntityType.field_226985_G_.validBlocks);
+    	newSet.addAll(BEEHIVES);
+    	TileEntityType.field_226985_G_.validBlocks = newSet;
         addEntitySpawns();
         addBrewingRecipes();
     }
@@ -110,6 +109,7 @@ public class BuzzierBees
 	@OnlyIn(Dist.CLIENT)
 	private void setupClient(final FMLClientSetupEvent event) {
 		setupRenderLayer();
+		
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 
 		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
