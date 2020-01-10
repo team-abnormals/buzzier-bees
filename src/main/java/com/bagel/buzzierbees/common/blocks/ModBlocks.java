@@ -26,6 +26,8 @@ public class ModBlocks
 	public static final Block.Properties CANDLE_PROPERTIES 		= Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
 	public static final Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
 
+	public static BlockItem CARTWHEEL_ITEM;
+	
 	public static Block WAX_BLOCK;
 
 	@ObjectHolder("minecraft:slime_block")
@@ -200,7 +202,7 @@ public class ModBlocks
 		HONEY_BRICK_WALL 	= registerBlock(new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)),"honey_brick_wall", ItemGroup.DECORATIONS);
 
 		//Flowers Section
-		CARTWHEEL 			= registerBlock(new CartwheelBlock(Effects.SPEED, 11, FLOWER_PROPERTIES), "cartwheel", ItemGroup.DECORATIONS);
+		CARTWHEEL 			= registerBlock(new FlowerBlock(Effects.SPEED, 11, FLOWER_PROPERTIES), "cartwheel", ItemGroup.DECORATIONS);
 		BLUEBELL 			= registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, FLOWER_PROPERTIES),	"bluebell", ItemGroup.DECORATIONS);
 		DAYBLOOM 			= registerBlock(new FlowerBlock(Effects.GLOWING, 8, FLOWER_PROPERTIES), "daybloom", ItemGroup.DECORATIONS);
 		VIOLET 				= registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, FLOWER_PROPERTIES), "violet", ItemGroup.DECORATIONS);
@@ -211,7 +213,7 @@ public class ModBlocks
 		BIRD_OF_PARADISE 	= registerBlock(new TallFlowerBlock(FLOWER_PROPERTIES), "bird_of_paradise", ItemGroup.DECORATIONS);
 		
 		//Potted Flowers Section
-	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(CARTWHEEL, POT_PROPERTIES), "potted_cartwheel");
+	    POTTED_CARTWHEEL 	= registerBlockNoItem(new PottedCartwheelBlock(POT_PROPERTIES), "potted_cartwheel");
 	    POTTED_BLUEBELL 	= registerBlockNoItem(new FlowerPotBlock(BLUEBELL, POT_PROPERTIES), "potted_bluebell");
 	    POTTED_DAYBLOOM 	= registerBlockNoItem(new FlowerPotBlock(DAYBLOOM, POT_PROPERTIES), "potted_daybloom");
 	    POTTED_VIOLET 		= registerBlockNoItem(new FlowerPotBlock(VIOLET, POT_PROPERTIES), "potted_violet");
@@ -265,26 +267,26 @@ public class ModBlocks
 		PINK_CLOVER_SCENTED_CANDLE  = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "pink_clover_scented_candle",  ItemGroup.DECORATIONS);
 
 		//Quark Compat Section
-		if (ModList.get().isLoaded("buzzierbees")) {
-			VERTICAL_HIVE_PLANKS 			= registerBlock(new Block(Block.Properties.from(HIVE_PLANKS)), "vertical_hive_planks", ItemGroup.BUILDING_BLOCKS);
-			HIVE_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_vertical_slab", ItemGroup.BUILDING_BLOCKS);
-			HONEY_BRICK_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS)), "honey_brick_vertical_slab", ItemGroup.BUILDING_BLOCKS);
+		if (ModList.get().isLoaded("quark")) {
+			VERTICAL_HIVE_PLANKS 		= registerBlock(new Block(Block.Properties.from(HIVE_PLANKS)),              "vertical_hive_planks",      ItemGroup.BUILDING_BLOCKS);
+			HIVE_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS)),  "hive_vertical_slab",        ItemGroup.BUILDING_BLOCKS);
+			HONEY_BRICK_VERTICAL_SLAB 	= registerBlock(new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS)), "honey_brick_vertical_slab", ItemGroup.BUILDING_BLOCKS);
 		}
 		
 		//Flamboyant Compat Section
 		if (ModList.get().isLoaded("flamboyant")) {
-			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 			ItemGroup.DECORATIONS);
-			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 			ItemGroup.DECORATIONS);
-			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 			ItemGroup.DECORATIONS);
+			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 		ItemGroup.DECORATIONS);
+			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 		ItemGroup.DECORATIONS);
+			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 		ItemGroup.DECORATIONS);
 			DARK_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "dark_green_candle", 	ItemGroup.DECORATIONS);
 			FOREST_GREEN_CANDLE	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "forest_green_candle", 	ItemGroup.DECORATIONS);
 			HOT_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "hot_pink_candle", 		ItemGroup.DECORATIONS);
 			INDIGO_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "indigo_candle", 		ItemGroup.DECORATIONS);
 			MAROON_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "maroon_candle", 		ItemGroup.DECORATIONS);
 			NAVY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "navy_candle", 			ItemGroup.DECORATIONS);
-			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 			ItemGroup.DECORATIONS);
+			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 		ItemGroup.DECORATIONS);
 			PALE_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_green_candle", 	ItemGroup.DECORATIONS);
-			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 		ItemGroup.DECORATIONS);
+			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 	ItemGroup.DECORATIONS);
 			PALE_YELLOW_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_yellow_candle", 	ItemGroup.DECORATIONS);
 			SKY_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "sky_blue_candle", 		ItemGroup.DECORATIONS);
 			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ItemGroup.DECORATIONS);

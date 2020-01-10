@@ -2,7 +2,6 @@ package com.bagel.buzzierbees.common.items;
 
 import com.bagel.buzzierbees.common.entities.ModEntities;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -44,7 +43,7 @@ public class ModItems
 	public static Food HONEY_BREAD_FOOD;
 	public static Food GLAZED_HAM_FOOD;
 	
-	public static Block CARTWHEEL;
+	public static Item CARTWHEEL;
 	
 	static {
 		CRYSTALLIZED_HONEY_FOOD 	= (new Food.Builder()).hunger(1).saturation(1.5F).fastToEat().setAlwaysEdible().effect(new EffectInstance(Effects.SPEED, 160, 1), 0.8F).build();
@@ -59,6 +58,8 @@ public class ModItems
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
 	{
+    	//CARTWHEEL 		= new CartwheelItem(ModBlocks.CARTWHEEL, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName("cartwheel");
+		//ForgeRegistries.ITEMS.register(CARTWHEEL);
       	WAX 				= registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	CLOVER_LEAF 		= registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER 	= registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");

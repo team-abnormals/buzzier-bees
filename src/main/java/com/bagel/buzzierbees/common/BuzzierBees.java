@@ -16,6 +16,7 @@ import com.bagel.buzzierbees.common.potions.ModPotions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
@@ -28,6 +29,8 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
+import net.minecraft.tileentity.BeehiveTileEntity;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -36,7 +39,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -63,17 +68,12 @@ public class BuzzierBees
         MinecraftForge.EVENT_BUS.register(this);    
     }
 
-    /*
+    
     @SubscribeEvent
     public static void replaceCartwheel(PlayerInteractEvent.RightClickBlock event) {
-    	ItemStack item = event.getPlayer().getActiveItemStack();
-    	ItemStack cartwheel = new ItemStack(ModBlocks.CARTWHEEL);
-    	Block pot = event.getPlayer().blo
-    	if (item == cartwheel) {
-    		
-    	}
+
     }
-    */
+    
 
     void replaceBeehivePOI(final FMLCommonSetupEvent event) {
 		final Set<BlockState> BEEHIVES = ImmutableList.of(
@@ -96,6 +96,9 @@ public class BuzzierBees
     	ModBlocks.ACACIA_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.DARK_OAK_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	PointOfInterestType.field_221073_u.putAll(pointOfInterestTypeMap);
+    	
+    	//((Set<Block>) TileEntityType<BeehiveTileEntity> field_226985_G_.validBlocks.add(ModBlocks.ACACIA_BEEHIVE)); 
+    	//.add(ModBlocks.ACACIA_BEEHIVE);  
 	}
     
     private void setup(final FMLCommonSetupEvent event)
