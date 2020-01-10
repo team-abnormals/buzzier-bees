@@ -331,14 +331,6 @@
         }
       }
     },
-    "clover_honey_bottle": {
-      "trigger": "minecraft:consume_item",
-      "conditions": {
-        "item": {
-          "item": "buzzierbees:clover_honey_bottle"
-        }
-      }
-    },
     "honey_bread": {
       "trigger": "minecraft:consume_item",
       "conditions": {
@@ -497,9 +489,6 @@
     ],
     [
       "honey_bottle"
-    ],
-    [
-      "clover_honey_bottle"
     ],
     [
       "honey_apple"
