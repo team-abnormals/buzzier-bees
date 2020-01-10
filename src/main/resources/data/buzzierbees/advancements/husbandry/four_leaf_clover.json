@@ -1,5 +1,5 @@
 {
-  "parent": "buzzierbees:husbandry/clover_honey",
+  "parent": "minecraft:adventure/sleep_in_bed",
   "display": {
     "icon": {
       "item": "buzzierbees:four_leaf_clover"

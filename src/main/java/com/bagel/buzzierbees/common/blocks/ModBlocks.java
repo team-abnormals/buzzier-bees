@@ -173,7 +173,7 @@ public class ModBlocks
 
 		SLIME_BLOCK 		= registerBlock(new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), "minecraft:slime_block", ItemGroup.DECORATIONS);
 		HONEY_BLOCK 		= registerBlock(new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), "minecraft:honey_block", ItemGroup.DECORATIONS);
-		CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
+		//CLOVER_HONEY_BLOCK 	= registerBlock(new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), "clover_honey_block", ItemGroup.DECORATIONS);
 
 		//TODO: Decide either it going to stay or not
 		//Cut Content Section

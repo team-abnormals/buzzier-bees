@@ -132,7 +132,7 @@ public class BuzzierBees
 		
 		ItemStack weakCure = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.WEAKNESS_CURE);
 		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(Items.FERMENTED_SPIDER_EYE),
 				weakCure);
 
@@ -148,7 +148,7 @@ public class BuzzierBees
 		//Cures Brewing
 		ItemStack placebo = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.PLACEBO);
 		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(ModItems.CLOVER_HONEY_BOTTLE),
+				Ingredient.fromItems(Items.field_226638_pX_),
 				Ingredient.fromItems(Items.NETHER_WART),
 				placebo);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GOLDEN_CARROT, ModPotions.NIGHT_VISION_CURE);
@@ -172,7 +172,7 @@ public class BuzzierBees
 		ModEntities.registerRendering();
 
 		//RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
+		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP,RenderType.func_228645_f_());
 
 		//Doors and Trapdoors

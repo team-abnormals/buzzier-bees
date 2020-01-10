@@ -48,7 +48,7 @@ public class ModItems
 	static {
 		CRYSTALLIZED_HONEY_FOOD 	= (new Food.Builder()).hunger(1).saturation(1.5F).fastToEat().setAlwaysEdible().effect(new EffectInstance(Effects.SPEED, 160, 1), 0.8F).build();
 		BEE_SOUP_FOOD 				= (new Food.Builder()).hunger(3).saturation(2.3F).effect(new EffectInstance(Effects.SLOWNESS, 240, 2), 0.5F).build();
-		CLOVER_HONEY_BOTTLE_FOOD 	= (new Food.Builder()).hunger(6).saturation(0.2F).setAlwaysEdible().effect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 1), 0.8F).build();
+		//CLOVER_HONEY_BOTTLE_FOOD 	= (new Food.Builder()).hunger(6).saturation(0.2F).setAlwaysEdible().effect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 1), 0.8F).build();
 		STICKY_HONEY_WAND_FOOD 		= (new Food.Builder()).hunger(6).saturation(0.1F).setAlwaysEdible().build();
 		HONEY_APPLE_FOOD 			= (new Food.Builder()).hunger(5).saturation(0.4F).build();
 		HONEY_BREAD_FOOD 			= (new Food.Builder()).hunger(6).saturation(0.8F).build();
@@ -69,7 +69,7 @@ public class ModItems
       	//Food
 		CRYSTALLIZED_HONEY 	= registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_honey");
 		BEE_SOUP 			= registerItem(new BeeSoupItem(new Item.Properties().maxStackSize(1).food(BEE_SOUP_FOOD).group(ItemGroup.FOOD)), "bee_soup");
-		CLOVER_HONEY_BOTTLE = registerItem(new CloverHoneyBottleItem(new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
+		//CLOVER_HONEY_BOTTLE = registerItem(new CloverHoneyBottleItem(new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(16).food(CLOVER_HONEY_BOTTLE_FOOD).group(ItemGroup.FOOD)), "clover_honey_bottle");
 		HONEY_APPLE 		= registerItem(new CuringItem(new Item.Properties().food(HONEY_APPLE_FOOD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.LEVITATION), new EffectInstance(Effects.POISON)}), "honey_apple");
 		HONEY_BREAD 		= registerItem(new CuringItem(new Item.Properties().food(HONEY_BREAD_FOOD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.HUNGER), new EffectInstance(Effects.POISON)}), "honey_bread");
 		//GLAZED_HAM		= registerItem(new CuringItem(new Item.Properties().food(GLAZED_HAM_FOOD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.WEAKNESS), new EffectInstance(Effects.POISON)}), "glazed_ham"); TODO: Texture (model file is already in), proper food
