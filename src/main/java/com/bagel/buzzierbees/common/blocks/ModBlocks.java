@@ -200,7 +200,7 @@ public class ModBlocks
 		HONEY_BRICK_WALL 	= registerBlock(new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)),"honey_brick_wall", ItemGroup.DECORATIONS);
 
 		//Flowers Section
-		CARTWHEEL 			= registerBlock(new FlowerBlock(Effects.SPEED, 11, FLOWER_PROPERTIES), "cartwheel", ItemGroup.DECORATIONS);
+		CARTWHEEL 			= registerBlock(new CartwheelBlock(Effects.SPEED, 11, FLOWER_PROPERTIES), "cartwheel", ItemGroup.DECORATIONS);
 		BLUEBELL 			= registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, FLOWER_PROPERTIES),	"bluebell", ItemGroup.DECORATIONS);
 		DAYBLOOM 			= registerBlock(new FlowerBlock(Effects.GLOWING, 8, FLOWER_PROPERTIES), "daybloom", ItemGroup.DECORATIONS);
 		VIOLET 				= registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, FLOWER_PROPERTIES), "violet", ItemGroup.DECORATIONS);
