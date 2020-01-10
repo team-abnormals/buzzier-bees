@@ -1,7 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
 import com.bagel.buzzierbees.common.BuzzierBees;
-import net.minecraft.tileentity.SignTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -37,10 +36,10 @@ public class ModTileEntities {
 					.build(null));
 
 
-    public static final RegistryObject<TileEntityType<SignTileEntity>> SIGNS = TILE_ENTITY_TYPES.register("waxed_wood_sign",
+    /*public static final RegistryObject<TileEntityType<SignTileEntity>> SIGNS = TILE_ENTITY_TYPES.register("waxed_wood_sign",
 			() -> TileEntityType.Builder.create(SignTileEntity::new,
 					ModBlocks.WAXED_WOOD_SIGN,
 					ModBlocks.WAXED_WOOD_WALL_SIGN)
-					.build(null));
+					.build(null));*/
 
 }
