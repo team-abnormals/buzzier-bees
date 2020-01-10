@@ -2,6 +2,8 @@ package com.bagel.buzzierbees.common.items;
 
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.entities.ModEntities;
+
+import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -43,6 +45,8 @@ public class ModItems
 	public static Food HONEY_BREAD_FOOD;
 	public static Food GLAZED_HAM_FOOD;
 	
+	public static Block CARTWHEEL;
+	
 	static {
 		CRYSTALLIZED_HONEY_FOOD 	= (new Food.Builder()).hunger(1).saturation(1.5F).fastToEat().setAlwaysEdible().effect(new EffectInstance(Effects.SPEED, 160, 1), 0.8F).build();
 		BEE_SOUP_FOOD 				= (new Food.Builder()).hunger(3).saturation(2.3F).effect(new EffectInstance(Effects.SLOWNESS, 240, 2), 0.5F).build();
@@ -59,7 +63,7 @@ public class ModItems
       	WAX 				= registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
     	CLOVER_LEAF 		= registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER 	= registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
-		WAXED_WOOD_SIGN 	= registerItem(new SignItem(new Item.Properties().group(ItemGroup.DECORATIONS), ModBlocks.WAXED_WOOD_SIGN, ModBlocks.WAXED_WOOD_WALL_SIGN), "waxed_wood_sign");
+		//WAXED_WOOD_SIGN 	= registerItem(new SignItem(new Item.Properties().group(ItemGroup.DECORATIONS), ModBlocks.WAXED_WOOD_SIGN, ModBlocks.WAXED_WOOD_WALL_SIGN), "waxed_wood_sign");
 
     	//Cut Content
     	//CRYSTALLIZED_CLOVER_HONEY = registerItem(new Item(new Item.Properties().food(CRYSTALLIZED_HONEY_FOOD).group(ItemGroup.FOOD)), "crystallized_clover_honey");
@@ -77,7 +81,7 @@ public class ModItems
 		STICKY_HONEY_WAND = registerItem(new StickyHoneyWandItem(new Item.Properties().containerItem(HONEY_WAND).food(STICKY_HONEY_WAND_FOOD).maxStackSize(1).group(ItemGroup.TOOLS)), "sticky_honey_wand");
 		//Spawn Eggs
 		HONEY_SLIME_SPAWN_EGG = registerItem(new ModSpawnEggItem(() -> ModEntities.HONEY_SLIME,16361240, 16361240, new Item.Properties().group(ItemGroup.MISC)), "honey_slime_spawn_egg");
-	}
+		}
 	
     public static Item registerItem(Item item, String name)
     {
@@ -85,4 +89,5 @@ public class ModItems
         ForgeRegistries.ITEMS.register(item);
         return item;
     }
+
 }

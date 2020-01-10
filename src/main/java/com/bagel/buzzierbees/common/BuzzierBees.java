@@ -1,17 +1,31 @@
 package com.bagel.buzzierbees.common;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.bagel.buzzierbees.common.blocks.ModTileEntities;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.ModEntities;
 import com.bagel.buzzierbees.common.items.ModItems;
 import com.bagel.buzzierbees.common.potions.ModPotions;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -19,6 +33,8 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionBrewing;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
+import net.minecraft.util.Hand;
+import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
@@ -27,16 +43,19 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
+@EventBusSubscriber(modid = "buzzierbees")
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
@@ -50,22 +69,23 @@ public class BuzzierBees
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::replaceBeehivePOI);
         MinecraftForge.EVENT_BUS.register(this);    
     }
 
-    /*public static void doBeeAIReplacement(EntityJoinWorldEvent event) {
-        Entity entity = event.getEntity();
-        if(entity instanceof BeeEntity) {
-            ((MobEntity) entity).goalSelector.goals.forEach((goal) -> {
-                if(goal.getGoal() instanceof BeeEntity.UpdateBeehiveGoal) {
-                    ((MobEntity) entity).goalSelector.removeGoal(goal);
-                    ((MobEntity) entity).goalSelector.addGoal(0, goal);
-                }
-            });
-        }
-    }*/
+    /*
+    @SubscribeEvent
+    public static void replaceCartwheel(PlayerInteractEvent.RightClickBlock event) {
+    	ItemStack item = event.getPlayer().getActiveItemStack();
+    	ItemStack cartwheel = new ItemStack(ModBlocks.CARTWHEEL);
+    	Block pot = event.getPlayer().blo
+    	if (item == cartwheel) {
+    		
+    	}
+    }
+    */
 
-    /*void replaceBeehivePOI(final FMLCommonSetupEvent event) {
+    void replaceBeehivePOI(final FMLCommonSetupEvent event) {
 		final Set<BlockState> BEEHIVES = ImmutableList.of(
 				Blocks.field_226906_mb_,
 				ModBlocks.ACACIA_BEEHIVE,
@@ -78,7 +98,15 @@ public class BuzzierBees
 				}).collect(ImmutableSet.toImmutableSet());
     	
     	PointOfInterestType.field_226356_s_.field_221075_w = BEEHIVES;
-	}*/
+    	
+    	Map<BlockState,PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
+    	ModBlocks.SPRUCE_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.BIRCH_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.JUNGLE_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.ACACIA_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.DARK_OAK_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	PointOfInterestType.field_221073_u.putAll(pointOfInterestTypeMap);
+	}
     
     private void setup(final FMLCommonSetupEvent event)
     {
