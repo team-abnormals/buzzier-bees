@@ -1,0 +1,8 @@
+{
+    "parent": "buzzierbees:block/vertical_slab",
+    "textures": {
+        "side": "buzzierbees:block/honey_bricks",
+        "top": "buzzierbees:block/honey_bricks",
+        "bottom": "buzzierbees:block/honey_bricks"
+    }
+}

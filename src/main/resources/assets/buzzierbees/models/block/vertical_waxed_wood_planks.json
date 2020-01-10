@@ -1,0 +1,6 @@
+{
+    "parent": "buzzierbees:block/vertical_planks",
+    "textures": {
+        "all": "buzzierbees:block/waxed_wood_planks"
+    }
+}

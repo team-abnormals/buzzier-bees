@@ -1,0 +1,8 @@
+{
+    "parent": "buzzierbees:block/vertical_slab",
+    "textures": {
+        "side": "buzzierbees:block/waxed_wood_planks",
+        "top": "buzzierbees:block/waxed_wood_planks",
+        "bottom": "buzzierbees:block/waxed_wood_planks"
+    }
+}

@@ -33,6 +33,7 @@
 	"block.buzzierbees.honey_brick_stairs": "Honey Brick Stairs",
 	"block.buzzierbees.honey_brick_slab": "Honey Brick Slab",
 	"block.buzzierbees.honey_brick_wall": "Honey Brick Wall",
+	"block.buzzierbees.honey_brick_vertical_slab": "Honey Brick Vertical Slab",
 	
 	"block.buzzierbees.cartwheel" : "Cartwheel",
 	"block.buzzierbees.bluebell" : "Bluebell",
@@ -54,6 +55,8 @@
 	"block.buzzierbees.waxed_wood_door": "Waxed Wood Door",
 	"block.buzzierbees.waxed_wood_trapdoor": "Waxed Wood Trapdoor",
 	"block.buzzierbees.waxed_wood_sign": "Waxed Wood Sign",
+	"block.buzzierbees.vertical_waxed_wood_planks": "Vertical Waxed Wood Planks",
+	"block.buzzierbees.waxed_wood_vertical_slab": "Waxed Wood Vertical Slab",
 	
 	"block.buzzierbees.candle": "Candle",
 	"block.buzzierbees.white_candle": "White Candle",

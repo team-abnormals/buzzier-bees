@@ -151,9 +151,9 @@ public class ModBlocks
 	public static Block WAXED_WOOD_BOOKSHELF;
 	public static Block WAXED_WOOD_CHEST;
 	public static Block WAXED_WOOD_LADDER;
-	public static Block WAXED_WOOD_VERTICAL_PLANKS;
+	public static Block VERTICAL_WAXED_WOOD_PLANKS;
 	public static Block WAXED_WOOD_VERTICAL_SLAB;
-	public static Block HONEY_BRICKS_VERTICAL_SLAB;
+	public static Block HONEY_BRICK_VERTICAL_SLAB;
 
 	//TODO: 1.2
 	public static Block HIVE_BLOCK;
@@ -192,7 +192,7 @@ public class ModBlocks
 		WAXED_WOOD_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(WAXED_WOOD_PLANKS).func_226896_b_()), "waxed_wood_trapdoor", ItemGroup.REDSTONE);
 		//WAXED_WOOD_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.WAXED_WOOD_TYPE), "waxed_wood_sign");
 		//WAXED_WOOD_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(WAXED_WOOD_SIGN), ModWoodType.WAXED_WOOD_TYPE),"waxed_wood_wall_sign");
-
+		
 		//Honey Bricks Section
 		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);
 		HONEY_BRICK_STAIRS 	= registerBlock(new StairsBlock(HONEY_BRICKS.getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)),"honey_brick_stairs", ItemGroup.BUILDING_BLOCKS);
@@ -264,6 +264,13 @@ public class ModBlocks
 		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "white_clover_scented_candle", ItemGroup.DECORATIONS);
 		PINK_CLOVER_SCENTED_CANDLE  = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "pink_clover_scented_candle",  ItemGroup.DECORATIONS);
 
+		//Quark Compat Section
+		if (ModList.get().isLoaded("buzzierbees")) {
+			VERTICAL_WAXED_WOOD_PLANKS 			= registerBlock(new Block(Block.Properties.from(WAXED_WOOD_PLANKS)), "vertical_waxed_wood_planks", ItemGroup.BUILDING_BLOCKS);
+			WAXED_WOOD_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(WAXED_WOOD_PLANKS)), "waxed_wood_vertical_slab", ItemGroup.BUILDING_BLOCKS);
+			HONEY_BRICK_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS)), "honey_brick_vertical_slab", ItemGroup.BUILDING_BLOCKS);
+		}
+		
 		//Flamboyant Compat Section
 		if (ModList.get().isLoaded("flamboyant")) {
 			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 			ItemGroup.DECORATIONS);
