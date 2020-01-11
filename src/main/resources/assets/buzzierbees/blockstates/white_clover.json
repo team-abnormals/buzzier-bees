@@ -1,16 +1,5 @@
 {
     "variants": {
-        "age=0": [
-            { "model": "buzzierbees:block/clover_patch" },
-            { "model": "buzzierbees:block/clover_patch", "y": 90 },
-            { "model": "buzzierbees:block/clover_patch", "y": 180 },
-            { "model": "buzzierbees:block/clover_patch", "y": 270 }
-        ],
-        "age=1": [
-            { "model": "buzzierbees:block/white_clover" },
-            { "model": "buzzierbees:block/white_clover", "y": 90 },
-            { "model": "buzzierbees:block/white_clover", "y": 180 },
-            { "model": "buzzierbees:block/white_clover", "y": 270 }
-        ]
+        "": { "model": "buzzierbees:block/white_clover" }
     }
 }

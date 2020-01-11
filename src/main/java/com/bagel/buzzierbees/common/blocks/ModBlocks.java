@@ -202,8 +202,8 @@ public class ModBlocks
 		VIOLET 				= registerBlock(new FlowerBlock(Effects.INVISIBILITY, 6, FLOWER_PROPERTIES), "violet", ItemGroup.DECORATIONS);
 		JOLYCE 				= registerBlock(new FlowerBlock(Effects.STRENGTH, 8, FLOWER_PROPERTIES), "jolyce", ItemGroup.DECORATIONS);
 		COLUMBINE 			= registerBlock(new FlowerBlock(Effects.MINING_FATIGUE, 6, FLOWER_PROPERTIES), "columbine", ItemGroup.DECORATIONS);
-		WHITE_CLOVER 		= registerBlock(new CloverBlock(Effects.UNLUCK, FLOWER_PROPERTIES.func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
-		PINK_CLOVER 		= registerBlock(new CloverBlock(Effects.UNLUCK, FLOWER_PROPERTIES.func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
+		WHITE_CLOVER 		= registerBlock(new FlowerBlock(Effects.UNLUCK, 30, FLOWER_PROPERTIES.func_226896_b_()), "white_clover", ItemGroup.DECORATIONS);
+		PINK_CLOVER 		= registerBlock(new FlowerBlock(Effects.UNLUCK, 60, FLOWER_PROPERTIES.func_226896_b_()), "pink_clover", ItemGroup.DECORATIONS);
 		BIRD_OF_PARADISE 	= registerBlock(new TallFlowerBlock(FLOWER_PROPERTIES), "bird_of_paradise", ItemGroup.DECORATIONS);
 		
 		//Potted Flowers Section
@@ -259,13 +259,6 @@ public class ModBlocks
 		COLUMBINE_SCENTED_CANDLE    = registerBlock(new ScentedCandleBlock(Effects.MINING_FATIGUE,  70, 0, CANDLE_PROPERTIES), "columbine_scented_candle",    ItemGroup.DECORATIONS);
 		WHITE_CLOVER_SCENTED_CANDLE = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "white_clover_scented_candle", ItemGroup.DECORATIONS);
 		PINK_CLOVER_SCENTED_CANDLE  = registerBlock(new ScentedCandleBlock(Effects.UNLUCK,          70, 0, CANDLE_PROPERTIES), "pink_clover_scented_candle",  ItemGroup.DECORATIONS);
-
-		//Quark Compat Section
-		if (ModList.get().isLoaded("quark")) {
-			VERTICAL_HIVE_PLANKS 		= registerBlock(new Block(Block.Properties.from(HIVE_PLANKS)),              "vertical_hive_planks",      ItemGroup.BUILDING_BLOCKS);
-			HIVE_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS)),  "hive_vertical_slab",        ItemGroup.BUILDING_BLOCKS);
-			HONEY_BRICK_VERTICAL_SLAB 	= registerBlock(new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS)), "honey_brick_vertical_slab", ItemGroup.BUILDING_BLOCKS);
-		}
 		
 		//Flamboyant Compat Section
 		if (ModList.get().isLoaded("flamboyant")) {
@@ -286,6 +279,13 @@ public class ModBlocks
 			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ItemGroup.DECORATIONS);
 			VIOLET_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "violet_candle", 		ItemGroup.DECORATIONS);
 		}
+		
+		//Quark Compat Section
+		if (ModList.get().isLoaded("quark")) {
+			VERTICAL_HIVE_PLANKS 		= registerBlock(new Block(Block.Properties.from(HIVE_PLANKS)),              "vertical_hive_planks",      ItemGroup.BUILDING_BLOCKS);
+			HIVE_VERTICAL_SLAB 			= registerBlock(new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS)),  "hive_vertical_slab",        ItemGroup.BUILDING_BLOCKS);
+			HONEY_BRICK_VERTICAL_SLAB 	= registerBlock(new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS)), "honey_brick_vertical_slab", ItemGroup.BUILDING_BLOCKS);	
+		}		
     }
 
 	/*@SubscribeEvent

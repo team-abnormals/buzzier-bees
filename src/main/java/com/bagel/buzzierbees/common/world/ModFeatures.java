@@ -32,19 +32,19 @@ public class ModFeatures {
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
 		registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), 	"cartwheel_feature", 	Biomes.FLOWER_FOREST, 	 2);
-		registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), 	"columbine_feature", 	Biomes.FLOWER_FOREST, 	 4);
-		registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), 	"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS, 4);
+		registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), 	"columbine_feature", 	Biomes.FLOWER_FOREST, 	 3);
+		registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), 	"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS, 3);
 
 		for (Biome biome : new Biome[] { Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.FLOWER_FOREST }) {
 			registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", 	biome, 2);
-			registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), 	"violet_feature", 	biome, 4);
+			registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), 	"violet_feature", 	biome, 3);
 			registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), 	"jolyce_feature", 	biome, 1);
 		}
 
 		registerDoubleFlowersFeature(ModBlocks.BIRD_OF_PARADISE.getDefaultState(), "bird_of_paradise_feature", Biomes.JUNGLE, 1);
 
 		//TODO: Proper Clover Patch generation
-		registerFlowerFeature(ModBlocks.WHITE_CLOVER.getDefaultState(), "white_clover_feature", 	Biomes.PLAINS, 1);
+		registerFlowerFeature(ModBlocks.WHITE_CLOVER.getDefaultState(), "white_clover_feature", Biomes.PLAINS, 2);
 		registerFlowerFeature(ModBlocks.PINK_CLOVER.getDefaultState(),	"pink_clover_feature", 	Biomes.PLAINS, 1);
 	}
 
