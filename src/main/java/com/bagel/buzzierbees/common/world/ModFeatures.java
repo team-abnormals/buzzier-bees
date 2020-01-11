@@ -33,10 +33,10 @@ public class ModFeatures {
 	{
 		registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), 	"cartwheel_feature", 	Biomes.FLOWER_FOREST, 	 2);
 		registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), 	"columbine_feature", 	Biomes.FLOWER_FOREST, 	 3);
-		registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), 	"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS, 3);
+		registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), 	"daybloom_feature", 	Biomes.SUNFLOWER_PLAINS, 3);
 
 		for (Biome biome : new Biome[] { Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.FLOWER_FOREST }) {
-			registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", 	biome, 2);
+			registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", biome, 2);
 			registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), 	"violet_feature", 	biome, 3);
 			registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), 	"jolyce_feature", 	biome, 1);
 		}

@@ -90,6 +90,7 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.15.1-30.0.35'
+    compileOnly (files('libs/flamboyant-2.0.0.jar'))
     
     //compile fileTree(dir: 'libs', include: ['*.jar']) // For all .jar files in folder
     // For one .jar file in folder

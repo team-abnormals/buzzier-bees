@@ -1,5 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import mod.equinox.flamboyant.setup.ModSetup;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -262,22 +263,22 @@ public class ModBlocks
 		
 		//Flamboyant Compat Section
 		if (ModList.get().isLoaded("flamboyant")) {
-			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 		ItemGroup.DECORATIONS);
-			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 		ItemGroup.DECORATIONS);
-			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 		ItemGroup.DECORATIONS);
-			DARK_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "dark_green_candle", 	ItemGroup.DECORATIONS);
-			FOREST_GREEN_CANDLE	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "forest_green_candle", 	ItemGroup.DECORATIONS);
-			HOT_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "hot_pink_candle", 		ItemGroup.DECORATIONS);
-			INDIGO_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "indigo_candle", 		ItemGroup.DECORATIONS);
-			MAROON_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "maroon_candle", 		ItemGroup.DECORATIONS);
-			NAVY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "navy_candle", 			ItemGroup.DECORATIONS);
-			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 		ItemGroup.DECORATIONS);
-			PALE_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_green_candle", 	ItemGroup.DECORATIONS);
-			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 	ItemGroup.DECORATIONS);
-			PALE_YELLOW_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_yellow_candle", 	ItemGroup.DECORATIONS);
-			SKY_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "sky_blue_candle", 		ItemGroup.DECORATIONS);
-			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ItemGroup.DECORATIONS);
-			VIOLET_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "violet_candle", 		ItemGroup.DECORATIONS);
+			AMBER_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "amber_candle", 		ModSetup.itemGroup);
+			BEIGE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "beige_candle", 		ModSetup.itemGroup);
+			CREAM_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "cream_candle", 		ModSetup.itemGroup);
+			DARK_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "dark_green_candle", 	ModSetup.itemGroup);
+			FOREST_GREEN_CANDLE	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "forest_green_candle", 	ModSetup.itemGroup);
+			HOT_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "hot_pink_candle", 		ModSetup.itemGroup);
+			INDIGO_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "indigo_candle", 		ModSetup.itemGroup);
+			MAROON_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "maroon_candle", 		ModSetup.itemGroup);
+			NAVY_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "navy_candle", 			ModSetup.itemGroup);
+			OLIVE_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "olive_candle", 		ModSetup.itemGroup);
+			PALE_GREEN_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_green_candle", 	ModSetup.itemGroup);
+			PALE_PINK_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_pink_candle", 	ModSetup.itemGroup);
+			PALE_YELLOW_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "pale_yellow_candle", 	ModSetup.itemGroup);
+			SKY_BLUE_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "sky_blue_candle", 		ModSetup.itemGroup);
+			SLATE_GRAY_CANDLE 	= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "slate_gray_candle", 	ModSetup.itemGroup);
+			VIOLET_CANDLE 		= registerBlock(new CandleBlock(CANDLE_PROPERTIES), "violet_candle", 		ModSetup.itemGroup);
 		}
 		
 		//Quark Compat Section

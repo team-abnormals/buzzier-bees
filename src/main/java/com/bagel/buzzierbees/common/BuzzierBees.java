@@ -56,6 +56,18 @@ public class BuzzierBees
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
     
+    /*
+    @SubscribeEvent
+    public void RightClickBlock(RightClickBlock event) {
+    	World world = event.getWorld();
+    	PlayerEntity player = event.getPlayer();
+    	ItemStack item = event.getItemStack();
+    	BlockPos block = event.getPos().get
+    	if ()) {
+    		event.setUseBlock(Result.DENY);
+    	}
+    }
+    */
     
     public BuzzierBees() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
