@@ -47,11 +47,11 @@ public class ModFeatures {
 			registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", dark_forests, 3);
 		}
 
-		for (Biome mountains : new Biome[] { Biomes.MOUNTAINS, Biomes.GRAVELLY_MOUNTAINS, Biomes.MODIFIED_GRAVELLY_MOUNTAINS, Biomes.SNOWY_MOUNTAINS, Biomes.TAIGA_MOUNTAINS }) {
+		for (Biome mountains : new Biome[] { Biomes.MOUNTAINS, Biomes.GRAVELLY_MOUNTAINS, Biomes.MODIFIED_GRAVELLY_MOUNTAINS }) {
 			registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), 	"columbine_feature", 	mountains, 	 4);
 		}
 		
-		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.FLOWER_FOREST}) {
+		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.FLOWER_FOREST, Biomes.TAIGA_MOUNTAINS}) {
 			registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), 	"violet_feature", 	taigas, 4);
 		}
 		
