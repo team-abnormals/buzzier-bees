@@ -82,7 +82,6 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.15.1-30.0.36'
-    compileOnly files('libs/flamboyant-2.0.0.jar')
     
     //compile fileTree(dir: 'libs', include: ['*.jar']) // For all .jar files in folder
     // For one .jar file in folder
@@ -125,7 +124,7 @@ jar {
 // we define a custom artifact that is sourced from the reobfJar output task
 // and then declare that to be published
 // Note you'll need to add a repository here
-def reobfFile = file("$buildDir/reobfJar/output.jar")
+def reobfFile = file("$buildDir/reobfJar/flamboyant-1.0.1.jar")
 def reobfArtifact = artifacts.add('default', reobfFile) {
     type 'jar'
     builtBy 'reobfJar'
