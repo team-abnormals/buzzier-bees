@@ -11,6 +11,8 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
 version = '1.1.2'
@@ -35,13 +37,10 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
             mods {
                 buzzierbees {
                     source sourceSets.main
@@ -51,13 +50,10 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
             mods {
                 buzzierbees {
                     source sourceSets.main
@@ -67,15 +63,11 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-
             args '--mod', 'buzzierbees', '--all', '--output', file('src/generated/resources/')
-
             mods {
                 buzzierbees {
                     source sourceSets.main
@@ -89,8 +81,8 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.15.1-30.0.35'
-    compileOnly (files('libs/flamboyant-2.0.0.jar'))
+    minecraft 'net.minecraftforge:forge:1.15.1-30.0.36'
+    compile files('libs/flamboyant-2.0.0.jar')
     
     //compile fileTree(dir: 'libs', include: ['*.jar']) // For all .jar files in folder
     // For one .jar file in folder
@@ -133,7 +125,7 @@ jar {
 // we define a custom artifact that is sourced from the reobfJar output task
 // and then declare that to be published
 // Note you'll need to add a repository here
-def reobfFile = file("$buildDir/reobfJar/output.jar")
+def reobfFile = file("$buildDir/reobfJar/flamboyant-2.0.0.jar")
 def reobfArtifact = artifacts.add('default', reobfFile) {
     type 'jar'
     builtBy 'reobfJar'

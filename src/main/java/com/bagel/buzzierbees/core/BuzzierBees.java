@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.ModEntities;
@@ -32,8 +31,10 @@ import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -46,15 +47,17 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
-    //private static final Logger LOGGER = LogManager.getLogger();
+    //public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public BuzzierBees() {
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    	
     	ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
+    	
         modEventBus.addListener(this::setup);
-        modEventBus.addListener(this::setupClient);
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initSetupClient);
         modEventBus.addListener(this::replaceBeehivePOI);
     }
 
@@ -98,7 +101,10 @@ public class BuzzierBees
         addBrewingRecipes();
     }
 
-    
+    public void initSetupClient()
+	{
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+	}
 	private void setupClient(final FMLClientSetupEvent event) {
 		setupRenderLayer();
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
@@ -113,11 +119,6 @@ public class BuzzierBees
 	}
 
     private void addBrewingRecipes() {
-		//TODO: Temporary Clover Honey recipe (until hive situation sorted out)
-		/*BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(Items.field_226638_pX_),
-				Ingredient.fromItems(ModItems.CLOVER_LEAF),
-				new ItemStack(ModItems.CLOVER_HONEY_BOTTLE));*/
 		
 		ItemStack weakCure = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.WEAKNESS_CURE);
 		BrewingRecipeRegistry.addRecipe(
