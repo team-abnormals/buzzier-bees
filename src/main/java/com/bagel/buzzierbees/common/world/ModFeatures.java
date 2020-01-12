@@ -1,9 +1,14 @@
 package com.bagel.buzzierbees.common.world;
 
+import java.util.Random;
+
+import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import com.google.common.collect.ImmutableList;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
+import net.minecraft.util.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -31,23 +36,34 @@ public class ModFeatures {
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
-		registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), 	"cartwheel_feature", 	Biomes.FLOWER_FOREST, 	 2);
-		registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), 	"columbine_feature", 	Biomes.FLOWER_FOREST, 	 3);
-		registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), 	"daybloom_feature", 	Biomes.SUNFLOWER_PLAINS, 3);
-
-		for (Biome biome : new Biome[] { Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.FLOWER_FOREST }) {
-			registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", biome, 2);
-			registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), 	"violet_feature", 	biome, 3);
-			registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), 	"jolyce_feature", 	biome, 1);
+		registerFlowerFeature(ModBlocks.CARTWHEEL.getDefaultState(), 	"cartwheel_feature", 	Biomes.FLOWER_FOREST, 	 5);
+		registerFlowerFeature(ModBlocks.DAYBLOOM.getDefaultState(), 	"daybloom_feature", 	Biomes.SUNFLOWER_PLAINS, 4);
+		registerFlowerFeature(ModBlocks.JOLYCE.getDefaultState(), 	"jolyce_feature", 	Biomes.SWAMP, 5);
+		registerFlowerFeature(ModBlocks.WHITE_CLOVER.getDefaultState(), "white_clover_feature", Biomes.FOREST, 3);
+		
+		//TODO: Proper Clover Patch generation
+		for (Biome forests : new Biome[] { Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.FLOWER_FOREST, Biomes.TALL_BIRCH_FOREST}) {
+			
+			registerFlowerFeature(ModBlocks.PINK_CLOVER.getDefaultState(),	"pink_clover_feature", 	forests, 3);
+		}
+		
+		for (Biome dark_forests : new Biome[] { Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS, Biomes.FLOWER_FOREST}) {
+			registerFlowerFeature(ModBlocks.BLUEBELL.getDefaultState(), "bluebell_feature", dark_forests, 3);
 		}
 
-		registerDoubleFlowersFeature(ModBlocks.BIRD_OF_PARADISE.getDefaultState(), "bird_of_paradise_feature", Biomes.JUNGLE, 1);
-
-		//TODO: Proper Clover Patch generation
-		registerFlowerFeature(ModBlocks.WHITE_CLOVER.getDefaultState(), "white_clover_feature", Biomes.PLAINS, 2);
-		registerFlowerFeature(ModBlocks.PINK_CLOVER.getDefaultState(),	"pink_clover_feature", 	Biomes.PLAINS, 1);
+		for (Biome mountains : new Biome[] { Biomes.MOUNTAINS, Biomes.GRAVELLY_MOUNTAINS, Biomes.MODIFIED_GRAVELLY_MOUNTAINS, Biomes.SNOWY_MOUNTAINS, Biomes.TAIGA_MOUNTAINS }) {
+			registerFlowerFeature(ModBlocks.COLUMBINE.getDefaultState(), 	"columbine_feature", 	mountains, 	 4);
+		}
+		
+		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.FLOWER_FOREST}) {
+			registerFlowerFeature(ModBlocks.VIOLET.getDefaultState(), 	"violet_feature", 	taigas, 4);
+		}
+		
+		for (Biome jungles : new Biome[] { Biomes.JUNGLE, Biomes.MODIFIED_JUNGLE, Biomes.JUNGLE_HILLS }) {
+			registerDoubleFlowersFeature(ModBlocks.BIRD_OF_PARADISE.getDefaultState(), "bird_of_paradise_feature", jungles, 5);
+		}		
 	}
-
+	
 	private static void registerFlowerFeature(BlockState blockState, String name, Biome biomeIn, int frequency)
 	{
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).func_227315_a_(32).func_227322_d_();

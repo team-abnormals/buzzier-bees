@@ -18,7 +18,7 @@ public class ScentedCandleTileEntity extends TileEntity implements ITickableTile
     @Override
     public void tick() {
         BlockState blockstate = this.world.getBlockState(this.pos);
-        double d0 = (double)(blockstate.get(ScentedCandleBlock.CANDLES) * 0.5 + 1);
+        double d0 = (double)(blockstate.get(ScentedCandleBlock.CANDLES));
         for (LivingEntity entity : world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(pos).grow(d0))) {
     	   if (entity.getActivePotionEffect(((ScentedCandleBlock)blockstate.getBlock()).candleEffectInstance) == null || (entity.getActivePotionEffect(((ScentedCandleBlock)blockstate.getBlock()).candleEffectInstance).getDuration() <= 25))  {
     		   entity.addPotionEffect(new EffectInstance(((ScentedCandleBlock)blockstate.getBlock()).candleEffectInstance, ((ScentedCandleBlock)blockstate.getBlock()).duration, ((ScentedCandleBlock)blockstate.getBlock()).level, true, true)); 

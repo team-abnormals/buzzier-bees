@@ -239,7 +239,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 4,
           "name": "buzzierbees:four_leaf_clover"
         }
       ]

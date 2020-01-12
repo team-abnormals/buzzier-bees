@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "display": {
+    "icon": {
+      "item": "buzzierbees:honey_apple"
+    },
+    "title": {
+      "translate": "advancements.husbandry.honey_apple.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.honey_apple.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "honey_apple": { "trigger": "minecraft:consume_item", "conditions": { "item": { "item": "buzzierbees:honey_apple" } } },
+	"levitation": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "minecraft:levitation": {} } } }
+  },
+  "requirements": [
+    [ "honey_apple" ],
+    [ "levitation" ]
+  ]
+}

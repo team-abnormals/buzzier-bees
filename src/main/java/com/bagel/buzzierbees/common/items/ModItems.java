@@ -57,7 +57,7 @@ public class ModItems
     public static void registerItems(RegistryEvent.Register<Item> event)
 	{    	
       	WAX 				= registerItem(new Item(new Item.Properties().group(ItemGroup.MATERIALS)), "wax");
-    	CLOVER_LEAF 		= registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
+    	//CLOVER_LEAF 		= registerItem(new Item(new Item.Properties().group(ItemGroup.MISC)), "clover_leaf");
     	FOUR_LEAF_CLOVER 	= registerItem(new Item(new Item.Properties().group(ItemGroup.BREWING)), "four_leaf_clover");
 		//HIVE_SIGN 	= registerItem(new SignItem(new Item.Properties().group(ItemGroup.DECORATIONS), ModBlocks.HIVE_SIGN, ModBlocks.HIVE_WALL_SIGN), "hive_sign");
 
@@ -75,6 +75,7 @@ public class ModItems
 		//Tools
 		HONEY_WAND = registerItem(new HoneyWandItem(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)), "honey_wand");
 		STICKY_HONEY_WAND = registerItem(new StickyHoneyWandItem(new Item.Properties().containerItem(HONEY_WAND).food(STICKY_HONEY_WAND_FOOD).maxStackSize(1).group(ItemGroup.TOOLS)), "sticky_honey_wand");
+		
 		//Spawn Eggs
 		HONEY_SLIME_SPAWN_EGG = registerItem(new ModSpawnEggItem(() -> ModEntities.HONEY_SLIME,16361240, 16361240, new Item.Properties().group(ItemGroup.MISC)), "honey_slime_spawn_egg");
 		}

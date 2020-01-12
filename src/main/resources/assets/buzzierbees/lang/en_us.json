@@ -319,5 +319,14 @@
 	"advancements.nether.scented_candle.description": "Obtain a Scented Candle",
 	
 	"advancements.nether.all_scented_candles.title": "Full Scent",
-	"advancements.nether.all_scented_candles.description": "Obtain all Scented Candles"
+	"advancements.nether.all_scented_candles.description": "Obtain all Scented Candles",
+	
+	"advancements.husbandry.honey_apple.title": "An Apple a Day",
+	"advancements.husbandry.honey_apple.description": "Use a Honey Apple to cure Levitation",
+	
+	"advancements.husbandry.honey_bread.title": "Ending Starvation",
+	"advancements.husbandry.honey_bread.description": "Use Honey Bread to cure Hunger",
+	
+	"advancements.nether.use_cure.title": "Cured Honey",
+	"advancements.nether.use_cure.description": "Use a Cure"
 }

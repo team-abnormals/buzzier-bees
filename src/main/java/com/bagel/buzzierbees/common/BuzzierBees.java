@@ -35,8 +35,6 @@ import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -118,7 +116,7 @@ public class BuzzierBees
         addBrewingRecipes();
     }
 
-	@OnlyIn(Dist.CLIENT)
+    
 	private void setupClient(final FMLClientSetupEvent event) {
 		setupRenderLayer();
 		
@@ -132,7 +130,7 @@ public class BuzzierBees
 		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
 
 		//Spawn Registry
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 100, 4, 4));
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 80, 4, 4));
 	}
 
     private void addBrewingRecipes() {

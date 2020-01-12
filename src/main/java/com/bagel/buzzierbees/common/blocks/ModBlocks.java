@@ -159,14 +159,13 @@ public class ModBlocks
 	@SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
-		SPRUCE_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "spruce_beehive", ItemGroup.DECORATIONS);
-		BIRCH_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "birch_beehive", ItemGroup.DECORATIONS);
-		JUNGLE_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "jungle_beehive", ItemGroup.DECORATIONS);
-		ACACIA_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "acacia_beehive", ItemGroup.DECORATIONS);
-		DARK_OAK_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "dark_oak_beehive", ItemGroup.DECORATIONS);
-		
 		WAX_BLOCK          = registerBlock(new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), "wax_block", ItemGroup.DECORATIONS);
-		HONEY_LAMP         = registerBlock(new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
+		
+		SPRUCE_BEEHIVE   = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "spruce_beehive",   ItemGroup.DECORATIONS);
+		BIRCH_BEEHIVE    = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "birch_beehive",    ItemGroup.DECORATIONS);
+		JUNGLE_BEEHIVE   = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "jungle_beehive",   ItemGroup.DECORATIONS);
+		ACACIA_BEEHIVE   = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "acacia_beehive",   ItemGroup.DECORATIONS);
+		DARK_OAK_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "dark_oak_beehive", ItemGroup.DECORATIONS);
 
 		//SLIME_BLOCK 		= registerBlock(new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), "minecraft:slime_block", ItemGroup.DECORATIONS);
 		//HONEY_BLOCK 		= registerBlock(new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), "minecraft:honey_block", ItemGroup.DECORATIONS);
@@ -178,17 +177,17 @@ public class ModBlocks
 		//CRYSTALLIZED_CLOVER_HONEY_BLOCK = registerBlock(new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK)),"crystallized_clover_honey_block", ItemGroup.DECORATIONS);
 
 		//Hive Planks Section
-		HIVE_PLANKS 			= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
-		HIVE_STAIRS 			= registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
+		HIVE_PLANKS 		= registerBlock(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "hive_planks", ItemGroup.BUILDING_BLOCKS);
+		HIVE_STAIRS 		= registerBlock(new StairsBlock(HIVE_PLANKS.getDefaultState(), Block.Properties.from(HIVE_PLANKS)), "hive_stairs", ItemGroup.BUILDING_BLOCKS);
 		HIVE_SLAB 			= registerBlock(new SlabBlock(Block.Properties.from(HIVE_PLANKS)), "hive_slab", ItemGroup.BUILDING_BLOCKS);
         HIVE_FENCE 			= registerBlock(new FenceBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence", ItemGroup.DECORATIONS);
-        HIVE_FENCE_GATE 		= registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
-        HIVE_BUTTON 			= registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_button", ItemGroup.REDSTONE);
-		HIVE_PRESSURE_PLATE 	= registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_pressure_plate", ItemGroup.REDSTONE);
-		HIVE_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_door", ItemGroup.REDSTONE);
+		HIVE_PRESSURE_PLATE = registerBlock(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_pressure_plate", ItemGroup.REDSTONE);
 		HIVE_TRAPDOOR 		= registerBlock(new TrapDoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_trapdoor", ItemGroup.REDSTONE);
-		//HIVE_SIGN 			= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.HIVE_TYPE), "hive_sign");
-		//HIVE_WALL_SIGN 		= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(HIVE_SIGN), ModWoodType.HIVE_TYPE),"hive_wall_sign");
+        HIVE_FENCE_GATE 	= registerBlock(new FenceGateBlock(Block.Properties.from(HIVE_PLANKS)), "hive_fence_gate", ItemGroup.REDSTONE);
+        HIVE_BUTTON 		= registerBlock(new WoodButtonBlock(Block.Properties.from(HIVE_PLANKS).doesNotBlockMovement()), "hive_button", ItemGroup.REDSTONE);
+		HIVE_DOOR 			= registerBlock(new DoorBlock(Block.Properties.from(HIVE_PLANKS).func_226896_b_()), "hive_door", ItemGroup.REDSTONE);
+		//HIVE_SIGN 		= registerBlockNoGroupNoItem(new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.HIVE_TYPE), "hive_sign");
+		//HIVE_WALL_SIGN 	= registerBlockNoGroupNoItem(new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(HIVE_SIGN), ModWoodType.HIVE_TYPE),"hive_wall_sign");
 		
 		//Honey Bricks Section
 		HONEY_BRICKS        = registerBlock(new Block(Block.Properties.from(Blocks.BRICKS)),"honey_bricks", ItemGroup.BUILDING_BLOCKS);
@@ -196,6 +195,8 @@ public class ModBlocks
 		HONEY_BRICK_SLAB 	= registerBlock(new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)),"honey_brick_slab", ItemGroup.BUILDING_BLOCKS);
 		HONEY_BRICK_WALL 	= registerBlock(new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)),"honey_brick_wall", ItemGroup.DECORATIONS);
 
+		HONEY_LAMP         = registerBlock(new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), "honey_lamp", ItemGroup.DECORATIONS);
+		
 		//Flowers Section
 		CARTWHEEL 			= registerBlock(new CartwheelBlock(Effects.SPEED, 11, FLOWER_PROPERTIES), "cartwheel", ItemGroup.DECORATIONS);
 		BLUEBELL 			= registerBlock(new FlowerBlock(Effects.WATER_BREATHING, 6, FLOWER_PROPERTIES),	"bluebell", ItemGroup.DECORATIONS);
