@@ -1,19 +1,16 @@
-package com.bagel.buzzierbees.common;
+package com.bagel.buzzierbees.core;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.bagel.buzzierbees.common.blocks.ModBlocks;
-import com.bagel.buzzierbees.common.blocks.ModTileEntities;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
-import com.bagel.buzzierbees.common.entities.ModEntities;
-import com.bagel.buzzierbees.common.items.ModItems;
-import com.bagel.buzzierbees.common.potions.ModPotions;
+import com.bagel.buzzierbees.core.registry.ModBlocks;
+import com.bagel.buzzierbees.core.registry.ModEntities;
+import com.bagel.buzzierbees.core.registry.ModItems;
+import com.bagel.buzzierbees.core.registry.ModPotions;
+import com.bagel.buzzierbees.core.registry.ModTileEntities;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
@@ -35,7 +32,6 @@ import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -50,40 +46,26 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
-
-    // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
-    
-    /*
-    @SubscribeEvent
-    public void RightClickBlock(RightClickBlock event) {
-    	World world = event.getWorld();
-    	PlayerEntity player = event.getPlayer();
-    	ItemStack item = event.getItemStack();
-    	BlockPos block = event.getPos().get
-    	if ()) {
-    		event.setUseBlock(Result.DENY);
-    	}
-    }
-    */
+    //private static final Logger LOGGER = LogManager.getLogger();
     
     public BuzzierBees() {
-    	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    	ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::replaceBeehivePOI);
-        MinecraftForge.EVENT_BUS.register(this);    
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::setupClient);
+        modEventBus.addListener(this::replaceBeehivePOI);
     }
 
     void replaceBeehivePOI(final FMLCommonSetupEvent event) {
 		final Set<BlockState> BEEHIVES = ImmutableList.of(
 				Blocks.field_226906_mb_,
-				ModBlocks.ACACIA_BEEHIVE,
-				ModBlocks.BIRCH_BEEHIVE,
-				ModBlocks.SPRUCE_BEEHIVE,
-				ModBlocks.DARK_OAK_BEEHIVE,
-				ModBlocks.JUNGLE_BEEHIVE)
+				ModBlocks.ACACIA_BEEHIVE.get(),
+				ModBlocks.BIRCH_BEEHIVE.get(),
+				ModBlocks.SPRUCE_BEEHIVE.get(),
+				ModBlocks.DARK_OAK_BEEHIVE.get(),
+				ModBlocks.JUNGLE_BEEHIVE.get())
 				.stream().flatMap((p_221043_0_) -> {
 					return p_221043_0_.getStateContainer().getValidStates().stream();
 				}).collect(ImmutableSet.toImmutableSet());
@@ -91,11 +73,11 @@ public class BuzzierBees
     	PointOfInterestType.field_226356_s_.field_221075_w = BEEHIVES;
     	
     	Map<BlockState,PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
-    	ModBlocks.SPRUCE_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.BIRCH_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.JUNGLE_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.ACACIA_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.DARK_OAK_BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.SPRUCE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.BIRCH_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.JUNGLE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.ACACIA_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	ModBlocks.DARK_OAK_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	PointOfInterestType.field_221073_u.putAll(pointOfInterestTypeMap);
 	}
     
@@ -103,11 +85,11 @@ public class BuzzierBees
     {
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
 				Blocks.field_226906_mb_,
-				ModBlocks.ACACIA_BEEHIVE,
-				ModBlocks.BIRCH_BEEHIVE,
-				ModBlocks.SPRUCE_BEEHIVE,
-				ModBlocks.DARK_OAK_BEEHIVE,
-				ModBlocks.JUNGLE_BEEHIVE);
+				ModBlocks.ACACIA_BEEHIVE.get(),
+				ModBlocks.BIRCH_BEEHIVE.get(),
+				ModBlocks.SPRUCE_BEEHIVE.get(),
+				ModBlocks.DARK_OAK_BEEHIVE.get(),
+				ModBlocks.JUNGLE_BEEHIVE.get());
     	
     	Set<Block> newSet = new HashSet<>(TileEntityType.field_226985_G_.validBlocks);
     	newSet.addAll(BEEHIVES);
@@ -119,10 +101,7 @@ public class BuzzierBees
     
 	private void setupClient(final FMLClientSetupEvent event) {
 		setupRenderLayer();
-		
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
-
-		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 	}
 
 	private void addEntitySpawns() {
@@ -130,7 +109,7 @@ public class BuzzierBees
 		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
 
 		//Spawn Registry
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 80, 4, 4));
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 60, 4, 4));
 	}
 
     private void addBrewingRecipes() {
@@ -146,7 +125,7 @@ public class BuzzierBees
 				Ingredient.fromItems(Items.FERMENTED_SPIDER_EYE),
 				weakCure);
 
-		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER, Potions.LUCK);
+		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER.get(), Potions.LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, ModPotions.LONG_LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.GLOWSTONE_DUST, ModPotions.STRONG_LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.FERMENTED_SPIDER_EYE, ModPotions.UNLUCK);
@@ -173,7 +152,7 @@ public class BuzzierBees
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.BLAZE_POWDER, ModPotions.STRENGTH_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.PHANTOM_MEMBRANE, ModPotions.SLOW_FALLING_CURE);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.SPIDER_EYE, ModPotions.POISON_CURE);
-		PotionBrewing.addMix(ModPotions.PLACEBO, ModItems.FOUR_LEAF_CLOVER, ModPotions.LUCK_CURE);
+		PotionBrewing.addMix(ModPotions.PLACEBO, ModItems.FOUR_LEAF_CLOVER.get(), ModPotions.LUCK_CURE);
 		PotionBrewing.addMix(ModPotions.LUCK_CURE, Items.FERMENTED_SPIDER_EYE, ModPotions.UNLUCK_CURE);
 	}
 
@@ -181,34 +160,34 @@ public class BuzzierBees
 	{
 		ModEntities.registerRendering();
 
-		//RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK,RenderType.func_228645_f_());
-		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP,RenderType.func_228645_f_());
+		//RenderTypeLookup.setRenderLayer(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get(),RenderType.func_228645_f_());
+		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK.get(),RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.func_228645_f_());
 
 		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR,RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR,RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR.get(),RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR.get(),RenderType.func_228643_e_());
 
 		//Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE,RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE.get(),RenderType.func_228641_d_());
 
 		//Potted Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL,RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM,RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.func_228641_d_());
 	}
     
 

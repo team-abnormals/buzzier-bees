@@ -41,7 +41,7 @@ public class CandleBlock extends BushBlock implements IWaterLoggable {
    protected static final VoxelShape THREE_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
    protected static final VoxelShape FOUR_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 
-   protected CandleBlock(Block.Properties properties) {
+   public CandleBlock(Block.Properties properties) {
       super(properties);
       this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true));
     }

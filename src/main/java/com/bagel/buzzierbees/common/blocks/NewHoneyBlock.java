@@ -1,6 +1,5 @@
-package com.bagel.buzzierbees.common.blocks.stickyblocks;
+package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HoneyBlock;
 
@@ -21,8 +20,8 @@ public class NewHoneyBlock extends HoneyBlock {
 
     @Override
     public boolean canStickTo(BlockState state, BlockState other) {
-        if (state.getBlock() == ModBlocks.HONEY_BLOCK && other.getBlock() == ModBlocks.SLIME_BLOCK) return false;
-        if (state.getBlock() == ModBlocks.SLIME_BLOCK && other.getBlock() == ModBlocks.HONEY_BLOCK) return false;
+        //if (state.getBlock() == ModBlocks.HONEY_BLOCK.get() && other.getBlock() == ModBlocks.SLIME_BLOCK.get()) return false;
+        //if (state.getBlock() == ModBlocks.SLIME_BLOCK.get() && other.getBlock() == ModBlocks.HONEY_BLOCK.get()) return false;
         return state.isStickyBlock() || other.isStickyBlock();
     }
 }

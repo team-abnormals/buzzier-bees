@@ -1,4 +1,6 @@
-package com.bagel.buzzierbees.common.effects;
+package com.bagel.buzzierbees.core.registry;
+
+import com.bagel.buzzierbees.common.effects.AntiEffect;
 
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;

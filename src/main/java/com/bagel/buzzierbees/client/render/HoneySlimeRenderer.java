@@ -1,5 +1,6 @@
-package com.bagel.buzzierbees.common.entities;
+package com.bagel.buzzierbees.client.render;
 
+import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;

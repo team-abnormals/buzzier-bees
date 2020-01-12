@@ -1,5 +1,7 @@
 package com.bagel.buzzierbees.common.items;
 
+import com.bagel.buzzierbees.core.registry.ModItems;
+
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockState;
@@ -34,7 +36,7 @@ public class StickyHoneyWandItem extends Item {
 				if (!world.isRemote) {
 					world.setBlockState(blockpos, blockstate2, 11);
 					if (playerentity != null && playerentity instanceof PlayerEntity && !((PlayerEntity)playerentity).abilities.isCreativeMode) {
-						context.getPlayer().setHeldItem(context.getHand(), new ItemStack(ModItems.HONEY_WAND));
+						context.getPlayer().setHeldItem(context.getHand(), new ItemStack(ModItems.HONEY_WAND.get()));
 						// replace item here
 						// context.getItem().damageItem(1, playerentity, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(context.getHand());});
 					}
@@ -57,7 +59,7 @@ public class StickyHoneyWandItem extends Item {
 				entityLiving.removePotionEffect(Effects.POISON);
 			}
 			if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode){
-				return new ItemStack(ModItems.HONEY_WAND);
+				return new ItemStack(ModItems.HONEY_WAND.get());
 			}
 		return stack;
 	}
@@ -66,7 +68,7 @@ public class StickyHoneyWandItem extends Item {
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		target.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 160, 4, true, true));
 		if (attacker instanceof PlayerEntity && !((PlayerEntity)attacker).abilities.isCreativeMode){
-			attacker.setHeldItem(attacker.getActiveHand(), new ItemStack(ModItems.HONEY_WAND));
+			attacker.setHeldItem(attacker.getActiveHand(), new ItemStack(ModItems.HONEY_WAND.get()));
 		}
 			//stack.damageItem(1, attacker, (p_220048_0_) -> { p_220048_0_.sendBreakAnimatison(EquipmentSlotType.MAINHAND);});
 		return true;

@@ -1,6 +1,5 @@
-package com.bagel.buzzierbees.common.potions;
+package com.bagel.buzzierbees.core.registry;
 
-import com.bagel.buzzierbees.common.effects.ModEffects;
 import net.minecraft.potion.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

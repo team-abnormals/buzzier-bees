@@ -20,7 +20,7 @@ public class HoneyLamp extends EndRodBlock {
     protected static final VoxelShape HONEY_LAMP_NS_AABB = Block.makeCuboidShape(5.0D, 5.0D, 0.0D, 11.0D, 11.0D, 16.0D);
     protected static final VoxelShape HONEY_LAMP_EW_AABB = Block.makeCuboidShape(0.0D, 5.0D, 5.0D, 16.0D, 11.0D, 11.0D);
 
-    protected HoneyLamp(Properties p_i48404_1_) {
+    public HoneyLamp(Properties p_i48404_1_) {
         super(p_i48404_1_);
     }
 

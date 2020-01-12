@@ -1,4 +1,7 @@
-package com.bagel.buzzierbees.common.blocks;
+package com.bagel.buzzierbees.common.tileentity;
+
+import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
+import com.bagel.buzzierbees.core.registry.ModTileEntities;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;

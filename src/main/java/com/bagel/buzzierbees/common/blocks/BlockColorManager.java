@@ -1,6 +1,7 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.BuzzierBees;
+import com.bagel.buzzierbees.core.BuzzierBees;
+import com.bagel.buzzierbees.core.registry.ModBlocks;
 
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.world.GrassColors;
@@ -25,6 +26,6 @@ public class BlockColorManager
 		blockColors.register((p_210225_0_, p_210225_1_, p_210225_2_, p_210225_3_) ->
 		{
 			return p_210225_1_ != null && p_210225_2_ != null ? BiomeColors.func_228358_a_(p_210225_1_, p_210225_2_) : GrassColors.get(0.5D, 1.0D);
-		}, ModBlocks.PINK_CLOVER, ModBlocks.WHITE_CLOVER);
+		}, ModBlocks.PINK_CLOVER.get(), ModBlocks.WHITE_CLOVER.get());
 	}
 }

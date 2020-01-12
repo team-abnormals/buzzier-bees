@@ -1,6 +1,5 @@
-package com.bagel.buzzierbees.common.blocks.stickyblocks;
+package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.blocks.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SlimeBlock;
 import net.minecraft.entity.Entity;
@@ -64,10 +63,10 @@ public class NewSlimeBlock extends SlimeBlock {
 
     @Override
     public boolean canStickTo(BlockState state, BlockState other) {
-        if (state.getBlock() == ModBlocks.HONEY_BLOCK && other.getBlock() == ModBlocks.SLIME_BLOCK)         return false;
-        if (state.getBlock() == ModBlocks.SLIME_BLOCK && other.getBlock() == ModBlocks.HONEY_BLOCK)         return false;
-        if (state.getBlock() == ModBlocks.CLOVER_HONEY_BLOCK && other.getBlock() == ModBlocks.SLIME_BLOCK)  return false;
-        if (state.getBlock() == ModBlocks.SLIME_BLOCK && other.getBlock() == ModBlocks.CLOVER_HONEY_BLOCK)  return false;
+        //if (state.getBlock() == ModBlocks.HONEY_BLOCK.get() && other.getBlock() == ModBlocks.SLIME_BLOCK.get())         return false;
+        //if (state.getBlock() == ModBlocks.SLIME_BLOCK.get() && other.getBlock() == ModBlocks.HONEY_BLOCK.get())         return false;
+        //if (state.getBlock() == ModBlocks.CLOVER_HONEY_BLOCK.get() && other.getBlock() == ModBlocks.SLIME_BLOCK.get())  return false;
+        //if (state.getBlock() == ModBlocks.SLIME_BLOCK.get() && other.getBlock() == ModBlocks.CLOVER_HONEY_BLOCK.get())  return false;
         return state.isStickyBlock() || other.isStickyBlock();
     }
 }

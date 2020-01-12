@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks;
+package com.bagel.buzzierbees.core.registry;
 
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
 import net.minecraft.block.WoodType;

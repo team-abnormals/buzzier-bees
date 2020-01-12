@@ -1,3 +1,4 @@
+package com.bagel.buzzierbees.core.registry;
 /*package com.bagel.buzzierbees.common.world;
 
 import net.minecraft.util.ResourceLocation;

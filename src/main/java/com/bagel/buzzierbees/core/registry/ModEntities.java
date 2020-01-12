@@ -1,4 +1,7 @@
-package com.bagel.buzzierbees.common.entities;
+package com.bagel.buzzierbees.core.registry;
+
+import com.bagel.buzzierbees.client.render.HoneySlimeRenderer;
+import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
