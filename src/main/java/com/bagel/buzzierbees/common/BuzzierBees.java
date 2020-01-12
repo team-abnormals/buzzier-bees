@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.DistExecutor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,26 +37,23 @@ import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.Heightmap;
+
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
-@EventBusSubscriber(modid = "buzzierbees")
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     /*
     @SubscribeEvent
@@ -72,11 +71,16 @@ public class BuzzierBees
     public BuzzierBees() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+
+		MinecraftForge.EVENT_BUS.register(new ModBlocks());
+		MinecraftForge.EVENT_BUS.register(new ModItems());
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+		DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initSetupClient);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::replaceBeehivePOI);
-        MinecraftForge.EVENT_BUS.register(this);    
+        LOGGER.info("");
     }
+
+
 
     void replaceBeehivePOI(final FMLCommonSetupEvent event) {
 		final Set<BlockState> BEEHIVES = ImmutableList.of(
@@ -118,8 +122,11 @@ public class BuzzierBees
         addBrewingRecipes();
     }
 
-	@OnlyIn(Dist.CLIENT)
-	private void setupClient(final FMLClientSetupEvent event) {
+	public void initSetupClient()
+	{
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+	}
+    private void setupClient(final FMLClientSetupEvent event) {
 		setupRenderLayer();
 		
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));

@@ -18,7 +18,7 @@ version="1.1" #mandatory
 
 displayName="Buzzier Bees" #mandatory
 
-updateJSONURL="http://myurl.me/" #optional
+#updateJSONURL="http://myurl.me/" #optional
 
 displayURL="https://discord.gg/zVBFsXp" #optional
 

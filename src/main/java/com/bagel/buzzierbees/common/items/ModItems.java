@@ -1,37 +1,54 @@
 package com.bagel.buzzierbees.common.items;
 
 import com.bagel.buzzierbees.common.entities.ModEntities;
+import com.bagel.buzzierbees.common.BuzzierBees;
 
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ObjectHolder;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems
 {
+	@ObjectHolder(BuzzierBees.MODID + ":wax")
 	public static Item WAX;
+	@ObjectHolder(BuzzierBees.MODID + ":crystallized_honey")
 	public static Item CRYSTALLIZED_HONEY;
+	//@ObjectHolder(BuzzierBees.MODID + ":crystallized_clover_honey")
 	//public static Item CRYSTALLIZED_CLOVER_HONEY;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_sign")
 	public static Item HIVE_SIGN;
 
 	//Food Items
+	@ObjectHolder(BuzzierBees.MODID + ":bee_soup")
 	public static Item BEE_SOUP;
+	@ObjectHolder(BuzzierBees.MODID + ":clover_leaf")
 	public static Item CLOVER_LEAF;
+	@ObjectHolder(BuzzierBees.MODID + ":four_leaf_clover")
 	public static Item FOUR_LEAF_CLOVER;
+	@ObjectHolder(BuzzierBees.MODID + ":clover_honey_bottle")
 	public static Item CLOVER_HONEY_BOTTLE;
+	@ObjectHolder(BuzzierBees.MODID + ":honey_apple")
 	public static Item HONEY_APPLE;
+	@ObjectHolder(BuzzierBees.MODID + ":honey_bread")
 	public static Item HONEY_BREAD;
+	@ObjectHolder(BuzzierBees.MODID + ":glazed_ham")
 	public static Item GLAZED_HAM;
 
 	//Spawn Eggs
+	@ObjectHolder(BuzzierBees.MODID + ":honey_slime_spawn_egg")
 	public static Item HONEY_SLIME_SPAWN_EGG;
 
 	//Tools
+	@ObjectHolder(BuzzierBees.MODID + ":honey_wand")
 	public static Item HONEY_WAND;
+	@ObjectHolder(BuzzierBees.MODID + ":sticky_honey_wand")
 	public static Item STICKY_HONEY_WAND;
 
 	//Food
@@ -81,7 +98,7 @@ public class ModItems
 	
     public static Item registerItem(Item item, String name)
     {
-    	item.setRegistryName(name);
+    	item.setRegistryName(BuzzierBees.MODID, name);
         ForgeRegistries.ITEMS.register(item);
         return item;
     }

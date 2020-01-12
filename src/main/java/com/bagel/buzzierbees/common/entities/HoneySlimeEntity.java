@@ -339,7 +339,7 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
          if (world.getDifficulty() != Difficulty.PEACEFUL) {
             Biome biome = world.func_226691_t_(position);
             if (biome == Biomes.FLOWER_FOREST && position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
-               return func_223315_a(honeySlime, world, reason, position, randomIn);
+               return canSpawnOn(honeySlime, world, reason, position, randomIn);
             }
          }
 

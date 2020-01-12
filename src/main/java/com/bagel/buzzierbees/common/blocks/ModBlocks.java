@@ -1,5 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import com.bagel.buzzierbees.common.BuzzierBees;
 import mod.equinox.flamboyant.setup.ModSetup;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -22,98 +23,169 @@ public class ModBlocks
 	public static final Block.Properties FLOWER_PROPERTIES 		= Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
 	public static final Block.Properties CANDLE_PROPERTIES 		= Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
 	public static final Block.Properties POT_PROPERTIES    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
-	
+
+	@ObjectHolder(BuzzierBees.MODID + ":wax_block")
 	public static Block WAX_BLOCK;
 
 	@ObjectHolder("minecraft:slime_block")
 	public static Block SLIME_BLOCK;
 	@ObjectHolder("minecraft:honey_block")
 	public static Block HONEY_BLOCK;
+	@ObjectHolder(BuzzierBees.MODID + ":clover_honey_block")
 	public static Block CLOVER_HONEY_BLOCK;
 
+	@ObjectHolder(BuzzierBees.MODID + ":crystallized_honey_block")
 	public static Block CRYSTALLIZED_HONEY_BLOCK;
+	@ObjectHolder(BuzzierBees.MODID + ":crystalized_clover_honey_block")
 	public static Block CRYSTALLIZED_CLOVER_HONEY_BLOCK;
-
+	@ObjectHolder(BuzzierBees.MODID + ":spruce_beehive")
 	public static Block SPRUCE_BEEHIVE;
+	@ObjectHolder(BuzzierBees.MODID + ":birch_beehive")
 	public static Block BIRCH_BEEHIVE;
+	@ObjectHolder(BuzzierBees.MODID + ":jungle_beehive")
 	public static Block JUNGLE_BEEHIVE;
+	@ObjectHolder(BuzzierBees.MODID + ":acacia_beehive")
 	public static Block ACACIA_BEEHIVE;
+	@ObjectHolder(BuzzierBees.MODID + ":dark_oak_beehive")
 	public static Block DARK_OAK_BEEHIVE;
 
+	@ObjectHolder(BuzzierBees.MODID + ":honey_lamp")
 	public static Block HONEY_LAMP;
 
 	//Hive Planks
+	@ObjectHolder(BuzzierBees.MODID + ":hive_planks")
 	public static Block HIVE_PLANKS;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_stairs")
 	public static Block HIVE_STAIRS;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_slab")
 	public static Block HIVE_SLAB;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_fence")
 	public static Block HIVE_FENCE;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_fence_gate")
 	public static Block HIVE_FENCE_GATE;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_pressure_plate")
 	public static Block HIVE_PRESSURE_PLATE;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_button")
 	public static Block HIVE_BUTTON;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_door")
 	public static Block HIVE_DOOR;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_trapdoor")
 	public static Block HIVE_TRAPDOOR;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_sign")
 	public static Block HIVE_SIGN;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_wall_sign")
 	public static Block HIVE_WALL_SIGN;
 
 	//Honey Bricks
+	@ObjectHolder(BuzzierBees.MODID + ":honey_block")
 	public static Block HONEY_BRICKS;
+	@ObjectHolder(BuzzierBees.MODID + ":honey_brick_stairs")
 	public static Block HONEY_BRICK_STAIRS;
+	@ObjectHolder(BuzzierBees.MODID + ":honey_brick_slab")
 	public static Block HONEY_BRICK_SLAB;
+	@ObjectHolder(BuzzierBees.MODID + ":honey_brick_wall")
 	public static Block HONEY_BRICK_WALL;
 
 	//Candles
+	@ObjectHolder(BuzzierBees.MODID + ":candle")
 	public static Block CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":white_candle")
 	public static Block WHITE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":orange_candle")
 	public static Block ORANGE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":magenta_candle")
 	public static Block MAGENTA_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":light_blue_candle")
 	public static Block LIGHT_BLUE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":yellow_candle")
 	public static Block YELLOW_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":lime_candle")
 	public static Block LIME_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":pink_candle")
 	public static Block PINK_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":gray_candle")
 	public static Block GRAY_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":light_gray_candle")
 	public static Block LIGHT_GRAY_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":cyan_candle")
 	public static Block CYAN_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":purple_candle")
 	public static Block PURPLE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":blue_candle")
 	public static Block BLUE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":brown_candle")
 	public static Block BROWN_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":green_candle")
 	public static Block GREEN_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":red_candle")
 	public static Block RED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":black_candle")
 	public static Block BLACK_CANDLE;
 	
 	//Scented Candles
+	@ObjectHolder(BuzzierBees.MODID + ":alium_scented_candle")
 	public static Block ALLIUM_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":azure_bluet_scented_candle")
 	public static Block AZURE_BLUET_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":blue_orchid_scented_candle")
 	public static Block BLUE_ORCHID_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":dandelion_scented_candle")
 	public static Block DANDELION_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":cornflower_scented_candle")
 	public static Block CORNFLOWER_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":lily_of_the_valley_scented_candle")
 	public static Block LILY_OF_THE_VALLEY_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":oxeye_daisy_scented_candle")
 	public static Block OXEYE_DAISY_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":poppy_scented_candle")
 	public static Block POPPY_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":white_tulip_scented_candle")
 	public static Block WHITE_TULIP_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":orange_tulip_scented_candle")
 	public static Block ORANGE_TULIP_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":pink_tulip_scented_candle")
 	public static Block PINK_TULIP_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":red_tulip_scented_candle")
 	public static Block RED_TULIP_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":wither_rose_scented_candle")
 	public static Block WITHER_ROSE_SCENTED_CANDLE;
 
 	//Mod Scented Candles
+	@ObjectHolder(BuzzierBees.MODID + ":cartwheel_scented_candle")
 	public static Block CARTWHEEL_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":bluebell_scented_candle")
 	public static Block BLUEBELL_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":violet_scented_candle")
 	public static Block VIOLET_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":columbine_scented_candle")
 	public static Block COLUMBINE_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":jolyce_scented_candle")
 	public static Block JOLYCE_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":daybloom_scented_candle")
 	public static Block DAYBLOOM_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":white_clover_scented_candle")
 	public static Block WHITE_CLOVER_SCENTED_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":pink_clover_scented_candle")
 	public static Block PINK_CLOVER_SCENTED_CANDLE;
 
 	//Flowers
+	@ObjectHolder(BuzzierBees.MODID + ":cartwheel")
 	public static Block CARTWHEEL;
+	@ObjectHolder(BuzzierBees.MODID + ":bluebell")
 	public static Block BLUEBELL;
+	@ObjectHolder(BuzzierBees.MODID + ":violet")
 	public static Block VIOLET;
+	@ObjectHolder(BuzzierBees.MODID + ":columbine")
 	public static Block COLUMBINE;
+	@ObjectHolder(BuzzierBees.MODID + ":jolyce")
 	public static Block JOLYCE;
+	@ObjectHolder(BuzzierBees.MODID + ":daybloom")
 	public static Block DAYBLOOM;
+	@ObjectHolder(BuzzierBees.MODID + ":bird_of_pradise")
 	public static Block BIRD_OF_PARADISE;
+	@ObjectHolder(BuzzierBees.MODID + ":white_clover")
 	public static Block WHITE_CLOVER;
+	@ObjectHolder(BuzzierBees.MODID + ":pink_clover")
 	public static Block PINK_CLOVER;
 
 	//Potted Flowers
@@ -127,38 +199,57 @@ public class ModBlocks
 	public static Block POTTED_PINK_CLOVER;
 
 	//Flamboyant Compat
+	@ObjectHolder(BuzzierBees.MODID + ":amber_candle")
 	public static Block AMBER_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":beige_candle")
 	public static Block BEIGE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":cream_candle")
 	public static Block CREAM_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":dark_green_candle")
 	public static Block DARK_GREEN_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":forest_green_candle")
 	public static Block FOREST_GREEN_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":hot_pink_candle")
 	public static Block HOT_PINK_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":indigo_candle")
 	public static Block INDIGO_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":maroon_candle")
 	public static Block MAROON_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":navy_candle")
 	public static Block NAVY_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":olive_candle")
 	public static Block OLIVE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":pale_green_candle")
 	public static Block PALE_GREEN_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":pale_pink_candle")
 	public static Block PALE_PINK_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":pale_yellow_candle")
 	public static Block PALE_YELLOW_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":sky_blue_candle")
 	public static Block SKY_BLUE_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":slate_gray_candle")
 	public static Block SLATE_GRAY_CANDLE;
+	@ObjectHolder(BuzzierBees.MODID + ":violet_candle")
 	public static Block VIOLET_CANDLE;
 
 	//Quark Compat
 	public static Block HIVE_BOOKSHELF;
 	public static Block HIVE_CHEST;
 	public static Block HIVE_LADDER;
+	@ObjectHolder(BuzzierBees.MODID + ":vertical_hive_slab")
 	public static Block VERTICAL_HIVE_PLANKS;
+	@ObjectHolder(BuzzierBees.MODID + ":hive_vertical_slab")
 	public static Block HIVE_VERTICAL_SLAB;
+	@ObjectHolder(BuzzierBees.MODID + ":honey_brick_vertical_slab")
 	public static Block HONEY_BRICK_VERTICAL_SLAB;
 
 	//TODO: 1.2
 	public static Block BEEHIVE_BLOCK;
-	
-	@SuppressWarnings("deprecation")
+
 	@SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
+    	BuzzierBees.LOGGER.info("Initiating Registering Blocks");
 		SPRUCE_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "spruce_beehive", ItemGroup.DECORATIONS);
 		BIRCH_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "birch_beehive", ItemGroup.DECORATIONS);
 		JUNGLE_BEEHIVE = registerBlock(new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), "jungle_beehive", ItemGroup.DECORATIONS);
@@ -308,8 +399,8 @@ public class ModBlocks
     public static Block registerBlock(Block block, String name, ItemGroup group)
     {
         BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(group));
-        block.setRegistryName(name);
-        itemBlock.setRegistryName(name);
+        block.setRegistryName(BuzzierBees.MODID,name);
+        itemBlock.setRegistryName(BuzzierBees.MODID, name);
         ForgeRegistries.BLOCKS.register(block);
         ForgeRegistries.ITEMS.register(itemBlock);
         return block;
@@ -317,14 +408,14 @@ public class ModBlocks
     
     public static Block registerBlockNoItem(Block block, String name)
     {
-        block.setRegistryName(name);
+        block.setRegistryName(BuzzierBees.MODID,name);
         ForgeRegistries.BLOCKS.register(block);
         return block;
     }
 
     public static Block registerBlockNoGroupNoItem(Block block, String name)
     {
-        block.setRegistryName(name);
+        block.setRegistryName(BuzzierBees.MODID,name);
         ForgeRegistries.BLOCKS.register(block);
         return block;
     }
