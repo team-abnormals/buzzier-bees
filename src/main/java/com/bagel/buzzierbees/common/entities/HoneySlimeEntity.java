@@ -1,19 +1,16 @@
 package com.bagel.buzzierbees.common.entities;
 
-import java.util.EnumSet;
-import java.util.Random;
-import javax.annotation.Nullable;
-
+import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
+import com.bagel.buzzierbees.common.entities.goals.*;
+import com.bagel.buzzierbees.core.registry.ModEntities;
 import com.bagel.buzzierbees.core.registry.ModItems;
-
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.controller.MovementController;
-import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.SlimeEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -23,13 +20,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -41,34 +32,41 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.storage.loot.LootTables;
 
-public class HoneySlimeEntity extends CreatureEntity implements IMob {
-   private static final DataParameter<Integer> SLIME_SIZE = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.VARINT);
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.*;
+
+public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraftforge.common.IShearable {
+   private static final DataParameter<Boolean> STICKY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);
+   private static final Ingredient BREEDING_ITEM = Ingredient.fromItems(Items.SUGAR);
 
    public float squishAmount;
    public float squishFactor;
    public float prevSquishFactor;
 
    public boolean isAngry;
-
+   public boolean desticked;
    private boolean wasOnGround;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
-      this.moveController = new HoneySlimeEntity.MoveHelperController(this);
+      this.moveController = new HoneySlimeMoveHelperController(this);
    }
 
    protected void registerGoals() {
-	  this.goalSelector.addGoal(1, new TemptGoal(this, 1.25D, Ingredient.fromItems(Items.SUGAR), false));   
-	  this.goalSelector.addGoal(2, new HoneySlimeEntity.FloatGoal(this));
-      this.goalSelector.addGoal(3, new HoneySlimeEntity.FaceRandomGoal(this));
-      this.goalSelector.addGoal(4, new HoneySlimeEntity.HopGoal(this));
+	  this.goalSelector.addGoal(0, new HoneySlimeFloatGoal(this));
+      this.goalSelector.addGoal(1, new HoneySlimeBreedGoal(this, 1.0D));
+      this.goalSelector.addGoal(2, new HoneySlimeTemptGoal(this, 1.2D, BREEDING_ITEM));
+      this.goalSelector.addGoal(4, new HoneySlimeHopGoal(this));
+      this.goalSelector.addGoal(5, new HoneySlimeFaceRandomGoal(this));
       this.goalSelector.addGoal(6, new HurtByTargetGoal(this, new Class[0]));
-      this.goalSelector.addGoal(5, new HoneySlimeEntity.AttackGoal(this));
+      this.goalSelector.addGoal(7, new HoneySlimeAttackGoal(this));
    }
 
    protected void registerData() {
       super.registerData();
-      this.dataManager.register(SLIME_SIZE, 1);
+      //this.dataManager.register(SLIME_SIZE, 1);
+      this.dataManager.register(STICKY, true);
    }
 
    protected void registerAttributes() {
@@ -76,8 +74,9 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
       this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
    }
 
+   /*
    protected void setSlimeSize(int size, boolean resetHealth) {
-      this.dataManager.set(SLIME_SIZE, size);
+      //this.dataManager.set(SLIME_SIZE, size);
       this.func_226264_Z_();
       this.recalculateSize();
       this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double) (size * size));
@@ -89,17 +88,19 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
 
       this.experienceValue = size;
    }
+   */
 
    /**
     * Returns the size of the slime.
     */
-   public int getSlimeSize() {
-      return this.dataManager.get(SLIME_SIZE);
-   }
+   /*public int getSlimeSize() {
+      return 1;
+      //return this.dataManager.get(SLIME_SIZE);
+   }*/
 
    public void writeAdditional(CompoundNBT compound) {
       super.writeAdditional(compound);
-      compound.putInt("Size", this.getSlimeSize() - 1);
+      compound.putBoolean("desticked", this.desticked);
       compound.putBoolean("wasOnGround", this.wasOnGround);
    }
 
@@ -107,18 +108,9 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
     * (abstract) Protected helper method to read subclass entity data from NBT.
     */
    public void readAdditional(CompoundNBT compound) {
-      int i = compound.getInt("Size");
-      if (i < 0) {
-         i = 0;
-      }
-
-      this.setSlimeSize(i + 1, false);
       super.readAdditional(compound);
+      this.desticked = compound.getBoolean("desticked");
       this.wasOnGround = compound.getBoolean("wasOnGround");
-   }
-
-   public boolean isSmallSlime() {
-      return this.getSlimeSize() <= 1;
    }
 
    protected IParticleData getSquishParticle() {
@@ -126,56 +118,93 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    }
 
    protected boolean func_225511_J_() {
-      return this.getSlimeSize() > 0;
+      return !this.isChild();
    }
 
    public boolean processInteract(PlayerEntity player, Hand hand) {
-	   ItemStack itemstack = player.getHeldItem(hand);
-	   World world = player.getEntityWorld();
-	   if (itemstack.getItem() == Items.GLASS_BOTTLE) {
-		   world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-			   itemstack.shrink(1);
-			   if (itemstack.isEmpty()) {
-				   player.setHeldItem(hand, new ItemStack(Items.field_226638_pX_));     
-			   } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
-				   player.dropItem(new ItemStack(Items.field_226638_pX_), false);   
-			   }   
-		   
-         performEffect(this, 1);
-         return true;
-      } else if (itemstack.getItem() == ModItems.HONEY_WAND.get()) {
-    	 world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ENTITY_SLIME_SQUISH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-        	 player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND.get()));
-         
-         performEffect(this, 1);
-         return true;
+      ItemStack itemstack = player.getHeldItem(hand);
+      World world = player.getEntityWorld();
+      if (!this.isChild()) {
+         //Bottling
+         if (itemstack.getItem() == Items.GLASS_BOTTLE) {
+            world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            if (!player.abilities.isCreativeMode) {
+               itemstack.shrink(1);
+               if (itemstack.isEmpty()) {
+                  player.setHeldItem(hand, new ItemStack(Items.field_226638_pX_));
+               } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
+                  player.dropItem(new ItemStack(Items.field_226638_pX_), false);
+               }
+            }
+            performEffect(this, 1);
+            return true;
+         }
+         //Wanding
+         else if (itemstack.getItem() == ModItems.HONEY_WAND.get()) {
+            world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.field_226139_eT_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            if (!player.abilities.isCreativeMode) {
+               player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND.get()));
+            }
+            performEffect(this, 1);
+            return true;
+         }
+         //Shearing
+         else if (itemstack.getItem() == Items.SHEARS) {
+            ItemStack shears = itemstack;
+
+            //net.minecraft.entity.item.ItemEntity ent = this.entityDropItem(new ItemStack(Items.field_226635_pU_, 3), 1.0F);
+            //ent.setMotion(ent.getMotion().add((double)((rand.nextFloat() - rand.nextFloat()) * 0.1F), (double)(rand.nextFloat() * 0.05F), (double)((rand.nextFloat() - rand.nextFloat()) * 0.1F)));
+
+            world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.field_226133_ah_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            shears.damageItem(1, player, (p) -> {
+               p.sendBreakAnimation(hand);
+            });
+
+            performEffect(this, 1);
+            return true;
+         }
       }
       return super.processInteract(player, hand);
    }
 
    public void performEffect(LivingEntity entity, int amplifier) {
       if (entity instanceof HoneySlimeEntity) {
-         SlimeEntity slime = EntityType.SLIME.create(entity.world);
-         slime.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw), entity.rotationPitch);
-         slime.setNoAI(((MobEntity) entity).isAIDisabled());
-         if (entity.hasCustomName()) {
-            slime.setCustomName(entity.getCustomName());
-            slime.setCustomNameVisible(entity.isCustomNameVisible());
+         //If it desticked - regular slime'll appear
+         if (((HoneySlimeEntity) entity).desticked) {
+            SlimeEntity slime = EntityType.SLIME.create(entity.world);
+            slime.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw), entity.rotationPitch);
+            slime.setNoAI(((MobEntity) entity).isAIDisabled());
+            if (entity.hasCustomName()) {
+               slime.setCustomName(entity.getCustomName());
+               slime.setCustomNameVisible(entity.isCustomNameVisible());
+            }
+            slime.setHealth(this.getHealth());
+            //slime.getDataManager().set(SLIME_SIZE, this.getSlimeSize());
+            slime.setPosition(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_());
+            slime.recalculateSize();
+            slime.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double) (4));
+            slime.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double) (0.2F + 0.1F * (float) 1));
+            slime.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double) 2);
+            //slime.experienceValue = this.getSlimeSize();
+            if (slime.getHealth() > 0) {
+               entity.world.addEntity(slime);
+               entity.remove(true);
+            }
          }
-         slime.setHealth(this.getHealth());
-         slime.getDataManager().set(SLIME_SIZE, this.getSlimeSize());
-         slime.setPosition(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_());
-         slime.recalculateSize();
-         slime.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double) (this.getSlimeSize() * this.getSlimeSize()));
-         slime.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double) (0.2F + 0.1F * (float) this.getSlimeSize()));
-         slime.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double) this.getSlimeSize());
-         //slime.experienceValue = this.getSlimeSize();
-         if (slime.getHealth() > 0) {
-            entity.world.addEntity(slime);
-            entity.remove(true);
+         else {
+            ((HoneySlimeEntity) entity).desticked = true;
          }
       }
    }
+   /*
+   @Nonnull
+   @Override
+   public List<ItemStack> onSheared(@Nonnull ItemStack item, IWorld world, BlockPos pos, int fortune) {
+      List<ItemStack> list = NonNullList.create();
+      list.add(new ItemStack(Items.field_226635_pU_, 3));
+      return list;
+   }
+   */
 
    public void setExperienceValue(int value) {
       this.experienceValue = value;
@@ -190,7 +219,7 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
       this.prevSquishFactor = this.squishFactor;
       super.tick();
       if (this.onGround && !this.wasOnGround) {
-         int i = this.getSlimeSize();
+         int i = 2;
 
          if (spawnCustomParticles()) i = 0; // don't spawn particles if it's handled by the implementation itself
          for (int j = 0; j < i * 8; ++j) {
@@ -218,7 +247,7 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    /**
     * Gets the amount of time the slime needs to wait between jumps.
     */
-   protected int getJumpDelay() {
+   public int getJumpDelay() {
       return this.rand.nextInt(20) + 10;
    }
 
@@ -231,14 +260,14 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    }
 
    public void notifyDataManagerChange(DataParameter<?> key) {
-      if (SLIME_SIZE.equals(key)) {
+      //if (SLIME_SIZE.equals(key)) {
          this.recalculateSize();
          this.rotationYaw = this.rotationYawHead;
          this.renderYawOffset = this.rotationYawHead;
          if (this.isInWater() && this.rand.nextInt(20) == 0) {
             this.doWaterSplashEffect();
          }
-      }
+      //}
 
       super.notifyDataManagerChange(key);
    }
@@ -251,14 +280,12 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    @SuppressWarnings("deprecation")
    @Override
    public void remove(boolean keepData) {
-      int i = this.getSlimeSize();
+      int i = 2;
       if (!this.world.isRemote && i > 1 && this.getHealth() <= 0.0F && !this.removed) {
-         int j = 2 + this.rand.nextInt(3);
-
-         for (int k = 0; k < j; ++k) {
+         for (int k = 0; k < i; ++k) {
             float f = ((float) (k % 2) - 0.5F) * (float) i / 4.0F;
             float f1 = ((float) (k / 2) - 0.5F) * (float) i / 4.0F;
-            HoneySlimeEntity HoneySlimeEntity = this.getType().create(this.world);
+            AgeableEntity HoneySlimeEntity = this.createChild(this);
             if (this.hasCustomName()) {
                HoneySlimeEntity.setCustomName(this.getCustomName());
             }
@@ -266,9 +293,8 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
             if (this.isNoDespawnRequired()) {
                HoneySlimeEntity.enablePersistence();
             }
-
+            HoneySlimeEntity.setGrowingAge(-24000);
             HoneySlimeEntity.setInvulnerable(this.isInvulnerable());
-            HoneySlimeEntity.setSlimeSize(i / 2, true);
             HoneySlimeEntity.setLocationAndAngles(this.func_226277_ct_() + (double) f, this.func_226278_cu_() + 0.5D, this.func_226281_cx_() + (double) f1, this.rand.nextFloat() * 360.0F, 0.0F);
             this.world.addEntity(HoneySlimeEntity);
          }
@@ -282,20 +308,17 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
     */
    public void applyEntityCollision(Entity entityIn) {
       super.applyEntityCollision(entityIn);
-
-
    }
    
    protected void dealDamage(LivingEntity entityIn) {
-	      if (this.isAlive()) {
-	         int i = this.getSlimeSize();
-	         if (this.getDistanceSq(entityIn) < 0.6D * (double)i * 0.6D * (double)i && this.canEntityBeSeen(entityIn) && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), this.func_225512_er_())) {
-	            this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-	            this.applyEnchantments(this, entityIn);
-	         }
-	      }
-
-	   }
+      if (this.isAlive()) {
+         int i = 2;
+         if (this.getDistanceSq(entityIn) < 0.6D * (double) i * 0.6D * (double) i && this.canEntityBeSeen(entityIn) && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), this.func_225512_er_())) {
+            this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+            this.applyEnchantments(this, entityIn);
+         }
+      }
+   }
 
    /**
     * Called by a player entity when they collide with an entity
@@ -309,8 +332,8 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    /**
     * Indicates weather the slime is able to damage the player (based upon the slime's size)
     */
-   protected boolean canDamagePlayer() {
-      return !this.isSmallSlime() && this.isServerWorld();
+   public boolean canDamagePlayer() {
+      return !this.isChild() && this.isServerWorld();
    }
 
    protected float func_225512_er_() {
@@ -318,25 +341,26 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-      return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_HURT_SMALL : SoundEvents.ENTITY_SLIME_HURT;
+      return this.isChild() ? SoundEvents.ENTITY_SLIME_HURT_SMALL : SoundEvents.ENTITY_SLIME_HURT;
    }
 
    protected SoundEvent getDeathSound() {
-      return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_DEATH_SMALL : SoundEvents.ENTITY_SLIME_DEATH;
+      return this.isChild() ? SoundEvents.ENTITY_SLIME_DEATH_SMALL : SoundEvents.ENTITY_SLIME_DEATH;
    }
 
    protected SoundEvent getSquishSound() {
-      return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_SQUISH_SMALL : SoundEvents.ENTITY_SLIME_SQUISH;
+      return this.isChild() ? SoundEvents.ENTITY_SLIME_SQUISH_SMALL : SoundEvents.ENTITY_SLIME_SQUISH;
    }
 
    protected ResourceLocation getLootTable() {
-      return this.getSlimeSize() == 1 ? this.getType().getLootTable() : LootTables.EMPTY;
+      return this.isChild() ? this.getType().getLootTable() : LootTables.EMPTY;
    }
 
    public static boolean honeySlimeCondition(EntityType<HoneySlimeEntity> honeySlime, IWorld world, SpawnReason reason, BlockPos position, Random randomIn) {
       if (world.getWorldInfo().getGenerator().handleSlimeSpawnReduction(randomIn, world) && randomIn.nextInt(6) != 1) {
          return false;
-      } else {
+      }
+      else {
          if (world.getDifficulty() != Difficulty.PEACEFUL) {
             Biome biome = world.func_226691_t_(position);
             if (biome == Biomes.FLOWER_FOREST && position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
@@ -351,8 +375,8 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    /**
     * Returns the volume for the sounds this mob makes.
     */
-   protected float getSoundVolume() {
-      return 0.4F * (float) this.getSlimeSize();
+   public float getSoundVolume() {
+      return 0.4F * (float) (isChild() ? 1 : 2);
    }
 
    /**
@@ -366,8 +390,8 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
    /**
     * Returns true if the slime makes a sound when it jumps (based upon the slime's size)
     */
-   protected boolean makesSoundOnJump() {
-      return this.getSlimeSize() > 0;
+   public boolean makesSoundOnJump() {
+      return !isChild();
    }
 
    /**
@@ -379,25 +403,34 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
       this.isAirBorne = true;
    }
 
+   //Спавн крч
    @Nullable
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-      int i = this.rand.nextInt(3);
-      if (i < 2 && this.rand.nextFloat() < 0.5F * difficultyIn.getClampedAdditionalDifficulty()) {
-         ++i;
-      }
-
-      int j = 1 << i;
-      this.setSlimeSize(j, true);
       return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
    }
 
-   protected SoundEvent getJumpSound() {
-      return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_JUMP_SMALL : SoundEvents.ENTITY_SLIME_JUMP;
+   @Nullable
+   @Override
+   public AgeableEntity createChild(AgeableEntity ageable) {
+      HoneySlimeEntity honeySlimeEntity = (HoneySlimeEntity)ageable;
+      HoneySlimeEntity honeySlimeEntity1 = ModEntities.HONEY_SLIME.create(this.world);
+      return honeySlimeEntity1;
    }
 
+   @Override
+   public boolean isBreedingItem(ItemStack stack) {
+      return BREEDING_ITEM.test(stack);
+   }
+
+   public SoundEvent getJumpSound() {
+      return this.isChild() ? SoundEvents.ENTITY_SLIME_JUMP_SMALL : SoundEvents.ENTITY_SLIME_JUMP;
+   }
+
+   /*
    public EntitySize getSize(Pose poseIn) {
       return super.getSize(poseIn).scale(0.255F * (float) this.getSlimeSize());
    }
+    */
 
    /**
     * Called when the slime spawns particles on landing, see onUpdate.
@@ -407,212 +440,9 @@ public class HoneySlimeEntity extends CreatureEntity implements IMob {
       return false;
    }
 
-   static class AttackGoal extends Goal {
-      private final HoneySlimeEntity slime;
-      private int growTieredTimer;
-
-      public AttackGoal(HoneySlimeEntity slimeIn) {
-         this.slime = slimeIn;
-         this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
-      }
-
-      public boolean shouldExecute() {
-         LivingEntity livingentity = this.slime.getAttackTarget();
-         if (livingentity == null) {
-            return false;
-         } else if (!livingentity.isAlive()) {
-            return false;
-         } else {
-            return livingentity instanceof PlayerEntity && ((PlayerEntity) livingentity).abilities.disableDamage ? false : this.slime.getMoveHelper() instanceof HoneySlimeEntity.MoveHelperController;
-         }
-      }
-
-      public void startExecuting() {
-         this.growTieredTimer = 300;
-         this.slime.isAngry = true;
-         super.startExecuting();
-      }
-
-      public boolean shouldContinueExecuting() {
-         LivingEntity livingentity = this.slime.getAttackTarget();
-         if (livingentity == null) {
-            this.slime.isAngry = false;
-            return false;
-         } else if (!livingentity.isAlive()) {
-            this.slime.isAngry = false;
-            return false;
-         } else if (livingentity instanceof PlayerEntity && ((PlayerEntity) livingentity).abilities.disableDamage) {
-            this.slime.isAngry = false;
-            return false;
-         } else {
-            if (--this.growTieredTimer > 0) {
-               return true;
-            }
-            else {
-               this.slime.isAngry = false;
-               return false;
-            }
-         }
-      }
-
-      public void tick() {
-         this.slime.faceEntity(this.slime.getAttackTarget(), 10.0F, 10.0F);
-         ((HoneySlimeEntity.MoveHelperController) this.slime.getMoveHelper()).setDirection(this.slime.rotationYaw, this.slime.canDamagePlayer());
-      }
-   }
-   
    public void onCollideWithPlayer(PlayerEntity entityIn) {
-	      if (this.canDamagePlayer() && this.isAngry) {
-	         this.dealDamage(entityIn);
-	      }
-	   }
-
-   static class FaceRandomGoal extends Goal {
-      private final HoneySlimeEntity slime;
-      private float chosenDegrees;
-      private int nextRandomizeTime;
-
-      public FaceRandomGoal(HoneySlimeEntity slimeIn) {
-         this.slime = slimeIn;
-         this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
-      }
-
-      /**
-       * Returns whether the EntityAIBase should begin execution.
-       */
-      public boolean shouldExecute() {
-         return this.slime.getAttackTarget() == null && (this.slime.onGround || this.slime.isInWater() || this.slime.isInLava() || this.slime.isPotionActive(Effects.LEVITATION)) && this.slime.getMoveHelper() instanceof HoneySlimeEntity.MoveHelperController;
-      }
-
-      /**
-       * Keep ticking a continuous task that has already been started
-       */
-      public void tick() {
-         if (--this.nextRandomizeTime <= 0) {
-            this.nextRandomizeTime = 40 + this.slime.getRNG().nextInt(60);
-            this.chosenDegrees = (float) this.slime.getRNG().nextInt(360);
-         }
-
-         ((HoneySlimeEntity.MoveHelperController) this.slime.getMoveHelper()).setDirection(this.chosenDegrees, false);
-      }
-   }
-
-   static class FloatGoal extends Goal {
-      private final HoneySlimeEntity slime;
-
-      public FloatGoal(HoneySlimeEntity slimeIn) {
-         this.slime = slimeIn;
-         this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
-         slimeIn.getNavigator().setCanSwim(true);
-      }
-
-      /**
-       * Returns whether the EntityAIBase should begin execution.
-       */
-      public boolean shouldExecute() {
-         return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveHelper() instanceof HoneySlimeEntity.MoveHelperController;
-      }
-
-      /**
-       * Keep ticking a continuous task that has already been started
-       */
-      public void tick() {
-         if (this.slime.getRNG().nextFloat() < 0.8F) {
-            this.slime.getJumpController().setJumping();
-         }
-
-         ((HoneySlimeEntity.MoveHelperController) this.slime.getMoveHelper()).setSpeed(1.2D);
-      }
-   }
-
-   static class HopGoal extends Goal {
-      private final HoneySlimeEntity slime;
-
-      public HopGoal(HoneySlimeEntity slimeIn) {
-         this.slime = slimeIn;
-         this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
-      }
-
-      /**
-       * Returns whether the EntityAIBase should begin execution.
-       */
-      public boolean shouldExecute() {
-         return !this.slime.isPassenger();
-      }
-
-      /**
-       * Keep ticking a continuous task that has already been started
-       */
-      public void tick() {
-         ((HoneySlimeEntity.MoveHelperController) this.slime.getMoveHelper()).setSpeed(1.0D);
-      }
-   }
-
-   /*public class HurtByPlayerGoal extends HurtByTargetGoal {
-      public HurtByPlayerGoal(HoneySlimeEntity slimeEntity) {
-         super(slimeEntity, new Class[0]);
-      }
-
-      protected void setAttackTarget(MobEntity p_220793_1_, LivingEntity p_220793_2_) {
-         if (p_220793_1_ instanceof ZombiePigmanEntity && this.goalOwner.canEntityBeSeen(p_220793_2_) && ((ZombiePigmanEntity)p_220793_1_).func_226547_i_(p_220793_2_)) {
-            p_220793_1_.setAttackTarget(p_220793_2_);
-         }
-
-      }
-   }*/
-
-   static class MoveHelperController extends MovementController {
-      private float yRot;
-      private int jumpDelay;
-      private final HoneySlimeEntity slime;
-      private boolean isAggressive;
-
-      public MoveHelperController(HoneySlimeEntity slimeIn) {
-         super(slimeIn);
-         this.slime = slimeIn;
-         this.yRot = 180.0F * slimeIn.rotationYaw / (float) Math.PI;
-      }
-
-      public void setDirection(float yRotIn, boolean aggressive) {
-         this.yRot = yRotIn;
-         this.isAggressive = aggressive;
-      }
-
-      public void setSpeed(double speedIn) {
-         this.speed = speedIn;
-         this.action = MovementController.Action.MOVE_TO;
-      }
-
-      public void tick() {
-         this.mob.rotationYaw = this.limitAngle(this.mob.rotationYaw, this.yRot, 90.0F);
-         this.mob.rotationYawHead = this.mob.rotationYaw;
-         this.mob.renderYawOffset = this.mob.rotationYaw;
-         if (this.action != MovementController.Action.MOVE_TO) {
-            this.mob.setMoveForward(0.0F);
-         } else {
-            this.action = MovementController.Action.WAIT;
-            if (this.mob.onGround) {
-               this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue()));
-               if (this.jumpDelay-- <= 0) {
-                  this.jumpDelay = this.slime.getJumpDelay();
-                  if (this.isAggressive) {
-                     this.jumpDelay /= 3;
-                  }
-
-                  this.slime.getJumpController().setJumping();
-                  if (this.slime.makesSoundOnJump()) {
-                     this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), ((this.slime.getRNG().nextFloat() - this.slime.getRNG().nextFloat()) * 0.2F + 1.0F) * 0.8F);
-                  }
-               } else {
-                  this.slime.moveStrafing = 0.0F;
-                  this.slime.moveForward = 0.0F;
-                  this.mob.setAIMoveSpeed(0.0F);
-               }
-            } else {
-               this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue()));
-            }
-
-         }
+      if (this.canDamagePlayer() && this.isAngry) {
+         this.dealDamage(entityIn);
       }
    }
 }
