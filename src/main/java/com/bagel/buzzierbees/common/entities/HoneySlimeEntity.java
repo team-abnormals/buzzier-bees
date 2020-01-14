@@ -74,30 +74,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
    }
 
-   /*
-   protected void setSlimeSize(int size, boolean resetHealth) {
-      //this.dataManager.set(SLIME_SIZE, size);
-      this.func_226264_Z_();
-      this.recalculateSize();
-      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double) (size * size));
-      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double) (0.2F + 0.1F * (float) size));
-      this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double) size);
-      if (resetHealth) {
-         this.setHealth(this.getMaxHealth());
-      }
-
-      this.experienceValue = size;
-   }
-   */
-
-   /**
-    * Returns the size of the slime.
-    */
-   /*public int getSlimeSize() {
-      return 1;
-      //return this.dataManager.get(SLIME_SIZE);
-   }*/
-
    public void writeAdditional(CompoundNBT compound) {
       super.writeAdditional(compound);
       compound.putBoolean("desticked", this.desticked);
@@ -148,21 +124,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
             performEffect(this, 1);
             return true;
          }
-         //Shearing
-         else if (itemstack.getItem() == Items.SHEARS) {
-            ItemStack shears = itemstack;
-
-            //net.minecraft.entity.item.ItemEntity ent = this.entityDropItem(new ItemStack(Items.field_226635_pU_, 3), 1.0F);
-            //ent.setMotion(ent.getMotion().add((double)((rand.nextFloat() - rand.nextFloat()) * 0.1F), (double)(rand.nextFloat() * 0.05F), (double)((rand.nextFloat() - rand.nextFloat()) * 0.1F)));
-
-            world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.field_226133_ah_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-            shears.damageItem(1, player, (p) -> {
-               p.sendBreakAnimation(hand);
-            });
-
-            performEffect(this, 1);
-            return true;
-         }
       }
       return super.processInteract(player, hand);
    }
@@ -171,23 +132,21 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       if (entity instanceof HoneySlimeEntity) {
          //If it desticked - regular slime'll appear
          if (((HoneySlimeEntity) entity).desticked) {
-            SlimeEntity slime = EntityType.SLIME.create(entity.world);
-            slime.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw), entity.rotationPitch);
-            slime.setNoAI(((MobEntity) entity).isAIDisabled());
+
+            SlimeEntity slimeentity = new SlimeEntity(EntityType.SLIME, this.world);
+            slimeentity.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw), entity.rotationPitch);
+            slimeentity.setNoAI(((MobEntity) entity).isAIDisabled());
             if (entity.hasCustomName()) {
-               slime.setCustomName(entity.getCustomName());
-               slime.setCustomNameVisible(entity.isCustomNameVisible());
+               slimeentity.setCustomName(entity.getCustomName());
+               slimeentity.setCustomNameVisible(entity.isCustomNameVisible());
             }
-            slime.setHealth(this.getHealth());
-            //slime.getDataManager().set(SLIME_SIZE, this.getSlimeSize());
-            slime.setPosition(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_());
-            slime.recalculateSize();
-            slime.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double) (4));
-            slime.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double) (0.2F + 0.1F * (float) 1));
-            slime.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double) 2);
-            //slime.experienceValue = this.getSlimeSize();
-            if (slime.getHealth() > 0) {
-               entity.world.addEntity(slime);
+
+            slimeentity.setInvulnerable(this.isInvulnerable());
+            slimeentity.setSlimeSize(2, true);
+            slimeentity.setLocationAndAngles(this.func_226277_ct_(), this.func_226278_cu_() + 0.5D, this.func_226281_cx_(), this.rand.nextFloat() * 360.0F, 0.0F);
+            this.world.addEntity(slimeentity);
+            if (slimeentity.getHealth() > 0) {
+               entity.world.addEntity(slimeentity);
                entity.remove(true);
             }
          }
@@ -196,15 +155,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
          }
       }
    }
-   /*
-   @Nonnull
-   @Override
-   public List<ItemStack> onSheared(@Nonnull ItemStack item, IWorld world, BlockPos pos, int fortune) {
-      List<ItemStack> list = NonNullList.create();
-      list.add(new ItemStack(Items.field_226635_pU_, 3));
-      return list;
-   }
-   */
 
    public void setExperienceValue(int value) {
       this.experienceValue = value;
@@ -260,15 +210,12 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    }
 
    public void notifyDataManagerChange(DataParameter<?> key) {
-      //if (SLIME_SIZE.equals(key)) {
-         this.recalculateSize();
-         this.rotationYaw = this.rotationYawHead;
-         this.renderYawOffset = this.rotationYawHead;
-         if (this.isInWater() && this.rand.nextInt(20) == 0) {
-            this.doWaterSplashEffect();
-         }
-      //}
-
+      this.recalculateSize();
+      this.rotationYaw = this.rotationYawHead;
+      this.renderYawOffset = this.rotationYawHead;
+      if (this.isInWater() && this.rand.nextInt(20) == 0) {
+         this.doWaterSplashEffect();
+      }
       super.notifyDataManagerChange(key);
    }
 
@@ -280,32 +227,9 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    @SuppressWarnings("deprecation")
    @Override
    public void remove(boolean keepData) {
-      int i = 2;
-      if (!this.world.isRemote && i > 1 && this.getHealth() <= 0.0F && !this.removed) {
-         for (int k = 0; k < i; ++k) {
-            float f = ((float) (k % 2) - 0.5F) * (float) i / 4.0F;
-            float f1 = ((float) (k / 2) - 0.5F) * (float) i / 4.0F;
-            AgeableEntity HoneySlimeEntity = this.createChild(this);
-            if (this.hasCustomName()) {
-               HoneySlimeEntity.setCustomName(this.getCustomName());
-            }
-
-            if (this.isNoDespawnRequired()) {
-               HoneySlimeEntity.enablePersistence();
-            }
-            HoneySlimeEntity.setGrowingAge(-24000);
-            HoneySlimeEntity.setInvulnerable(this.isInvulnerable());
-            HoneySlimeEntity.setLocationAndAngles(this.func_226277_ct_() + (double) f, this.func_226278_cu_() + 0.5D, this.func_226281_cx_() + (double) f1, this.rand.nextFloat() * 360.0F, 0.0F);
-            this.world.addEntity(HoneySlimeEntity);
-         }
-      }
-
       super.remove(keepData);
    }
 
-   /**
-    * Applies a velocity to the entities, to push them away from eachother.
-    */
    public void applyEntityCollision(Entity entityIn) {
       super.applyEntityCollision(entityIn);
    }
@@ -320,18 +244,10 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       }
    }
 
-   /**
-    * Called by a player entity when they collide with an entity
-    */
-
-
    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
       return 0.625F * sizeIn.height;
    }
 
-   /**
-    * Indicates weather the slime is able to damage the player (based upon the slime's size)
-    */
    public boolean canDamagePlayer() {
       return !this.isChild() && this.isServerWorld();
    }
@@ -372,31 +288,18 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       }
    }
 
-   /**
-    * Returns the volume for the sounds this mob makes.
-    */
    public float getSoundVolume() {
       return 0.4F * (float) (isChild() ? 1 : 2);
    }
 
-   /**
-    * The speed it takes to move the entityliving's rotationPitch through the faceEntity method. This is only currently
-    * use in wolves.
-    */
    public int getVerticalFaceSpeed() {
       return 0;
    }
 
-   /**
-    * Returns true if the slime makes a sound when it jumps (based upon the slime's size)
-    */
    public boolean makesSoundOnJump() {
-      return !isChild();
+      return !this.isChild();
    }
 
-   /**
-    * Causes this entity to do an upwards motion (jumping).
-    */
    protected void jump() {
       Vec3d vec3d = this.getMotion();
       this.setMotion(vec3d.x, (double) this.getJumpUpwardsMotion(), vec3d.z);
@@ -412,9 +315,8 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    @Nullable
    @Override
    public AgeableEntity createChild(AgeableEntity ageable) {
-      HoneySlimeEntity honeySlimeEntity = (HoneySlimeEntity)ageable;
-      HoneySlimeEntity honeySlimeEntity1 = ModEntities.HONEY_SLIME.create(this.world);
-      return honeySlimeEntity1;
+      HoneySlimeEntity honeySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
+      return honeySlimeEntity;
    }
 
    @Override
@@ -426,16 +328,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       return this.isChild() ? SoundEvents.ENTITY_SLIME_JUMP_SMALL : SoundEvents.ENTITY_SLIME_JUMP;
    }
 
-   /*
-   public EntitySize getSize(Pose poseIn) {
-      return super.getSize(poseIn).scale(0.255F * (float) this.getSlimeSize());
-   }
-    */
-
-   /**
-    * Called when the slime spawns particles on landing, see onUpdate.
-    * Return true to prevent the spawning of the default particles.
-    */
    protected boolean spawnCustomParticles() {
       return false;
    }
