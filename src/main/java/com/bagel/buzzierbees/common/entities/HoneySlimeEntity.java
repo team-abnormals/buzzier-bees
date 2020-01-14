@@ -47,6 +47,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public boolean isAngry;
    public boolean desticked;
    private boolean wasOnGround;
+   private int growSticknessTimer;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
@@ -165,6 +166,13 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
     * Called to update the entity's position/logic.
     */
    public void tick() {
+      if (this.desticked) {
+         if (--this.growSticknessTimer <= 0) {
+            growSticknessTimer = 300;
+            desticked = false;
+         }
+      }
+
       this.squishFactor += (this.squishAmount - this.squishFactor) * 0.5F;
       this.prevSquishFactor = this.squishFactor;
       super.tick();
