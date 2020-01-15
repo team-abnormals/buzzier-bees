@@ -2,7 +2,6 @@ package com.bagel.buzzierbees.common.entities.goals;
 
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,7 +15,8 @@ import java.util.EnumSet;
 public class HoneySlimeTemptGoal extends Goal {
     private static final EntityPredicate ENTITY_PREDICATE = (new EntityPredicate()).setDistance(10.0D).allowInvulnerable().allowFriendlyFire().setSkipAttackChecks().setLineOfSiteRequired();
     protected final HoneySlimeEntity slime;
-    private final double speed;
+    @SuppressWarnings("unused")
+	private final double speed;
     private double targetX;
     private double targetY;
     private double targetZ;

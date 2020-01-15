@@ -49,6 +49,8 @@ public class ModBlocks
 	//public static final RegistryObject<Block> SLIME_BLOCK         = ModUtils.createBlock("minecraft:slime_block", () -> new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), null);
 	//public static final RegistryObject<Block> HONEY_BLOCK         = ModUtils.createBlock("minecraft:honey_block", () -> new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
 	//public static final RegistryObject<Block> CLOVER_HONEY_BLOCK 	= ModUtils.createBlock("clover_honey_block", () -> new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_), ItemGroup.DECORATIONS);
+	//public static final RegistryObject<Block> CLOVER_HONEY_BLOCK    = RegistryUtils.createBlock("clover_honey_block", () -> new Block(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
+
 	
 	//public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK        = ModUtils.createBlock("crystallized_honey_block", () -> new Block(Block.Properties.create(Material.GLASS).func_226896_b_().hardnessAndResistance(0.3F).sound(SoundType.GLASS)), null);
 	//public static final RegistryObject<Block> CRYSTALLIZED_CLOVER_HONEY_BLOCK = ModUtils.createBlock("crystallized_clover_honey_block", () -> new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK.get())), null);

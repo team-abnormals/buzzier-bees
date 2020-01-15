@@ -10,7 +10,6 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -32,10 +31,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.storage.loot.LootTables;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
 
+@SuppressWarnings("deprecation")
 public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraftforge.common.IShearable {
    private static final DataParameter<Boolean> STICKY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);
    private static final Ingredient BREEDING_ITEM = Ingredient.fromItems(Items.SUGAR);
@@ -224,7 +223,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       return (EntityType<? extends HoneySlimeEntity>) super.getType();
    }
 
-   @SuppressWarnings("deprecation")
    @Override
    public void remove(boolean keepData) {
       super.remove(keepData);

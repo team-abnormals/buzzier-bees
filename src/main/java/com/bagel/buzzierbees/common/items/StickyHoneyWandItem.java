@@ -3,19 +3,14 @@ package com.bagel.buzzierbees.common.items;
 import com.bagel.buzzierbees.core.registry.ModItems;
 
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.BeehiveBlock;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class StickyHoneyWandItem extends Item {
@@ -23,7 +18,7 @@ public class StickyHoneyWandItem extends Item {
 		super(properties);
 	}
 
-	public ActionResultType onItemUse(ItemUseContext context) {
+	/*public ActionResultType onItemUse(ItemUseContext context) {
 		World world = context.getWorld();
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
@@ -46,7 +41,7 @@ public class StickyHoneyWandItem extends Item {
 		} else {
 			return ActionResultType.PASS;
 		}
-	}
+	}*/
 	
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		super.onItemUseFinish(stack, worldIn, entityLiving);

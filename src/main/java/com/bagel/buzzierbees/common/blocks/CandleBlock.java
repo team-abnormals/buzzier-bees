@@ -48,7 +48,7 @@ public class CandleBlock extends BushBlock implements IWaterLoggable {
    
    @SuppressWarnings("deprecation")
    public int getLightValue(BlockState state) {
-      return this.isInBadEnvironment(state) ? 0 : super.getLightValue(state) + 14;
+      return this.isInBadEnvironment(state) ? 0 : super.getLightValue(state) + (11 + (1 * state.get(CANDLES)));
    }
 
    @Nullable

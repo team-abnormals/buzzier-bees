@@ -24,7 +24,8 @@ public class HoneySlimeBreedGoal extends Goal {
     protected final World world;
     protected AnimalEntity field_75391_e;
     private int spawnBabyDelay;
-    private final double moveSpeed;
+    @SuppressWarnings("unused")
+	private final double moveSpeed;
 
     public HoneySlimeBreedGoal(HoneySlimeEntity animal, double speedIn) {
         this(animal, speedIn, animal.getClass());
