@@ -18,7 +18,7 @@ public class HoneySlimeHopGoal extends Goal {
      * Returns whether the EntityAIBase should begin execution.
      */
     public boolean shouldExecute() {
-        return !this.slime.isPassenger();
+        return !this.slime.isPassenger() && this.slime.getMoveHelper() instanceof HoneySlimeMoveHelperController;
     }
 
     /**

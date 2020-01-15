@@ -46,7 +46,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public boolean isAngry;
    public boolean desticked;
    private boolean wasOnGround;
-   private int growSticknessTimer;
+   private int growSticknessTimer = 300;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
