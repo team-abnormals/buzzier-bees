@@ -3,6 +3,7 @@ package com.bagel.buzzierbees.core.registry;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -38,7 +39,6 @@ public class ModFeatures {
 		
 		//TODO: Proper Clover Patch generation
 		for (Biome forests : new Biome[] { Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.FLOWER_FOREST, Biomes.TALL_BIRCH_FOREST}) {
-			
 			registerFlowerFeature(ModBlocks.PINK_CLOVER.get().getDefaultState(),	"pink_clover_feature", 	forests, 3);
 		}
 		
@@ -52,6 +52,10 @@ public class ModFeatures {
 		
 		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.FLOWER_FOREST, Biomes.TAIGA_MOUNTAINS}) {
 			registerFlowerFeature(ModBlocks.VIOLET.get().getDefaultState(), 	"violet_feature", 	taigas, 4);
+		}
+
+		for (Biome savannah : new Biome[] { Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.SHATTERED_SAVANNA, Biomes.SHATTERED_SAVANNA_PLATEAU}) {
+			registerFlowerFeature(Blocks.ALLIUM.getDefaultState(), 	"allium_feature", 	savannah, 4);
 		}
 		
 		for (Biome jungles : new Biome[] { Biomes.JUNGLE, Biomes.MODIFIED_JUNGLE, Biomes.JUNGLE_HILLS }) {
