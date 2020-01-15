@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.common.entities;
 
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
 import com.bagel.buzzierbees.common.entities.goals.*;
+import com.bagel.buzzierbees.common.items.ModSpawnEggItem;
 import com.bagel.buzzierbees.core.registry.ModEntities;
 import com.bagel.buzzierbees.core.registry.ModItems;
 import net.minecraft.entity.*;
@@ -12,6 +13,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
@@ -22,11 +24,9 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.storage.loot.LootTables;
@@ -46,7 +46,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public boolean isAngry;
    public boolean desticked;
    private boolean wasOnGround;
-   private int growSticknessTimer = 300;
+   private int growSticknessTimer = 9600;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
@@ -64,9 +64,13 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.goalSelector.addGoal(7, new HoneySlimeAttackGoal(this));
    }
 
+   @Override
+   public ItemStack getPickedResult(RayTraceResult target) {
+      return new ItemStack(ModItems.HONEY_SLIME_SPAWN_EGG.get());
+   }
+
    protected void registerData() {
       super.registerData();
-      //this.dataManager.register(SLIME_SIZE, 1);
       this.dataManager.register(STICKY, true);
    }
 
@@ -168,7 +172,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public void tick() {
       if (this.desticked) {
          if (--this.growSticknessTimer <= 0) {
-            growSticknessTimer = 300;
+            growSticknessTimer = 9600;
             desticked = false;
          }
       }
@@ -313,7 +317,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.isAirBorne = true;
    }
 
-   //Спавн крч
    @Nullable
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
       return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
@@ -322,8 +325,8 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    @Nullable
    @Override
    public AgeableEntity createChild(AgeableEntity ageable) {
-      HoneySlimeEntity honeySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
-      return honeySlimeEntity;
+      HoneySlimeEntity childHoneySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
+      return childHoneySlimeEntity;
    }
 
    @Override

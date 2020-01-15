@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class HoneySlimeRenderer extends MobRenderer<HoneySlimeEntity, SlimeModel<HoneySlimeEntity>> {
    private static final ResourceLocation HONEY_SLIME_TEXTURES = new ResourceLocation("buzzierbees:textures/entity/honey_slime.png");
+   private static final ResourceLocation DESTICKED_HONEY_SLIME_TEXTURES = new ResourceLocation("buzzierbees:textures/entity/honey_slime_bottled.png");
 
    public HoneySlimeRenderer(EntityRendererManager renderManagerIn) {
       super(renderManagerIn, new SlimeModel<>(16), 0.25F);
@@ -38,6 +39,6 @@ public class HoneySlimeRenderer extends MobRenderer<HoneySlimeEntity, SlimeModel
    }
 
    public ResourceLocation getEntityTexture(HoneySlimeEntity entity) {
-      return HONEY_SLIME_TEXTURES;
+      return entity.desticked ? DESTICKED_HONEY_SLIME_TEXTURES : HONEY_SLIME_TEXTURES;
    }
 }
