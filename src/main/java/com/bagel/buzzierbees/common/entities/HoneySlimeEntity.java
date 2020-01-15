@@ -110,7 +110,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public boolean processInteract(PlayerEntity player, Hand hand) {
       ItemStack itemstack = player.getHeldItem(hand);
       World world = player.getEntityWorld();
-      if (!this.isChild()) {
+      if (!this.isChild() && !this.desticked) {
          //Bottling
          if (itemstack.getItem() == Items.GLASS_BOTTLE) {
             world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
@@ -139,7 +139,8 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    }
 
    public void performEffect(LivingEntity entity, int amplifier) {
-      if (entity instanceof HoneySlimeEntity) {
+      if (entity instanceof HoneySlimeEntity) ((HoneySlimeEntity) entity).desticked = true;
+         /*{
          //If it desticked - regular slime'll appear
          if (((HoneySlimeEntity) entity).desticked) {
 
@@ -160,10 +161,10 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
                entity.remove(true);
             }
          }
-         else {
-            ((HoneySlimeEntity) entity).desticked = true;
-         }
-      }
+         else {*/
+
+         /*}
+      }*/
    }
 
    /**
