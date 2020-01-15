@@ -25,7 +25,7 @@ public class ModEntities
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        ModEntities.HONEY_SLIME = EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.MONSTER).size(1.02F, 1.02F).build("buzzierbees:honey_slime");
+        ModEntities.HONEY_SLIME = EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.CREATURE).size(1.02F, 1.02F).build("buzzierbees:honey_slime");
         ModEntities.HONEY_SLIME.setRegistryName("honey_slime");
 
         ForgeRegistries.ENTITIES.register(ModEntities.HONEY_SLIME);

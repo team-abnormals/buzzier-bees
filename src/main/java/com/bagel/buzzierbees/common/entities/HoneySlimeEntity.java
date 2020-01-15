@@ -55,6 +55,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
 
    protected void registerGoals() {
 	  this.goalSelector.addGoal(0, new HoneySlimeFloatGoal(this));
+	  this.goalSelector.addGoal(0, new HoneySmileFollowPlayer(this));
       this.goalSelector.addGoal(1, new HoneySlimeBreedGoal(this, 1.0D));
       this.goalSelector.addGoal(2, new HoneySlimeTemptGoal(this, 1.2D, BREEDING_ITEM));
       this.goalSelector.addGoal(4, new HoneySlimeHopGoal(this));
@@ -78,6 +79,11 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       super.writeAdditional(compound);
       compound.putBoolean("desticked", this.desticked);
       compound.putBoolean("wasOnGround", this.wasOnGround);
+   }
+
+   @Override
+   public boolean canBeLeashedTo(PlayerEntity player) {
+      return !this.getLeashed() && !this.isAngry;
    }
 
    /**
@@ -155,11 +161,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
          }
       }
    }
-
-   public void setExperienceValue(int value) {
-      this.experienceValue = value;
-   }
-
 
    /**
     * Called to update the entity's position/logic.
