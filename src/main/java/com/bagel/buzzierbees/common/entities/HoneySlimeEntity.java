@@ -119,7 +119,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
                }
             }
 
-            this.isAngry = true;
             this.setAttackTarget(player);
             performEffect(this, 1);
             return true;
