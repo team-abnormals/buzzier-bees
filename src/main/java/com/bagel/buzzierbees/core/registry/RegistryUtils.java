@@ -2,7 +2,6 @@ package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.common.items.ModSpawnEggItem;
 import com.google.common.base.Supplier;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

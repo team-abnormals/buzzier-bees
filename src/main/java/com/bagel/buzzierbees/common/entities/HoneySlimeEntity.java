@@ -2,37 +2,38 @@ package com.bagel.buzzierbees.common.entities;
 
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
 import com.bagel.buzzierbees.common.entities.goals.*;
-import com.bagel.buzzierbees.common.items.ModSpawnEggItem;
 import com.bagel.buzzierbees.core.registry.ModEntities;
 import com.bagel.buzzierbees.core.registry.ModItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.*;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.storage.loot.LootTables;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraftforge.common.IShearable {
@@ -55,7 +56,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
 
    protected void registerGoals() {
 	  this.goalSelector.addGoal(0, new HoneySlimeFloatGoal(this));
-	  this.goalSelector.addGoal(0, new HoneySmileFollowPlayer(this));
       this.goalSelector.addGoal(1, new HoneySlimeBreedGoal(this, 1.0D));
       this.goalSelector.addGoal(2, new HoneySlimeTemptGoal(this, 1.2D, BREEDING_ITEM));
       this.goalSelector.addGoal(4, new HoneySlimeHopGoal(this));
@@ -99,10 +99,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.wasOnGround = compound.getBoolean("wasOnGround");
    }
 
-   protected IParticleData getSquishParticle() {
-      return ParticleTypes.field_229429_ai_;
-   }
-
    protected boolean func_225511_J_() {
       return !this.isChild();
    }
@@ -122,6 +118,9 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
                   player.dropItem(new ItemStack(Items.field_226638_pX_), false);
                }
             }
+
+            this.isAngry = true;
+            this.setAttackTarget(player);
             performEffect(this, 1);
             return true;
          }
@@ -140,31 +139,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
 
    public void performEffect(LivingEntity entity, int amplifier) {
       if (entity instanceof HoneySlimeEntity) ((HoneySlimeEntity) entity).desticked = true;
-         /*{
-         //If it desticked - regular slime'll appear
-         if (((HoneySlimeEntity) entity).desticked) {
-
-            SlimeEntity slimeentity = new SlimeEntity(EntityType.SLIME, this.world);
-            slimeentity.setLocationAndAngles(entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), (entity.rotationYaw), entity.rotationPitch);
-            slimeentity.setNoAI(((MobEntity) entity).isAIDisabled());
-            if (entity.hasCustomName()) {
-               slimeentity.setCustomName(entity.getCustomName());
-               slimeentity.setCustomNameVisible(entity.isCustomNameVisible());
-            }
-
-            slimeentity.setInvulnerable(this.isInvulnerable());
-            slimeentity.setSlimeSize(2, true);
-            slimeentity.setLocationAndAngles(this.func_226277_ct_(), this.func_226278_cu_() + 0.5D, this.func_226281_cx_(), this.rand.nextFloat() * 360.0F, 0.0F);
-            this.world.addEntity(slimeentity);
-            if (slimeentity.getHealth() > 0) {
-               entity.world.addEntity(slimeentity);
-               entity.remove(true);
-            }
-         }
-         else {*/
-
-         /*}
-      }*/
    }
 
    /**
@@ -190,7 +164,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
             float f1 = this.rand.nextFloat() * 0.5F + 0.5F;
             float f2 = MathHelper.sin(f) * (float) i * 0.5F * f1;
             float f3 = MathHelper.cos(f) * (float) i * 0.5F * f1;
-            this.world.addParticle(this.getSquishParticle(), this.func_226277_ct_() + (double) f2, this.func_226278_cu_(), this.func_226281_cx_() + (double) f3, 0.0D, 0.0D, 0.0D);
+            this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(Blocks.field_226907_mc_)), this.func_226277_ct_() + (double) f2, this.func_226278_cu_(), this.func_226281_cx_() + (double) f3, 0.0D, 0.0D, 0.0D);
          }
 
          this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) / 0.8F);
@@ -264,6 +238,24 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       return !this.isChild() && this.isServerWorld();
    }
 
+
+   protected void setSlimeSize(int size, boolean resetHealth) {
+      this.func_226264_Z_();
+      this.recalculateSize();
+      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(size * size));
+      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)size));
+      this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double)size);
+      if (resetHealth) {
+         this.setHealth(this.getMaxHealth());
+      }
+
+      this.experienceValue = size;
+   }
+
+   /*protected void onGrowingAdult() {
+      this.setSlimeSize(2, true);
+   }*/
+
    protected float func_225512_er_() {
       return (float) this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
    }
@@ -320,6 +312,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
 
    @Nullable
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+      this.setSlimeSize(2, true);
       return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
    }
 
@@ -327,7 +320,15 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    @Override
    public AgeableEntity createChild(AgeableEntity ageable) {
       HoneySlimeEntity childHoneySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
+      childHoneySlimeEntity.setSlimeSize(1, true);
       return childHoneySlimeEntity;
+   }
+
+   protected void onGrowingAdult() {
+      super.onGrowingAdult();
+      if (!this.isChild()) {
+         this.setSlimeSize(2, true);
+      }
    }
 
    @Override

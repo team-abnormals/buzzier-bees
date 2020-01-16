@@ -20,6 +20,7 @@ public class HoneySlimeAttackGoal extends Goal {
     public boolean shouldExecute() {
         LivingEntity livingentity = this.slime.getAttackTarget();
         if (livingentity == null) {
+
             return false;
         } else if (!livingentity.isAlive()) {
             return false;
