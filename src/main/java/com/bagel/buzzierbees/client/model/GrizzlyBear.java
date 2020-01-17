@@ -80,7 +80,7 @@ public class GrizzlyBear extends EntityModel {
 		// TODO Auto-generated method stub
 		
 	}
-}*/
+}
 
 import net.minecraft.client.renderer.entity.model.QuadrupedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
@@ -157,4 +157,4 @@ public class GrizzlyBear<T extends PolarBearEntity> extends QuadrupedModel<T> {
         var10000 = this.headModel;
         var10000.rotateAngleX += lvt_8_1_ * 3.1415927F * 0.15F;
     }
-}
+}*/

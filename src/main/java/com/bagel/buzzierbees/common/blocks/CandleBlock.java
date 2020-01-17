@@ -32,7 +32,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class CandleBlock extends BushBlock implements IWaterLoggable {
-   public static final IntegerProperty CANDLES 		= BlockStateProperties.PICKLES_1_4;
+   public static final IntegerProperty CANDLES 		= ModProperties.CANDLES_1_4;
    public static final BooleanProperty WATERLOGGED 	= BlockStateProperties.WATERLOGGED;
    public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 
