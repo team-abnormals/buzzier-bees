@@ -31,27 +31,27 @@ public class HoneySlimeAttackGoal extends Goal {
 
     public void startExecuting() {
         this.growTieredTimer = 300;
-        this.slime.isAngry = true;
+        this.slime.isProvoked = true;
         super.startExecuting();
     }
 
     public boolean shouldContinueExecuting() {
         LivingEntity livingentity = this.slime.getAttackTarget();
         if (livingentity == null) {
-            this.slime.isAngry = false;
+            this.slime.isProvoked = false;
             return false;
         } else if (!livingentity.isAlive()) {
-            this.slime.isAngry = false;
+            this.slime.isProvoked = false;
             return false;
         } else if (livingentity instanceof PlayerEntity && ((PlayerEntity) livingentity).abilities.disableDamage) {
-            this.slime.isAngry = false;
+            this.slime.isProvoked = false;
             return false;
         } else {
             if (--this.growTieredTimer > 0) {
                 return true;
             }
             else {
-                this.slime.isAngry = false;
+                this.slime.isProvoked = false;
                 return false;
             }
         }

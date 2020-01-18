@@ -45,7 +45,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    public float squishFactor;
    public float prevSquishFactor;
 
-   public boolean isAngry;
+   public boolean isProvoked;
    private boolean wasOnGround;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
@@ -74,15 +74,38 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       return new ItemStack(ModItems.HONEY_SLIME_SPAWN_EGG.get());
    }
 
+   protected void registerAttributes() {
+      super.registerAttributes();
+      this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+   }
+
+   protected void setSlimeSize(int size, boolean resetHealth) {
+      this.func_226264_Z_();
+      this.recalculateSize();
+      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(size * size));
+      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)size));
+      this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double)size);
+      if (resetHealth) {
+         this.setHealth(this.getMaxHealth());
+      }
+
+      this.experienceValue = size;
+   }
+
    protected void registerData() {
       super.registerData();
       this.dataManager.register(IN_HONEY, false);
       this.dataManager.register(IN_HONEY_GROWTH_TIME, 0);
    }
 
-   protected void registerAttributes() {
-      super.registerAttributes();
-      this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+   public void notifyDataManagerChange(DataParameter<?> key) {
+      this.recalculateSize();
+      this.rotationYaw = this.rotationYawHead;
+      this.renderYawOffset = this.rotationYawHead;
+      if (this.isInWater() && this.rand.nextInt(20) == 0) {
+         this.doWaterSplashEffect();
+      }
+      super.notifyDataManagerChange(key);
    }
 
    public void writeAdditional(CompoundNBT compound) {
@@ -115,6 +138,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       this.dataManager.set(IN_HONEY_GROWTH_TIME, value);
    }
 
+   @Override
    public boolean processInteract(PlayerEntity player, Hand hand) {
       ItemStack itemstack = player.getHeldItem(hand);
       World world = player.getEntityWorld();
@@ -148,16 +172,14 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       return super.processInteract(player, hand);
    }
 
-   public void getHoneyFromSlime(LivingEntity entity) {
+   private void getHoneyFromSlime(LivingEntity entity) {
       if (entity instanceof HoneySlimeEntity) {
          this.setInHoney(false);
          this.setInHoneyGrowthTime(-400);
       }
    }
 
-   /**
-    * Called to update the entity's position/logic.
-    */
+   @Override
    public void tick() {
       this.squishFactor += (this.squishAmount - this.squishFactor) * 0.5F;
       this.prevSquishFactor = this.squishFactor;
@@ -184,6 +206,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       this.alterSquishAmount();
    }
 
+   @Override
    public void livingTick() {
       super.livingTick();
       if (this.isAlive()) {
@@ -195,41 +218,59 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    @Override
-   public boolean canBeLeashedTo(PlayerEntity player) {
-      return !this.getLeashed() && !this.isAngry;
+   public boolean isBreedingItem(ItemStack stack) {
+      return BREEDING_ITEM.test(stack);
    }
 
-   protected boolean func_225511_J_() {
-      return !this.isChild();
+   @Nullable
+   @Override
+   public AgeableEntity createChild(AgeableEntity ageable) {
+      HoneySlimeEntity childHoneySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
+      childHoneySlimeEntity.setSlimeSize(1, true);
+      return childHoneySlimeEntity;
    }
 
-   protected void alterSquishAmount() {
-      this.squishAmount *= 0.6F;
-   }
-
-   /**
-    * Gets the amount of time the slime needs to wait between jumps.
-    */
-   public int getJumpDelay() {
-      return this.rand.nextInt(20) + 10;
-   }
-
-   public void recalculateSize() {
-      double d0 = this.func_226277_ct_();
-      double d1 = this.func_226278_cu_();
-      double d2 = this.func_226281_cx_();
-      super.recalculateSize();
-      this.setPosition(d0, d1, d2);
-   }
-
-   public void notifyDataManagerChange(DataParameter<?> key) {
-      this.recalculateSize();
-      this.rotationYaw = this.rotationYawHead;
-      this.renderYawOffset = this.rotationYawHead;
-      if (this.isInWater() && this.rand.nextInt(20) == 0) {
-         this.doWaterSplashEffect();
+   protected void onGrowingAdult() {
+      super.onGrowingAdult();
+      if (!this.isChild()) {
+         this.setSlimeSize(2, true);
       }
-      super.notifyDataManagerChange(key);
+   }
+
+   public static boolean honeySlimeCondition(EntityType<HoneySlimeEntity> honeySlime, IWorld world, SpawnReason reason, BlockPos position, Random randomIn) {
+      if (world.getWorldInfo().getGenerator().handleSlimeSpawnReduction(randomIn, world) && randomIn.nextInt(6) != 1) {
+         return false;
+      }
+      else {
+         if (world.getDifficulty() != Difficulty.PEACEFUL) {
+            Biome biome = world.func_226691_t_(position);
+            if (biome == Biomes.FLOWER_FOREST && position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
+               return canSpawnOn(honeySlime, world, reason, position, randomIn);
+            }
+         }
+
+         return false;
+      }
+   }
+
+   protected void dealDamage(LivingEntity entityIn) {
+      if (this.isAlive()) {
+         int i = 2;
+         if (this.getDistanceSq(entityIn) < 0.6D * (double) i * 0.6D * (double) i && this.canEntityBeSeen(entityIn) && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), this.func_225512_er_())) {
+            this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+            this.applyEnchantments(this, entityIn);
+         }
+      }
+   }
+
+   public boolean canDamagePlayer() {
+      return !this.isChild() && this.isServerWorld();
+   }
+
+   public void onCollideWithPlayer(PlayerEntity entityIn) {
+      if (this.canDamagePlayer() && this.isProvoked) {
+         this.dealDamage(entityIn);
+      }
    }
 
    @SuppressWarnings("unchecked")
@@ -245,42 +286,35 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    public void applyEntityCollision(Entity entityIn) {
       super.applyEntityCollision(entityIn);
    }
-   
-   protected void dealDamage(LivingEntity entityIn) {
-      if (this.isAlive()) {
-         int i = 2;
-         if (this.getDistanceSq(entityIn) < 0.6D * (double) i * 0.6D * (double) i && this.canEntityBeSeen(entityIn) && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), this.func_225512_er_())) {
-            this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-            this.applyEnchantments(this, entityIn);
-         }
-      }
-   }
 
    protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
       return 0.625F * sizeIn.height;
    }
 
-   public boolean canDamagePlayer() {
-      return !this.isChild() && this.isServerWorld();
+   public void recalculateSize() {
+      double d0 = this.func_226277_ct_();
+      double d1 = this.func_226278_cu_();
+      double d2 = this.func_226281_cx_();
+      super.recalculateSize();
+      this.setPosition(d0, d1, d2);
    }
 
-
-   protected void setSlimeSize(int size, boolean resetHealth) {
-      this.func_226264_Z_();
-      this.recalculateSize();
-      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(size * size));
-      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)size));
-      this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double)size);
-      if (resetHealth) {
-         this.setHealth(this.getMaxHealth());
-      }
-
-      this.experienceValue = size;
+   @Override
+   public boolean canBeLeashedTo(PlayerEntity player) {
+      return !this.getLeashed() && !this.isProvoked;
    }
 
-   /*protected void onGrowingAdult() {
-      this.setSlimeSize(2, true);
-   }*/
+   protected boolean func_225511_J_() {
+      return !this.isChild();
+   }
+
+   protected void alterSquishAmount() {
+      this.squishAmount *= 0.6F;
+   }
+
+   public int getJumpDelay() {
+      return this.rand.nextInt(20) + 10;
+   }
 
    protected float func_225512_er_() {
       return (float) this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
@@ -302,22 +336,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       return this.isChild() ? this.getType().getLootTable() : LootTables.EMPTY;
    }
 
-   public static boolean honeySlimeCondition(EntityType<HoneySlimeEntity> honeySlime, IWorld world, SpawnReason reason, BlockPos position, Random randomIn) {
-      if (world.getWorldInfo().getGenerator().handleSlimeSpawnReduction(randomIn, world) && randomIn.nextInt(6) != 1) {
-         return false;
-      }
-      else {
-         if (world.getDifficulty() != Difficulty.PEACEFUL) {
-            Biome biome = world.func_226691_t_(position);
-            if (biome == Biomes.FLOWER_FOREST && position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
-               return canSpawnOn(honeySlime, world, reason, position, randomIn);
-            }
-         }
-
-         return false;
-      }
-   }
-
    public float getSoundVolume() {
       return 0.4F * (float) (isChild() ? 1 : 2);
    }
@@ -336,28 +354,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       this.isAirBorne = true;
    }
 
-
-
-   @Nullable
-   @Override
-   public AgeableEntity createChild(AgeableEntity ageable) {
-      HoneySlimeEntity childHoneySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
-      childHoneySlimeEntity.setSlimeSize(1, true);
-      return childHoneySlimeEntity;
-   }
-
-   protected void onGrowingAdult() {
-      super.onGrowingAdult();
-      if (!this.isChild()) {
-         this.setSlimeSize(2, true);
-      }
-   }
-
-   @Override
-   public boolean isBreedingItem(ItemStack stack) {
-      return BREEDING_ITEM.test(stack);
-   }
-
    public SoundEvent getJumpSound() {
       return this.isChild() ? SoundEvents.ENTITY_SLIME_JUMP_SMALL : SoundEvents.ENTITY_SLIME_JUMP;
    }
@@ -366,9 +362,5 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       return false;
    }
 
-   public void onCollideWithPlayer(PlayerEntity entityIn) {
-      if (this.canDamagePlayer() && this.isAngry) {
-         this.dealDamage(entityIn);
-      }
-   }
+
 }

@@ -32,14 +32,14 @@ public class ModFeatures {
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
-		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState(), 	"cartwheel_feature", 	Biomes.FLOWER_FOREST, 	 5);
-		registerFlowerFeature(ModBlocks.DAYBLOOM.get().getDefaultState(), 	"daybloom_feature", 	Biomes.SUNFLOWER_PLAINS, 4);
-		registerFlowerFeature(ModBlocks.JOLYCE.get().getDefaultState(), 	"jolyce_feature", 	Biomes.SWAMP, 5);
-		registerFlowerFeature(ModBlocks.WHITE_CLOVER.get().getDefaultState(), "white_clover_feature", Biomes.FOREST, 3);
+		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState(), 		"cartwheel_feature", 	Biomes.FLOWER_FOREST,		5);
+		registerFlowerFeature(ModBlocks.DAYBLOOM.get().getDefaultState(), 		"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS,	4);
+		registerFlowerFeature(ModBlocks.JOLYCE.get().getDefaultState(), 		"jolyce_feature", 		Biomes.SWAMP,				5);
+		registerFlowerFeature(ModBlocks.WHITE_CLOVER.get().getDefaultState(),	"white_clover_feature", 	Biomes.FOREST,				3);
 		
 		//TODO: Proper Clover Patch generation
 		for (Biome forests : new Biome[] { Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.FLOWER_FOREST, Biomes.TALL_BIRCH_FOREST}) {
-			registerFlowerFeature(ModBlocks.PINK_CLOVER.get().getDefaultState(),	"pink_clover_feature", 	forests, 3);
+			registerFlowerFeature(ModBlocks.PINK_CLOVER.get().getDefaultState(), "pink_clover_feature", forests, 3);
 		}
 		
 		for (Biome dark_forests : new Biome[] { Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS, Biomes.FLOWER_FOREST}) {
@@ -47,15 +47,15 @@ public class ModFeatures {
 		}
 
 		for (Biome mountains : new Biome[] { Biomes.MOUNTAINS, Biomes.GRAVELLY_MOUNTAINS, Biomes.MODIFIED_GRAVELLY_MOUNTAINS }) {
-			registerFlowerFeature(ModBlocks.COLUMBINE.get().getDefaultState(), 	"columbine_feature", 	mountains, 	 4);
+			registerFlowerFeature(ModBlocks.COLUMBINE.get().getDefaultState(), "columbine_feature", mountains, 4);
 		}
 		
 		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.FLOWER_FOREST, Biomes.TAIGA_MOUNTAINS}) {
-			registerFlowerFeature(ModBlocks.VIOLET.get().getDefaultState(), 	"violet_feature", 	taigas, 4);
+			registerFlowerFeature(ModBlocks.VIOLET.get().getDefaultState(), "violet_feature", taigas, 4);
 		}
 
 		for (Biome savannah : new Biome[] { Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.SHATTERED_SAVANNA, Biomes.SHATTERED_SAVANNA_PLATEAU}) {
-			registerFlowerFeature(Blocks.ALLIUM.getDefaultState(), 	"allium_feature", 	savannah, 4);
+			registerFlowerFeature(Blocks.ALLIUM.getDefaultState(), "allium_feature", savannah, 4);
 		}
 		
 		for (Biome jungles : new Biome[] { Biomes.JUNGLE, Biomes.MODIFIED_JUNGLE, Biomes.JUNGLE_HILLS }) {
@@ -72,12 +72,5 @@ public class ModFeatures {
 	public static void registerDoubleFlowersFeature(BlockState blockState, String name, Biome biomeIn, int frequency) {
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new DoublePlantBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.func_225566_b_(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.field_227248_z_.func_225566_b_(config)), 0)).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(frequency))));
-	}
-
-	//TODO: Proper Clover Patch generation
-	public static void addClover(BlockState blockState, String name, Biome biomeIn) {
-		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new DoublePlantBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
-		DefaultFlowersFeature feature = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, feature.func_225566_b_(config).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(1))));
 	}
 }

@@ -115,7 +115,7 @@ public class BuzzierBees
 		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
 
 		//Spawn Registry
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 60, 4, 4));
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 20, 1, 2));
 	}
 
     private void addBrewingRecipes() {
