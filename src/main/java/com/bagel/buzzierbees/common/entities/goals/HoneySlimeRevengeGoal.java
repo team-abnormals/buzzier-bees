@@ -8,19 +8,18 @@ import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.EnumSet;
 
-public class HoneySlimeAttackGoal extends Goal {
+public class HoneySlimeRevengeGoal extends Goal {
     private final HoneySlimeEntity slime;
     private int growTieredTimer;
 
-    public HoneySlimeAttackGoal(HoneySlimeEntity slimeIn) {
+    public HoneySlimeRevengeGoal(HoneySlimeEntity slimeIn) {
         this.slime = slimeIn;
         this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
     }
 
     public boolean shouldExecute() {
-        LivingEntity livingentity = this.slime.getAttackTarget();
+        LivingEntity livingentity = this.slime.getRevengeTarget();
         if (livingentity == null) {
-
             return false;
         } else if (!livingentity.isAlive()) {
             return false;
@@ -30,28 +29,23 @@ public class HoneySlimeAttackGoal extends Goal {
     }
 
     public void startExecuting() {
-        this.growTieredTimer = 300;
-        this.slime.isProvoked = true;
+        this.growTieredTimer = 600;
         super.startExecuting();
     }
 
     public boolean shouldContinueExecuting() {
-        LivingEntity livingentity = this.slime.getAttackTarget();
+        LivingEntity livingentity = this.slime.getRevengeTarget();
         if (livingentity == null) {
-            this.slime.isProvoked = false;
             return false;
         } else if (!livingentity.isAlive()) {
-            this.slime.isProvoked = false;
             return false;
         } else if (livingentity instanceof PlayerEntity && ((PlayerEntity) livingentity).abilities.disableDamage) {
-            this.slime.isProvoked = false;
             return false;
         } else {
             if (--this.growTieredTimer > 0) {
                 return true;
             }
             else {
-                this.slime.isProvoked = false;
                 return false;
             }
         }

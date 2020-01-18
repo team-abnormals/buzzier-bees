@@ -45,7 +45,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    public float squishFactor;
    public float prevSquishFactor;
 
-   public boolean isProvoked;
    private boolean wasOnGround;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
@@ -60,7 +59,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       this.goalSelector.addGoal(4, new HoneySlimeHopGoal(this));
       this.goalSelector.addGoal(5, new HoneySlimeFaceRandomGoal(this));
       this.goalSelector.addGoal(6, new HurtByTargetGoal(this, new Class[0]));
-      this.goalSelector.addGoal(7, new HoneySlimeAttackGoal(this));
+      this.goalSelector.addGoal(7, new HoneySlimeRevengeGoal(this));
    }
 
    @Nullable
@@ -155,7 +154,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
                }
             }
 
-            this.setAttackTarget(player);
+            this.setRevengeTarget(player);
             getHoneyFromSlime(this);
             return true;
          }
@@ -175,7 +174,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    private void getHoneyFromSlime(LivingEntity entity) {
       if (entity instanceof HoneySlimeEntity) {
          this.setInHoney(false);
-         this.setInHoneyGrowthTime(-400);
+         this.setInHoneyGrowthTime(-14400);
       }
    }
 
@@ -268,7 +267,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    public void onCollideWithPlayer(PlayerEntity entityIn) {
-      if (this.canDamagePlayer() && this.isProvoked) {
+      if (this.canDamagePlayer() && this.getRevengeTarget() == entityIn) {
          this.dealDamage(entityIn);
       }
    }
@@ -301,7 +300,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    @Override
    public boolean canBeLeashedTo(PlayerEntity player) {
-      return !this.getLeashed() && !this.isProvoked;
+      return !this.getLeashed() && this.attackingPlayer != player;
    }
 
    protected boolean func_225511_J_() {
