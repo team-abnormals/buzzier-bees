@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
-public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraftforge.common.IShearable {
-   private static final DataParameter<Boolean> STICKY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);
+public class HoneySlimeEntity extends AnimalEntity implements IMob {
+   private static final DataParameter<Boolean> STICKY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);;
    private static final Ingredient BREEDING_ITEM = Ingredient.fromItems(Items.SUGAR);
 
    public float squishAmount;
@@ -45,9 +45,8 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public float prevSquishFactor;
 
    public boolean isAngry;
-   public boolean desticked;
    private boolean wasOnGround;
-   private int growSticknessTimer = 9600;
+   private int growSticknessTimer;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
@@ -62,6 +61,23 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.goalSelector.addGoal(5, new HoneySlimeFaceRandomGoal(this));
       this.goalSelector.addGoal(6, new HurtByTargetGoal(this, new Class[0]));
       this.goalSelector.addGoal(7, new HoneySlimeAttackGoal(this));
+   }
+
+   @Nullable
+   public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+      this.setGrowingStickness(-400);
+      this.setSlimeSize(2, true);
+
+      if (spawnDataIn == null) {
+         spawnDataIn = new HoneySlimeEntity.StickyData();
+      }
+
+      HoneySlimeEntity.StickyData ageableentity$ageabledata = (HoneySlimeEntity.StickyData)spawnDataIn;
+      if (ageableentity$ageabledata.func_226261_c_() && ageableentity$ageabledata.func_226257_a_() > 0 && this.rand.nextFloat() <= ageableentity$ageabledata.func_226262_d_()) {
+         this.setGrowingAge(-400);
+      }
+
+      return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
    }
 
    @Override
@@ -81,22 +97,19 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
 
    public void writeAdditional(CompoundNBT compound) {
       super.writeAdditional(compound);
-      compound.putBoolean("desticked", this.desticked);
+      compound.putInt("growSticknessTimer", this.growSticknessTimer);
       compound.putBoolean("wasOnGround", this.wasOnGround);
+   }
+
+   public void readAdditional(CompoundNBT compound) {
+      super.readAdditional(compound);
+      this.growSticknessTimer = compound.getInt("growSticknessTimer");
+      this.wasOnGround = compound.getBoolean("wasOnGround");
    }
 
    @Override
    public boolean canBeLeashedTo(PlayerEntity player) {
       return !this.getLeashed() && !this.isAngry;
-   }
-
-   /**
-    * (abstract) Protected helper method to read subclass entity data from NBT.
-    */
-   public void readAdditional(CompoundNBT compound) {
-      super.readAdditional(compound);
-      this.desticked = compound.getBoolean("desticked");
-      this.wasOnGround = compound.getBoolean("wasOnGround");
    }
 
    protected boolean func_225511_J_() {
@@ -106,7 +119,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public boolean processInteract(PlayerEntity player, Hand hand) {
       ItemStack itemstack = player.getHeldItem(hand);
       World world = player.getEntityWorld();
-      if (!this.isChild() && !this.desticked) {
+      if (!this.isChild() && this.getSticky()) {
          //Bottling
          if (itemstack.getItem() == Items.GLASS_BOTTLE) {
             world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
@@ -137,20 +150,13 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    }
 
    public void performEffect(LivingEntity entity, int amplifier) {
-      if (entity instanceof HoneySlimeEntity) ((HoneySlimeEntity) entity).desticked = true;
+      if (entity instanceof HoneySlimeEntity) this.setSticky(false);
    }
 
    /**
     * Called to update the entity's position/logic.
     */
    public void tick() {
-      if (this.desticked) {
-         if (--this.growSticknessTimer <= 0) {
-            growSticknessTimer = 9600;
-            desticked = false;
-         }
-      }
-
       this.squishFactor += (this.squishAmount - this.squishFactor) * 0.5F;
       this.prevSquishFactor = this.squishFactor;
       super.tick();
@@ -175,6 +181,50 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.wasOnGround = this.onGround;
       this.alterSquishAmount();
    }
+
+   public void livingTick() {
+      super.livingTick();
+      if (this.isAlive() && this.world.isRemote) {
+         int growingStickness = this.getGrowingStickness();
+         if (growingStickness < 0) {
+            ++growingStickness;
+            this.setGrowingStickness(growingStickness);
+         } else if (growingStickness > 0) {
+            --growingStickness;
+            this.setGrowingStickness(growingStickness);
+         }
+      }
+   }
+
+
+   public boolean getSticky() {
+      return this.dataManager.get(STICKY);
+   }
+
+   public void setSticky(boolean value) {
+      this.dataManager.set(STICKY, value);
+      if (!value) {
+         this.setGrowingStickness(-400);
+      }
+   }
+
+   public int getGrowingStickness() {
+      if (this.world.isRemote) {
+         return this.dataManager.get(STICKY) ? 1 : -1;
+      } else {
+         return this.growSticknessTimer;
+      }
+   }
+
+   public void setGrowingStickness(int value) {
+      int sticknessTimer = this.growSticknessTimer;
+      this.growSticknessTimer = value;
+      if (sticknessTimer < 0 && value >= 0 || sticknessTimer >= 0 && value < 0) {
+         this.dataManager.set(STICKY, value > 0);
+      }
+   }
+
+
 
    protected void alterSquishAmount() {
       this.squishAmount *= 0.6F;
@@ -309,11 +359,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
       this.isAirBorne = true;
    }
 
-   @Nullable
-   public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-      this.setSlimeSize(2, true);
-      return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-   }
+
 
    @Nullable
    @Override
@@ -346,6 +392,39 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob, net.minecraf
    public void onCollideWithPlayer(PlayerEntity entityIn) {
       if (this.canDamagePlayer() && this.isAngry) {
          this.dealDamage(entityIn);
+      }
+   }
+
+   public static class StickyData extends AgeableData {
+      private int anInt;
+      private boolean isSticky = true;
+      private float speed = 0.05F;
+
+      public StickyData() {
+      }
+
+      public int time() {
+         return this.anInt;
+      }
+
+      public void decTime() {
+         ++this.anInt;
+      }
+
+      public boolean isStickyBol() {
+         return this.isSticky;
+      }
+
+      public void Bol2(boolean p_226259_1_) {
+         this.isSticky = p_226259_1_;
+      }
+
+      public float Bol() {
+         return this.speed;
+      }
+
+      public void Bol3(float p_226258_1_) {
+         this.speed = p_226258_1_;
       }
    }
 }
