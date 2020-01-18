@@ -2,7 +2,10 @@ package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.EndRodBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -44,7 +47,7 @@ public class HoneyLamp extends EndRodBlock {
         double lvt_10_1_ = (double)blockPos.getZ() + 0.55D - (double)(random.nextFloat() * 0.1F);
         double lvt_12_1_ = (double)(0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F);
         if (random.nextInt(5) == 0) {
-            worldIn.addParticle(ParticleTypes.field_229429_ai_, lvt_6_1_ + (double)lvt_5_1_.getXOffset() * lvt_12_1_, lvt_8_1_ + (double)lvt_5_1_.getYOffset() * lvt_12_1_, lvt_10_1_ + (double)lvt_5_1_.getZOffset() * lvt_12_1_, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D);
+            worldIn.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(Blocks.field_226907_mc_)), lvt_6_1_ + (double)lvt_5_1_.getXOffset() * lvt_12_1_, lvt_8_1_ + (double)lvt_5_1_.getYOffset() * lvt_12_1_, lvt_10_1_ + (double)lvt_5_1_.getZOffset() * lvt_12_1_, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D);
         }
 
     }

@@ -14,7 +14,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "buzzierbees:black_candle",
                   "properties": {
-                    "pickles": "2"
+                    "candles": "2"
                   }
                 }
               ],
@@ -27,7 +27,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "buzzierbees:black_candle",
                   "properties": {
-                    "pickles": "3"
+                    "candles": "3"
                   }
                 }
               ],
@@ -40,7 +40,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "buzzierbees:black_candle",
                   "properties": {
-                    "pickles": "4"
+                    "candles": "4"
                   }
                 }
               ],

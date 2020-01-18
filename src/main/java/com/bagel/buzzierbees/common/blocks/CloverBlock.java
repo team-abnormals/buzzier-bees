@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -29,6 +30,7 @@ import java.util.Random;
 //with(PATCH, Boolean.valueOf(true)
 public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
+    public static final BooleanProperty PATCH 	= ModProperties.PATCH;
 
     protected static final VoxelShape SHAPE_ONE = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     protected static final VoxelShape SHAPE_TWO = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);

@@ -1,17 +1,11 @@
 package com.bagel.buzzierbees.common.items;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
-import com.google.common.collect.Maps;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
-import javax.annotation.Nullable;
 
 public class ModSpawnEggItem extends SpawnEggItem {
    private Supplier<EntityType<?>> entity;
