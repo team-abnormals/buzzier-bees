@@ -37,7 +37,8 @@ import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class HoneySlimeEntity extends AnimalEntity implements IMob {
-   private static final DataParameter<Boolean> STICKY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);;
+   private static final DataParameter<Boolean> IN_HONEY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);
+   private static final DataParameter<Integer> IN_HONEY_GROWTH_TIME = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.VARINT);
    private static final Ingredient BREEDING_ITEM = Ingredient.fromItems(Items.SUGAR);
 
    public float squishAmount;
@@ -46,7 +47,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    public boolean isAngry;
    private boolean wasOnGround;
-   private int growSticknessTimer;
 
    public HoneySlimeEntity(EntityType<? extends HoneySlimeEntity> type, World worldIn) {
       super(type, worldIn);
@@ -65,18 +65,8 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    @Nullable
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-      this.setGrowingStickness(-400);
+      this.setInHoney(true);
       this.setSlimeSize(2, true);
-
-      if (spawnDataIn == null) {
-         spawnDataIn = new HoneySlimeEntity.StickyData();
-      }
-
-      HoneySlimeEntity.StickyData ageableentity$ageabledata = (HoneySlimeEntity.StickyData)spawnDataIn;
-      if (ageableentity$ageabledata.func_226261_c_() && ageableentity$ageabledata.func_226257_a_() > 0 && this.rand.nextFloat() <= ageableentity$ageabledata.func_226262_d_()) {
-         this.setGrowingAge(-400);
-      }
-
       return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
    }
 
@@ -87,7 +77,8 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    protected void registerData() {
       super.registerData();
-      this.dataManager.register(STICKY, true);
+      this.dataManager.register(IN_HONEY, true);
+      this.dataManager.register(IN_HONEY_GROWTH_TIME, 0);
    }
 
    protected void registerAttributes() {
@@ -97,29 +88,38 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    public void writeAdditional(CompoundNBT compound) {
       super.writeAdditional(compound);
-      compound.putInt("growSticknessTimer", this.growSticknessTimer);
+      compound.putBoolean("inHoney", this.isInHoney());
+      compound.putInt("inHoneyGrowthTimer", this.getInHoneyGrowthTime());
       compound.putBoolean("wasOnGround", this.wasOnGround);
    }
 
    public void readAdditional(CompoundNBT compound) {
       super.readAdditional(compound);
-      this.growSticknessTimer = compound.getInt("growSticknessTimer");
+      this.setInHoney(compound.getBoolean("inHoney"));
+      this.setInHoneyGrowthTime(compound.getInt("inHoneyGrowthTimer"));
       this.wasOnGround = compound.getBoolean("wasOnGround");
    }
 
-   @Override
-   public boolean canBeLeashedTo(PlayerEntity player) {
-      return !this.getLeashed() && !this.isAngry;
+   public boolean isInHoney() {
+      return this.dataManager.get(IN_HONEY);
    }
 
-   protected boolean func_225511_J_() {
-      return !this.isChild();
+   public void setInHoney(boolean value) {
+      this.dataManager.set(IN_HONEY, value);
+   }
+
+   public int getInHoneyGrowthTime() {
+      return this.dataManager.get(IN_HONEY_GROWTH_TIME);
+   }
+
+   public void setInHoneyGrowthTime(int value) {
+      this.dataManager.set(IN_HONEY_GROWTH_TIME, value);
    }
 
    public boolean processInteract(PlayerEntity player, Hand hand) {
       ItemStack itemstack = player.getHeldItem(hand);
       World world = player.getEntityWorld();
-      if (!this.isChild() && this.getSticky()) {
+      if (!this.isChild() && this.isInHoney()) {
          //Bottling
          if (itemstack.getItem() == Items.GLASS_BOTTLE) {
             world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
@@ -150,7 +150,10 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    public void performEffect(LivingEntity entity, int amplifier) {
-      if (entity instanceof HoneySlimeEntity) this.setSticky(false);
+      if (entity instanceof HoneySlimeEntity) {
+         this.setInHoney(false);
+         this.setInHoneyGrowthTime(-400);
+      }
    }
 
    /**
@@ -185,46 +188,19 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    public void livingTick() {
       super.livingTick();
       if (this.isAlive() && this.world.isRemote) {
-         int growingStickness = this.getGrowingStickness();
-         if (growingStickness < 0) {
-            ++growingStickness;
-            this.setGrowingStickness(growingStickness);
-         } else if (growingStickness > 0) {
-            --growingStickness;
-            this.setGrowingStickness(growingStickness);
-         }
+         if (!isInHoney()) setInHoneyGrowthTime(getInHoneyGrowthTime() + 1);
+         setInHoney(getInHoneyGrowthTime() >= 0);
       }
    }
 
-
-   public boolean getSticky() {
-      return this.dataManager.get(STICKY);
+   @Override
+   public boolean canBeLeashedTo(PlayerEntity player) {
+      return !this.getLeashed() && !this.isAngry;
    }
 
-   public void setSticky(boolean value) {
-      this.dataManager.set(STICKY, value);
-      if (!value) {
-         this.setGrowingStickness(-400);
-      }
+   protected boolean func_225511_J_() {
+      return !this.isChild();
    }
-
-   public int getGrowingStickness() {
-      if (this.world.isRemote) {
-         return this.dataManager.get(STICKY) ? 1 : -1;
-      } else {
-         return this.growSticknessTimer;
-      }
-   }
-
-   public void setGrowingStickness(int value) {
-      int sticknessTimer = this.growSticknessTimer;
-      this.growSticknessTimer = value;
-      if (sticknessTimer < 0 && value >= 0 || sticknessTimer >= 0 && value < 0) {
-         this.dataManager.set(STICKY, value > 0);
-      }
-   }
-
-
 
    protected void alterSquishAmount() {
       this.squishAmount *= 0.6F;
@@ -392,39 +368,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    public void onCollideWithPlayer(PlayerEntity entityIn) {
       if (this.canDamagePlayer() && this.isAngry) {
          this.dealDamage(entityIn);
-      }
-   }
-
-   public static class StickyData extends AgeableData {
-      private int anInt;
-      private boolean isSticky = true;
-      private float speed = 0.05F;
-
-      public StickyData() {
-      }
-
-      public int time() {
-         return this.anInt;
-      }
-
-      public void decTime() {
-         ++this.anInt;
-      }
-
-      public boolean isStickyBol() {
-         return this.isSticky;
-      }
-
-      public void Bol2(boolean p_226259_1_) {
-         this.isSticky = p_226259_1_;
-      }
-
-      public float Bol() {
-         return this.speed;
-      }
-
-      public void Bol3(float p_226258_1_) {
-         this.speed = p_226258_1_;
       }
    }
 }

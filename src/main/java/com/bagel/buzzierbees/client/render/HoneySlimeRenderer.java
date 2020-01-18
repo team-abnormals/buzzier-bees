@@ -39,6 +39,6 @@ public class HoneySlimeRenderer extends MobRenderer<HoneySlimeEntity, SlimeModel
    }
 
    public ResourceLocation getEntityTexture(HoneySlimeEntity entity) {
-      return entity.getSticky() ? HONEY_SLIME_TEXTURES : DESTICKED_HONEY_SLIME_TEXTURES;
+      return entity.isInHoney() ? HONEY_SLIME_TEXTURES : DESTICKED_HONEY_SLIME_TEXTURES;
    }
 }
