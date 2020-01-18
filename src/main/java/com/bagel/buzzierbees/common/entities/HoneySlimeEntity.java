@@ -65,7 +65,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    @Nullable
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-      this.setInHoney(true);
       this.setSlimeSize(2, true);
       return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
    }
@@ -77,7 +76,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    protected void registerData() {
       super.registerData();
-      this.dataManager.register(IN_HONEY, true);
+      this.dataManager.register(IN_HONEY, false);
       this.dataManager.register(IN_HONEY_GROWTH_TIME, 0);
    }
 
@@ -133,7 +132,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
             }
 
             this.setAttackTarget(player);
-            performEffect(this, 1);
+            getHoneyFromSlime(this);
             return true;
          }
          //Wanding
@@ -142,14 +141,14 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
             if (!player.abilities.isCreativeMode) {
                player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND.get()));
             }
-            performEffect(this, 1);
+            getHoneyFromSlime(this);
             return true;
          }
       }
       return super.processInteract(player, hand);
    }
 
-   public void performEffect(LivingEntity entity, int amplifier) {
+   public void getHoneyFromSlime(LivingEntity entity) {
       if (entity instanceof HoneySlimeEntity) {
          this.setInHoney(false);
          this.setInHoneyGrowthTime(-400);
@@ -187,8 +186,10 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    public void livingTick() {
       super.livingTick();
-      if (this.isAlive() && this.world.isRemote) {
-         if (!isInHoney()) setInHoneyGrowthTime(getInHoneyGrowthTime() + 1);
+      if (this.isAlive()) {
+         if (!isInHoney()) {
+            setInHoneyGrowthTime(getInHoneyGrowthTime() + 1);
+         }
          setInHoney(getInHoneyGrowthTime() >= 0);
       }
    }
