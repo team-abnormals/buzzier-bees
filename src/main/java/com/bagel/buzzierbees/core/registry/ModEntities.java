@@ -5,9 +5,13 @@ import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
@@ -45,4 +49,12 @@ public class ModEntities
     {
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)ModEntities.HONEY_SLIME, HoneySlimeRenderer::new);
     }
+    
+    public static void addEntitySpawns() {
+    	//Condition Registry
+		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
+
+		//Spawn Registry
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 20, 1, 2));
+	}
 }

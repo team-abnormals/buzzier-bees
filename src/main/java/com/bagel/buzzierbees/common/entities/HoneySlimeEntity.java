@@ -35,7 +35,6 @@ import net.minecraft.world.storage.loot.LootTables;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-@SuppressWarnings("deprecation")
 public class HoneySlimeEntity extends AnimalEntity implements IMob {
    private static final DataParameter<Boolean> IN_HONEY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);
    private static final DataParameter<Integer> IN_HONEY_GROWTH_TIME = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.VARINT);
