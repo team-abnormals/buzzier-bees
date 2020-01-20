@@ -7,6 +7,7 @@ import com.bagel.buzzierbees.common.items.CuringItem;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.StickyHoneyWandItem;
 import com.bagel.buzzierbees.core.BuzzierBees;
+import com.bagel.buzzierbees.core.registry.util.RegistryUtils;
 
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;

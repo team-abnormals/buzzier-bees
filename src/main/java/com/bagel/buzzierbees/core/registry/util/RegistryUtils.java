@@ -1,6 +1,8 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.registry.util;
 
 import com.bagel.buzzierbees.common.items.ModSpawnEggItem;
+import com.bagel.buzzierbees.core.registry.ModBlocks;
+import com.bagel.buzzierbees.core.registry.ModItems;
 import com.google.common.base.Supplier;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -48,8 +50,4 @@ public class RegistryUtils {
         RegistryObject<B> block = ModBlocks.BLOCKS.register(name, supplier);
         return block;
     }
-	
-	public static final Block.Properties FLOWER 		= Block.Properties.create(Material.PLANTS).func_226896_b_().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
-	public static final Block.Properties CANDLE = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.0F).sound(SoundType.WOOD);
-	public static final Block.Properties POT    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().func_226896_b_();
 }
