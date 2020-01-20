@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.ModCompostables;
 import com.bagel.buzzierbees.core.registry.ModEntities;
@@ -62,6 +63,7 @@ public class BuzzierBees
     	ModCompostables.registerCompostables();
         ModEntities.addEntitySpawns();
         ModPotions.addBrewingRecipes();
+        //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
@@ -91,6 +93,7 @@ public class BuzzierBees
     	PointOfInterestType.field_226356_s_.field_221075_w = NESTS;
     	
     	Map<BlockState,PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
+    	Blocks.field_226906_mb_.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.SPRUCE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.BIRCH_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.JUNGLE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
