@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks;
+package com.bagel.buzzierbees.core.registry.util;
 
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.registry.ModBlocks;

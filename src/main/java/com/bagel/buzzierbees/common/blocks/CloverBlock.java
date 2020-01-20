@@ -27,10 +27,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
+
+import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
 //with(PATCH, Boolean.valueOf(true)
 public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
-    public static final BooleanProperty PATCH 	= ModProperties.PATCH;
+    public static final BooleanProperty PATCH 	= BlockStateUtils.PATCH;
 
     protected static final VoxelShape SHAPE_ONE = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     protected static final VoxelShape SHAPE_TWO = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
