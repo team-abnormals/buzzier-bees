@@ -4,6 +4,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -32,7 +34,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class CandleBlock extends BushBlock implements IWaterLoggable {
-   public static final IntegerProperty CANDLES 		= ModProperties.CANDLES_1_4;
+   public static final IntegerProperty CANDLES 		= BlockStateUtils.CANDLES_1_4;
    public static final BooleanProperty WATERLOGGED 	= BlockStateProperties.WATERLOGGED;
    public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 
