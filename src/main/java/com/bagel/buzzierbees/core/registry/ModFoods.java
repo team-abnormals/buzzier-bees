@@ -11,5 +11,5 @@ public class ModFoods {
 	public static Food STICKY_HONEY_WAND   = new Food.Builder().hunger(6).saturation(0.1F).setAlwaysEdible().build();
 	public static Food HONEY_APPLE         = new Food.Builder().hunger(5).saturation(0.4F).build();
 	public static Food HONEY_BREAD         = new Food.Builder().hunger(6).saturation(0.8F).build();
-	public static Food GLAZED_HAM		   = new Food.Builder().hunger(9).saturation(0.8F).build();
+	public static Food GLAZED_PORKCHOP		   = new Food.Builder().hunger(9).saturation(0.8F).build();
 }

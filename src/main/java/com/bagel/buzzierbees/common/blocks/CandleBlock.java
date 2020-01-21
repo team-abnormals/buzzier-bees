@@ -75,7 +75,7 @@ public class CandleBlock extends BushBlock implements IWaterLoggable {
    }
 
    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-      BlockPos blockpos = pos.down();
+      BlockPos blockpos = pos.south();
       return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
    }
 
