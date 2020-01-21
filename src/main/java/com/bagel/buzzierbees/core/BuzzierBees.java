@@ -17,7 +17,6 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -68,18 +67,32 @@ public class BuzzierBees
     }
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
-    	final ImmutableList<Block> BEEHIVES = ImmutableList.copyOf(BlockTags.field_226151_aa_.getAllElements());
+    	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
+				Blocks.field_226906_mb_,
+				ModBlocks.ACACIA_BEEHIVE.get(),
+				ModBlocks.BIRCH_BEEHIVE.get(),
+				ModBlocks.SPRUCE_BEEHIVE.get(),
+				ModBlocks.DARK_OAK_BEEHIVE.get(),
+				ModBlocks.JUNGLE_BEEHIVE.get());
+    	
     	Set<Block> newSet = new HashSet<>(TileEntityType.field_226985_G_.validBlocks);
     	newSet.addAll(BEEHIVES);
     	TileEntityType.field_226985_G_.validBlocks = newSet;
     	
-    	final Set<BlockState> NESTS = ImmutableList.copyOf(BlockTags.field_226151_aa_.getAllElements()).stream().flatMap((p_221043_0_) -> {
-				return p_221043_0_.getStateContainer().getValidStates().stream();
-			}).collect(ImmutableSet.toImmutableSet());
+    	final Set<BlockState> NESTS = ImmutableList.of(
+				Blocks.field_226906_mb_,
+				ModBlocks.ACACIA_BEEHIVE.get(),
+				ModBlocks.BIRCH_BEEHIVE.get(),
+				ModBlocks.SPRUCE_BEEHIVE.get(),
+				ModBlocks.DARK_OAK_BEEHIVE.get(),
+				ModBlocks.JUNGLE_BEEHIVE.get())
+				.stream().flatMap((p_221043_0_) -> {
+					return p_221043_0_.getStateContainer().getValidStates().stream();
+				}).collect(ImmutableSet.toImmutableSet());
+    	
     	PointOfInterestType.field_226356_s_.field_221075_w = NESTS;
     	
     	Map<BlockState,PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
-    	Blocks.field_226906_mb_.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.SPRUCE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.BIRCH_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	ModBlocks.JUNGLE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));

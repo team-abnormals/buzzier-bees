@@ -1,13 +1,15 @@
 package com.bagel.buzzierbees.core.registry;
 
+import com.bagel.buzzierbees.client.render.HiveBoatRenderer;
 import com.bagel.buzzierbees.client.render.HoneySlimeRenderer;
+import com.bagel.buzzierbees.common.entities.HiveBoatEntity;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
+import com.bagel.buzzierbees.core.BuzzierBees;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -24,7 +26,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModEntities
 {
 	public static EntityType<HoneySlimeEntity>  HONEY_SLIME;
-	public static EntityType<BoatEntity>        HIVE_BOAT;
+	public static EntityType<HiveBoatEntity>        BOAT;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
@@ -33,11 +35,15 @@ public class ModEntities
         ModEntities.HONEY_SLIME.setRegistryName("honey_slime");
 
         ForgeRegistries.ENTITIES.register(ModEntities.HONEY_SLIME);
+        
+        BOAT = EntityType.Builder.<HiveBoatEntity>create(HiveBoatEntity::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).build(BuzzierBees.MODID + ":boat");
+        BOAT.setRegistryName("boat");
+        //ForgeRegistries.ENTITIES.register(BOAT); - dont forget to change bee soup to boat
     }
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
     {
-        ResourceLocation location = new ResourceLocation("buzzierbees", name);
+        ResourceLocation location = new ResourceLocation("biomesoplenty", name);
         EntityType<T> type = EntityType.Builder.<T>create(factory, classification).setTrackingRange(trackingRange).setUpdateInterval(updateFrequency).setShouldReceiveVelocityUpdates(sendsVelocityUpdates).build(location.toString());
         type.setRegistryName(name);
         ForgeRegistries.ENTITIES.register(type);
@@ -48,6 +54,7 @@ public class ModEntities
     public static void registerRendering()
     {
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)ModEntities.HONEY_SLIME, HoneySlimeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HiveBoatEntity>)ModEntities.BOAT, HiveBoatRenderer::new);
     }
     
     public static void addEntitySpawns() {
