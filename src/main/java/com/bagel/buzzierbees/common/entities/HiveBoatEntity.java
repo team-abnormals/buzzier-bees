@@ -539,7 +539,7 @@ public class HiveBoatEntity extends Entity {
       double d2 = 0.0D;
       this.momentum = 0.05F;
       if (this.previousStatus == HiveBoatEntity.Status.IN_AIR && this.status != HiveBoatEntity.Status.IN_AIR && this.status != HiveBoatEntity.Status.ON_LAND) {
-         this.waterLevel = this.func_226283_e_(1.0D);
+         this.waterLevel = this.getPosYHeight(1.0D);
          this.setPosition(this.getPosX(), (double)(this.getWaterLevelAbove() - this.getHeight()) + 0.101D, this.getPosZ());
          this.setMotion(this.getMotion().mul(1.0D, 0.0D, 1.0D));
          this.lastYd = 0.0D;

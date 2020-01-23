@@ -25,7 +25,7 @@ public class ModWoodType extends WoodType {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public String func_227048_b_() {
+    public String getName() {
         return this.name;
     }
 }

@@ -51,7 +51,7 @@ public class HiveBoatModel extends SegmentedModel<HiveBoatEntity> {
       this.field_228243_f_ = builder.build();
    }
 
-   public void func_225597_a_(HiveBoatEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
+   public void render(HiveBoatEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
       this.func_228244_a_(p_225597_1_, 0, p_225597_2_);
       this.func_228244_a_(p_225597_1_, 1, p_225597_2_);
    }
@@ -82,9 +82,11 @@ public class HiveBoatModel extends SegmentedModel<HiveBoatEntity> {
 
    }
 
+
+
 @Override
-public void render(HiveBoatEntity arg0, float arg1, float arg2, float arg3, float arg4, float arg5) {
+public Iterable<ModelRenderer> getParts() {
 	// TODO Auto-generated method stub
-	
+	return null;
 }
 }
