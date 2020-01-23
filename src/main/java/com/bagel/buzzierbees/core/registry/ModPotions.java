@@ -83,7 +83,7 @@ public class ModPotions {
 		
 		ItemStack weakCure = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.WEAKNESS_CURE);
 		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(Items.field_226638_pX_),
+				Ingredient.fromItems(Items.HONEY_BOTTLE),
 				Ingredient.fromItems(Items.FERMENTED_SPIDER_EYE),
 				weakCure);
 
@@ -99,7 +99,7 @@ public class ModPotions {
 		//Cures Brewing
 		ItemStack placebo = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), ModPotions.PLACEBO);
 		BrewingRecipeRegistry.addRecipe(
-				Ingredient.fromItems(Items.field_226638_pX_),
+				Ingredient.fromItems(Items.HONEY_BOTTLE),
 				Ingredient.fromItems(Items.NETHER_WART),
 				placebo);
 		PotionBrewing.addMix(ModPotions.PLACEBO, Items.GOLDEN_CARROT, ModPotions.NIGHT_VISION_CURE);

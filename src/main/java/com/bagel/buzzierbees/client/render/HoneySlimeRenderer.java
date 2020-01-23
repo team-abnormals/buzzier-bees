@@ -24,18 +24,18 @@ public class HoneySlimeRenderer extends MobRenderer<HoneySlimeEntity, SlimeModel
 
    public void func_225623_a_(HoneySlimeEntity honeySlimeEntity, float f1, float f2, MatrixStack matrixStack, IRenderTypeBuffer RenderTypeBuffer, int i) {
       this.shadowSize = 0.25F * (float)(honeySlimeEntity.isChild() ? 1 : 2);
-      super.func_225623_a_(honeySlimeEntity, f1, f2, matrixStack, RenderTypeBuffer, i);
+      super.render(honeySlimeEntity, f1, f2, matrixStack, RenderTypeBuffer, i);
    }
 
    @SuppressWarnings("unused")
    protected void func_225620_a_(HoneySlimeEntity honeySlimeEntity, MatrixStack matrixStack, float f) {
       float f0 = 0.999F;
-      matrixStack.func_227862_a_(0.999F, 0.999F, 0.999F);
-      matrixStack.func_227861_a_(0.0D, (double)0.001F, 0.0D);
+      matrixStack.scale(0.999F, 0.999F, 0.999F);
+      matrixStack.translate(0.0D, (double)0.001F, 0.0D);
       float f1 = (float)(honeySlimeEntity.isChild() ? 1 : 2); //TODO: Proper render for child and adult
       float f2 = MathHelper.lerp(f, honeySlimeEntity.prevSquishFactor, honeySlimeEntity.squishFactor) / (f1 * 0.5F + 1.0F);
       float f3 = 1.0F / (f2 + 1.0F);
-      matrixStack.func_227862_a_(f3 * f1, 1.0F / f3 * f1, f3 * f1);
+      matrixStack.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
    }
 
    public ResourceLocation getEntityTexture(HoneySlimeEntity entity) {

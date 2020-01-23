@@ -165,9 +165,9 @@ public class HiveBoatEntity extends Entity {
          }
       }
 
-      this.world.addParticle(ParticleTypes.SPLASH, this.func_226277_ct_() + (double)this.rand.nextFloat(), this.func_226278_cu_() + 0.7D, this.func_226281_cx_() + (double)this.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
+      this.world.addParticle(ParticleTypes.SPLASH, this.getPosX() + (double)this.rand.nextFloat(), this.getPosY() + 0.7D, this.getPosZ() + (double)this.rand.nextFloat(), 0.0D, 0.0D, 0.0D);
       if (this.rand.nextInt(20) == 0) {
-         this.world.playSound(this.func_226277_ct_(), this.func_226278_cu_(), this.func_226281_cx_(), this.getSplashSound(), this.getSoundCategory(), 1.0F, 0.8F + 0.4F * this.rand.nextFloat(), false);
+         this.world.playSound(this.getPosX(), this.getPosY(), this.getPosZ(), this.getSplashSound(), this.getSoundCategory(), 1.0F, 0.8F + 0.4F * this.rand.nextFloat(), false);
       }
 
    }
@@ -265,7 +265,7 @@ public class HiveBoatEntity extends Entity {
                   Vec3d vec3d = this.getLook(1.0F);
                   double d0 = i == 1 ? -vec3d.z : vec3d.z;
                   double d1 = i == 1 ? vec3d.x : -vec3d.x;
-                  this.world.playSound((PlayerEntity)null, this.func_226277_ct_() + d0, this.func_226278_cu_(), this.func_226281_cx_() + d1, soundevent, this.getSoundCategory(), 1.0F, 0.8F + 0.4F * this.rand.nextFloat());
+                  this.world.playSound((PlayerEntity)null, this.getPosX() + d0, this.getPosY(), this.getPosZ() + d1, soundevent, this.getSoundCategory(), 1.0F, 0.8F + 0.4F * this.rand.nextFloat());
                }
             }
 
@@ -351,13 +351,13 @@ public class HiveBoatEntity extends Entity {
    protected void tickLerp() {
       if (this.canPassengerSteer()) {
          this.lerpSteps = 0;
-         this.setPacketCoordinates(this.func_226277_ct_(), this.func_226278_cu_(), this.func_226281_cx_());
+         this.setPacketCoordinates(this.getPosX(), this.getPosY(), this.getPosZ());
       }
 
       if (this.lerpSteps > 0) {
-         double d0 = this.func_226277_ct_() + (this.lerpX - this.func_226277_ct_()) / (double)this.lerpSteps;
-         double d1 = this.func_226278_cu_() + (this.lerpY - this.func_226278_cu_()) / (double)this.lerpSteps;
-         double d2 = this.func_226281_cx_() + (this.lerpZ - this.func_226281_cx_()) / (double)this.lerpSteps;
+         double d0 = this.getPosX() + (this.lerpX - this.getPosX()) / (double)this.lerpSteps;
+         double d1 = this.getPosY() + (this.lerpY - this.getPosY()) / (double)this.lerpSteps;
+         double d2 = this.getPosZ() + (this.lerpZ - this.getPosZ()) / (double)this.lerpSteps;
          double d3 = MathHelper.wrapDegrees(this.lerpYaw - (double)this.rotationYaw);
          this.rotationYaw = (float)((double)this.rotationYaw + d3 / (double)this.lerpSteps);
          this.rotationPitch = (float)((double)this.rotationPitch + (this.lerpPitch - (double)this.rotationPitch) / (double)this.lerpSteps);
@@ -404,14 +404,14 @@ public class HiveBoatEntity extends Entity {
       int i1 = MathHelper.floor(axisalignedbb.minZ);
       int j1 = MathHelper.ceil(axisalignedbb.maxZ);
 
-      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.func_185346_s()) {
+      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.retain()) {
          label161:
          for(int k1 = k; k1 < l; ++k1) {
             float f = 0.0F;
 
             for(int l1 = i; l1 < j; ++l1) {
                for(int i2 = i1; i2 < j1; ++i2) {
-                  blockpos$pooledmutable.func_181079_c(l1, k1, i2);
+                  blockpos$pooledmutable.setPos(l1, k1, i2);
                   IFluidState ifluidstate = this.world.getFluidState(blockpos$pooledmutable);
                   if (ifluidstate.isTagged(FluidTags.WATER)) {
                      f = Math.max(f, ifluidstate.getActualHeight(this.world, blockpos$pooledmutable));
@@ -447,14 +447,14 @@ public class HiveBoatEntity extends Entity {
       float f = 0.0F;
       int k1 = 0;
 
-      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.func_185346_s()) {
+      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.retain()) {
          for(int l1 = i; l1 < j; ++l1) {
             for(int i2 = i1; i2 < j1; ++i2) {
                int j2 = (l1 != i && l1 != j - 1 ? 0 : 1) + (i2 != i1 && i2 != j1 - 1 ? 0 : 1);
                if (j2 != 2) {
                   for(int k2 = k; k2 < l; ++k2) {
                      if (j2 <= 0 || k2 != k && k2 != l - 1) {
-                        blockpos$pooledmutable.func_181079_c(l1, k2, i2);
+                        blockpos$pooledmutable.setPos(l1, k2, i2);
                         BlockState blockstate = this.world.getBlockState(blockpos$pooledmutable);
                         if (!(blockstate.getBlock() instanceof LilyPadBlock) && VoxelShapes.compare(blockstate.getCollisionShape(this.world, blockpos$pooledmutable).withOffset((double)l1, (double)k2, (double)i2), voxelshape, IBooleanFunction.AND)) {
                            f += blockstate.getSlipperiness(this.world, blockpos$pooledmutable, this);
@@ -481,11 +481,11 @@ public class HiveBoatEntity extends Entity {
       boolean flag = false;
       this.waterLevel = Double.MIN_VALUE;
 
-      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.func_185346_s()) {
+      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.retain()) {
          for(int k1 = i; k1 < j; ++k1) {
             for(int l1 = k; l1 < l; ++l1) {
                for(int i2 = i1; i2 < j1; ++i2) {
-                  blockpos$pooledmutable.func_181079_c(k1, l1, i2);
+                  blockpos$pooledmutable.setPos(k1, l1, i2);
                   IFluidState ifluidstate = this.world.getFluidState(blockpos$pooledmutable);
                   if (ifluidstate.isTagged(FluidTags.WATER)) {
                      float f = (float)l1 + ifluidstate.getActualHeight(this.world, blockpos$pooledmutable);
@@ -512,11 +512,11 @@ public class HiveBoatEntity extends Entity {
       int j1 = MathHelper.ceil(axisalignedbb.maxZ);
       boolean flag = false;
 
-      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.func_185346_s()) {
+      try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.retain()) {
          for(int k1 = i; k1 < j; ++k1) {
             for(int l1 = k; l1 < l; ++l1) {
                for(int i2 = i1; i2 < j1; ++i2) {
-                  blockpos$pooledmutable.func_181079_c(k1, l1, i2);
+                  blockpos$pooledmutable.setPos(k1, l1, i2);
                   IFluidState ifluidstate = this.world.getFluidState(blockpos$pooledmutable);
                   if (ifluidstate.isTagged(FluidTags.WATER) && d0 < (double)((float)blockpos$pooledmutable.getY() + ifluidstate.getActualHeight(this.world, blockpos$pooledmutable))) {
                      if (!ifluidstate.isSource()) {
@@ -540,13 +540,13 @@ public class HiveBoatEntity extends Entity {
       this.momentum = 0.05F;
       if (this.previousStatus == HiveBoatEntity.Status.IN_AIR && this.status != HiveBoatEntity.Status.IN_AIR && this.status != HiveBoatEntity.Status.ON_LAND) {
          this.waterLevel = this.func_226283_e_(1.0D);
-         this.setPosition(this.func_226277_ct_(), (double)(this.getWaterLevelAbove() - this.getHeight()) + 0.101D, this.func_226281_cx_());
+         this.setPosition(this.getPosX(), (double)(this.getWaterLevelAbove() - this.getHeight()) + 0.101D, this.getPosZ());
          this.setMotion(this.getMotion().mul(1.0D, 0.0D, 1.0D));
          this.lastYd = 0.0D;
          this.status = HiveBoatEntity.Status.IN_WATER;
       } else {
          if (this.status == HiveBoatEntity.Status.IN_WATER) {
-            d2 = (this.waterLevel - this.func_226278_cu_()) / (double)this.getHeight();
+            d2 = (this.waterLevel - this.getPosY()) / (double)this.getHeight();
             this.momentum = 0.9F;
          } else if (this.status == HiveBoatEntity.Status.UNDER_FLOWING_WATER) {
             d1 = -7.0E-4D;
@@ -621,7 +621,7 @@ public class HiveBoatEntity extends Entity {
          }
 
          Vec3d vec3d = (new Vec3d((double)f, 0.0D, 0.0D)).rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
-         passenger.setPosition(this.func_226277_ct_() + vec3d.x, this.func_226278_cu_() + (double)f1, this.func_226281_cx_() + vec3d.z);
+         passenger.setPosition(this.getPosX() + vec3d.x, this.getPosY() + (double)f1, this.getPosZ() + vec3d.z);
          passenger.rotationYaw += this.deltaRotation;
          passenger.setRotationYawHead(passenger.getRotationYawHead() + this.deltaRotation);
          this.applyYawToEntity(passenger);
@@ -693,7 +693,7 @@ public class HiveBoatEntity extends Entity {
             }
 
             this.fallDistance = 0.0F;
-         } else if (!this.world.getFluidState((new BlockPos(this)).func_177977_b()).isTagged(FluidTags.WATER) && y < 0.0D) {
+         } else if (!this.world.getFluidState((new BlockPos(this)).down()).isTagged(FluidTags.WATER) && y < 0.0D) {
             this.fallDistance = (float)((double)this.fallDistance - y);
          }
 

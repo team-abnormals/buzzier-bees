@@ -72,9 +72,9 @@ public class HoneySlimeTemptGoal extends Goal {
                     return false;
                 }
             } else {
-                this.targetX = this.closestPlayer.func_226277_ct_();
-                this.targetY = this.closestPlayer.func_226278_cu_();
-                this.targetZ = this.closestPlayer.func_226281_cx_();
+                this.targetX = this.closestPlayer.getPosX();
+                this.targetY = this.closestPlayer.getPosY();
+                this.targetZ = this.closestPlayer.getPosZ();
             }
 
             this.pitch = (double)this.closestPlayer.rotationPitch;
@@ -92,9 +92,9 @@ public class HoneySlimeTemptGoal extends Goal {
      * Execute a one shot task or start executing a continuous task
      */
     public void startExecuting() {
-        this.targetX = this.closestPlayer.func_226277_ct_();
-        this.targetY = this.closestPlayer.func_226278_cu_();
-        this.targetZ = this.closestPlayer.func_226281_cx_();
+        this.targetX = this.closestPlayer.getPosX();
+        this.targetY = this.closestPlayer.getPosY();
+        this.targetZ = this.closestPlayer.getPosZ();
         this.isRunning = true;
     }
 

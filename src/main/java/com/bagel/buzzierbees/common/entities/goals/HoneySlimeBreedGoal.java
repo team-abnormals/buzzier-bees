@@ -135,11 +135,11 @@ public class HoneySlimeBreedGoal extends Goal {
             this.slime.resetInLove();
             this.field_75391_e.resetInLove();
             ageableentity.setGrowingAge(-24000);
-            ageableentity.setLocationAndAngles(this.slime.func_226277_ct_(), this.slime.func_226278_cu_(), this.slime.func_226281_cx_(), 0.0F, 0.0F);
+            ageableentity.setLocationAndAngles(this.slime.getPosX(), this.slime.getPosY(), this.slime.getPosZ(), 0.0F, 0.0F);
             this.world.addEntity(ageableentity);
             this.world.setEntityState(this.slime, (byte)18);
             if (this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
-                this.world.addEntity(new ExperienceOrbEntity(this.world, this.slime.func_226277_ct_(), this.slime.func_226278_cu_(), this.slime.func_226281_cx_(), this.slime.getRNG().nextInt(7) + 1));
+                this.world.addEntity(new ExperienceOrbEntity(this.world, this.slime.getPosX(), this.slime.getPosY(), this.slime.getPosZ(), this.slime.getRNG().nextInt(7) + 1));
             }
 
         }

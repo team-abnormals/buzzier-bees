@@ -45,11 +45,11 @@ public class ModBlocks
 	
 	public static final RegistryObject<Block> WAX_BLOCK = RegistryUtils.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);
 	
-	public static final RegistryObject<Block> SPRUCE_BEEHIVE   = RegistryUtils.createBlock("spruce_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BIRCH_BEEHIVE    = RegistryUtils.createBlock("birch_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> JUNGLE_BEEHIVE   = RegistryUtils.createBlock("jungle_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ACACIA_BEEHIVE   = RegistryUtils.createBlock("acacia_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DARK_OAK_BEEHIVE = RegistryUtils.createBlock("dark_oak_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.field_226906_mb_)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SPRUCE_BEEHIVE   = RegistryUtils.createBlock("spruce_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BIRCH_BEEHIVE    = RegistryUtils.createBlock("birch_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> JUNGLE_BEEHIVE   = RegistryUtils.createBlock("jungle_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ACACIA_BEEHIVE   = RegistryUtils.createBlock("acacia_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DARK_OAK_BEEHIVE = RegistryUtils.createBlock("dark_oak_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	
 	//public static final RegistryObject<Block> SLIME_BLOCK         = RegistryUtils.createBlock("minecraft:slime_block", () -> new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), null);
 	//public static final RegistryObject<Block> HONEY_BLOCK         = RegistryUtils.createBlock("minecraft:honey_block", () -> new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
@@ -165,31 +165,31 @@ public class ModBlocks
 		ModEntities.registerRendering();
 
 		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK.get(),RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.translucent());
 
 		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR.get(),RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR.get(),RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR.get(),RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR.get(),RenderType.cutout());
 
 		//Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE.get(),RenderType.cutoutMipped());
 
 		//Potted Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.cutoutMipped());
 	}
 }

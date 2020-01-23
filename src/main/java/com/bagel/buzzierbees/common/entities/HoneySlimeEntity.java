@@ -78,7 +78,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    protected void setSlimeSize(int size, boolean resetHealth) {
-      this.func_226264_Z_();
+      this.recenterBoundingBox();
       this.recalculateSize();
       this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(size * size));
       this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)size));
@@ -143,13 +143,13 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       if (!this.isChild() && this.isInHoney()) {
          //Bottling
          if (itemstack.getItem() == Items.GLASS_BOTTLE) {
-            world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             if (!player.abilities.isCreativeMode) {
                itemstack.shrink(1);
                if (itemstack.isEmpty()) {
-                  player.setHeldItem(hand, new ItemStack(Items.field_226638_pX_));
-               } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.field_226638_pX_))) {
-                  player.dropItem(new ItemStack(Items.field_226638_pX_), false);
+                  player.setHeldItem(hand, new ItemStack(Items.HONEY_BOTTLE));
+               } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.HONEY_BOTTLE))) {
+                  player.dropItem(new ItemStack(Items.HONEY_BOTTLE), false);
                }
             }
 
@@ -159,7 +159,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
          }
          //Wanding
          else if (itemstack.getItem() == ModItems.HONEY_WAND.get()) {
-            world.playSound(player, player.func_226277_ct_(), player.func_226278_cu_(), player.func_226281_cx_(), SoundEvents.field_226139_eT_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226139_eT_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             if (!player.abilities.isCreativeMode) {
                player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND.get()));
             }
@@ -191,7 +191,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
             float f1 = this.rand.nextFloat() * 0.5F + 0.5F;
             float f2 = MathHelper.sin(f) * (float) i * 0.5F * f1;
             float f3 = MathHelper.cos(f) * (float) i * 0.5F * f1;
-            this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(Blocks.field_226907_mc_)), this.func_226277_ct_() + (double) f2, this.func_226278_cu_(), this.func_226281_cx_() + (double) f3, 0.0D, 0.0D, 0.0D);
+            this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(Blocks.HONEY_BLOCK)), this.getPosX() + (double) f2, this.getPosY(), this.getPosZ() + (double) f3, 0.0D, 0.0D, 0.0D);
          }
 
          this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) / 0.8F);
@@ -241,7 +241,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       }
       else {
          if (world.getDifficulty() != Difficulty.PEACEFUL) {
-            Biome biome = world.func_226691_t_(position);
+            Biome biome = world.getBiome(position);
             if (biome == Biomes.FLOWER_FOREST && position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
                return canSpawnOn(honeySlime, world, reason, position, randomIn);
             }
@@ -290,9 +290,9 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    public void recalculateSize() {
-      double d0 = this.func_226277_ct_();
-      double d1 = this.func_226278_cu_();
-      double d2 = this.func_226281_cx_();
+      double d0 = this.getPosX();
+      double d1 = this.getPosY();
+      double d2 = this.getPosZ();
       super.recalculateSize();
       this.setPosition(d0, d1, d2);
    }

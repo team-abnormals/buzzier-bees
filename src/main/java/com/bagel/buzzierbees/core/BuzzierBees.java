@@ -68,7 +68,7 @@ public class BuzzierBees
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
-				Blocks.field_226906_mb_,
+				Blocks.BEEHIVE,
 				ModBlocks.ACACIA_BEEHIVE.get(),
 				ModBlocks.BIRCH_BEEHIVE.get(),
 				ModBlocks.SPRUCE_BEEHIVE.get(),
@@ -80,7 +80,7 @@ public class BuzzierBees
     	TileEntityType.field_226985_G_.validBlocks = newSet;
     	
     	final Set<BlockState> NESTS = ImmutableList.of(
-				Blocks.field_226906_mb_,
+				Blocks.BEEHIVE,
 				ModBlocks.ACACIA_BEEHIVE.get(),
 				ModBlocks.BIRCH_BEEHIVE.get(),
 				ModBlocks.SPRUCE_BEEHIVE.get(),

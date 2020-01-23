@@ -1,31 +1,14 @@
-# This is an example mods.toml file. It contains the data relating to the loading mods.
-# There are several mandatory fields (#mandatory), and many more that are optional (#optional).
-# The overall format is standard TOML format, v0.5.0.
-# Note that there are a couple of TOML lists in this file.
-# Find more information on toml format here:  https://github.com/toml-lang/toml
-# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
-
-loaderVersion="[30,)" #mandatory (28 is current forge version)
-
+loaderVersion="[29,)" #mandatory
 issueTrackerURL="https://github.com/bageldotjpg/BuzzierBees/issues" #optional
 
 [[mods]] #mandatory
-
 modId="buzzierbees" #mandatory
-
-version="1.1.3" #mandatory
-
+version="${file.jarVersion}" #mandatory
 displayName="Buzzier Bees" #mandatory
-
-#updateJSONURL="http://myurl.me/" #optional
-
 displayURL="https://discord.gg/zVBFsXp" #optional
-
 logoFile="buzzierbees" #optional
-
-credits="DurgerKing + byper - sprites" #optional
-
+credits="Five & Farcr, and the other members of my team for Art" #optional
 authors="bageldotjpg & Bratistolf" #optional
 
 description='''
@@ -33,22 +16,11 @@ Buzzier Bees expands on the content introduced in 1.15.
 Main features include wax, crystallized honey, and candles.
 Beekeepers, Honey Slimes, Brown Bears, and Butterflies will come soon!
 '''
+
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.buzzierbees]] #optional
-    # the modid of the dependency
     modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[30,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
-    ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
-    side="BOTH"
-# Here's another dependency
-[[dependencies.buzzierbees]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.15.1]"
+    versionRange="[29,)" #mandatory
     ordering="NONE"
     side="BOTH"
