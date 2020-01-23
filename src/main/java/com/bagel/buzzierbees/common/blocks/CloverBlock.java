@@ -10,9 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
 import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
@@ -28,18 +26,20 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
 //with(PATCH, Boolean.valueOf(true)
 public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
+    public static final BooleanProperty FLOWER = BlockStateUtils.FLOWER;
     public static final BooleanProperty PATCH 	= BlockStateUtils.PATCH;
 
-    protected static final VoxelShape SHAPE_ONE = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
-    protected static final VoxelShape SHAPE_TWO = net.minecraft.block.Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
+    protected static final VoxelShape PATCH_SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
+    protected static final VoxelShape FLOWER_PATCH_SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
+    protected static final VoxelShape FLOWER_SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
-    public CloverBlock(Effect p_i49984_1_, Properties p_i49984_3_) {
-        super(p_i49984_1_, 8, p_i49984_3_);
-        this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1)));
+    public CloverBlock(Boolean flower, Boolean patch, Effect effect, int duration, Properties properties) {
+        super(effect, duration, properties);
+        this.setDefaultState(this.stateContainer.getBaseState().with(FLOWER, flower).with(PATCH, patch));
     }
 	
 
@@ -55,11 +55,10 @@ public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
 
     @Override
     public void func_225535_a_(ServerWorld world, Random random, BlockPos blockPos, BlockState state) {
-        if (state.get(AGE) == 0) {
-            int i = Math.min(1, state.get(AGE) + 1);
-            world.setBlockState(blockPos, state.with(AGE, Integer.valueOf(i)), 1);
+        if (state.get(FLOWER) == false && state.get(PATCH) == true) {
+            world.setBlockState(blockPos, state.with(FLOWER, true));
         } else {
-            BlockState cloverPatchState  = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0));
+            BlockState cloverPatchState  = this.stateContainer.getBaseState().with(FLOWER, false);
             //BlockState cloverFlowerState = this.stateContainer.getBaseState().with(AGE, Integer.valueOf(1));
 
             label:
@@ -80,15 +79,14 @@ public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     @SuppressWarnings("deprecation")
 	public ActionResultType func_225533_a_(BlockState state, World worldIn, BlockPos pos, PlayerEntity entity, Hand hand, BlockRayTraceResult p_225533_6_) {
         ItemStack itemstack = entity.getHeldItem(hand);
-        int age = state.get(AGE);
-        if (age >= 1) {
+        if (state.get(FLOWER) == true && state.get(PATCH) == true) {
            if (itemstack.getItem() == Items.SHEARS) {
               worldIn.playSound(entity, entity.func_226277_ct_(), entity.func_226278_cu_(), entity.func_226281_cx_(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
               spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
               itemstack.damageItem(1, entity, (p_226874_1_) -> {
                  p_226874_1_.sendBreakAnimation(hand);
               });
-              worldIn.setBlockState(pos, state.with(AGE, 0), 1);
+              worldIn.setBlockState(pos, ModBlocks.PINK_CLOVER.get().getDefaultState());
               return ActionResultType.SUCCESS;
            }
         }
@@ -96,11 +94,14 @@ public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
-        switch(state.get(AGE)){
-            default:
-                return SHAPE_TWO;
-            case 0:
-                return SHAPE_ONE;
+        if(state.get(FLOWER) == true) {
+        	if(state.get(PATCH) == true) {
+        		return FLOWER_PATCH_SHAPE;
+        	} else {
+        		return FLOWER_SHAPE;
+        	}
+        } else {
+        	return PATCH_SHAPE;
         }
     }
 
@@ -109,7 +110,7 @@ public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     }
     
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(AGE);
+        builder.add(FLOWER, PATCH);
     }
 
 
