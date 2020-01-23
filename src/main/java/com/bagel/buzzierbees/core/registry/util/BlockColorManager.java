@@ -1,5 +1,5 @@
 package com.bagel.buzzierbees.core.registry.util;
-
+/*
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 
@@ -28,4 +28,4 @@ public class BlockColorManager
 			return p_210225_1_ != null && p_210225_2_ != null ? BiomeColors.func_228358_a_(p_210225_1_, p_210225_2_) : GrassColors.get(0.5D, 1.0D);
 		}, ModBlocks.PINK_CLOVER.get(), ModBlocks.WHITE_CLOVER.get());
 	}
-}
+}*/
