@@ -51,6 +51,7 @@ public class HiveBoatModel extends SegmentedModel<HiveBoatEntity> {
       this.field_228243_f_ = builder.build();
    }
 
+   @Override
    public void render(HiveBoatEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
       this.func_228244_a_(p_225597_1_, 0, p_225597_2_);
       this.func_228244_a_(p_225597_1_, 1, p_225597_2_);
@@ -63,6 +64,11 @@ public class HiveBoatModel extends SegmentedModel<HiveBoatEntity> {
    public ModelRenderer func_228245_c_() {
       return this.noWater;
    }
+   
+   @Override
+   public Iterable<ModelRenderer> getParts() {
+		return this.getParts();
+	}
 
    protected ModelRenderer func_187056_a(boolean p_187056_1_) {
       ModelRenderer modelrenderer = (new ModelRenderer(this, 62, p_187056_1_ ? 0 : 20)).setTextureSize(128, 64);
@@ -71,8 +77,8 @@ public class HiveBoatModel extends SegmentedModel<HiveBoatEntity> {
       return modelrenderer;
    }
 
-   protected void func_228244_a_(HiveBoatEntity p_228244_1_, int p_228244_2_, float p_228244_3_) {
-      float f = p_228244_1_.getRowingTime(p_228244_2_, p_228244_3_);
+   protected void func_228244_a_(HiveBoatEntity entity, int p_228244_2_, float p_228244_3_) {
+      float f = entity.getRowingTime(p_228244_2_, p_228244_3_);
       ModelRenderer modelrenderer = this.paddles[p_228244_2_];
       modelrenderer.rotateAngleX = (float)MathHelper.clampedLerp((double)(-(float)Math.PI / 3F), (double)-0.2617994F, (double)((MathHelper.sin(-f) + 1.0F) / 2.0F));
       modelrenderer.rotateAngleY = (float)MathHelper.clampedLerp((double)(-(float)Math.PI / 4F), (double)((float)Math.PI / 4F), (double)((MathHelper.sin(-f + 1.0F) + 1.0F) / 2.0F));
@@ -81,12 +87,4 @@ public class HiveBoatModel extends SegmentedModel<HiveBoatEntity> {
       }
 
    }
-
-
-
-@Override
-public Iterable<ModelRenderer> getParts() {
-	// TODO Auto-generated method stub
-	return null;
-}
 }

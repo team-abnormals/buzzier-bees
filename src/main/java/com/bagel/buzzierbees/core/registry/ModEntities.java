@@ -38,7 +38,7 @@ public class ModEntities
         
         BOAT = EntityType.Builder.<HiveBoatEntity>create(HiveBoatEntity::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).build(BuzzierBees.MODID + ":boat");
         BOAT.setRegistryName("boat");
-        //ForgeRegistries.ENTITIES.register(BOAT); - dont forget to change bee soup to boat
+        //ForgeRegistries.ENTITIES.register(BOAT); bee soup is boat
     }
 
     public static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification classification, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)

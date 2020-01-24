@@ -1,14 +1,16 @@
 package com.bagel.buzzierbees.core.registry;
 import java.util.List;
 
-import com.google.common.collect.Lists;
 import com.bagel.buzzierbees.common.items.BeeSoupItem;
 import com.bagel.buzzierbees.common.items.CuringItem;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.StickyHoneyWandItem;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.registry.util.RegistryUtils;
-import net.minecraft.item.*;
+import com.google.common.collect.Lists;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.fml.RegistryObject;
