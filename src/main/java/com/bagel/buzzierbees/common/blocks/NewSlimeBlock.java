@@ -18,7 +18,7 @@ public class NewSlimeBlock extends SlimeBlock {
         if (entity.isSuppressingBounce()) {
             super.onFallenUpon(world, pos, entity, p_180658_4_);
         } else {
-        	entity.func_225503_b_(p_180658_4_, 0.0F);
+        	entity.onLivingFall(p_180658_4_, 0.0F);
         }
 
     }

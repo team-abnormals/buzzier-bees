@@ -677,7 +677,7 @@ public class HiveBoatEntity extends Entity {
                   return;
                }
 
-               this.func_225503_b_(this.fallDistance, 1.0F);
+               this.onLivingFall(this.fallDistance, 1.0F);
                if (!this.world.isRemote && !this.removed) {
                   this.remove();
                   if (this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
