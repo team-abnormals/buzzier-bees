@@ -7,9 +7,9 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.ModCompostables;
+import com.bagel.buzzierbees.core.registry.ModEffects;
 import com.bagel.buzzierbees.core.registry.ModEntities;
 import com.bagel.buzzierbees.core.registry.ModItems;
-import com.bagel.buzzierbees.core.registry.ModPotions;
 import com.bagel.buzzierbees.core.registry.ModTileEntities;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -39,9 +39,12 @@ public class BuzzierBees
     public BuzzierBees() {
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
+    	ModItems.ITEMS.register(modEventBus);
+    	ModEffects.EFFECTS.register(modEventBus);
+    	ModEffects.POTIONS.register(modEventBus);
     	ModBlocks.BLOCKS.register(modEventBus);
-        ModItems.ITEMS.register(modEventBus);
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
+    	
     	
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
@@ -62,7 +65,7 @@ public class BuzzierBees
     {
     	ModCompostables.registerCompostables();
         ModEntities.addEntitySpawns();
-        ModPotions.addBrewingRecipes();
+        ModEffects.addBrewingRecipes();
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
