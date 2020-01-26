@@ -12,6 +12,7 @@ import com.bagel.buzzierbees.core.registry.ModEffects;
 import com.bagel.buzzierbees.core.registry.ModEntities;
 import com.bagel.buzzierbees.core.registry.ModItems;
 import com.bagel.buzzierbees.core.registry.ModTileEntities;
+import com.bagel.buzzierbees.core.registry.util.BuzzierBeesCommonConfig;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
@@ -23,8 +24,10 @@ import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -38,6 +41,7 @@ public class BuzzierBees
     //public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public BuzzierBees() {
+    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BuzzierBeesCommonConfig.spec);
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
     	ModItems.ITEMS.register(modEventBus);
@@ -60,15 +64,22 @@ public class BuzzierBees
 	}
     
     private void setupClient(final FMLClientSetupEvent event) {
+    	BuzzierBeesCommonConfig.refresh();
 		ModBlocks.setupRenderLayer();
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 	}
     
     private void setup(final FMLCommonSetupEvent event)
     {
+    	BuzzierBeesCommonConfig.refresh();
     	ModCompostables.registerCompostables();
-        ModEntities.addEntitySpawns();
+    	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {
+    		ModEntities.addEntitySpawns();
+    	}
         ModEffects.addBrewingRecipes();
+        if (BuzzierBeesCommonConfig.coloredFlowerForests) {
+        		ModBiomes.registerBiomesToDictionary();
+        }
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
