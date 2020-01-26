@@ -25,7 +25,6 @@ import net.minecraftforge.fml.common.Mod;
 public class ModFeatures {
 	public static final DefaultFlowersFeature DEFAULT_FLOWERS_FEATURE = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
 
-	//TODO: Proper Clover Patch generation
 	public static DefaultFlowersFeature PINK_CLOVER_FEATURE;
 	public static DefaultFlowersFeature WHITE_CLOVER_FEATURE;
 

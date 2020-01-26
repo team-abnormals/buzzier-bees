@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.bagel.buzzierbees.core.registry.ModBiomes;
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.ModCompostables;
 import com.bagel.buzzierbees.core.registry.ModEffects;
@@ -44,6 +45,8 @@ public class BuzzierBees
     	ModEffects.POTIONS.register(modEventBus);
     	ModBlocks.BLOCKS.register(modEventBus);
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
+    	ModBiomes.BIOMES.register(modEventBus);
+
     	
     	
         modEventBus.addListener(this::setup);
