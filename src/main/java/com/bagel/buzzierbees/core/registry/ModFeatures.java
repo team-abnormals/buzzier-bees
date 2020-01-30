@@ -1,10 +1,12 @@
 package com.bagel.buzzierbees.core.registry;
 
+import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -31,7 +33,7 @@ public class ModFeatures {
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
-		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState(), 		"cartwheel_feature", 	Biomes.FLOWER_FOREST,		5);
+		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState().with(CartwheelBlock.FACING, Direction.NORTH), 		"cartwheel_feature", 	Biomes.FLOWER_FOREST,		5);
 		registerFlowerFeature(ModBlocks.DAYBLOOM.get().getDefaultState(), 		"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS,	4);
 		registerFlowerFeature(ModBlocks.JOLYCE.get().getDefaultState(), 		"jolyce_feature", 		Biomes.SWAMP,				5);
 		registerFlowerFeature(ModBlocks.WHITE_CLOVER.get().getDefaultState(),	"white_clover_feature", 	Biomes.FOREST,				3);
@@ -70,6 +72,6 @@ public class ModFeatures {
 	
 	public static void registerDoubleFlowersFeature(BlockState blockState, String name, Biome biomeIn, int frequency) {
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new DoublePlantBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.field_227248_z_.withConfiguration(config)), 0)).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(frequency))));
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(config)), 0)).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(frequency))));
 	}
 }

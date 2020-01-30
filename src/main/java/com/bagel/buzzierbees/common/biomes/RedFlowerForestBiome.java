@@ -38,15 +38,15 @@ public final class RedFlowerForestBiome extends Biome {
 	      //DefaultBiomeFeatures.addLakes(this);
 	      DefaultBiomeFeatures.addMonsterRooms(this);
 	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(
-	    		  Feature.field_227248_z_.withConfiguration(DefaultBiomeFeatures.field_226724_L_) //random patch, rose bush
+	    		  Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.field_226724_L_) //random patch, rose bush
 	    		  ), 2)).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(5))));
 	      DefaultBiomeFeatures.addStoneVariants(this);
 	      DefaultBiomeFeatures.addOres(this);
 	      DefaultBiomeFeatures.addSedimentDisks(this);
 	      DefaultBiomeFeatures.addSavannaTrees(this);
-	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.withConfiguration(DefaultBiomeFeatures.field_226826_u_).func_227228_a_(Placement.NOISE_HEIGHTMAP_DOUBLE.func_227446_a_(new NoiseDependant(-0.8D, 5, 10))));
+	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.field_226826_u_).func_227228_a_(Placement.NOISE_HEIGHTMAP_DOUBLE.func_227446_a_(new NoiseDependant(-0.8D, 5, 10))));
 	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
-	    		  Feature.field_227247_y_.withConfiguration(RED_FLOWER_FOREST).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(100))));
+	    		  Feature.FLOWER.withConfiguration(RED_FLOWER_FOREST).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(100))));
 	      DefaultBiomeFeatures.addSparseGrass(this);
 	      DefaultBiomeFeatures.addMushrooms(this);
 	      DefaultBiomeFeatures.addReedsAndPumpkins(this);

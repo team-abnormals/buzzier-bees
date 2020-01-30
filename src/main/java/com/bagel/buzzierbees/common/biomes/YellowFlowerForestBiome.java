@@ -38,14 +38,14 @@ public final class YellowFlowerForestBiome extends Biome {
 	      //DefaultBiomeFeatures.addLakes(this);
 	      DefaultBiomeFeatures.addMonsterRooms(this);
 	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.FANCY_TREE.withConfiguration(DefaultBiomeFeatures.field_226817_l_).func_227227_a_(0.33333334F)), Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.field_226816_k_))).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(0, 0.05F, 1))));
-	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.withConfiguration(DefaultBiomeFeatures.field_226826_u_).func_227228_a_(Placement.NOISE_HEIGHTMAP_DOUBLE.func_227446_a_(new NoiseDependant(-0.8D, 5, 10))));
+	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.field_226826_u_).func_227228_a_(Placement.NOISE_HEIGHTMAP_DOUBLE.func_227446_a_(new NoiseDependant(-0.8D, 5, 10))));
 	      DefaultBiomeFeatures.addStoneVariants(this);
 	      DefaultBiomeFeatures.addOres(this);
 	      DefaultBiomeFeatures.addExtraGoldOre(this);
 	      DefaultBiomeFeatures.addSedimentDisks(this);
 	      DefaultBiomeFeatures.addScatteredOakTrees(this);
 	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
-	    		  Feature.field_227247_y_.withConfiguration(YELLOW_FLOWER_FOREST).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(100))));
+	    		  Feature.FLOWER.withConfiguration(YELLOW_FLOWER_FOREST).func_227228_a_(Placement.COUNT_HEIGHTMAP_32.func_227446_a_(new FrequencyConfig(100))));
 	      DefaultBiomeFeatures.addSparseGrass(this);
 	      DefaultBiomeFeatures.addMushrooms(this);
 	      DefaultBiomeFeatures.addReedsAndPumpkins(this);

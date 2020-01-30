@@ -7,7 +7,7 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.core.registry.ModBiomes;
 import com.bagel.buzzierbees.core.registry.ModBlocks;
-import com.bagel.buzzierbees.core.registry.ModCompostables;
+import com.bagel.buzzierbees.core.registry.ModData;
 import com.bagel.buzzierbees.core.registry.ModEffects;
 import com.bagel.buzzierbees.core.registry.ModEntities;
 import com.bagel.buzzierbees.core.registry.ModItems;
@@ -51,8 +51,6 @@ public class BuzzierBees
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
     	ModBiomes.BIOMES.register(modEventBus);
 
-    	
-    	
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
         DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initSetupClient);
@@ -66,20 +64,18 @@ public class BuzzierBees
     private void setupClient(final FMLClientSetupEvent event) {
     	BuzzierBeesCommonConfig.refresh();
 		ModBlocks.setupRenderLayer();
+		ModEntities.registerRendering();
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 	}
     
     private void setup(final FMLCommonSetupEvent event)
     {
     	BuzzierBeesCommonConfig.refresh();
-    	ModCompostables.registerCompostables();
-    	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {
-    		ModEntities.addEntitySpawns();
-    	}
+    	ModData.registerCompostables();
+    	ModData.registerFlammables();
+    	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {ModEntities.addEntitySpawns();}
         ModEffects.addBrewingRecipes();
-        if (BuzzierBeesCommonConfig.coloredFlowerForests) {
-        		ModBiomes.registerBiomesToDictionary();
-        }
+        if (BuzzierBeesCommonConfig.coloredFlowerForests) {ModBiomes.registerBiomesToDictionary();}
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 

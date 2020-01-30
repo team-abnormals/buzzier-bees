@@ -169,8 +169,6 @@ public class ModBlocks
 
 	public static void setupRenderLayer()
 	{
-		ModEntities.registerRendering();
-
 		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK.get(),RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.translucent());
 
