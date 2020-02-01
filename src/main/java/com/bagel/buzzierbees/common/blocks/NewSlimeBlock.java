@@ -14,14 +14,14 @@ public class NewSlimeBlock extends SlimeBlock {
         super(properties);
     }
 
-    public void onFallenUpon(World world, BlockPos pos, Entity entity, float p_180658_4_) {
+    /*public void onFallenUpon(World world, BlockPos pos, Entity entity, float p_180658_4_) {
         if (entity.isSuppressingBounce()) {
             super.onFallenUpon(world, pos, entity, p_180658_4_);
         } else {
         	entity.onLivingFall(p_180658_4_, 0.0F);
         }
 
-    }
+    }*/
 
     public void onLanded(IBlockReader p_176216_1_, Entity entity) {
         if (entity.isSuppressingBounce()) {
