@@ -73,6 +73,11 @@ public class CandleBlock extends BushBlock implements IWaterLoggable {
    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
       return !state.getCollisionShape(worldIn, pos).project(Direction.UP).isEmpty();
    }
+   
+   @Override
+   public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
+       return (0.30F * state.get(CANDLES));
+   }
 
    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
       BlockPos blockpos = pos.down();
