@@ -62,6 +62,6 @@ public class ModEntities
 		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
 
 		//Spawn Registry
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 20, 1, 2));
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 8, 1, 2));
 	}
 }
