@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzierbees:scented_candle"
+        },
+        {
+            "item": "minecraft:popped_chorus_fruit"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:scented_candle",
+        "count": 1
+    }
+}

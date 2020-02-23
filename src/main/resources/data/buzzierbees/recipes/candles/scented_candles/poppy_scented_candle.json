@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "scented_candle",
+    "ingredients": [
+        {
+            "item": "buzzierbees:scented_candle"
+        },
+        {
+            "item": "minecraft:poppy"
+        }
+    ],
+    "result": {
+        "item": "buzzierbees:poppy_scented_candle",
+        "count": 1
+    }
+}

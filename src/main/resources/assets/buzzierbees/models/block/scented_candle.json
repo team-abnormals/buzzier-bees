@@ -1,0 +1,7 @@
+{
+    "parent": "buzzierbees:block/candle",
+    "textures": {
+        "particle": "buzzierbees:block/scented_candle",
+        "all": "buzzierbees:block/scented_candle"
+    }
+}

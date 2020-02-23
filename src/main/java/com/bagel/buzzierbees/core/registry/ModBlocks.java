@@ -108,7 +108,6 @@ public class ModBlocks
 	public static final RegistryObject<Block> POTTED_PINK_CLOVER  = RegistryUtils.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), PropertyUtils.POT));
 	
 	public static final RegistryObject<Block> CANDLE 			= RegistryUtils.createBlock("candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	
 	public static final RegistryObject<Block> WHITE_CANDLE 		= RegistryUtils.createBlock("white_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_CANDLE 	= RegistryUtils.createBlock("orange_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> MAGENTA_CANDLE 	= RegistryUtils.createBlock("magenta_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
@@ -125,6 +124,8 @@ public class ModBlocks
 	public static final RegistryObject<Block> GREEN_CANDLE 		= RegistryUtils.createBlock("green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> RED_CANDLE 		= RegistryUtils.createBlock("red_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLACK_CANDLE 		= RegistryUtils.createBlock("black_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	
+	public static final RegistryObject<Block> SCENTED_CANDLE 	= RegistryUtils.createBlock("scented_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	
 	public static final RegistryObject<Block> ALLIUM_SCENTED_CANDLE             = RegistryUtils.createBlock("allium_scented_candle", () -> new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> AZURE_BLUET_SCENTED_CANDLE        = RegistryUtils.createBlock("azure_bluet_scented_candle", () -> new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
