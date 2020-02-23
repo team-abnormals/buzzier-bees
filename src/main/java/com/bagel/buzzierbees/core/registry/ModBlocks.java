@@ -58,7 +58,6 @@ public class ModBlocks
 	//public static final RegistryObject<Block> HONEY_BLOCK         = RegistryUtils.createBlock("minecraft:honey_block", () -> new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
 	//public static final RegistryObject<Block> CLOVER_HONEY_BLOCK 	= RegistryUtils.createBlock("clover_honey_block", () -> new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_), ItemGroup.DECORATIONS);
 	//public static final RegistryObject<Block> CLOVER_HONEY_BLOCK    = RegistryUtils.createBlock("clover_honey_block", () -> new Block(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
-
 	
 	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK        = RegistryUtils.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(Block.Properties.create(Material.CAKE).notSolid().slipperiness(0.98F).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), ItemGroup.DECORATIONS);
 	//public static final RegistryObject<Block> CRYSTALLIZED_CLOVER_HONEY_BLOCK = RegistryUtils.createBlock("crystallized_clover_honey_block", () -> new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK.get())), null);
@@ -127,23 +126,6 @@ public class ModBlocks
 	public static final RegistryObject<Block> RED_CANDLE 		= RegistryUtils.createBlock("red_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLACK_CANDLE 		= RegistryUtils.createBlock("black_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	
-	public static final RegistryObject<Block> AMBER_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "amber_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BEIGE_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "beige_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> CREAM_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "cream_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DARK_GREEN_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "dark_green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> FOREST_GREEN_CANDLE = RegistryUtils.createBlockCompat("flamboyant", "forest_green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HOT_PINK_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "hot_pink_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> INDIGO_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "indigo_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAROON_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "maroon_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> NAVY_CANDLE 	      = RegistryUtils.createBlockCompat("flamboyant", "navy_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> OLIVE_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "olive_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PALE_GREEN_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "pale_green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PALE_PINK_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "pale_pink_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PALE_YELLOW_CANDLE  = RegistryUtils.createBlockCompat("flamboyant", "pale_yellow_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SKY_BLUE_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "sky_blue_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SLATE_GRAY_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "slate_gray_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "violet_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	
 	public static final RegistryObject<Block> ALLIUM_SCENTED_CANDLE             = RegistryUtils.createBlock("allium_scented_candle", () -> new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> AZURE_BLUET_SCENTED_CANDLE        = RegistryUtils.createBlock("azure_bluet_scented_candle", () -> new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUE_ORCHID_SCENTED_CANDLE        = RegistryUtils.createBlock("blue_orchid_scented_candle", () -> new ScentedCandleBlock(Effects.SATURATION,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
@@ -200,4 +182,23 @@ public class ModBlocks
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.getCutoutMipped());
 	}
+	
+	/*
+	public static final RegistryObject<Block> AMBER_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "amber_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BEIGE_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "beige_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CREAM_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "cream_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DARK_GREEN_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "dark_green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> FOREST_GREEN_CANDLE = RegistryUtils.createBlockCompat("flamboyant", "forest_green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HOT_PINK_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "hot_pink_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> INDIGO_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "indigo_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAROON_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "maroon_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> NAVY_CANDLE 	      = RegistryUtils.createBlockCompat("flamboyant", "navy_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> OLIVE_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "olive_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PALE_GREEN_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "pale_green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PALE_PINK_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "pale_pink_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PALE_YELLOW_CANDLE  = RegistryUtils.createBlockCompat("flamboyant", "pale_yellow_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SKY_BLUE_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "sky_blue_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SLATE_GRAY_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "slate_gray_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> VIOLET_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "violet_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	*/
 }
