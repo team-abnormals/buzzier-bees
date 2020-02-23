@@ -7,9 +7,15 @@ import com.bagel.buzzierbees.core.registry.ModTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 
 public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
 	public Effect candleEffectInstance;
@@ -32,4 +38,9 @@ public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 	   return ModTileEntities.SCENTED_CANDLE.get().create();
    }
+   
+   @Override
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		return ActionResultType.FAIL;	
+	}
 }

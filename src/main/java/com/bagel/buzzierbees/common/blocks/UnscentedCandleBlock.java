@@ -2,78 +2,28 @@ package com.bagel.buzzierbees.common.blocks;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
 import com.bagel.buzzierbees.core.registry.ModBlocks;
-import com.bagel.buzzierbees.core.registry.ModItems;
-import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
-import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
-import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.pathfinding.PathType;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-@SuppressWarnings("deprecation")
-public class CandleBlock extends FallingBlock implements IWaterLoggable {
-	public static final IntegerProperty CANDLES 	= BlockStateUtils.CANDLES_1_4;
-	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
-	
-	protected static final VoxelShape ONE_SHAPE 	= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
-	protected static final VoxelShape TWO_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
-	protected static final VoxelShape THREE_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
-	protected static final VoxelShape FOUR_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
-	
-	public CandleBlock(Block.Properties properties) {
+public class UnscentedCandleBlock extends CandleBlock implements IWaterLoggable {
+	public UnscentedCandleBlock(Block.Properties properties) {
 		super(properties);
     	this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true));
     }
-	
-	public int getLightValue(BlockState state) {
-		return this.isInBadEnvironment(state) ? 0 : super.getLightValue(state) + (11 + (1 * state.get(CANDLES)));	
-	}
-	
-	@Nullable
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		BlockState blockstate = context.getWorld().getBlockState(context.getPos());
-		Direction direction = context.getPlacementHorizontalFacing();
-		if (blockstate.getBlock() == this) {
-			return blockstate.with(FACING, direction).with(CANDLES, Integer.valueOf(Math.min(4, blockstate.get(CANDLES) + 1)));
-		} else {
-			IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-			boolean flag = ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8;
-			return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag);
-		}
-	}
 	
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
@@ -93,88 +43,27 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	}
 	
 	public BlockState candleOutput(Item item, Block block) {
-		if (item == Items.POPPED_CHORUS_FRUIT && block == ModBlocks.CANDLE.get()) { return ModBlocks.SCENTED_CANDLE.get().getDefaultState(); }
-		if (item == ModItems.WAX.get()) { return ModBlocks.CANDLE.get().getDefaultState(); }
-		if (item == Items.WHITE_DYE) { return ModBlocks.WHITE_CANDLE.get().getDefaultState(); }
-		if (item == Items.ORANGE_DYE) { return ModBlocks.ORANGE_CANDLE.get().getDefaultState(); }
-		if (item == Items.MAGENTA_DYE) { return ModBlocks.MAGENTA_CANDLE.get().getDefaultState(); }
-		if (item == Items.LIGHT_BLUE_DYE) { return ModBlocks.LIGHT_BLUE_CANDLE.get().getDefaultState(); }
-		if (item == Items.YELLOW_DYE) { return ModBlocks.YELLOW_CANDLE.get().getDefaultState(); }
-		if (item == Items.LIME_DYE) { return ModBlocks.LIME_CANDLE.get().getDefaultState(); }
-		if (item == Items.PINK_DYE) { return ModBlocks.PINK_CANDLE.get().getDefaultState(); }
-		if (item == Items.GRAY_DYE) { return ModBlocks.GRAY_CANDLE.get().getDefaultState(); }
-		if (item == Items.LIGHT_GRAY_DYE) { return ModBlocks.LIGHT_GRAY_CANDLE.get().getDefaultState(); }
-		if (item == Items.CYAN_DYE) { return ModBlocks.CYAN_CANDLE.get().getDefaultState(); }
-		if (item == Items.PURPLE_DYE) { return ModBlocks.PURPLE_CANDLE.get().getDefaultState(); }
-		if (item == Items.BLUE_DYE) { return ModBlocks.BLUE_CANDLE.get().getDefaultState(); }
-		if (item == Items.BROWN_DYE) { return ModBlocks.BROWN_CANDLE.get().getDefaultState(); }
-		if (item == Items.GREEN_DYE) { return ModBlocks.GREEN_CANDLE.get().getDefaultState(); }
-		if (item == Items.RED_DYE) { return ModBlocks.RED_CANDLE.get().getDefaultState(); }
-		if (item == Items.BLACK_DYE) { return ModBlocks.BLACK_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.DANDELION.asItem()) { return ModBlocks.DANDELION_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.POPPY.asItem()) { return ModBlocks.POPPY_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.BLUE_ORCHID.asItem()) { return ModBlocks.BLUE_ORCHID_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.ALLIUM.asItem()) { return ModBlocks.ALLIUM_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.AZURE_BLUET.asItem()) { return ModBlocks.AZURE_BLUET_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.RED_TULIP.asItem()) { return ModBlocks.RED_TULIP_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.ORANGE_TULIP.asItem()) { return ModBlocks.ORANGE_TULIP_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.WHITE_TULIP.asItem()) { return ModBlocks.WHITE_TULIP_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.PINK_TULIP.asItem()) { return ModBlocks.PINK_TULIP_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.OXEYE_DAISY.asItem()) { return ModBlocks.OXEYE_DAISY_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.CORNFLOWER.asItem()) { return ModBlocks.CORNFLOWER_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.LILY_OF_THE_VALLEY.asItem()) { return ModBlocks.LILY_OF_THE_VALLEY_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == Blocks.WITHER_ROSE.asItem()) { return ModBlocks.WITHER_ROSE_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.CARTWHEEL.get().asItem()) { return ModBlocks.CARTWHEEL_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.PINK_CLOVER.get().asItem()) { return ModBlocks.PINK_CLOVER_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.WHITE_CLOVER.get().asItem()) { return ModBlocks.WHITE_CLOVER_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.VIOLET.get().asItem()) { return ModBlocks.VIOLET_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.BLUEBELL.get().asItem()) { return ModBlocks.BLUEBELL_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.JOLYCE.get().asItem()) { return ModBlocks.JOLYCE_SCENTED_CANDLE.get().getDefaultState(); }
+		if (item == ModBlocks.COLUMBINE.get().asItem()) { return ModBlocks.COLUMBINE_SCENTED_CANDLE.get().getDefaultState(); }
 		return null;
-	}
-	
-	private boolean isInBadEnvironment(BlockState state) {
-		return state.get(WATERLOGGED);	
-	}
-	
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockState down = worldIn.getBlockState(pos.down());
-		return (down.isSolid() || down.isAir());
-	}
-	
-	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return !state.getCollisionShape(worldIn, pos).project(Direction.UP).isEmpty();	
-	}
-	
-	@Override
-	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-		return (0.25F * state.get(CANDLES));	
-	}
-
-	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-		if (!state.isValidPosition(worldIn, currentPos)) {
-			return Blocks.AIR.getDefaultState();
-		} else {
-			if (state.get(WATERLOGGED)) {
-				worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));	
-			}
-			return super.updatePostPlacement(state, facing, facingState, worldIn, currentPos, facingPos);	
-		}	
-	}
-	
-	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
-		return useContext.getItem().getItem() == this.asItem() && state.get(CANDLES) < 4 ? true : super.isReplaceable(state, useContext);
-	}
-	
-	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		switch(state.get(CANDLES)) {
-		case 1:
-			default:
-				return ONE_SHAPE;	
-		case 2:
-			return TWO_SHAPE;	
-		case 3:
-			return THREE_SHAPE;	
-		case 4:
-			return FOUR_SHAPE;	
-		}	
-	}
-	
-	public IFluidState getFluidState(BlockState state) {
-		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);	
-	}
-	
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(CANDLES, WATERLOGGED, FACING);	
-	}
-	
-	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
-		return true;
-	}
-	
-	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-		return type == PathType.AIR && !this.blocksMovement ? true : super.allowsMovement(state, worldIn, pos, type);	
 	}
 	
 	@Override
