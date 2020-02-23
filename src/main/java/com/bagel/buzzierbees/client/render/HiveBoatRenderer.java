@@ -50,11 +50,11 @@ public class HiveBoatRenderer extends EntityRenderer<HiveBoatEntity> {
 
       p_225623_4_.scale(-1.0F, -1.0F, 1.0F);
       p_225623_4_.rotate(Vector3f.YP.rotationDegrees(90.0F));
-      this.field_76998_a.render(p_225623_1_, p_225623_3_, 0.0F, -0.1F, 0.0F, 0.0F);
+      this.field_76998_a.setRotationAngles(p_225623_1_, p_225623_3_, 0.0F, -0.1F, 0.0F, 0.0F);
       IVertexBuilder ivertexbuilder = p_225623_5_.getBuffer(this.field_76998_a.getRenderType(this.getEntityTexture(p_225623_1_)));
-      this.field_76998_a.render(p_225623_4_, ivertexbuilder, p_225623_6_, OverlayTexture.DEFAULT_LIGHT, 1.0F, 1.0F, 1.0F, 1.0F);
-      IVertexBuilder ivertexbuilder1 = p_225623_5_.getBuffer(RenderType.waterMask());
-      this.field_76998_a.func_228245_c_().render(p_225623_4_, ivertexbuilder1, p_225623_6_, OverlayTexture.DEFAULT_LIGHT);
+      this.field_76998_a.render(p_225623_4_, ivertexbuilder, p_225623_6_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+      IVertexBuilder ivertexbuilder1 = p_225623_5_.getBuffer(RenderType.getWaterMask());
+      this.field_76998_a.func_228245_c_().render(p_225623_4_, ivertexbuilder1, p_225623_6_, OverlayTexture.NO_OVERLAY);
       p_225623_4_.pop();
       super.render(p_225623_1_, p_225623_2_, p_225623_3_, p_225623_4_, p_225623_5_, p_225623_6_);
    }

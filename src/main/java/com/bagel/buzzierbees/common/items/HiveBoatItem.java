@@ -32,7 +32,7 @@ public class HiveBoatItem extends Item {
 	      ItemStack itemstack = playerIn.getHeldItem(handIn);
 	      RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
 	      if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
-	         return ActionResult.func_226250_c_(itemstack);
+	         return ActionResult.resultPass(itemstack);
 	      } else {
 	         Vec3d vec3d = playerIn.getLook(1.0F);
 	         List<Entity> list = worldIn.getEntitiesInAABBexcluding(playerIn, playerIn.getBoundingBox().expand(vec3d.scale(5.0D)).grow(1.0D), field_219989_a);
@@ -42,7 +42,7 @@ public class HiveBoatItem extends Item {
 	            for(Entity entity : list) {
 	               AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow((double)entity.getCollisionBorderSize());
 	               if (axisalignedbb.contains(vec3d1)) {
-	                  return ActionResult.func_226250_c_(itemstack);
+	                  return ActionResult.resultPass(itemstack);
 	               }
 	            }
 	         }
@@ -52,7 +52,7 @@ public class HiveBoatItem extends Item {
 	            boatentity.setBoatType(this.type);
 	            boatentity.rotationYaw = playerIn.rotationYaw;
 	            if (!worldIn.func_226665_a__(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
-	               return ActionResult.func_226251_d_(itemstack);
+	               return ActionResult.resultFail(itemstack);
 	            } else {
 	               if (!worldIn.isRemote) {
 	                  worldIn.addEntity(boatentity);
@@ -62,10 +62,10 @@ public class HiveBoatItem extends Item {
 	               }
 
 	               playerIn.addStat(Stats.ITEM_USED.get(this));
-	               return ActionResult.func_226248_a_(itemstack);
+	               return ActionResult.resultSuccess(itemstack);
 	            }
 	         } else {
-	            return ActionResult.func_226250_c_(itemstack);
+	            return ActionResult.resultPass(itemstack);
 	         }
 	      }
 	   }

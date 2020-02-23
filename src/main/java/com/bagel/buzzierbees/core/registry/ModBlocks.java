@@ -170,34 +170,34 @@ public class ModBlocks
 	public static void setupRenderLayer()
 	{
 		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK.get(),RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.getTranslucent());
 
 		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR.get(),RenderType.cutout());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR.get(),RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR.get(),RenderType.getCutout());
 		if(ModList.get().isLoaded("quark")) {
-			RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_LADDER.get(),RenderType.cutout());
+			RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_LADDER.get(),RenderType.getCutout());
 		}
 
 		//Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE.get(),RenderType.getCutoutMipped());
 
 		//Potted Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.cutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.cutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.getCutoutMipped());
 	}
 }
