@@ -9,6 +9,7 @@ import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.fluid.Fluids;
@@ -34,7 +35,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @SuppressWarnings("deprecation")
-public class CandleBlock extends Block implements IWaterLoggable {
+public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	public static final IntegerProperty CANDLES 		= BlockStateUtils.CANDLES_1_4;
 	public static final BooleanProperty WATERLOGGED 	= BlockStateProperties.WATERLOGGED;
 	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
@@ -77,11 +78,6 @@ public class CandleBlock extends Block implements IWaterLoggable {
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
 		return (0.25F * state.get(CANDLES));	
-	}
-
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockPos blockpos = pos.down();
-		return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);	
 	}
 
 	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
