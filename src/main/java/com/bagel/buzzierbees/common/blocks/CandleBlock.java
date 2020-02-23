@@ -36,12 +36,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @SuppressWarnings("deprecation")
 public class CandleBlock extends FallingBlock implements IWaterLoggable {
-	public static final IntegerProperty CANDLES 		= BlockStateUtils.CANDLES_1_4;
-	public static final BooleanProperty WATERLOGGED 	= BlockStateProperties.WATERLOGGED;
+	public static final IntegerProperty CANDLES 	= BlockStateUtils.CANDLES_1_4;
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 	
-	protected static final VoxelShape ONE_SHAPE 		= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
-	protected static final VoxelShape TWO_SHAPE 		= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
+	protected static final VoxelShape ONE_SHAPE 	= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
+	protected static final VoxelShape TWO_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 	protected static final VoxelShape THREE_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 	protected static final VoxelShape FOUR_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 	
