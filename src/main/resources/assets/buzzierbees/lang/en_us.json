@@ -334,11 +334,5 @@
 	"advancements.husbandry.honey_bread.description": "Use Honey Bread to cure Hunger",
 	
 	"advancements.nether.use_cure.title": "Cured Honey",
-	"advancements.nether.use_cure.description": "Use a Cure",
-	
-	"biome.buzzierbees.golden_fields": "Golden Fields",
-	"biome.buzzierbees.scarlet_hills": "Scarlet Hills",
-	"biome.buzzierbees.lavender_grove": "Lavender Grove",
-	"biome.buzzierbees.silver_plains": "Silver Plains",
-	"biome.buzzierbees.sapphire_cliffs": "Sapphire Cliffs"
+	"advancements.nether.use_cure.description": "Use a Cure"
 }

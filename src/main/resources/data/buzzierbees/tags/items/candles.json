@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "buzzierbees:candle",
-    "#buzzierbees:dyed_candles",
-    "#buzzierbees:flamboyant_candles"
+    "#buzzierbees:dyed_candles"
   ]
 }
