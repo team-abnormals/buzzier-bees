@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/poppy_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/poppy_scented_candle"
+    }
 }

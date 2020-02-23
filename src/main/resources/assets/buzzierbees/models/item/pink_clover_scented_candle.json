@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/pink_clover_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/pink_clover_scented_candle"
+    }
 }

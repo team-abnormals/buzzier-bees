@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/cartwheel_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/cartwheel_scented_candle"
+    }
 }

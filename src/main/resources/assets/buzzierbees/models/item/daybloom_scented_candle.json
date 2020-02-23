@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/daybloom_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/daybloom_scented_candle"
+    }
 }

@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/wither_rose_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/wither_rose_scented_candle"
+    }
 }

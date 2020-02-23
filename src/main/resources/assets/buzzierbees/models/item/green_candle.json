@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/green_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/green_candle"
+    }
 }

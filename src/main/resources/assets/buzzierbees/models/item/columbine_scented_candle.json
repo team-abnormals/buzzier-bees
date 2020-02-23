@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/columbine_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/columbine_scented_candle"
+    }
 }

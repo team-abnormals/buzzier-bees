@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/cornflower_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/cornflower_scented_candle"
+    }
 }

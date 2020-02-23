@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/lily_of_the_valley_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/lily_of_the_valley_scented_candle"
+    }
 }

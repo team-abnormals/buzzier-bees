@@ -1,3 +1,6 @@
 {
-    "parent": "buzzierbees:block/azure_bluet_scented_candle"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzierbees:item/azure_bluet_scented_candle"
+    }
 }
