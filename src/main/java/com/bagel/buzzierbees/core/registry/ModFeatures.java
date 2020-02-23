@@ -43,7 +43,7 @@ public class ModFeatures {
 			registerFlowerFeature(ModBlocks.PINK_CLOVER.get().getDefaultState(), "pink_clover_feature", forests, 3);
 		}
 		
-		for (Biome dark_forests : new Biome[] { Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS, Biomes.FLOWER_FOREST}) {
+		for (Biome dark_forests : new Biome[] { Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS}) {
 			registerFlowerFeature(ModBlocks.BLUEBELL.get().getDefaultState(), "bluebell_feature", dark_forests, 3);
 		}
 
@@ -51,7 +51,7 @@ public class ModFeatures {
 			registerFlowerFeature(ModBlocks.COLUMBINE.get().getDefaultState(), "columbine_feature", mountains, 4);
 		}
 		
-		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.FLOWER_FOREST, Biomes.TAIGA_MOUNTAINS}) {
+		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.TAIGA_MOUNTAINS}) {
 			registerFlowerFeature(ModBlocks.VIOLET.get().getDefaultState(), "violet_feature", taigas, 4);
 		}
 
