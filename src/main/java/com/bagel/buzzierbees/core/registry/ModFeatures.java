@@ -1,5 +1,7 @@
 package com.bagel.buzzierbees.core.registry;
 
+import java.util.Random;
+
 import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.google.common.collect.ImmutableList;
 
@@ -33,7 +35,8 @@ public class ModFeatures {
 	@SubscribeEvent
 	public static void registerFeatures(RegistryEvent.Register<Item> event)
 	{
-		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState().with(CartwheelBlock.FACING, Direction.NORTH), 		"cartwheel_feature", 	Biomes.FLOWER_FOREST,		5);
+		Random rand = new Random();
+		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState().with(CartwheelBlock.FACING, Direction.Plane.HORIZONTAL.random(rand)), 		"cartwheel_feature", 	Biomes.FLOWER_FOREST,		5);
 		registerFlowerFeature(ModBlocks.DAYBLOOM.get().getDefaultState(), 		"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS,	4);
 		registerFlowerFeature(ModBlocks.JOLYCE.get().getDefaultState(), 		"jolyce_feature", 		Biomes.SWAMP,				5);
 		registerFlowerFeature(ModBlocks.WHITE_CLOVER.get().getDefaultState(),	"white_clover_feature", 	Biomes.FOREST,				3);
