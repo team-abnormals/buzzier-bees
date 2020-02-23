@@ -13,10 +13,7 @@ import net.minecraftforge.fml.config.ModConfig;
 @EventBusSubscriber(bus = Bus.MOD)
 public final class BuzzierBeesCommonConfig {
     public static boolean spawnHoneySlimes = true;
-    public static boolean coloredFlowerForests = false;
-
     private static BooleanValue spawnHoneySlimesCfg;
-    private static BooleanValue coloredFlowerForestsCfg;
 
     public static final ForgeConfigSpec spec;
 
@@ -27,12 +24,10 @@ public final class BuzzierBeesCommonConfig {
 
     private BuzzierBeesCommonConfig(ForgeConfigSpec.Builder builder) {
     	spawnHoneySlimesCfg = builder.define("spawnHoneySlimes", spawnHoneySlimes);
-    	coloredFlowerForestsCfg = builder.define("coloredFlowerForests", coloredFlowerForests);
     }
 
     public static void refresh() {
     	spawnHoneySlimes = spawnHoneySlimesCfg.get();
-    	coloredFlowerForests = coloredFlowerForestsCfg.get();
     }
 
     @SubscribeEvent

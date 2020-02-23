@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.bagel.buzzierbees.core.registry.ModBiomes;
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.ModData;
 import com.bagel.buzzierbees.core.registry.ModEffects;
@@ -49,7 +48,6 @@ public class BuzzierBees
     	ModEffects.POTIONS.register(modEventBus);
     	ModBlocks.BLOCKS.register(modEventBus);
     	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
-    	ModBiomes.BIOMES.register(modEventBus);
 
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
@@ -75,7 +73,6 @@ public class BuzzierBees
     	ModData.registerFlammables();
     	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {ModEntities.addEntitySpawns();}
         ModEffects.addBrewingRecipes();
-        if (BuzzierBeesCommonConfig.coloredFlowerForests) {ModBiomes.registerBiomesToDictionary();}
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
