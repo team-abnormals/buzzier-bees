@@ -4,8 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.registry.ModBlocks;
-import com.bagel.buzzierbees.core.registry.ModItems;
 import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
 
 import net.minecraft.block.Block;
@@ -14,12 +12,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.BooleanProperty;
@@ -28,11 +23,8 @@ import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -75,6 +67,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 		}
 	}
 	
+	/*
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		int candles = state.get(CANDLES);
@@ -93,7 +86,6 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	}
 	
 	public BlockState candleOutput(Item item, Block block) {
-		if (item == Items.POPPED_CHORUS_FRUIT && block == ModBlocks.CANDLE.get()) { return ModBlocks.SCENTED_CANDLE.get().getDefaultState(); }
 		if (item == ModItems.WAX.get()) { return ModBlocks.CANDLE.get().getDefaultState(); }
 		if (item == Items.WHITE_DYE) { return ModBlocks.WHITE_CANDLE.get().getDefaultState(); }
 		if (item == Items.ORANGE_DYE) { return ModBlocks.ORANGE_CANDLE.get().getDefaultState(); }
@@ -112,7 +104,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 		if (item == Items.RED_DYE) { return ModBlocks.RED_CANDLE.get().getDefaultState(); }
 		if (item == Items.BLACK_DYE) { return ModBlocks.BLACK_CANDLE.get().getDefaultState(); }
 		return null;
-	}
+	}*/
 	
 	private boolean isInBadEnvironment(BlockState state) {
 		return state.get(WATERLOGGED);	

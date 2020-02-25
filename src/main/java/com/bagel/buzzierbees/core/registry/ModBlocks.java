@@ -7,7 +7,6 @@ import com.bagel.buzzierbees.common.blocks.CrystallizedHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyLamp;
 import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
-import com.bagel.buzzierbees.common.blocks.UnscentedCandleBlock;
 import com.bagel.buzzierbees.common.blocks.VerticalSlabBlock;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.registry.util.PropertyUtils;
@@ -125,9 +124,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> GREEN_CANDLE 		= RegistryUtils.createBlock("green_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> RED_CANDLE 		= RegistryUtils.createBlock("red_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLACK_CANDLE 		= RegistryUtils.createBlock("black_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	
-	public static final RegistryObject<Block> SCENTED_CANDLE 	= RegistryUtils.createBlock("scented_candle", () -> new UnscentedCandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	
+		
 	public static final RegistryObject<Block> ALLIUM_SCENTED_CANDLE             = RegistryUtils.createBlock("allium_scented_candle", () -> new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> AZURE_BLUET_SCENTED_CANDLE        = RegistryUtils.createBlock("azure_bluet_scented_candle", () -> new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUE_ORCHID_SCENTED_CANDLE        = RegistryUtils.createBlock("blue_orchid_scented_candle", () -> new ScentedCandleBlock(Effects.SATURATION,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
