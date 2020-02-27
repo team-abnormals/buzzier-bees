@@ -5,11 +5,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.bagel.buzzierbees.common.blocks.CandleBlock;
 import com.bagel.buzzierbees.core.registry.ModBlocks;
 import com.bagel.buzzierbees.core.registry.ModData;
 import com.bagel.buzzierbees.core.registry.ModEffects;
 import com.bagel.buzzierbees.core.registry.ModEntities;
+import com.bagel.buzzierbees.core.registry.ModFeatures;
 import com.bagel.buzzierbees.core.registry.ModItems;
+import com.bagel.buzzierbees.core.registry.ModTags;
 import com.bagel.buzzierbees.core.registry.ModTileEntities;
 import com.bagel.buzzierbees.core.registry.util.BuzzierBeesCommonConfig;
 import com.google.common.collect.ImmutableList;
@@ -18,10 +21,15 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.FallingBlockEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -63,6 +71,7 @@ public class BuzzierBees
     	BuzzierBeesCommonConfig.refresh();
 		ModBlocks.setupRenderLayer();
 		ModEntities.registerRendering();
+		ModFeatures.addFeatures();
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 	}
     
@@ -110,4 +119,14 @@ public class BuzzierBees
     	ModBlocks.DARK_OAK_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	PointOfInterestType.field_221073_u.putAll(pointOfInterestTypeMap);
 	}
+    
+    @SubscribeEvent
+    public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
+    	Entity entity = event.getEntity();
+    	if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(ModTags.CANDLES)) {
+    		event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
+    		.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
+    		.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
+    	}
+    }
 }

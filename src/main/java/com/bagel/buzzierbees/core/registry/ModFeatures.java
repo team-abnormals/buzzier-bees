@@ -4,10 +4,8 @@ import java.util.Random;
 
 import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.google.common.collect.ImmutableList;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -21,60 +19,65 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModFeatures {
 	public static final DefaultFlowersFeature DEFAULT_FLOWERS_FEATURE = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
-
-	public static DefaultFlowersFeature PINK_CLOVER_FEATURE;
-	public static DefaultFlowersFeature WHITE_CLOVER_FEATURE;
-
-	@SubscribeEvent
-	public static void registerFeatures(RegistryEvent.Register<Item> event)
-	{
-		Random rand = new Random();
-		registerFlowerFeature(ModBlocks.CARTWHEEL.get().getDefaultState().with(CartwheelBlock.FACING, Direction.Plane.HORIZONTAL.random(rand)), 		"cartwheel_feature", 	Biomes.FLOWER_FOREST,		5);
-		registerFlowerFeature(ModBlocks.DAYBLOOM.get().getDefaultState(), 		"daybloom_feature", 		Biomes.SUNFLOWER_PLAINS,	4);
-		registerFlowerFeature(ModBlocks.JOLYCE.get().getDefaultState(), 		"jolyce_feature", 		Biomes.SWAMP,				5);
-		registerFlowerFeature(ModBlocks.WHITE_CLOVER.get().getDefaultState(),	"white_clover_feature", 	Biomes.FOREST,				3);
-		
-		//TODO: Proper Clover Patch generation
-		for (Biome forests : new Biome[] { Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.FLOWER_FOREST, Biomes.TALL_BIRCH_FOREST}) {
-			registerFlowerFeature(ModBlocks.PINK_CLOVER.get().getDefaultState(), "pink_clover_feature", forests, 3);
-		}
-		
-		for (Biome dark_forests : new Biome[] { Biomes.DARK_FOREST, Biomes.DARK_FOREST_HILLS}) {
-			registerFlowerFeature(ModBlocks.BLUEBELL.get().getDefaultState(), "bluebell_feature", dark_forests, 3);
-		}
-
-		for (Biome mountains : new Biome[] { Biomes.MOUNTAINS, Biomes.GRAVELLY_MOUNTAINS, Biomes.MODIFIED_GRAVELLY_MOUNTAINS }) {
-			registerFlowerFeature(ModBlocks.COLUMBINE.get().getDefaultState(), "columbine_feature", mountains, 4);
-		}
-		
-		for (Biome taigas : new Biome[] { Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.TAIGA, Biomes.TAIGA_MOUNTAINS}) {
-			registerFlowerFeature(ModBlocks.VIOLET.get().getDefaultState(), "violet_feature", taigas, 4);
-		}
-
-		for (Biome savannah : new Biome[] { Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.SHATTERED_SAVANNA, Biomes.SHATTERED_SAVANNA_PLATEAU}) {
-			registerFlowerFeature(Blocks.ALLIUM.getDefaultState(), "allium_feature", savannah, 4);
-		}
-		
-		for (Biome jungles : new Biome[] { Biomes.JUNGLE, Biomes.MODIFIED_JUNGLE, Biomes.JUNGLE_HILLS }) {
-			registerDoubleFlowersFeature(ModBlocks.BIRD_OF_PARADISE.get().getDefaultState(), "bird_of_paradise_feature", jungles, 5);
-		}		
-	}
 	
-	private static void registerFlowerFeature(BlockState blockState, String name, Biome biomeIn, int frequency)
+	private static void addShortFlower(BlockState blockState, Biome biomeIn, int frequency)
 	{
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).tries(32).build();
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, DEFAULT_FLOWERS_FEATURE.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
 	}
 	
-	public static void registerDoubleFlowersFeature(BlockState blockState, String name, Biome biomeIn, int frequency) {
+	public static void addDoubleFlower(BlockState blockState, Biome biomeIn, int frequency) {
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().build();
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(config)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(frequency))));
 	}
+	
+	public static void addFeatures() {
+        ForgeRegistries.BIOMES.getValues().forEach(ModFeatures::generate);
+    }
+
+    public static void generate(Biome biome) {
+    	Random rand = new Random();
+        if (biome.getCategory() == Biome.Category.JUNGLE) {
+			addDoubleFlower(ModBlocks.BIRD_OF_PARADISE.get().getDefaultState(), biome, 5);
+        }
+        else if (biome.getCategory() == Biome.Category.SWAMP) {
+        	addShortFlower(ModBlocks.JOLYCE.get().getDefaultState(), biome,	5);
+        }
+        else if (biome.getCategory() == Biome.Category.SAVANNA) {
+        	addShortFlower(Blocks.ALLIUM.getDefaultState(), biome, 4);
+        }
+        else if (biome.getCategory() == Biome.Category.TAIGA) {
+        	addShortFlower(ModBlocks.VIOLET.get().getDefaultState(), biome, 4);
+        }
+        else if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
+        	addShortFlower(ModBlocks.COLUMBINE.get().getDefaultState(), biome, 4);
+        }
+        else if (biome.getCategory() == Biome.Category.PLAINS) {
+        	if (biome == Biomes.SUNFLOWER_PLAINS) {
+        		addShortFlower(ModBlocks.DAYBLOOM.get().getDefaultState(), biome, 4);
+        	}
+        }
+        else if (biome.getCategory() == Biome.Category.FOREST) {
+            if (biome == Biomes.FLOWER_FOREST) {
+            	addShortFlower(ModBlocks.CARTWHEEL.get().getDefaultState().with(CartwheelBlock.FACING, Direction.Plane.HORIZONTAL.random(rand)), biome, 5);
+            	addShortFlower(ModBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
+            }
+            else if (biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) {
+            	addShortFlower(ModBlocks.BLUEBELL.get().getDefaultState(), biome, 3);
+            }
+            else if (biome == Biomes.BIRCH_FOREST || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS) {
+            	addShortFlower(ModBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
+            }
+            else {
+            	addShortFlower(ModBlocks.WHITE_CLOVER.get().getDefaultState(), biome, 3);
+            }
+        }
+    }
+	
 }
