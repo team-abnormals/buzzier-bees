@@ -109,11 +109,12 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	private boolean isInBadEnvironment(BlockState state) {
 		return state.get(WATERLOGGED);	
 	}
-	
+
+	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockState down = worldIn.getBlockState(pos.down());
-		return (down.isSolid() || down.isAir());
-	}
+		BlockPos blockpos = pos.down();
+	    return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos) || worldIn.getBlockState(blockpos).isAir();
+	 }
 	
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		return !state.getCollisionShape(worldIn, pos).project(Direction.UP).isEmpty();	
