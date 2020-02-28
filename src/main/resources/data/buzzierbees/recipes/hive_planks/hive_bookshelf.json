@@ -15,5 +15,16 @@
   },
   "result": {
     "item": "buzzierbees:hive_bookshelf"
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }

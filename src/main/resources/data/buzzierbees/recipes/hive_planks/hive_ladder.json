@@ -16,5 +16,16 @@
   "result": {
     "item": "buzzierbees:hive_ladder",
     "count": 3
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }

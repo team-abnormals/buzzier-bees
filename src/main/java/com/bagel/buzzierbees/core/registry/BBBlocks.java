@@ -30,11 +30,8 @@ import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effects;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -46,48 +43,36 @@ public class BBBlocks
 {
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, BuzzierBees.MODID);
 	
-	public static final RegistryObject<Block> WAX_BLOCK = RegistryUtils.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);
-	
 	public static final RegistryObject<Block> SPRUCE_BEEHIVE   = RegistryUtils.createBlock("spruce_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BIRCH_BEEHIVE    = RegistryUtils.createBlock("birch_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> JUNGLE_BEEHIVE   = RegistryUtils.createBlock("jungle_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ACACIA_BEEHIVE   = RegistryUtils.createBlock("acacia_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> DARK_OAK_BEEHIVE = RegistryUtils.createBlock("dark_oak_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	
-	//public static final RegistryObject<Block> SLIME_BLOCK         = RegistryUtils.createBlock("minecraft:slime_block", () -> new NewSlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.GRASS).slipperiness(0.8F).sound(SoundType.SLIME).func_226896_b_()), null);
-	//public static final RegistryObject<Block> HONEY_BLOCK         = RegistryUtils.createBlock("minecraft:honey_block", () -> new NewHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).func_226897_b_(0.4F).func_226898_c_(0.5F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
-	//public static final RegistryObject<Block> CLOVER_HONEY_BLOCK 	= RegistryUtils.createBlock("clover_honey_block", () -> new NewCloverHoneyBlock(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).slipperiness(0.75F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_), ItemGroup.DECORATIONS);
-	//public static final RegistryObject<Block> CLOVER_HONEY_BLOCK    = RegistryUtils.createBlock("clover_honey_block", () -> new Block(Block.Properties.create(Material.CLAY, MaterialColor.ADOBE).slipperiness(0.75F).func_226897_b_(0.0F).func_226898_c_(0.25F).func_226896_b_().sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
-	
-	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK        = RegistryUtils.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(Block.Properties.create(Material.CAKE).notSolid().slipperiness(0.98F).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), ItemGroup.DECORATIONS);
-	//public static final RegistryObject<Block> CRYSTALLIZED_CLOVER_HONEY_BLOCK = RegistryUtils.createBlock("crystallized_clover_honey_block", () -> new Block(Block.Properties.from(CRYSTALLIZED_HONEY_BLOCK.get())), null);
-	
+	public static final RegistryObject<Block> WAX_BLOCK 				= RegistryUtils.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK  = RegistryUtils.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(Block.Properties.create(Material.CAKE).notSolid().slipperiness(0.98F).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HONEY_LAMP 				= RegistryUtils.createBlock("honey_lamp", () -> new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
+
 	public static final RegistryObject<Block> HIVE_PLANKS          = RegistryUtils.createBlock("hive_planks", () -> new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS); 
-	public static final RegistryObject<Block> VERTICAL_HIVE_PLANKS = RegistryUtils.createBlockCompat("quark", "vertical_hive_planks", () -> new Block(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HIVE_STAIRS          = RegistryUtils.createBlock("hive_stairs", () -> new StairsBlock(HIVE_PLANKS.get().getDefaultState(), Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HIVE_SLAB            = RegistryUtils.createBlock("hive_slab", () -> new SlabBlock(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HIVE_VERTICAL_SLAB   = RegistryUtils.createBlockCompat("quark", "hive_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HIVE_FENCE           = RegistryUtils.createBlock("hive_fence", () -> new FenceBlock(Block.Properties.from(Blocks.OAK_FENCE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HIVE_PRESSURE_PLATE  = RegistryUtils.createBlock("hive_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(Blocks.OAK_PRESSURE_PLATE).doesNotBlockMovement()), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> HIVE_TRAPDOOR        = RegistryUtils.createBlock("hive_trapdoor", () -> new TrapDoorBlock(Block.Properties.from(Blocks.OAK_TRAPDOOR).notSolid()), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> HIVE_FENCE_GATE      = RegistryUtils.createBlock("hive_fence_gate", () -> new FenceGateBlock(Block.Properties.from(Blocks.OAK_FENCE_GATE)), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> HIVE_BUTTON          = RegistryUtils.createBlock("hive_button", () -> new WoodButtonBlock(Block.Properties.from(Blocks.OAK_BUTTON).doesNotBlockMovement()), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> HIVE_DOOR            = RegistryUtils.createBlock("hive_door", () -> new DoorBlock(Block.Properties.from(Blocks.OAK_DOOR).notSolid()), ItemGroup.REDSTONE);
-	
+	public static final RegistryObject<Block> VERTICAL_HIVE_PLANKS = RegistryUtils.createBlockCompat("quark", "vertical_hive_planks", () -> new Block(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HIVE_VERTICAL_SLAB   = RegistryUtils.createBlockCompat("quark", "hive_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HIVE_LADDER          = RegistryUtils.createBlockCompat("quark", "hive_ladder", () -> new LadderBlock(Block.Properties.from(Blocks.LADDER).notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HIVE_BOOKSHELF       = RegistryUtils.createBlockCompat("quark", "hive_bookshelf", () -> new BookshelfBlock(Block.Properties.from(Blocks.BOOKSHELF).notSolid()), ItemGroup.DECORATIONS);
-	
-	//public static final RegistryObject<Block> HIVE_SIGN          = ModUtils.createBlock("hive_sign", () -> new StandingSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), ModWoodType.HIVE_TYPE), null);
-	//public static final RegistryObject<Block> HIVE_WALL_SIGN     = ModUtils.createBlock("hive_wall_sign", () -> new WallSignBlock(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(HIVE_SIGN.get()), ModWoodType.HIVE_TYPE), null);
 	
 	public static final RegistryObject<Block> HONEY_BRICKS              = RegistryUtils.createBlock("honey_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEY_BRICK_STAIRS 	    = RegistryUtils.createBlock("honey_brick_stairs", () -> new StairsBlock(HONEY_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEY_BRICK_SLAB 	        = RegistryUtils.createBlock("honey_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEY_BRICK_VERTICAL_SLAB = RegistryUtils.createBlockCompat("quark", "honey_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEY_BRICK_WALL 	        = RegistryUtils.createBlock("honey_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
-	
-	public static final RegistryObject<Block> HONEY_LAMP = RegistryUtils.createBlock("honey_lamp", () -> new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
-	
+	public static final RegistryObject<Block> HONEY_BRICK_VERTICAL_SLAB = RegistryUtils.createBlockCompat("quark", "honey_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
+		
 	public static final RegistryObject<Block> CARTWHEEL 		= RegistryUtils.createBlock("cartwheel", () -> new CartwheelBlock(Effects.SPEED, 11, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUEBELL 			= RegistryUtils.createBlock("bluebell", () -> new FlowerBlock(Effects.WATER_BREATHING, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> DAYBLOOM 			= RegistryUtils.createBlock("daybloom", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
@@ -147,40 +132,6 @@ public class BBBlocks
 	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    = RegistryUtils.createBlock("columbine_scented_candle", () -> new ScentedCandleBlock(Effects.MINING_FATIGUE,  70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE = RegistryUtils.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(Effects.UNLUCK,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  = RegistryUtils.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(Effects.UNLUCK,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-
-	public static void setupRenderLayer()
-	{
-		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK.get(),RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_LAMP.get(),RenderType.getTranslucent());
-
-		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_DOOR.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_TRAPDOOR.get(),RenderType.getCutout());
-		if(ModList.get().isLoaded("quark")) {
-			RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_LADDER.get(),RenderType.getCutout());
-		}
-
-		//Flowers
-		RenderTypeLookup.setRenderLayer(BBBlocks.WHITE_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.PINK_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.CARTWHEEL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.VIOLET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.COLUMBINE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.JOLYCE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.BLUEBELL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.DAYBLOOM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.BIRD_OF_PARADISE.get(),RenderType.getCutoutMipped());
-
-		//Potted Flowers
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CARTWHEEL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_VIOLET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_COLUMBINE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_JOLYCE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BLUEBELL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_DAYBLOOM.get(),RenderType.getCutoutMipped());
-	}
 	
 	/*
 	public static final RegistryObject<Block> AMBER_CANDLE 		  = RegistryUtils.createBlockCompat("flamboyant", "amber_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);

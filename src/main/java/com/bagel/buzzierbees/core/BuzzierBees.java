@@ -39,13 +39,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod("buzzierbees")
 @EventBusSubscriber(modid = "buzzierbees")
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
-    //public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public BuzzierBees() {
     	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BuzzierBeesCommonConfig.spec);
@@ -69,10 +67,9 @@ public class BuzzierBees
     
     private void setupClient(final FMLClientSetupEvent event) {
     	BuzzierBeesCommonConfig.refresh();
-		BBBlocks.setupRenderLayer();
+		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
 		BBFeatures.addFeatures();
-		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 	}
     
     private void setup(final FMLCommonSetupEvent event)
@@ -80,8 +77,8 @@ public class BuzzierBees
     	BuzzierBeesCommonConfig.refresh();
     	BBBlockData.registerCompostables();
     	BBBlockData.registerFlammables();
-    	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {BBEntities.addEntitySpawns();}
-        BBEffects.addBrewingRecipes();
+    	BBEffects.addBrewingRecipes();
+    	BBEntities.addEntitySpawns();
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
@@ -112,6 +109,7 @@ public class BuzzierBees
     	PointOfInterestType.field_226356_s_.field_221075_w = NESTS;
     	
     	Map<BlockState,PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
+    	Blocks.BEEHIVE.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	BBBlocks.SPRUCE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	BBBlocks.BIRCH_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	BBBlocks.JUNGLE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));

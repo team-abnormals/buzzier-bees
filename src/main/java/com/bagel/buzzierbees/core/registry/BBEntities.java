@@ -5,6 +5,7 @@ import com.bagel.buzzierbees.client.render.HoneySlimeRenderer;
 import com.bagel.buzzierbees.common.entities.HiveBoatEntity;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
+import com.bagel.buzzierbees.core.config.BuzzierBeesCommonConfig;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
@@ -62,6 +63,6 @@ public class BBEntities
 		EntitySpawnPlacementRegistry.register(BBEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
 
 		//Spawn Registry
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(BBEntities.HONEY_SLIME, 8, 1, 2));
+		if (BuzzierBeesCommonConfig.spawnHoneySlimes) Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(BBEntities.HONEY_SLIME, 8, 1, 2));
 	}
 }

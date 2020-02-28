@@ -7,5 +7,16 @@
   ],
   "result": {
     "item": "buzzierbees:hive_planks"
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }

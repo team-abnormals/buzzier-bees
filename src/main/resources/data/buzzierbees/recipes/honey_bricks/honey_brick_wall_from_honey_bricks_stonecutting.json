@@ -4,5 +4,16 @@
     "item": "buzzierbees:honey_bricks"
   },
   "result": "buzzierbees:honey_brick_wall",
-  "count": 1
+  "count": 1,
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }

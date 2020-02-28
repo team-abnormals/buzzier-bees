@@ -1,4 +1,4 @@
-
+{
   "parent": "minecraft:nether/brew_potion",
   "display": {
     "icon": {
@@ -36,3 +36,4 @@
     "night_vision_cure", "invisibility_cure", "jump_boost_cure", "fire_resistance_cure", "speed_cure", "slowness_cure", 
     "water_breathing_cure", "poison_cure", "regeneration_cure", "strength_cure", "weakness_cure", "luck_cure", "unluck_cure", "slow_falling_cure"
    ] ]
+}

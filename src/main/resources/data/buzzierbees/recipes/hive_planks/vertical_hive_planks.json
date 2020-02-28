@@ -13,5 +13,16 @@
   "result": {
     "item": "buzzierbees:vertical_hive_planks",
     "count": 3
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }

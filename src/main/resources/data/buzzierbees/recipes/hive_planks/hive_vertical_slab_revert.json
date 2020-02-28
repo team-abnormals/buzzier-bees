@@ -11,5 +11,16 @@
   "result": {
     "item": "buzzierbees:hive_slab",
     "count": 1
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }
