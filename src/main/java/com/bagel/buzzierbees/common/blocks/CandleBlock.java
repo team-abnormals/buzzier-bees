@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
+import com.bagel.buzzierbees.core.util.BlockStateUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

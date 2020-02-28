@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.core.registry.ModItems;
+import com.bagel.buzzierbees.core.registry.BBItems;
 
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockState;
@@ -34,7 +34,7 @@ public class HoneyWandItem extends Item {
 					if (!world.isRemote) {
 						world.setBlockState(blockpos, blockstate2, 11);
 						if (player != null && player instanceof PlayerEntity && !((PlayerEntity)player).abilities.isCreativeMode) {
-							context.getPlayer().setHeldItem(context.getHand(), new ItemStack(ModItems.STICKY_HONEY_WAND.get()));
+							context.getPlayer().setHeldItem(context.getHand(), new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
 							//context.getItem().damageItem(1, playerentity, (p_220040_1_) -> {p_220040_1_.sendBreakAnimation(context.getHand());});
 							}
 						}

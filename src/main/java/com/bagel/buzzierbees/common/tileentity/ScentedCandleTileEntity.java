@@ -1,7 +1,7 @@
 package com.bagel.buzzierbees.common.tileentity;
 
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
-import com.bagel.buzzierbees.core.registry.ModTileEntities;
+import com.bagel.buzzierbees.core.registry.BBTileEntities;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ObjectHolder;
 public class ScentedCandleTileEntity extends TileEntity implements ITickableTileEntity {
 
     public ScentedCandleTileEntity() {
-		super(ModTileEntities.SCENTED_CANDLE.get());
+		super(BBTileEntities.SCENTED_CANDLE.get());
 	}
 
     @Override

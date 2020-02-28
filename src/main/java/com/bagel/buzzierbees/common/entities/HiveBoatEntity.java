@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.registry.ModBlocks;
-import com.bagel.buzzierbees.core.registry.ModEntities;
-import com.bagel.buzzierbees.core.registry.ModItems;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
+import com.bagel.buzzierbees.core.registry.BBEntities;
+import com.bagel.buzzierbees.core.registry.BBItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -89,7 +89,7 @@ public class HiveBoatEntity extends Entity {
    }
 
    public HiveBoatEntity(World worldIn, double x, double y, double z) {
-      this(ModEntities.BOAT, worldIn);
+      this(BBEntities.BOAT, worldIn);
       this.setPosition(x, y, z);
       this.setMotion(Vec3d.ZERO);
       this.prevPosX = x;
@@ -187,7 +187,7 @@ public class HiveBoatEntity extends Entity {
       switch(this.getBoatType()) {
       case HIVE:
       default:
-         return ModItems.BEE_SOUP.get();
+         return BBItems.BEE_SOUP.get();
       }
    }
 
@@ -790,7 +790,7 @@ public class HiveBoatEntity extends Entity {
    }
 
    public static enum Type {
-      HIVE(ModBlocks.HIVE_PLANKS.get(), "hive");
+      HIVE(BBBlocks.HIVE_PLANKS.get(), "hive");
 
       private final String name;
       private final Block block;

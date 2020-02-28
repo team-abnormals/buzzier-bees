@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.core.registry.ModItems;
+import com.bagel.buzzierbees.core.registry.BBItems;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
@@ -54,7 +54,7 @@ public class StickyHoneyWandItem extends Item {
 				entityLiving.removePotionEffect(Effects.POISON);
 			}
 			if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode){
-				return new ItemStack(ModItems.HONEY_WAND.get());
+				return new ItemStack(BBItems.HONEY_WAND.get());
 			}
 		return stack;
 	}
@@ -63,7 +63,7 @@ public class StickyHoneyWandItem extends Item {
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		target.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 160, 4, true, true));
 		if (attacker instanceof PlayerEntity && !((PlayerEntity)attacker).abilities.isCreativeMode){
-			attacker.setHeldItem(attacker.getActiveHand(), new ItemStack(ModItems.HONEY_WAND.get()));
+			attacker.setHeldItem(attacker.getActiveHand(), new ItemStack(BBItems.HONEY_WAND.get()));
 		}
 			//stack.damageItem(1, attacker, (p_220048_0_) -> { p_220048_0_.sendBreakAnimatison(EquipmentSlotType.MAINHAND);});
 		return true;

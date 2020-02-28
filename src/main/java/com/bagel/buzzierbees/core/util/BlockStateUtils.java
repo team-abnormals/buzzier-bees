@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.core.registry.util;
+package com.bagel.buzzierbees.core.util;
 
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;

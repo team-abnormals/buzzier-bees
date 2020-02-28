@@ -1,7 +1,7 @@
 package com.bagel.buzzierbees.common.items;
 
 import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
-import com.bagel.buzzierbees.core.registry.ModBlocks;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -29,7 +29,7 @@ public class CartwheelItem extends BlockItem {
 		
 		if (blockstate.getBlock() == Blocks.FLOWER_POT) {
 			if (!world.isRemote) {
-				world.setBlockState(context.getPos(), ModBlocks.POTTED_CARTWHEEL.get().getDefaultState().with(PottedCartwheelBlock.FACING, context.getPlacementHorizontalFacing().getOpposite()), 11);
+				world.setBlockState(context.getPos(), BBBlocks.POTTED_CARTWHEEL.get().getDefaultState().with(PottedCartwheelBlock.FACING, context.getPlacementHorizontalFacing().getOpposite()), 11);
 				context.getItem().shrink(1);	
 			}
 			

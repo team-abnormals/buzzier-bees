@@ -9,8 +9,8 @@ import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
 import com.bagel.buzzierbees.common.blocks.VerticalSlabBlock;
 import com.bagel.buzzierbees.core.BuzzierBees;
-import com.bagel.buzzierbees.core.registry.util.PropertyUtils;
-import com.bagel.buzzierbees.core.registry.util.RegistryUtils;
+import com.bagel.buzzierbees.core.util.PropertyUtils;
+import com.bagel.buzzierbees.core.util.RegistryUtils;
 
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Block;
@@ -42,7 +42,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @SuppressWarnings("deprecation")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModBlocks
+public class BBBlocks
 {
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, BuzzierBees.MODID);
 	
@@ -151,35 +151,35 @@ public class ModBlocks
 	public static void setupRenderLayer()
 	{
 		//RenderTypeLookup.setRenderLayer(ModBlocks.CLOVER_HONEY_BLOCK.get(),RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HONEY_LAMP.get(),RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_LAMP.get(),RenderType.getTranslucent());
 
 		//Doors and Trapdoors
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_DOOR.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_TRAPDOOR.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_DOOR.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_TRAPDOOR.get(),RenderType.getCutout());
 		if(ModList.get().isLoaded("quark")) {
-			RenderTypeLookup.setRenderLayer(ModBlocks.HIVE_LADDER.get(),RenderType.getCutout());
+			RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_LADDER.get(),RenderType.getCutout());
 		}
 
 		//Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.WHITE_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.PINK_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.CARTWHEEL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.VIOLET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.COLUMBINE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.JOLYCE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBELL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.DAYBLOOM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.BIRD_OF_PARADISE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.WHITE_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.PINK_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.CARTWHEEL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.VIOLET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.COLUMBINE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.JOLYCE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.BLUEBELL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.DAYBLOOM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.BIRD_OF_PARADISE.get(),RenderType.getCutoutMipped());
 
 		//Potted Flowers
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_WHITE_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_PINK_CLOVER.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CARTWHEEL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_VIOLET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_COLUMBINE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_JOLYCE.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_BLUEBELL.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_DAYBLOOM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_CLOVER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CARTWHEEL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_VIOLET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_COLUMBINE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_JOLYCE.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BLUEBELL.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_DAYBLOOM.get(),RenderType.getCutoutMipped());
 	}
 	
 	/*

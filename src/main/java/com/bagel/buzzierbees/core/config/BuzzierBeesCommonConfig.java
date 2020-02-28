@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.core.registry.util;
+package com.bagel.buzzierbees.core.config;
 
 import org.apache.commons.lang3.tuple.Pair;
 

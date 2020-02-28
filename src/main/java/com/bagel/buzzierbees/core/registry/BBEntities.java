@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModEntities
+public class BBEntities
 {
 	public static EntityType<HoneySlimeEntity>  HONEY_SLIME;
 	public static EntityType<HiveBoatEntity>        BOAT;
@@ -31,10 +31,10 @@ public class ModEntities
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
     {
-        ModEntities.HONEY_SLIME = EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.CREATURE).size(1.02F, 1.02F).build("buzzierbees:honey_slime");
-        ModEntities.HONEY_SLIME.setRegistryName("honey_slime");
+        BBEntities.HONEY_SLIME = EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.CREATURE).size(1.02F, 1.02F).build("buzzierbees:honey_slime");
+        BBEntities.HONEY_SLIME.setRegistryName("honey_slime");
 
-        ForgeRegistries.ENTITIES.register(ModEntities.HONEY_SLIME);
+        ForgeRegistries.ENTITIES.register(BBEntities.HONEY_SLIME);
         
         BOAT = EntityType.Builder.<HiveBoatEntity>create(HiveBoatEntity::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).build(BuzzierBees.MODID + ":boat");
         BOAT.setRegistryName("boat");
@@ -53,15 +53,15 @@ public class ModEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)ModEntities.HONEY_SLIME, HoneySlimeRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HiveBoatEntity>)ModEntities.BOAT, HiveBoatRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)BBEntities.HONEY_SLIME, HoneySlimeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HiveBoatEntity>)BBEntities.BOAT, HiveBoatRenderer::new);
     }
     
     public static void addEntitySpawns() {
     	//Condition Registry
-		EntitySpawnPlacementRegistry.register(ModEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
+		EntitySpawnPlacementRegistry.register(BBEntities.HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
 
 		//Spawn Registry
-		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(ModEntities.HONEY_SLIME, 8, 1, 2));
+		Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(BBEntities.HONEY_SLIME, 8, 1, 2));
 	}
 }

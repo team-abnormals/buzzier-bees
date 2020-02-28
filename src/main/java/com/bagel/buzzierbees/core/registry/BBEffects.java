@@ -20,7 +20,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModEffects {
+public class BBEffects {
 	public static final DeferredRegister<Effect> EFFECTS = new DeferredRegister<>(ForgeRegistries.POTIONS, BuzzierBees.MODID);
 	public static final DeferredRegister<Potion> POTIONS = new DeferredRegister<>(ForgeRegistries.POTION_TYPES, BuzzierBees.MODID);
    
@@ -86,7 +86,7 @@ public class ModEffects {
 				Ingredient.fromItems(Items.FERMENTED_SPIDER_EYE),
 				weakCure);
 
-		PotionBrewing.addMix(Potions.AWKWARD, ModItems.FOUR_LEAF_CLOVER.get(), Potions.LUCK);
+		PotionBrewing.addMix(Potions.AWKWARD, BBItems.FOUR_LEAF_CLOVER.get(), Potions.LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, LONG_LUCK.get());
 		PotionBrewing.addMix(Potions.LUCK, Items.GLOWSTONE_DUST, STRONG_LUCK.get());
 		PotionBrewing.addMix(Potions.LUCK, Items.FERMENTED_SPIDER_EYE, UNLUCK.get());
@@ -113,7 +113,7 @@ public class ModEffects {
 		PotionBrewing.addMix(PLACEBO.get(), Items.BLAZE_POWDER, STRENGTH_CURE.get());
 		PotionBrewing.addMix(PLACEBO.get(), Items.PHANTOM_MEMBRANE, SLOW_FALLING_CURE.get());
 		PotionBrewing.addMix(PLACEBO.get(), Items.SPIDER_EYE, POISON_CURE.get());
-		PotionBrewing.addMix(PLACEBO.get(), ModItems.FOUR_LEAF_CLOVER.get(), LUCK_CURE.get());
+		PotionBrewing.addMix(PLACEBO.get(), BBItems.FOUR_LEAF_CLOVER.get(), LUCK_CURE.get());
 		PotionBrewing.addMix(LUCK_CURE.get(), Items.FERMENTED_SPIDER_EYE, UNLUCK_CURE.get());
 	}
 

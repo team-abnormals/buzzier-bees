@@ -2,7 +2,7 @@ package com.bagel.buzzierbees.common.blocks;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.registry.ModTileEntities;
+import com.bagel.buzzierbees.core.registry.BBTileEntities;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -36,7 +36,7 @@ public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
    @Nullable
    @Override
    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-	   return ModTileEntities.SCENTED_CANDLE.get().create();
+	   return BBTileEntities.SCENTED_CANDLE.get().create();
    }
    
    @Override

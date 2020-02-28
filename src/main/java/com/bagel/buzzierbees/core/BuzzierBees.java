@@ -6,15 +6,15 @@ import java.util.Map;
 import java.util.Set;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
-import com.bagel.buzzierbees.core.registry.ModBlocks;
-import com.bagel.buzzierbees.core.registry.ModData;
-import com.bagel.buzzierbees.core.registry.ModEffects;
-import com.bagel.buzzierbees.core.registry.ModEntities;
-import com.bagel.buzzierbees.core.registry.ModFeatures;
-import com.bagel.buzzierbees.core.registry.ModItems;
-import com.bagel.buzzierbees.core.registry.ModTags;
-import com.bagel.buzzierbees.core.registry.ModTileEntities;
-import com.bagel.buzzierbees.core.registry.util.BuzzierBeesCommonConfig;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
+import com.bagel.buzzierbees.core.config.BuzzierBeesCommonConfig;
+import com.bagel.buzzierbees.core.registry.BBBlockData;
+import com.bagel.buzzierbees.core.registry.BBEffects;
+import com.bagel.buzzierbees.core.registry.BBEntities;
+import com.bagel.buzzierbees.core.registry.BBFeatures;
+import com.bagel.buzzierbees.core.registry.BBItems;
+import com.bagel.buzzierbees.core.registry.BBTags;
+import com.bagel.buzzierbees.core.registry.BBTileEntities;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
@@ -51,11 +51,11 @@ public class BuzzierBees
     	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BuzzierBeesCommonConfig.spec);
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
-    	ModItems.ITEMS.register(modEventBus);
-    	ModEffects.EFFECTS.register(modEventBus);
-    	ModEffects.POTIONS.register(modEventBus);
-    	ModBlocks.BLOCKS.register(modEventBus);
-    	ModTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
+    	BBItems.ITEMS.register(modEventBus);
+    	BBEffects.EFFECTS.register(modEventBus);
+    	BBEffects.POTIONS.register(modEventBus);
+    	BBBlocks.BLOCKS.register(modEventBus);
+    	BBTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
@@ -69,30 +69,30 @@ public class BuzzierBees
     
     private void setupClient(final FMLClientSetupEvent event) {
     	BuzzierBeesCommonConfig.refresh();
-		ModBlocks.setupRenderLayer();
-		ModEntities.registerRendering();
-		ModFeatures.addFeatures();
+		BBBlocks.setupRenderLayer();
+		BBEntities.registerRendering();
+		BBFeatures.addFeatures();
 		//TileEntityRendererDispatcher.instance.func_228854_a_(ModTileEntities.PISTON.get(), new NewPistonTileEntityRenderer(TileEntityRendererDispatcher.instance));
 	}
     
     private void setup(final FMLCommonSetupEvent event)
     {
     	BuzzierBeesCommonConfig.refresh();
-    	ModData.registerCompostables();
-    	ModData.registerFlammables();
-    	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {ModEntities.addEntitySpawns();}
-        ModEffects.addBrewingRecipes();
+    	BBBlockData.registerCompostables();
+    	BBBlockData.registerFlammables();
+    	if (BuzzierBeesCommonConfig.spawnHoneySlimes) {BBEntities.addEntitySpawns();}
+        BBEffects.addBrewingRecipes();
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
 				Blocks.BEEHIVE,
-				ModBlocks.ACACIA_BEEHIVE.get(),
-				ModBlocks.BIRCH_BEEHIVE.get(),
-				ModBlocks.SPRUCE_BEEHIVE.get(),
-				ModBlocks.DARK_OAK_BEEHIVE.get(),
-				ModBlocks.JUNGLE_BEEHIVE.get());
+				BBBlocks.ACACIA_BEEHIVE.get(),
+				BBBlocks.BIRCH_BEEHIVE.get(),
+				BBBlocks.SPRUCE_BEEHIVE.get(),
+				BBBlocks.DARK_OAK_BEEHIVE.get(),
+				BBBlocks.JUNGLE_BEEHIVE.get());
     	
     	Set<Block> newSet = new HashSet<>(TileEntityType.field_226985_G_.validBlocks);
     	newSet.addAll(BEEHIVES);
@@ -100,11 +100,11 @@ public class BuzzierBees
     	
     	final Set<BlockState> NESTS = ImmutableList.of(
 				Blocks.BEEHIVE,
-				ModBlocks.ACACIA_BEEHIVE.get(),
-				ModBlocks.BIRCH_BEEHIVE.get(),
-				ModBlocks.SPRUCE_BEEHIVE.get(),
-				ModBlocks.DARK_OAK_BEEHIVE.get(),
-				ModBlocks.JUNGLE_BEEHIVE.get())
+				BBBlocks.ACACIA_BEEHIVE.get(),
+				BBBlocks.BIRCH_BEEHIVE.get(),
+				BBBlocks.SPRUCE_BEEHIVE.get(),
+				BBBlocks.DARK_OAK_BEEHIVE.get(),
+				BBBlocks.JUNGLE_BEEHIVE.get())
 				.stream().flatMap((p_221043_0_) -> {
 					return p_221043_0_.getStateContainer().getValidStates().stream();
 				}).collect(ImmutableSet.toImmutableSet());
@@ -112,18 +112,18 @@ public class BuzzierBees
     	PointOfInterestType.field_226356_s_.field_221075_w = NESTS;
     	
     	Map<BlockState,PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
-    	ModBlocks.SPRUCE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.BIRCH_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.JUNGLE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.ACACIA_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
-    	ModBlocks.DARK_OAK_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	BBBlocks.SPRUCE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	BBBlocks.BIRCH_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	BBBlocks.JUNGLE_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	BBBlocks.ACACIA_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	BBBlocks.DARK_OAK_BEEHIVE.get().getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     	PointOfInterestType.field_221073_u.putAll(pointOfInterestTypeMap);
 	}
     
     @SubscribeEvent
     public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
     	Entity entity = event.getEntity();
-    	if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(ModTags.CANDLES)) {
+    	if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(BBTags.CANDLES)) {
     		event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
     		.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
     		.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));

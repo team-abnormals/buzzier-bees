@@ -26,8 +26,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-import com.bagel.buzzierbees.core.registry.ModBlocks;
-import com.bagel.buzzierbees.core.registry.util.BlockStateUtils;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
+import com.bagel.buzzierbees.core.util.BlockStateUtils;
 //with(PATCH, Boolean.valueOf(true)
 public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
     public static final BooleanProperty FLOWER = BlockStateUtils.FLOWER;
@@ -86,7 +86,7 @@ public class CloverBlock extends FlowerBlock implements IGrowable, IBlockColor {
               itemstack.damageItem(1, entity, (p_226874_1_) -> {
                  p_226874_1_.sendBreakAnimation(hand);
               });
-              worldIn.setBlockState(pos, ModBlocks.PINK_CLOVER.get().getDefaultState());
+              worldIn.setBlockState(pos, BBBlocks.PINK_CLOVER.get().getDefaultState());
               return ActionResultType.SUCCESS;
            }
         }

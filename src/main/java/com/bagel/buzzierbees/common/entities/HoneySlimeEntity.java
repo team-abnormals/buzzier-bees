@@ -2,8 +2,8 @@ package com.bagel.buzzierbees.common.entities;
 
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
 import com.bagel.buzzierbees.common.entities.goals.*;
-import com.bagel.buzzierbees.core.registry.ModEntities;
-import com.bagel.buzzierbees.core.registry.ModItems;
+import com.bagel.buzzierbees.core.registry.BBEntities;
+import com.bagel.buzzierbees.core.registry.BBItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
@@ -69,7 +69,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
    @Override
    public ItemStack getPickedResult(RayTraceResult target) {
-      return new ItemStack(ModItems.HONEY_SLIME_SPAWN_EGG.get());
+      return new ItemStack(BBItems.HONEY_SLIME_SPAWN_EGG.get());
    }
 
    protected void registerAttributes() {
@@ -158,10 +158,10 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
             return true;
          }
          //Wanding
-         else if (itemstack.getItem() == ModItems.HONEY_WAND.get()) {
+         else if (itemstack.getItem() == BBItems.HONEY_WAND.get()) {
             world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226139_eT_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             if (!player.abilities.isCreativeMode) {
-               player.setHeldItem(hand, new ItemStack(ModItems.STICKY_HONEY_WAND.get()));
+               player.setHeldItem(hand, new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
             }
             getHoneyFromSlime(this);
             return true;
@@ -223,7 +223,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    @Nullable
    @Override
    public AgeableEntity createChild(AgeableEntity ageable) {
-      HoneySlimeEntity childHoneySlimeEntity = ModEntities.HONEY_SLIME.create(this.world);
+      HoneySlimeEntity childHoneySlimeEntity = BBEntities.HONEY_SLIME.create(this.world);
       childHoneySlimeEntity.setSlimeSize(1, true);
       return childHoneySlimeEntity;
    }
