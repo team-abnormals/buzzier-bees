@@ -27,6 +27,18 @@
 	"block.buzzierbees.acacia_beehive": "Acacia Beehive",
 	"block.buzzierbees.dark_oak_beehive": "Dark Oak Beehive",
 	
+    "block.buzzierbees.bop_fir_beehive": "Fir Beehive",
+    "block.buzzierbees.bop_dead_beehive": "Dead Beehive",
+    "block.buzzierbees.bop_palm_beehive": "Palm Beehive",
+    "block.buzzierbees.bop_magic_beehive": "Magic Beehive",
+    "block.buzzierbees.bop_cherry_beehive": "Cherry Beehive",
+    "block.buzzierbees.bop_umbran_beehive": "Umbran Beehive",
+    "block.buzzierbees.bop_willow_beehive": "Willow Beehive",
+    "block.buzzierbees.bop_redwood_beehive": "Redwood Beehive",
+    "block.buzzierbees.bop_hellbark_beehive": "Hellbark Beehive",
+    "block.buzzierbees.bop_mahogany_beehive": "Mahogany Beehive",
+    "block.buzzierbees.bop_jacaranda_beehive": "Jacaranda Beehive",
+	
 	"block.buzzierbees.wax_block": "Wax Block",
 	
 	"block.buzzierbees.crystallized_honey_block": "Crystallized Honey Block",

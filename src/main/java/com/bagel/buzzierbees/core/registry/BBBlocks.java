@@ -49,6 +49,18 @@ public class BBBlocks
 	public static final RegistryObject<Block> ACACIA_BEEHIVE   = RegistryUtils.createBlock("acacia_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> DARK_OAK_BEEHIVE = RegistryUtils.createBlock("dark_oak_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	
+	public static final RegistryObject<Block> BOP_FIR_BEEHIVE 		= RegistryUtils.createBlockCompat("biomesoplenty", "bop_fir_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_DEAD_BEEHIVE 		= RegistryUtils.createBlockCompat("biomesoplenty", "bop_dead_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_PALM_BEEHIVE 		= RegistryUtils.createBlockCompat("biomesoplenty", "bop_palm_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_MAGIC_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_magic_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_CHERRY_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_cherry_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_UMBRAN_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_umbran_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_WILLOW_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_willow_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_REDWOOD_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_redwood_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_HELLBARK_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_hellbark_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_MAHOGANY_BEEHIVE 	= RegistryUtils.createBlockCompat("biomesoplenty", "bop_mahogany_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BOP_JACARANDA_BEEHIVE = RegistryUtils.createBlockCompat("biomesoplenty", "bop_jacaranda_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+
 	public static final RegistryObject<Block> WAX_BLOCK 				= RegistryUtils.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK  = RegistryUtils.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(Block.Properties.create(Material.CAKE).notSolid().slipperiness(0.98F).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_LAMP 				= RegistryUtils.createBlock("honey_lamp", () -> new HoneyLamp(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
