@@ -20,7 +20,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class HiveBoatItem extends Item {
-	   private static final Predicate<Entity> field_219989_a = EntityPredicates.NOT_SPECTATING.and(Entity::canBeCollidedWith);
+	   private static final Predicate<Entity> ENTITY_PREDICATE = EntityPredicates.NOT_SPECTATING.and(Entity::canBeCollidedWith);
 	   private final HiveBoatEntity.Type type;
 
 	   public HiveBoatItem(HiveBoatEntity.Type typeIn, Item.Properties properties) {
@@ -28,6 +28,7 @@ public class HiveBoatItem extends Item {
 	      this.type = typeIn;
 	   }
 
+	   @Override
 	   public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 	      ItemStack itemstack = playerIn.getHeldItem(handIn);
 	      RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
@@ -35,7 +36,7 @@ public class HiveBoatItem extends Item {
 	         return ActionResult.resultPass(itemstack);
 	      } else {
 	         Vec3d vec3d = playerIn.getLook(1.0F);
-	         List<Entity> list = worldIn.getEntitiesInAABBexcluding(playerIn, playerIn.getBoundingBox().expand(vec3d.scale(5.0D)).grow(1.0D), field_219989_a);
+	         List<Entity> list = worldIn.getEntitiesInAABBexcluding(playerIn, playerIn.getBoundingBox().expand(vec3d.scale(5.0D)).grow(1.0D), ENTITY_PREDICATE);
 	         if (!list.isEmpty()) {
 	            Vec3d vec3d1 = playerIn.getEyePosition(1.0F);
 

@@ -1,8 +1,10 @@
 package com.bagel.buzzierbees.core.registry;
 import java.util.List;
 
+import com.bagel.buzzierbees.common.entities.HiveBoatEntity;
 import com.bagel.buzzierbees.common.items.BeeSoupItem;
 import com.bagel.buzzierbees.common.items.CuringItem;
+import com.bagel.buzzierbees.common.items.HiveBoatItem;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.StickyHoneyWandItem;
 import com.bagel.buzzierbees.core.BuzzierBees;
@@ -39,7 +41,7 @@ public class BBItems
 	public static RegistryObject<Item> HONEY_BREAD 			= RegistryUtils.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.BAD_OMEN), new EffectInstance(Effects.POISON)}));
 	public static RegistryObject<Item> GLAZED_PORKCHOP		= RegistryUtils.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(BBFoods.GLAZED_PORKCHOP).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.MINING_FATIGUE), new EffectInstance(Effects.POISON)}));
 	
-	//public static RegistryObject<Item> HIVE_BOAT = RegistryUtils.createItem("hive_boat", () -> new HiveBoatItem(HiveBoatEntity.Type.HIVE, new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	public static RegistryObject<Item> HIVE_BOAT = RegistryUtils.createItem("hive_boat", () -> new HiveBoatItem(HiveBoatEntity.Type.HIVE, new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	
 	public static RegistryObject<Item> HONEY_WAND = RegistryUtils.createItem("honey_wand", () -> new HoneyWandItem(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)));
 	public static RegistryObject<Item> STICKY_HONEY_WAND = RegistryUtils.createItem("sticky_honey_wand", () -> new StickyHoneyWandItem(new Item.Properties().containerItem(BBItems.HONEY_WAND.get()).food(BBFoods.STICKY_HONEY_WAND).maxStackSize(1).group(ItemGroup.TOOLS)));
