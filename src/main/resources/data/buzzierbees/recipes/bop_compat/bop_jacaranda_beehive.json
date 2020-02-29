@@ -7,14 +7,14 @@
   ],
   "key": {
     "P": {
-      "item": "biomesoplenty:hellbark_planks"
+      "item": "biomesoplenty:jacaranda_planks"
     },
     "H": {
       "item": "minecraft:honeycomb"
     }
   },
   "result": {
-    "item": "buzzierbees:bop_hellbark_beehive"
+    "item": "buzzierbees:bop_jacaranda_beehive"
   },
   "conditions": [
     {
