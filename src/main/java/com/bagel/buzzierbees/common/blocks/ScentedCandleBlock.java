@@ -15,6 +15,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
@@ -37,6 +38,11 @@ public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
    @Override
    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 	   return BBTileEntities.SCENTED_CANDLE.get().create();
+   }
+   
+   @Override
+   public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
+	   return (0.2F * state.get(CANDLES));	
    }
    
    @Override

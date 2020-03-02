@@ -122,7 +122,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-		return (0.25F * state.get(CANDLES));	
+		return (0.1F * state.get(CANDLES));	
 	}
 
 	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {

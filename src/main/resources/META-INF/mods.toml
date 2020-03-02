@@ -13,8 +13,8 @@ authors="bageldotjpg & Bratistolf" #optional
 
 description='''
 Buzzier Bees expands on the content introduced in 1.15. 
-Main features include wax, crystallized honey, and candles.
-Beekeepers, Honey Slimes, Brown Bears, and Butterflies will come soon!
+Main features include wax, crystallized honey, and candles, and much more!
+Beekeepers, Brown Bears, and Butterflies will come soon!
 '''
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
