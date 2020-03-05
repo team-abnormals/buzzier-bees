@@ -9,6 +9,10 @@
 	"item.buzzierbees.sticky_honey_wand": "Медовая палочка в меду",
 	"item.buzzierbees.honey_apple": "Яблоко в меду",
 	"item.buzzierbees.honey_bread": "Хлеб с мёдом",
+	"item.buzzierbees.glazed_porkchop": "Глазированная свинина",
+
+	"item.buzzierbees.hive_boat": "Ульевая лодка",
+	"entity.buzzierbees.boat": "Лодка",
 
 	"item.buzzierbees.honey_slime_spawn_egg": "Яйцо призыва медового слизня",
 	"entity.buzzierbees.honey_slime": "Медовый слизень",
@@ -22,6 +26,18 @@
 	"block.buzzierbees.jungle_beehive": "Улей из тропического дерева",
 	"block.buzzierbees.acacia_beehive": "Акациевый улей",
 	"block.buzzierbees.dark_oak_beehive": "Улей из тёмного дуба",
+	
+	"block.buzzierbees.bop_fir_beehive": "Пихтовый улей",
+	"block.buzzierbees.bop_dead_beehive": "Мёртвый улей",
+	"block.buzzierbees.bop_palm_beehive": "Пальмовый улей",
+	"block.buzzierbees.bop_magic_beehive": "Магический улей",
+	"block.buzzierbees.bop_cherry_beehive": "Вишнёвый улей",
+	"block.buzzierbees.bop_umbran_beehive": "Зловещий улей",
+	"block.buzzierbees.bop_willow_beehive": "Ивовый улей",
+	"block.buzzierbees.bop_redwood_beehive": "Улей красного леса",
+	"block.buzzierbees.bop_hellbark_beehive": "Улей из адской коры",
+	"block.buzzierbees.bop_mahogany_beehive": "Махагониевый улей",
+	"block.buzzierbees.bop_jacaranda_beehive": "Жакарандовый улей",
 
 	"block.buzzierbees.wax_block": "Восковый блок",
 
@@ -57,6 +73,8 @@
 	"block.buzzierbees.hive_sign": "Ульевая табличка",
 	"block.buzzierbees.vertical_hive_planks": "Ульевые вертикальные доски",
 	"block.buzzierbees.hive_vertical_slab": "Ульевая вертикальная плита",
+	"block.buzzierbees.hive_ladder": "Ульевая лестница",
+	"block.buzzierbees.hive_bookshelf": "Ульевая книжная полка",
 	
 	"block.buzzierbees.candle": "Свечка",
 	"block.buzzierbees.white_candle": "Белая свечка",
@@ -319,5 +337,20 @@
 	"advancements.nether.scented_candle.description": "Приобретите ароматическую свечу",
 	
 	"advancements.nether.all_scented_candles.title": "Полный аромат",
-	"advancements.nether.all_scented_candles.description": "Получить все ароматические свечи"
+	"advancements.nether.all_scented_candles.description": "Получить все ароматические свечи",
+
+	"advancements.husbandry.honey_apple.title": "Яблоко в день",
+	"advancements.husbandry.honey_apple.description": "Используйте Яблоко в меду, чтобы вылечить левитацию",
+
+	"advancements.husbandry.honey_bread.title": "Окончание голодания",
+	"advancements.husbandry.honey_bread.description": "Используйте Хлеб с мёдом, чтобы вылечить голод",
+
+	"advancements.nether.use_cure.title": "Лечебный мёд",
+	"advancements.nether.use_cure.description": "Используйте микстуру",
+
+	"biome.buzzierbees.golden_fields": "Золотые поля",
+	"biome.buzzierbees.scarlet_hills": "Алые Холмы",
+	"biome.buzzierbees.lavender_grove": "Лавандовая роща",
+	"biome.buzzierbees.silver_plains": "Серебряные равнины",
+	"biome.buzzierbees.sapphire_cliffs": "Сапфировые скалы"
 }
