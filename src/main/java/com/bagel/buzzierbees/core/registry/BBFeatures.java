@@ -3,6 +3,7 @@ package com.bagel.buzzierbees.core.registry;
 import java.util.Random;
 
 import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
+import com.bagel.buzzierbees.common.world.features.DirectionalFlowersFeature;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,11 +26,18 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBFeatures {
 	public static final DefaultFlowersFeature DEFAULT_FLOWERS_FEATURE = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
+	public static final DirectionalFlowersFeature DIRECTIONAL_FLOWERS_FEATURE = new DirectionalFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
 	
 	private static void addShortFlower(BlockState blockState, Biome biomeIn, int frequency)
 	{
 		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).tries(32).build();
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, DEFAULT_FLOWERS_FEATURE.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
+	}
+	
+	private static void addDirectionalFlower(BlockState blockState, Biome biomeIn, int frequency)
+	{
+		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).tries(32).build();
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, DIRECTIONAL_FLOWERS_FEATURE.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
 	}
 	
 	public static void addDoubleFlower(BlockState blockState, Biome biomeIn, int frequency) {
@@ -65,7 +73,7 @@ public class BBFeatures {
         }
         else if (biome.getCategory() == Biome.Category.FOREST) {
             if (biome == Biomes.FLOWER_FOREST) {
-            	addShortFlower(BBBlocks.CARTWHEEL.get().getDefaultState().with(CartwheelBlock.FACING, Direction.Plane.HORIZONTAL.random(rand)), biome, 5);
+            	addDirectionalFlower(BBBlocks.CARTWHEEL.get().getDefaultState(), biome, 5);
             	addShortFlower(BBBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
             }
             else if (biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) {
