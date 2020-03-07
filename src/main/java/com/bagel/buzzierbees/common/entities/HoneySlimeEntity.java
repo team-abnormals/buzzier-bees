@@ -28,8 +28,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.storage.loot.LootTables;
 
 import javax.annotation.Nullable;
@@ -241,8 +239,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       }
       else {
          if (world.getDifficulty() != Difficulty.PEACEFUL) {
-            Biome biome = world.getBiome(position);
-            if (biome == Biomes.FLOWER_FOREST && position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
+            if (position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
                return canSpawnOn(honeySlime, world, reason, position, randomIn);
             }
          }
