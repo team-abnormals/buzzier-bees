@@ -15,12 +15,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "criteria": {
-    "honey_bread": { "trigger": "minecraft:consume_item", "conditions": { "item": { "item": "buzzierbees:honey_bread" } } },
-    "hunger": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "minecraft:hunger": {} } } }
-  },
-  "requirements": [
-    [ "honey_bread" ],
-    [ "hunger" ]
-  ]
+	"criteria": {
+		"honey_apple": {
+			"trigger": "buzzierbees:honey_bread_cure"
+		}
+	}
 }

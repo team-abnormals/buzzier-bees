@@ -2,13 +2,13 @@
   "parent": "minecraft:husbandry/safely_harvest_honey",
   "display": {
     "icon": {
-      "item": "buzzierbees:honey_apple"
+      "item": "buzzierbees:glazed_porkchop"
     },
     "title": {
-      "translate": "advancements.husbandry.honey_apple.title"
+      "translate": "advancements.husbandry.glazed_porkchop.title"
     },
     "description": {
-      "translate": "advancements.husbandry.honey_apple.description"
+      "translate": "advancements.husbandry.glazed_porkchop.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -17,7 +17,7 @@
   },
 	"criteria": {
 		"honey_apple": {
-			"trigger": "buzzierbees:honey_apple_cure"
+			"trigger": "buzzierbees:glazed_porkchop_cure"
 		}
 	}
 }

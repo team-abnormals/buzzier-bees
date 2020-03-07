@@ -1,9 +1,11 @@
 package com.bagel.buzzierbees.common.effects;
 
+import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
 import com.google.common.collect.ImmutableList;
+
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.potion.*;
-import java.util.Iterator;
 
 public class AntiEffect extends InstantEffect {
     private final ImmutableList<EffectInstance> counteredEffects;
@@ -13,20 +15,18 @@ public class AntiEffect extends InstantEffect {
         counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
     }
 
-    @SuppressWarnings("rawtypes")
     @Override
     public void performEffect(LivingEntity entityLiving, int amplifier) {
-        Iterator entityEffects = entityLiving.getActivePotionEffects().iterator();
-        while (entityEffects.hasNext()) {
-            EffectInstance entityEffect = (EffectInstance) entityEffects.next();
-			Iterator effectsIterator = counteredEffects.iterator();
-            while(effectsIterator.hasNext()) {
-                EffectInstance counteredEffectInstance = (EffectInstance) effectsIterator.next();
-                Effect counteredEffect = counteredEffectInstance.getPotion();
-                if (entityEffect.getPotion() == counteredEffect) {
-                    entityLiving.removePotionEffect(counteredEffect);
-                }
-            }
-        }
+    	if (entityLiving instanceof ServerPlayerEntity) {
+			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entityLiving;
+			if(!serverplayerentity.getEntityWorld().isRemote() && entityLiving.isPotionActive(counteredEffects.get(0).getPotion())) {
+				BBCriteriaTriggers.USE_CURE.trigger(serverplayerentity); 
+			}
+		}
+    	
+    	for (int i = 0; i < counteredEffects.size(); ++i) {
+			Effect effect = counteredEffects.get(i).getPotion();
+			entityLiving.removePotionEffect(effect);
+		}
     }
 }

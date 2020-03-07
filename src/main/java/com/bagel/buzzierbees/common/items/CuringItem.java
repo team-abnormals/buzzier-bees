@@ -1,5 +1,8 @@
 package com.bagel.buzzierbees.common.items;
 
+import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
+import com.bagel.buzzierbees.core.registry.BBItems;
+import com.bagel.buzzierbees.core.util.EmptyTrigger;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
@@ -11,39 +14,44 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-
 public class CuringItem extends Item {
 	private final ImmutableList<EffectInstance> counteredEffects;
 	
 	public CuringItem(Properties properties, EffectInstance... counteredEffectsIn) {
 		super(properties);
-		counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
+		counteredEffects = ImmutableList.copyOf(counteredEffectsIn);		
+	}
+	
+	public EmptyTrigger getTrigger() {
+		Item item = this.getItem();
+		if (item == BBItems.HONEY_APPLE.get()) {
+			return BBCriteriaTriggers.HONEY_APPLE_CURE;
+		} else if (item == BBItems.HONEY_BREAD.get()) {
+			return BBCriteriaTriggers.HONEY_BREAD_CURE;
+		} else if (item == BBItems.GLAZED_PORKCHOP.get()) {
+			return BBCriteriaTriggers.GLAZED_PORKCHOP_CURE;
+		}
+		return null;
 	}
 
-	@SuppressWarnings("rawtypes")
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		super.onItemUseFinish(stack, worldIn, entityLiving);
 		if (entityLiving instanceof ServerPlayerEntity) {
 			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entityLiving;
 			CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
 			serverplayerentity.addStat(Stats.ITEM_USED.get(this));
+			if(!worldIn.isRemote() && entityLiving.isPotionActive(counteredEffects.get(0).getPotion())) {
+				this.getTrigger().trigger(serverplayerentity); 
+			}
 		}
 
 		if (!worldIn.isRemote) {
-			Iterator entityEffects = entityLiving.getActivePotionEffects().iterator();
-			while (entityEffects.hasNext()) {
-				EffectInstance entityEffect = (EffectInstance) entityEffects.next();
-				Iterator effectsIterator = counteredEffects.iterator();
-				while (effectsIterator.hasNext()) {
-					EffectInstance counteredEffectInstance = (EffectInstance) effectsIterator.next();
-					Effect counteredEffect = counteredEffectInstance.getPotion();
-					if (entityEffect.getPotion() == counteredEffect) {
-						entityLiving.removePotionEffect(counteredEffect);
-					}
-				}
+			for (int i = 0; i < counteredEffects.size(); ++i) {
+				Effect effect = counteredEffects.get(i).getPotion();
+				entityLiving.removePotionEffect(effect);
 			}
-		}
+	    }
+
 		return stack;
 	}
 }

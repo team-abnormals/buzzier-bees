@@ -26,10 +26,5 @@
         ]
       }
     }
-  },
-  "requirements": [
-    [
-      "scented_candle"
-    ]
-  ]
+  }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:nether/brew_potion",
   "display": {
     "icon": {
-      "item": "minecraft:milk_bucket"
+      "item": "minecraft:honey_bottle"
     },
     "title": {
       "translate": "advancements.nether.use_cure.title"
@@ -15,25 +15,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "rewards": { "experience": 100 },
-  "criteria": { 
-    "night_vision_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_night_vision": {} } } },
-    "invisibility_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_invisibility": {} } } },
-    "jump_boost_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_jump_boost": {} } } },
-    "fire_resistance_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_fire_resistance": {} } } },
-    "speed_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_speed": {} } } },
-    "slowness_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_slowness": {} } } },
-    "water_breathing_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_water_breathing": {} } } },
-    "poison_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_poison": {} } } },
-    "regeneration_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_regeneration": {} } } },
-    "strength_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_strength": {} } } },
-    "weakness_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_weakness": {} } } },
-    "luck_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_luck": {} } } },
-    "unluck_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_unluck": {} } } },
-    "slow_falling_cure": { "trigger": "minecraft:effects_changed", "conditions": { "effects": { "buzzierbees:anti_slow_falling": {} } } }
-  },
-  "requirements": [ [
-    "night_vision_cure", "invisibility_cure", "jump_boost_cure", "fire_resistance_cure", "speed_cure", "slowness_cure", 
-    "water_breathing_cure", "poison_cure", "regeneration_cure", "strength_cure", "weakness_cure", "luck_cure", "unluck_cure", "slow_falling_cure"
-   ] ]
+	"criteria": {
+		"use_cure": {
+			"trigger": "buzzierbees:use_cure"
+		}
+	}
 }
