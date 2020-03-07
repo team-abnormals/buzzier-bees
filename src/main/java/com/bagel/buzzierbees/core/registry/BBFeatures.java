@@ -1,13 +1,9 @@
 package com.bagel.buzzierbees.core.registry;
 
-import java.util.Random;
-
-import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.bagel.buzzierbees.common.world.features.DirectionalFlowersFeature;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -50,36 +46,35 @@ public class BBFeatures {
     }
 
     public static void generate(Biome biome) {
-    	Random rand = new Random();
         if (biome.getCategory() == Biome.Category.JUNGLE) {
 			addDoubleFlower(BBBlocks.BIRD_OF_PARADISE.get().getDefaultState(), biome, 5);
         }
-        else if (biome.getCategory() == Biome.Category.SWAMP) {
+        if (biome.getCategory() == Biome.Category.SWAMP) {
         	addShortFlower(BBBlocks.JOLYCE.get().getDefaultState(), biome,	5);
         }
-        else if (biome.getCategory() == Biome.Category.SAVANNA) {
+        if (biome.getCategory() == Biome.Category.SAVANNA) {
         	addShortFlower(Blocks.ALLIUM.getDefaultState(), biome, 4);
         }
-        else if (biome.getCategory() == Biome.Category.TAIGA) {
+        if (biome.getCategory() == Biome.Category.TAIGA) {
         	addShortFlower(BBBlocks.VIOLET.get().getDefaultState(), biome, 4);
         }
-        else if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
+        if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
         	addShortFlower(BBBlocks.COLUMBINE.get().getDefaultState(), biome, 4);
         }
-        else if (biome.getCategory() == Biome.Category.PLAINS) {
+        if (biome.getCategory() == Biome.Category.PLAINS) {
         	if (biome == Biomes.SUNFLOWER_PLAINS) {
         		addShortFlower(BBBlocks.DAYBLOOM.get().getDefaultState(), biome, 4);
         	}
         }
-        else if (biome.getCategory() == Biome.Category.FOREST) {
+        if (biome.getCategory() == Biome.Category.FOREST) {
             if (biome == Biomes.FLOWER_FOREST) {
             	addDirectionalFlower(BBBlocks.CARTWHEEL.get().getDefaultState(), biome, 5);
             	addShortFlower(BBBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
             }
-            else if (biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) {
+            if (biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) {
             	addShortFlower(BBBlocks.BLUEBELL.get().getDefaultState(), biome, 3);
             }
-            else if (biome == Biomes.BIRCH_FOREST || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS) {
+            if (biome == Biomes.BIRCH_FOREST || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS) {
             	addShortFlower(BBBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
             }
             else {
