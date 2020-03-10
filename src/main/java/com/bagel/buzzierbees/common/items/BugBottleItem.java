@@ -45,8 +45,8 @@ public class BugBottleItem extends Item {
 			}
 
 			EntityType<?> entitytype = this.getType(itemstack.getTag());
-			if (entitytype.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.SPAWN_EGG, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP) != null) {
-                world.playSound(context.getPlayer(), context.getPlayer().getPosX(), context.getPlayer().getPosY(), context.getPlayer().getPosZ(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (entitytype.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP) != null) {
 				if (!context.getPlayer().abilities.isCreativeMode) {
 					context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
 				}

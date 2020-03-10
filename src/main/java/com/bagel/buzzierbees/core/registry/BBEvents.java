@@ -12,6 +12,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -56,7 +58,8 @@ public class BBEvents {
 			if(successful && ((MobEntity) target).getHealth() > 0) {
 				if(!stack.isEmpty() && stack.getItem() == Items.GLASS_BOTTLE) {
 					stack.shrink(1);
-    	    		player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
+					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
     	    		if (stack.isEmpty()) {
     	    			player.setHeldItem(event.getHand(), bottleItem);
     	    		} else if (!player.inventory.addItemStackToInventory(bottleItem)) {
