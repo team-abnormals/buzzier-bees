@@ -6,9 +6,10 @@ import java.util.Map;
 import java.util.Set;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
-import com.bagel.buzzierbees.core.registry.BBBlocks;
+import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.core.config.BuzzierBeesCommonConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
@@ -21,6 +22,7 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.ItemEntity;
@@ -80,6 +82,11 @@ public class BuzzierBees
     	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();
     	BBEntities.addEntitySpawns();
+    	
+    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BugBottleDispenseBehavior());
+    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
+    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
+    	
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
 
@@ -149,5 +156,5 @@ public class BuzzierBees
     		.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
     		.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
     	}
-    }
+    }    
 }
