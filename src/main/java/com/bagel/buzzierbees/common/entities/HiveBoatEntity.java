@@ -49,8 +49,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
+import net.minecraft.entity.item.BoatEntity;
+
 @SuppressWarnings("deprecation")
-public class HiveBoatEntity extends Entity {
+public class HiveBoatEntity extends BoatEntity {
    private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(HiveBoatEntity.class, DataSerializers.VARINT);
    private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(HiveBoatEntity.class, DataSerializers.VARINT);
    private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.createKey(HiveBoatEntity.class, DataSerializers.FLOAT);
@@ -74,8 +76,8 @@ public class HiveBoatEntity extends Entity {
    private boolean backInputDown;
    private double waterLevel;
    private float boatGlide;
-   private HiveBoatEntity.Status status;
-   private HiveBoatEntity.Status previousStatus;
+   private BoatEntity.Status status;
+   private BoatEntity.Status previousStatus;
    private double lastYd;
    private boolean rocking;
    private boolean field_203060_aN;
@@ -96,12 +98,10 @@ public class HiveBoatEntity extends Entity {
       this.prevPosY = y;
       this.prevPosZ = z;
    }
-
    @Override
    protected boolean canTriggerWalking() {
       return false;
    }
-
    @Override
    protected void registerData() {
       this.dataManager.register(TIME_SINCE_HIT, 0);
@@ -112,51 +112,30 @@ public class HiveBoatEntity extends Entity {
       this.dataManager.register(field_199705_f, false);
       this.dataManager.register(ROCKING_TICKS, 0);
    }
-
-   /**
-    * Returns a boundingBox used to collide the entity with other entities and blocks. This enables the entity to be
-    * pushable on contact, like boats or minecarts.
-    */
-   
    @Override
    @Nullable
    public AxisAlignedBB getCollisionBox(Entity entityIn) {
       return entityIn.canBePushed() ? entityIn.getBoundingBox() : null;
    }
-
-   /**
-    * Returns the <b>solid</b> collision bounding box for this entity. Used to make (e.g.) boats solid. Return null if
-    * this entity is not solid.
-    *  
-    * For general purposes, use {@link #width} and {@link #height}.
-    *  
-    * @see getEntityBoundingBox
-    */
    @Override
    @Nullable
    public AxisAlignedBB getCollisionBoundingBox() {
       return this.getBoundingBox();
    }
-
-   /**
-    * Returns true if this entity should push and be pushed by other entities when colliding.
-    */
    @Override
    public boolean canBePushed() {
       return true;
    }
-
-   /**
-    * Returns the Y offset from the entity's position for any entity riding this one.
-    */
    @Override
    public double getMountedYOffset() {
       return -0.1D;
    }
+   
+   @Override
+	public IPacket<?> createSpawnPacket() {
+		return NetworkHooks.getEntitySpawningPacket(this);
+	}
 
-   /**
-    * Called when the entity is attacked.
-    */
    @Override
    public boolean attackEntityFrom(DamageSource source, float amount) {
       if (this.isInvulnerableTo(source)) {
@@ -184,7 +163,6 @@ public class HiveBoatEntity extends Entity {
          return true;
       }
    }
-
    @Override
    public void onEnterBubbleColumnWithAirAbove(boolean downwards) {
       if (!this.world.isRemote) {
@@ -202,12 +180,9 @@ public class HiveBoatEntity extends Entity {
 
    }
 
-   /**
-    * Applies a velocity to the entities, to push them away from eachother.
-    */
    @Override
    public void applyEntityCollision(Entity entityIn) {
-      if (entityIn instanceof HiveBoatEntity) {
+      if (entityIn instanceof BoatEntity) {
          if (entityIn.getBoundingBox().minY < this.getBoundingBox().maxY) {
             super.applyEntityCollision(entityIn);
          }
@@ -216,18 +191,16 @@ public class HiveBoatEntity extends Entity {
       }
 
    }
-
+   
+   @Override
    public Item getItemBoat() {
-      switch(this.getBoatType()) {
+      switch(this.getBoatModel()) {
       case HIVE:
       default:
          return BBItems.HIVE_BOAT.get();
       }
    }
 
-   /**
-    * Setups the entity to do the hurt animation. Only used by packets in multiplayer.
-    */
    @Override
    @OnlyIn(Dist.CLIENT)
    public void performHurtAnimation() {
@@ -236,19 +209,13 @@ public class HiveBoatEntity extends Entity {
       this.setDamageTaken(this.getDamageTaken() * 11.0F);
    }
 
-   /**
-    * Returns true if other Entities should be prevented from moving through this Entity.
-    */
    @Override
    public boolean canBeCollidedWith() {
       return !this.removed;
    }
 
-   /**
-    * Sets a target for the client to interpolate towards over the next few ticks
-    */
-   @OnlyIn(Dist.CLIENT)
    @Override
+   @OnlyIn(Dist.CLIENT)
    public void setPositionAndRotationDirect(double x, double y, double z, float yaw, float pitch, int posRotationIncrements, boolean teleport) {
       this.lerpX = x;
       this.lerpY = y;
@@ -258,22 +225,16 @@ public class HiveBoatEntity extends Entity {
       this.lerpSteps = 10;
    }
 
-   /**
-    * Gets the horizontal facing direction of this Entity, adjusted to take specially-treated entity types into account.
-    */
    @Override
    public Direction getAdjustedHorizontalFacing() {
       return this.getHorizontalFacing().rotateY();
    }
 
-   /**
-    * Called to update the entity's position/logic.
-    */
    @Override
    public void tick() {
       this.previousStatus = this.status;
       this.status = this.getBoatStatus();
-      if (this.status != HiveBoatEntity.Status.UNDER_WATER && this.status != HiveBoatEntity.Status.UNDER_FLOWING_WATER) {
+      if (this.status != BoatEntity.Status.UNDER_WATER && this.status != BoatEntity.Status.UNDER_FLOWING_WATER) {
          this.outOfControlTicks = 0.0F;
       } else {
          ++this.outOfControlTicks;
@@ -291,7 +252,12 @@ public class HiveBoatEntity extends Entity {
          this.setDamageTaken(this.getDamageTaken() - 1.0F);
       }
 
-      super.tick();
+      if (!this.world.isRemote) {
+          this.setFlag(6, this.isGlowing());
+      }
+
+      this.baseTick();
+      
       this.tickLerp();
       if (this.canPassengerSteer()) {
          if (this.getPassengers().isEmpty() || !(this.getPassengers().get(0) instanceof PlayerEntity)) {
@@ -386,7 +352,7 @@ public class HiveBoatEntity extends Entity {
       }
 
    }
-
+   @Override
    @Nullable
    protected SoundEvent getPaddleSound() {
       switch(this.getBoatStatus()) {
@@ -401,7 +367,8 @@ public class HiveBoatEntity extends Entity {
          return null;
       }
    }
-
+   
+   @Override
    protected void tickLerp() {
       if (this.canPassengerSteer()) {
          this.lerpSteps = 0;
@@ -420,38 +387,36 @@ public class HiveBoatEntity extends Entity {
          this.setRotation(this.rotationYaw, this.rotationPitch);
       }
    }
-
+   @Override
    public void setPaddleState(boolean left, boolean right) {
       this.dataManager.set(field_199704_e, left);
       this.dataManager.set(field_199705_f, right);
    }
-
+   
+   @Override
    @OnlyIn(Dist.CLIENT)
    public float getRowingTime(int side, float limbSwing) {
       return this.getPaddleState(side) ? (float)MathHelper.clampedLerp((double)this.paddlePositions[side] - (double)((float)Math.PI / 8F), (double)this.paddlePositions[side], (double)limbSwing) : 0.0F;
    }
 
-   /**
-    * Determines whether the boat is in water, gliding on land, or in air
-    */
-   private HiveBoatEntity.Status getBoatStatus() {
-	   HiveBoatEntity.Status boatentity$status = this.getUnderwaterStatus();
+   private BoatEntity.Status getBoatStatus() {
+      BoatEntity.Status boatentity$status = this.getUnderwaterStatus();
       if (boatentity$status != null) {
          this.waterLevel = this.getBoundingBox().maxY;
          return boatentity$status;
       } else if (this.checkInWater()) {
-         return HiveBoatEntity.Status.IN_WATER;
+         return BoatEntity.Status.IN_WATER;
       } else {
          float f = this.getBoatGlide();
          if (f > 0.0F) {
             this.boatGlide = f;
-            return HiveBoatEntity.Status.ON_LAND;
+            return BoatEntity.Status.ON_LAND;
          } else {
-            return HiveBoatEntity.Status.IN_AIR;
+            return BoatEntity.Status.IN_AIR;
          }
       }
    }
-
+   @Override
    public float getWaterLevelAbove() {
       AxisAlignedBB axisalignedbb = this.getBoundingBox();
       int i = MathHelper.floor(axisalignedbb.minX);
@@ -490,10 +455,7 @@ public class HiveBoatEntity extends Entity {
          return f1;
       }
    }
-
-   /**
-    * Decides how much the boat should be gliding on the land (based on any slippery blocks)
-    */
+   @Override
    public float getBoatGlide() {
       AxisAlignedBB axisalignedbb = this.getBoundingBox();
       AxisAlignedBB axisalignedbb1 = new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY - 0.001D, axisalignedbb.minZ, axisalignedbb.maxX, axisalignedbb.minY, axisalignedbb.maxZ);
@@ -564,7 +526,7 @@ public class HiveBoatEntity extends Entity {
     * Decides whether the boat is currently underwater.
     */
    @Nullable
-   private HiveBoatEntity.Status getUnderwaterStatus() {
+   private BoatEntity.Status getUnderwaterStatus() {
       AxisAlignedBB axisalignedbb = this.getBoundingBox();
       double d0 = axisalignedbb.maxY + 0.001D;
       int i = MathHelper.floor(axisalignedbb.minX);
@@ -583,7 +545,7 @@ public class HiveBoatEntity extends Entity {
                   IFluidState ifluidstate = this.world.getFluidState(blockpos$pooledmutable);
                   if (ifluidstate.isTagged(FluidTags.WATER) && d0 < (double)((float)blockpos$pooledmutable.getY() + ifluidstate.getActualHeight(this.world, blockpos$pooledmutable))) {
                      if (!ifluidstate.isSource()) {
-                    	 HiveBoatEntity.Status boatentity$status = HiveBoatEntity.Status.UNDER_FLOWING_WATER;
+                    	 BoatEntity.Status boatentity$status = BoatEntity.Status.UNDER_FLOWING_WATER;
                         return boatentity$status;
                      }
 
@@ -594,35 +556,32 @@ public class HiveBoatEntity extends Entity {
          }
       }
 
-      return flag ? HiveBoatEntity.Status.UNDER_WATER : null;
+      return flag ? BoatEntity.Status.UNDER_WATER : null;
    }
-
-   /**
-    * Update the boat's speed, based on momentum.
-    */
+   
    private void updateMotion() {
       double d1 = this.hasNoGravity() ? 0.0D : (double)-0.04F;
       double d2 = 0.0D;
       this.momentum = 0.05F;
-      if (this.previousStatus == HiveBoatEntity.Status.IN_AIR && this.status != HiveBoatEntity.Status.IN_AIR && this.status != HiveBoatEntity.Status.ON_LAND) {
+      if (this.previousStatus == BoatEntity.Status.IN_AIR && this.status != BoatEntity.Status.IN_AIR && this.status != BoatEntity.Status.ON_LAND) {
          this.waterLevel = this.getPosYHeight(1.0D);
          this.setPosition(this.getPosX(), (double)(this.getWaterLevelAbove() - this.getHeight()) + 0.101D, this.getPosZ());
          this.setMotion(this.getMotion().mul(1.0D, 0.0D, 1.0D));
          this.lastYd = 0.0D;
-         this.status = HiveBoatEntity.Status.IN_WATER;
+         this.status = BoatEntity.Status.IN_WATER;
       } else {
-         if (this.status == HiveBoatEntity.Status.IN_WATER) {
+         if (this.status == BoatEntity.Status.IN_WATER) {
             d2 = (this.waterLevel - this.getPosY()) / (double)this.getHeight();
             this.momentum = 0.9F;
-         } else if (this.status == HiveBoatEntity.Status.UNDER_FLOWING_WATER) {
+         } else if (this.status == BoatEntity.Status.UNDER_FLOWING_WATER) {
             d1 = -7.0E-4D;
             this.momentum = 0.9F;
-         } else if (this.status == HiveBoatEntity.Status.UNDER_WATER) {
+         } else if (this.status == BoatEntity.Status.UNDER_WATER) {
             d2 = (double)0.01F;
             this.momentum = 0.45F;
-         } else if (this.status == HiveBoatEntity.Status.IN_AIR) {
+         } else if (this.status == BoatEntity.Status.IN_AIR) {
             this.momentum = 0.9F;
-         } else if (this.status == HiveBoatEntity.Status.ON_LAND) {
+         } else if (this.status == BoatEntity.Status.ON_LAND) {
             this.momentum = this.boatGlide;
             if (this.getControllingPassenger() instanceof PlayerEntity) {
                this.boatGlide /= 2.0F;
@@ -699,10 +658,7 @@ public class HiveBoatEntity extends Entity {
 
       }
    }
-
-   /**
-    * Applies this boat's yaw to the given entity. Used to update the orientation of its passenger.
-    */
+   @Override
    protected void applyYawToEntity(Entity entityToUpdate) {
       entityToUpdate.setRenderYawOffset(this.rotationYaw);
       float f = MathHelper.wrapDegrees(entityToUpdate.rotationYaw - this.rotationYaw);
@@ -712,21 +668,16 @@ public class HiveBoatEntity extends Entity {
       entityToUpdate.setRotationYawHead(entityToUpdate.rotationYaw);
    }
 
-   /**
-    * Applies this entity's orientation (pitch/yaw) to another entity. Used to update passenger orientation.
-    */
-   @OnlyIn(Dist.CLIENT) @Override
+   @Override
+   @OnlyIn(Dist.CLIENT)
    public void applyOrientationToEntity(Entity entityToUpdate) {
       this.applyYawToEntity(entityToUpdate);
    }
    @Override
    protected void writeAdditional(CompoundNBT compound) {
-      compound.putString("Type", this.getBoatType().getName());
+      compound.putString("Type", this.getBoatModel().getName());
    }
 
-   /**
-    * (abstract) Protected helper method to read subclass entity data from NBT.
-    */
    @Override
    protected void readAdditional(CompoundNBT compound) {
       if (compound.contains("Type", 8)) {
@@ -748,7 +699,7 @@ public class HiveBoatEntity extends Entity {
       if (!this.isPassenger()) {
          if (onGroundIn) {
             if (this.fallDistance > 3.0F) {
-               if (this.status != HiveBoatEntity.Status.ON_LAND) {
+               if (this.status != BoatEntity.Status.ON_LAND) {
                   this.fallDistance = 0.0F;
                   return;
                }
@@ -758,7 +709,7 @@ public class HiveBoatEntity extends Entity {
                   this.remove();
                   if (this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
                      for(int i = 0; i < 3; ++i) {
-                        this.entityDropItem(this.getBoatType().asPlank());
+                        this.entityDropItem(this.getBoatModel().asPlank());
                      }
 
                      for(int j = 0; j < 2; ++j) {
@@ -775,35 +726,27 @@ public class HiveBoatEntity extends Entity {
 
       }
    }
-
+   @Override
    public boolean getPaddleState(int side) {
       return this.dataManager.<Boolean>get(side == 0 ? field_199704_e : field_199705_f) && this.getControllingPassenger() != null;
    }
 
-   /**
-    * Sets the damage taken from the last hit.
-    */
+   @Override
    public void setDamageTaken(float damageTaken) {
       this.dataManager.set(DAMAGE_TAKEN, damageTaken);
    }
 
-   /**
-    * Gets the damage taken from the last hit.
-    */
+   @Override
    public float getDamageTaken() {
       return this.dataManager.get(DAMAGE_TAKEN);
    }
 
-   /**
-    * Sets the time to count down from since the last time entity was hit.
-    */
+   @Override
    public void setTimeSinceHit(int timeSinceHit) {
       this.dataManager.set(TIME_SINCE_HIT, timeSinceHit);
    }
 
-   /**
-    * Gets the time since the last hit.
-    */
+   @Override
    public int getTimeSinceHit() {
       return this.dataManager.get(TIME_SINCE_HIT);
    }
@@ -815,33 +758,30 @@ public class HiveBoatEntity extends Entity {
    private int getRockingTicks() {
       return this.dataManager.get(ROCKING_TICKS);
    }
-
-   @OnlyIn(Dist.CLIENT) 
+   @Override
+   @OnlyIn(Dist.CLIENT)
    public float getRockingAngle(float partialTicks) {
       return MathHelper.lerp(partialTicks, this.prevRockingAngle, this.rockingAngle);
    }
 
-   /**
-    * Sets the forward direction of the entity.
-    */
+   @Override
    public void setForwardDirection(int forwardDirection) {
       this.dataManager.set(FORWARD_DIRECTION, forwardDirection);
    }
 
-   /**
-    * Gets the forward direction of the entity.
-    */
+   @Override
    public int getForwardDirection() {
       return this.dataManager.get(FORWARD_DIRECTION);
    }
-
+   
    public void setBoatType(HiveBoatEntity.Type boatType) {
       this.dataManager.set(BOAT_TYPE, boatType.ordinal());
    }
 
-   public HiveBoatEntity.Type getBoatType() {
+   public HiveBoatEntity.Type getBoatModel() {
       return HiveBoatEntity.Type.byId(this.dataManager.get(BOAT_TYPE));
    }
+
    @Override
    protected boolean canFitPassenger(Entity passenger) {
       return this.getPassengers().size() < 2 && !this.areEyesInFluid(FluidTags.WATER);
@@ -852,21 +792,18 @@ public class HiveBoatEntity extends Entity {
     * Pigs, Horses, and Boats are generally "steered" by the controlling passenger.
     */
    @Nullable
+   @Override
    public Entity getControllingPassenger() {
       List<Entity> list = this.getPassengers();
       return list.isEmpty() ? null : list.get(0);
    }
-
-   @OnlyIn(Dist.CLIENT) 
+   @Override
+   @OnlyIn(Dist.CLIENT)
    public void updateInputs(boolean p_184442_1_, boolean p_184442_2_, boolean p_184442_3_, boolean p_184442_4_) {
       this.leftInputDown = p_184442_1_;
       this.rightInputDown = p_184442_2_;
       this.forwardInputDown = p_184442_3_;
       this.backInputDown = p_184442_4_;
-   }
-   @Override
-   public IPacket<?> createSpawnPacket() {
-       return NetworkHooks.getEntitySpawningPacket(this);
    }
 
    // Forge: Fix MC-119811 by instantly completing lerp on board
@@ -886,7 +823,7 @@ public class HiveBoatEntity extends Entity {
       ON_LAND,
       IN_AIR;
    }
-
+   
    public static enum Type {
       HIVE(BBBlocks.HIVE_PLANKS.get(), "hive");
 

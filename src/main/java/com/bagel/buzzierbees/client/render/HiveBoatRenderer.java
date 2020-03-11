@@ -64,6 +64,6 @@ public class HiveBoatRenderer extends EntityRenderer<HiveBoatEntity> {
     */
    @Override
    public ResourceLocation getEntityTexture(HiveBoatEntity entity) {
-      return BOAT_TEXTURES[entity.getBoatType().ordinal()];
+      return BOAT_TEXTURES[entity.getBoatModel().ordinal()];
    }
 }

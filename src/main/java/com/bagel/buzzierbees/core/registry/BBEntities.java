@@ -46,10 +46,7 @@ public class BBEntities
     }
     
     public static void addEntitySpawns() {
-    	//Condition Registry
 		EntitySpawnPlacementRegistry.register(HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
-
-		//Spawn Registry
 		if (BuzzierBeesCommonConfig.spawnHoneySlimes) Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(HONEY_SLIME, 8, 1, 2));
 	}
 }
