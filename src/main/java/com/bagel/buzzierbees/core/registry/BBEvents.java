@@ -32,7 +32,7 @@ public class BBEvents {
 		}
 	}
 	    
-	@SubscribeEvent
+	//@SubscribeEvent
 	public static void entityInteract(PlayerInteractEvent.EntityInteractSpecific event) {
 		if(event.getTarget() != null && !event.getWorld().isRemote) {
 			

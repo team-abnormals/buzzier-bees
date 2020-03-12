@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.bagel.buzzierbees.common.blocks.CandleBlock;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.core.config.BuzzierBeesCommonConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
@@ -14,7 +13,6 @@ import com.bagel.buzzierbees.core.registry.BBEffects;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
 import com.bagel.buzzierbees.core.registry.BBItems;
-import com.bagel.buzzierbees.core.registry.BBTags;
 import com.bagel.buzzierbees.core.registry.BBTileEntities;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -23,16 +21,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.FallingBlockEntity;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -159,14 +152,4 @@ public class BuzzierBees
     public static void addToMap(Block block, Map<BlockState,PointOfInterestType> pointOfInterestTypeMap) {
     	block.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
     }
-    
-    @SubscribeEvent
-    public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
-    	Entity entity = event.getEntity();
-    	if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(BBTags.CANDLES)) {
-    		event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
-    		.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
-    		.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
-    	}
-    }    
 }
