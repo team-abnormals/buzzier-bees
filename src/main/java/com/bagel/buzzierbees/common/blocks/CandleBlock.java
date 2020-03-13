@@ -38,6 +38,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	public static final IntegerProperty CANDLES 	= BlockStateUtils.CANDLES_1_4;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+	public static final BooleanProperty LIT = BlockStateUtils.LIT;
 	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 	
 	protected static final VoxelShape ONE_SHAPE 	= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
@@ -47,7 +48,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	
 	public CandleBlock(Block.Properties properties) {
 		super(properties);
-    	this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true));
+    	this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true).with(LIT, true));
     }
 	
 	public int getLightValue(BlockState state) {
@@ -159,7 +160,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	}
 	
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(CANDLES, WATERLOGGED, FACING);	
+		builder.add(CANDLES, WATERLOGGED, LIT, FACING);	
 	}
 	
 	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
@@ -173,7 +174,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState state, World worldIn, BlockPos pos, Random rand) {
-		if(state.get(WATERLOGGED) == false) {
+		if(state.get(WATERLOGGED) == false && state.get(LIT)) {
 			double x = pos.getX();
 			double y = pos.getY();
 			double z = pos.getZ();
