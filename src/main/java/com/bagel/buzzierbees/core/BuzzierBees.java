@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.core.config.BuzzierBeesCommonConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
@@ -76,7 +77,7 @@ public class BuzzierBees
     	BBEffects.addBrewingRecipes();
     	BBEntities.addEntitySpawns();
     	
-    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BugBottleDispenseBehavior());
+    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
     	
