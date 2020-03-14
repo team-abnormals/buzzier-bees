@@ -7,10 +7,12 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -32,7 +34,7 @@ public class BBEvents {
 		}
 	}
 	    
-	//@SubscribeEvent
+	@SubscribeEvent
 	public static void entityInteract(PlayerInteractEvent.EntityInteractSpecific event) {
 		if(event.getTarget() != null && !event.getWorld().isRemote) {
 			
@@ -46,9 +48,21 @@ public class BBEvents {
 			
 			if (targetType == EntityType.SILVERFISH) { bottle = BBItems.BOTTLE_OF_SILVERFISH.get(); successful = true; }
     		if (targetType == EntityType.ENDERMITE) { bottle = BBItems.BOTTLE_OF_ENDERMITE.get(); successful = true; }
-    		if (targetType == EntityType.BEE) { bottle = BBItems.BOTTLE_OF_BEE.get(); successful = true; }
-    		
+    		if (targetType == EntityType.BEE) {   			
+    			bottle = BBItems.BOTTLE_OF_BEE.get(); 
+    			successful = true;     			
+    		}
     		ItemStack bottleItem = new ItemStack(bottle);
+    		
+    		if (targetType == EntityType.BEE) {
+    			BeeEntity bee = (BeeEntity)target;
+    			CompoundNBT tag = bottleItem.getOrCreateTag();
+        		tag.putBoolean("HasNectar", bee.func_226411_eD_());
+        		tag.putBoolean("HasStung", bee.func_226412_eE_());
+        		tag.putInt("Anger", bee.func_226418_eL_());
+        		tag.putInt("Age", bee.getGrowingAge());
+    		}
+    		
     		
     		if (target.hasCustomName()) {
     			ITextComponent name = target.getCustomName();

@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.core.registry;
 import java.util.List;
 
 import com.bagel.buzzierbees.common.entities.HiveBoatEntity;
+import com.bagel.buzzierbees.common.items.BeeBottleItem;
 import com.bagel.buzzierbees.common.items.BeeSoupItem;
 import com.bagel.buzzierbees.common.items.BugBottleItem;
 import com.bagel.buzzierbees.common.items.CuringItem;
@@ -51,7 +52,7 @@ public class BBItems
 	
 	public static RegistryObject<Item> BOTTLE_OF_SILVERFISH = RegistryUtils.createItem("silverfish_bottle", () -> new BugBottleItem(EntityType.SILVERFISH, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 	public static RegistryObject<Item> BOTTLE_OF_ENDERMITE = RegistryUtils.createItem("endermite_bottle", () -> new BugBottleItem(EntityType.ENDERMITE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
-	public static RegistryObject<Item> BOTTLE_OF_BEE = RegistryUtils.createItem("bee_bottle", () -> new BugBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
+	public static RegistryObject<Item> BOTTLE_OF_BEE = RegistryUtils.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 
 	public static RegistryObject<Item> HONEY_SLIME_SPAWN_EGG = RegistryUtils.createSpawnEggItem("honey_slime", () -> BBEntities.HONEY_SLIME, 16361240, 16361240);
 }

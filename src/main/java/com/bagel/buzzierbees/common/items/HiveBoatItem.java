@@ -52,7 +52,7 @@ public class HiveBoatItem extends Item {
 	            HiveBoatEntity boatentity = new HiveBoatEntity(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
 	            boatentity.setBoatType(this.type);
 	            boatentity.rotationYaw = playerIn.rotationYaw;
-	            if (!worldIn.func_226665_a__(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
+	            if (!worldIn.hasNoCollisions(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
 	               return ActionResult.resultFail(itemstack);
 	            } else {
 	               if (!worldIn.isRemote) {

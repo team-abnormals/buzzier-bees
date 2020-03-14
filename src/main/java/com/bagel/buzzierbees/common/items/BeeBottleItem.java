@@ -2,11 +2,11 @@ package com.bagel.buzzierbees.common.items;
 
 import java.util.Objects;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
@@ -19,12 +19,10 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BugBottleItem extends Item {
-	private final EntityType<?> typeIn;
+public class BeeBottleItem extends  Item {	
 	
-	public BugBottleItem(EntityType<?> typeIn, Item.Properties properties) {
+	public BeeBottleItem(EntityType<?> typeIn, Item.Properties properties) {
 		super(properties);
-		this.typeIn = typeIn;
 	}
 
 	public ActionResultType onItemUse(ItemUseContext context) {
@@ -44,26 +42,29 @@ public class BugBottleItem extends Item {
 				blockpos1 = blockpos.offset(direction);
 			}
 
-			EntityType<?> entitytype = this.getType(itemstack.getTag());
             world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			if (entitytype.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP) != null) {
-				if (!context.getPlayer().abilities.isCreativeMode) {
-					context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
-				}
-			}
+            CompoundNBT tag = itemstack.getOrCreateTag();
+            Entity entity = EntityType.BEE.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
+            
+            if(entity instanceof BeeEntity && tag != null) {
+            	BeeEntity bee = (BeeEntity)entity;
+            	
+                int anger = tag.contains("Anger") ? tag.getInt("Anger") : 0;
+                int age = tag.contains("Age") ? tag.getInt("Age") : 0;
+                boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
+                boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
+                
+                bee.setGrowingAge(age);
+                bee.func_226447_r_(nectar);
+                bee.func_226449_s_(stung);
+                bee.func_226453_u_(anger);
+            }
+            
+            if (!context.getPlayer().abilities.isCreativeMode) {
+            	context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
+            }
 
 			return ActionResultType.SUCCESS;
 		}
-	}
-
-	public EntityType<?> getType(@Nullable CompoundNBT p_208076_1_) {
-		if (p_208076_1_ != null && p_208076_1_.contains("EntityTag", 10)) {
-			CompoundNBT compoundnbt = p_208076_1_.getCompound("EntityTag");
-			if (compoundnbt.contains("id", 8)) {
-				return EntityType.byKey(compoundnbt.getString("id")).orElse(this.typeIn);
-			}
-		}
-		
-		return this.typeIn;
 	}
 }
