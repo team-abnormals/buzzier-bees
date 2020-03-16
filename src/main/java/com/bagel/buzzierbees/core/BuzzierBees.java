@@ -66,7 +66,6 @@ public class BuzzierBees
     	BuzzierBeesCommonConfig.refresh();
 		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
-		BBFeatures.addFeatures();
 	}
     
     private void setup(final FMLCommonSetupEvent event)
@@ -76,6 +75,7 @@ public class BuzzierBees
     	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();
     	BBEntities.addEntitySpawns();
+		BBFeatures.addFeatures();
     	
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
