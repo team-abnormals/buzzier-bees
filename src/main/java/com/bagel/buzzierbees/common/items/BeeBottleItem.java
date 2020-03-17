@@ -1,8 +1,10 @@
 package com.bagel.buzzierbees.common.items;
 
+import java.util.List;
 import java.util.Objects;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -14,15 +16,28 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BeeBottleItem extends  Item {	
 	
 	public BeeBottleItem(EntityType<?> typeIn, Item.Properties properties) {
 		super(properties);
+		this.addPropertyOverride(new ResourceLocation("angry"), (stack, world, entity) -> {
+			CompoundNBT compoundnbt = stack.getTag();
+			if (compoundnbt != null && compoundnbt.contains("Anger")) {
+				return (compoundnbt.getInt("Anger") > 0) ? 2 : 1;
+			}
+			return 1;
+		});
 	}
 
 	public ActionResultType onItemUse(ItemUseContext context) {
@@ -65,6 +80,31 @@ public class BeeBottleItem extends  Item {
             }
 
 			return ActionResultType.SUCCESS;
+		}
+	}
+	
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		CompoundNBT compoundnbt = stack.getTag();
+		if (compoundnbt != null) {
+			TextFormatting[] atextformatting = new TextFormatting[] {TextFormatting.GRAY};
+			if (compoundnbt.contains("Age")) {
+				boolean baby = compoundnbt.getInt("Age") < 0;
+				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_baby").applyTextStyles(atextformatting)));
+			}
+			if (compoundnbt.contains("Anger")) {
+				boolean angry = compoundnbt.getInt("Anger") > 0;
+				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_angry").applyTextStyles(atextformatting)));
+			}
+			if (compoundnbt.contains("HasNectar")) {
+				boolean nectar = compoundnbt.getBoolean("HasNectar");
+				if (nectar) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.has_nectar").applyTextStyles(atextformatting)));
+			}
+			if (compoundnbt.contains("HasStung")) {
+				boolean stung = compoundnbt.getBoolean("HasStung");
+				if (stung) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.has_stung").applyTextStyles(atextformatting)));
+			}
 		}
 	}
 }

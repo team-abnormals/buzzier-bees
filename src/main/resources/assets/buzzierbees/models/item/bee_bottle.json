@@ -2,5 +2,19 @@
     "parent": "item/generated",
     "textures": {
         "layer0": "buzzierbees:item/bee_bottle"
-    }
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "angry": 1
+            },
+            "model": "buzzierbees:item/bee_bottle"
+        },
+        {
+            "predicate": {
+                "angry": 2
+            },
+            "model": "buzzierbees:item/bee_bottle_angry"
+        }
+    ]
 }

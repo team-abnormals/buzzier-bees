@@ -11,18 +11,19 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.config.ModConfig;
 
 @EventBusSubscriber(bus = Bus.MOD)
-public final class BuzzierBeesCommonConfig {
+public final class BBCommonConfig {
+	
     public static boolean spawnHoneySlimes = true;
     private static BooleanValue spawnHoneySlimesCfg;
 
     public static final ForgeConfigSpec spec;
 
     static {
-        final Pair<BuzzierBeesCommonConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(BuzzierBeesCommonConfig::new);
+        final Pair<BBCommonConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(BBCommonConfig::new);
         spec = specPair.getRight();
     }
 
-    private BuzzierBeesCommonConfig(ForgeConfigSpec.Builder builder) {
+    private BBCommonConfig(ForgeConfigSpec.Builder builder) {
     	spawnHoneySlimesCfg = builder.define("spawnHoneySlimes", spawnHoneySlimes);
     }
 

@@ -40,6 +40,10 @@
 	"block.buzzierbees.yucca_beehive": "Yucca Beehive",
 	"block.buzzierbees.kousa_beehive": "Kousa Beehive",
 	"block.buzzierbees.aspen_beehive": "Aspen Beehive",
+	"block.buzzierbees.maple_beehive": "Maple Beehive",
+	"block.buzzierbees.bamboo_beehive": "Bamboo Beehive",
+	
+	"block.buzzierbees.snake_block_beehive": "Snake Block Beehive",
 	
 	"block.buzzierbees.bop_fir_beehive": "Fir Beehive",
 	"block.buzzierbees.bop_dead_beehive": "Dead Beehive",
@@ -363,5 +367,10 @@
 	"advancements.husbandry.glazed_porkchop.description": "Use a Glazed Porkchop to cure Mining Fatigue",
 	
 	"advancements.nether.use_cure.title": "Cured Honey",
-	"advancements.nether.use_cure.description": "Use a Cure to remove a Potion effect"
+	"advancements.nether.use_cure.description": "Use a Cure to remove a Potion effect",
+	
+	"tooltip.buzzierbees.is_baby": "Baby",
+	"tooltip.buzzierbees.has_nectar": "Pollinated",
+	"tooltip.buzzierbees.is_angry": "Angry",
+	"tooltip.buzzierbees.has_stung": "Stingerless"
 }

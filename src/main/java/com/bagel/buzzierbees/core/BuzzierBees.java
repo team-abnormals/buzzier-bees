@@ -7,7 +7,7 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
-import com.bagel.buzzierbees.core.config.BuzzierBeesCommonConfig;
+import com.bagel.buzzierbees.core.config.BBCommonConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
@@ -43,7 +43,7 @@ public class BuzzierBees
 	public static final String MODID = "buzzierbees";
     
     public BuzzierBees() {
-    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BuzzierBeesCommonConfig.spec);
+    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BBCommonConfig.spec);
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
     	BBItems.ITEMS.register(modEventBus);
@@ -63,14 +63,14 @@ public class BuzzierBees
 	}
     
     private void setupClient(final FMLClientSetupEvent event) {
-    	BuzzierBeesCommonConfig.refresh();
+    	BBCommonConfig.refresh();
 		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
 	}
     
     private void setup(final FMLCommonSetupEvent event)
     {
-    	BuzzierBeesCommonConfig.refresh();
+    	BBCommonConfig.refresh();
     	BBBlockData.registerCompostables();
     	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();
@@ -98,6 +98,14 @@ public class BuzzierBees
 				BBBlocks.KOUSA_BEEHIVE.get(),
 				BBBlocks.ASPEN_BEEHIVE.get(),
 				BBBlocks.WILLOW_BEEHIVE.get(),
+				BBBlocks.WISTERIA_BEEHIVE.get(),
+				BBBlocks.MAPLE_BEEHIVE.get(),
+				//BBBlocks.BAMBOO_HIVE.get(),
+				//BBBlocks.POISE_HIVE.get(),
+				BBBlocks.DRIFTWOOD_BEEHIVE.get(),
+				//BBBlocks.RIVERWOOD_HIVE.get(),
+				
+				BBBlocks.SNAKE_BLOCK_BEEHIVE.get(),
 				
 				BBBlocks.BOP_FIR_BEEHIVE.get(),
 				BBBlocks.BOP_DEAD_BEEHIVE.get(),
@@ -135,6 +143,14 @@ public class BuzzierBees
     	addToMap(BBBlocks.KOUSA_BEEHIVE.get(), map);
     	addToMap(BBBlocks.ASPEN_BEEHIVE.get(), map);
     	addToMap(BBBlocks.WILLOW_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.WISTERIA_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.MAPLE_BEEHIVE.get(), map);
+    	//addToMap(BBBlocks.BAMBOO_BEEHIVE.get(), map);
+    	//addToMap(BBBlocks.POISE_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.DRIFTWOOD_BEEHIVE.get(), map);
+    	//addToMap(BBBlocks.RIVERWOOD_BEEHIVE.get(), map);
+    	
+    	addToMap(BBBlocks.SNAKE_BLOCK_BEEHIVE.get(), map);
     	
     	addToMap(BBBlocks.BOP_FIR_BEEHIVE.get(), map);
     	addToMap(BBBlocks.BOP_DEAD_BEEHIVE.get(), map);

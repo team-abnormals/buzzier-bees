@@ -54,6 +54,11 @@ public class BBBlocks
 	public static final RegistryObject<Block> KOUSA_BEEHIVE    = RegistryUtils.createBlockCompat("atmospheric", "kousa_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ASPEN_BEEHIVE    = RegistryUtils.createBlockCompat("atmospheric", "aspen_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WILLOW_BEEHIVE   = RegistryUtils.createBlockCompat("swampexpansion", "willow_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WISTERIA_BEEHIVE = RegistryUtils.createBlockCompat("bloomful", "wisteria_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAPLE_BEEHIVE    = RegistryUtils.createBlockCompat("autumnity", "maple_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DRIFTWOOD_BEEHIVE= RegistryUtils.createBlockCompat("upgrade_aquatic", "driftwood_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	
+	public static final RegistryObject<Block> SNAKE_BLOCK_BEEHIVE = RegistryUtils.createBlock("snake_block_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.DARK_PRISMARINE)), null);
 	
 	public static final RegistryObject<Block> BOP_FIR_BEEHIVE 		= RegistryUtils.createBlockCompat("biomesoplenty", "bop_fir_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BOP_DEAD_BEEHIVE 		= RegistryUtils.createBlockCompat("biomesoplenty", "bop_dead_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
