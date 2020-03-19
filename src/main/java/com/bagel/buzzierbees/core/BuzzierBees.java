@@ -7,7 +7,7 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
-import com.bagel.buzzierbees.core.config.BBCommonConfig;
+import com.bagel.buzzierbees.core.config.BBConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
@@ -43,7 +43,7 @@ public class BuzzierBees
 	public static final String MODID = "buzzierbees";
     
     public BuzzierBees() {
-    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BBCommonConfig.spec);
+    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BBConfig.SERVER_SPEC);
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
     	BBItems.ITEMS.register(modEventBus);
@@ -63,14 +63,21 @@ public class BuzzierBees
 	}
     
     private void setupClient(final FMLClientSetupEvent event) {
-    	BBCommonConfig.refresh();
+    	BBConfig.refresh();
 		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
 	}
     
+    public void modConfig(final ModConfig.ModConfigEvent event)
+	{
+		ModConfig config = event.getConfig();
+		if (config.getSpec() == BBConfig.SERVER_SPEC)
+			BBConfig.refresh();
+	}
+    
     private void setup(final FMLCommonSetupEvent event)
     {
-    	BBCommonConfig.refresh();
+    	BBConfig.refresh();
     	BBBlockData.registerCompostables();
     	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();
