@@ -74,14 +74,13 @@ public class BBEvents {
 					stack.shrink(1);
 					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
-    	    		if (stack.isEmpty()) {
+					player.swingArm(event.getHand());
+					event.getTarget().remove();
+					if (stack.isEmpty()) {
     	    			player.setHeldItem(event.getHand(), bottleItem);
     	    		} else if (!player.inventory.addItemStackToInventory(bottleItem)) {
     	    			player.dropItem(bottleItem, false);
     	    		}
-
-					player.swingArm(event.getHand());
-					event.getTarget().remove();
 				}
 			}
 		}

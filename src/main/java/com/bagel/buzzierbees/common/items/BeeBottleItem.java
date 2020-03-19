@@ -59,6 +59,9 @@ public class BeeBottleItem extends  Item {
 
             world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
             CompoundNBT tag = itemstack.getOrCreateTag();
+            if (!context.getPlayer().abilities.isCreativeMode) {
+            	context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
+            }
             Entity entity = EntityType.BEE.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
             
             if(entity instanceof BeeEntity && tag != null) {
@@ -74,11 +77,6 @@ public class BeeBottleItem extends  Item {
                 bee.func_226449_s_(stung);
                 bee.func_226453_u_(anger);
             }
-            
-            if (!context.getPlayer().abilities.isCreativeMode) {
-            	context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
-            }
-
 			return ActionResultType.SUCCESS;
 		}
 	}
