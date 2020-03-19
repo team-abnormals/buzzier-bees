@@ -47,6 +47,6 @@ public class BBEntities
     
     public static void addEntitySpawns() {
 		EntitySpawnPlacementRegistry.register(HONEY_SLIME, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
-		if (BBConfig.spawnHoneySlimes) Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(HONEY_SLIME, 8, 1, 2));
+		if (BBConfig.spawnHoneySlimes) Biomes.FLOWER_FOREST.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(HONEY_SLIME, 6, 1, 1));
 	}
 }
