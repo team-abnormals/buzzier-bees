@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.Properties;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,8 +20,8 @@ public class RegistryUtils {
 		return item;
 	}
 	
-	public static RegistryObject<Item> createSpawnEggItem(String entityName, Supplier<EntityType<?>> supplier, int primaryColor, int secondaryColor) {
-		RegistryObject<Item> spawnEgg = BBItems.ITEMS.register(entityName + "_spawn_egg", () -> new ModSpawnEggItem(supplier, primaryColor, secondaryColor, new Item.Properties().group(ItemGroup.MISC)));
+	public static RegistryObject<Item> createSpawnEggItem(String entityName, Supplier<EntityType<?>> supplier, int primaryColor, int secondaryColor, ItemGroup group) {
+		RegistryObject<Item> spawnEgg = BBItems.ITEMS.register(entityName + "_spawn_egg", () -> new ModSpawnEggItem(supplier, primaryColor, secondaryColor, new Item.Properties().group(group)));
 		BBItems.SPAWN_EGGS.add(spawnEgg);
 		return spawnEgg;
 	}
