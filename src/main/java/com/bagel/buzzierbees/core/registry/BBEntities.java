@@ -1,7 +1,9 @@
 package com.bagel.buzzierbees.core.registry;
 
+import com.bagel.buzzierbees.client.render.GrizzlyBearRenderer;
 import com.bagel.buzzierbees.client.render.HiveBoatRenderer;
 import com.bagel.buzzierbees.client.render.HoneySlimeRenderer;
+import com.bagel.buzzierbees.common.entities.GrizzlyBearEntity;
 import com.bagel.buzzierbees.common.entities.HiveBoatEntity;
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.core.config.BBConfig;
@@ -25,6 +27,7 @@ public class BBEntities
 {
 	public static EntityType<HoneySlimeEntity>  HONEY_SLIME;
 	public static EntityType<HiveBoatEntity>        BOAT;
+	public static EntityType<GrizzlyBearEntity>        GRIZZLY_BEAR;
 	
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event)
@@ -36,6 +39,10 @@ public class BBEntities
         BOAT = EntityType.Builder.<HiveBoatEntity>create(HiveBoatEntity::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).build("buzzierbees:boat");
         BOAT.setRegistryName("boat");
         ForgeRegistries.ENTITIES.register(BOAT);
+        
+        GRIZZLY_BEAR = EntityType.Builder.<GrizzlyBearEntity>create(GrizzlyBearEntity::new, EntityClassification.CREATURE).size(1.4F, 1.4F).build("buzzierbees:grizzly_bear");
+        GRIZZLY_BEAR.setRegistryName("grizzly_bear");
+        ForgeRegistries.ENTITIES.register(GRIZZLY_BEAR);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -43,6 +50,7 @@ public class BBEntities
     {
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)HONEY_SLIME, HoneySlimeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HiveBoatEntity>)BOAT, HiveBoatRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends GrizzlyBearEntity>)GRIZZLY_BEAR, GrizzlyBearRenderer::new);
     }
     
     public static void addEntitySpawns() {
