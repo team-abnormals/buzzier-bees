@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -38,13 +39,24 @@ public class BBEvents {
 	public static void entityInteract(PlayerInteractEvent.EntityInteractSpecific event) {
 		if(event.getTarget() != null && !event.getWorld().isRemote) {
 			
+			ItemStack itemstack = event.getPlayer().getHeldItem(event.getHand());
+			Item item = itemstack.getItem();
+			Hand hand = Hand.MAIN_HAND;
+			
 			Item bottle = null;
 			boolean successful = false;
 			
 			Entity target = event.getTarget();
 			EntityType<?> targetType = target.getType();
 			PlayerEntity player = event.getPlayer();
-			ItemStack stack = event.getItemStack();
+			if (player.getHeldItemMainhand().getItem() == Items.GLASS_BOTTLE) {
+				hand = Hand.MAIN_HAND;
+			} else if (player.getHeldItemOffhand().getItem() == Items.GLASS_BOTTLE) {
+				hand = Hand.OFF_HAND;
+			} else {
+				event.setCanceled(true);
+			}
+			
 			
 			if (targetType == EntityType.SILVERFISH) { bottle = BBItems.BOTTLE_OF_SILVERFISH.get(); successful = true; }
     		if (targetType == EntityType.ENDERMITE) { bottle = BBItems.BOTTLE_OF_ENDERMITE.get(); successful = true; }
@@ -61,6 +73,8 @@ public class BBEvents {
         		tag.putBoolean("HasStung", bee.func_226412_eE_());
         		tag.putInt("Anger", bee.func_226418_eL_());
         		tag.putInt("Age", bee.getGrowingAge());
+        		tag.putFloat("Health", bee.getHealth());
+        		//tag.putString("Effects", bee.getActivePotionEffects().toString());
     		}
     		
     		
@@ -70,14 +84,14 @@ public class BBEvents {
     		}
     		
 			if(successful && ((MobEntity) target).getHealth() > 0) {
-				if(!stack.isEmpty() && stack.getItem() == Items.GLASS_BOTTLE) {
-					stack.shrink(1);
+				if(item == Items.GLASS_BOTTLE) {
+					itemstack.shrink(1);
 					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
-					player.swingArm(event.getHand());
+					player.swingArm(hand);
 					event.getTarget().remove();
-					if (stack.isEmpty()) {
-    	    			player.setHeldItem(event.getHand(), bottleItem);
+					if (itemstack.isEmpty()) {
+    	    			player.setHeldItem(hand, bottleItem);
     	    		} else if (!player.inventory.addItemStackToInventory(bottleItem)) {
     	    			player.dropItem(bottleItem, false);
     	    		}

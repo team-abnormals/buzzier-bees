@@ -71,11 +71,14 @@ public class BeeBottleItem extends  Item {
                 int age = tag.contains("Age") ? tag.getInt("Age") : 0;
                 boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
                 boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
+                float health = tag.contains("Health") ? tag.getFloat("Health") : 10.0F;
+                //String effects = tag.contains("Effects") ? tag.getString("Effects") : null;
                 
                 bee.setGrowingAge(age);
                 bee.func_226447_r_(nectar);
                 bee.func_226449_s_(stung);
                 bee.func_226453_u_(anger);
+                bee.setHealth(health);
             }
 			return ActionResultType.SUCCESS;
 		}
