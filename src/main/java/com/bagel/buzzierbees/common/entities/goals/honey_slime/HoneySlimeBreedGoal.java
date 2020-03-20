@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.entities.goals;
+package com.bagel.buzzierbees.common.entities.goals.honey_slime;
 
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;

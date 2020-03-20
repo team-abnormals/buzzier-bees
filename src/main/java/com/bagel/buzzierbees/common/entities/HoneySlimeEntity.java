@@ -1,7 +1,7 @@
 package com.bagel.buzzierbees.common.entities;
 
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
-import com.bagel.buzzierbees.common.entities.goals.*;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.*;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import net.minecraft.block.Blocks;
