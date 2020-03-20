@@ -6,10 +6,10 @@ import net.minecraft.entity.ai.goal.Goal;
 
 import java.util.EnumSet;
 
-public class HoneySlimeHopGoal extends Goal {
+public class HopGoal extends Goal {
     private final HoneySlimeEntity slime;
 
-    public HoneySlimeHopGoal(HoneySlimeEntity slimeIn) {
+    public HopGoal(HoneySlimeEntity slimeIn) {
         this.slime = slimeIn;
         this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
     }

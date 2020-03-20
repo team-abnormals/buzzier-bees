@@ -8,11 +8,11 @@ import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.EnumSet;
 
-public class HoneySlimeRevengeGoal extends Goal {
+public class RevengeGoal extends Goal {
     private final HoneySlimeEntity slime;
     private int growTieredTimer;
 
-    public HoneySlimeRevengeGoal(HoneySlimeEntity slimeIn) {
+    public RevengeGoal(HoneySlimeEntity slimeIn) {
         this.slime = slimeIn;
         this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
     }

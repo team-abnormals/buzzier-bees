@@ -6,10 +6,10 @@ import net.minecraft.entity.ai.goal.Goal;
 
 import java.util.EnumSet;
 
-public class HoneySlimeFloatGoal extends Goal {
+public class FloatGoal extends Goal {
     private final HoneySlimeEntity slime;
 
-    public HoneySlimeFloatGoal(HoneySlimeEntity slimeIn) {
+    public FloatGoal(HoneySlimeEntity slimeIn) {
         this.slime = slimeIn;
         this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
         slimeIn.getNavigator().setCanSwim(true);

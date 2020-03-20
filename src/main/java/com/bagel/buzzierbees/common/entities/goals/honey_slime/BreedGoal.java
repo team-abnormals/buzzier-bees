@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.List;
 
-public class HoneySlimeBreedGoal extends Goal {
+public class BreedGoal extends Goal {
     private static final EntityPredicate field_220689_d = (new EntityPredicate()).setDistance(8.0D).allowInvulnerable().allowFriendlyFire().setLineOfSiteRequired();
     protected final HoneySlimeEntity slime;
     private final Class<? extends AnimalEntity> mateClass;
@@ -27,11 +27,11 @@ public class HoneySlimeBreedGoal extends Goal {
     @SuppressWarnings("unused")
 	private final double moveSpeed;
 
-    public HoneySlimeBreedGoal(HoneySlimeEntity animal, double speedIn) {
+    public BreedGoal(HoneySlimeEntity animal, double speedIn) {
         this(animal, speedIn, animal.getClass());
     }
 
-    public HoneySlimeBreedGoal(HoneySlimeEntity p_i47306_1_, double p_i47306_2_, Class<? extends AnimalEntity> p_i47306_4_) {
+    public BreedGoal(HoneySlimeEntity p_i47306_1_, double p_i47306_2_, Class<? extends AnimalEntity> p_i47306_4_) {
         this.slime = p_i47306_1_;
         this.world = p_i47306_1_.world;
         this.mateClass = p_i47306_4_;

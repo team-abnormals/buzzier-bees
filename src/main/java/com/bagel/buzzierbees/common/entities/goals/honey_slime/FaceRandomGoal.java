@@ -7,12 +7,12 @@ import net.minecraft.potion.Effects;
 
 import java.util.EnumSet;
 
-public class HoneySlimeFaceRandomGoal extends Goal {
+public class FaceRandomGoal extends Goal {
     private final HoneySlimeEntity slime;
     private float chosenDegrees;
     private int nextRandomizeTime;
 
-    public HoneySlimeFaceRandomGoal(HoneySlimeEntity slimeIn) {
+    public FaceRandomGoal(HoneySlimeEntity slimeIn) {
         this.slime = slimeIn;
         this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
     }

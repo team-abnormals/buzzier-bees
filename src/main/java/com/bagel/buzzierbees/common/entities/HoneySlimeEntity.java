@@ -50,13 +50,13 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    protected void registerGoals() {
-	  this.goalSelector.addGoal(0, new HoneySlimeFloatGoal(this));
-      this.goalSelector.addGoal(1, new HoneySlimeBreedGoal(this, 1.0D));
-      this.goalSelector.addGoal(2, new HoneySlimeTemptGoal(this, 1.2D, BREEDING_ITEM));
-      this.goalSelector.addGoal(4, new HoneySlimeHopGoal(this));
-      this.goalSelector.addGoal(5, new HoneySlimeFaceRandomGoal(this));
+	  this.goalSelector.addGoal(0, new FloatGoal(this));
+      this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
+      this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, BREEDING_ITEM));
+      this.goalSelector.addGoal(4, new HopGoal(this));
+      this.goalSelector.addGoal(5, new FaceRandomGoal(this));
       this.goalSelector.addGoal(6, new HurtByTargetGoal(this, new Class[0]));
-      this.goalSelector.addGoal(7, new HoneySlimeRevengeGoal(this));
+      this.goalSelector.addGoal(7, new RevengeGoal(this));
    }
 
    @Nullable

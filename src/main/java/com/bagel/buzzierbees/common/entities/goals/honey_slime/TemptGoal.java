@@ -12,7 +12,7 @@ import net.minecraft.pathfinding.GroundPathNavigator;
 
 import java.util.EnumSet;
 
-public class HoneySlimeTemptGoal extends Goal {
+public class TemptGoal extends Goal {
     private static final EntityPredicate ENTITY_PREDICATE = (new EntityPredicate()).setDistance(10.0D).allowInvulnerable().allowFriendlyFire().setSkipAttackChecks().setLineOfSiteRequired();
     protected final HoneySlimeEntity slime;
     @SuppressWarnings("unused")
@@ -27,7 +27,7 @@ public class HoneySlimeTemptGoal extends Goal {
     private boolean isRunning;
     private final Ingredient temptItem;
 
-    public HoneySlimeTemptGoal(HoneySlimeEntity creatureIn, double speedIn, Ingredient temptItemsIn) {
+    public TemptGoal(HoneySlimeEntity creatureIn, double speedIn, Ingredient temptItemsIn) {
         this.slime = creatureIn;
         this.speed = speedIn;
         this.temptItem = temptItemsIn;
