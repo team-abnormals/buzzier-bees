@@ -99,6 +99,8 @@ public class BuzzierBees
 				BBBlocks.SPRUCE_BEEHIVE.get(),
 				BBBlocks.DARK_OAK_BEEHIVE.get(),
 				BBBlocks.JUNGLE_BEEHIVE.get(),
+				BBBlocks.CRIMSON_BEEHIVE.get(),
+				BBBlocks.WARPED_BEEHIVE.get(),
 				
 				BBBlocks.ROSEWOOD_BEEHIVE.get(),
 				BBBlocks.YUCCA_BEEHIVE.get(),
@@ -107,10 +109,10 @@ public class BuzzierBees
 				BBBlocks.WILLOW_BEEHIVE.get(),
 				BBBlocks.WISTERIA_BEEHIVE.get(),
 				BBBlocks.MAPLE_BEEHIVE.get(),
-				//BBBlocks.BAMBOO_HIVE.get(),
-				//BBBlocks.POISE_HIVE.get(),
+				BBBlocks.BAMBOO_BEEHIVE.get(),
+				BBBlocks.POISE_BEEHIVE.get(),
 				BBBlocks.DRIFTWOOD_BEEHIVE.get(),
-				//BBBlocks.RIVERWOOD_HIVE.get(),
+				BBBlocks.RIVERWOOD_BEEHIVE.get(),
 				
 				BBBlocks.SNAKE_BLOCK_BEEHIVE.get(),
 				
@@ -144,6 +146,8 @@ public class BuzzierBees
     	addToMap(BBBlocks.SPRUCE_BEEHIVE.get(), map);
     	addToMap(BBBlocks.DARK_OAK_BEEHIVE.get(), map);
     	addToMap(BBBlocks.JUNGLE_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.CRIMSON_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.WARPED_BEEHIVE.get(), map);
     	
     	addToMap(BBBlocks.ROSEWOOD_BEEHIVE.get(), map);
     	addToMap(BBBlocks.YUCCA_BEEHIVE.get(), map);
@@ -152,10 +156,10 @@ public class BuzzierBees
     	addToMap(BBBlocks.WILLOW_BEEHIVE.get(), map);
     	addToMap(BBBlocks.WISTERIA_BEEHIVE.get(), map);
     	addToMap(BBBlocks.MAPLE_BEEHIVE.get(), map);
-    	//addToMap(BBBlocks.BAMBOO_BEEHIVE.get(), map);
-    	//addToMap(BBBlocks.POISE_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.BAMBOO_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.POISE_BEEHIVE.get(), map);
     	addToMap(BBBlocks.DRIFTWOOD_BEEHIVE.get(), map);
-    	//addToMap(BBBlocks.RIVERWOOD_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.RIVERWOOD_BEEHIVE.get(), map);
     	
     	addToMap(BBBlocks.SNAKE_BLOCK_BEEHIVE.get(), map);
     	
