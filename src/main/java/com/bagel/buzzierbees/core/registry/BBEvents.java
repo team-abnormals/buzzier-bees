@@ -83,7 +83,7 @@ public class BBEvents {
     			bottleItem = bottleItem.setDisplayName(name);
     		}
     		
-			if(successful && ((MobEntity) target).getHealth() > 0) {
+			if(successful && ((MobEntity) target).isAlive()) {
 				if(item == Items.GLASS_BOTTLE) {
 					itemstack.shrink(1);
 					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
