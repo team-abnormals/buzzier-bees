@@ -91,7 +91,7 @@ public class HiveBoatEntity extends BoatEntity {
    }
 
    public HiveBoatEntity(World worldIn, double x, double y, double z) {
-      this(BBEntities.BOAT, worldIn);
+      this(BBEntities.BOAT.get(), worldIn);
       this.setPosition(x, y, z);
       this.setMotion(Vec3d.ZERO);
       this.prevPosX = x;

@@ -221,7 +221,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    @Nullable
    @Override
    public AgeableEntity createChild(AgeableEntity ageable) {
-      HoneySlimeEntity childHoneySlimeEntity = BBEntities.HONEY_SLIME.create(this.world);
+      HoneySlimeEntity childHoneySlimeEntity = BBEntities.HONEY_SLIME.get().create(this.world);
       childHoneySlimeEntity.setSlimeSize(1, true);
       return childHoneySlimeEntity;
    }

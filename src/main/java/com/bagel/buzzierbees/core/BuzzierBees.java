@@ -50,6 +50,7 @@ public class BuzzierBees
     	BBEffects.EFFECTS.register(modEventBus);
     	BBEffects.POTIONS.register(modEventBus);
     	BBBlocks.BLOCKS.register(modEventBus);
+    	BBEntities.ENTITIES.register(modEventBus);
     	BBTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::setup);
@@ -81,8 +82,8 @@ public class BuzzierBees
     	BBBlockData.registerCompostables();
     	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();
-    	BBEntities.addEntitySpawns();
 		BBFeatures.addFeatures();
+		BBEntities.addEntitySpawns();
     	
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());

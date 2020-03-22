@@ -7,11 +7,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.CompoundNBT;
 
-public class ModSpawnEggItem extends SpawnEggItem {
-   private Supplier<EntityType<?>> entity;
+public class BBSpawnEggItem extends SpawnEggItem {
+   private final Supplier<EntityType<?>> entity;
 
-   public ModSpawnEggItem(Supplier<EntityType<?>> entityTypeIn, int primaryColorIn, int secondaryColorIn, Item.Properties builder) {
-      super(entityTypeIn.get(), primaryColorIn, secondaryColorIn, builder);
+   public BBSpawnEggItem(Supplier<EntityType<?>> entityTypeIn, int primaryColorIn, int secondaryColorIn, Item.Properties builder) {
+      super(null, primaryColorIn, secondaryColorIn, builder);
       entity = entityTypeIn;
    }
 
@@ -24,6 +24,6 @@ public class ModSpawnEggItem extends SpawnEggItem {
             return EntityType.byKey(entityTag.getString("id")).orElse(entity.get());
          }
       }
-      return entity.get();
+      return this.entity.get();
    }
 }
