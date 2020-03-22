@@ -112,7 +112,7 @@ public class BuzzierBees
 				BBBlocks.BAMBOO_BEEHIVE.get(),
 				BBBlocks.POISE_BEEHIVE.get(),
 				BBBlocks.DRIFTWOOD_BEEHIVE.get(),
-				BBBlocks.RIVERWOOD_BEEHIVE.get(),
+				BBBlocks.RIVER_BEEHIVE.get(),
 				
 				BBBlocks.SNAKE_BLOCK_BEEHIVE.get(),
 				
@@ -159,7 +159,7 @@ public class BuzzierBees
     	addToMap(BBBlocks.BAMBOO_BEEHIVE.get(), map);
     	addToMap(BBBlocks.POISE_BEEHIVE.get(), map);
     	addToMap(BBBlocks.DRIFTWOOD_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.RIVERWOOD_BEEHIVE.get(), map);
+    	addToMap(BBBlocks.RIVER_BEEHIVE.get(), map);
     	
     	addToMap(BBBlocks.SNAKE_BLOCK_BEEHIVE.get(), map);
     	

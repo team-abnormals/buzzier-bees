@@ -38,17 +38,17 @@
                 },
                 {
                   "function": "minecraft:copy_state",
-                  "block": "buzzierbees:riverwood_beehive",
+                  "block": "buzzierbees:river_beehive",
                   "properties": [
                     "honey_level"
                   ]
                 }
               ],
-              "name": "buzzierbees:riverwood_beehive"
+              "name": "buzzierbees:river_beehive"
             },
             {
               "type": "minecraft:item",
-              "name": "buzzierbees:riverwood_beehive"
+              "name": "buzzierbees:river_beehive"
             }
           ]
         }
