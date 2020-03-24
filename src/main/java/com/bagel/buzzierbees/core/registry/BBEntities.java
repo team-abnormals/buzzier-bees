@@ -27,7 +27,7 @@ public class BBEntities
 	public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, BuzzierBees.MODID);
 
 	public static RegistryObject<EntityType<HoneySlimeEntity>> HONEY_SLIME = ENTITIES.register("honey_slime", () -> EntityType.Builder.<HoneySlimeEntity>create(HoneySlimeEntity::new, EntityClassification.CREATURE).size(1.02F, 1.02F).build("buzzierbees:honey_slime"));
-	public static  RegistryObject<EntityType<HiveBoatEntity>>  BOAT = ENTITIES.register("boat", () -> EntityType.Builder.<HiveBoatEntity>create(HiveBoatEntity::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).build("buzzierbees:boat"));
+	public static RegistryObject<EntityType<HiveBoatEntity>>  BOAT = ENTITIES.register("boat", () -> EntityType.Builder.<HiveBoatEntity>create(HiveBoatEntity::new, EntityClassification.MISC).setTrackingRange(80).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).size(1.375f, 0.5625f).build("buzzierbees:boat"));
 
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()

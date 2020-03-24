@@ -48,9 +48,15 @@ public class BBFeatures {
     public static void generate(Biome biome) {
         if (biome.getCategory() == Biome.Category.JUNGLE) {
 			addDoubleFlower(BBBlocks.BIRD_OF_PARADISE.get().getDefaultState(), biome, 5);
+			addShortFlower(BBBlocks.YELLOW_HIBISCUS.get().getDefaultState(), biome, 1);
+			addShortFlower(BBBlocks.ORANGE_HIBISCUS.get().getDefaultState(), biome, 1);
+			addShortFlower(BBBlocks.RED_HIBISCUS.get().getDefaultState(), biome, 1);
+			addShortFlower(BBBlocks.PINK_HIBISCUS.get().getDefaultState(), biome, 1);
+			addShortFlower(BBBlocks.MAGENTA_HIBISCUS.get().getDefaultState(), biome, 1);
+			addShortFlower(BBBlocks.PURPLE_HIBISCUS.get().getDefaultState(), biome, 1);
         }
         if (biome.getCategory() == Biome.Category.SWAMP) {
-        	addShortFlower(BBBlocks.JOLYCE.get().getDefaultState(), biome,	5);
+        	addShortFlower(BBBlocks.DIANTHUS.get().getDefaultState(), biome,	5);
         }
         if (biome.getCategory() == Biome.Category.SAVANNA) {
         	addShortFlower(Blocks.ALLIUM.getDefaultState(), biome, 4);
@@ -60,11 +66,6 @@ public class BBFeatures {
         }
         if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
         	addShortFlower(BBBlocks.COLUMBINE.get().getDefaultState(), biome, 4);
-        }
-        if (biome.getCategory() == Biome.Category.PLAINS) {
-        	if (biome == Biomes.SUNFLOWER_PLAINS) {
-        		addShortFlower(BBBlocks.DAYBLOOM.get().getDefaultState(), biome, 4);
-        	}
         }
         if (biome.getCategory() == Biome.Category.FOREST) {
             if (biome == Biomes.FLOWER_FOREST) {

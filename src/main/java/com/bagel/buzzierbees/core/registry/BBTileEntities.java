@@ -15,34 +15,40 @@ public class BBTileEntities {
 
 	public static final RegistryObject<TileEntityType<ScentedCandleTileEntity>> SCENTED_CANDLE = TILE_ENTITY_TYPES.register("scented_candle",
 			() -> TileEntityType.Builder.create(ScentedCandleTileEntity::new,
-					BBBlocks.ALLIUM_SCENTED_CANDLE.get(), //fire resistance
-					BBBlocks.AZURE_BLUET_SCENTED_CANDLE.get(), //blindness
-					BBBlocks.BLUE_ORCHID_SCENTED_CANDLE.get(), //saturation
-					BBBlocks.DANDELION_SCENTED_CANDLE.get(), //saturation
-					BBBlocks.CORNFLOWER_SCENTED_CANDLE.get(), //jump boost
-					BBBlocks.LILY_OF_THE_VALLEY_SCENTED_CANDLE.get(), //poison
-					BBBlocks.OXEYE_DAISY_SCENTED_CANDLE.get(), //regeneration
-					BBBlocks.POPPY_SCENTED_CANDLE.get(), //night vision
-					BBBlocks.WHITE_TULIP_SCENTED_CANDLE.get(), //weakness
-					BBBlocks.ORANGE_TULIP_SCENTED_CANDLE.get(), //weakness
-					BBBlocks.PINK_TULIP_SCENTED_CANDLE.get(), //weakness
-					BBBlocks.RED_TULIP_SCENTED_CANDLE.get(), //weakness
-					BBBlocks.WITHER_ROSE_SCENTED_CANDLE.get(), //wither
+					BBBlocks.ALLIUM_SCENTED_CANDLE.get(),
+					BBBlocks.AZURE_BLUET_SCENTED_CANDLE.get(),
+					BBBlocks.BLUE_ORCHID_SCENTED_CANDLE.get(),
+					BBBlocks.DANDELION_SCENTED_CANDLE.get(),
+					BBBlocks.CORNFLOWER_SCENTED_CANDLE.get(),
+					BBBlocks.LILY_OF_THE_VALLEY_SCENTED_CANDLE.get(),
+					BBBlocks.OXEYE_DAISY_SCENTED_CANDLE.get(),
+					BBBlocks.POPPY_SCENTED_CANDLE.get(),
+					BBBlocks.WHITE_TULIP_SCENTED_CANDLE.get(),
+					BBBlocks.ORANGE_TULIP_SCENTED_CANDLE.get(),
+					BBBlocks.PINK_TULIP_SCENTED_CANDLE.get(),
+					BBBlocks.RED_TULIP_SCENTED_CANDLE.get(),
+					BBBlocks.WITHER_ROSE_SCENTED_CANDLE.get(),
+					
 					BBBlocks.CARTWHEEL_SCENTED_CANDLE.get(),
 					BBBlocks.BLUEBELL_SCENTED_CANDLE.get(),
 					BBBlocks.COLUMBINE_SCENTED_CANDLE.get(),
-					BBBlocks.JOLYCE_SCENTED_CANDLE.get(),
+					BBBlocks.DIANTHUS_SCENTED_CANDLE.get(),
 					BBBlocks.PINK_CLOVER_SCENTED_CANDLE.get(),
 					BBBlocks.WHITE_CLOVER_SCENTED_CANDLE.get(),
-					BBBlocks.DAYBLOOM_SCENTED_CANDLE.get(),
-					BBBlocks.VIOLET_SCENTED_CANDLE.get())
-					.build(null));
-
-
-    /*public static final RegistryObject<TileEntityType<SignTileEntity>> SIGNS = TILE_ENTITY_TYPES.register("hive_sign",
-			() -> TileEntityType.Builder.create(SignTileEntity::new,
-					ModBlocks.HIVE_SIGN,
-					ModBlocks.HIVE_WALL_SIGN)
-					.build(null));*/
-
+					BBBlocks.VIOLET_SCENTED_CANDLE.get(),
+					
+					BBBlocks.YELLOW_HIBISCUS_SCENTED_CANDLE.get(),
+					BBBlocks.ORANGE_HIBISCUS_SCENTED_CANDLE.get(),
+					BBBlocks.RED_HIBISCUS_SCENTED_CANDLE.get(),
+					BBBlocks.PINK_HIBISCUS_SCENTED_CANDLE.get(),
+					BBBlocks.MAGENTA_HIBISCUS_SCENTED_CANDLE.get(),
+					BBBlocks.PURPLE_HIBISCUS_SCENTED_CANDLE.get(),
+					
+					BBBlocks.WARM_MONKEY_BRUSH_SCENTED_CANDLE.get(),
+					BBBlocks.HOT_MONKEY_BRUSH_SCENTED_CANDLE.get(),
+					BBBlocks.SCALDING_MONKEY_BRUSH_SCENTED_CANDLE.get(),
+					BBBlocks.GILIA_SCENTED_CANDLE.get(),
+					BBBlocks.YUCCA_FLOWER_SCENTED_CANDLE.get()
+					
+					).build(null));
 }

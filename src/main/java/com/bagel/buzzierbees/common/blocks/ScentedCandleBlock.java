@@ -1,5 +1,7 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import java.util.function.Supplier;
+
 import javax.annotation.Nullable;
 
 import com.bagel.buzzierbees.core.registry.BBTileEntities;
@@ -19,10 +21,11 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
-	public Effect candleEffectInstance;
+	public Supplier<Effect> candleEffectInstance;
 	public int duration;
 	public int level;
-	public ScentedCandleBlock(Effect candleEffectInstance, int duration, int level, Block.Properties properties) {
+	
+	public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, int duration, int level, Block.Properties properties) {
 		super(properties);
 		this.candleEffectInstance = candleEffectInstance;	
 		this.duration = duration;

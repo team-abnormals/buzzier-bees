@@ -32,6 +32,8 @@ import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -40,7 +42,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @SuppressWarnings("deprecation")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBBlocks
-{
+{	
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, BuzzierBees.MODID);
 	
 	public static final RegistryObject<Block> SPRUCE_BEEHIVE   	= RegistryUtils.createBlock("spruce_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
@@ -60,7 +62,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> BAMBOO_BEEHIVE	= RegistryUtils.createBlockCompat("bambooblocks", "bamboo_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> MAPLE_BEEHIVE    	= RegistryUtils.createBlockCompat("autumnity", "maple_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> DRIFTWOOD_BEEHIVE	= RegistryUtils.createBlockCompat("upgrade_aquatic", "driftwood_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RIVER_BEEHIVE	= RegistryUtils.createBlockCompat("upgrade_aquatic", "river_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RIVER_BEEHIVE		= RegistryUtils.createBlockCompat("upgrade_aquatic", "river_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> POISE_BEEHIVE		= RegistryUtils.createBlockCompat("endergetic", "poise_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 
 	public static final RegistryObject<Block> SNAKE_BLOCK_BEEHIVE = RegistryUtils.createBlock("snake_block_beehive", () -> new BeehiveBlock(Block.Properties.from(Blocks.DARK_PRISMARINE)), null);
@@ -103,22 +105,34 @@ public class BBBlocks
 		
 	public static final RegistryObject<Block> CARTWHEEL 		= RegistryUtils.createBlock("cartwheel", () -> new CartwheelBlock(Effects.SPEED, 11, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUEBELL 			= RegistryUtils.createBlock("bluebell", () -> new FlowerBlock(Effects.WATER_BREATHING, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DAYBLOOM 			= RegistryUtils.createBlock("daybloom", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> VIOLET 			= RegistryUtils.createBlock("violet", () -> new FlowerBlock(Effects.INVISIBILITY, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> JOLYCE 			= RegistryUtils.createBlock("jolyce", () -> new FlowerBlock(Effects.STRENGTH, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DIANTHUS 			= RegistryUtils.createBlock("jolyce", () -> new FlowerBlock(Effects.STRENGTH, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> COLUMBINE 		= RegistryUtils.createBlock("columbine", () -> new FlowerBlock(Effects.MINING_FATIGUE, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CLOVER 		= RegistryUtils.createBlock("white_clover", () -> new FlowerBlock(Effects.UNLUCK, 30, PropertyUtils.FLOWER.notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER 		= RegistryUtils.createBlock("pink_clover", () -> new FlowerBlock(Effects.UNLUCK, 60, PropertyUtils.FLOWER.notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BIRD_OF_PARADISE 	= RegistryUtils.createBlock("bird_of_paradise", () -> new TallFlowerBlock(PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	
+	public static final RegistryObject<Block> YELLOW_HIBISCUS	= RegistryUtils.createBlock("daybloom", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_HIBISCUS 	= RegistryUtils.createBlock("orange_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_HIBISCUS 		= RegistryUtils.createBlock("red_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_HIBISCUS 	= RegistryUtils.createBlock("pink_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAGENTA_HIBISCUS 	= RegistryUtils.createBlock("magenta_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PURPLE_HIBISCUS 	= RegistryUtils.createBlock("purple_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	
 	public static final RegistryObject<Block> POTTED_CARTWHEEL 	  = RegistryUtils.createBlockNoItem("potted_cartwheel", () -> new PottedCartwheelBlock(CARTWHEEL.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_BLUEBELL     = RegistryUtils.createBlockNoItem("potted_bluebell", () -> new FlowerPotBlock(BLUEBELL.get(), PropertyUtils.POT));
-	public static final RegistryObject<Block> POTTED_DAYBLOOM     = RegistryUtils.createBlockNoItem("potted_daybloom", () -> new FlowerPotBlock(DAYBLOOM.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_VIOLET 	  = RegistryUtils.createBlockNoItem("potted_violet", () -> new FlowerPotBlock(VIOLET.get(), PropertyUtils.POT));
-	public static final RegistryObject<Block> POTTED_JOLYCE 	  = RegistryUtils.createBlockNoItem("potted_jolyce", () -> new FlowerPotBlock(JOLYCE.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_DIANTHUS 	  = RegistryUtils.createBlockNoItem("potted_jolyce", () -> new FlowerPotBlock(PURPLE_HIBISCUS.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_COLUMBINE 	  = RegistryUtils.createBlockNoItem("potted_columbine", () -> new FlowerPotBlock(COLUMBINE.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER = RegistryUtils.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_PINK_CLOVER  = RegistryUtils.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), PropertyUtils.POT));
+	
+	public static final RegistryObject<Block> POTTED_YELLOW_HIBISCUS	= RegistryUtils.createBlockNoItem("potted_daybloom", () -> new FlowerPotBlock(YELLOW_HIBISCUS.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_ORANGE_HIBISCUS	= RegistryUtils.createBlockNoItem("potted_orange_hibiscus", () -> new FlowerPotBlock(ORANGE_HIBISCUS.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_RED_HIBISCUS 		= RegistryUtils.createBlockNoItem("potted_red_hibiscus", () -> new FlowerPotBlock(RED_HIBISCUS.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_PINK_HIBISCUS  	= RegistryUtils.createBlockNoItem("potted_pink_hibiscus", () -> new FlowerPotBlock(PINK_HIBISCUS.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_MAGENTA_HIBISCUS	= RegistryUtils.createBlockNoItem("potted_magenta_hibiscus", () -> new FlowerPotBlock(MAGENTA_HIBISCUS.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_PURPLE_HIBISCUS	= RegistryUtils.createBlockNoItem("potted_purple_hibiscus", () -> new FlowerPotBlock(PURPLE_HIBISCUS.get(), PropertyUtils.POT));
 	
 	public static final RegistryObject<Block> CANDLE 			= RegistryUtils.createBlock("candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CANDLE 		= RegistryUtils.createBlock("white_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
@@ -155,26 +169,40 @@ public class BBBlocks
 	public static final RegistryObject<Block> SLATE_GRAY_CANDLE   = RegistryUtils.createBlockCompat("flamboyant", "slate_gray_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> VIOLET_CANDLE 	  = RegistryUtils.createBlockCompat("flamboyant", "violet_candle", () -> new CandleBlock(PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 		
-	public static final RegistryObject<Block> ALLIUM_SCENTED_CANDLE             = RegistryUtils.createBlock("allium_scented_candle", () -> new ScentedCandleBlock(Effects.FIRE_RESISTANCE, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> AZURE_BLUET_SCENTED_CANDLE        = RegistryUtils.createBlock("azure_bluet_scented_candle", () -> new ScentedCandleBlock(Effects.BLINDNESS,       70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUE_ORCHID_SCENTED_CANDLE        = RegistryUtils.createBlock("blue_orchid_scented_candle", () -> new ScentedCandleBlock(Effects.SATURATION,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DANDELION_SCENTED_CANDLE          = RegistryUtils.createBlock("dandelion_scented_candle", () -> new ScentedCandleBlock(Effects.SATURATION,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> CORNFLOWER_SCENTED_CANDLE         = RegistryUtils.createBlock("cornflower_scented_candle", () -> new ScentedCandleBlock(Effects.JUMP_BOOST,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> LILY_OF_THE_VALLEY_SCENTED_CANDLE = RegistryUtils.createBlock("lily_of_the_valley_scented_candle", () -> new ScentedCandleBlock(Effects.POISON,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> OXEYE_DAISY_SCENTED_CANDLE        = RegistryUtils.createBlock("oxeye_daisy_scented_candle", () -> new ScentedCandleBlock(Effects.REGENERATION,    70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> POPPY_SCENTED_CANDLE              = RegistryUtils.createBlock("poppy_scented_candle", () -> new ScentedCandleBlock(Effects.NIGHT_VISION,    70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WHITE_TULIP_SCENTED_CANDLE        = RegistryUtils.createBlock("white_tulip_scented_candle", () -> new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_TULIP_SCENTED_CANDLE       = RegistryUtils.createBlock("orange_tulip_scented_candle", () -> new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_TULIP_SCENTED_CANDLE         = RegistryUtils.createBlock("pink_tulip_scented_candle", () -> new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_TULIP_SCENTED_CANDLE          = RegistryUtils.createBlock("red_tulip_scented_candle", () -> new ScentedCandleBlock(Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WITHER_ROSE_SCENTED_CANDLE        = RegistryUtils.createBlock("wither_rose_scented_candle", () -> new ScentedCandleBlock(Effects.WITHER,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ALLIUM_SCENTED_CANDLE             = RegistryUtils.createBlock("allium_scented_candle", () -> new ScentedCandleBlock(() -> Effects.FIRE_RESISTANCE, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> AZURE_BLUET_SCENTED_CANDLE        = RegistryUtils.createBlock("azure_bluet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.BLINDNESS,       70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BLUE_ORCHID_SCENTED_CANDLE        = RegistryUtils.createBlock("blue_orchid_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SATURATION,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DANDELION_SCENTED_CANDLE          = RegistryUtils.createBlock("dandelion_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SATURATION,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CORNFLOWER_SCENTED_CANDLE         = RegistryUtils.createBlock("cornflower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.JUMP_BOOST,      70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> LILY_OF_THE_VALLEY_SCENTED_CANDLE = RegistryUtils.createBlock("lily_of_the_valley_scented_candle", () -> new ScentedCandleBlock(() -> Effects.POISON,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> OXEYE_DAISY_SCENTED_CANDLE        = RegistryUtils.createBlock("oxeye_daisy_scented_candle", () -> new ScentedCandleBlock(() -> Effects.REGENERATION,    70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> POPPY_SCENTED_CANDLE              = RegistryUtils.createBlock("poppy_scented_candle", () -> new ScentedCandleBlock(() -> Effects.NIGHT_VISION,    70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_TULIP_SCENTED_CANDLE        = RegistryUtils.createBlock("white_tulip_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_TULIP_SCENTED_CANDLE       = RegistryUtils.createBlock("orange_tulip_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_TULIP_SCENTED_CANDLE         = RegistryUtils.createBlock("pink_tulip_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_TULIP_SCENTED_CANDLE          = RegistryUtils.createBlock("red_tulip_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WEAKNESS,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WITHER_ROSE_SCENTED_CANDLE        = RegistryUtils.createBlock("wither_rose_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WITHER,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	
-	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    = RegistryUtils.createBlock("cartwheel_scented_candle", () -> new ScentedCandleBlock(Effects.SPEED,           70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     = RegistryUtils.createBlock("bluebell_scented_candle", () -> new ScentedCandleBlock(Effects.WATER_BREATHING, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DAYBLOOM_SCENTED_CANDLE     = RegistryUtils.createBlock("daybloom_scented_candle", () -> new ScentedCandleBlock(Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       = RegistryUtils.createBlock("violet_scented_candle", () -> new ScentedCandleBlock(Effects.INVISIBILITY,    70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> JOLYCE_SCENTED_CANDLE       = RegistryUtils.createBlock("jolyce_scented_candle", () -> new ScentedCandleBlock(Effects.STRENGTH,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    = RegistryUtils.createBlock("columbine_scented_candle", () -> new ScentedCandleBlock(Effects.MINING_FATIGUE,  70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE = RegistryUtils.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(Effects.UNLUCK,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  = RegistryUtils.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(Effects.UNLUCK,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    = RegistryUtils.createBlock("cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     = RegistryUtils.createBlock("bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       = RegistryUtils.createBlock("violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY,    70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE     = RegistryUtils.createBlock("jolyce_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH,        70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    = RegistryUtils.createBlock("columbine_scented_candle", () -> new ScentedCandleBlock(() -> Effects.MINING_FATIGUE,  70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE = RegistryUtils.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  = RegistryUtils.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK,          70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+
+	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE	= RegistryUtils.createBlock("daybloom_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE    = RegistryUtils.createBlock("orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE     	= RegistryUtils.createBlock("red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_HIBISCUS_SCENTED_CANDLE    	= RegistryUtils.createBlock("pink_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAGENTA_HIBISCUS_SCENTED_CANDLE   = RegistryUtils.createBlock("magenta_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PURPLE_HIBISCUS_SCENTED_CANDLE    = RegistryUtils.createBlock("purple_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	
+	public static final RegistryObject<Block> WARM_MONKEY_BRUSH_SCENTED_CANDLE    	= RegistryUtils.createBlockCompat("atmospheric", "warm_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("atmospheric") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("atmospheric:relief")) : null), 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HOT_MONKEY_BRUSH_SCENTED_CANDLE    	= RegistryUtils.createBlockCompat("atmospheric", "hot_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("atmospheric") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("atmospheric:relief")): null), 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SCALDING_MONKEY_BRUSH_SCENTED_CANDLE  = RegistryUtils.createBlockCompat("atmospheric", "scalding_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("atmospheric") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("atmospheric:relief")) : null), 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> GILIA_SCENTED_CANDLE    				= RegistryUtils.createBlockCompat("atmospheric", "gilia_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YUCCA_FLOWER_SCENTED_CANDLE    		= RegistryUtils.createBlockCompat("atmospheric", "yucca_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.BAD_OMEN, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+
+
 }
