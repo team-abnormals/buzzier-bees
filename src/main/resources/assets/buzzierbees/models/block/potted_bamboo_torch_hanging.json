@@ -1,7 +1,7 @@
 {
 	"ambientocclusion": false,
 	"textures": {
-		"rope": "florist:block/flower_pot_rope",
+		"rope": "buzzierbees:block/flower_pot_rope",
 		"bamboo": "bambooblocks:block/bamboo_torch",
 		"flowerpot": "block/flower_pot",
 		"particle": "block/flower_pot",

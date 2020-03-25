@@ -43,6 +43,7 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_DOOR.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_TRAPDOOR.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_LADDER.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_FLOWER_POT.get(),RenderType.getCutoutMipped());
 
 		RenderTypeLookup.setRenderLayer(BBBlocks.WHITE_CLOVER.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(BBBlocks.PINK_CLOVER.get(),RenderType.getCutoutMipped());

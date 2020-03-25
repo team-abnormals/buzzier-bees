@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -14,12 +15,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
@@ -32,6 +37,25 @@ public class BBEvents {
 			event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
 			.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
 			.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	@SubscribeEvent
+	public static void rightClickBlock(RightClickBlock event) {
+		BlockPos pos = event.getPos().offset(event.getFace());
+		ItemStack item = event.getItemStack();
+		World world = event.getWorld();
+		
+		if (
+				(event.getFace() == Direction.DOWN ||
+				(world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && !world.getBlockState(pos.up()).isAir())) && 
+				item.getItem() == Blocks.FLOWER_POT.asItem()		
+				) {
+			event.getWorld().setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());
+			event.getWorld().playSound(event.getPlayer(), pos, SoundEvents.BLOCK_STONE_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			event.getPlayer().swingArm(event.getHand());
+			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);
 		}
 	}
 	    

@@ -4,6 +4,7 @@ import com.bagel.buzzierbees.common.blocks.BookshelfBlock;
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
 import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.CrystallizedHoneyBlock;
+import com.bagel.buzzierbees.common.blocks.HangingFlowerPotBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyLamp;
 import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
@@ -119,6 +120,9 @@ public class BBBlocks
 	public static final RegistryObject<Block> MAGENTA_HIBISCUS 	= RegistryUtils.createBlock("magenta_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PURPLE_HIBISCUS 	= RegistryUtils.createBlock("purple_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 	
+	public static final RegistryObject<Block> HANGING_FLOWER_POT  = RegistryUtils.createBlockNoItem("hanging_flower_pot", () -> new HangingFlowerPotBlock(Blocks.AIR, PropertyUtils.POT));
+	public static final RegistryObject<Block> HANGING_POTTED_BLUEBELL = RegistryUtils.createBlockNoItem("hanging_potted_blubell", () -> new HangingFlowerPotBlock(BLUEBELL.get(), PropertyUtils.POT));
+
 	public static final RegistryObject<Block> POTTED_CARTWHEEL 	  = RegistryUtils.createBlockNoItem("potted_cartwheel", () -> new PottedCartwheelBlock(CARTWHEEL.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_BLUEBELL     = RegistryUtils.createBlockNoItem("potted_bluebell", () -> new FlowerPotBlock(BLUEBELL.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_VIOLET 	  = RegistryUtils.createBlockNoItem("potted_violet", () -> new FlowerPotBlock(VIOLET.get(), PropertyUtils.POT));
