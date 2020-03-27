@@ -49,7 +49,7 @@ public class BBEvents {
 		
 		if (
 				(event.getFace() == Direction.DOWN ||
-				(world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && !world.getBlockState(pos.up()).isAir())) && 
+				(world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && !world.getBlockState(pos.up()).isAir())) && world.getBlockState(pos).isAir() &&
 				item.getItem() == Blocks.FLOWER_POT.asItem()		
 				) {
 			event.getWorld().setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());

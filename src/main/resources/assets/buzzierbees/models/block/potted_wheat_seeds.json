@@ -1,0 +1,6 @@
+{
+    "parent": "block/flower_pot_cross",
+    "textures": {
+        "plant": "buzzierbees:block/potted_wheat_seeds"
+    }
+}

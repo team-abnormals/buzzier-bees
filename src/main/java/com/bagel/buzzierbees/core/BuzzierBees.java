@@ -15,6 +15,7 @@ import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.bagel.buzzierbees.core.registry.BBTileEntities;
+import com.bagel.buzzierbees.core.util.BlockColorManager;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
@@ -67,6 +68,7 @@ public class BuzzierBees
     	BBConfig.refresh();
 		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
+		BlockColorManager.registerBlockColors();
 	}
     
     public void modConfig(final ModConfig.ModConfigEvent event)

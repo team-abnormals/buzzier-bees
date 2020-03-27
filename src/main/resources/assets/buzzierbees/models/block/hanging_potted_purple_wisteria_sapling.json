@@ -1,0 +1,6 @@
+{
+    "parent": "buzzierbees:block/hanging_flower_pot_cross",
+    "textures": {
+        "plant": "buzzierbees:block/compat/purple_wisteria_sapling"
+    }
+}
