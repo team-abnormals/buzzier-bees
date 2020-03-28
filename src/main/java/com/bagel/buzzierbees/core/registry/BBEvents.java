@@ -77,10 +77,7 @@ public class BBEvents {
 				hand = Hand.MAIN_HAND;
 			} else if (player.getHeldItemOffhand().getItem() == Items.GLASS_BOTTLE) {
 				hand = Hand.OFF_HAND;
-			} else {
-				event.setCanceled(true);
 			}
-			
 			
 			if (targetType == EntityType.SILVERFISH) { bottle = BBItems.BOTTLE_OF_SILVERFISH.get(); successful = true; }
     		if (targetType == EntityType.ENDERMITE) { bottle = BBItems.BOTTLE_OF_ENDERMITE.get(); successful = true; }
