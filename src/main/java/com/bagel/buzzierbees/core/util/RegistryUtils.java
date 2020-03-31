@@ -4,6 +4,7 @@ import com.bagel.buzzierbees.common.items.BBSpawnEggItem;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.google.common.base.Supplier;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
@@ -19,8 +20,8 @@ public class RegistryUtils {
 		return item;
 	}
 	
-	public static RegistryObject<Item> createSpawnEggItem(String entityName, Supplier<EntityType<?>> supplier, int primaryColor, int secondaryColor, ItemGroup group) {
-		RegistryObject<Item> spawnEgg = BBItems.ITEMS.register(entityName + "_spawn_egg", () -> new BBSpawnEggItem(supplier, primaryColor, secondaryColor, new Item.Properties().group(group)));
+	public static RegistryObject<Item> createSpawnEggItem(String entityName, Supplier<EntityType<?>> supplier, int primaryColor, int secondaryColor) {
+		RegistryObject<Item> spawnEgg = BBItems.ITEMS.register(entityName + "_spawn_egg", () -> new BBSpawnEggItem(supplier, primaryColor, secondaryColor, new Item.Properties().group(ItemGroup.MISC)));
 		BBItems.SPAWN_EGGS.add(spawnEgg);
 		return spawnEgg;
 	}
