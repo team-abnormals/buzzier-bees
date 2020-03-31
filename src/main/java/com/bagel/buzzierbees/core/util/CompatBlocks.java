@@ -20,6 +20,10 @@ public class CompatBlocks {
     public static Supplier<Block> YUCCA_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric:yucca_sapling"));
     public static Supplier<Block> KOUSA_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric:kousa_sapling"));
     public static Supplier<Block> ASPEN_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric:aspen_sapling"));
+    public static Supplier<Block> MAPLE_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("autumnity:maple_sapling"));
+    public static Supplier<Block> YELLOW_MAPLE_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("autumnity:yellow_maple_sapling"));
+    public static Supplier<Block> ORANGE_MAPLE_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("autumnity:orange_maple_sapling"));
+    public static Supplier<Block> RED_MAPLE_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("autumnity:red_maple_sapling"));
     
     public static Supplier<Block> POISE_BUSH = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("endergetic:poise_grass"));
     public static Supplier<Block> BLUE_PICKERELWEED = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("upgrade_aquatic:pickerel_weed_blue"));
@@ -33,6 +37,7 @@ public class CompatBlocks {
     public static Supplier<Block> GILIA = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric:gilia"));
     public static Supplier<Block> YUCCA_FLOWER = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric:yucca_flower"));
     public static Supplier<Block> BARREL_CACTUS = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("atmospheric:barrel_cactus"));
+    public static Supplier<Block> CATTAIL = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("swampexpansion:cattail"));
 
 	public static Supplier<Block> BAMBOO_TORCH = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("bambooblocks:bamboo_torch"));
     public static Supplier<Block> WHITE_DELPHINIUM = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("bloomful:white_delphinium"));

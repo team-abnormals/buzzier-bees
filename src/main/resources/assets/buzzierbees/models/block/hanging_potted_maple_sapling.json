@@ -1,6 +1,6 @@
 {
     "parent": "buzzierbees:block/hanging_flower_pot_cross",
     "textures": {
-        "plant": "buzzierbees:block/compat/potted_pink_delphinium"
+        "plant": "buzzierbees:block/compat/maple_sapling"
     }
 }

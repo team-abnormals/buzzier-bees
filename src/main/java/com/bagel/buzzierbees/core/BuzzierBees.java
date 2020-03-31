@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
+import com.bagel.buzzierbees.common.items.BBSpawnEggItem;
 import com.bagel.buzzierbees.core.config.BBConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
@@ -23,13 +24,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.config.ModConfig;
@@ -56,7 +62,10 @@ public class BuzzierBees
 
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initSetupClient);
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
+			modEventBus.addListener(EventPriority.LOWEST, this::setupClient);
+		});
     }
     
     public void initSetupClient()
@@ -93,6 +102,18 @@ public class BuzzierBees
     	
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
+    
+    @OnlyIn(Dist.CLIENT)
+	private void registerItemColors(ColorHandlerEvent.Item event) {
+		for(RegistryObject<Item> items : BBItems.SPAWN_EGGS) {
+			Item item = items.get();
+			if(item instanceof BBSpawnEggItem) {
+				event.getItemColors().register((itemColor, itemsIn) -> {
+					return ((BBSpawnEggItem) item).getColor(itemsIn);
+				}, item);
+			}
+		}
+	}
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
