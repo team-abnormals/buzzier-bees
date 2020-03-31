@@ -1,9 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import java.util.function.Supplier;
-
 import com.bagel.buzzierbees.core.registry.BBBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,9 +22,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class HangingFlowerPotBlock extends Block {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
-	private final Supplier<Block> flower;
+	private final Block flower;
 	
-	public HangingFlowerPotBlock(Supplier<Block> flower, Block.Properties properties) {
+	public HangingFlowerPotBlock(Block flower, Block.Properties properties) {
 		super(properties);
 		this.flower = flower;
 	}
@@ -46,7 +43,7 @@ public class HangingFlowerPotBlock extends Block {
 			return ActionResultType.SUCCESS;
 		} else {
 			if (player.getHeldItem(handIn).getItem() == Blocks.AIR.asItem()) {
-				player.setHeldItem(handIn, new ItemStack(this.flower.get().asItem()));
+				player.setHeldItem(handIn, new ItemStack(flower.asItem()));
 				worldIn.setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());
 			}
 			return ActionResultType.CONSUME;
@@ -59,7 +56,7 @@ public class HangingFlowerPotBlock extends Block {
 	
 	@Override
 	public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-		return this.flower == Blocks.AIR ? new ItemStack(Blocks.FLOWER_POT) : new ItemStack(this.flower.get().asItem());
+		return this.flower == Blocks.AIR ? new ItemStack(Blocks.FLOWER_POT) : new ItemStack(this.flower);
 	}
 	
 	@Override

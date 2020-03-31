@@ -19,7 +19,7 @@ public class BlockColorManager {
         blockColors.register((x, world, pos, u) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.get(0.5D, 1.0D), BBBlocks.HANGING_POTTED_LARGE_FERN.get());
         
 //        ItemColors itemColors = Minecraft.getInstance().getItemColors();
-//        itemColors.register((color, items) -> FoliageColors.get(0.5D, 1.0D), BBItems.HONEY_SLIME_SPAWN_EGG.get());
+//        itemColors.register((color, items) -> FoliageColors.get(0.5D, 1.0D), AtmosphericBlocks.ROSEWOOD_LEAVES.get());
 //        itemColors.register((color, items) -> FoliageColors.get(0.5D, 1.0D), AtmosphericBlocks.YUCCA_LEAVES.get());
 //        itemColors.register((color, items) -> FoliageColors.get(0.5D, 1.0D), AtmosphericBlocks.ROSEWOOD_LEAF_CARPET.get());
 //        itemColors.register((color, items) -> FoliageColors.get(0.5D, 1.0D), AtmosphericBlocks.YUCCA_LEAF_CARPET.get());
