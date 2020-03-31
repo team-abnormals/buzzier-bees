@@ -78,7 +78,7 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CARROT.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_POTATO.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BEETROOT.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SUGAR_CANE.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_NETHER_WART.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CHORUS_PLANT.get(),RenderType.getCutout());
@@ -93,8 +93,20 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_LARGE_FERN.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CARVED_PUMPKIN.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_JACK_O_LANTERN.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_COCOA_BEANS.get(),RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_COCOA_BEANS.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SEA_PICKLE.get(),RenderType.getCutout());
+		
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BLUE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PURPLE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_OVERWORLD_CORROCK_CROWN.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_NETHER_CORROCK_CROWN.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_END_CORROCK_CROWN.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_TALL_POISE_BUSH.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_OVERWORLD_CORROCK.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_NETHER_CORROCK.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_END_CORROCK.get(),RenderType.getCutout());
 
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_FLOWER_POT.get(),RenderType.getCutout());
 		
@@ -158,7 +170,7 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_CARROT.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_POTATO.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_BEETROOT.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SUGAR_CANE.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_NETHER_WART.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_CHORUS_PLANT.get(),RenderType.getCutout());
@@ -173,7 +185,7 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_LARGE_FERN.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_CARVED_PUMPKIN.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_JACK_O_LANTERN.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_COCOA_BEANS.get(),RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_COCOA_BEANS.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SEA_PICKLE.get(),RenderType.getCutout());
 
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_WHITE_WISTERIA_SAPLING.get(),RenderType.getCutout());

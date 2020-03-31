@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+  ],
+  "optional": [
+    "endergetic:corrock_overworld",
+    "endergetic:corrock_nether",
+    "endergetic:corrock_end",
+    "endergetic:corrock_crown_standing_overworld",
+    "endergetic:corrock_crown_standing_nether",
+    "endergetic:corrock_crown_standing_end",
+    "endergetic:poise_grass_tall",
+    "bloomful:blue_delphinium",
+    "bloomful:purple_delphinium",
+    "bloomful:white_delphinium",
+    "bloomful:pink_delphinium"
+  ]
+}

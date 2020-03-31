@@ -3,6 +3,7 @@ package com.bagel.buzzierbees.core.registry;
 import com.bagel.buzzierbees.common.blocks.BookshelfBlock;
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
 import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
+import com.bagel.buzzierbees.common.blocks.CompatFlowerPotBlock;
 import com.bagel.buzzierbees.common.blocks.CompatHangingFlowerPotBlock;
 import com.bagel.buzzierbees.common.blocks.CrystallizedHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.HangingFlowerPotBlock;
@@ -225,7 +226,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> POTTED_CARROT     	= RegistryUtils.createBlockNoItem("potted_carrot", () -> new FlowerPotBlock(Blocks.CARROTS, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_POTATO     	= RegistryUtils.createBlockNoItem("potted_potato", () -> new FlowerPotBlock(Blocks.POTATOES, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_BEETROOT     	= RegistryUtils.createBlockNoItem("potted_beetroot_seeds", () -> new FlowerPotBlock(Blocks.BEETROOTS, PropertyUtils.POT));
-	public static final RegistryObject<Block> POTTED_SWEET_BERRIES	= RegistryUtils.createBlockNoItem("potted_sweet_berries", () -> new FlowerPotBlock(Blocks.SWEET_BERRY_BUSH, PropertyUtils.POT));
+	//public static final RegistryObject<Block> POTTED_SWEET_BERRIES	= RegistryUtils.createBlockNoItem("potted_sweet_berries", () -> new FlowerPotBlock(Blocks.SWEET_BERRY_BUSH, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_SUGAR_CANE     = RegistryUtils.createBlockNoItem("potted_sugar_cane", () -> new FlowerPotBlock(Blocks.SUGAR_CANE, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_NETHER_WART    = RegistryUtils.createBlockNoItem("potted_nether_wart", () -> new FlowerPotBlock(Blocks.NETHER_WART, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_CHORUS_PLANT   = RegistryUtils.createBlockNoItem("potted_chorus_plant", () -> new FlowerPotBlock(Blocks.CHORUS_PLANT, PropertyUtils.POT));
@@ -239,9 +240,21 @@ public class BBBlocks
 	public static final RegistryObject<Block> POTTED_TALL_GRASS     = RegistryUtils.createBlockNoItem("potted_tall_grass", () -> new FlowerPotBlock(Blocks.TALL_GRASS, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_LARGE_FERN    	= RegistryUtils.createBlockNoItem("potted_large_fern", () -> new FlowerPotBlock(Blocks.LARGE_FERN, PropertyUtils.POT));
 	public static final RegistryObject<Block> POTTED_CARVED_PUMPKIN = RegistryUtils.createBlockNoItem("potted_carved_pumpkin", () -> new FlowerPotBlock(Blocks.CARVED_PUMPKIN, PropertyUtils.POT));
-	public static final RegistryObject<Block> POTTED_JACK_O_LANTERN = RegistryUtils.createBlockNoItem("potted_jack_o_lantern", () -> new FlowerPotBlock(Blocks.JACK_O_LANTERN, PropertyUtils.POT));
-	public static final RegistryObject<Block> POTTED_COCOA_BEANS 	= RegistryUtils.createBlockNoItem("potted_cocoa_beans", () -> new FlowerPotBlock(Blocks.COCOA, PropertyUtils.POT));
-	public static final RegistryObject<Block> POTTED_SEA_PICKLE 	= RegistryUtils.createBlockNoItem("potted_sea_pickle", () -> new FlowerPotBlock(Blocks.SEA_PICKLE, PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_JACK_O_LANTERN = RegistryUtils.createBlockNoItem("potted_jack_o_lantern", () -> new FlowerPotBlock(Blocks.JACK_O_LANTERN, PropertyUtils.POT_BRIGHT));
+	//public static final RegistryObject<Block> POTTED_COCOA_BEANS 	= RegistryUtils.createBlockNoItem("potted_cocoa_beans", () -> new FlowerPotBlock(Blocks.COCOA, PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_SEA_PICKLE 	= RegistryUtils.createBlockNoItem("potted_sea_pickle", () -> new FlowerPotBlock(Blocks.SEA_PICKLE, PropertyUtils.POT_LIGHT));
+
+	public static final RegistryObject<Block> POTTED_OVERWORLD_CORROCK 	= RegistryUtils.createBlockNoItem("potted_corrock_overworld", () -> new CompatFlowerPotBlock(() -> CompatBlocks.OVERWORLD_CORROCK.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_NETHER_CORROCK 	= RegistryUtils.createBlockNoItem("potted_corrock_nether", () -> new CompatFlowerPotBlock(() -> CompatBlocks.NETHER_CORROCK.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_END_CORROCK 		= RegistryUtils.createBlockNoItem("potted_corrock_end", () -> new CompatFlowerPotBlock(() -> CompatBlocks.END_CORROCK.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_OVERWORLD_CORROCK_CROWN	= RegistryUtils.createBlockNoItem("potted_corrock_crown_standing_overworld", () -> new CompatFlowerPotBlock(() -> CompatBlocks.OVERWORLD_CORROCK_CROWN.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_NETHER_CORROCK_CROWN		= RegistryUtils.createBlockNoItem("potted_corrock_crown_standing_nether", () -> new CompatFlowerPotBlock(() -> CompatBlocks.NETHER_CORROCK_CROWN.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_END_CORROCK_CROWN			= RegistryUtils.createBlockNoItem("potted_corrock_crown_standing_end", () -> new CompatFlowerPotBlock(() -> CompatBlocks.END_CORROCK_CROWN.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_TALL_POISE_BUSH			= RegistryUtils.createBlockNoItem("potted_poise_grass_tall", () -> new CompatFlowerPotBlock(() -> CompatBlocks.TALL_POISE_BUSH.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_BLUE_DELPHINIUM			= RegistryUtils.createBlockNoItem("potted_blue_delphinium", () -> new CompatFlowerPotBlock(() -> CompatBlocks.BLUE_DELPHINIUM.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_PINK_DELPHINIUM			= RegistryUtils.createBlockNoItem("potted_pink_delphinium", () -> new CompatFlowerPotBlock(() -> CompatBlocks.PINK_DELPHINIUM.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_WHITE_DELPHINIUM			= RegistryUtils.createBlockNoItem("potted_white_delphinium", () -> new CompatFlowerPotBlock(() -> CompatBlocks.WHITE_DELPHINIUM.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> POTTED_PURPLE_DELPHINIUM			= RegistryUtils.createBlockNoItem("potted_purple_delphinium", () -> new CompatFlowerPotBlock(() -> CompatBlocks.PURPLE_DELPHINIUM.get(), PropertyUtils.POT));
 
 	// Hanging Flower Pots //
 	
@@ -292,7 +305,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> HANGING_POTTED_CARROT     	= RegistryUtils.createBlockNoItem("hanging_potted_carrot", () -> new HangingFlowerPotBlock(() -> Blocks.CARROTS, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_POTATO     	= RegistryUtils.createBlockNoItem("hanging_potted_potato", () -> new HangingFlowerPotBlock(() -> Blocks.POTATOES, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_BEETROOT     	= RegistryUtils.createBlockNoItem("hanging_potted_beetroot_seeds", () -> new HangingFlowerPotBlock(() -> Blocks.BEETROOTS, PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_SWEET_BERRIES	= RegistryUtils.createBlockNoItem("hanging_potted_sweet_berries", () -> new HangingFlowerPotBlock(() -> Blocks.SWEET_BERRY_BUSH, PropertyUtils.POT));
+	//public static final RegistryObject<Block> HANGING_POTTED_SWEET_BERRIES	= RegistryUtils.createBlockNoItem("hanging_potted_sweet_berries", () -> new HangingFlowerPotBlock(() -> Blocks.SWEET_BERRY_BUSH, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_SUGAR_CANE     = RegistryUtils.createBlockNoItem("hanging_potted_sugar_cane", () -> new HangingFlowerPotBlock(() -> Blocks.SUGAR_CANE, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_NETHER_WART    = RegistryUtils.createBlockNoItem("hanging_potted_nether_wart", () -> new HangingFlowerPotBlock(() -> Blocks.NETHER_WART, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_CHORUS_PLANT   = RegistryUtils.createBlockNoItem("hanging_potted_chorus_plant", () -> new HangingFlowerPotBlock(() -> Blocks.CHORUS_PLANT, PropertyUtils.POT));
@@ -306,9 +319,9 @@ public class BBBlocks
 	public static final RegistryObject<Block> HANGING_POTTED_TALL_GRASS     = RegistryUtils.createBlockNoItem("hanging_potted_tall_grass", () -> new HangingFlowerPotBlock(() -> Blocks.TALL_GRASS, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_LARGE_FERN    	= RegistryUtils.createBlockNoItem("hanging_potted_large_fern", () -> new HangingFlowerPotBlock(() -> Blocks.LARGE_FERN, PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_CARVED_PUMPKIN = RegistryUtils.createBlockNoItem("hanging_potted_carved_pumpkin", () -> new HangingFlowerPotBlock(() -> Blocks.CARVED_PUMPKIN, PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_JACK_O_LANTERN = RegistryUtils.createBlockNoItem("hanging_potted_jack_o_lantern", () -> new HangingFlowerPotBlock(() -> Blocks.JACK_O_LANTERN, PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_COCOA_BEANS 	= RegistryUtils.createBlockNoItem("hanging_potted_cocoa_beans", () -> new HangingFlowerPotBlock(() -> Blocks.COCOA, PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_SEA_PICKLE 	= RegistryUtils.createBlockNoItem("hanging_potted_sea_pickle", () -> new HangingFlowerPotBlock(() -> Blocks.SEA_PICKLE, PropertyUtils.POT));
+	public static final RegistryObject<Block> HANGING_POTTED_JACK_O_LANTERN = RegistryUtils.createBlockNoItem("hanging_potted_jack_o_lantern", () -> new HangingFlowerPotBlock(() -> Blocks.JACK_O_LANTERN, PropertyUtils.POT_BRIGHT));
+	//public static final RegistryObject<Block> HANGING_POTTED_COCOA_BEANS 	= RegistryUtils.createBlockNoItem("hanging_potted_cocoa_beans", () -> new HangingFlowerPotBlock(() -> Blocks.COCOA, PropertyUtils.POT));
+	public static final RegistryObject<Block> HANGING_POTTED_SEA_PICKLE 	= RegistryUtils.createBlockNoItem("hanging_potted_sea_pickle", () -> new HangingFlowerPotBlock(() -> Blocks.SEA_PICKLE, PropertyUtils.POT_LIGHT));
 
 	public static final RegistryObject<Block> HANGING_POTTED_WHITE_WISTERIA_SAPLING 	= RegistryUtils.createBlockNoItem("hanging_potted_white_wisteria_sapling", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.WHITE_WISTERIA_SAPLING.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_BLUE_WISTERIA_SAPLING 		= RegistryUtils.createBlockNoItem("hanging_potted_blue_wisteria_sapling", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.BLUE_WISTERIA_SAPLING.get(), PropertyUtils.POT));
@@ -333,7 +346,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> HANGING_POTTED_PURPLE_PICKERELWEED 		= RegistryUtils.createBlockNoItem("hanging_potted_pickerel_weed_purple", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.PURPLE_PICKERELWEED.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_WHITE_SEAROCKET 			= RegistryUtils.createBlockNoItem("hanging_potted_searocket_white", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.WHITE_SEAROCKET.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_PINK_SEAROCKET 			= RegistryUtils.createBlockNoItem("hanging_potted_searocket_pink", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.PINK_SEAROCKET.get(), PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_GLOWSHROOM 				= RegistryUtils.createBlockNoItem("hanging_potted_glowshroom", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.GLOWSHROOM.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> HANGING_POTTED_GLOWSHROOM 				= RegistryUtils.createBlockNoItem("hanging_potted_glowshroom", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.GLOWSHROOM.get(), PropertyUtils.POT_BRIGHT));
 	public static final RegistryObject<Block> HANGING_POTTED_WARM_MONKEY_BRUSH 			= RegistryUtils.createBlockNoItem("hanging_potted_warm_monkey_brush", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.WARM_MONKEY_BRUSH.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_HOT_MONKEY_BRUSH 			= RegistryUtils.createBlockNoItem("hanging_potted_monkey_brush", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.HOT_MONKEY_BRUSH.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_SCALDING_MONKEY_BRUSH 		= RegistryUtils.createBlockNoItem("hanging_potted_scalding_monkey_brush", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.SCALDING_MONKEY_BRUSH.get(), PropertyUtils.POT));
@@ -342,14 +355,14 @@ public class BBBlocks
 	public static final RegistryObject<Block> HANGING_POTTED_BARREL_CACTUS 				= RegistryUtils.createBlockNoItem("hanging_potted_barrel_cactus", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.BARREL_CACTUS.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_CATTAIL	 				= RegistryUtils.createBlockNoItem("hanging_potted_cattail", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.CATTAIL.get(), PropertyUtils.POT));
 
-	public static final RegistryObject<Block> HANGING_POTTED_BAMBOO_TORCH     		= RegistryUtils.createBlockNoItem("hanging_potted_bamboo_torch", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.BAMBOO_TORCH.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> HANGING_POTTED_BAMBOO_TORCH     		= RegistryUtils.createBlockNoItem("hanging_potted_bamboo_torch", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.BAMBOO_TORCH.get(), PropertyUtils.POT_BRIGHT));
 	public static final RegistryObject<Block> HANGING_POTTED_WHITE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("hanging_potted_white_delphinium", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.WHITE_DELPHINIUM.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_BLUE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("hanging_potted_blue_delphinium", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.BLUE_DELPHINIUM.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_PINK_DELPHINIUM     	= RegistryUtils.createBlockNoItem("hanging_potted_pink_delphinium", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.PINK_DELPHINIUM.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_PURPLE_DELPHINIUM		= RegistryUtils.createBlockNoItem("hanging_potted_purple_delphinium", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.PURPLE_DELPHINIUM.get(), PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_OVERWORLD_CORROCK_CROWN= RegistryUtils.createBlockNoItem("hanging_potted_corrock_crown_standing_overworld", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.OVERWORLD_CORROCK_CROWN.get(), PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_NETHER_CORROCK_CROWN   = RegistryUtils.createBlockNoItem("hanging_potted_corrock_crown_standing_nether", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.NETHER_CORROCK_CROWN.get(), PropertyUtils.POT));
-	public static final RegistryObject<Block> HANGING_POTTED_END_CORROCK_CROWN		= RegistryUtils.createBlockNoItem("hanging_potted_corrock_crown_standing_end", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.END_CORROCK_CROWN.get(), PropertyUtils.POT));
+	public static final RegistryObject<Block> HANGING_POTTED_OVERWORLD_CORROCK_CROWN= RegistryUtils.createBlockNoItem("hanging_potted_corrock_crown_standing_overworld", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.OVERWORLD_CORROCK_CROWN.get(), PropertyUtils.POT_LIGHT));
+	public static final RegistryObject<Block> HANGING_POTTED_NETHER_CORROCK_CROWN   = RegistryUtils.createBlockNoItem("hanging_potted_corrock_crown_standing_nether", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.NETHER_CORROCK_CROWN.get(), PropertyUtils.POT_LIGHT));
+	public static final RegistryObject<Block> HANGING_POTTED_END_CORROCK_CROWN		= RegistryUtils.createBlockNoItem("hanging_potted_corrock_crown_standing_end", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.END_CORROCK_CROWN.get(), PropertyUtils.POT_LIGHT));
 	public static final RegistryObject<Block> HANGING_POTTED_TALL_POISE_BUSH     	= RegistryUtils.createBlockNoItem("hanging_potted_poise_grass_tall", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.TALL_POISE_BUSH.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_OVERWORLD_CORROCK     	= RegistryUtils.createBlockNoItem("hanging_potted_corrock_overworld", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.OVERWORLD_CORROCK.get(), PropertyUtils.POT));
 	public static final RegistryObject<Block> HANGING_POTTED_NETHER_CORROCK     	= RegistryUtils.createBlockNoItem("hanging_potted_corrock_nether", () -> new CompatHangingFlowerPotBlock(() -> CompatBlocks.NETHER_CORROCK.get(), PropertyUtils.POT));

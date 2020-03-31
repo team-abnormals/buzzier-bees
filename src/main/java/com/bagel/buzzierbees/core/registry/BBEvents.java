@@ -17,6 +17,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +28,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @EventBusSubscriber(modid = "buzzierbees")
 public class BBEvents {
@@ -42,7 +44,7 @@ public class BBEvents {
 	
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
-	public static void rightClickBlock(RightClickBlock event) {
+	public static void placeHangingPot(RightClickBlock event) {
 		BlockPos pos = event.getPos().offset(event.getFace());
 		ItemStack item = event.getItemStack();
 		World world = event.getWorld();
@@ -58,9 +60,22 @@ public class BBEvents {
 			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);
 		}
 	}
+	
+	@SubscribeEvent
+	public static void potModdedItem(RightClickBlock event) {
+		BlockPos pos = event.getPos();
+		ItemStack item = event.getItemStack();
+		World world = event.getWorld();
+		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
+		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.MODDED_POTTABLES)) {
+			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());
+			event.getPlayer().swingArm(event.getHand());
+			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);
+		}
+	}
 	    
 	@SubscribeEvent
-	public static void entityInteract(PlayerInteractEvent.EntityInteractSpecific event) {
+	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
 		if(event.getTarget() != null && !event.getWorld().isRemote) {
 			
 			ItemStack itemstack = event.getPlayer().getHeldItem(event.getHand());
