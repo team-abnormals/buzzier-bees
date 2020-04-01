@@ -48,7 +48,10 @@ public class BBTileEntities {
 					BBBlocks.HOT_MONKEY_BRUSH_SCENTED_CANDLE.get(),
 					BBBlocks.SCALDING_MONKEY_BRUSH_SCENTED_CANDLE.get(),
 					BBBlocks.GILIA_SCENTED_CANDLE.get(),
-					BBBlocks.YUCCA_FLOWER_SCENTED_CANDLE.get()
+					BBBlocks.YUCCA_FLOWER_SCENTED_CANDLE.get(),
+					
+					BBBlocks.PINK_SEAROCKET_SCENTED_CANDLE.get(),
+					BBBlocks.WHITE_SEAROCKET_SCENTED_CANDLE.get()
 					
 					).build(null));
 }

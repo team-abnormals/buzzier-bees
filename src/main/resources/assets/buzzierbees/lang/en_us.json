@@ -171,7 +171,9 @@
 	"block.buzzierbees.scalding_monkey_brush_scented_candle": "Scalding Monkey Brush Scented Candle",
 	"block.buzzierbees.gilia_scented_candle": "Gilia Scented Candle",
 	"block.buzzierbees.yucca_flower_scented_candle": "Yucca Flower Scented Candle",
-
+	"block.buzzierbees.pink_searocket_scented_candle": "Pink Searocket Candle",
+	"block.buzzierbees.white_searocket_scented_candle": "White Searocket Scented Candle",
+	
 	"effect.buzzierbees.anti_night_vision": "Anti Night Vision",
 	"effect.buzzierbees.anti_speed": "Anti Swiftness",
 	"effect.buzzierbees.anti_haste": "Anti Haste", 
