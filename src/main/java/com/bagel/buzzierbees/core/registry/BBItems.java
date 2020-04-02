@@ -10,7 +10,6 @@ import com.bagel.buzzierbees.common.items.HiveBoatItem;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
 import com.bagel.buzzierbees.common.items.StickyHoneyWandItem;
 import com.bagel.buzzierbees.core.BuzzierBees;
-import com.bagel.buzzierbees.core.registry.other.BBFoods;
 import com.bagel.buzzierbees.core.util.RegistryUtils;
 import com.google.common.collect.Lists;
 

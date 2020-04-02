@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks.florist;
+package com.bagel.buzzierbees.common.blocks;
 
 import java.util.ArrayList;
 import java.util.List;

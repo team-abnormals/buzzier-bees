@@ -9,14 +9,13 @@ import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.items.BBSpawnEggItem;
 import com.bagel.buzzierbees.core.config.BBConfig;
+import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.bagel.buzzierbees.core.registry.BBTileEntities;
-import com.bagel.buzzierbees.core.registry.other.BBData;
-import com.bagel.buzzierbees.core.registry.other.FloristData;
 import com.bagel.buzzierbees.core.util.BlockColorManager;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -77,8 +76,7 @@ public class BuzzierBees
     
     private void setupClient(final FMLClientSetupEvent event) {
     	BBConfig.refresh();
-		BBData.setupRenderLayer();
-		FloristData.setupRenderLayer();
+		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
 		BlockColorManager.registerBlockColors();
 	}
@@ -93,8 +91,8 @@ public class BuzzierBees
     private void setup(final FMLCommonSetupEvent event)
     {
     	BBConfig.refresh();
-    	BBData.registerCompostables();
-    	BBData.registerFlammables();
+    	BBBlockData.registerCompostables();
+    	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();
 		BBFeatures.addFeatures();
 		BBEntities.addEntitySpawns();

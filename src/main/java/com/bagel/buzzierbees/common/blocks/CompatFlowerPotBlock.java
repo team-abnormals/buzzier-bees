@@ -1,19 +1,17 @@
-package com.bagel.buzzierbees.common.blocks.florist;
+package com.bagel.buzzierbees.common.blocks;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
-
-import com.bagel.buzzierbees.core.registry.FloristBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -21,37 +19,27 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootContext;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class HangingFlowerPotBlock extends Block {
+public class CompatFlowerPotBlock extends Block {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
 	private final Supplier<Block> flower;
 	
-	public HangingFlowerPotBlock(Supplier<Block> flower, Block.Properties properties) {
+	public CompatFlowerPotBlock(Supplier<Block> flower, Block.Properties properties) {
 		super(properties);
 		this.flower = flower;
 	}
 	
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		ItemStack itemstack = player.getHeldItem(handIn);
-		ResourceLocation pot = new ResourceLocation(("buzzierbees:hanging_potted_" + itemstack.getItem().getRegistryName().getPath()));
-		if (ForgeRegistries.BLOCKS.containsKey(pot) && this.getBlock() == FloristBlocks.HANGING_FLOWER_POT.get()) {
-			Block potBlock = ForgeRegistries.BLOCKS.getValue(pot);
-			worldIn.setBlockState(pos, potBlock.getDefaultState(), 3);
-			player.addStat(Stats.POT_FLOWER);
-			if (!player.abilities.isCreativeMode) {
-				itemstack.shrink(1);
-			}
-			return ActionResultType.SUCCESS;
-		} else {
-			if (player.getHeldItem(handIn).getItem() == Blocks.AIR.asItem()) {
-				player.setHeldItem(handIn, new ItemStack(this.flower.get().asItem()));
-				worldIn.setBlockState(pos, FloristBlocks.HANGING_FLOWER_POT.get().getDefaultState());
-			}
-			return ActionResultType.CONSUME;
+		if (player.getHeldItem(handIn).getItem() == Blocks.AIR.asItem()) {
+			player.setHeldItem(handIn, new ItemStack(this.flower.get().asItem()));
+			worldIn.setBlockState(pos, Blocks.FLOWER_POT.getDefaultState());
 		}
+		return ActionResultType.CONSUME;
 	}
+	
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return SHAPE;
@@ -67,4 +55,12 @@ public class HangingFlowerPotBlock extends Block {
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		return facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
+
+	@Override
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+    	List<ItemStack> list = new ArrayList<ItemStack>();
+    	list.add(new ItemStack(Blocks.FLOWER_POT));
+    	list.add(new ItemStack(ForgeRegistries.BLOCKS.getValue(this.flower.get().getRegistryName()).asItem()));
+        return list;
+     }
 }

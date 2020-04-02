@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks.unused;
+package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SlimeBlock;

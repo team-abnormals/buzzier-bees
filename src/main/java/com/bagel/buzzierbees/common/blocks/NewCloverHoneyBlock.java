@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks.unused;
+package com.bagel.buzzierbees.common.blocks;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;

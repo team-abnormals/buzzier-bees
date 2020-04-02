@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.common.blocks.unused.PottedCartwheelBlock;
+import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 
 import net.minecraft.block.Block;
