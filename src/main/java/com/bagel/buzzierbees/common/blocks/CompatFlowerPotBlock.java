@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import com.bagel.buzzierbees.core.util.CompatBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -62,11 +60,7 @@ public class CompatFlowerPotBlock extends Block {
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
     	List<ItemStack> list = new ArrayList<ItemStack>();
     	list.add(new ItemStack(Blocks.FLOWER_POT));
-    	if (this.flower.get() == CompatBlocks.SWEET_BERRY_PIPS.get()) {
-        	list.add(new ItemStack(ForgeRegistries.ITEMS.getValue(this.flower.get().getRegistryName())));
-    	} else {
-        	list.add(new ItemStack(ForgeRegistries.BLOCKS.getValue(this.flower.get().getRegistryName()).asItem()));
-    	}
+    	list.add(new ItemStack(ForgeRegistries.BLOCKS.getValue(this.flower.get().getRegistryName()).asItem()));
         return list;
      }
 }

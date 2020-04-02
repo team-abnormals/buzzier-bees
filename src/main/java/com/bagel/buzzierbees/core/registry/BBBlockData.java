@@ -78,7 +78,7 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CARROT.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_POTATO.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BEETROOT.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SUGAR_CANE.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_NETHER_WART.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_CHORUS_PLANT.get(),RenderType.getCutout());
@@ -96,7 +96,6 @@ public class BBBlockData {
 		//RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_COCOA_BEANS.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SEA_PICKLE.get(),RenderType.getCutout());
 		
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_SWEET_BERRY_PIPS.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_DELPHINIUM.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BLUE_DELPHINIUM.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_DELPHINIUM.get(),RenderType.getCutout());
@@ -171,7 +170,7 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_CARROT.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_POTATO.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_BEETROOT.get(),RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SWEET_BERRIES.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SUGAR_CANE.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_NETHER_WART.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_CHORUS_PLANT.get(),RenderType.getCutout());
@@ -220,7 +219,6 @@ public class BBBlockData {
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_ORANGE_MAPLE_SAPLING.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_RED_MAPLE_SAPLING.get(),RenderType.getCutout());
 		
-		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_SWEET_BERRY_PIPS.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_BAMBOO_TORCH.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_WHITE_DELPHINIUM.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HANGING_POTTED_BLUE_DELPHINIUM.get(),RenderType.getCutout());

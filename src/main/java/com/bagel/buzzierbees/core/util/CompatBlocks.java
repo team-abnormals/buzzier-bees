@@ -25,7 +25,6 @@ public class CompatBlocks {
     public static Supplier<Block> ORANGE_MAPLE_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("autumnity:orange_maple_sapling"));
     public static Supplier<Block> RED_MAPLE_SAPLING = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("autumnity:red_maple_sapling"));
     
-    public static Supplier<Block> SWEET_BERRY_PIPS = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("berry_good:sweet_berry_pips"));
     public static Supplier<Block> POISE_BUSH = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("endergetic:poise_grass"));
     public static Supplier<Block> BLUE_PICKERELWEED = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("upgrade_aquatic:pickerel_weed_blue"));
     public static Supplier<Block> PURPLE_PICKERELWEED = () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("upgrade_aquatic:pickerel_weed_purple"));
