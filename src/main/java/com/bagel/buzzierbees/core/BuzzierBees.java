@@ -38,6 +38,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -103,17 +104,24 @@ public class BuzzierBees
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
     
+    /*
+     * Temporary fix for forge bug
+     * RegistryObject#isPresent causes a null pointer when it's false :crying: thanks forge
+     * @author - Luke Tonon (SmellyModder)
+     */
     @OnlyIn(Dist.CLIENT)
-	private void registerItemColors(ColorHandlerEvent.Item event) {
-		for(RegistryObject<Item> items : BBItems.SPAWN_EGGS) {
-			Item item = items.get();
-			if(item instanceof BBSpawnEggItem) {
-				event.getItemColors().register((itemColor, itemsIn) -> {
-					return ((BBSpawnEggItem) item).getColor(itemsIn);
-				}, item);
-			}
-		}
-	}
+    private void registerItemColors(ColorHandlerEvent.Item event) {
+        for(RegistryObject<Item> items : BBItems.SPAWN_EGGS) {
+            if(ObfuscationReflectionHelper.getPrivateValue(RegistryObject.class, items, "value") != null) {
+                Item item = items.get();
+                if(item instanceof BBSpawnEggItem) {
+                    event.getItemColors().register((itemColor, itemsIn) -> {
+                        return ((BBSpawnEggItem) item).getColor(itemsIn);
+                    }, item);
+                }
+            }
+        }
+    }
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
