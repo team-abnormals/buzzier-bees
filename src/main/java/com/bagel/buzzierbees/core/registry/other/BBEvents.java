@@ -1,6 +1,9 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.registry.other;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
+import com.bagel.buzzierbees.core.registry.BBItems;
+import com.bagel.buzzierbees.core.registry.BBTags;
+import com.bagel.buzzierbees.core.registry.FloristBlocks;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -54,7 +57,7 @@ public class BBEvents {
 				(world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && !world.getBlockState(pos.up()).isAir())) && world.getBlockState(pos).isAir() &&
 				item.getItem() == Blocks.FLOWER_POT.asItem()		
 				) {
-			event.getWorld().setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());
+			event.getWorld().setBlockState(pos, FloristBlocks.HANGING_FLOWER_POT.get().getDefaultState());
 			event.getWorld().playSound(event.getPlayer(), pos, SoundEvents.BLOCK_STONE_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			event.getPlayer().swingArm(event.getHand());
 			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);

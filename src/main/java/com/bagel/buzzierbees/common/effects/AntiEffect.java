@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.common.effects;
 
-import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
+import com.bagel.buzzierbees.core.registry.other.BBCriteriaTriggers;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.entity.LivingEntity;

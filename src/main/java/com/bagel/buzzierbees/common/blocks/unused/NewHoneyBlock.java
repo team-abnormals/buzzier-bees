@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.common.blocks;
+package com.bagel.buzzierbees.common.blocks.unused;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HoneyBlock;

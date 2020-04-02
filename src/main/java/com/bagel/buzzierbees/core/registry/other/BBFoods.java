@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.registry.other;
 
 import net.minecraft.item.Food;
 import net.minecraft.potion.EffectInstance;

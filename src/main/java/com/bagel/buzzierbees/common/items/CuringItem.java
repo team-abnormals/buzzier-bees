@@ -1,7 +1,7 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
 import com.bagel.buzzierbees.core.registry.BBItems;
+import com.bagel.buzzierbees.core.registry.other.BBCriteriaTriggers;
 import com.bagel.buzzierbees.core.util.EmptyTrigger;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.CriteriaTriggers;
