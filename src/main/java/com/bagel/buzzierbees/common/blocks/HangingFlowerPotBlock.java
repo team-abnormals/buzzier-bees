@@ -9,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -21,6 +22,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class HangingFlowerPotBlock extends Block {
@@ -36,7 +38,7 @@ public class HangingFlowerPotBlock extends Block {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
 		ResourceLocation pot = new ResourceLocation(("buzzierbees:hanging_potted_" + itemstack.getItem().getRegistryName().getPath()));
-		if (ForgeRegistries.BLOCKS.containsKey(pot) && this.getBlock() == BBBlocks.HANGING_FLOWER_POT.get()) {
+		if (ForgeRegistries.BLOCKS.containsKey(pot) && this.getBlock() == BBBlocks.HANGING_FLOWER_POT.get() && !(itemstack.getItem() == Items.SWEET_BERRIES && ModList.get().isLoaded("berry_good"))) {
 			Block potBlock = ForgeRegistries.BLOCKS.getValue(pot);
 			worldIn.setBlockState(pos, potBlock.getDefaultState(), 3);
 			player.addStat(Stats.POT_FLOWER);
