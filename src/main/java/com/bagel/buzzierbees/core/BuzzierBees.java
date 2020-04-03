@@ -8,7 +8,6 @@ import java.util.Set;
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.items.BBSpawnEggItem;
-import com.bagel.buzzierbees.core.config.BBConfig;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
@@ -34,12 +33,10 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -51,7 +48,6 @@ public class BuzzierBees
 	public static final String MODID = "buzzierbees";
     
     public BuzzierBees() {
-    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BBConfig.SERVER_SPEC);
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
     	BBItems.ITEMS.register(modEventBus);
@@ -75,22 +71,13 @@ public class BuzzierBees
 	}
     
     private void setupClient(final FMLClientSetupEvent event) {
-    	BBConfig.refresh();
 		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
 		BlockColorManager.registerBlockColors();
 	}
     
-    public void modConfig(final ModConfig.ModConfigEvent event)
-	{
-		ModConfig config = event.getConfig();
-		if (config.getSpec() == BBConfig.SERVER_SPEC)
-			BBConfig.refresh();
-	}
-    
     private void setup(final FMLCommonSetupEvent event)
     {
-    	BBConfig.refresh();
     	BBBlockData.registerCompostables();
     	BBBlockData.registerFlammables();
     	BBEffects.addBrewingRecipes();

@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -15,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
@@ -48,12 +50,9 @@ public class BBEvents {
 		BlockPos pos = event.getPos().offset(event.getFace());
 		ItemStack item = event.getItemStack();
 		World world = event.getWorld();
+		boolean validPos = Block.hasEnoughSolidSide(world, pos.up(), event.getFace()) || world.getBlockState(pos.up()).getBlock().isIn(BlockTags.LEAVES);
 		
-		if (
-				(event.getFace() == Direction.DOWN ||
-				(world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && !world.getBlockState(pos.up()).isAir())) && world.getBlockState(pos).isAir() &&
-				item.getItem() == Blocks.FLOWER_POT.asItem()		
-				) {
+		if (((event.getFace() == Direction.DOWN && (validPos)) || (world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && (validPos))) && world.getBlockState(pos).isAir() && item.getItem() == Blocks.FLOWER_POT.asItem()) {
 			event.getWorld().setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());
 			event.getWorld().playSound(event.getPlayer(), pos, SoundEvents.BLOCK_STONE_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			event.getPlayer().swingArm(event.getHand());
