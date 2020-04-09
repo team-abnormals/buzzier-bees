@@ -38,6 +38,7 @@ public class BBBlockData {
 	public static void setupRenderLayer()
 	{
 		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_LAMP.get(),RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_POT.get(),RenderType.getTranslucent());
 
 		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_DOOR.get(),RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HIVE_TRAPDOOR.get(),RenderType.getCutout());

@@ -15,6 +15,7 @@ import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.bagel.buzzierbees.core.registry.BBTileEntities;
+import com.bagel.buzzierbees.core.registry.BBVillagers;
 import com.bagel.buzzierbees.core.util.BlockColorManager;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -56,6 +57,9 @@ public class BuzzierBees
     	BBBlocks.BLOCKS.register(modEventBus);
     	BBEntities.ENTITIES.register(modEventBus);
     	BBTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
+    	BBVillagers.PROFESSIONS.register(modEventBus);
+    	BBVillagers.POI_TYPES.register(modEventBus);
+
 
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
@@ -83,6 +87,7 @@ public class BuzzierBees
     	BBEffects.addBrewingRecipes();
 		BBFeatures.addFeatures();
 		BBEntities.addEntitySpawns();
+		BBVillagers.init();
     	
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
     	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());

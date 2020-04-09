@@ -8,6 +8,7 @@ import com.bagel.buzzierbees.common.blocks.CompatHangingFlowerPotBlock;
 import com.bagel.buzzierbees.common.blocks.CrystallizedHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.HangingFlowerPotBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyLampBlock;
+import com.bagel.buzzierbees.common.blocks.HoneyPotBlock;
 import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
 import com.bagel.buzzierbees.common.blocks.VerticalSlabBlock;
@@ -90,6 +91,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> WAX_BLOCK 				= RegistryUtils.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).slipperiness(0.95F).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK  = RegistryUtils.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(Block.Properties.create(Material.CAKE).notSolid().slipperiness(0.98F).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_LAMP 				= RegistryUtils.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HONEY_POT 				= RegistryUtils.createBlock("honey_pot", () -> new HoneyPotBlock(Block.Properties.from(Blocks.TERRACOTTA)), ItemGroup.DECORATIONS);
 
 	// Hive Planks //
 	
