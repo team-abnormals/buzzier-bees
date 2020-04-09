@@ -30,14 +30,14 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("deprecation")
-public class HoneyLamp extends EndRodBlock implements IWaterLoggable {
+public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	
     protected static final VoxelShape HONEY_LAMP_VERTICAL_AABB = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
     protected static final VoxelShape HONEY_LAMP_NS_AABB = Block.makeCuboidShape(5.0D, 5.0D, 0.0D, 11.0D, 11.0D, 16.0D);
     protected static final VoxelShape HONEY_LAMP_EW_AABB = Block.makeCuboidShape(0.0D, 5.0D, 5.0D, 16.0D, 11.0D, 11.0D);
 
-    public HoneyLamp(Properties properties) {
+    public HoneyLampBlock(Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.UP).with(WATERLOGGED, true));
     }
