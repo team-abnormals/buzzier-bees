@@ -36,6 +36,7 @@ public class CompatFlowerPotBlock extends Block {
 		if (player.getHeldItem(handIn).getItem() == Blocks.AIR.asItem()) {
 			player.setHeldItem(handIn, new ItemStack(this.flower.get().asItem()));
 			worldIn.setBlockState(pos, Blocks.FLOWER_POT.getDefaultState());
+			player.swingArm(handIn);
 		}
 		return ActionResultType.CONSUME;
 	}
