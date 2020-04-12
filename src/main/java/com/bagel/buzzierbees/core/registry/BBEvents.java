@@ -88,11 +88,13 @@ public class BBEvents {
 		BlockPos pos = event.getPos();
 		ItemStack item = event.getItemStack();
 		World world = event.getWorld();
+		Player player = event.getPlayer();
 		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
 		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.MODDED_POTTABLES)) {
 			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());
-			event.getPlayer().swingArm(event.getHand());
-			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);
+			player.swingArm(event.getHand());
+			player.addStat(Stats.POT_FLOWER);
+			if (!player.abilities.isCreativeMode) item.shrink(1);
 		}
 	}
 	    

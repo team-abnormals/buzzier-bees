@@ -48,6 +48,7 @@ public class HangingFlowerPotBlock extends Block {
 		} else {
 			if (player.getHeldItem(handIn).getItem() == Blocks.AIR.asItem()) {
 				player.setHeldItem(handIn, new ItemStack(this.flower.get().asItem()));
+				player.swingArm(handIn);
 				worldIn.setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());
 			}
 			return ActionResultType.CONSUME;
