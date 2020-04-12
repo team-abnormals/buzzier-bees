@@ -3,6 +3,17 @@
   "ingredient": {
     "item": "buzzierbees:honey_bricks"
   },
-  "result": "buzzierbees:honey_brick_stairs",
-  "count": 1
+  "result": "buzzierbees:honey_brick_vertical_slab",
+  "count": 1,
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
+    }
+  ]
 }

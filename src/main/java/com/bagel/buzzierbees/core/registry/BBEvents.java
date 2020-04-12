@@ -1,6 +1,10 @@
 package com.bagel.buzzierbees.core.registry;
 
+import java.util.Set;
+
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
+import com.bagel.buzzierbees.core.BuzzierBees;
+import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -25,6 +29,10 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.LootTables;
+import net.minecraft.world.storage.loot.TableLootEntry;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -32,8 +40,23 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@EventBusSubscriber(modid = "buzzierbees")
+@EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBEvents {
+	private static final Set<ResourceLocation> DESERT_LOOT_INJECTIONS = Sets.newHashSet(LootTables.CHESTS_DESERT_PYRAMID);
+	private static final Set<ResourceLocation> JUNGLE_LOOT_INJECTIONS = Sets.newHashSet(LootTables.CHESTS_JUNGLE_TEMPLE);
+	
+	@SubscribeEvent
+	public static void onInjectLoot(LootTableLoadEvent event) {
+		if (DESERT_LOOT_INJECTIONS.contains(event.getName())) {
+			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/desert_pyramid")).weight(1).quality(0)).name("desert_pyramid").build();
+			event.getTable().addPool(pool);
+		}
+		if (JUNGLE_LOOT_INJECTIONS.contains(event.getName())) {
+			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/jungle_temple")).weight(1).quality(0)).name("jungle_temple").build();
+			event.getTable().addPool(pool);
+		}
+	}
+	
 	@SubscribeEvent
 	public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
