@@ -47,6 +47,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import net.minecraft.entity.item.BoatEntity;
@@ -85,7 +86,7 @@ public class HiveBoatEntity extends BoatEntity {
    private float rockingAngle;
    private float prevRockingAngle;
 
-   public HiveBoatEntity(EntityType<? extends HiveBoatEntity> p_i50129_1_, World p_i50129_2_) {
+   public HiveBoatEntity(EntityType<? extends BoatEntity> p_i50129_1_, World p_i50129_2_) {
       super(p_i50129_1_, p_i50129_2_);
       this.preventEntitySpawning = true;
    }
@@ -98,6 +99,11 @@ public class HiveBoatEntity extends BoatEntity {
       this.prevPosY = y;
       this.prevPosZ = z;
    }
+   
+   public HiveBoatEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
+		this(BBEntities.BOAT.get(), world);
+	}
+   
    @Override
    protected boolean canTriggerWalking() {
       return false;

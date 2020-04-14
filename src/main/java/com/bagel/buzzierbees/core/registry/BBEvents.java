@@ -3,6 +3,7 @@ package com.bagel.buzzierbees.core.registry;
 import java.util.Set;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
+import com.bagel.buzzierbees.common.entities.FlyEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.google.common.collect.Sets;
 
@@ -11,9 +12,14 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -65,6 +71,18 @@ public class BBEvents {
 			.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
 			.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
 		}
+		if (event.getEntity() instanceof ZombieEntity) {
+			ZombieEntity zombie = (ZombieEntity)event.getEntity();
+			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 18.0F, 1.05D, 1.05D));
+		}
+		if (event.getEntity() instanceof AbstractHorseEntity) {
+			AbstractHorseEntity horse = (AbstractHorseEntity)event.getEntity();
+			horse.goalSelector.addGoal(1, new AvoidEntityGoal<>(horse, FlyEntity.class, 8.0F, 1.1D, 1.1D));
+		}
+		if (event.getEntity() instanceof SpiderEntity) {
+			SpiderEntity spider = (SpiderEntity)event.getEntity();
+			spider.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(spider, FlyEntity.class, false));
+		}
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -88,7 +106,7 @@ public class BBEvents {
 		BlockPos pos = event.getPos();
 		ItemStack item = event.getItemStack();
 		World world = event.getWorld();
-		Player player = event.getPlayer();
+		PlayerEntity player = event.getPlayer();
 		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
 		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.MODDED_POTTABLES)) {
 			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());

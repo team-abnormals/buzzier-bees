@@ -1,16 +1,19 @@
-/*package com.bagel.buzzierbees.client.model;
+package com.bagel.buzzierbees.client.model;
 
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.QuadrupedModel;
+import com.bagel.buzzierbees.common.entities.GrizzlyBearEntity;
+import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.PolarBearEntity;
+import net.minecraft.util.math.MathHelper;
 
-
-// * ModelBear - Booper
-// * Created using Tabula 7.0.0
- 
-public class GrizzlyBearModel extends EntityModel {
+/**
+ * ModelBear - Booper
+ * Created using Tabula 7.0.0
+ */
+public class GrizzlyBearModel<T extends GrizzlyBearEntity> extends AgeableModel<T> {
     public ModelRenderer chest;
     public ModelRenderer butt;
     public ModelRenderer left_arm;
@@ -68,13 +71,36 @@ public class GrizzlyBearModel extends EntityModel {
         this.butt.addChild(this.right_leg);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        this.chest.render(f5);
+    @Override
+    public void render(MatrixStack matrixStack, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
+        this.chest.render(matrixStack, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
     }
 
+    /**
+     * This is a helper function from Tabula to set the rotation of model parts
+     */
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
-}*/
+    
+    public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
+        this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
+        this.right_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        this.left_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+        this.right_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+        this.left_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+    }
+
+	@Override
+	protected Iterable<ModelRenderer> getHeadParts() {
+		return ImmutableList.of(this.head);
+	}
+
+	@Override
+	protected Iterable<ModelRenderer> getBodyParts() {
+		return ImmutableList.of(this.chest, this.butt);
+	}
+}
