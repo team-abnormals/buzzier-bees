@@ -14,13 +14,14 @@
 	"item.buzzierbees.silverfish_bottle": "Frasco con pez de plata",
 	"item.buzzierbees.endermite_bottle": "Frasco con endermite",
 	"item.buzzierbees.bee_bottle": "Frasco con abeja",
+	"item.buzzierbees.fly_bottle": "Frasco con mosca",
 	
 	"item.buzzierbees.hive_boat": "Bote de panal",
 	
 	"item.buzzierbees.honey_slime_spawn_egg": "Generar slime meloso",
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Generar oso pardo",
-	"item.buzzierbees.royal_bee_spawn_egg": "Generar abeja reina",
-	"item.buzzierbees.butterfly_spawn_egg": "Generar mariposa",
+	"item.buzzierbees.black_bear_spawn_egg": "Generar oso negro",
+	"item.buzzierbees.fly_spawn_egg": "Generar mosca",
 	
 	"block.minecraft.beehive": "Apiario de roble",
 	"block.buzzierbees.spruce_beehive": "Apiario de abeto",
@@ -32,8 +33,8 @@
 	"block.buzzierbees.warped_beehive": "Apiario deformado",
 
 	"block.buzzierbees.poise_beehive": "Apiario equilibrado",
-	"block.buzzierbees.driftwood_beehive": "Apiario de madera flotante",
-	"block.buzzierbees.riverwood_beehive": "Apiario de riverwood",
+	"block.buzzierbees.driftwood_beehive": "Apiario de deriva",
+	"block.buzzierbees.riverwood_beehive": "Apiario de río",
 	"block.buzzierbees.willow_beehive": "Apiario de sauce",
 	"block.buzzierbees.wisteria_beehive": "Apiario de glicinas",
 	"block.buzzierbees.rosewood_beehive": "Apiario de palisandro",
@@ -175,6 +176,9 @@
 
 	"entity.buzzierbees.boat": "Bote",
 	"entity.buzzierbees.honey_slime": "Slime meloso",
+	"entity.buzzierbees.grizzly_bear": "Oso pardo",
+	"entity.buzzierbees.black_bear": "Oso negro",
+	"entity.buzzierbees.fly": "Mosca",
 	"entity.minecraft.villager.buzzierbees.apiarist": "Apicultor",
 	
 	"item.minecraft.potion.effect.long_luck": "Poción de suerte",
