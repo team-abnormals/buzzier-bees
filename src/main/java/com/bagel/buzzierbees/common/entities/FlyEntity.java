@@ -4,14 +4,12 @@ import java.util.EnumSet;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBItems;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -49,9 +47,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
 	@Nullable
@@ -83,16 +78,6 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
 	   this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(new Class[0]));
 	   this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
 	   this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
-   }
-   
-   public static void addSpawn() {
-	   ForgeRegistries.BIOMES.getValues().stream().forEach(FlyEntity::processSpawning);
-   }
-	
-   private static void processSpawning(Biome biome) {
-	   if(biome.getCategory() == Category.SWAMP) {
-		   biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(BBEntities.FLY.get(), 4, 3, 7));
-	   }
    }
 
    public void writeAdditional(CompoundNBT compound) {
@@ -130,6 +115,11 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
       }
 
       return flag;
+   }
+   
+   @Override
+   public int getMaxSpawnedInChunk() {
+	   return 3;
    }
 
    protected void updateAITasks() {

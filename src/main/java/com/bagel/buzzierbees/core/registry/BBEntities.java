@@ -21,6 +21,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -54,10 +56,14 @@ public class BBEntities
     }
     
     public static void addEntitySpawns() {
-		EntitySpawnPlacementRegistry.register(HONEY_SLIME.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HoneySlimeEntity::honeySlimeCondition);
-		
-		FlyEntity.addSpawn();
-	}
+ 	   ForgeRegistries.BIOMES.getValues().stream().forEach(BBEntities::processSpawning);
+    }
+ 	
+    private static void processSpawning(Biome biome) {
+ 	   if(biome.getCategory() == Category.SWAMP) {
+ 		   biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(BBEntities.FLY.get(), 4, 3, 7));
+ 	   }
+    }
     
     private static <T extends LivingEntity> EntityType<T> createLivingEntity(EntityType.IFactory<T> factory, EntityClassification entityClassification, String name, float width, float height){
 		ResourceLocation location = new ResourceLocation(BuzzierBees.MODID, name);
