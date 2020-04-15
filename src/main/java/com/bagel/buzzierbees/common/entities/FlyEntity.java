@@ -76,13 +76,13 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
    }
 
    protected void registerGoals() {
-      this.goalSelector.addGoal(0, new MeleeAttackGoal(this, (double)1.4F, true));
-      this.goalSelector.addGoal(1, new TemptGoal(this, 1.25D, Ingredient.fromItems(Items.ROTTEN_FLESH), false));
-      this.goalSelector.addGoal(2, new FlyEntity.WanderGoal());
-      this.goalSelector.addGoal(3, new SwimGoal(this));
-      this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(new Class[0]));
-      this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
-      this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
+	   this.goalSelector.addGoal(0, new TemptGoal(this, 1.25D, Ingredient.fromItems(Items.ROTTEN_FLESH), false));
+	   this.goalSelector.addGoal(1, new MeleeAttackGoal(this, (double)1.4F, true));
+	   this.goalSelector.addGoal(2, new FlyEntity.WanderGoal());
+	   this.goalSelector.addGoal(3, new SwimGoal(this));
+	   this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(new Class[0]));
+	   this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
+	   this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
    }
    
    public static void addSpawn() {

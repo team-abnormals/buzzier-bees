@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bagel.buzzierbees.client.model.BearModel;
-import com.bagel.buzzierbees.common.entities.GrizzlyBearEntity;
+import com.bagel.buzzierbees.common.entities.BlackBearEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -15,17 +15,17 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 
-public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, BearModel<GrizzlyBearEntity>> {	
+public class BlackBearRenderer extends MobRenderer<BlackBearEntity, BearModel<BlackBearEntity>> {	
 	private static final Map<List<String>, String> NAMES = Util.make(Maps.newHashMap(), (skins) -> {
 		skins.put(Arrays.asList("derp", "byper"), "derp");
 	});
 
-	public GrizzlyBearRenderer(EntityRendererManager renderManager) {
-		super(renderManager, new BearModel<>(), 0.9F);
+	public BlackBearRenderer(EntityRendererManager renderManager) {
+		super(renderManager, new BearModel<>(), 0.8F);
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(GrizzlyBearEntity bear) {
+	public ResourceLocation getEntityTexture(BlackBearEntity bear) {
 		String textureSuffix = "";
 		
 		if(bear.hasCustomName()) {
@@ -36,14 +36,14 @@ public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, BearMode
 				}
 			}
 		}
-		return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bear/grizzly_bear" + textureSuffix + ".png");
+		return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bear/black_bear" + textureSuffix + ".png");
 	}
 	
 	@Override
-	protected void preRenderCallback(GrizzlyBearEntity bear, MatrixStack matrixStack, float partialTickTime) {
-		matrixStack.scale(1.3f, 1.3f, 1.3f);
+	protected void preRenderCallback(BlackBearEntity bear, MatrixStack matrixStack, float partialTickTime) {
+		matrixStack.scale(1.1f, 1.1f, 1.1f);
 		if(bear.isChild()) {
-	        matrixStack.scale(0.65F, 0.65F, 0.65F);
+	        matrixStack.scale(0.55F, 0.55F, 0.55F);
 	    }	
 	}
 }

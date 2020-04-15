@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.client.model;
 
-import com.bagel.buzzierbees.common.entities.GrizzlyBearEntity;
+import com.bagel.buzzierbees.common.entities.AbstractBearEntity;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -13,7 +13,7 @@ import net.minecraft.util.math.MathHelper;
  * ModelBear - Booper
  * Created using Tabula 7.0.0
  */
-public class GrizzlyBearModel<T extends GrizzlyBearEntity> extends AgeableModel<T> {
+public class BearModel<T extends AbstractBearEntity> extends AgeableModel<T> {
     public ModelRenderer chest;
     public ModelRenderer butt;
     public ModelRenderer left_arm;
@@ -25,7 +25,7 @@ public class GrizzlyBearModel<T extends GrizzlyBearEntity> extends AgeableModel<
     public ModelRenderer left_ear;
     public ModelRenderer right_ear;
 
-    public GrizzlyBearModel() {
+    public BearModel() {
         this.textureWidth = 80;
         this.textureHeight = 80;
         this.snout = new ModelRenderer(this, 24, 45);

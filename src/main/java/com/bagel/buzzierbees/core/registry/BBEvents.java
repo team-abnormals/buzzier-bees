@@ -73,7 +73,7 @@ public class BBEvents {
 		}
 		if (event.getEntity() instanceof ZombieEntity) {
 			ZombieEntity zombie = (ZombieEntity)event.getEntity();
-			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 18.0F, 1.05D, 1.05D));
+			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 9.0F, 1.05D, 1.05D));
 		}
 		if (event.getEntity() instanceof AbstractHorseEntity) {
 			AbstractHorseEntity horse = (AbstractHorseEntity)event.getEntity();

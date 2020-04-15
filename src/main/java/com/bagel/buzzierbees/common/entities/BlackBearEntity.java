@@ -6,12 +6,12 @@ import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;
 
-public class GrizzlyBearEntity extends AbstractBearEntity {
-   public GrizzlyBearEntity(EntityType<? extends GrizzlyBearEntity> type, World worldIn) {
+public class BlackBearEntity extends AbstractBearEntity {
+   public BlackBearEntity(EntityType<? extends BlackBearEntity> type, World worldIn) {
       super(type, worldIn);
    }
 
    public AgeableEntity createChild(AgeableEntity ageable) {
-      return BBEntities.GRIZZLY_BEAR.get().create(this.world);
+      return BBEntities.BLACK_BEAR.get().create(this.world);
    }
 }

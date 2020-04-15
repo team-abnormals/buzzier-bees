@@ -2,10 +2,12 @@ package com.bagel.buzzierbees.core.registry;
 
 import java.util.function.BiFunction;
 
+import com.bagel.buzzierbees.client.render.BlackBearRenderer;
 import com.bagel.buzzierbees.client.render.FlyRenderer;
 import com.bagel.buzzierbees.client.render.GrizzlyBearRenderer;
 import com.bagel.buzzierbees.client.render.HiveBoatRenderer;
 import com.bagel.buzzierbees.client.render.HoneySlimeRenderer;
+import com.bagel.buzzierbees.common.entities.BlackBearEntity;
 import com.bagel.buzzierbees.common.entities.FlyEntity;
 import com.bagel.buzzierbees.common.entities.GrizzlyBearEntity;
 import com.bagel.buzzierbees.common.entities.HiveBoatEntity;
@@ -37,7 +39,8 @@ public class BBEntities
 	public static RegistryObject<EntityType<HiveBoatEntity>>  BOAT = ENTITIES.register("boat", () -> createEntity(HiveBoatEntity::new, HiveBoatEntity::new, EntityClassification.MISC, "boat", 1.375f, 0.5625f));
 
 	public static RegistryObject<EntityType<HoneySlimeEntity>> HONEY_SLIME = ENTITIES.register("honey_slime", () -> createLivingEntity(HoneySlimeEntity::new, EntityClassification.CREATURE, "honey_slime", 1.02F, 1.02F));
-	public static RegistryObject<EntityType<GrizzlyBearEntity>> GRIZZLY_BEAR = ENTITIES.register("grizzly_bear", () -> createLivingEntity(GrizzlyBearEntity::new, EntityClassification.CREATURE, "grizzly_bear", 1.3F, 1.3F));
+	public static RegistryObject<EntityType<GrizzlyBearEntity>> GRIZZLY_BEAR = ENTITIES.register("grizzly_bear", () -> createLivingEntity(GrizzlyBearEntity::new, EntityClassification.CREATURE, "grizzly_bear", 1.4F, 1.4F));
+	public static RegistryObject<EntityType<BlackBearEntity>> BLACK_BEAR = ENTITIES.register("black_bear", () -> createLivingEntity(BlackBearEntity::new, EntityClassification.CREATURE, "black_bear", 1.1F, 1.1F));
 	public static RegistryObject<EntityType<FlyEntity>> FLY = ENTITIES.register("fly", () -> createLivingEntity(FlyEntity::new, EntityClassification.CREATURE, "fly", 0.4F, 0.4F));
 	
     @OnlyIn(Dist.CLIENT)
@@ -46,6 +49,7 @@ public class BBEntities
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HiveBoatEntity>)BOAT.get(), HiveBoatRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)HONEY_SLIME.get(), HoneySlimeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends GrizzlyBearEntity>)GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends BlackBearEntity>)BLACK_BEAR.get(), BlackBearRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends FlyEntity>)FLY.get(), FlyRenderer::new);
     }
     
