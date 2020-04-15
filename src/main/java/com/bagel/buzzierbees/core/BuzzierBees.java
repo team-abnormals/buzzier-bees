@@ -8,6 +8,7 @@ import java.util.Set;
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.items.BBSpawnEggItem;
+import com.bagel.buzzierbees.common.network.MessageCAnimation;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
@@ -27,6 +28,7 @@ import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -41,14 +43,26 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 @Mod("buzzierbees")
 @EventBusSubscriber(modid = "buzzierbees")
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
-    
+	public static BuzzierBees instance;
+	public static final String NETWORK_PROTOCOL = "1";
+	
+	public static final SimpleChannel CHANNEL = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(BuzzierBees.MODID, "net"))
+		.networkProtocolVersion(() -> NETWORK_PROTOCOL)
+		.clientAcceptedVersions(NETWORK_PROTOCOL::equals)
+		.serverAcceptedVersions(NETWORK_PROTOCOL::equals)
+		.simpleChannel();
+	
     public BuzzierBees() {
+    	instance = this;
+    	this.setupMessages();
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
     	BBItems.ITEMS.register(modEventBus);
@@ -114,6 +128,15 @@ public class BuzzierBees
             }
         }
     }
+    
+	void setupMessages() {
+		int id = -1;
+		
+		CHANNEL.messageBuilder(MessageCAnimation.class, id++)
+		.encoder(MessageCAnimation::serialize).decoder(MessageCAnimation::deserialize)
+		.consumer(MessageCAnimation::handle)
+		.add();
+	}
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
