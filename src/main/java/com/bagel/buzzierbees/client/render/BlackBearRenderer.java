@@ -12,12 +12,11 @@ import net.minecraft.util.ResourceLocation;
 public class BlackBearRenderer extends MobRenderer<BlackBearEntity, BearModel<BlackBearEntity>> {	
 	public BlackBearRenderer(EntityRendererManager renderManager) {
 		super(renderManager, new BearModel<>(), 0.8F);
-		this.addLayer(new BearEyesRenderLayer<>(this));
-		this.addLayer(new BearClothesRenderLayer<>(this));
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(BlackBearEntity bear) {
+		if (bear.isSleeping()) return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bear/black_bear_sleeping.png");
 		return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bear/black_bear.png");
 	}
 	
