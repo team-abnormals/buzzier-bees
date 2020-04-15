@@ -8,10 +8,10 @@ import javax.annotation.Nullable;
 import com.bagel.buzzierbees.api.endimator.ControlledEndimation;
 import com.bagel.buzzierbees.api.endimator.Endimation;
 import com.bagel.buzzierbees.api.endimator.entity.IEndimatedEntity;
+import com.bagel.buzzierbees.api.util.NetworkUtil;
 import com.bagel.buzzierbees.common.entities.goals.bear.AttackPlayerGoal;
 import com.bagel.buzzierbees.common.entities.goals.bear.EatBerriesGoal;
 import com.bagel.buzzierbees.common.entities.goals.bear.HurtByTargetGoal;
-import com.bagel.buzzierbees.common.entities.goals.bear.MeleeAttackGoal;
 import com.bagel.buzzierbees.common.entities.goals.bear.PanicGoal;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBItems;
@@ -20,11 +20,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
-import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Pose;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -41,37 +39,36 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity {
    private static final DataParameter<Boolean> IS_STANDING = EntityDataManager.createKey(AbstractBearEntity.class, DataSerializers.BOOLEAN);
+   private static final DataParameter<Boolean> IS_SITTING = EntityDataManager.createKey(AbstractBearEntity.class, DataSerializers.BOOLEAN);
    private static final DataParameter<Boolean> IS_SLEEPING = EntityDataManager.createKey(AbstractBearEntity.class, DataSerializers.BOOLEAN);
 
-   private float clientSideStandAnimation0;
-   private float clientSideStandAnimation;
    private int warningSoundTicks;
    private int animationTick;
    
    private Endimation playingEndimation = BLANK_ANIMATION;
    
+   public static final Endimation ATTACK = new Endimation(20);
    public static final Endimation SLEEP_DOWN = new Endimation(40);
-   public static final Endimation SLEEP_UP = new Endimation(40);
-   public static final Endimation SLEEP_UP_ANGRY = new Endimation(40);
+   public static final Endimation SIT_DOWN = new Endimation(20);
    public static final ControlledEndimation BREATHING = new ControlledEndimation(8, 0);
 
    public AbstractBearEntity(EntityType<? extends AbstractBearEntity> type, World worldIn) {
@@ -85,7 +82,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    protected void registerGoals() {
       super.registerGoals();
       this.goalSelector.addGoal(0, new SwimGoal(this));
-      this.goalSelector.addGoal(1, new MeleeAttackGoal(this));
+      this.goalSelector.addGoal(1, new MeleeAttackGoal());
       this.goalSelector.addGoal(1, new PanicGoal(this));
       this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
       this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.0D));
@@ -139,38 +136,33 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
       super.registerData();
       this.dataManager.register(IS_STANDING, false);
       this.dataManager.register(IS_SLEEPING, false);
+      this.dataManager.register(IS_SITTING, false);
    }
+   
+   @Override
+	public boolean processInteract(PlayerEntity player, Hand hand) {
+		ItemStack itemstack = player.getHeldItem(hand);
+		Item item = itemstack.getItem();
+		if (item == Items.SWEET_BERRIES) {
+			if(!this.isSitting()) this.setSitting(true);
+			if(!this.world.isRemote && !this.isEndimationPlaying(SIT_DOWN)) {
+				NetworkUtil.setPlayingAnimationMessage(this, SIT_DOWN);
+			}
+		}
+		return super.processInteract(player, hand);
+	}
 
    public void tick() {
       super.tick();
       this.endimateTick();
-      if (this.world.isRemote) {
-         if (this.clientSideStandAnimation != this.clientSideStandAnimation0) {
-            this.recalculateSize();
-         }
-
-         this.clientSideStandAnimation0 = this.clientSideStandAnimation;
-         if (this.isStanding()) {
-            this.clientSideStandAnimation = MathHelper.clamp(this.clientSideStandAnimation + 1.0F, 0.0F, 6.0F);
-         } else {
-            this.clientSideStandAnimation = MathHelper.clamp(this.clientSideStandAnimation - 1.0F, 0.0F, 6.0F);
-         }
-      }
+//      if(!this.world.isRemote && !this.isEndimationPlaying(SLEEP_DOWN)) {
+//    	  NetworkUtil.setPlayingAnimationMessage(this, SLEEP_DOWN);
+//      }
 
       if (this.warningSoundTicks > 0) {
          --this.warningSoundTicks;
       }
 
-   }
-
-   public EntitySize getSize(Pose poseIn) {
-      if (this.clientSideStandAnimation > 0.0F) {
-         float f = this.clientSideStandAnimation / 6.0F;
-         float f1 = 1.0F + f;
-         return super.getSize(poseIn).scale(1.0F, f1);
-      } else {
-         return super.getSize(poseIn);
-      }
    }
 
    public boolean attackEntityAsMob(Entity entityIn) {
@@ -188,6 +180,9 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 
    public void setStanding(boolean standing) {
       this.dataManager.set(IS_STANDING, standing);
+      if(standing && !this.world.isRemote && !this.isEndimationPlaying(ATTACK)) {
+    	  NetworkUtil.setPlayingAnimationMessage(this, ATTACK);
+      }
    }
 
    public boolean isSleeping() {
@@ -197,15 +192,19 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    public void setSleeping(boolean standing) {
 	   this.dataManager.set(IS_SLEEPING, standing);
    }
-   
-   @OnlyIn(Dist.CLIENT)
-   public float getStandingAnimationScale(float p_189795_1_) {
-      return MathHelper.lerp(p_189795_1_, this.clientSideStandAnimation0, this.clientSideStandAnimation) / 6.0F;
+
+   public boolean isSitting() {
+	   return this.dataManager.get(IS_SITTING);
    }
 
+   public void setSitting(boolean sitting) {
+	   this.dataManager.set(IS_SITTING, sitting);
+   }
+   
    protected float getWaterSlowDown() {
       return 0.98F;
    }
+   
 
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
       if (spawnDataIn == null) {
@@ -291,7 +290,11 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 
 	@Override
 	public Endimation[] getEndimations() {
-		return null;
+		return new Endimation[] {
+				SLEEP_DOWN,
+				ATTACK,
+				SIT_DOWN
+			};
 	}
 	
 	@Override
@@ -320,4 +323,45 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 	public AgeableEntity createChild(AgeableEntity ageable) {
 		return BBEntities.GRIZZLY_BEAR.get().create(this.world);
 	}
+	
+	class MeleeAttackGoal extends net.minecraft.entity.ai.goal.MeleeAttackGoal {
+		public MeleeAttackGoal() {
+			super(AbstractBearEntity.this, 1.25D, true);
+		}
+
+		protected void checkAndPerformAttack(LivingEntity enemy, double distToEnemySqr) {
+			double d0 = this.getAttackReachSqr(enemy);
+			if (distToEnemySqr <= d0 && this.attackTick <= 0) {
+				this.attackTick = 20;
+				this.attacker.attackEntityAsMob(enemy);
+	            AbstractBearEntity.this.setStanding(false);
+			} else if (distToEnemySqr <= d0 * 1.5D) {
+				if (this.attackTick <= 0) {
+					AbstractBearEntity.this.setStanding(false);
+					this.attackTick = 20;
+				}
+
+	            if (this.attackTick <= 10) {
+	            	AbstractBearEntity.this.setStanding(true);
+	            	AbstractBearEntity.this.playWarningSound();
+	            }
+	         } else {
+	            this.attackTick = 20;
+	            AbstractBearEntity.this.setStanding(false);
+	         }
+
+	      }
+
+	      /**
+	       * Reset the task's internal state. Called when this task is interrupted by another one
+	       */
+	      public void resetTask() {
+	    	  AbstractBearEntity.this.setStanding(false);
+	         super.resetTask();
+	      }
+
+	      protected double getAttackReachSqr(LivingEntity attackTarget) {
+	         return (double)(4.0F + attackTarget.getWidth());
+	      }
+	   }
 }
