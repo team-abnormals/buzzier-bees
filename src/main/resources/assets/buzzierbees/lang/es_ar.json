@@ -36,7 +36,7 @@
 	"block.buzzierbees.driftwood_beehive": "Apiario de deriva",
 	"block.buzzierbees.riverwood_beehive": "Apiario fluvial",
 	"block.buzzierbees.willow_beehive": "Apiario de sauce",
-	"block.buzzierbees.wisteria_beehive": "Apiario de glicinas",
+	"block.buzzierbees.wisteria_beehive": "Apiario de glicina",
 	"block.buzzierbees.rosewood_beehive": "Apiario de palisandro",
 	"block.buzzierbees.yucca_beehive": "Apiario de yuca",
 	"block.buzzierbees.kousa_beehive": "Apiario de kousa",
@@ -44,9 +44,9 @@
 	"block.buzzierbees.maple_beehive": "Apiario de arce",
 	"block.buzzierbees.bamboo_beehive": "Apiario de bambú",
 	
-	"block.buzzierbees.snake_block_beehive": "Apiario de bloque de serpiente",
+	"block.buzzierbees.snake_block_beehive": "Apiario de bloque serpentino",
 	
-	"block.buzzierbees.bop_fir_beehive": "Apiario de abeto",
+	"block.buzzierbees.bop_fir_beehive": "Apiario de abeto blanco",
 	"block.buzzierbees.bop_dead_beehive": "Apiario de madera muerta",
 	"block.buzzierbees.bop_palm_beehive": "Apiario de palmera",
 	"block.buzzierbees.bop_magic_beehive": "Apiario de madera mágica",
@@ -206,7 +206,7 @@
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Flecha de mala suerte",
 	
 	"advancements.husbandry.clover_honey.title": "As de trébol",
-	"advancements.husbandry.clover_honey.description": "Usá una hoja de trébol para hacer miel de trébol",
+	"advancements.husbandry.clover_honey.description": "Elaborá miel de trébol utilizando una hoja de trébol",
 	
 	"advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encontrá un trébol de cuatro hojas",
@@ -227,7 +227,7 @@
 	"advancements.husbandry.glazed_porkchop.description": "Usá una chuleta caramelizada para curar el cansancio",
 	
 	"advancements.nether.use_cure.title": "Miel curadora",
-	"advancements.nether.use_cure.description": "Usá una curación para sacarte el efecto de una poción",
+	"advancements.nether.use_cure.description": "Usá una cura para quitar el efecto de una poción",
 	
 	"tooltip.buzzierbees.is_baby": "Bebé",
 	"tooltip.buzzierbees.has_nectar": "Polinizada",
