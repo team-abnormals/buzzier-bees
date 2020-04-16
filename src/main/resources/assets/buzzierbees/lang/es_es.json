@@ -44,9 +44,9 @@
 	"block.buzzierbees.maple_beehive": "Apiario de arce",
 	"block.buzzierbees.bamboo_beehive": "Apiario de bambú",
 	
-	"block.buzzierbees.snake_block_beehive": "Apiario de bloque de serpiente",
+	"block.buzzierbees.snake_block_beehive": "Apiario de bloque serpentino",
 	
-	"block.buzzierbees.bop_fir_beehive": "Apiario de abeto",
+	"block.buzzierbees.bop_fir_beehive": "Apiario de abeto blanco",
 	"block.buzzierbees.bop_dead_beehive": "Apiario de madera muerta",
 	"block.buzzierbees.bop_palm_beehive": "Apiario de palmera",
 	"block.buzzierbees.bop_magic_beehive": "Apiario de madera mágica",
@@ -206,16 +206,16 @@
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Flecha de mala suerte",
 	
 	"advancements.husbandry.clover_honey.title": "As de trébol",
-	"advancements.husbandry.clover_honey.description": "Usa una hoja de trébol para hacer miel de trébol",
+	"advancements.husbandry.clover_honey.description": "Elabora miel de trébol utilizando una hoja de trébol",
 	
 	"advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encuentra un trébol de cuatro hojas",
 	
 	"advancements.nether.scented_candle.title": "Aromaterapia",
-	"advancements.nether.scented_candle.description": "Obtén una vela aromática",
+	"advancements.nether.scented_candle.description": "Consigue una vela aromática",
 	
 	"advancements.nether.all_scented_candles.title": "Aromaestría",
-	"advancements.nether.all_scented_candles.description": "Obtén todas las velas aromáticas",
+	"advancements.nether.all_scented_candles.description": "Consigue todas las velas aromáticas",
 	
 	"advancements.husbandry.honey_apple.title": "Una manzana al día",
 	"advancements.husbandry.honey_apple.description": "Usa una manzana melosa para curar la levitación",
@@ -224,10 +224,10 @@
 	"advancements.husbandry.honey_bread.description": "Usa pan meloso para curar el mal presagio",
 	
 	"advancements.husbandry.glazed_porkchop.title": "Rodillas débiles, brazos melosos",
-	"advancements.husbandry.glazed_porkchop.description": "Usa una chuleta de cerdo caramelizada para curar la fatiga al minar",
+	"advancements.husbandry.glazed_porkchop.description": "Usa una chuleta de cerdo caramelizada para curar la fatiga al picar",
 	
 	"advancements.nether.use_cure.title": "Miel curadora",
-	"advancements.nether.use_cure.description": "Usa una curación para quitar el efecto de una poción",
+	"advancements.nether.use_cure.description": "Usa una cura para quitar el efecto de una poción",
 	
 	"tooltip.buzzierbees.is_baby": "Bebé",
 	"tooltip.buzzierbees.has_nectar": "Polinizada",
