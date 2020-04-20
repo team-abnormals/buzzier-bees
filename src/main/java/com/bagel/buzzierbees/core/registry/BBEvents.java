@@ -1,15 +1,25 @@
 package com.bagel.buzzierbees.core.registry;
 
+import java.util.Set;
+
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
+import com.bagel.buzzierbees.common.entities.FlyEntity;
+import com.bagel.buzzierbees.core.BuzzierBees;
+import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,6 +35,10 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.LootTables;
+import net.minecraft.world.storage.loot.TableLootEntry;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -32,8 +46,23 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@EventBusSubscriber(modid = "buzzierbees")
+@EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBEvents {
+	private static final Set<ResourceLocation> DESERT_LOOT_INJECTIONS = Sets.newHashSet(LootTables.CHESTS_DESERT_PYRAMID);
+	private static final Set<ResourceLocation> JUNGLE_LOOT_INJECTIONS = Sets.newHashSet(LootTables.CHESTS_JUNGLE_TEMPLE);
+	
+	@SubscribeEvent
+	public static void onInjectLoot(LootTableLoadEvent event) {
+		if (DESERT_LOOT_INJECTIONS.contains(event.getName())) {
+			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/desert_pyramid")).weight(1).quality(0)).name("desert_pyramid").build();
+			event.getTable().addPool(pool);
+		}
+		if (JUNGLE_LOOT_INJECTIONS.contains(event.getName())) {
+			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/jungle_temple")).weight(1).quality(0)).name("jungle_temple").build();
+			event.getTable().addPool(pool);
+		}
+	}
+	
 	@SubscribeEvent
 	public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
@@ -41,6 +70,18 @@ public class BBEvents {
 			event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
 			.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
 			.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
+		}
+		if (event.getEntity() instanceof ZombieEntity) {
+			ZombieEntity zombie = (ZombieEntity)event.getEntity();
+			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 9.0F, 1.05D, 1.05D));
+		}
+		if (event.getEntity() instanceof AbstractHorseEntity) {
+			AbstractHorseEntity horse = (AbstractHorseEntity)event.getEntity();
+			horse.goalSelector.addGoal(1, new AvoidEntityGoal<>(horse, FlyEntity.class, 8.0F, 1.1D, 1.1D));
+		}
+		if (event.getEntity() instanceof SpiderEntity) {
+			SpiderEntity spider = (SpiderEntity)event.getEntity();
+			spider.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(spider, FlyEntity.class, false));
 		}
 	}
 	
@@ -65,11 +106,13 @@ public class BBEvents {
 		BlockPos pos = event.getPos();
 		ItemStack item = event.getItemStack();
 		World world = event.getWorld();
+		PlayerEntity player = event.getPlayer();
 		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
 		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.MODDED_POTTABLES)) {
 			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());
-			event.getPlayer().swingArm(event.getHand());
-			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);
+			player.swingArm(event.getHand());
+			player.addStat(Stats.POT_FLOWER);
+			if (!player.abilities.isCreativeMode) item.shrink(1);
 		}
 	}
 	    

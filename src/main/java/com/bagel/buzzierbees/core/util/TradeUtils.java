@@ -88,7 +88,7 @@ public class TradeUtils {
 	}
 	
 	public static class ItemsForEmeraldsAndItemsTrade implements ITrade {
-	    private final ItemStack buyingItem;
+		private final ItemStack buyingItem;
 	    private final int buyingItemCount;
 	    private final int emeraldCount;
 	    private final ItemStack sellingItem;
@@ -97,19 +97,27 @@ public class TradeUtils {
 	    private final int givenExp;
 	    private final float priceMultiplier;
 	    
-	    public ItemsForEmeraldsAndItemsTrade(Item item, int stackSize, Item item2, int recievedSize, int maxUses, int givenExp) {
-	    	this(new ItemStack(item), stackSize, 1, new ItemStack(item2), recievedSize, maxUses, givenExp, 0.05F);
+	    public ItemsForEmeraldsAndItemsTrade(Item buyingItem, int buyingItemCount, int emeraldCount, Item sellingItem, int sellingItemCount, int maxUses, int givenExp) {
+	    	this(new ItemStack(buyingItem), buyingItemCount, emeraldCount, new ItemStack(sellingItem), sellingItemCount, maxUses, givenExp, 0.05F);
+	    }
+	    
+	    public ItemsForEmeraldsAndItemsTrade(Block buyingItem, int buyingItemCount, int emeraldCount, Block sellingItem, int sellingItemCount, int maxUses, int givenExp) {
+	    	this(new ItemStack(buyingItem), buyingItemCount, emeraldCount, new ItemStack(sellingItem), sellingItemCount, maxUses, givenExp, 0.05F);
+	    }
+	    
+	    public ItemsForEmeraldsAndItemsTrade(Block buyingItem) {
+	    	this(new ItemStack(buyingItem), 1, 5, new ItemStack(buyingItem), 2, 6, 30, 0.05F);
 	    }
 
-	    public ItemsForEmeraldsAndItemsTrade(ItemStack stack, int stackSize, int emeraldCount, ItemStack recieved, int recievedSize, int maxUses, int givenExp, float priceMultiplier) {
-	    	this.buyingItem = stack;
-	    	this.buyingItemCount = stackSize;
+	    public ItemsForEmeraldsAndItemsTrade(ItemStack buyingItem, int buyingItemCount, int emeraldCount, ItemStack sellingItem, int sellingItemCount, int maxUses, int givenExp, float priceMultiplier) {
+	    	this.buyingItem = buyingItem;
+	    	this.buyingItemCount = buyingItemCount;
 	    	this.emeraldCount = emeraldCount;
-	    	this.sellingItem = recieved;
-	    	this.sellingItemCount = recievedSize;
+	    	this.sellingItem = sellingItem;
+	    	this.sellingItemCount = sellingItemCount;
 	    	this.maxUses = maxUses;
 	    	this.givenExp = givenExp;
-	    	this.priceMultiplier = 0.05F;
+	    	this.priceMultiplier = priceMultiplier;
 	    }
 		
 	    public MerchantOffer getOffer(Entity p_221182_1_, Random p_221182_2_) {

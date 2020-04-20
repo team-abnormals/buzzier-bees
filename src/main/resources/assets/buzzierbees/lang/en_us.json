@@ -14,13 +14,14 @@
 	"item.buzzierbees.silverfish_bottle": "Bottle of Silverfish",
 	"item.buzzierbees.endermite_bottle": "Bottle of Endermite",
 	"item.buzzierbees.bee_bottle": "Bottle of Bee",
+	"item.buzzierbees.fly_bottle": "Bottle of Fly",
 	
 	"item.buzzierbees.hive_boat": "Hive Boat",
 	
 	"item.buzzierbees.honey_slime_spawn_egg": "Honey Slime Spawn Egg",
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Grizzly Bear Spawn Egg",
-	"item.buzzierbees.royal_bee_spawn_egg": "Royal Bee Spawn Egg",
-	"item.buzzierbees.butterfly_spawn_egg": "Butterfly Spawn Egg",
+	"item.buzzierbees.black_bear_spawn_egg": "Black Bear Spawn Egg",
+	"item.buzzierbees.fly_spawn_egg": "Fly Spawn Egg",
 	
 	"block.minecraft.beehive": "Oak Beehive",
 	"block.buzzierbees.spruce_beehive": "Spruce Beehive",
@@ -175,6 +176,9 @@
 	
 	"entity.buzzierbees.boat": "Boat",
 	"entity.buzzierbees.honey_slime": "Honey Slime",
+	"entity.buzzierbees.grizzly_bear": "Grizzly Bear",
+	"entity.buzzierbees.black_bear": "Black Bear",
+	"entity.buzzierbees.fly": "Fly",
 	"entity.minecraft.villager.buzzierbees.apiarist": "Apiarist",
 	
 	"item.minecraft.potion.effect.long_luck": "Potion of Luck",

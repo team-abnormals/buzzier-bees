@@ -55,4 +55,8 @@ public class BBItems
 	public static RegistryObject<Item> BOTTLE_OF_BEE = RegistryUtils.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 
 	public static RegistryObject<Item> HONEY_SLIME_SPAWN_EGG = RegistryUtils.createSpawnEggItem("honey_slime", () -> BBEntities.HONEY_SLIME.get(), 16361240, 16361300);
+	public static RegistryObject<Item> GRIZZLY_BEAR_SPAWN_EGG = RegistryUtils.createSpawnEggItem("grizzly_bear", () -> BBEntities.GRIZZLY_BEAR.get(), 5122062, 4136462);
+	public static RegistryObject<Item> BLACK_BEAR_SPAWN_EGG = RegistryUtils.createSpawnEggItem("black_bear", () -> BBEntities.BLACK_BEAR.get(), 2565927, 12225639);
+	public static RegistryObject<Item> FLY_SPAWN_EGG = RegistryUtils.createSpawnEggItem("fly", () -> BBEntities.FLY.get(), 920336, 7080720);
+
 }
