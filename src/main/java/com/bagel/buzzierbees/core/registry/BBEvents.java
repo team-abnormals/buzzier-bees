@@ -147,9 +147,9 @@ public class BBEvents {
     		if (targetType == EntityType.BEE) {
     			BeeEntity bee = (BeeEntity)target;
     			CompoundNBT tag = bottleItem.getOrCreateTag();
-        		tag.putBoolean("HasNectar", bee.func_226411_eD_());
-        		tag.putBoolean("HasStung", bee.func_226412_eE_());
-        		tag.putInt("Anger", bee.func_226418_eL_());
+        		tag.putBoolean("HasNectar", bee.hasNectar());
+        		tag.putBoolean("HasStung", bee.hasStung());
+        		tag.putInt("Anger", bee.getAnger());
         		tag.putInt("Age", bee.getGrowingAge());
         		tag.putFloat("Health", bee.getHealth());
         		//tag.putString("Effects", bee.getActivePotionEffects().toString());

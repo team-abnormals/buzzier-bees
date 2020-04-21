@@ -83,7 +83,7 @@ public class NewCloverHoneyBlock extends HoneyBlock {
     private void func_226934_a_(World p_226934_1_, Entity p_226934_2_) {
         if (func_226937_c_(p_226934_2_)) {
             if (p_226934_1_.rand.nextInt(5) == 0) {
-                p_226934_2_.playSound(SoundEvents.field_226139_eT_, 1.0F, 1.0F);
+                p_226934_2_.playSound(SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
             }
 
             if (!p_226934_1_.isRemote && p_226934_1_.rand.nextInt(5) == 0) {

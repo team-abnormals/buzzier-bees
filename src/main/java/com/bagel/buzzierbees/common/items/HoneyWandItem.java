@@ -25,11 +25,11 @@ public class HoneyWandItem extends Item {
 			BlockPos blockpos = context.getPos();
 			BlockState blockstate = world.getBlockState(blockpos);
 			
-			if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.field_226873_c_) == 5 && !context.getPlayer().isCrouching()) {
+			if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.HONEY_LEVEL) == 5 && !context.getPlayer().isCrouching()) {
 				PlayerEntity player = context.getPlayer();
 				BlockState blockstate2 = null;
-				world.playSound((PlayerEntity)null, blockpos, SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-				blockstate2 = blockstate.with(BeehiveBlock.field_226873_c_, Integer.valueOf(0));
+				world.playSound((PlayerEntity)null, blockpos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+				blockstate2 = blockstate.with(BeehiveBlock.HONEY_LEVEL, Integer.valueOf(0));
 				if (blockstate2 != null) {
 					if (!world.isRemote) {
 						world.setBlockState(blockpos, blockstate2, 11);

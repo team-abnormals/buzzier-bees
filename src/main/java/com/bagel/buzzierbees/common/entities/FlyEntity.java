@@ -111,7 +111,7 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
          }
 
          this.setAttackTarget((LivingEntity)null);
-         this.playSound(SoundEvents.field_226128_ac_, 1.0F, 1.0F);
+         this.playSound(SoundEvents.ENTITY_BEE_STING, 1.0F, 1.0F);
       }
 
       return flag;
@@ -171,11 +171,11 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-      return SoundEvents.field_226125_Z_;
+      return SoundEvents.ENTITY_BEE_HURT;
    }
 
    protected SoundEvent getDeathSound() {
-      return SoundEvents.field_226124_Y_;
+      return SoundEvents.ENTITY_BEE_DEATH;
    }
 
    protected float getSoundVolume()  {
@@ -255,8 +255,8 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
          Vec3d vec3d;
          vec3d = FlyEntity.this.getLook(0.0F);
 
-         Vec3d vec3d2 = RandomPositionGenerator.func_226340_a_(FlyEntity.this, 8, 7, vec3d, ((float)Math.PI / 2F), 2, 1);
-         return vec3d2 != null ? vec3d2 : RandomPositionGenerator.func_226338_a_(FlyEntity.this, 8, 4, -2, vec3d, (double)((float)Math.PI / 2F));
+         Vec3d vec3d2 = RandomPositionGenerator.findAirTarget(FlyEntity.this, 8, 7, vec3d, ((float)Math.PI / 2F), 2, 1);
+         return vec3d2 != null ? vec3d2 : RandomPositionGenerator.findGroundTarget(FlyEntity.this, 8, 4, -2, vec3d, (double)((float)Math.PI / 2F));
       }
    }
 }

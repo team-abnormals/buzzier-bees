@@ -29,9 +29,9 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
             boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
             
             bee.setGrowingAge(age);
-            bee.func_226447_r_(nectar);
-            bee.func_226449_s_(stung);
-            bee.func_226453_u_(anger);
+            bee.setHasNectar(nectar);
+            bee.setHasStung(stung);
+            bee.setAnger(anger);
         }
         return new ItemStack(Items.GLASS_BOTTLE);
      }

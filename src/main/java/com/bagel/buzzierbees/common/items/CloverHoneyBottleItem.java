@@ -67,11 +67,11 @@ public class CloverHoneyBottleItem extends Item {
    }
 
    public SoundEvent func_225520_U__() {
-      return SoundEvents.field_226141_eV_;
+      return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
    }
 
    public SoundEvent func_225519_S__() {
-      return SoundEvents.field_226141_eV_;
+      return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
    }
 
    /**

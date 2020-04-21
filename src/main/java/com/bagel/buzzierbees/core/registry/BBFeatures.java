@@ -21,8 +21,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBFeatures {
-	public static final DefaultFlowersFeature DEFAULT_FLOWERS_FEATURE = new DefaultFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
-	public static final DirectionalFlowersFeature DIRECTIONAL_FLOWERS_FEATURE = new DirectionalFlowersFeature(BlockClusterFeatureConfig::func_227300_a_);
+	public static final DefaultFlowersFeature DEFAULT_FLOWERS_FEATURE = new DefaultFlowersFeature(BlockClusterFeatureConfig::deserialize);
+	public static final DirectionalFlowersFeature DIRECTIONAL_FLOWERS_FEATURE = new DirectionalFlowersFeature(BlockClusterFeatureConfig::deserialize);
 	
 	private static void addShortFlower(BlockState blockState, Biome biomeIn, int frequency)
 	{

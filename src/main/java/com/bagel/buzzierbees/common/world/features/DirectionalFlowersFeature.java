@@ -19,15 +19,15 @@ public class DirectionalFlowersFeature extends FlowersFeature<BlockClusterFeatur
    }
 
    public boolean func_225559_a_(IWorld world, BlockPos pos, BlockClusterFeatureConfig config) {
-      return !config.field_227292_d_.contains(world.getBlockState(pos));
+      return !config.blacklist.contains(world.getBlockState(pos));
    }
 
    public int func_225560_a_(BlockClusterFeatureConfig config) {
-      return config.field_227293_f_;
+      return config.tryCount;
    }
 
    public BlockPos getNearbyPos(Random rand, BlockPos pos, BlockClusterFeatureConfig config) {
-      return pos.add(rand.nextInt(config.field_227294_g_) - rand.nextInt(config.field_227294_g_), rand.nextInt(config.field_227295_h_) - rand.nextInt(config.field_227295_h_), rand.nextInt(config.field_227296_i_) - rand.nextInt(config.field_227296_i_));
+      return pos.add(rand.nextInt(config.xSpread) - rand.nextInt(config.xSpread), rand.nextInt(config.ySpread) - rand.nextInt(config.ySpread), rand.nextInt(config.zSpread) - rand.nextInt(config.zSpread));
    }
 
    public BlockState getFlowerToPlace(Random rand, BlockPos pos, BlockClusterFeatureConfig config) {
