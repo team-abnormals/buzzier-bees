@@ -75,9 +75,9 @@ public class BeeBottleItem extends  Item {
                 //String effects = tag.contains("Effects") ? tag.getString("Effects") : null;
                 
                 bee.setGrowingAge(age);
-				bee.setHasNectar(nectar);
-				bee.setHasStung(stung);
-				bee.setAnger(anger);
+                bee.setHasNectar(nectar);
+                bee.setHasStung(stung);
+                bee.setAnger(anger);
                 bee.setHealth(health);
             }
 			return ActionResultType.SUCCESS;
