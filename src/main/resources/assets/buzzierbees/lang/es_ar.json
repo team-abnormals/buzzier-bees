@@ -14,13 +14,14 @@
 	"item.buzzierbees.silverfish_bottle": "Frasco con pez de plata",
 	"item.buzzierbees.endermite_bottle": "Frasco con endermite",
 	"item.buzzierbees.bee_bottle": "Frasco con abeja",
+	"item.buzzierbees.fly_bottle": "Frasco con mosca",
 	
 	"item.buzzierbees.hive_boat": "Bote de panal",
 	
 	"item.buzzierbees.honey_slime_spawn_egg": "Generar slime meloso",
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Generar oso pardo",
-	"item.buzzierbees.royal_bee_spawn_egg": "Generar abeja reina",
-	"item.buzzierbees.butterfly_spawn_egg": "Generar mariposa",
+	"item.buzzierbees.black_bear_spawn_egg": "Generar oso negro",
+	"item.buzzierbees.fly_spawn_egg": "Generar mosca",
 	
 	"block.minecraft.beehive": "Apiario de roble",
 	"block.buzzierbees.spruce_beehive": "Apiario de abeto",
@@ -29,13 +30,13 @@
 	"block.buzzierbees.acacia_beehive": "Apiario de acacia",
 	"block.buzzierbees.dark_oak_beehive": "Apiario de roble oscuro",
 	"block.buzzierbees.crimson_beehive": "Apiario carmesí",
-	"block.buzzierbees.warped_beehive": "Apiario deformado",
+	"block.buzzierbees.warped_beehive": "Apiario distorsionado",
 
 	"block.buzzierbees.poise_beehive": "Apiario equilibrado",
-	"block.buzzierbees.driftwood_beehive": "Apiario de madera flotante",
-	"block.buzzierbees.riverwood_beehive": "Apiario de riverwood",
+	"block.buzzierbees.driftwood_beehive": "Apiario de deriva",
+	"block.buzzierbees.riverwood_beehive": "Apiario fluvial",
 	"block.buzzierbees.willow_beehive": "Apiario de sauce",
-	"block.buzzierbees.wisteria_beehive": "Apiario de glicinas",
+	"block.buzzierbees.wisteria_beehive": "Apiario de glicina",
 	"block.buzzierbees.rosewood_beehive": "Apiario de palisandro",
 	"block.buzzierbees.yucca_beehive": "Apiario de yuca",
 	"block.buzzierbees.kousa_beehive": "Apiario de kousa",
@@ -43,9 +44,9 @@
 	"block.buzzierbees.maple_beehive": "Apiario de arce",
 	"block.buzzierbees.bamboo_beehive": "Apiario de bambú",
 	
-	"block.buzzierbees.snake_block_beehive": "Apiario de bloque de serpiente",
+	"block.buzzierbees.snake_block_beehive": "Apiario de bloque serpentino",
 	
-	"block.buzzierbees.bop_fir_beehive": "Apiario de abeto",
+	"block.buzzierbees.bop_fir_beehive": "Apiario de abeto blanco",
 	"block.buzzierbees.bop_dead_beehive": "Apiario de madera muerta",
 	"block.buzzierbees.bop_palm_beehive": "Apiario de palmera",
 	"block.buzzierbees.bop_magic_beehive": "Apiario de madera mágica",
@@ -175,6 +176,9 @@
 
 	"entity.buzzierbees.boat": "Bote",
 	"entity.buzzierbees.honey_slime": "Slime meloso",
+	"entity.buzzierbees.grizzly_bear": "Oso pardo",
+	"entity.buzzierbees.black_bear": "Oso negro",
+	"entity.buzzierbees.fly": "Mosca",
 	"entity.minecraft.villager.buzzierbees.apiarist": "Apicultor",
 	
 	"item.minecraft.potion.effect.long_luck": "Poción de suerte",
@@ -202,7 +206,7 @@
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Flecha de mala suerte",
 	
 	"advancements.husbandry.clover_honey.title": "As de trébol",
-	"advancements.husbandry.clover_honey.description": "Usá una hoja de trébol para hacer miel de trébol",
+	"advancements.husbandry.clover_honey.description": "Elaborá miel de trébol utilizando una hoja de trébol",
 	
 	"advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encontrá un trébol de cuatro hojas",
@@ -223,7 +227,7 @@
 	"advancements.husbandry.glazed_porkchop.description": "Usá una chuleta caramelizada para curar el cansancio",
 	
 	"advancements.nether.use_cure.title": "Miel curadora",
-	"advancements.nether.use_cure.description": "Usá una curación para sacarte el efecto de una poción",
+	"advancements.nether.use_cure.description": "Usá una cura para quitar el efecto de una poción",
 	
 	"tooltip.buzzierbees.is_baby": "Bebé",
 	"tooltip.buzzierbees.has_nectar": "Polinizada",
