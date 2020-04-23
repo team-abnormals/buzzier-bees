@@ -22,7 +22,7 @@ archivesBaseName = 'buzzierbees'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' 
 
 minecraft {
-	mappings channel: 'snapshot', version: '20200324-1.15.1'
+	mappings channel: 'snapshot', version: '20200421-1.15.1'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -63,7 +63,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.27'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.1.44'
 }
 
 jar {

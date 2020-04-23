@@ -157,7 +157,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
          }
          //Wanding
          else if (itemstack.getItem() == BBItems.HONEY_WAND.get()) {
-            world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226139_eT_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             if (!player.abilities.isCreativeMode) {
                player.setHeldItem(hand, new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
             }

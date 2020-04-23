@@ -176,15 +176,15 @@ public class BuzzierBees
 				BBBlocks.BOP_JACARANDA_BEEHIVE.get()
 				);
     	
-    	Set<Block> newSet = new HashSet<>(TileEntityType.field_226985_G_.validBlocks);
+    	Set<Block> newSet = new HashSet<>(TileEntityType.BEEHIVE.validBlocks);
     	newSet.addAll(BEEHIVES);
-    	TileEntityType.field_226985_G_.validBlocks = newSet;
+    	TileEntityType.BEEHIVE.validBlocks = newSet;
     	
     	final Set<BlockState> NESTS = BlockTags.BEEHIVES.getAllElements().stream().flatMap((map) -> {
     		return map.getStateContainer().getValidStates().stream();	
     	}).collect(ImmutableSet.toImmutableSet());
     	
-    	PointOfInterestType.field_226356_s_.field_221075_w = NESTS;
+    	PointOfInterestType.BEEHIVE.blockStates = NESTS;
     	
     	Map<BlockState,PointOfInterestType> map = new HashMap<>();
     	addToMap(Blocks.BEEHIVE, map);
@@ -221,10 +221,10 @@ public class BuzzierBees
     	addToMap(BBBlocks.BOP_HELLBARK_BEEHIVE.get(), map);
     	addToMap(BBBlocks.BOP_MAHOGANY_BEEHIVE.get(), map);
     	addToMap(BBBlocks.BOP_JACARANDA_BEEHIVE.get(), map);
-    	PointOfInterestType.field_221073_u.putAll(map);
+    	PointOfInterestType.POIT_BY_BLOCKSTATE.putAll(map);
 	}
     
     public static void addToMap(Block block, Map<BlockState,PointOfInterestType> pointOfInterestTypeMap) {
-    	block.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.field_226356_s_));
+    	block.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.BEEHIVE));
     }
 }

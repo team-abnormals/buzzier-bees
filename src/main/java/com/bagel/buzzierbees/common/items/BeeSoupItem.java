@@ -24,12 +24,12 @@ public class BeeSoupItem extends Item {
 	
 	@Override
 	public SoundEvent func_225520_U__() {
-	   return SoundEvents.field_226141_eV_;
+	   return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
 	}
 
 	@Override
 	public SoundEvent func_225519_S__() {
-	   return SoundEvents.field_226141_eV_;
+	   return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
 	}
 	
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {

@@ -44,36 +44,36 @@ public class HoneyPotBlock extends Block {
 		if (item == Items.GLASS_BOTTLE && honeyLevel > 0) {
 			decreaseHoney(Items.HONEY_BOTTLE, honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.ITEM_BOTTLE_FILL);
 		} else if (item == Items.BREAD && honeyLevel > 0) {
-			decreaseHoney(BBItems.HONEY_BREAD.get(), honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.field_226138_eS_);
+			decreaseHoney(BBItems.HONEY_BREAD.get(), honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.BLOCK_HONEY_BLOCK_PLACE);
 		} else if (item == Items.APPLE && honeyLevel > 0) {
-			decreaseHoney(BBItems.HONEY_APPLE.get(), honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.field_226138_eS_);
+			decreaseHoney(BBItems.HONEY_APPLE.get(), honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.BLOCK_HONEY_BLOCK_PLACE);
 		} else if (item == Items.COOKED_PORKCHOP && honeyLevel > 0) {
-			decreaseHoney(BBItems.GLAZED_PORKCHOP.get(), honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.field_226138_eS_);
+			decreaseHoney(BBItems.GLAZED_PORKCHOP.get(), honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.BLOCK_HONEY_BLOCK_PLACE);
 		} else if (item == Items.HONEY_BOTTLE && honeyLevel < 4) {
 			increaseHoney(Items.GLASS_BOTTLE, honeyLevel, itemstack, state, worldIn, pos, player, handIn, SoundEvents.ITEM_BOTTLE_EMPTY);
 		} else if (item == BBItems.HONEY_WAND.get() && honeyLevel > 0) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel - 1));
-	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             player.setHeldItem(handIn, new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
 			return ActionResultType.SUCCESS;
 		} else if (item == BBItems.STICKY_HONEY_WAND.get() && honeyLevel < 4) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel + 1));
-	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226135_eP_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             player.setHeldItem(handIn, new ItemStack(BBItems.HONEY_WAND.get()));
 			return ActionResultType.SUCCESS;
 		}  else if (item == Items.HONEYCOMB && honeyLevel < 4) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel + 1));
-	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226138_eS_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_PLACE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 			itemstack.shrink(1);
 			return ActionResultType.SUCCESS;
 		} else if (item == Items.HONEY_BLOCK && honeyLevel == 0) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, 4));
-			worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226138_eS_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+			worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_PLACE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 			itemstack.shrink(1);
 			return ActionResultType.SUCCESS;
 		} else if (honeyLevel == 4) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, 0));
-	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.field_226138_eS_, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_PLACE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 	        if (itemstack.isEmpty()) {
 	            player.setHeldItem(handIn, new ItemStack(Items.HONEY_BLOCK));
 	         } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.HONEY_BLOCK))) {
