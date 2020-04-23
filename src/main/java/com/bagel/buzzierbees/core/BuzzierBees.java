@@ -26,7 +26,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.Item;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.village.PointOfInterestType;
@@ -139,6 +138,7 @@ public class BuzzierBees
 	}
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
+    	
     	final ImmutableList<Block> BEEHIVES = ImmutableList.of(
 				Blocks.BEEHIVE,
 				BBBlocks.ACACIA_BEEHIVE.get(),
@@ -174,57 +174,24 @@ public class BuzzierBees
 				BBBlocks.BOP_HELLBARK_BEEHIVE.get(),
 				BBBlocks.BOP_MAHOGANY_BEEHIVE.get(),
 				BBBlocks.BOP_JACARANDA_BEEHIVE.get()
-				);
+    			);
     	
-    	Set<Block> newSet = new HashSet<>(TileEntityType.BEEHIVE.validBlocks);
-    	newSet.addAll(BEEHIVES);
-    	TileEntityType.BEEHIVE.validBlocks = newSet;
+    	// TILE ENTITY //
     	
-    	final Set<BlockState> NESTS = BlockTags.BEEHIVES.getAllElements().stream().flatMap((map) -> {
-    		return map.getStateContainer().getValidStates().stream();	
+    	Set<Block> validBlocks = new HashSet<>(TileEntityType.BEEHIVE.validBlocks);
+    	validBlocks.addAll(BEEHIVES);
+    	TileEntityType.BEEHIVE.validBlocks = validBlocks;
+    	
+    	// MORE POI STUFF //
+    	
+    	Set<BlockState> poiStates = BEEHIVES.stream().flatMap((map) -> { return map.getStateContainer().getValidStates().stream();	
     	}).collect(ImmutableSet.toImmutableSet());
+    	PointOfInterestType.BEEHIVE.blockStates = poiStates;
+    	    	
+    	// BEEHIVE POI TYPE //
     	
-    	PointOfInterestType.BEEHIVE.blockStates = NESTS;
-    	
-    	Map<BlockState,PointOfInterestType> map = new HashMap<>();
-    	addToMap(Blocks.BEEHIVE, map);
-    	addToMap(BBBlocks.ACACIA_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BIRCH_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.SPRUCE_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.DARK_OAK_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.JUNGLE_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.CRIMSON_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.WARPED_BEEHIVE.get(), map);
-    	
-    	addToMap(BBBlocks.ROSEWOOD_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.YUCCA_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.KOUSA_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.ASPEN_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.WILLOW_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.WISTERIA_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.MAPLE_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BAMBOO_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.POISE_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.DRIFTWOOD_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.RIVER_BEEHIVE.get(), map);
-    	
-    	addToMap(BBBlocks.SNAKE_BLOCK_BEEHIVE.get(), map);
-    	
-    	addToMap(BBBlocks.BOP_FIR_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_DEAD_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_PALM_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_MAGIC_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_CHERRY_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_UMBRAN_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_WILLOW_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_REDWOOD_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_HELLBARK_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_MAHOGANY_BEEHIVE.get(), map);
-    	addToMap(BBBlocks.BOP_JACARANDA_BEEHIVE.get(), map);
-    	PointOfInterestType.POIT_BY_BLOCKSTATE.putAll(map);
+    	Map<BlockState, PointOfInterestType> pointOfInterestTypeMap = new HashMap<>();
+        BEEHIVES.stream().forEach(block -> block.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.BEEHIVE)));
+        PointOfInterestType.POIT_BY_BLOCKSTATE.putAll(pointOfInterestTypeMap);
 	}
-    
-    public static void addToMap(Block block, Map<BlockState,PointOfInterestType> pointOfInterestTypeMap) {
-    	block.getStateContainer().getValidStates().forEach(state -> pointOfInterestTypeMap.put(state, PointOfInterestType.BEEHIVE));
-    }
 }
