@@ -1,0 +1,1 @@
+{"type":"corail_woodcutter:woodcutting","ingredient":{"item":"buzzierbees:hive_planks"},"result":"buzzierbees:hive_ladder","count":1,"conditions":[{"type":"forge:mod_loaded","modid":"corail_woodcutter"}]}
