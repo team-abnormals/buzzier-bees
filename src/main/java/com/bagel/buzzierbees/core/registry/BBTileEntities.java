@@ -51,7 +51,9 @@ public class BBTileEntities {
 					BBBlocks.YUCCA_FLOWER_SCENTED_CANDLE.get(),
 					
 					BBBlocks.PINK_SEAROCKET_SCENTED_CANDLE.get(),
-					BBBlocks.WHITE_SEAROCKET_SCENTED_CANDLE.get()
+					BBBlocks.WHITE_SEAROCKET_SCENTED_CANDLE.get(),
+							   
+					BBBlocks.AUTUMN_CROCUS_SCENTED_CANDLE.get()
 					
 					).build(null));
 }
