@@ -10,9 +10,10 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
 /**
- * ModelFly - Undefined
+ * FlyModel - MCVinnyq
  * Created using Tabula 7.1.0
  */
+
 public class FlyModel<T extends FlyEntity> extends AgeableModel<T> {
     public ModelRenderer body;
     public ModelRenderer leftAntenna;
