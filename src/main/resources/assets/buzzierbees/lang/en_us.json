@@ -22,6 +22,7 @@
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Grizzly Bear Spawn Egg",
 	"item.buzzierbees.black_bear_spawn_egg": "Black Bear Spawn Egg",
 	"item.buzzierbees.fly_spawn_egg": "Fly Spawn Egg",
+	"item.buzzierbees.bumblebee_spawn_egg": "Bumblebee Spawn Egg",
 	
 	"block.minecraft.beehive": "Oak Beehive",
 	"block.buzzierbees.spruce_beehive": "Spruce Beehive",
@@ -180,6 +181,7 @@
 	"entity.buzzierbees.grizzly_bear": "Grizzly Bear",
 	"entity.buzzierbees.black_bear": "Black Bear",
 	"entity.buzzierbees.fly": "Fly",
+	"entity.buzzierbees.bumblebee": "Bumblebee",
 	"entity.minecraft.villager.buzzierbees.apiarist": "Apiarist",
 	
 	"item.minecraft.potion.effect.long_luck": "Potion of Luck",
