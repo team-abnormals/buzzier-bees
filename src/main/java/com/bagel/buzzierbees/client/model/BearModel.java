@@ -10,9 +10,10 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
 /**
- * ModelBear - Booper
+ * BearModel - Byper
  * Created using Tabula 7.0.0
  */
+
 public class BearModel<E extends AbstractBearEntity> extends EndimatorEntityModel<E> {
     public EndimatorModelRenderer chest;
     public EndimatorModelRenderer butt;
