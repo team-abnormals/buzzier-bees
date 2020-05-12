@@ -1,10 +1,10 @@
 package com.bagel.buzzierbees.client.model;
 
-import com.bagel.buzzierbees.api.endimator.EndimatorEntityModel;
-import com.bagel.buzzierbees.api.endimator.EndimatorModelRenderer;
 import com.bagel.buzzierbees.common.entities.AbstractBearEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.teamabnormals.abnormals_core.core.library.endimator.EndimatorEntityModel;
+import com.teamabnormals.abnormals_core.core.library.endimator.EndimatorModelRenderer;
 
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
@@ -94,71 +94,70 @@ public class BearModel<E extends AbstractBearEntity> extends EndimatorEntityMode
     
     @Override
 	public void animateModel(E bear) {
-    	this.endimator.updateAnimations(entity);
+    	super.animateModel(bear);
     	if(entity.isEndimationPlaying(AbstractBearEntity.SLEEP_DOWN)) {
     		bear.setSleeping(false);
-    	    this.endimator.setAnimationToPlay(AbstractBearEntity.SLEEP_DOWN);
-    	    this.endimator.startKeyframe(40);
+    	    this.setEndimationToPlay(AbstractBearEntity.SLEEP_DOWN);
+    	    this.startKeyframe(40);
     	    
-    	    this.endimator.rotate(this.head, 0.28F, 0.0F, 0.23F);
-    	    this.endimator.rotate(this.right_arm, -1.34F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.left_arm, -1.34F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.right_leg, -0.56F, 0.14F, 1.26F);
-    	    this.endimator.rotate(this.left_leg, -0.56F, -0.14F, -1.26F);
+    	    this.rotate(this.head, 0.28F, 0.0F, 0.23F);
+    	    this.rotate(this.right_arm, -1.34F, 0.0F, 0.0F);
+    	    this.rotate(this.left_arm, -1.34F, 0.0F, 0.0F);
+    	    this.rotate(this.right_leg, -0.56F, 0.14F, 1.26F);
+    	    this.rotate(this.left_leg, -0.56F, -0.14F, -1.26F);
     	    bear.setSleeping(true);
-    	    this.endimator.move(this.chest, 0F, 5F, 0F);
-    	    this.endimator.move(this.right_leg, -0.5F, 0F, 0.8F);
-    	    this.endimator.move(this.left_leg, -0.5F, 0F, 0.8F);
+    	    this.move(this.chest, 0F, 5F, 0F);
+    	    this.move(this.right_leg, -0.5F, 0F, 0.8F);
+    	    this.move(this.left_leg, -0.5F, 0F, 0.8F);
     	    
-    	    this.endimator.endKeyframe();
+    	    this.endKeyframe();
     	}
     	if(entity.isEndimationPlaying(AbstractBearEntity.ATTACK)) {
-    	    this.endimator.setAnimationToPlay(AbstractBearEntity.ATTACK);
-    	    this.endimator.startKeyframe(10);
+    	    this.setEndimationToPlay(AbstractBearEntity.ATTACK);
+    	    this.startKeyframe(10);
     	    
-    	    this.endimator.move(this.chest, 0F, -8F, 0F);
+    	    this.move(this.chest, 0F, -8F, 0F);
 
-    	    this.endimator.rotate(this.head, 0.76F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.chest, -0.76F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.butt, -0.26F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.right_arm, -0.73F, -0.09F, 0.44F);
-    	    this.endimator.rotate(this.left_arm, -0.73F, -0.09F, -0.44F);
-    	    this.endimator.rotate(this.right_leg, 1.05F, 0F, 0F);
-    	    this.endimator.rotate(this.left_leg, 1.05F, 0F, 0F);
+    	    this.rotate(this.head, 0.76F, 0.0F, 0.0F);
+    	    this.rotate(this.chest, -0.76F, 0.0F, 0.0F);
+    	    this.rotate(this.butt, -0.26F, 0.0F, 0.0F);
+    	    this.rotate(this.right_arm, -0.73F, -0.09F, 0.44F);
+    	    this.rotate(this.left_arm, -0.73F, -0.09F, -0.44F);
+    	    this.rotate(this.right_leg, 1.05F, 0F, 0F);
+    	    this.rotate(this.left_leg, 1.05F, 0F, 0F);
     	    
-    	    this.endimator.endKeyframe();
-    	    this.endimator.resetKeyframe(10);
+    	    this.endKeyframe();
+    	    this.resetKeyframe(10);
 
     	}
     	if(entity.isEndimationPlaying(AbstractBearEntity.SIT_DOWN)) {
-    	    this.endimator.setAnimationToPlay(AbstractBearEntity.SIT_DOWN);
-    	    this.endimator.startKeyframe(10);
+    	    this.setEndimationToPlay(AbstractBearEntity.SIT_DOWN);
+    	    this.startKeyframe(10);
     	    
-    	    this.endimator.move(this.chest, 0F, -1F, 0F);
-    	    this.endimator.move(this.head, 0F, -2F, -2F);
-    	    this.endimator.move(this.butt, 0F, -0.5F, -3F);
-    	    this.endimator.move(this.left_arm, 0F, -1F, 1F);
-    	    this.endimator.move(this.right_arm, 0F, -1F, 1F);
-    	    this.endimator.move(this.left_leg, 0F, -1F, 2F);
-    	    this.endimator.move(this.right_leg, 0F, -1F, 2F);
+    	    this.move(this.chest, 0F, -1F, 0F);
+    	    this.move(this.head, 0F, -2F, -2F);
+    	    this.move(this.butt, 0F, -0.5F, -3F);
+    	    this.move(this.left_arm, 0F, -1F, 1F);
+    	    this.move(this.right_arm, 0F, -1F, 1F);
+    	    this.move(this.left_leg, 0F, -1F, 2F);
+    	    this.move(this.right_leg, 0F, -1F, 2F);
 
-    	    this.endimator.rotate(this.head, 1.05F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.chest, -0.87F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.butt, -0.7F, 0.0F, 0.0F);
-    	    this.endimator.rotate(this.right_arm, 0F, 0F, -0.26F);
-    	    this.endimator.rotate(this.left_arm, 0F, 0F, 0.26F);
-    	    this.endimator.rotate(this.right_leg, 0F, 0F, 0.44F);
-    	    this.endimator.rotate(this.left_leg, 0F, 0F, -0.44F);
+    	    this.rotate(this.head, 1.05F, 0.0F, 0.0F);
+    	    this.rotate(this.chest, -0.87F, 0.0F, 0.0F);
+    	    this.rotate(this.butt, -0.7F, 0.0F, 0.0F);
+    	    this.rotate(this.right_arm, 0F, 0F, -0.26F);
+    	    this.rotate(this.left_arm, 0F, 0F, 0.26F);
+    	    this.rotate(this.right_leg, 0F, 0F, 0.44F);
+    	    this.rotate(this.left_leg, 0F, 0F, -0.44F);
     	    
-    	    this.endimator.endKeyframe();
+    	    this.endKeyframe();
     	}
-    	
+
     }
     
     
     public void setRotationAngles(E entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
     	super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-    	this.revertBoxesToDefaultValues();
     	
         this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
         this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);

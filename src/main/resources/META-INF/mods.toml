@@ -24,3 +24,10 @@ Beekeepers, Brown Bears, and Butterflies will come soon!
     versionRange="[29,)" #mandatory
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.buzzierbees]]
+    modId="abnormals_core"
+    mandatory=true
+    versionRange="[1.0.0,)"
+    ordering="AFTER"
+    side="BOTH"

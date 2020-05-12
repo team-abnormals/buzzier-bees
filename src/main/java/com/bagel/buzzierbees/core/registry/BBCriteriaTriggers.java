@@ -1,7 +1,7 @@
 package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.core.BuzzierBees;
-import com.bagel.buzzierbees.core.util.EmptyTrigger;
+import com.teamabnormals.abnormals_core.common.advancement.EmptyTrigger;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.util.ResourceLocation;

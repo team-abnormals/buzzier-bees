@@ -1,6 +1,7 @@
 package com.bagel.buzzierbees.core.registry;
 
-import com.bagel.buzzierbees.core.util.DataUtils;
+import com.teamabnormals.abnormals_core.core.utils.DataUtils;
+
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 

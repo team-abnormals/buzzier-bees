@@ -7,27 +7,23 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
-import com.bagel.buzzierbees.common.items.BBSpawnEggItem;
-import com.bagel.buzzierbees.common.network.MessageCAnimation;
 import com.bagel.buzzierbees.core.registry.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
 import com.bagel.buzzierbees.core.registry.BBItems;
-import com.bagel.buzzierbees.core.registry.BBTileEntities;
 import com.bagel.buzzierbees.core.registry.BBVillagers;
 import com.bagel.buzzierbees.core.util.BlockColorManager;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -35,50 +31,37 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.network.NetworkRegistry;
-import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 @Mod("buzzierbees")
 @EventBusSubscriber(modid = "buzzierbees")
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
-	public static BuzzierBees instance;
-	public static final String NETWORK_PROTOCOL = "1";
-	
-	public static final SimpleChannel CHANNEL = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(BuzzierBees.MODID, "net"))
-		.networkProtocolVersion(() -> NETWORK_PROTOCOL)
-		.clientAcceptedVersions(NETWORK_PROTOCOL::equals)
-		.serverAcceptedVersions(NETWORK_PROTOCOL::equals)
-		.simpleChannel();
+	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
 	
     public BuzzierBees() {
-    	instance = this;
-    	this.setupMessages();
     	IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	
-    	BBItems.ITEMS.register(modEventBus);
+    	REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
+    	REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
+    	REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
+    	REGISTRY_HELPER.getDeferredTileEntityRegister().register(modEventBus);
+
     	BBEffects.EFFECTS.register(modEventBus);
     	BBEffects.POTIONS.register(modEventBus);
-    	BBBlocks.BLOCKS.register(modEventBus);
-    	BBEntities.ENTITIES.register(modEventBus);
-    	BBTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
     	BBVillagers.PROFESSIONS.register(modEventBus);
     	BBVillagers.POI_TYPES.register(modEventBus);
-
-
+    	
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::replaceBeehivePOI);
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
-			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
 			modEventBus.addListener(EventPriority.LOWEST, this::setupClient);
+			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
 		});
     }
     
@@ -91,6 +74,11 @@ public class BuzzierBees
 		BBBlockData.setupRenderLayer();
 		BBEntities.registerRendering();
 		BlockColorManager.registerBlockColors();
+	}
+    
+    @OnlyIn(Dist.CLIENT)
+	private void registerItemColors(ColorHandlerEvent.Item event) {
+		REGISTRY_HELPER.processSpawnEggColors(event);
 	}
     
     private void setup(final FMLCommonSetupEvent event)
@@ -108,34 +96,6 @@ public class BuzzierBees
     	
         //DispenserBlock.registerDispenseBehavior(ModBlocks.CRYSTALLIZED_HONEY_BLOCK.get().asItem(), new ShulkerBoxDispenseBehavior());
     }
-    
-    /*
-     * Temporary fix for forge bug
-     * RegistryObject#isPresent causes a null pointer when it's false :crying: thanks forge
-     * @author - Luke Tonon (SmellyModder)
-     */
-    @OnlyIn(Dist.CLIENT)
-    private void registerItemColors(ColorHandlerEvent.Item event) {
-        for(RegistryObject<Item> items : BBItems.SPAWN_EGGS) {
-            if(ObfuscationReflectionHelper.getPrivateValue(RegistryObject.class, items, "value") != null) {
-                Item item = items.get();
-                if(item instanceof BBSpawnEggItem) {
-                    event.getItemColors().register((itemColor, itemsIn) -> {
-                        return ((BBSpawnEggItem) item).getColor(itemsIn);
-                    }, item);
-                }
-            }
-        }
-    }
-    
-	void setupMessages() {
-		int id = -1;
-		
-		CHANNEL.messageBuilder(MessageCAnimation.class, id++)
-		.encoder(MessageCAnimation::serialize).decoder(MessageCAnimation::deserialize)
-		.consumer(MessageCAnimation::handle)
-		.add();
-	}
 
     private void replaceBeehivePOI(final FMLCommonSetupEvent event) {
     	

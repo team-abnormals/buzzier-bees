@@ -3,9 +3,9 @@ package com.bagel.buzzierbees.core.registry;
 import java.util.List;
 
 import com.bagel.buzzierbees.core.BuzzierBees;
-import com.bagel.buzzierbees.core.util.TradeUtils.EmeraldsForItemsTrade;
-import com.bagel.buzzierbees.core.util.TradeUtils.ItemsForEmeraldsAndItemsTrade;
-import com.bagel.buzzierbees.core.util.TradeUtils.ItemsForEmeraldsTrade;
+import com.teamabnormals.abnormals_core.core.utils.TradeUtils.EmeraldsForItemsTrade;
+import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsAndItemsTrade;
+import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsTrade;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
