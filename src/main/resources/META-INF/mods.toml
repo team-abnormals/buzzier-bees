@@ -7,9 +7,9 @@ modId="buzzierbees" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Buzzier Bees" #mandatory
 displayURL="https://discord.gg/zVBFsXp" #optional
-logoFile="buzzierbees" #optional
-credits="Five & Farcr, and the other members of my team for Art" #optional
-authors="bageldotjpg & Bratistolf" #optional
+logoFile="logo.png" #optional
+credits="Bratistolf" #optional
+authors="bageldotjpg, Five, and Farcr" #optional
 
 description='''
 Buzzier Bees expands on the content introduced in 1.15. 

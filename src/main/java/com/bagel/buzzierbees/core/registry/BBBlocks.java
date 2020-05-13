@@ -56,7 +56,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BBBlocks
 {	
 	public static final RegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER;
-	private static final ResourceLocation SIGN_TEXTURE = new ResourceLocation(BuzzierBees.MODID, "textures/entity/signs/hive.png");
 	
 	// Beehives //
 	
@@ -124,7 +123,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> HONEY_BRICK_SLAB 	        = HELPER.createBlock("honey_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEY_BRICK_WALL 	        = HELPER.createBlock("honey_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honey_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> SIGNS = HELPER.createSignBlock("hive", MaterialColor.YELLOW, SIGN_TEXTURE);
+	public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> SIGNS = HELPER.createSignBlock("hive", MaterialColor.YELLOW);
 	
 	// Flowers //
 	
