@@ -28,6 +28,6 @@ Beekeepers, Brown Bears, and Butterflies will come soon!
 [[dependencies.buzzierbees]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[1.0.0,)"
+    versionRange="[1.0.1,)"
     ordering="AFTER"
     side="BOTH"
