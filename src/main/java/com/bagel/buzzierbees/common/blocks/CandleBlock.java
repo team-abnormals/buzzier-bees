@@ -125,7 +125,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
 		BlockPos blockpos = pos.down();
-	    return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos) || worldIn.getBlockState(blockpos).isAir();
+	    return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
 	 }
 	
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
