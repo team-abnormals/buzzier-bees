@@ -7,7 +7,7 @@ import java.util.Set;
 
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
-import com.bagel.buzzierbees.core.registry.BBBlockData;
+import com.bagel.buzzierbees.core.other.BBBlockData;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
 import com.bagel.buzzierbees.core.registry.BBEntities;

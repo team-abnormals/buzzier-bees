@@ -1,8 +1,11 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.other;
 
 import java.util.List;
 
 import com.bagel.buzzierbees.core.BuzzierBees;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
+import com.bagel.buzzierbees.core.registry.BBItems;
+import com.bagel.buzzierbees.core.registry.BBVillagers;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils.EmeraldsForItemsTrade;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsAndItemsTrade;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsTrade;

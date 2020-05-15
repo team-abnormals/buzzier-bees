@@ -1,6 +1,6 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
+import com.bagel.buzzierbees.core.other.BBCriteriaTriggers;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.google.common.collect.ImmutableList;
 import com.teamabnormals.abnormals_core.common.advancement.EmptyTrigger;

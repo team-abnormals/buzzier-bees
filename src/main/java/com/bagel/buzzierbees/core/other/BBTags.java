@@ -1,4 +1,4 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.other;
 
 
 import com.bagel.buzzierbees.core.BuzzierBees;

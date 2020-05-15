@@ -1,10 +1,12 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.other;
 
 import java.util.Set;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
 import com.bagel.buzzierbees.common.entities.FlyEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
+import com.bagel.buzzierbees.core.registry.BBBlocks;
+import com.bagel.buzzierbees.core.registry.BBItems;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;

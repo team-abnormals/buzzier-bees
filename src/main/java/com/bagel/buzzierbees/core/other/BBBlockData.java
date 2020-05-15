@@ -1,5 +1,6 @@
-package com.bagel.buzzierbees.core.registry;
+package com.bagel.buzzierbees.core.other;
 
+import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.client.renderer.RenderType;
