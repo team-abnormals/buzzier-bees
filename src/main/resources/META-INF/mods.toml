@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[29,)" #mandatory
+loaderVersion="[31,)" #mandatory
 issueTrackerURL="https://github.com/bageldotjpg/BuzzierBees/issues" #optional
 
 [[mods]] #mandatory
@@ -17,17 +17,23 @@ Main features include wax, crystallized honey, and candles, and much more!
 Beekeepers, Brown Bears, and Butterflies will come soon!
 '''
 
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.buzzierbees]] #optional
+[[dependencies.buzzierbees]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[29,)" #mandatory
+    versionRange="[31.1.49,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.buzzierbees]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.buzzierbees]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[1.0.3,)"
+    versionRange="[1.0.4,)"
     ordering="AFTER"
     side="BOTH"
