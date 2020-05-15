@@ -14,6 +14,8 @@ import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.util.CompatBlocks;
 import com.bagel.buzzierbees.core.util.PropertyUtils;
 import com.mojang.datafixers.util.Pair;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsTallFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.BookshelfBlock;
 import com.teamabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.teamabnormals.abnormals_core.common.blocks.sign.AbnormalsStandingSignBlock;
@@ -32,14 +34,12 @@ import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.LadderBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -128,19 +128,19 @@ public class BBBlocks
 	// Flowers //
 	
 	public static final RegistryObject<Block> CARTWHEEL 		= HELPER.createBlock("cartwheel", () -> new CartwheelBlock(Effects.SPEED, 11, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUEBELL 			= HELPER.createBlock("bluebell", () -> new FlowerBlock(Effects.WATER_BREATHING, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET 			= HELPER.createBlock("violet", () -> new FlowerBlock(Effects.INVISIBILITY, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DIANTHUS 			= HELPER.createBlock("jolyce", () -> new FlowerBlock(Effects.STRENGTH, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> COLUMBINE 		= HELPER.createBlock("columbine", () -> new FlowerBlock(Effects.MINING_FATIGUE, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new FlowerBlock(Effects.UNLUCK, 30, PropertyUtils.FLOWER.notSolid()), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new FlowerBlock(Effects.UNLUCK, 60, PropertyUtils.FLOWER.notSolid()), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_HIBISCUS	= HELPER.createBlock("daybloom", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_HIBISCUS 	= HELPER.createBlock("orange_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_HIBISCUS 		= HELPER.createBlock("red_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_HIBISCUS 	= HELPER.createBlock("pink_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAGENTA_HIBISCUS 	= HELPER.createBlock("magenta_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PURPLE_HIBISCUS 	= HELPER.createBlock("purple_hibiscus", () -> new FlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BIRD_OF_PARADISE 	= HELPER.createBlock("bird_of_paradise", () -> new TallFlowerBlock(PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BLUEBELL 			= HELPER.createBlock("bluebell", () -> new AbnormalsFlowerBlock(Effects.WATER_BREATHING, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> VIOLET 			= HELPER.createBlock("violet", () -> new AbnormalsFlowerBlock(Effects.INVISIBILITY, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DIANTHUS 			= HELPER.createBlock("jolyce", () -> new AbnormalsFlowerBlock(Effects.STRENGTH, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> COLUMBINE 		= HELPER.createBlock("columbine", () -> new AbnormalsFlowerBlock(Effects.MINING_FATIGUE, 6, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, PropertyUtils.FLOWER.notSolid()), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, PropertyUtils.FLOWER.notSolid()), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_HIBISCUS	= HELPER.createBlock("daybloom", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_HIBISCUS 	= HELPER.createBlock("orange_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_HIBISCUS 		= HELPER.createBlock("red_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_HIBISCUS 	= HELPER.createBlock("pink_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAGENTA_HIBISCUS 	= HELPER.createBlock("magenta_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PURPLE_HIBISCUS 	= HELPER.createBlock("purple_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BIRD_OF_PARADISE 	= HELPER.createBlock("bird_of_paradise", () -> new AbnormalsTallFlowerBlock(PropertyUtils.FLOWER), ItemGroup.DECORATIONS);
 
 	// Candles //
 	
@@ -216,7 +216,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> YUCCA_FLOWER_SCENTED_CANDLE    		= HELPER.createCompatBlock("atmospheric", "yucca_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.BAD_OMEN, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_SEAROCKET_SCENTED_CANDLE    		= HELPER.createCompatBlock("upgrade_aquatic", "pink_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_SEAROCKET_SCENTED_CANDLE    	= HELPER.createCompatBlock("upgrade_aquatic", "white_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> AUTUMN_CROCUS_SCENTED_CANDLE    	= HELPER.createCompatBlock("autumnity", "autumn_crocus_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("autumnity") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("autumnity:anti_healing")) : null), 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> AUTUMN_CROCUS_SCENTED_CANDLE    		= HELPER.createCompatBlock("autumnity", "autumn_crocus_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("autumnity") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("autumnity:anti_healing")) : null), 70, 0, PropertyUtils.CANDLE), ItemGroup.DECORATIONS);
 	
 	// Flower Pots //
 		
