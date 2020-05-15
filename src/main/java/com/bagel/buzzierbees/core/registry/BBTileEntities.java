@@ -11,7 +11,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = BuzzierBees.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBTileEntities {
 	public static final RegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER;
 
