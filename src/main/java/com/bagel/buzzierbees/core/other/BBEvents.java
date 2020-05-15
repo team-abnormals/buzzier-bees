@@ -2,7 +2,6 @@ package com.bagel.buzzierbees.core.other;
 
 import java.util.Set;
 
-import com.bagel.buzzierbees.common.blocks.CandleBlock;
 import com.bagel.buzzierbees.common.entities.FlyEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
@@ -16,8 +15,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.item.FallingBlockEntity;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.BeeEntity;
@@ -68,20 +65,20 @@ public class BBEvents {
 	@SubscribeEvent
 	public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
-		if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(BBTags.CANDLES)) {
-			event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
-			.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
-			.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
-		}
-		if (event.getEntity() instanceof ZombieEntity) {
+//		if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(BBTags.CANDLES)) {
+//			event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
+//			.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
+//			.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
+//		}
+		if (entity instanceof ZombieEntity) {
 			ZombieEntity zombie = (ZombieEntity)event.getEntity();
 			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 9.0F, 1.05D, 1.05D));
 		}
-		if (event.getEntity() instanceof AbstractHorseEntity) {
+		if (entity instanceof AbstractHorseEntity) {
 			AbstractHorseEntity horse = (AbstractHorseEntity)event.getEntity();
 			horse.goalSelector.addGoal(1, new AvoidEntityGoal<>(horse, FlyEntity.class, 8.0F, 1.1D, 1.1D));
 		}
-		if (event.getEntity() instanceof SpiderEntity) {
+		if (entity instanceof SpiderEntity) {
 			SpiderEntity spider = (SpiderEntity)event.getEntity();
 			spider.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(spider, FlyEntity.class, false));
 		}
