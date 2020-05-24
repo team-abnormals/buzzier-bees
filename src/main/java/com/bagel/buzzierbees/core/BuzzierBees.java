@@ -114,6 +114,7 @@ public class BuzzierBees
 				BBBlocks.YUCCA_BEEHIVE.get(),
 				BBBlocks.KOUSA_BEEHIVE.get(),
 				BBBlocks.ASPEN_BEEHIVE.get(),
+				BBBlocks.GRIMWOOD_BEEHIVE.get(),
 				BBBlocks.WILLOW_BEEHIVE.get(),
 				BBBlocks.WISTERIA_BEEHIVE.get(),
 				BBBlocks.MAPLE_BEEHIVE.get(),
