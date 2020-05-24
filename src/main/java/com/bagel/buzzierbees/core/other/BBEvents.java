@@ -19,6 +19,7 @@ import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
+import net.minecraft.entity.passive.horse.SkeletonHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -74,7 +75,7 @@ public class BBEvents {
 			ZombieEntity zombie = (ZombieEntity)event.getEntity();
 			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 9.0F, 1.05D, 1.05D));
 		}
-		if (entity instanceof AbstractHorseEntity) {
+		if (entity instanceof AbstractHorseEntity && !(entity instanceof SkeletonHorseEntity)) {
 			AbstractHorseEntity horse = (AbstractHorseEntity)event.getEntity();
 			horse.goalSelector.addGoal(1, new AvoidEntityGoal<>(horse, FlyEntity.class, 8.0F, 1.1D, 1.1D));
 		}

@@ -24,6 +24,7 @@ import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IFlyingAnimal;
+import net.minecraft.entity.passive.horse.ZombieHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
@@ -75,6 +76,7 @@ public class FlyEntity extends CreatureEntity implements IFlyingAnimal {
 	   this.goalSelector.addGoal(3, new SwimGoal(this));
 	   this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(new Class[0]));
 	   this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<ZombieEntity>(this, ZombieEntity.class, true));
+	   this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<ZombieHorseEntity>(this, ZombieHorseEntity.class, true));
 	   this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
    }
 
