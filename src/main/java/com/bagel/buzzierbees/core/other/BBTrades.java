@@ -106,8 +106,8 @@ public class BBTrades {
 			}
 			
 			expert.add(new EmeraldsForItemsTrade(BBItems.WAX.get(), 1, 1, 12, 20));
-			expert.add(new EmeraldsForItemsTrade(BBItems.BOTTLE_OF_BEE.get(), 1, 6, 6, 20));
-			expert.add(new ItemsForEmeraldsTrade(Blocks.BEE_NEST, 15, 1, 3, 20));
+			expert.add(new ItemsForEmeraldsTrade(BBItems.BOTTLE_OF_BEE.get(), 1, 6, 6, 20));
+			expert.add(new EmeraldsForItemsTrade(Blocks.BEE_NEST, 15, 1, 3, 20));
 
 
 			master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.ALLIUM_SCENTED_CANDLE.get()));
