@@ -35,13 +35,13 @@
 
 	"block.buzzierbees.poise_beehive": "Apiario de abejas equilibrado",
 	"block.buzzierbees.driftwood_beehive": "Apiario de abejas de deriva",
-	"block.buzzierbees.riverwood_beehive": "Apiario de abejas fluvial",
+	"block.buzzierbees.river_beehive": "Apiario de abejas fluvial",
 	"block.buzzierbees.willow_beehive": "Apiario de abejas de sauce",
 	"block.buzzierbees.wisteria_beehive": "Apiario de abejas de glicina",
 	"block.buzzierbees.rosewood_beehive": "Apiario de abejas de palisandro",
 	"block.buzzierbees.yucca_beehive": "Apiario de abejas de yuca",
 	"block.buzzierbees.kousa_beehive": "Apiario de abejas de kousa",
-	"block.buzzierbees.aspen_beehive": "Apiario de abejas de álamo temblón",
+	"block.buzzierbees.aspen_beehive": "Apiario de abejas de álamo",
 	"block.buzzierbees.grimwood_beehive": "Apiario de abejas siniestro",
 	"block.buzzierbees.maple_beehive": "Apiario de abejas de arce",
 	"block.buzzierbees.bamboo_beehive": "Apiario de abejas de bambú",
@@ -73,7 +73,7 @@
 	"block.buzzierbees.honey_brick_wall": "Pared de ladrillos melosos",
 	"block.buzzierbees.honey_brick_vertical_slab": "Losa vertical de ladrillos melosos",
 	
-	"block.buzzierbees.cartwheel" : "Remolino",
+	"block.buzzierbees.cartwheel" : "Rehilete",
 	"block.buzzierbees.bluebell" : "Jacinto del bosque",
 	"block.buzzierbees.violet": "Violeta",	
 	"block.buzzierbees.columbine" : "Colombina",
@@ -153,7 +153,7 @@
 	"block.buzzierbees.red_tulip_scented_candle": "Vela aromática de tulipán rojo",
 	"block.buzzierbees.wither_rose_scented_candle": "Vela aromática de rosa del Wither",
 	
-	"block.buzzierbees.cartwheel_scented_candle": "Vela aromática de remolino",
+	"block.buzzierbees.cartwheel_scented_candle": "Vela aromática de rehilete",
 	"block.buzzierbees.bluebell_scented_candle": "Vela aromática de jacinto del bosque",
 	"block.buzzierbees.violet_scented_candle": "Vela aromática de violeta",
 	"block.buzzierbees.columbine_scented_candle": "Vela aromática de colombina",
