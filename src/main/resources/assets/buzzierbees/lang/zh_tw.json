@@ -11,6 +11,10 @@
 	"item.buzzierbees.honey_bread": "蜂蜜麵包",
 	"item.buzzierbees.glazed_porkchop": "蜜汁豬排",
 	
+	"item.buzzierbees.silverfish_bottle": "瓶裝蠹魚",
+	"item.buzzierbees.endermite_bottle": "瓶裝終界蟎",
+	"item.buzzierbees.bee_bottle": "瓶裝蜜蜂",
+	
 	"item.buzzierbees.hive_boat": "蜂箱船",
 	"entity.buzzierbees.boat": "船",
 	
@@ -69,6 +73,13 @@
 	"block.buzzierbees.pink_clover": "粉色三葉草",
 	"block.buzzierbees.white_clover": "白色三葉草",
 	"block.buzzierbees.bird_of_paradise" : "鶴望蘭",
+	
+	"block.buzzierbees.daybloom" : "黃色芙蓉",
+	"block.buzzierbees.orange_hibiscus" : "橙色芙蓉",
+	"block.buzzierbees.red_hibiscus" : "紅色芙蓉",
+	"block.buzzierbees.pink_hibiscus" : "粉紅色芙蓉",
+	"block.buzzierbees.magenta_hibiscus" : "洋紅色芙蓉",
+	"block.buzzierbees.purple_hibiscus" : "紫色芙蓉",
 
 	"block.buzzierbees.hive_planks": "蜂箱木材",
 	"block.buzzierbees.hive_stairs": "蜂箱階梯",
@@ -142,7 +153,28 @@
 	"block.buzzierbees.jolyce_scented_candle": "香石竹香氛蠟燭",
 	"block.buzzierbees.pink_clover_scented_candle": "粉色三葉草香氛蠟燭",
 	"block.buzzierbees.white_clover_scented_candle": "白色三葉草香氛蠟燭",
-
+	
+	"block.buzzierbees.daybloom_scented_candle": "黃色芙蓉香味蠟燭",
+	"block.buzzierbees.orange_hibiscus_scented_candle": "橙色芙蓉香味蠟燭",
+	"block.buzzierbees.red_hibiscus_scented_candle": "紅色芙蓉香味蠟燭",
+	"block.buzzierbees.pink_hibiscus_scented_candle": "粉紅色芙蓉香味蠟燭",
+	"block.buzzierbees.magenta_hibiscus_scented_candle": "洋紅色芙蓉香味蠟燭",
+	"block.buzzierbees.purple_hibiscus_scented_candle": "紫色芙蓉香味蠟燭",
+	
+	"block.buzzierbees.warm_monkey_brush_scented_candle": "Warm Monkey Brush 香味蠟燭",
+	"block.buzzierbees.hot_monkey_brush_scented_candle": "Hot Monkey Brush 香味蠟燭",
+	"block.buzzierbees.scalding_monkey_brush_scented_candle": "Scalding Monkey Brush 香味蠟燭",
+	"block.buzzierbees.gilia_scented_candle": "吉莉亞香薰蠟燭",
+	"block.buzzierbees.yucca_flower_scented_candle": "Yucca Flower 香味蠟燭",
+	"block.buzzierbees.pink_searocket_scented_candle": "Pink Searocket 蠟燭",
+	"block.buzzierbees.white_searocket_scented_candle": "White Searocket 香味蠟燭",
+	"block.buzzierbees.autumn_crocus_scented_candle": "Autumn Crocus 香味蠟燭",
+	
+	"tooltip.buzzierbees.is_baby": "嬰兒",
+	"tooltip.buzzierbees.has_nectar": "已授粉",
+	"tooltip.buzzierbees.is_angry": "生氣",
+	"tooltip.buzzierbees.has_stung": "無刺的",
+	
 	"effect.buzzierbees.anti_night_vision": "反夜視",
 	"effect.buzzierbees.anti_speed": "反加速",
 	"effect.buzzierbees.anti_haste": "反挖掘加速", 
