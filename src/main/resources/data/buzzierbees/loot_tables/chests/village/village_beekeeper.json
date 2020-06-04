@@ -3,7 +3,7 @@
   "pools": [
     {
       "rolls": {
-        "min": 1.0,
+        "min": 2.0,
         "max": 5.0,
         "type": "minecraft:uniform"
       },
@@ -25,13 +25,70 @@
         },
         {
           "type": "minecraft:item",
+          "name": "buzzierbees:honey_bread"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 4.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:glass_bottle"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:honey_bottle"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shears"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "buzzierbees:honey_wand"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:dandelion"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -40,10 +97,17 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:honey_bottle"
-        },
-        {
-          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
           "name": "buzzierbees:wax"
         }
       ]

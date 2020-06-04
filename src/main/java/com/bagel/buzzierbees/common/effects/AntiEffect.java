@@ -1,11 +1,14 @@
 package com.bagel.buzzierbees.common.effects;
 
-import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
+import com.bagel.buzzierbees.core.other.BBCriteriaTriggers;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.potion.*;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.EffectType;
+import net.minecraft.potion.InstantEffect;
 
 public class AntiEffect extends InstantEffect {
     private final ImmutableList<EffectInstance> counteredEffects;

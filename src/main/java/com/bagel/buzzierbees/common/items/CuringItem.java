@@ -1,9 +1,10 @@
 package com.bagel.buzzierbees.common.items;
 
-import com.bagel.buzzierbees.core.registry.BBCriteriaTriggers;
+import com.bagel.buzzierbees.core.other.BBCriteriaTriggers;
 import com.bagel.buzzierbees.core.registry.BBItems;
-import com.bagel.buzzierbees.core.util.EmptyTrigger;
 import com.google.common.collect.ImmutableList;
+import com.teamabnormals.abnormals_core.common.advancement.EmptyTrigger;
+
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;

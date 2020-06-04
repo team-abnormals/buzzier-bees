@@ -4,8 +4,6 @@ import java.util.EnumSet;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.registry.BBItems;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.CreatureEntity;
@@ -135,7 +133,7 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
    }
    
    public ItemStack getPickedResult(RayTraceResult target) {
-	   return new ItemStack(BBItems.FLY_SPAWN_EGG.get());
+	   return new ItemStack(Items.BEE_SPAWN_EGG);
    }
 
    protected void registerAttributes() {

@@ -9,7 +9,6 @@ import com.bagel.buzzierbees.core.util.BlockStateUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.fluid.Fluids;
@@ -37,7 +36,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @SuppressWarnings("deprecation")
-public class CandleBlock extends FallingBlock implements IWaterLoggable {
+public class CandleBlock extends Block implements IWaterLoggable {
 	public static final IntegerProperty CANDLES 	= BlockStateUtils.CANDLES_1_4;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final BooleanProperty LIT = BlockStateUtils.LIT;
@@ -126,7 +125,7 @@ public class CandleBlock extends FallingBlock implements IWaterLoggable {
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
 		BlockPos blockpos = pos.down();
-	    return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos) || worldIn.getBlockState(blockpos).isAir();
+	    return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
 	 }
 	
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {

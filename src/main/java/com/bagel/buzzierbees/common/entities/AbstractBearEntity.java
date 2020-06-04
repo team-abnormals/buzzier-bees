@@ -5,16 +5,15 @@ import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.api.endimator.ControlledEndimation;
-import com.bagel.buzzierbees.api.endimator.Endimation;
-import com.bagel.buzzierbees.api.endimator.entity.IEndimatedEntity;
-import com.bagel.buzzierbees.api.util.NetworkUtil;
 import com.bagel.buzzierbees.common.entities.goals.bear.AttackPlayerGoal;
 import com.bagel.buzzierbees.common.entities.goals.bear.EatBerriesGoal;
 import com.bagel.buzzierbees.common.entities.goals.bear.HurtByTargetGoal;
 import com.bagel.buzzierbees.common.entities.goals.bear.PanicGoal;
 import com.bagel.buzzierbees.core.registry.BBEntities;
-import com.bagel.buzzierbees.core.registry.BBItems;
+import com.teamabnormals.abnormals_core.core.library.endimator.ControlledEndimation;
+import com.teamabnormals.abnormals_core.core.library.endimator.Endimation;
+import com.teamabnormals.abnormals_core.core.library.endimator.entity.IEndimatedEntity;
+import com.teamabnormals.abnormals_core.core.utils.NetworkUtil;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
@@ -39,7 +38,6 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -129,7 +127,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    }
 
    public ItemStack getPickedResult(RayTraceResult target) {
-	   return new ItemStack(BBItems.GRIZZLY_BEAR_SPAWN_EGG.get());
+	   return new ItemStack(Items.POLAR_BEAR_SPAWN_EGG);
    }
    
    protected void registerData() {
@@ -141,14 +139,14 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    
    @Override
 	public boolean processInteract(PlayerEntity player, Hand hand) {
-		ItemStack itemstack = player.getHeldItem(hand);
-		Item item = itemstack.getItem();
-		if (item == Items.SWEET_BERRIES) {
-			if(!this.isSitting()) this.setSitting(true);
-			if(!this.world.isRemote && !this.isEndimationPlaying(SIT_DOWN)) {
-				NetworkUtil.setPlayingAnimationMessage(this, SIT_DOWN);
-			}
-		}
+//		ItemStack itemstack = player.getHeldItem(hand);
+//		Item item = itemstack.getItem();
+//		if (item == Items.SWEET_BERRIES) {
+//			if(!this.isSitting()) this.setSitting(true);
+//			if(!this.world.isRemote && !this.isEndimationPlaying(SIT_DOWN)) {
+//				NetworkUtil.setPlayingAnimationMessage(this, SIT_DOWN);
+//			}
+//		}
 		return super.processInteract(player, hand);
 	}
 
