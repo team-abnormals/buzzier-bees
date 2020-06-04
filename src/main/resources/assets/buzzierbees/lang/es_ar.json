@@ -14,14 +14,12 @@
 	"item.buzzierbees.silverfish_bottle": "Frasco con pez de plata",
 	"item.buzzierbees.endermite_bottle": "Frasco con endermite",
 	"item.buzzierbees.bee_bottle": "Frasco con abeja",
-	"item.buzzierbees.fly_bottle": "Frasco con mosca",
 	
 	"item.buzzierbees.hive_boat": "Bote de panal",
 	
 	"item.buzzierbees.honey_slime_spawn_egg": "Generar slime meloso",
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Generar oso pardo",
 	"item.buzzierbees.black_bear_spawn_egg": "Generar oso negro",
-	"item.buzzierbees.fly_spawn_egg": "Generar mosca",
 	"item.buzzierbees.bumblebee_spawn_egg": "Generar abejorro",
 	
 	"block.minecraft.beehive": "Apiario de roble",
@@ -181,7 +179,6 @@
 	"entity.buzzierbees.honey_slime": "Slime meloso",
 	"entity.buzzierbees.grizzly_bear": "Oso pardo",
 	"entity.buzzierbees.black_bear": "Oso negro",
-	"entity.buzzierbees.fly": "Mosca",
 	"entity.minecraft.villager.buzzierbees.apiarist": "Apicultor",
 	"entity.buzzierbees.bumblebee": "Abejorro",
 	
