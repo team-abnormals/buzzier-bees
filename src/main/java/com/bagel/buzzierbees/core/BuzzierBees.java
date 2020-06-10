@@ -29,8 +29,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @SuppressWarnings("deprecation")
-@Mod("buzzierbees")
-@EventBusSubscriber(modid = "buzzierbees")
+@Mod(BuzzierBees.MODID)
+@EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BuzzierBees
 {
 	public static final String MODID = "buzzierbees";
