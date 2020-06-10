@@ -2,7 +2,9 @@ package com.bagel.buzzierbees.core;
 
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
-import com.bagel.buzzierbees.core.other.BBBlockData;
+import com.bagel.buzzierbees.core.other.BBCompostables;
+import com.bagel.buzzierbees.core.other.BBFlammables;
+import com.bagel.buzzierbees.core.other.BBRenderLayers;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;
 import com.bagel.buzzierbees.core.registry.BBEntities;
@@ -26,6 +28,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+@SuppressWarnings("deprecation")
 @Mod("buzzierbees")
 @EventBusSubscriber(modid = "buzzierbees")
 public class BuzzierBees
@@ -60,7 +63,7 @@ public class BuzzierBees
 	}
     
     private void setupClient(final FMLClientSetupEvent event) {
-		BBBlockData.setupRenderLayer();
+		BBRenderLayers.setupRenderLayer();
 		BBEntities.registerRendering();
 		BlockColorManager.registerBlockColors();
 	}
@@ -70,14 +73,12 @@ public class BuzzierBees
 		REGISTRY_HELPER.processSpawnEggColors(event);
 	}
     
-    private void setup(final FMLCommonSetupEvent event)
+	private void setup(final FMLCommonSetupEvent event)
     {
-		// Note: This was deprecated too early by Forge. There is no replacement yet, so
-		// the deprecation can (and should) be safely disregarded.
-		//noinspection deprecation
+		// Note: This was deprecated too early by Forge. There is no replacement yet, so it can be safely disregarded.
 		DeferredWorkQueue.runLater(() -> {
-			BBBlockData.registerCompostables();
-			BBBlockData.registerFlammables();
+			BBCompostables.registerCompostables();
+			BBFlammables.registerFlammables();
 			BBEffects.addBrewingRecipes();
 			BBFeatures.addFeatures();
 			BBEntities.addEntitySpawns();
