@@ -18,6 +18,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -71,15 +72,20 @@ public class BuzzierBees
     
     private void setup(final FMLCommonSetupEvent event)
     {
-    	BBBlockData.registerCompostables();
-    	BBBlockData.registerFlammables();
-    	BBEffects.addBrewingRecipes();
-		BBFeatures.addFeatures();
-		BBEntities.addEntitySpawns();
-		BBVillagers.init();
-    	
-    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
-    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
-    	DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
+		// Note: This was deprecated too early by Forge. There is no replacement yet, so
+		// the deprecation can (and should) be safely disregarded.
+		//noinspection deprecation
+		DeferredWorkQueue.runLater(() -> {
+			BBBlockData.registerCompostables();
+			BBBlockData.registerFlammables();
+			BBEffects.addBrewingRecipes();
+			BBFeatures.addFeatures();
+			BBEntities.addEntitySpawns();
+			BBVillagers.init();
+
+			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
+			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
+			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
+		});
     }
 }
