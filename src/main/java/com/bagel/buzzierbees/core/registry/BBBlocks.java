@@ -16,6 +16,7 @@ import com.bagel.buzzierbees.core.util.PropertyUtils;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsLadderBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsTallFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.BookshelfBlock;
@@ -36,7 +37,6 @@ import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.LadderBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
@@ -119,7 +119,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> HIVE_DOOR            = HELPER.createBlock("hive_door", () -> new WoodDoorBlock(Block.Properties.from(Blocks.OAK_DOOR).notSolid()), ItemGroup.REDSTONE);
 	public static final RegistryObject<Block> VERTICAL_HIVE_PLANKS = HELPER.createCompatBlock("quark", "vertical_hive_planks", () -> new Block(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HIVE_VERTICAL_SLAB   = HELPER.createCompatBlock("quark", "hive_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HIVE_LADDER          = HELPER.createCompatBlock("quark", "hive_ladder", () -> new LadderBlock(Block.Properties.from(Blocks.LADDER).notSolid()), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HIVE_LADDER          = HELPER.createCompatBlock("quark", "hive_ladder", () -> new AbnormalsLadderBlock(Block.Properties.from(Blocks.LADDER).notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HIVE_BOOKSHELF       = HELPER.createCompatBlock("quark", "hive_bookshelf", () -> new BookshelfBlock(Block.Properties.from(Blocks.BOOKSHELF).notSolid()), ItemGroup.DECORATIONS);
 	
 	// Honey Bricks //

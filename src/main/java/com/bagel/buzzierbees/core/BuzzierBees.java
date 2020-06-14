@@ -82,8 +82,9 @@ public class BuzzierBees
 			BBEffects.addBrewingRecipes();
 			BBFeatures.addFeatures();
 			BBEntities.addEntitySpawns();
-			BBVillagers.init();
+			BBVillagers.setupVillagers();
 
+			REGISTRY_HELPER.processSpawnEggDispenseBehaviors();
 			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
 			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
 			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
