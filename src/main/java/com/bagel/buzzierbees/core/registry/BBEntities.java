@@ -34,10 +34,10 @@ public class BBEntities
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends HoneySlimeEntity>)HONEY_SLIME.get(), HoneySlimeRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends GrizzlyBearEntity>)GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends BlackBearEntity>)BLACK_BEAR.get(), BlackBearRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler((EntityType<? extends BumblebeeEntity>)BUMBLEBEE.get(), BumblebeeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(HONEY_SLIME.get(), HoneySlimeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(BLACK_BEAR.get(), BlackBearRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(BUMBLEBEE.get(), BumblebeeRenderer::new);
     }
     
     public static void addEntitySpawns() {

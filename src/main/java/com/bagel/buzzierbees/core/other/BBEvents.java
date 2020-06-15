@@ -9,11 +9,14 @@ import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.IGrowable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -78,13 +81,30 @@ public class BBEvents {
 		World world = event.getWorld();
 		PlayerEntity player = event.getPlayer();
 		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
-		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.MODDED_POTTABLES)) {
+		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.Items.MODDED_POTTABLES)) {
 			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());
 			player.swingArm(event.getHand());
 			player.addStat(Stats.POT_FLOWER);
 			if (!player.abilities.isCreativeMode) item.shrink(1);
 		}
 	}
+	
+	@SubscribeEvent
+    public static void renewableFlowers(PlayerInteractEvent.RightClickBlock event) {
+        PlayerEntity player = event.getPlayer();
+        World world = event.getWorld();
+        BlockPos pos = event.getPos();
+        Block block = world.getBlockState(pos).getBlock();
+
+        ItemStack stack = player.getHeldItem(event.getHand());
+        if (stack.getItem() != Items.BONE_MEAL) return;
+        
+        if (!(block instanceof FlowerBlock) || block.isIn(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, world.getBlockState(pos)))) return;
+        if (!player.isCreative()) stack.shrink(1);
+        player.swingArm(event.getHand());
+        if (world.isRemote) BoneMealItem.spawnBonemealParticles(world, pos, world.rand.nextInt(12));
+        Block.spawnAsEntity(world, pos, new ItemStack(block, 1));
+    }
 	    
 	@SubscribeEvent
 	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
