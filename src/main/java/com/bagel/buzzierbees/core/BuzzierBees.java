@@ -50,7 +50,7 @@ public class BuzzierBees
     	BBVillagers.PROFESSIONS.register(modEventBus);
     	BBVillagers.POI_TYPES.register(modEventBus);
     	
-        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::setupCommon);
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 			modEventBus.addListener(EventPriority.LOWEST, this::setupClient);
 			modEventBus.addListener(EventPriority.LOWEST, this::registerItemColors);
@@ -62,20 +62,8 @@ public class BuzzierBees
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 	}
     
-    private void setupClient(final FMLClientSetupEvent event) {
-		BBRenderLayers.setupRenderLayer();
-		BBEntities.registerRendering();
-		BlockColorManager.registerBlockColors();
-	}
-    
-    @OnlyIn(Dist.CLIENT)
-	private void registerItemColors(ColorHandlerEvent.Item event) {
-		REGISTRY_HELPER.processSpawnEggColors(event);
-	}
-    
-	private void setup(final FMLCommonSetupEvent event)
+	private void setupCommon(final FMLCommonSetupEvent event)
     {
-		// Note: This was deprecated too early by Forge. There is no replacement yet, so it can be safely disregarded.
 		DeferredWorkQueue.runLater(() -> {
 			BBCompostables.registerCompostables();
 			BBFlammables.registerFlammables();
@@ -90,4 +78,17 @@ public class BuzzierBees
 			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
 		});
     }
+    
+    private void setupClient(final FMLClientSetupEvent event) {
+		BBEntities.registerRendering();
+    	DeferredWorkQueue.runLater(() -> {
+    		BBRenderLayers.setupRenderLayer();
+    		BlockColorManager.registerBlockColors();
+    	});
+	}
+    
+    @OnlyIn(Dist.CLIENT)
+	private void registerItemColors(ColorHandlerEvent.Item event) {
+		REGISTRY_HELPER.processSpawnEggColors(event);
+	}
 }
