@@ -14,14 +14,12 @@
 	"item.buzzierbees.silverfish_bottle": "Frasco con lepisma",
 	"item.buzzierbees.endermite_bottle": "Frasco con endermite",
 	"item.buzzierbees.bee_bottle": "Frasco con abeja",
-	"item.buzzierbees.fly_bottle": "Frasco con mosca",
 	
 	"item.buzzierbees.hive_boat": "Barca de panal",
 	
 	"item.buzzierbees.honey_slime_spawn_egg": "Generar slime meloso",
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Generar oso pardo",
 	"item.buzzierbees.black_bear_spawn_egg": "Generar oso negro",
-	"item.buzzierbees.fly_spawn_egg": "Generar mosca",
 	"item.buzzierbees.bumblebee_spawn_egg": "Generar abejorro",
 	
 	"block.minecraft.beehive": "Apiario de roble",
@@ -35,13 +33,14 @@
 
 	"block.buzzierbees.poise_beehive": "Apiario equilibrado",
 	"block.buzzierbees.driftwood_beehive": "Apiario de deriva",
-	"block.buzzierbees.riverwood_beehive": "Apiario fluvial",
+	"block.buzzierbees.river_beehive": "Apiario fluvial",
 	"block.buzzierbees.willow_beehive": "Apiario de sauce",
 	"block.buzzierbees.wisteria_beehive": "Apiario de glicina",
 	"block.buzzierbees.rosewood_beehive": "Apiario de palisandro",
 	"block.buzzierbees.yucca_beehive": "Apiario de yuca",
 	"block.buzzierbees.kousa_beehive": "Apiario de kousa",
-	"block.buzzierbees.aspen_beehive": "Apiario de álamo temblón",
+	"block.buzzierbees.aspen_beehive": "Apiario de álamo",
+	"block.buzzierbees.grimwood_beehive": "Apiario siniestro",
 	"block.buzzierbees.maple_beehive": "Apiario de arce",
 	"block.buzzierbees.bamboo_beehive": "Apiario de bambú",
 	
@@ -64,7 +63,7 @@
 	"block.buzzierbees.crystallized_honey_block": "Bloque de miel cristalizada",
 	"block.buzzierbees.clover_honey_block": "Bloque de miel de trébol",
 	"block.buzzierbees.honey_lamp" : "Lámpara de miel",
-	"block.buzzierbees.honey_pot": "Maceta de miel",
+	"block.buzzierbees.honey_pot": "Tarro de miel",
 	
 	"block.buzzierbees.honey_bricks": "Ladrillos melosos",
 	"block.buzzierbees.honey_brick_stairs": "Escaleras de ladrillos melosos",
@@ -72,7 +71,7 @@
 	"block.buzzierbees.honey_brick_wall": "Muro de ladrillos melosos",
 	"block.buzzierbees.honey_brick_vertical_slab": "Losa vertical de ladrillos melosos",
 	
-	"block.buzzierbees.cartwheel" : "Molinete",
+	"block.buzzierbees.cartwheel" : "Molinillo",
 	"block.buzzierbees.bluebell" : "Jacinto del bosque",
 	"block.buzzierbees.violet": "Violeta",	
 	"block.buzzierbees.columbine" : "Colombina",
@@ -152,7 +151,7 @@
 	"block.buzzierbees.red_tulip_scented_candle": "Vela aromática de tulipán rojo",
 	"block.buzzierbees.wither_rose_scented_candle": "Vela aromática de rosa de Wither",
 	
-	"block.buzzierbees.cartwheel_scented_candle": "Vela aromática de molinete",
+	"block.buzzierbees.cartwheel_scented_candle": "Vela aromática de molinillo",
 	"block.buzzierbees.bluebell_scented_candle": "Vela aromática de jacinto del bosque",
 	"block.buzzierbees.violet_scented_candle": "Vela aromática de violeta",
 	"block.buzzierbees.columbine_scented_candle": "Vela aromática de colombina",
@@ -180,7 +179,6 @@
 	"entity.buzzierbees.honey_slime": "Slime meloso",
 	"entity.buzzierbees.grizzly_bear": "Oso pardo",
 	"entity.buzzierbees.black_bear": "Oso negro",
-	"entity.buzzierbees.fly": "Mosca",
 	"entity.minecraft.villager.buzzierbees.apiarist": "Apicultor",
 	"entity.buzzierbees.bumblebee": "Abejorro",
 	

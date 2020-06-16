@@ -116,5 +116,4 @@ public class BBEffects {
 		PotionBrewing.addMix(PLACEBO.get(), BBItems.FOUR_LEAF_CLOVER.get(), LUCK_CURE.get());
 		PotionBrewing.addMix(LUCK_CURE.get(), Items.FERMENTED_SPIDER_EYE, UNLUCK_CURE.get());
 	}
-
 }

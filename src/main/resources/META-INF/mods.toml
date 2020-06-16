@@ -14,13 +14,13 @@ authors="bageldotjpg, Five, and Farcr" #optional
 description='''
 Buzzier Bees expands on the content introduced in 1.15. 
 Main features include wax, crystallized honey, and candles, and much more!
-Beekeepers, Brown Bears, and Butterflies will come soon!
+Grizzly Bears, Black Bears, and Bumblebees will come soon!
 '''
 
 [[dependencies.buzzierbees]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[31.1.49,)"
+    versionRange="[31.1.85,)"
     ordering="NONE"
     side="BOTH"
 
@@ -34,6 +34,6 @@ Beekeepers, Brown Bears, and Butterflies will come soon!
 [[dependencies.buzzierbees]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[1.0.4,)"
+    versionRange="[1.0.6,)"
     ordering="AFTER"
     side="BOTH"

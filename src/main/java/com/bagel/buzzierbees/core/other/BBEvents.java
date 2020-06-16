@@ -2,7 +2,6 @@ package com.bagel.buzzierbees.core.other;
 
 import java.util.Set;
 
-import com.bagel.buzzierbees.common.entities.FlyEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBItems;
@@ -10,17 +9,14 @@ import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.IGrowable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.goal.AvoidEntityGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.monster.SpiderEntity;
-import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.BeeEntity;
-import net.minecraft.entity.passive.horse.AbstractHorseEntity;
-import net.minecraft.entity.passive.horse.SkeletonHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -39,7 +35,6 @@ import net.minecraft.world.storage.loot.LootPool;
 import net.minecraft.world.storage.loot.LootTables;
 import net.minecraft.world.storage.loot.TableLootEntry;
 import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -60,28 +55,6 @@ public class BBEvents {
 		if (JUNGLE_LOOT_INJECTIONS.contains(event.getName())) {
 			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/jungle_temple")).weight(1).quality(0)).name("jungle_temple").build();
 			event.getTable().addPool(pool);
-		}
-	}
-	
-	@SubscribeEvent
-	public static void entityJoinWorldEvent(EntityJoinWorldEvent event) {
-		Entity entity = event.getEntity();
-//		if (entity instanceof ItemEntity && ((ItemEntity) entity).getItem().getItem().isIn(BBTags.CANDLES)) {
-//			event.getWorld().getEntitiesWithinAABB(FallingBlockEntity.class, entity.getBoundingBox()).stream()
-//			.filter(falling -> falling.getBlockState().getBlock() instanceof CandleBlock && entity.getPositionVec().equals(falling.getPositionVec()))
-//			.findAny().ifPresent(falling -> ((ItemEntity) entity).getItem().setCount(falling.getBlockState().get(CandleBlock.CANDLES)));
-//		}
-		if (entity instanceof ZombieEntity) {
-			ZombieEntity zombie = (ZombieEntity)event.getEntity();
-			zombie.goalSelector.addGoal(1, new AvoidEntityGoal<>(zombie, FlyEntity.class, 9.0F, 1.05D, 1.05D));
-		}
-		if (entity instanceof AbstractHorseEntity && !(entity instanceof SkeletonHorseEntity)) {
-			AbstractHorseEntity horse = (AbstractHorseEntity)event.getEntity();
-			horse.goalSelector.addGoal(1, new AvoidEntityGoal<>(horse, FlyEntity.class, 8.0F, 1.1D, 1.1D));
-		}
-		if (entity instanceof SpiderEntity) {
-			SpiderEntity spider = (SpiderEntity)event.getEntity();
-			spider.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(spider, FlyEntity.class, false));
 		}
 	}
 	
@@ -108,13 +81,30 @@ public class BBEvents {
 		World world = event.getWorld();
 		PlayerEntity player = event.getPlayer();
 		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
-		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.MODDED_POTTABLES)) {
+		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.Items.MODDED_POTTABLES)) {
 			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());
 			player.swingArm(event.getHand());
 			player.addStat(Stats.POT_FLOWER);
 			if (!player.abilities.isCreativeMode) item.shrink(1);
 		}
 	}
+	
+	@SubscribeEvent
+    public static void renewableFlowers(PlayerInteractEvent.RightClickBlock event) {
+        PlayerEntity player = event.getPlayer();
+        World world = event.getWorld();
+        BlockPos pos = event.getPos();
+        Block block = world.getBlockState(pos).getBlock();
+
+        ItemStack stack = player.getHeldItem(event.getHand());
+        if (stack.getItem() != Items.BONE_MEAL) return;
+        
+        if (!(block instanceof FlowerBlock) || block.isIn(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, world.getBlockState(pos)))) return;
+        if (!player.isCreative()) stack.shrink(1);
+        player.swingArm(event.getHand());
+        if (world.isRemote) BoneMealItem.spawnBonemealParticles(world, pos, world.rand.nextInt(12));
+        Block.spawnAsEntity(world, pos, new ItemStack(block, 1));
+    }
 	    
 	@SubscribeEvent
 	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
