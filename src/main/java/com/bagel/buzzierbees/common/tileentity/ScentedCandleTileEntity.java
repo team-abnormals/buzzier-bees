@@ -12,9 +12,7 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraftforge.registries.ObjectHolder;
 
-@ObjectHolder("buzzierbees")
 public class ScentedCandleTileEntity extends TileEntity implements ITickableTileEntity {
 
     public ScentedCandleTileEntity() {
@@ -31,7 +29,11 @@ public class ScentedCandleTileEntity extends TileEntity implements ITickableTile
         if (water != true && effect.get() != null) {
             for (LivingEntity entity : world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(pos).grow(d0))) {
          	   if (entity.getActivePotionEffect(effect.get()) == null || (entity.getActivePotionEffect(effect.get()).getDuration() <= 25))  {
-         		   entity.addPotionEffect(new EffectInstance(effect.get(), candle.duration, candle.level, true, true)); 
+         		   if (effect.get().isInstant()) {
+         			   if (this.world.getGameTime() % 300 == 0) entity.addPotionEffect(new EffectInstance(effect.get(), 5, candle.level, true, true)); 
+         		   } else {
+         			  entity.addPotionEffect(new EffectInstance(effect.get(), candle.duration, candle.level, true, true));  
+         		   }
          	   }
             }
         }
