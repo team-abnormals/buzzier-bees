@@ -10,15 +10,17 @@
 	"item.buzzierbees.honey_apple": "Яблоко в меду",
 	"item.buzzierbees.honey_bread": "Хлеб с мёдом",
 	"item.buzzierbees.glazed_porkchop": "Глазированная свинина",
+	
+	"item.buzzierbees.silverfish_bottle": "Бутылочка с чешуйницой",
+	"item.buzzierbees.endermite_bottle": "Бутылочка с эндермитом",
+	"item.buzzierbees.bee_bottle": "Бутылочка с пчелой",
 
 	"item.buzzierbees.hive_boat": "Ульевая лодка",
-	"entity.buzzierbees.boat": "Лодка",
 
 	"item.buzzierbees.honey_slime_spawn_egg": "Яйцо призыва медового слизня",
-	"entity.buzzierbees.honey_slime": "Медовый слизень",
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Яйцо призыва гризли",
-	"item.buzzierbees.royal_bee_spawn_egg": "Яйцо призыва пчелиной матки",
-	"item.buzzierbees.butterfly_spawn_egg": "Яйцо призыва бабочки",
+	"item.buzzierbees.black_bear_spawn_egg": "Яйцо призыва чёрного медведя",
+	"item.buzzierbees.bumblebee_spawn_egg": "Яйцо призыва шмеля",
 
 	"block.minecraft.beehive": "Дубовый улей",
 	"block.buzzierbees.spruce_beehive": "Еловый улей",
@@ -26,6 +28,23 @@
 	"block.buzzierbees.jungle_beehive": "Улей из тропического дерева",
 	"block.buzzierbees.acacia_beehive": "Акациевый улей",
 	"block.buzzierbees.dark_oak_beehive": "Улей из тёмного дуба",
+	"block.buzzierbees.crimson_beehive": "Багровый улей",
+	"block.buzzierbees.warped_beehive": "Искажённый улей",
+	
+	"block.buzzierbees.poise_beehive": "Пуазовый улей",
+	"block.buzzierbees.driftwood_beehive": "Плавниковый улей",
+	"block.buzzierbees.river_beehive": "Улей из речного дерева",
+	"block.buzzierbees.willow_beehive": "Ивовый улей",
+	"block.buzzierbees.wisteria_beehive": "Глициниевый улей",
+	"block.buzzierbees.rosewood_beehive": "Палисандровый улей",
+	"block.buzzierbees.yucca_beehive": "Юкковый улей",
+	"block.buzzierbees.kousa_beehive": "Кизиловый улей",
+	"block.buzzierbees.aspen_beehive": "Осиновые доски",
+	"block.buzzierbees.grimwood_beehive": "Улей из мрачного дерева",
+	"block.buzzierbees.maple_beehive": "Кленовый улей",
+	"block.buzzierbees.bamboo_beehive": "Бамбуковый улей",
+	
+	"block.buzzierbees.snake_block_beehive": "Улей из змеиного блока",
 	
 	"block.buzzierbees.bop_fir_beehive": "Пихтовый улей",
 	"block.buzzierbees.bop_dead_beehive": "Мёртвый улей",
@@ -44,6 +63,7 @@
 	"block.buzzierbees.crystallized_honey_block": "Блок кристаллизованного мёда",
 	"block.buzzierbees.clover_honey_block": "Блок клеверного мёда",
 	"block.buzzierbees.honey_lamp" : "Мёдо-лампа",
+	"block.buzzierbees.honey_pot": "Медовый горшок",
 	
 	"block.buzzierbees.honey_bricks": "Медовые кирпичи",
 	"block.buzzierbees.honey_brick_stairs": "Ступеньки из медовых кирпичей",
@@ -55,11 +75,17 @@
 	"block.buzzierbees.bluebell" : "Синий колокольчик",
 	"block.buzzierbees.violet": "Фиалка",
 	"block.buzzierbees.columbine" : "Водосбор",
-	"block.buzzierbees.daybloom" : "Днецвет",
 	"block.buzzierbees.jolyce" : "Джолис",
 	"block.buzzierbees.pink_clover": "Розовый клевер",
 	"block.buzzierbees.white_clover": "Белый клевер",
 	"block.buzzierbees.bird_of_paradise" : "Птица поднебесья",
+	
+	"block.buzzierbees.daybloom" : "Жёлтый гибискус",
+	"block.buzzierbees.orange_hibiscus" : "Оранжевый гибискус",
+	"block.buzzierbees.red_hibiscus" : "Красный гибискус",
+	"block.buzzierbees.pink_hibiscus" : "Розовый гибискус",
+	"block.buzzierbees.magenta_hibiscus" : "Сиреневый гибискус",
+	"block.buzzierbees.purple_hibiscus" : "Фиолетовый гибискус",
 	
 	"block.buzzierbees.hive_planks": "Ульевые доски",
 	"block.buzzierbees.hive_stairs": "Ульевые ступеньки",
@@ -129,10 +155,85 @@
 	"block.buzzierbees.bluebell_scented_candle": "Свечка из синего колокольчика",
 	"block.buzzierbees.violet_scented_candle": "Фиалковая свечка",
 	"block.buzzierbees.columbine_scented_candle": "Свечка из водосбора",
-	"block.buzzierbees.daybloom_scented_candle": "Свечка из днецвета",
 	"block.buzzierbees.jolyce_scented_candle": "Свечка из джолиса",
 	"block.buzzierbees.pink_clover_scented_candle": "Розовая клеверная свечка",
 	"block.buzzierbees.white_clover_scented_candle": "Белая клеверная свечка",
+	
+	"block.buzzierbees.daybloom_scented_candle": "Свечка из жёлтого гибискуса",
+	"block.buzzierbees.orange_hibiscus_scented_candle": "Свечка из оранжевого гибискуса",
+	"block.buzzierbees.red_hibiscus_scented_candle": "Свечка из красного гибискуса",
+	"block.buzzierbees.pink_hibiscus_scented_candle": "Свечка из розового гибискуса",
+	"block.buzzierbees.magenta_hibiscus_scented_candle": "Свечка из сиреневого красителя",
+	"block.buzzierbees.purple_hibiscus_scented_candle": "Свечка из фиолетовго красителя",
+	
+	"block.buzzierbees.warm_monkey_brush_scented_candle": "Свечка из тёплой обезьяньей кисти",
+	"block.buzzierbees.hot_monkey_brush_scented_candle": "Свечка из жгучей обезьяньей кисти",
+	"block.buzzierbees.scalding_monkey_brush_scented_candle": "Свечка из обезьяньей кисти",
+	"block.buzzierbees.gilia_scented_candle": "Гилиевая свечка",
+	"block.buzzierbees.yucca_flower_scented_candle": "Юкковая свечка",
+	"block.buzzierbees.pink_searocket_scented_candle": "Свечка из розовой морской горчицы",
+	"block.buzzierbees.white_searocket_scented_candle": "Свечка из белой морской горчицы",
+	"block.buzzierbees.autumn_crocus_scented_candle": "Свечка из осеннего крокуса",
+	
+	"entity.buzzierbees.boat": "Лодка",
+	"entity.buzzierbees.honey_slime": "Медовый слизень",
+	"entity.buzzierbees.grizzly_bear": "Медведь гризли",
+	"entity.buzzierbees.black_bear": "Чёрный медведь",
+	"entity.buzzierbees.bumblebee": "Шершень",
+	"entity.minecraft.villager.buzzierbees.apiarist": "Пчеловод",
+	
+	"item.minecraft.potion.effect.long_luck": "Зелье удачи",
+	"item.minecraft.potion.effect.strong_luck": "Зелье удачи",
+	"item.minecraft.potion.effect.unluck": "Зелье невезения",
+	"item.minecraft.potion.effect.long_unluck": "Зелье невезения",
+	"item.minecraft.potion.effect.strong_unluck": "Зелье невезения",	
+
+	"item.minecraft.splash_potion.effect.long_luck": "Взрывное зелье удачи",
+	"item.minecraft.splash_potion.effect.strong_luck": "Взрывное зелье удачи",
+	"item.minecraft.splash_potion.effect.unluck": "Взрывное зелье невезения",
+	"item.minecraft.splash_potion.effect.long_unluck": "Взрывное зелье невезения",
+	"item.minecraft.splash_potion.effect.strong_unluck": "Взрывное зелье невезения",
+	
+	"item.minecraft.lingering_potion.effect.long_luck": "Туманное зелье удачи",
+	"item.minecraft.lingering_potion.effect.strong_luck": "Туманное зелье удачи",
+	"item.minecraft.lingering_potion.effect.unluck": "Туманное зелье невезения",
+	"item.minecraft.lingering_potion.effect.long_unluck": "Туманное зелье невезения",
+	"item.minecraft.lingering_potion.effect.strong_unluck": "Туманное зелье невезения",
+	
+	"item.minecraft.tipped_arrow.effect.long_luck": "Стрела удачи",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "Стрела удачи",
+	"item.minecraft.tipped_arrow.effect.unluck": "Стрела невезения",
+	"item.minecraft.tipped_arrow.effect.long_unluck": "Стрела невезения",
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "Стрела невезения",
+	
+	"advancements.husbandry.clover_honey.title": "Пока не клевер",
+	"advancements.husbandry.clover_honey.description": "Создайте клеверный мёд",
+	
+	"advancements.husbandry.four_leaf_clover.title": "Сегодня повезло тебе...",
+	"advancements.husbandry.four_leaf_clover.description": "Найдите четырехлистный клевер",
+	
+	"advancements.nether.scented_candle.title": "Ароматерапия",
+	"advancements.nether.scented_candle.description": "Приобретите ароматическую свечку",
+	
+	"advancements.nether.all_scented_candles.title": "Полный аромат",
+	"advancements.nether.all_scented_candles.description": "Получите все ароматические свечки",
+	
+	"advancements.husbandry.honey_apple.title": "По яблоку в день",
+	"advancements.husbandry.honey_apple.description": "Сьешьте яблоко в меду, чтобы избавится от эффекта «левитация»",
+	
+	"advancements.husbandry.honey_bread.title": "Хорошое знамение",
+	"advancements.husbandry.honey_bread.description": "Съешьте хлеб с мёдом, чтобы избавится от эффекта «дурное знамение»",
+	
+	"advancements.husbandry.glazed_porkchop.title": "Колени дрожат, руки-мёд",
+	"advancements.husbandry.glazed_porkchop.description": "Сьешьте глазированную свинину, чтобы избавится от эффекта «утомление»",
+	
+	"advancements.nether.use_cure.title": "Лечебный мёд",
+	"advancements.nether.use_cure.description": "Выпейте микстуру, чтобы убрать отрицательный эффект",
+	
+	"tooltip.buzzierbees.is_baby": "Детёныш",
+	"tooltip.buzzierbees.has_nectar": "Опыляется",
+	"tooltip.buzzierbees.is_angry": "Злой",
+	"tooltip.buzzierbees.has_stung": "Без жала",
 
 	"effect.buzzierbees.anti_night_vision": "Очищение от ночного зрения",
 	"effect.buzzierbees.anti_speed": "Очищение от скорости",
@@ -199,13 +300,7 @@
 	"item.minecraft.potion.effect.strength_cure": "Микстура от силы",
 	"item.minecraft.potion.effect.weakness_cure": "Микстура от слабости",
 	"item.minecraft.potion.effect.luck_cure": "Микстура от удачи",
-	"item.minecraft.potion.effect.slow_falling_cure": "Микстура от плавного падения",
-	
-	"item.minecraft.potion.effect.long_luck": "Зелье удачи",
-	"item.minecraft.potion.effect.strong_luck": "Зелье удачи",
-	"item.minecraft.potion.effect.unluck": "Зелье невезения",
-	"item.minecraft.potion.effect.long_unluck": "Зелье невезения",
-	"item.minecraft.potion.effect.strong_unluck": "Зелье невезения",	
+	"item.minecraft.potion.effect.slow_falling_cure": "Микстура от плавного падения",	
 
 	"item.minecraft.splash_potion.effect.placebo": "Взрывное плацебо",
 	"item.minecraft.splash_potion.effect.night_vision_cure": "Взрывная микстура от ночного зрения",
@@ -241,12 +336,6 @@
 	"item.minecraft.splash_potion.effect.luck_cure": "Взрывная микстура от удачи",
 	"item.minecraft.splash_potion.effect.slow_falling_cure": "Взрывная микстура от плавного падения",
 
-	"item.minecraft.splash_potion.effect.long_luck": "Взрывное зелье удачи",
-	"item.minecraft.splash_potion.effect.strong_luck": "Взрывное зелье удачи",
-	"item.minecraft.splash_potion.effect.unluck": "Взрывное зелье невезения",
-	"item.minecraft.splash_potion.effect.long_unluck": "Взрывное зелье невезения",
-	"item.minecraft.splash_potion.effect.strong_unluck": "Взрывное зелье невезения",
-
 	"item.minecraft.lingering_potion.effect.placebo": "Туманное плацебо",
 	"item.minecraft.lingering_potion.effect.night_vision_cure": "Туманная микстура от ночного зрения",
 	"item.minecraft.lingering_potion.effect.speed_cure": "Туманная микстура от скорости",
@@ -281,12 +370,6 @@
 	"item.minecraft.lingering_potion.effect.luck_cure": "Туманная микстура от удачи",
 	"item.minecraft.lingering_potion.effect.slow_falling_cure": "Туманная микстура от плавного падения",
 	
-	"item.minecraft.lingering_potion.effect.long_luck": "Туманное зелье удачи",
-	"item.minecraft.lingering_potion.effect.strong_luck": "Туманное зелье удачи",
-	"item.minecraft.lingering_potion.effect.unluck": "Туманное зелье невезения",
-	"item.minecraft.lingering_potion.effect.long_unluck": "Туманное зелье невезения",
-	"item.minecraft.lingering_potion.effect.strong_unluck": "Туманное зелье невезения",
-	
 	"item.minecraft.tipped_arrow.effect.placebo": "Стрела-плацебо",
 	"item.minecraft.tipped_arrow.effect.night_vision_cure": "Стрела очищения от ночного зрения",
 	"item.minecraft.tipped_arrow.effect.speed_cure": "Стрела очищения от скорости",
@@ -320,33 +403,6 @@
 	"item.minecraft.tipped_arrow.effect.weakness_cure": "Стрела очищения от слабости",
 	"item.minecraft.tipped_arrow.effect.luck_cure": "Стрела очищения от удачи",
 	"item.minecraft.tipped_arrow.effect.slow_falling_cure": "Стрела очищения от плавного падения",
-	
-	"item.minecraft.tipped_arrow.effect.long_luck": "Стрела удачи",
-	"item.minecraft.tipped_arrow.effect.strong_luck": "Стрела удачи",
-	"item.minecraft.tipped_arrow.effect.unluck": "Стрела невезения",
-	"item.minecraft.tipped_arrow.effect.long_unluck": "Стрела невезения",
-	"item.minecraft.tipped_arrow.effect.strong_unluck": "Стрела невезения",
-
-	"advancements.husbandry.clover_honey.title": "Это еще не клевер",
-	"advancements.husbandry.clover_honey.description": "Создать клеверный мед с помощью листа клевера",
-	
-	"advancements.husbandry.four_leaf_clover.title": "На этот раз тебе повезло больше!",
-	"advancements.husbandry.four_leaf_clover.description": "Найдите четырехлистный клевер",
-	
-	"advancements.nether.scented_candle.title": "Ароматерапия",
-	"advancements.nether.scented_candle.description": "Приобретите ароматическую свечу",
-	
-	"advancements.nether.all_scented_candles.title": "Полный аромат",
-	"advancements.nether.all_scented_candles.description": "Получить все ароматические свечи",
-
-	"advancements.husbandry.honey_apple.title": "Яблоко в день",
-	"advancements.husbandry.honey_apple.description": "Используйте Яблоко в меду, чтобы вылечить левитацию",
-
-	"advancements.husbandry.honey_bread.title": "Окончание голодания",
-	"advancements.husbandry.honey_bread.description": "Используйте Хлеб с мёдом, чтобы вылечить голод",
-
-	"advancements.nether.use_cure.title": "Лечебный мёд",
-	"advancements.nether.use_cure.description": "Используйте микстуру",
 
 	"biome.buzzierbees.golden_fields": "Золотые поля",
 	"biome.buzzierbees.scarlet_hills": "Алые Холмы",
