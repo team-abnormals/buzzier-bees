@@ -5,20 +5,19 @@
       "item": "buzzierbees:candle"
     },
     {
-      "item": "buzzierbees:purple_hibiscus"
+      "item": "buzzierbees:pink_hibiscus"
     },
     {
       "item": "minecraft:popped_chorus_fruit"
     }
   ],
   "result": {
-    "item": "buzzierbees:purple_hibiscus_scented_candle",
+    "item": "buzzierbees:pink_hibiscus_scented_candle",
     "count": 1
   },
     "conditions": [
      {
       "type": "forge:mod_loaded",
-      "modid": "buzzierbees"
-    }
+			"modid": "environmental"    }
   ]
 }

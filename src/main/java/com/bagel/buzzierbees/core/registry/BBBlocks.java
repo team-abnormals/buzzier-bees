@@ -5,6 +5,7 @@ import com.bagel.buzzierbees.common.blocks.CrystallizedHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyLampBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyPotBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
+import com.bagel.buzzierbees.common.blocks.SoulCandleBlock;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.other.BBProperties;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
@@ -73,6 +74,8 @@ public class BBBlocks
 	// Candles //
 	
 	public static final RegistryObject<Block> CANDLE 			= HELPER.createBlock("candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SOUL_CANDLE 			= HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	
 	public static final RegistryObject<Block> WHITE_CANDLE 		= HELPER.createBlock("white_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_CANDLE 	= HELPER.createBlock("orange_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> MAGENTA_CANDLE 	= HELPER.createBlock("magenta_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -112,9 +115,9 @@ public class BBBlocks
 	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    			= HELPER.createCompatBlock("environmental", "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     			= HELPER.createCompatBlock("environmental", "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       			= HELPER.createCompatBlock("environmental", "violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY,    70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE     			= HELPER.createCompatBlock("environmental", "jolyce_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH,        70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE     			= HELPER.createCompatBlock("environmental", "dianthus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH,        70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    			= HELPER.createCompatBlock("environmental", "columbine_scented_candle", () -> new ScentedCandleBlock(() -> Effects.MINING_FATIGUE,  70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE		= HELPER.createCompatBlock("environmental", "daybloom_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE		= HELPER.createCompatBlock("environmental", "yellow_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE    	= HELPER.createCompatBlock("environmental", "orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE     		= HELPER.createCompatBlock("environmental", "red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_HIBISCUS_SCENTED_CANDLE    		= HELPER.createCompatBlock("environmental", "pink_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);

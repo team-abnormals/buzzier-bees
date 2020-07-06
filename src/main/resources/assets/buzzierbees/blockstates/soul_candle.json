@@ -1,5 +1,5 @@
 {
-    "variants": {
+	"variants": {
         "facing=north,candles=1": { "model": "buzzierbees:block/soul_candle" },
         "facing=south,candles=1": { "model": "buzzierbees:block/soul_candle", "y": 180 },
         "facing=west,candles=1":  { "model": "buzzierbees:block/soul_candle", "y": 270 },
@@ -16,5 +16,5 @@
         "facing=south,candles=4": { "model": "buzzierbees:block/four_soul_candles", "y": 180 },
         "facing=west,candles=4":  { "model": "buzzierbees:block/four_soul_candles", "y": 270 },
         "facing=east,candles=4":  { "model": "buzzierbees:block/four_soul_candles", "y": 90 }
-  }
+	}
 }

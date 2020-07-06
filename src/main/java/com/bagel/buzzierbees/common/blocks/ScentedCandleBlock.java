@@ -45,7 +45,7 @@ public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
    
    @Override
    public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-	   return (0.2F * state.get(CANDLES));	
+	   return (0.25F * state.get(CANDLES));	
    }
    
    @Override

@@ -35,9 +35,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @SuppressWarnings("deprecation")
 public class CandleBlock extends Block implements IWaterLoggable {
-	public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);
+	public static final IntegerProperty CANDLES 	= IntegerProperty.create("candles", 1, 4);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public static final BooleanProperty LIT = BooleanProperty.create("lit");
+	public static final BooleanProperty LIT 		= BooleanProperty.create("lit");
 	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 	
 	protected static final VoxelShape ONE_SHAPE 	= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
@@ -45,7 +45,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 	protected static final VoxelShape THREE_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 	protected static final VoxelShape FOUR_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 	
-	public CandleBlock(Block.Properties properties) {
+	public CandleBlock(Properties properties) {
 		super(properties);
     	this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true).with(LIT, true));
     }
@@ -68,7 +68,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 		}
 	}
 	
-	private boolean isInBadEnvironment(BlockState state) {
+	public boolean isInBadEnvironment(BlockState state) {
 		return state.get(WATERLOGGED);	
 	}
 	
@@ -84,14 +84,9 @@ public class CandleBlock extends Block implements IWaterLoggable {
 
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockPos blockpos = pos.down();
-	    return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
-	 }
-	
-	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return !state.getCollisionShape(worldIn, pos).project(Direction.UP).isEmpty();	
+		return hasEnoughSolidSide(worldIn, pos.down(), Direction.UP);
 	}
-	
+
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
 		return (0.1F * state.get(CANDLES));	
