@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.common.items;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
@@ -60,6 +61,7 @@ public class BeeBottleItem extends  Item {
             	BeeEntity bee = (BeeEntity)entity;
             	
                 int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
+                UUID angryAt = tag.contains("AngryAt") ? tag.getUniqueId("AngryAt") : null;
                 int age = tag.contains("Age") ? tag.getInt("Age") : 0;
                 boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
                 boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
@@ -70,6 +72,7 @@ public class BeeBottleItem extends  Item {
                 bee.setHasNectar(nectar);
                 bee.setHasStung(stung);
                 bee.func_230260_a__(anger);
+                if (angryAt != null) bee.func_230259_a_(angryAt);
                 bee.setHealth(health);
             }
 			return ActionResultType.SUCCESS;

@@ -102,10 +102,10 @@ public class BBEvents {
     			CompoundNBT tag = bottleItem.getOrCreateTag();
         		tag.putBoolean("HasNectar", bee.hasNectar());
         		tag.putBoolean("HasStung", bee.hasStung());
-        		tag.putInt("Anger", bee.func_230256_F__());
+        		tag.putInt("AngerTime", bee.func_230256_F__());
+        		if(bee.func_230257_G__() != null) tag.putUniqueId("AngryAt", bee.func_230257_G__());
         		tag.putInt("Age", bee.getGrowingAge());
         		tag.putFloat("Health", bee.getHealth());
-        		//tag.putString("Effects", bee.getActivePotionEffects().toString());
     		}
     		
     		
@@ -119,13 +119,13 @@ public class BBEvents {
 					itemstack.shrink(1);
 					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 					player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
-					player.swingArm(hand);
 					event.getTarget().remove();
 					if (itemstack.isEmpty()) {
     	    			player.setHeldItem(hand, bottleItem);
     	    		} else if (!player.inventory.addItemStackToInventory(bottleItem)) {
     	    			player.dropItem(bottleItem, false);
     	    		}
+					player.swingArm(hand);
 				}
 			}
 		}
