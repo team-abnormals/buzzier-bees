@@ -44,7 +44,6 @@ public class BuzzierBees
     	REGISTRY_HELPER.getDeferredTileEntityRegister().register(modEventBus);
 
     	BBBlocks.PAINTINGS.register(modEventBus);
-    	BBEffects.EFFECTS.register(modEventBus);
     	BBEffects.POTIONS.register(modEventBus);
     	BBVillagers.PROFESSIONS.register(modEventBus);
     	BBVillagers.POI_TYPES.register(modEventBus);
