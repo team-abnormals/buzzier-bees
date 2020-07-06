@@ -62,11 +62,11 @@ public class BBBlocks
 
 	// Honey Bricks //
 	
-	public static final RegistryObject<Block> HONEY_BRICKS              = HELPER.createBlock("honey_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEY_BRICK_STAIRS 	    = HELPER.createBlock("honey_brick_stairs", () -> new AbnormalsStairsBlock(HONEY_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEY_BRICK_SLAB 	        = HELPER.createBlock("honey_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEY_BRICK_WALL 	        = HELPER.createBlock("honey_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HONEY_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honey_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICKS              = HELPER.createBlock("honeycomb_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_STAIRS 	    = HELPER.createBlock("honeycomb_brick_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_SLAB 	        = HELPER.createBlock("honeycomb_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_WALL 	        = HELPER.createBlock("honeycomb_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
 	
 	// Flowers //
 	

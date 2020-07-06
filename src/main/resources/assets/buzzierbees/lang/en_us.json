@@ -36,11 +36,11 @@
 	"block.buzzierbees.honey_lamp" : "Honey Lamp",
 	"block.buzzierbees.honey_pot": "Honey Pot",
 	
-	"block.buzzierbees.honey_bricks": "Honey Bricks",
-	"block.buzzierbees.honey_brick_stairs": "Honey Brick Stairs",
-	"block.buzzierbees.honey_brick_slab": "Honey Brick Slab",
-	"block.buzzierbees.honey_brick_wall": "Honey Brick Wall",
-	"block.buzzierbees.honey_brick_vertical_slab": "Honey Brick Vertical Slab",
+	"block.buzzierbees.honeycomb_bricks": "Honeycomb Bricks",
+	"block.buzzierbees.honeycomb_brick_stairs": "Honeycomb Brick Stairs",
+	"block.buzzierbees.honeycomb_brick_slab": "Honeycomb Brick Slab",
+	"block.buzzierbees.honeycomb_brick_wall": "Honeycomb Brick Wall",
+	"block.buzzierbees.honeycomb_brick_vertical_slab": "Honeycomb Brick Vertical Slab",
 	
 	"block.buzzierbees.cartwheel" : "Cartwheel",
 	"block.buzzierbees.bluebell" : "Bluebell",

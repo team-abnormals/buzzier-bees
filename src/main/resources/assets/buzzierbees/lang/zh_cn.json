@@ -45,11 +45,11 @@
 	"block.buzzierbees.clover_honey_block": "三叶草蜂蜜块",
 	"block.buzzierbees.honey_lamp" : "蜂蜜灯",
 	
-	"block.buzzierbees.honey_bricks": "蜂蜜砖",
-	"block.buzzierbees.honey_brick_stairs": "蜂蜜砖楼梯",
-	"block.buzzierbees.honey_brick_slab": "蜂蜜砖台阶",
-	"block.buzzierbees.honey_brick_wall": "蜂蜜砖墙",
-	"block.buzzierbees.honey_brick_vertical_slab": "蜂蜜砖竖纹台阶",
+	"block.buzzierbees.honeycomb_bricks": "蜂蜜砖",
+	"block.buzzierbees.honeycomb_brick_stairs": "蜂蜜砖楼梯",
+	"block.buzzierbees.honeycomb_brick_slab": "蜂蜜砖台阶",
+	"block.buzzierbees.honeycomb_brick_wall": "蜂蜜砖墙",
+	"block.buzzierbees.honeycomb_brick_vertical_slab": "蜂蜜砖竖纹台阶",
 	
 	"block.buzzierbees.cartwheel" : "车轮菊",
 	"block.buzzierbees.bluebell" : "蓝铃花",

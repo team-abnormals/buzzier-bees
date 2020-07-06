@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:honeycomb"
+    }
+  },
+  "result": {
+    "item": "minecraft:honeycomb_block"
+  }
+}

@@ -65,11 +65,11 @@
 	"block.buzzierbees.honey_lamp" : "Lámpara de miel",
 	"block.buzzierbees.honey_pot": "Tarro de miel",
 	
-	"block.buzzierbees.honey_bricks": "Ladrillos melosos",
-	"block.buzzierbees.honey_brick_stairs": "Escaleras de ladrillos melosos",
-	"block.buzzierbees.honey_brick_slab": "Losa de ladrillos melosos",
-	"block.buzzierbees.honey_brick_wall": "Pared de ladrillos melosos",
-	"block.buzzierbees.honey_brick_vertical_slab": "Losa vertical de ladrillos melosos",
+	"block.buzzierbees.honeycomb_bricks": "Ladrillos melosos",
+	"block.buzzierbees.honeycomb_brick_stairs": "Escaleras de ladrillos melosos",
+	"block.buzzierbees.honeycomb_brick_slab": "Losa de ladrillos melosos",
+	"block.buzzierbees.honeycomb_brick_wall": "Pared de ladrillos melosos",
+	"block.buzzierbees.honeycomb_brick_vertical_slab": "Losa vertical de ladrillos melosos",
 	
 	"block.buzzierbees.cartwheel" : "Rehilete",
 	"block.buzzierbees.bluebell" : "Jacinto del bosque",

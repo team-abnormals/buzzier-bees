@@ -58,11 +58,11 @@
 	"block.buzzierbees.honey_lamp" : "蜂蜜燈",
 	"block.buzzierbees.honey_pot": "蜂蜜罐",
 	
-	"block.buzzierbees.honey_bricks": "蜂蜜磚",
-	"block.buzzierbees.honey_brick_stairs": "蜂蜜磚階梯",
-	"block.buzzierbees.honey_brick_slab": "蜂蜜磚半磚",
-	"block.buzzierbees.honey_brick_wall": "蜂蜜磚牆",
-	"block.buzzierbees.honey_brick_vertical_slab": "蜂蜜磚豎紋半磚",
+	"block.buzzierbees.honeycomb_bricks": "蜂蜜磚",
+	"block.buzzierbees.honeycomb_brick_stairs": "蜂蜜磚階梯",
+	"block.buzzierbees.honeycomb_brick_slab": "蜂蜜磚半磚",
+	"block.buzzierbees.honeycomb_brick_wall": "蜂蜜磚牆",
+	"block.buzzierbees.honeycomb_brick_vertical_slab": "蜂蜜磚豎紋半磚",
 	
 	"block.buzzierbees.cartwheel" : "車輪菊",
 	"block.buzzierbees.bluebell" : "藍鈴花",

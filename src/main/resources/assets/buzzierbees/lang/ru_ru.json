@@ -65,11 +65,11 @@
 	"block.buzzierbees.honey_lamp" : "Мёдо-лампа",
 	"block.buzzierbees.honey_pot": "Медовый горшок",
 	
-	"block.buzzierbees.honey_bricks": "Медовые кирпичи",
-	"block.buzzierbees.honey_brick_stairs": "Ступеньки из медовых кирпичей",
-	"block.buzzierbees.honey_brick_slab": "Плита из медовых кирпичей",
-	"block.buzzierbees.honey_brick_wall": "Ограда из медовых кирпичей",
-	"block.buzzierbees.honey_brick_vertical_slab": "Вертикальная плита из медовых кирпичей",
+	"block.buzzierbees.honeycomb_bricks": "Медовые кирпичи",
+	"block.buzzierbees.honeycomb_brick_stairs": "Ступеньки из медовых кирпичей",
+	"block.buzzierbees.honeycomb_brick_slab": "Плита из медовых кирпичей",
+	"block.buzzierbees.honeycomb_brick_wall": "Ограда из медовых кирпичей",
+	"block.buzzierbees.honeycomb_brick_vertical_slab": "Вертикальная плита из медовых кирпичей",
 
 	"block.buzzierbees.cartwheel" : "Меленка",
 	"block.buzzierbees.bluebell" : "Синий колокольчик",

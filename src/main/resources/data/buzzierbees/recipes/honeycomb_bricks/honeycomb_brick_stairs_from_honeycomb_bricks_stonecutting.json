@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "buzzierbees:honeycomb_bricks"
+  },
+  "result": "buzzierbees:honeycomb_brick_stairs",
+  "count": 1
+}
