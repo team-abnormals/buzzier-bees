@@ -53,20 +53,6 @@ public class BBBlocks
 	public static final RegistryObject<Block> WARPED_BEEHIVE	= HELPER.createBlock("warped_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), null);
 	public static final RegistryObject<Block> SNAKE_BLOCK_BEEHIVE = HELPER.createBlock("snake_block_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.DARK_PRISMARINE)), null);
 
-	// Compatability Beehives //
-	
-	public static final RegistryObject<Block> BOP_FIR_BEEHIVE 		= HELPER.createCompatBlock("biomesoplenty", "bop_fir_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_DEAD_BEEHIVE 		= HELPER.createCompatBlock("biomesoplenty", "bop_dead_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_PALM_BEEHIVE 		= HELPER.createCompatBlock("biomesoplenty", "bop_palm_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_MAGIC_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_magic_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_CHERRY_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_cherry_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_UMBRAN_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_umbran_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_WILLOW_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_willow_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_REDWOOD_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_redwood_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_HELLBARK_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_hellbark_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_MAHOGANY_BEEHIVE 	= HELPER.createCompatBlock("biomesoplenty", "bop_mahogany_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BOP_JACARANDA_BEEHIVE = HELPER.createCompatBlock("biomesoplenty", "bop_jacaranda_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-
 	// Misc //
 	
 	public static final RegistryObject<Block> WAX_BLOCK 				= HELPER.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).slipperiness(0.95F).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);

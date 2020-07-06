@@ -14,10 +14,7 @@
 	"item.buzzierbees.silverfish_bottle": "Bottle of Silverfish",
 	"item.buzzierbees.endermite_bottle": "Bottle of Endermite",
 	"item.buzzierbees.bee_bottle": "Bottle of Bee",
-	
-	"item.buzzierbees.hive_boat": "Hive Boat",
-	
-	"item.buzzierbees.honey_slime_spawn_egg": "Honey Slime Spawn Egg",
+		
 	"item.buzzierbees.grizzly_bear_spawn_egg": "Grizzly Bear Spawn Egg",
 	"item.buzzierbees.black_bear_spawn_egg": "Black Bear Spawn Egg",
 	"item.buzzierbees.bumblebee_spawn_egg": "Bumblebee Spawn Egg",
@@ -30,33 +27,7 @@
 	"block.buzzierbees.dark_oak_beehive": "Dark Oak Beehive",
 	"block.buzzierbees.crimson_beehive": "Crimson Beehive",
 	"block.buzzierbees.warped_beehive": "Warped Beehive",
-
-	"block.buzzierbees.poise_beehive": "Poise Beehive",
-	"block.buzzierbees.driftwood_beehive": "Driftwood Beehive",
-	"block.buzzierbees.river_beehive": "River Beehive",
-	"block.buzzierbees.willow_beehive": "Willow Beehive",
-	"block.buzzierbees.wisteria_beehive": "Wisteria Beehive",
-	"block.buzzierbees.rosewood_beehive": "Rosewood Beehive",
-	"block.buzzierbees.yucca_beehive": "Yucca Beehive",
-	"block.buzzierbees.kousa_beehive": "Kousa Beehive",
-	"block.buzzierbees.aspen_beehive": "Aspen Beehive",
-	"block.buzzierbees.grimwood_beehive": "Grimwood Beehive",
-	"block.buzzierbees.maple_beehive": "Maple Beehive",
-	"block.buzzierbees.bamboo_beehive": "Bamboo Beehive",
-	
 	"block.buzzierbees.snake_block_beehive": "Snake Block Beehive",
-	
-	"block.buzzierbees.bop_fir_beehive": "Fir Beehive",
-	"block.buzzierbees.bop_dead_beehive": "Dead Beehive",
-	"block.buzzierbees.bop_palm_beehive": "Palm Beehive",
-	"block.buzzierbees.bop_magic_beehive": "Magic Beehive",
-	"block.buzzierbees.bop_cherry_beehive": "Cherry Beehive",
-	"block.buzzierbees.bop_umbran_beehive": "Umbran Beehive",
-	"block.buzzierbees.bop_willow_beehive": "Willow Beehive",
-	"block.buzzierbees.bop_redwood_beehive": "Redwood Beehive",
-	"block.buzzierbees.bop_hellbark_beehive": "Hellbark Beehive",
-	"block.buzzierbees.bop_mahogany_beehive": "Mahogany Beehive",
-	"block.buzzierbees.bop_jacaranda_beehive": "Jacaranda Beehive",
 	
 	"block.buzzierbees.wax_block": "Wax Block",
 	
@@ -143,7 +114,6 @@
 	"block.buzzierbees.white_searocket_scented_candle": "White Searocket Scented Candle",
 	"block.buzzierbees.autumn_crocus_scented_candle": "Autumn Crocus Scented Candle",
 	
-	"entity.buzzierbees.honey_slime": "Honey Slime",
 	"entity.buzzierbees.grizzly_bear": "Grizzly Bear",
 	"entity.buzzierbees.black_bear": "Black Bear",
 	"entity.buzzierbees.bumblebee": "Bumblebee",
