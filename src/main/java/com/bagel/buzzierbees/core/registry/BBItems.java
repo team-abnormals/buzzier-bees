@@ -43,7 +43,6 @@ public class BBItems
 	public static final RegistryObject<Item> BOTTLE_OF_ENDERMITE 	= HELPER.createItem("endermite_bottle", () -> new BugBottleItem(EntityType.ENDERMITE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 	public static final RegistryObject<Item> BOTTLE_OF_BEE 			= HELPER.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 	
-	public static final RegistryObject<Item> HONEY_SLIME_SPAWN_EGG 	= HELPER.createSpawnEggItem("honey_slime", () -> BBEntities.HONEY_SLIME.get(), 16361240, 16361300);
 //	public static final RegistryObject<Item> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", () -> BBEntities.GRIZZLY_BEAR.get(), 5122062, 4136462);
 //	public static final RegistryObject<Item> BLACK_BEAR_SPAWN_EGG 	= HELPER.createSpawnEggItem("black_bear", () -> BBEntities.BLACK_BEAR.get(), 2565927, 12225639);
 //	public static final RegistryObject<Item> FLY_SPAWN_EGG 			= HELPER.createSpawnEggItem("fly", () -> BBEntities.FLY.get(), 920336, 7080720);

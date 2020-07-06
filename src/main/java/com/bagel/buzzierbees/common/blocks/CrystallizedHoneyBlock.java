@@ -1,7 +1,5 @@
 package com.bagel.buzzierbees.common.blocks;
 
-import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -31,15 +29,13 @@ public class CrystallizedHoneyBlock extends Block {
 	   }
 	
 	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-		if ( entityIn instanceof HoneySlimeEntity || entityIn instanceof ItemEntity ) {
-		} else {
+		if (!(entityIn instanceof ItemEntity)) {
 			worldIn.destroyBlock(pos, true);
 		}	
 	}
 	
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-		if ( entityIn instanceof HoneySlimeEntity || entityIn instanceof ItemEntity ) {
-		} else {
+		if (!(entityIn instanceof ItemEntity)) {
 			worldIn.destroyBlock(pos, true);
 		}
 	}

@@ -3,11 +3,9 @@ package com.bagel.buzzierbees.core.registry;
 import com.bagel.buzzierbees.client.render.BlackBearRenderer;
 import com.bagel.buzzierbees.client.render.BumblebeeRenderer;
 import com.bagel.buzzierbees.client.render.GrizzlyBearRenderer;
-import com.bagel.buzzierbees.client.render.HoneySlimeRenderer;
 import com.bagel.buzzierbees.common.entities.BlackBearEntity;
 import com.bagel.buzzierbees.common.entities.BumblebeeEntity;
 import com.bagel.buzzierbees.common.entities.GrizzlyBearEntity;
-import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
@@ -27,21 +25,18 @@ public class BBEntities
 {
 	public static final RegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER;
 
-	public static final RegistryObject<EntityType<HoneySlimeEntity>> 	HONEY_SLIME 	= HELPER.createLivingEntity("honey_slime", HoneySlimeEntity::new, EntityClassification.CREATURE, 1.02F, 1.02F);
 	public static final RegistryObject<EntityType<GrizzlyBearEntity>> 	GRIZZLY_BEAR 	= HELPER.createLivingEntity("grizzly_bear", GrizzlyBearEntity::new, EntityClassification.CREATURE, 1.4F, 1.4F);
 	public static final RegistryObject<EntityType<BlackBearEntity>> 	BLACK_BEAR 		= HELPER.createLivingEntity("black_bear", BlackBearEntity::new, EntityClassification.CREATURE, 1.1F, 1.1F);
 	public static final RegistryObject<EntityType<BumblebeeEntity>> 	BUMBLEBEE 		= HELPER.createLivingEntity("bumblebee", BumblebeeEntity::new, EntityClassification.CREATURE, 0.5F, 0.5F);
 
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering() {
-        RenderingRegistry.registerEntityRenderingHandler(HONEY_SLIME.get(), HoneySlimeRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BLACK_BEAR.get(), BlackBearRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BUMBLEBEE.get(), BumblebeeRenderer::new);
     }
     
     public static void registerAttributes() {
-    	GlobalEntityTypeAttributes.put(HONEY_SLIME.get(), HoneySlimeEntity.func_234200_m_().func_233813_a_());
     	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.func_234182_eX_().func_233813_a_());
     	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), BlackBearEntity.func_234182_eX_().func_233813_a_());
     	GlobalEntityTypeAttributes.put(BUMBLEBEE.get(), BumblebeeEntity.func_234182_eX_().func_233813_a_());
