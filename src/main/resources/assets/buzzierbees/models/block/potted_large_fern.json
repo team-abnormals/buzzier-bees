@@ -1,6 +1,0 @@
-{
-    "parent": "block/flower_pot_cross_tinted",
-    "textures": {
-        "plant": "buzzierbees:block/potted_large_fern"
-    }
-}

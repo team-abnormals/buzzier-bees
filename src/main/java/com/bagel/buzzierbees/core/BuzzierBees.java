@@ -11,7 +11,6 @@ import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBFeatures;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.bagel.buzzierbees.core.registry.BBVillagers;
-import com.bagel.buzzierbees.core.util.BlockColorManager;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.DispenserBlock;
@@ -84,7 +83,6 @@ public class BuzzierBees
 		BBEntities.registerRendering();
     	DeferredWorkQueue.runLater(() -> {
     		BBRenderLayers.setupRenderLayer();
-    		BlockColorManager.registerBlockColors();
     		BBItems.setupItemProperties();
     	});
 	}

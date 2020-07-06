@@ -1,7 +1,0 @@
-{
-    "parent": "buzzierbees:block/flower_pot_cube_all",
-    "textures": {
-        "plant": "buzzierbees:block/potted_melon",
-        "all": "buzzierbees:block/potted_melon"
-    }
-}

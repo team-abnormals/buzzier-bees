@@ -1,8 +1,0 @@
-{
-    "parent": "buzzierbees:block/flower_pot_cube_face",
-    "textures": {
-      "plant": "buzzierbees:block/potted_pumpkin",
-      "face": "buzzierbees:block/potted_carved_pumpkin",
-      "side": "buzzierbees:block/potted_pumpkin"
-    }
-}

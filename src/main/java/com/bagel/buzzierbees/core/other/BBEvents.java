@@ -3,12 +3,10 @@ package com.bagel.buzzierbees.core.other;
 import java.util.Set;
 
 import com.bagel.buzzierbees.core.BuzzierBees;
-import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBItems;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;
 import net.minecraft.entity.Entity;
@@ -25,8 +23,6 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.loot.TableLootEntry;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
@@ -36,10 +32,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ForgeRegistries;
 
 @EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBEvents {
@@ -55,37 +49,6 @@ public class BBEvents {
 		if (JUNGLE_LOOT_INJECTIONS.contains(event.getName())) {
 			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/jungle_temple")).weight(1).quality(0)).name("jungle_temple").build();
 			event.getTable().addPool(pool);
-		}
-	}
-	
-	@SuppressWarnings("deprecation")
-	@SubscribeEvent
-	public static void placeHangingPot(RightClickBlock event) {
-		BlockPos pos = event.getPos().offset(event.getFace());
-		ItemStack item = event.getItemStack();
-		World world = event.getWorld();
-		boolean validPos = Block.hasEnoughSolidSide(world, pos.up(), event.getFace()) || world.getBlockState(pos.up()).getBlock().isIn(BlockTags.LEAVES);
-		
-		if (((event.getFace() == Direction.DOWN && (validPos)) || (world.getBlockState(pos.down()).isAir() && world.getBlockState(pos).isValidPosition(world, pos) && (validPos))) && world.getBlockState(pos).isAir() && item.getItem() == Blocks.FLOWER_POT.asItem()) {
-			event.getWorld().setBlockState(pos, BBBlocks.HANGING_FLOWER_POT.get().getDefaultState());
-			event.getWorld().playSound(event.getPlayer(), pos, SoundEvents.BLOCK_STONE_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			event.getPlayer().swingArm(event.getHand());
-			if (!event.getPlayer().abilities.isCreativeMode) item.shrink(1);
-		}
-	}
-	
-	@SubscribeEvent
-	public static void potModdedItem(RightClickBlock event) {
-		BlockPos pos = event.getPos();
-		ItemStack item = event.getItemStack();
-		World world = event.getWorld();
-		PlayerEntity player = event.getPlayer();
-		ResourceLocation pot = new ResourceLocation(("buzzierbees:potted_" + item.getItem().getRegistryName().getPath()));
-		if (world.getBlockState(pos).getBlock() == Blocks.FLOWER_POT && ForgeRegistries.BLOCKS.containsKey(pot) && item.getItem().isIn(BBTags.Items.MODDED_POTTABLES)) {
-			world.setBlockState(pos, ForgeRegistries.BLOCKS.getValue(pot).getDefaultState());
-			player.swingArm(event.getHand());
-			player.addStat(Stats.POT_FLOWER);
-			if (!player.abilities.isCreativeMode) item.shrink(1);
 		}
 	}
 	

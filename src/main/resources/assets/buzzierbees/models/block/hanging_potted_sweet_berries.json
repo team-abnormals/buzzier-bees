@@ -1,6 +1,0 @@
-{
-    "parent": "buzzierbees:block/hanging_flower_pot_cross",
-    "textures": {
-        "plant": "block/sweet_berry_bush_stage3"
-    }
-}
