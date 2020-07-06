@@ -56,8 +56,8 @@ public class BBItems
 	public static void setupItemProperties() {
 		ItemModelsProperties.func_239418_a_(BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity) -> {
 			CompoundNBT compoundnbt = stack.getTag();
-			if (compoundnbt != null && compoundnbt.contains("Anger")) {
-				return (compoundnbt.getInt("Anger") > 0) ? 2 : 1;
+			if (compoundnbt != null && compoundnbt.contains("AngerTime")) {
+				return (compoundnbt.getInt("AngerTime") > 0) ? 2 : 1;
 			}
 			return 1;
 		});

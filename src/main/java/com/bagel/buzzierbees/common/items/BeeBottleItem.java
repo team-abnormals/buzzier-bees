@@ -87,7 +87,7 @@ public class BeeBottleItem extends  Item {
 				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_baby").func_240701_a_(atextformatting)));
 			}
 			if (compoundnbt.contains("Anger")) {
-				boolean angry = compoundnbt.getInt("Anger") > 0;
+				boolean angry = compoundnbt.getInt("AngerTime") > 0;
 				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_angry").func_240701_a_(atextformatting)));
 			}
 			if (compoundnbt.contains("HasNectar")) {
