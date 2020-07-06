@@ -35,7 +35,6 @@ public class BBItems
 	public static final RegistryObject<Item> HONEY_BREAD 		= HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.BAD_OMEN), new EffectInstance(Effects.POISON)}));
 	public static final RegistryObject<Item> GLAZED_PORKCHOP	= HELPER.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(BBFoods.GLAZED_PORKCHOP).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.MINING_FATIGUE), new EffectInstance(Effects.POISON)}));
 	
-	public static final RegistryObject<Item> HIVE_BOAT 			= HELPER.createBoatItem("hive", BBBlocks.HIVE_PLANKS);
 	public static final RegistryObject<Item> HONEY_WAND 		= HELPER.createItem("honey_wand", () -> new HoneyWandItem(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)));
 	public static final RegistryObject<Item> STICKY_HONEY_WAND 	= HELPER.createItem("sticky_honey_wand", () -> new StickyHoneyWandItem(new Item.Properties().containerItem(BBItems.HONEY_WAND.get()).food(BBFoods.STICKY_HONEY_WAND).maxStackSize(1).group(ItemGroup.TOOLS)));
 	

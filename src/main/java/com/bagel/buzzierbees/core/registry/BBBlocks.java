@@ -9,36 +9,20 @@ import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.util.PropertyUtils;
-import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
-import com.teamabnormals.abnormals_core.common.blocks.AbnormalsLadderBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsTallFlowerBlock;
-import com.teamabnormals.abnormals_core.common.blocks.BookshelfBlock;
 import com.teamabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
-import com.teamabnormals.abnormals_core.common.blocks.sign.AbnormalsStandingSignBlock;
-import com.teamabnormals.abnormals_core.common.blocks.sign.AbnormalsWallSignBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsWoodButtonBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.PlanksBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodDoorBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodFenceBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodFenceGateBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodPressurePlateBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodSlabBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodStairsBlock;
-import com.teamabnormals.abnormals_core.common.blocks.wood.WoodTrapDoorBlock;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.item.PaintingType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effects;
@@ -102,22 +86,6 @@ public class BBBlocks
 	public static final RegistryObject<Block> HONEY_LAMP 				= HELPER.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_POT 				= HELPER.createBlock("honey_pot", () -> new HoneyPotBlock(Block.Properties.from(Blocks.TERRACOTTA)), ItemGroup.DECORATIONS);
 
-	// Hive Planks //
-	
-	public static final RegistryObject<Block> HIVE_PLANKS          = HELPER.createBlock("hive_planks", () -> new PlanksBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), ItemGroup.BUILDING_BLOCKS); 
-	public static final RegistryObject<Block> HIVE_STAIRS          = HELPER.createBlock("hive_stairs", () -> new WoodStairsBlock(HIVE_PLANKS.get().getDefaultState(), Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HIVE_SLAB            = HELPER.createBlock("hive_slab", () -> new WoodSlabBlock(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HIVE_FENCE           = HELPER.createBlock("hive_fence", () -> new WoodFenceBlock(Block.Properties.from(Blocks.OAK_FENCE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HIVE_PRESSURE_PLATE  = HELPER.createBlock("hive_pressure_plate", () -> new WoodPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(Blocks.OAK_PRESSURE_PLATE).doesNotBlockMovement()), ItemGroup.REDSTONE);
-	public static final RegistryObject<Block> HIVE_TRAPDOOR        = HELPER.createBlock("hive_trapdoor", () -> new WoodTrapDoorBlock(Block.Properties.from(Blocks.OAK_TRAPDOOR).notSolid()), ItemGroup.REDSTONE);
-	public static final RegistryObject<Block> HIVE_FENCE_GATE      = HELPER.createBlock("hive_fence_gate", () -> new WoodFenceGateBlock(Block.Properties.from(Blocks.OAK_FENCE_GATE)), ItemGroup.REDSTONE);
-	public static final RegistryObject<Block> HIVE_BUTTON          = HELPER.createBlock("hive_button", () -> new AbnormalsWoodButtonBlock(Block.Properties.from(Blocks.OAK_BUTTON).doesNotBlockMovement()), ItemGroup.REDSTONE);
-	public static final RegistryObject<Block> HIVE_DOOR            = HELPER.createBlock("hive_door", () -> new WoodDoorBlock(Block.Properties.from(Blocks.OAK_DOOR).notSolid()), ItemGroup.REDSTONE);
-	public static final RegistryObject<Block> VERTICAL_HIVE_PLANKS = HELPER.createCompatBlock("quark", "vertical_hive_planks", () -> new Block(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HIVE_VERTICAL_SLAB   = HELPER.createCompatBlock("quark", "hive_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HIVE_PLANKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HIVE_LADDER          = HELPER.createCompatBlock("quark", "hive_ladder", () -> new AbnormalsLadderBlock(Block.Properties.from(Blocks.LADDER).notSolid()), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HIVE_BOOKSHELF       = HELPER.createCompatBlock("quark", "hive_bookshelf", () -> new BookshelfBlock(Block.Properties.from(Blocks.BOOKSHELF).notSolid()), ItemGroup.DECORATIONS);
-	
 	// Honey Bricks //
 	
 	public static final RegistryObject<Block> HONEY_BRICKS              = HELPER.createBlock("honey_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
@@ -125,7 +93,6 @@ public class BBBlocks
 	public static final RegistryObject<Block> HONEY_BRICK_SLAB 	        = HELPER.createBlock("honey_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEY_BRICK_WALL 	        = HELPER.createBlock("honey_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honey_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEY_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> SIGNS = HELPER.createSignBlock("hive", MaterialColor.YELLOW);
 	
 	// Flowers //
 	

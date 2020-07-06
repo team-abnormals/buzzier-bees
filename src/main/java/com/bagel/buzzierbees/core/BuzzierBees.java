@@ -64,7 +64,6 @@ public class BuzzierBees
     {
 		DeferredWorkQueue.runLater(() -> {
 			BBCompostables.registerCompostables();
-			BBFlammables.registerFlammables();
 			BBEffects.addBrewingRecipes();
 			BBFeatures.addFeatures();
 			BBEntities.addEntitySpawns();

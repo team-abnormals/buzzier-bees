@@ -1,8 +1,0 @@
-{
-    "parent": "buzzierbees:block/vertical_slab",
-    "textures": {
-        "side": "buzzierbees:block/hive_planks",
-        "top": "buzzierbees:block/hive_planks",
-        "bottom": "buzzierbees:block/hive_planks"
-    }
-}

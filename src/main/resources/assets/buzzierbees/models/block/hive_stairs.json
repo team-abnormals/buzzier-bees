@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "buzzierbees:block/hive_planks",
-        "top": "buzzierbees:block/hive_planks",
-        "side": "buzzierbees:block/hive_planks"
-    }
-}

@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "buzzierbees:block/hive_ladder" },
-        "facing=east":  { "model": "buzzierbees:block/hive_ladder", "y": 90 },
-        "facing=south": { "model": "buzzierbees:block/hive_ladder", "y": 180 },
-        "facing=west":  { "model": "buzzierbees:block/hive_ladder", "y": 270 }
-    }
-}
