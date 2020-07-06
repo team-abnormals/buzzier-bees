@@ -130,24 +130,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> GREEN_CANDLE 		= HELPER.createBlock("green_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> RED_CANDLE 		= HELPER.createBlock("red_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLACK_CANDLE 		= HELPER.createBlock("black_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	
-	public static final RegistryObject<Block> AMBER_CANDLE 		  = HELPER.createCompatBlock("flamboyant", "amber_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BEIGE_CANDLE 		  = HELPER.createCompatBlock("flamboyant", "beige_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> CREAM_CANDLE 		  = HELPER.createCompatBlock("flamboyant", "cream_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DARK_GREEN_CANDLE   = HELPER.createCompatBlock("flamboyant", "dark_green_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> FOREST_GREEN_CANDLE = HELPER.createCompatBlock("flamboyant", "forest_green_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HOT_PINK_CANDLE 	  = HELPER.createCompatBlock("flamboyant", "hot_pink_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> INDIGO_CANDLE 	  = HELPER.createCompatBlock("flamboyant", "indigo_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAROON_CANDLE 	  = HELPER.createCompatBlock("flamboyant", "maroon_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> NAVY_CANDLE 	      = HELPER.createCompatBlock("flamboyant", "navy_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> OLIVE_CANDLE 		  = HELPER.createCompatBlock("flamboyant", "olive_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PALE_GREEN_CANDLE   = HELPER.createCompatBlock("flamboyant", "pale_green_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PALE_PINK_CANDLE 	  = HELPER.createCompatBlock("flamboyant", "pale_pink_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PALE_YELLOW_CANDLE  = HELPER.createCompatBlock("flamboyant", "pale_yellow_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SKY_BLUE_CANDLE 	  = HELPER.createCompatBlock("flamboyant", "sky_blue_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SLATE_GRAY_CANDLE   = HELPER.createCompatBlock("flamboyant", "slate_gray_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET_CANDLE 	  = HELPER.createCompatBlock("flamboyant", "violet_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	
+
 	// Scented Candles //
 	
 	public static final RegistryObject<Block> ALLIUM_SCENTED_CANDLE             = HELPER.createBlock("allium_scented_candle", () -> new ScentedCandleBlock(() -> Effects.FIRE_RESISTANCE, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
