@@ -28,20 +28,8 @@ public class BBTrades {
 	@SubscribeEvent
 	public static void onWandererTradesEvent(WandererTradesEvent event) {
 		List<ITrade> trades = event.getGenericTrades();
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.CARTWHEEL.get(), 2, 1, 5, 1));
 		trades.add(new ItemsForEmeraldsTrade(BBBlocks.PINK_CLOVER.get(), 1, 1, 6, 1));
 		trades.add(new ItemsForEmeraldsTrade(BBBlocks.WHITE_CLOVER.get(), 1, 1, 6, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.VIOLET.get(), 1, 1, 12, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.BLUEBELL.get(), 1, 1, 8, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.COLUMBINE.get(), 1, 1, 7, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.DIANTHUS.get(), 1, 1, 8, 1));
-
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.YELLOW_HIBISCUS.get(), 1, 1, 12, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.ORANGE_HIBISCUS.get(), 1, 1, 12, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.RED_HIBISCUS.get(), 1, 1, 12, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.PINK_HIBISCUS.get(), 1, 1, 12, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.MAGENTA_HIBISCUS.get(), 1, 1, 12, 1));
-		trades.add(new ItemsForEmeraldsTrade(BBBlocks.PURPLE_HIBISCUS.get(), 1, 1, 12, 1));
 	}
 	
 	
@@ -58,6 +46,7 @@ public class BBTrades {
 		Block whiteDelphinium = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("bloomful:white_delphinium"));
 		Block pinkDelphinium = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("bloomful:pink_delphinium"));
 		Block purpleDelphinium = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("bloomful:purple_delphinium"));
+		Block birdOfParadise = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("environmental:bird_of_paradise"));
 
 		List<ITrade> novice = event.getTrades().get(1);
 		List<ITrade> apprentice = event.getTrades().get(2);
@@ -94,7 +83,10 @@ public class BBTrades {
 			journeyman.add(new EmeraldsForItemsTrade(Blocks.LILAC, 1, 1, 12, 15));
 			journeyman.add(new EmeraldsForItemsTrade(Blocks.PEONY, 1, 1, 12, 15));
 			journeyman.add(new EmeraldsForItemsTrade(Blocks.SUNFLOWER, 1, 1, 12, 15));
-			journeyman.add(new EmeraldsForItemsTrade(BBBlocks.BIRD_OF_PARADISE.get(), 1, 1, 12, 15));
+			if (ModList.get().isLoaded("upgrade_aquatic")) {
+				journeyman.add(new EmeraldsForItemsTrade(birdOfParadise, 1, 1, 12, 15));
+
+			}
 			if (ModList.get().isLoaded("upgrade_aquatic")) {
 				journeyman.add(new EmeraldsForItemsTrade(floweringRush, 1, 1, 12, 15));
 			}

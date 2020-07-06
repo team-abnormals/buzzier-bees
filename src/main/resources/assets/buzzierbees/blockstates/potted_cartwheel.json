@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "buzzierbees:block/potted_cartwheel" },
-        "facing=south": { "model": "buzzierbees:block/potted_cartwheel", "y": 180 },
-        "facing=west":  { "model": "buzzierbees:block/potted_cartwheel", "y": 270 },
-        "facing=east":  { "model": "buzzierbees:block/potted_cartwheel", "y": 90 }
-    }
-}

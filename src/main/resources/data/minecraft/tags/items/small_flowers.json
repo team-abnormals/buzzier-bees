@@ -2,18 +2,6 @@
   "replace": false,
   "values": [
     "buzzierbees:white_clover",
-    "buzzierbees:pink_clover",
-    "buzzierbees:violet",
-    "buzzierbees:jolyce",
-    "buzzierbees:bluebell",
-    "buzzierbees:columbine",
-    "buzzierbees:cartwheel",
-    
-    "buzzierbees:daybloom",
-    "buzzierbees:orange_hibiscus",
-    "buzzierbees:red_hibiscus",
-    "buzzierbees:pink_hibiscus",
-    "buzzierbees:magenta_hibiscus",
-    "buzzierbees:purple_hibiscus"
+    "buzzierbees:pink_clover"
   ]
 }

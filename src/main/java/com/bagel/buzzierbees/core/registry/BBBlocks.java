@@ -1,18 +1,15 @@
 package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.common.blocks.CandleBlock;
-import com.bagel.buzzierbees.common.blocks.CartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.CrystallizedHoneyBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyLampBlock;
 import com.bagel.buzzierbees.common.blocks.HoneyPotBlock;
-import com.bagel.buzzierbees.common.blocks.PottedCartwheelBlock;
 import com.bagel.buzzierbees.common.blocks.ScentedCandleBlock;
 import com.bagel.buzzierbees.core.BuzzierBees;
 import com.bagel.buzzierbees.core.other.BBProperties;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
-import com.teamabnormals.abnormals_core.common.blocks.AbnormalsTallFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
@@ -70,20 +67,8 @@ public class BBBlocks
 	
 	// Flowers //
 	
-	public static final RegistryObject<Block> CARTWHEEL 		= HELPER.createBlock("cartwheel", () -> new CartwheelBlock(Effects.SPEED, 11, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUEBELL 			= HELPER.createBlock("bluebell", () -> new AbnormalsFlowerBlock(Effects.WATER_BREATHING, 6, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET 			= HELPER.createBlock("violet", () -> new AbnormalsFlowerBlock(Effects.INVISIBILITY, 6, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DIANTHUS 			= HELPER.createBlock("jolyce", () -> new AbnormalsFlowerBlock(Effects.STRENGTH, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> COLUMBINE 		= HELPER.createBlock("columbine", () -> new AbnormalsFlowerBlock(Effects.MINING_FATIGUE, 6, BBProperties.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_HIBISCUS	= HELPER.createBlock("daybloom", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_HIBISCUS 	= HELPER.createBlock("orange_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_HIBISCUS 		= HELPER.createBlock("red_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_HIBISCUS 	= HELPER.createBlock("pink_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAGENTA_HIBISCUS 	= HELPER.createBlock("magenta_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PURPLE_HIBISCUS 	= HELPER.createBlock("purple_hibiscus", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 8, BBProperties.FLOWER), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BIRD_OF_PARADISE 	= HELPER.createBlock("bird_of_paradise", () -> new AbnormalsTallFlowerBlock(BBProperties.FLOWER), ItemGroup.DECORATIONS);
 
 	// Candles //
 	
@@ -121,20 +106,20 @@ public class BBBlocks
 	public static final RegistryObject<Block> RED_TULIP_SCENTED_CANDLE          = HELPER.createBlock("red_tulip_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WEAKNESS,        70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WITHER_ROSE_SCENTED_CANDLE        = HELPER.createBlock("wither_rose_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WITHER,          70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	
-	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    = HELPER.createBlock("cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     = HELPER.createBlock("bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       = HELPER.createBlock("violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY,    70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE     = HELPER.createBlock("jolyce_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH,        70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    = HELPER.createBlock("columbine_scented_candle", () -> new ScentedCandleBlock(() -> Effects.MINING_FATIGUE,  70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE = HELPER.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK,          70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  = HELPER.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK,          70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE	= HELPER.createBlock("daybloom_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE    = HELPER.createBlock("orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE     	= HELPER.createBlock("red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_HIBISCUS_SCENTED_CANDLE    	= HELPER.createBlock("pink_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAGENTA_HIBISCUS_SCENTED_CANDLE   = HELPER.createBlock("magenta_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PURPLE_HIBISCUS_SCENTED_CANDLE    = HELPER.createBlock("purple_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE 	= HELPER.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK,          70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  	= HELPER.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK,          70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	
+	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    			= HELPER.createCompatBlock("environmental", "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     			= HELPER.createCompatBlock("environmental", "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       			= HELPER.createCompatBlock("environmental", "violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY,    70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE     			= HELPER.createCompatBlock("environmental", "jolyce_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH,        70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    			= HELPER.createCompatBlock("environmental", "columbine_scented_candle", () -> new ScentedCandleBlock(() -> Effects.MINING_FATIGUE,  70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE		= HELPER.createCompatBlock("environmental", "daybloom_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE    	= HELPER.createCompatBlock("environmental", "orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE     		= HELPER.createCompatBlock("environmental", "red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_HIBISCUS_SCENTED_CANDLE    		= HELPER.createCompatBlock("environmental", "pink_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAGENTA_HIBISCUS_SCENTED_CANDLE   	= HELPER.createCompatBlock("environmental", "magenta_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PURPLE_HIBISCUS_SCENTED_CANDLE    	= HELPER.createCompatBlock("environmental", "purple_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING,         70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WARM_MONKEY_BRUSH_SCENTED_CANDLE    	= HELPER.createCompatBlock("atmospheric", "warm_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("atmospheric") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("atmospheric:relief")) : null), 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HOT_MONKEY_BRUSH_SCENTED_CANDLE    	= HELPER.createCompatBlock("atmospheric", "hot_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("atmospheric") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("atmospheric:relief")): null), 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> SCALDING_MONKEY_BRUSH_SCENTED_CANDLE  = HELPER.createCompatBlock("atmospheric", "scalding_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("atmospheric") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("atmospheric:relief")) : null), 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -146,18 +131,6 @@ public class BBBlocks
 	
 	// Flower Pots //
 		
-	public static final RegistryObject<Block> POTTED_CARTWHEEL 	  		= HELPER.createBlockNoItem("potted_cartwheel", () -> new PottedCartwheelBlock(CARTWHEEL.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_BLUEBELL     		= HELPER.createBlockNoItem("potted_bluebell", () -> new FlowerPotBlock(BLUEBELL.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_VIOLET 	  		= HELPER.createBlockNoItem("potted_violet", () -> new FlowerPotBlock(VIOLET.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_DIANTHUS 	  		= HELPER.createBlockNoItem("potted_jolyce", () -> new FlowerPotBlock(DIANTHUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_COLUMBINE 	  		= HELPER.createBlockNoItem("potted_columbine", () -> new FlowerPotBlock(COLUMBINE.get(), BBProperties.POT));
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER 		= HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.POT));
 	public static final RegistryObject<Block> POTTED_PINK_CLOVER  		= HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_YELLOW_HIBISCUS	= HELPER.createBlockNoItem("potted_daybloom", () -> new FlowerPotBlock(YELLOW_HIBISCUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_ORANGE_HIBISCUS	= HELPER.createBlockNoItem("potted_orange_hibiscus", () -> new FlowerPotBlock(ORANGE_HIBISCUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_RED_HIBISCUS 		= HELPER.createBlockNoItem("potted_red_hibiscus", () -> new FlowerPotBlock(RED_HIBISCUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_PINK_HIBISCUS  	= HELPER.createBlockNoItem("potted_pink_hibiscus", () -> new FlowerPotBlock(PINK_HIBISCUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_MAGENTA_HIBISCUS	= HELPER.createBlockNoItem("potted_magenta_hibiscus", () -> new FlowerPotBlock(MAGENTA_HIBISCUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_PURPLE_HIBISCUS	= HELPER.createBlockNoItem("potted_purple_hibiscus", () -> new FlowerPotBlock(PURPLE_HIBISCUS.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_BIRD_OF_PARADISE	= HELPER.createBlockNoItem("potted_bird_of_paradise", () -> new FlowerPotBlock(BIRD_OF_PARADISE.get(), BBProperties.POT));
 }
