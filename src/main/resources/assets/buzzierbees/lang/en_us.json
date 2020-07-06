@@ -1,11 +1,11 @@
 {
 	"item.buzzierbees.wax": "Wax",
 	"item.buzzierbees.crystallized_honey": "Crystallized Honey",
-	"item.buzzierbees.clover_honey_bottle": "Clover Honey Bottle",
-	"item.buzzierbees.clover_leaf": "Clover Leaf",
 	"item.buzzierbees.four_leaf_clover": "Four Leaf Clover",
+	
 	"item.buzzierbees.honey_wand": "Honey Wand",
 	"item.buzzierbees.sticky_honey_wand": "Sticky Honey Wand",
+	
 	"item.buzzierbees.honey_apple": "Honey Apple",
 	"item.buzzierbees.honey_bread": "Honey Bread",
 	"item.buzzierbees.glazed_porkchop": "Glazed Porkchop",
@@ -29,9 +29,8 @@
 	"block.buzzierbees.snake_block_beehive": "Snake Block Beehive",
 	
 	"block.buzzierbees.wax_block": "Wax Block",
-	
 	"block.buzzierbees.crystallized_honey_block": "Crystallized Honey Block",
-	"block.buzzierbees.clover_honey_block": "Clover Honey Block",
+	
 	"block.buzzierbees.honey_lamp" : "Honey Lamp",
 	"block.buzzierbees.honey_pot": "Honey Pot",
 	
@@ -92,7 +91,6 @@
 	"block.buzzierbees.pink_hibiscus_scented_candle": "Pink Hibiscus Scented Candle",
 	"block.buzzierbees.magenta_hibiscus_scented_candle": "Magenta Hibiscus Scented Candle",
 	"block.buzzierbees.purple_hibiscus_scented_candle": "Purple Hibiscus Scented Candle",
-	
 	"block.buzzierbees.warm_monkey_brush_scented_candle": "Warm Monkey Brush Scented Candle",
 	"block.buzzierbees.hot_monkey_brush_scented_candle": "Hot Monkey Brush Scented Candle",
 	"block.buzzierbees.scalding_monkey_brush_scented_candle": "Scalding Monkey Brush Scented Candle",
