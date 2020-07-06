@@ -148,7 +148,6 @@ public class BBTrades {
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.SCALDING_MONKEY_BRUSH_SCENTED_CANDLE.get()));
 			}
 			master.add(new ItemsForEmeraldsTrade(BBItems.FOUR_LEAF_CLOVER.get(), 13, 1, 5, 30));
-			master.add(new ItemsForEmeraldsTrade(BBItems.BEE_SOUP.get(), 1, 1, 8, 30));
 		}
     }
 }

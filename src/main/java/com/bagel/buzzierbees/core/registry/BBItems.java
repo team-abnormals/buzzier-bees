@@ -1,6 +1,5 @@
 package com.bagel.buzzierbees.core.registry;
 import com.bagel.buzzierbees.common.items.BeeBottleItem;
-import com.bagel.buzzierbees.common.items.BeeSoupItem;
 import com.bagel.buzzierbees.common.items.BugBottleItem;
 import com.bagel.buzzierbees.common.items.CuringItem;
 import com.bagel.buzzierbees.common.items.HoneyWandItem;
@@ -30,7 +29,6 @@ public class BBItems
 	public static final RegistryObject<Item> CRYSTALLIZED_HONEY 	= HELPER.createItem("crystallized_honey", () -> new Item(new Item.Properties().food(BBFoods.CRYSTALLIZED_HONEY).group(ItemGroup.FOOD)));
 	public static final RegistryObject<Item> FOUR_LEAF_CLOVER 		= HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties().group(ItemGroup.BREWING)));
 
-	public static final RegistryObject<Item> BEE_SOUP 			= HELPER.createItem("bee_soup", () -> new BeeSoupItem(new Item.Properties().maxStackSize(1).food(BBFoods.BEE_SOUP).group(ItemGroup.FOOD)));
 	public static final RegistryObject<Item> HONEY_APPLE 		= HELPER.createItem("honey_apple", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_APPLE).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.LEVITATION), new EffectInstance(Effects.POISON)}));
 	public static final RegistryObject<Item> HONEY_BREAD 		= HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.BAD_OMEN), new EffectInstance(Effects.POISON)}));
 	public static final RegistryObject<Item> GLAZED_PORKCHOP	= HELPER.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(BBFoods.GLAZED_PORKCHOP).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.MINING_FATIGUE), new EffectInstance(Effects.POISON)}));
