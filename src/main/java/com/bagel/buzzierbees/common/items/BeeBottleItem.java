@@ -16,7 +16,6 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -31,13 +30,6 @@ public class BeeBottleItem extends  Item {
 	
 	public BeeBottleItem(EntityType<?> typeIn, Item.Properties properties) {
 		super(properties);
-		this.addPropertyOverride(new ResourceLocation("angry"), (stack, world, entity) -> {
-			CompoundNBT compoundnbt = stack.getTag();
-			if (compoundnbt != null && compoundnbt.contains("Anger")) {
-				return (compoundnbt.getInt("Anger") > 0) ? 2 : 1;
-			}
-			return 1;
-		});
 	}
 
 	public ActionResultType onItemUse(ItemUseContext context) {
@@ -67,7 +59,7 @@ public class BeeBottleItem extends  Item {
             if(entity instanceof BeeEntity && tag != null) {
             	BeeEntity bee = (BeeEntity)entity;
             	
-                int anger = tag.contains("Anger") ? tag.getInt("Anger") : 0;
+                int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
                 int age = tag.contains("Age") ? tag.getInt("Age") : 0;
                 boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
                 boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
@@ -77,7 +69,7 @@ public class BeeBottleItem extends  Item {
                 bee.setGrowingAge(age);
                 bee.setHasNectar(nectar);
                 bee.setHasStung(stung);
-                bee.setAnger(anger);
+                bee.func_230260_a__(anger);
                 bee.setHealth(health);
             }
 			return ActionResultType.SUCCESS;
@@ -92,19 +84,19 @@ public class BeeBottleItem extends  Item {
 			TextFormatting[] atextformatting = new TextFormatting[] {TextFormatting.GRAY};
 			if (compoundnbt.contains("Age")) {
 				boolean baby = compoundnbt.getInt("Age") < 0;
-				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_baby").applyTextStyles(atextformatting)));
+				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_baby").func_240701_a_(atextformatting)));
 			}
 			if (compoundnbt.contains("Anger")) {
 				boolean angry = compoundnbt.getInt("Anger") > 0;
-				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_angry").applyTextStyles(atextformatting)));
+				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.is_angry").func_240701_a_(atextformatting)));
 			}
 			if (compoundnbt.contains("HasNectar")) {
 				boolean nectar = compoundnbt.getBoolean("HasNectar");
-				if (nectar) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.has_nectar").applyTextStyles(atextformatting)));
+				if (nectar) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.has_nectar").func_240701_a_(atextformatting)));
 			}
 			if (compoundnbt.contains("HasStung")) {
 				boolean stung = compoundnbt.getBoolean("HasStung");
-				if (stung) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.has_stung").applyTextStyles(atextformatting)));
+				if (stung) tooltip.add((new TranslationTextComponent("tooltip.buzzierbees.has_stung").func_240701_a_(atextformatting)));
 			}
 		}
 	}

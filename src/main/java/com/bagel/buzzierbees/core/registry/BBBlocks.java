@@ -59,7 +59,7 @@ public class BBBlocks
 {	
 	public static final RegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER;
 	
-	public static final DeferredRegister<PaintingType> PAINTINGS = new DeferredRegister<>(ForgeRegistries.PAINTING_TYPES, BuzzierBees.MODID);
+	public static final DeferredRegister<PaintingType> PAINTINGS = DeferredRegister.create(ForgeRegistries.PAINTING_TYPES, BuzzierBees.MODID);
 	public static final RegistryObject<PaintingType> CANDLE_PAINTING = PAINTINGS.register("candle", () -> new PaintingType(32, 48));
 	
 	// Beehives //

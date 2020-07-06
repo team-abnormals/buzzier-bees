@@ -12,9 +12,12 @@ import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 
@@ -51,4 +54,14 @@ public class BBItems
 //	public static final RegistryObject<Item> CLOVER_LEAF 	= ModUtils.createItem("clover_leaf", () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
 //	public static final RegistryObject<Item> BOTTLE_OF_FLY = HELPER.createItem("fly_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 //	public static final RegistryObject<Item> BOTTLE_OF_BUMBLEBEE = HELPER.createItem("bumblebee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
+
+	public static void setupItemProperties() {
+		ItemModelsProperties.func_239418_a_(BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity) -> {
+			CompoundNBT compoundnbt = stack.getTag();
+			if (compoundnbt != null && compoundnbt.contains("Anger")) {
+				return (compoundnbt.getInt("Anger") > 0) ? 2 : 1;
+			}
+			return 1;
+		});
+	}
 }

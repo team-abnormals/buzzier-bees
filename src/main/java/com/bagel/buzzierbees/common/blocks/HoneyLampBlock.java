@@ -1,12 +1,16 @@
 package com.bagel.buzzierbees.common.blocks;
 
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.EndRodBlock;
 import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ItemParticleData;
@@ -24,10 +28,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
-import java.util.Random;
-
-import javax.annotation.Nullable;
 
 @SuppressWarnings("deprecation")
 public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
@@ -71,7 +71,7 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         Direction direction = context.getFace();
         BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(direction.getOpposite()));
-        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+        FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 		boolean flag = ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8;
         return blockstate.getBlock() == this && blockstate.get(FACING) == direction ? this.getDefaultState().with(FACING, direction.getOpposite()).with(WATERLOGGED, flag) : this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag);
      }
@@ -88,7 +88,8 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
 		}	
 	}
     
-	public IFluidState getFluidState(BlockState state) {
+    @Override
+	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);	
 	}
     

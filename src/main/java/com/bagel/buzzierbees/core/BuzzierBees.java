@@ -70,6 +70,7 @@ public class BuzzierBees
 			BBEffects.addBrewingRecipes();
 			BBFeatures.addFeatures();
 			BBEntities.addEntitySpawns();
+			BBEntities.registerAttributes();
 			BBVillagers.setupVillagers();
 
 			REGISTRY_HELPER.processSpawnEggDispenseBehaviors();
@@ -84,6 +85,7 @@ public class BuzzierBees
     	DeferredWorkQueue.runLater(() -> {
     		BBRenderLayers.setupRenderLayer();
     		BlockColorManager.registerBlockColors();
+    		BBItems.setupItemProperties();
     	});
 	}
     

@@ -11,9 +11,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.Pose;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.RandomPositionGenerator;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.ai.controller.LookController;
 import net.minecraft.entity.ai.goal.Goal;
@@ -41,7 +43,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
@@ -92,7 +94,7 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
    }
 
    public boolean attackEntityAsMob(Entity entityIn) {
-      boolean flag = entityIn.attackEntityFrom(DamageSource.func_226252_a_(this), (float)((int)this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue()));
+      boolean flag = entityIn.attackEntityFrom(DamageSource.func_226252_a_(this), (float)((int)this.getAttribute(Attributes.field_233823_f_).getValue()));
       if (flag) {
          this.applyEnchantments(this, entityIn);
          if (entityIn instanceof LivingEntity) {
@@ -135,15 +137,14 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
    public ItemStack getPickedResult(RayTraceResult target) {
 	   return new ItemStack(Items.BEE_SPAWN_EGG);
    }
-
-   protected void registerAttributes() {
-      super.registerAttributes();
-      this.getAttributes().registerAttribute(SharedMonsterAttributes.FLYING_SPEED);
-      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(2.0D);
-      this.getAttribute(SharedMonsterAttributes.FLYING_SPEED).setBaseValue((double)0.8F);
-      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)0.3F);
-      this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1.0D);
-      this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
+   
+   public static AttributeModifierMap.MutableAttribute func_234182_eX_() {
+	   return MobEntity.func_233666_p_()
+			   .func_233815_a_(Attributes.field_233818_a_, 2.0D)
+			   .func_233815_a_(Attributes.field_233822_e_, (double)0.8F)
+			   .func_233815_a_(Attributes.field_233821_d_, (double)0.3F)
+			   .func_233815_a_(Attributes.field_233823_f_, 1.0D)
+			   .func_233815_a_(Attributes.field_233819_b_, 48.0D);
    }
 
    @SuppressWarnings("deprecation")
@@ -241,7 +242,7 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
       }
 
       public void startExecuting() {
-         Vec3d vec3d = this.func_226509_g_();
+         Vector3d vec3d = this.func_226509_g_();
          if (vec3d != null) {
             BumblebeeEntity.this.navigator.setPath(BumblebeeEntity.this.navigator.getPathToPos(new BlockPos(vec3d), 1), 1.0D);
          }
@@ -249,11 +250,11 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
       }
 
       @Nullable
-      private Vec3d func_226509_g_() {
-         Vec3d vec3d;
+      private Vector3d func_226509_g_() {
+    	  Vector3d vec3d;
          vec3d = BumblebeeEntity.this.getLook(0.0F);
 
-         Vec3d vec3d2 = RandomPositionGenerator.findAirTarget(BumblebeeEntity.this, 8, 7, vec3d, ((float)Math.PI / 2F), 2, 1);
+         Vector3d vec3d2 = RandomPositionGenerator.findAirTarget(BumblebeeEntity.this, 8, 7, vec3d, ((float)Math.PI / 2F), 2, 1);
          return vec3d2 != null ? vec3d2 : RandomPositionGenerator.findGroundTarget(BumblebeeEntity.this, 8, 4, -2, vec3d, (double)((float)Math.PI / 2F));
       }
    }

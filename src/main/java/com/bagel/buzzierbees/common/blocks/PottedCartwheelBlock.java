@@ -14,29 +14,32 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
-//Use the forge event that fires when a player right-clicks a block
-//if the block is a flower pot and the player is holding a cartwheel, then set the blockstate to the correct state
 public class PottedCartwheelBlock extends FlowerPotBlock {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-	
+
 	@SuppressWarnings("deprecation")
 	public PottedCartwheelBlock(Block flower, Properties properties) {
 		super(flower, properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 	}
 
+	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
 	}
-	
+
+	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-	      return SHAPE;
-	   }
-	
+		return SHAPE;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-	      return state.rotate(mirrorIn.toRotation(state.get(FACING)));
-	   }
-	
+		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+	}
+
+	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}

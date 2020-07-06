@@ -22,8 +22,10 @@ import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -44,6 +46,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
@@ -93,13 +96,12 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
       this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, FoxEntity.class, 10, true, true, (Predicate<LivingEntity>)null));
    }
 
-   protected void registerAttributes() {
-      super.registerAttributes();
-      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-      this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-      this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-      this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+   public static AttributeModifierMap.MutableAttribute func_234182_eX_() {
+	   return MobEntity.func_233666_p_()
+			   .func_233815_a_(Attributes.field_233818_a_, 30.0D)
+			   .func_233815_a_(Attributes.field_233819_b_, 20.0D)
+			   .func_233815_a_(Attributes.field_233820_c_, 0.25D)
+			   .func_233815_a_(Attributes.field_233823_f_, 6.0D);
    }
    
    protected SoundEvent getAmbientSound() {
@@ -138,7 +140,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    }
    
    @Override
-	public boolean processInteract(PlayerEntity player, Hand hand) {
+	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
 //		ItemStack itemstack = player.getHeldItem(hand);
 //		Item item = itemstack.getItem();
 //		if (item == Items.SWEET_BERRIES) {
@@ -147,7 +149,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 //				NetworkUtil.setPlayingAnimationMessage(this, SIT_DOWN);
 //			}
 //		}
-		return super.processInteract(player, hand);
+		return super.func_230254_b_(player, hand);
 	}
 
    public void tick() {
@@ -164,7 +166,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    }
 
    public boolean attackEntityAsMob(Entity entityIn) {
-      boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue()));
+      boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttribute(Attributes.field_233823_f_).getValue()));
       if (flag) {
          this.applyEnchantments(this, entityIn);
       }
@@ -220,7 +222,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 	   }
 
 	   protected boolean func_220813_g() {
-		   BlockPos blockpos = new BlockPos(AbstractBearEntity.this);
+		   BlockPos blockpos = new BlockPos(AbstractBearEntity.this.getPositionVec());
 		   return !AbstractBearEntity.this.world.canSeeSky(blockpos) && AbstractBearEntity.this.getBlockPathWeight(blockpos) >= 0.0F;
 	   }
 
@@ -323,32 +325,33 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 	}
 	
 	class MeleeAttackGoal extends net.minecraft.entity.ai.goal.MeleeAttackGoal {
+		
 		public MeleeAttackGoal() {
 			super(AbstractBearEntity.this, 1.25D, true);
 		}
 
-		protected void checkAndPerformAttack(LivingEntity enemy, double distToEnemySqr) {
-			double d0 = this.getAttackReachSqr(enemy);
-			if (distToEnemySqr <= d0 && this.attackTick <= 0) {
-				this.attackTick = 20;
-				this.attacker.attackEntityAsMob(enemy);
-	            AbstractBearEntity.this.setStanding(false);
-			} else if (distToEnemySqr <= d0 * 1.5D) {
-				if (this.attackTick <= 0) {
-					AbstractBearEntity.this.setStanding(false);
-					this.attackTick = 20;
-				}
+	      protected void checkAndPerformAttack(LivingEntity enemy, double distToEnemySqr) {
+	          double d0 = this.getAttackReachSqr(enemy);
+	          if (distToEnemySqr <= d0 && this.func_234040_h_()) {
+	             this.func_234039_g_();
+	             this.attacker.attackEntityAsMob(enemy);
+	             AbstractBearEntity.this.setStanding(false);
+	          } else if (distToEnemySqr <= d0 * 2.0D) {
+	             if (this.func_234040_h_()) {
+	            	 AbstractBearEntity.this.setStanding(false);
+	                this.func_234039_g_();
+	             }
 
-	            if (this.attackTick <= 10) {
-	            	AbstractBearEntity.this.setStanding(true);
-	            	AbstractBearEntity.this.playWarningSound();
-	            }
-	         } else {
-	            this.attackTick = 20;
-	            AbstractBearEntity.this.setStanding(false);
-	         }
+	             if (this.func_234041_j_() <= 10) {
+	            	 AbstractBearEntity.this.setStanding(true);
+	            	 AbstractBearEntity.this.playWarningSound();
+	             }
+	          } else {
+	             this.func_234039_g_();
+	             AbstractBearEntity.this.setStanding(false);
+	          }
 
-	      }
+	       }
 
 	      /**
 	       * Reset the task's internal state. Called when this task is interrupted by another one

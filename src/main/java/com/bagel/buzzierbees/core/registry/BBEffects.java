@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.common.effects.AntiEffect;
 import com.bagel.buzzierbees.core.BuzzierBees;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -21,8 +22,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBEffects {
-	public static final DeferredRegister<Effect> EFFECTS = new DeferredRegister<>(ForgeRegistries.POTIONS, BuzzierBees.MODID);
-	public static final DeferredRegister<Potion> POTIONS = new DeferredRegister<>(ForgeRegistries.POTION_TYPES, BuzzierBees.MODID);
+	public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, BuzzierBees.MODID);
+	public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTION_TYPES, BuzzierBees.MODID);
    
 	public static RegistryObject<Effect> ANTI_SPEED  				= EFFECTS.register("anti_speed", () -> new AntiEffect(EffectType.HARMFUL, 8605753, new EffectInstance[]{new EffectInstance(Effects.SPEED)}));
 	public static RegistryObject<Effect> ANTI_SLOWNESS   			= EFFECTS.register("anti_slowness", () -> new AntiEffect(EffectType.BENEFICIAL,  10851198,new EffectInstance[]{new EffectInstance(Effects.SLOWNESS)}));

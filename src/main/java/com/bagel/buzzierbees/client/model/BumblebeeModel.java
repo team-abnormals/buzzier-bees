@@ -101,7 +101,7 @@ public class BumblebeeModel<T extends BumblebeeEntity> extends EntityModel<Bumbl
 		this.rightWing.rotateAngleX = 0.0f;
 		this.leftAntenna.rotateAngleX = 0.0f;
 		this.rightAntenna.rotateAngleX = 0.0f;
-		if (bee.onGround) {
+		if (bee.func_233570_aj_()) {
 			this.rightWing.rotateAngleY = -0.2618f;
 			this.rightWing.rotateAngleZ = 0.0f;
 			this.leftWing.rotateAngleX = 0.0f;

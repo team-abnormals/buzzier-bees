@@ -23,7 +23,7 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
         if(entity instanceof BeeEntity && tag != null) {
         	BeeEntity bee = (BeeEntity)entity;
         	
-            int anger = tag.contains("Anger") ? tag.getInt("Anger") : 0;
+            int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
             int age = tag.contains("Age") ? tag.getInt("Age") : 0;
             boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
             boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
@@ -31,7 +31,7 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
             bee.setGrowingAge(age);
             bee.setHasNectar(nectar);
             bee.setHasStung(stung);
-            bee.setAnger(anger);
+            bee.func_230260_a__(anger);
         }
         return new ItemStack(Items.GLASS_BOTTLE);
      }

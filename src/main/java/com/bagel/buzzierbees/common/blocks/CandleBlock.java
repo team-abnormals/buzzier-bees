@@ -11,8 +11,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.PathType;
@@ -52,8 +52,9 @@ public class CandleBlock extends Block implements IWaterLoggable {
     	this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true).with(LIT, true));
     }
 	
-	public int getLightValue(BlockState state) {
-		return this.isInBadEnvironment(state) ? 0 : super.getLightValue(state) + (11 + (1 * state.get(CANDLES)));	
+	@Override
+	public int getLightValue(BlockState state, IBlockReader access, BlockPos pos) {
+		return this.isInBadEnvironment(state) ? 0 : super.getLightValue(state, access, pos) + (11 + (1 * state.get(CANDLES)));	
 	}
 	
 	@Nullable
@@ -63,7 +64,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 		if (blockstate.getBlock() == this) {
 			return blockstate.with(FACING, direction).with(CANDLES, Integer.valueOf(Math.min(4, blockstate.get(CANDLES) + 1)));
 		} else {
-			IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+			FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 			boolean flag = ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8;
 			return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag);
 		}
@@ -166,7 +167,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 		}	
 	}
 	
-	public IFluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);	
 	}
 	
@@ -179,7 +180,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 	}
 	
 	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-		return type == PathType.AIR && !this.blocksMovement ? true : super.allowsMovement(state, worldIn, pos, type);	
+		return type == PathType.AIR && !this.field_235688_at_ ? true : super.allowsMovement(state, worldIn, pos, type);	
 	}
 	
 	@Override

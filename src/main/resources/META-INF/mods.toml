@@ -20,20 +20,20 @@ Grizzly Bears, Black Bears, and Bumblebees will come soon!
 [[dependencies.buzzierbees]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[31.1.85,)"
+    versionRange="[32.0.47,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.buzzierbees]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.buzzierbees]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[1.0.6,)"
+    versionRange="[2.0.0,)"
     ordering="AFTER"
     side="BOTH"

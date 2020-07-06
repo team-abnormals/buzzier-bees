@@ -1,11 +1,29 @@
 package com.bagel.buzzierbees.common.entities;
 
+import javax.annotation.Nullable;
+
 import com.bagel.buzzierbees.common.entities.controllers.HoneySlimeMoveHelperController;
-import com.bagel.buzzierbees.common.entities.goals.honey_slime.*;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.BreedGoal;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.FaceRandomGoal;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.FloatGoal;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.HopGoal;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.RevengeGoal;
+import com.bagel.buzzierbees.common.entities.goals.honey_slime.TemptGoal;
 import com.bagel.buzzierbees.core.registry.BBEntities;
 import com.bagel.buzzierbees.core.registry.BBItems;
+
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.*;
+import net.minecraft.entity.AgeableEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntitySize;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.Pose;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -13,25 +31,26 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Difficulty;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTables;
-
-import javax.annotation.Nullable;
-import java.util.Random;
 
 public class HoneySlimeEntity extends AnimalEntity implements IMob {
    private static final DataParameter<Boolean> IN_HONEY = EntityDataManager.createKey(HoneySlimeEntity.class, DataSerializers.BOOLEAN);
@@ -69,18 +88,18 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    public ItemStack getPickedResult(RayTraceResult target) {
       return new ItemStack(BBItems.HONEY_SLIME_SPAWN_EGG.get());
    }
-
-   protected void registerAttributes() {
-      super.registerAttributes();
-      this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+   
+   public static AttributeModifierMap.MutableAttribute func_234200_m_() {
+	 return MobEntity.func_233666_p_().
+			 func_233815_a_(Attributes.field_233823_f_, 1.0D);
    }
 
    protected void setSlimeSize(int size, boolean resetHealth) {
       this.recenterBoundingBox();
       this.recalculateSize();
-      this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue((double)(size * size));
-      this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)size));
-      this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double)size);
+      this.getAttribute(Attributes.field_233818_a_).setBaseValue((double)(size * size));
+      this.getAttribute(Attributes.field_233821_d_).setBaseValue((double)(0.2F + 0.1F * (float)size));
+      this.getAttribute(Attributes.field_233823_f_).setBaseValue((double)size);
       if (resetHealth) {
          this.setHealth(this.getMaxHealth());
       }
@@ -135,7 +154,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    @Override
-   public boolean processInteract(PlayerEntity player, Hand hand) {
+   public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
       ItemStack itemstack = player.getHeldItem(hand);
       World world = player.getEntityWorld();
       if (!this.isChild() && this.isInHoney()) {
@@ -153,7 +172,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
 
             this.setRevengeTarget(player);
             getHoneyFromSlime(this);
-            return true;
+            return ActionResultType.SUCCESS;
          }
          //Wanding
          else if (itemstack.getItem() == BBItems.HONEY_WAND.get()) {
@@ -162,10 +181,10 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
                player.setHeldItem(hand, new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
             }
             getHoneyFromSlime(this);
-            return true;
+            return ActionResultType.SUCCESS;
          }
       }
-      return super.processInteract(player, hand);
+      return super.func_230254_b_(player, hand);
    }
 
    private void getHoneyFromSlime(LivingEntity entity) {
@@ -233,21 +252,6 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
       }
    }
 
-   public static boolean honeySlimeCondition(EntityType<HoneySlimeEntity> honeySlime, IWorld world, SpawnReason reason, BlockPos position, Random randomIn) {
-      if (world.getWorldInfo().getGenerator().handleSlimeSpawnReduction(randomIn, world) && randomIn.nextInt(6) != 1) {
-         return false;
-      }
-      else {
-         if (world.getDifficulty() != Difficulty.PEACEFUL) {
-            if (position.getY() > 50 && position.getY() < 90 && randomIn.nextFloat() < 0.5F && world.getLight(position) >= randomIn.nextInt(8)) {
-               return canSpawnOn(honeySlime, world, reason, position, randomIn);
-            }
-         }
-
-         return false;
-      }
-   }
-
    protected void dealDamage(LivingEntity entityIn) {
       if (this.isAlive()) {
          int i = 2;
@@ -312,7 +316,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    protected float func_225512_er_() {
-      return (float) this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
+      return (float) this.getAttribute(Attributes.field_233823_f_).getValue();
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
@@ -344,7 +348,7 @@ public class HoneySlimeEntity extends AnimalEntity implements IMob {
    }
 
    protected void jump() {
-      Vec3d vec3d = this.getMotion();
+      Vector3d vec3d = this.getMotion();
       this.setMotion(vec3d.x, (double) this.getJumpUpwardsMotion(), vec3d.z);
       this.isAirBorne = true;
    }

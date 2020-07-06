@@ -9,6 +9,6 @@ public class PropertyUtils {
 	public static final Block.Properties CANDLE = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.1F).notSolid().sound(SoundType.WOOD);
 	
 	public static final Block.Properties POT    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid();
-	public static final Block.Properties POT_LIGHT    	= Block.Properties.create(Material.MISCELLANEOUS).lightValue(6).zeroHardnessAndResistance().notSolid();
-	public static final Block.Properties POT_BRIGHT    	= Block.Properties.create(Material.MISCELLANEOUS).lightValue(14).zeroHardnessAndResistance().notSolid();
+	public static final Block.Properties POT_LIGHT    	= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid().func_235838_a_((p_235470_0_) -> {return 6;});
+	public static final Block.Properties POT_BRIGHT    	= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid().func_235838_a_((p_235470_0_) -> {return 14;});
 }

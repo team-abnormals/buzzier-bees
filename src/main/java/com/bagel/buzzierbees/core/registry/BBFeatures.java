@@ -2,6 +2,7 @@ package com.bagel.buzzierbees.core.registry;
 
 import com.bagel.buzzierbees.common.world.features.DirectionalFlowersFeature;
 import com.google.common.collect.ImmutableList;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
@@ -11,8 +12,8 @@ import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.DefaultFlowersFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -21,23 +22,20 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBFeatures {
-	public static final DefaultFlowersFeature DEFAULT_FLOWERS_FEATURE = new DefaultFlowersFeature(BlockClusterFeatureConfig::deserialize);
-	public static final DirectionalFlowersFeature DIRECTIONAL_FLOWERS_FEATURE = new DirectionalFlowersFeature(BlockClusterFeatureConfig::deserialize);
+	public static final FlowersFeature<BlockClusterFeatureConfig> DIRECTIONAL_FLOWER = new DirectionalFlowersFeature<BlockClusterFeatureConfig>(BlockClusterFeatureConfig.field_236587_a_);
 	
-	private static void addShortFlower(BlockState blockState, Biome biomeIn, int frequency)
-	{
-		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).tries(32).build();
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, DEFAULT_FLOWERS_FEATURE.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
+	private static void addShortFlower(BlockState blockState, Biome biomeIn, int frequency) {
+		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), SimpleBlockPlacer.field_236447_c_)).tries(32).build();
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
 	}
 	
-	private static void addDirectionalFlower(BlockState blockState, Biome biomeIn, int frequency)
-	{
-		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new SimpleBlockPlacer())).tries(32).build();
-		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, DIRECTIONAL_FLOWERS_FEATURE.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
+	private static void addDirectionalFlower(BlockState blockState, Biome biomeIn, int frequency) {
+		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), SimpleBlockPlacer.field_236447_c_)).tries(32).build();
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, DIRECTIONAL_FLOWER.withConfiguration(config).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
 	}
 	
 	public static void addDoubleFlower(BlockState blockState, Biome biomeIn, int frequency) {
-		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().build();
+		BlockClusterFeatureConfig config = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(blockState), DoublePlantBlockPlacer.field_236444_c_)).tries(64).func_227317_b_().build();
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(config)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(frequency))));
 	}
 	

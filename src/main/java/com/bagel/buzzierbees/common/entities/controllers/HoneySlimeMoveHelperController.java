@@ -1,7 +1,8 @@
 package com.bagel.buzzierbees.common.entities.controllers;
 
 import com.bagel.buzzierbees.common.entities.HoneySlimeEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
+
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.MovementController;
 
 public class HoneySlimeMoveHelperController extends MovementController {
@@ -39,8 +40,8 @@ public class HoneySlimeMoveHelperController extends MovementController {
             this.mob.setMoveForward(0.0F);
         } else {
             this.action = MovementController.Action.WAIT;
-            if (this.mob.onGround) {
-                this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue()));
+            if (this.mob.func_233570_aj_()) {
+                this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttribute(Attributes.field_233820_c_).getValue()));
                 if (this.jumpDelay-- <= 0) {
                     this.jumpDelay = this.slime.getJumpDelay();
                     if (this.isAggressive) {
@@ -57,7 +58,7 @@ public class HoneySlimeMoveHelperController extends MovementController {
                     this.mob.setAIMoveSpeed(0.0F);
                 }
             } else {
-                this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue()));
+                this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttribute(Attributes.field_233820_c_).getValue()));
             }
 
         }
