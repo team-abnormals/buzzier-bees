@@ -4,8 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.bagel.buzzierbees.core.util.BlockStateUtils;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -37,9 +35,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @SuppressWarnings("deprecation")
 public class CandleBlock extends Block implements IWaterLoggable {
-	public static final IntegerProperty CANDLES 	= BlockStateUtils.CANDLES_1_4;
+	public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public static final BooleanProperty LIT = BlockStateUtils.LIT;
+	public static final BooleanProperty LIT = BooleanProperty.create("lit");
 	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 	
 	protected static final VoxelShape ONE_SHAPE 	= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D);
@@ -69,45 +67,6 @@ public class CandleBlock extends Block implements IWaterLoggable {
 			return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag);
 		}
 	}
-	
-	/*
-	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		int candles = state.get(CANDLES);
-		Direction facing = state.get(FACING);
-		boolean waterlogged = state.get(WATERLOGGED);
-		BlockState candleOutput = candleOutput(player.getHeldItem(handIn).getItem(), this);
-		if (candleOutput != null && candleOutput.getBlock() != this) {
-			if (!player.abilities.isCreativeMode) {
-				player.getHeldItem(handIn).shrink(1);
-			}
-			worldIn.setBlockState(pos, candleOutput.with(CANDLES, candles).with(FACING, facing).with(WATERLOGGED, waterlogged));
-			return ActionResultType.SUCCESS;	    
-		} else {
-			return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);	
-		}	
-	}
-	
-	public BlockState candleOutput(Item item, Block block) {
-		if (item == ModItems.WAX.get()) { return ModBlocks.CANDLE.get().getDefaultState(); }
-		if (item == Items.WHITE_DYE) { return ModBlocks.WHITE_CANDLE.get().getDefaultState(); }
-		if (item == Items.ORANGE_DYE) { return ModBlocks.ORANGE_CANDLE.get().getDefaultState(); }
-		if (item == Items.MAGENTA_DYE) { return ModBlocks.MAGENTA_CANDLE.get().getDefaultState(); }
-		if (item == Items.LIGHT_BLUE_DYE) { return ModBlocks.LIGHT_BLUE_CANDLE.get().getDefaultState(); }
-		if (item == Items.YELLOW_DYE) { return ModBlocks.YELLOW_CANDLE.get().getDefaultState(); }
-		if (item == Items.LIME_DYE) { return ModBlocks.LIME_CANDLE.get().getDefaultState(); }
-		if (item == Items.PINK_DYE) { return ModBlocks.PINK_CANDLE.get().getDefaultState(); }
-		if (item == Items.GRAY_DYE) { return ModBlocks.GRAY_CANDLE.get().getDefaultState(); }
-		if (item == Items.LIGHT_GRAY_DYE) { return ModBlocks.LIGHT_GRAY_CANDLE.get().getDefaultState(); }
-		if (item == Items.CYAN_DYE) { return ModBlocks.CYAN_CANDLE.get().getDefaultState(); }
-		if (item == Items.PURPLE_DYE) { return ModBlocks.PURPLE_CANDLE.get().getDefaultState(); }
-		if (item == Items.BLUE_DYE) { return ModBlocks.BLUE_CANDLE.get().getDefaultState(); }
-		if (item == Items.BROWN_DYE) { return ModBlocks.BROWN_CANDLE.get().getDefaultState(); }
-		if (item == Items.GREEN_DYE) { return ModBlocks.GREEN_CANDLE.get().getDefaultState(); }
-		if (item == Items.RED_DYE) { return ModBlocks.RED_CANDLE.get().getDefaultState(); }
-		if (item == Items.BLACK_DYE) { return ModBlocks.BLACK_CANDLE.get().getDefaultState(); }
-		return null;
-	}*/
 	
 	private boolean isInBadEnvironment(BlockState state) {
 		return state.get(WATERLOGGED);	

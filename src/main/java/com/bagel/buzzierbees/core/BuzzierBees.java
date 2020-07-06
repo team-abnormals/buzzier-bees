@@ -3,7 +3,6 @@ package com.bagel.buzzierbees.core;
 import com.bagel.buzzierbees.common.dispenser.BeeBottleDispenseBehavior;
 import com.bagel.buzzierbees.common.dispenser.BugBottleDispenseBehavior;
 import com.bagel.buzzierbees.core.other.BBCompostables;
-import com.bagel.buzzierbees.core.other.BBFlammables;
 import com.bagel.buzzierbees.core.other.BBRenderLayers;
 import com.bagel.buzzierbees.core.registry.BBBlocks;
 import com.bagel.buzzierbees.core.registry.BBEffects;

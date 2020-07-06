@@ -1,7 +1,6 @@
 package com.bagel.buzzierbees.common.blocks;
 
 import com.bagel.buzzierbees.core.registry.BBItems;
-import com.bagel.buzzierbees.core.util.BlockStateUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -27,7 +26,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class HoneyPotBlock extends Block {
-	public static final IntegerProperty HONEY_LEVEL 	= BlockStateUtils.HONEY_LEVEL_0_4;
+	public static final IntegerProperty HONEY_LEVEL = IntegerProperty.create("honey_level", 0, 4);
 	private static final VoxelShape[] SHAPES = Util.make(new VoxelShape[5], (levels) -> {
 	      for(int i = 0; i < 5; i++) {
 	         int level = i >= 1 ? i + 1 : i;

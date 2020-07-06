@@ -1,14 +1,11 @@
-package com.bagel.buzzierbees.core.util;
+package com.bagel.buzzierbees.core.other;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
-public class PropertyUtils {
+public class BBProperties {
 	public static final Block.Properties FLOWER = Block.Properties.create(Material.PLANTS).notSolid().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);
 	public static final Block.Properties CANDLE = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.1F).notSolid().sound(SoundType.WOOD);
-	
 	public static final Block.Properties POT    		= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid();
-	public static final Block.Properties POT_LIGHT    	= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid().func_235838_a_((p_235470_0_) -> {return 6;});
-	public static final Block.Properties POT_BRIGHT    	= Block.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid().func_235838_a_((p_235470_0_) -> {return 14;});
 }
