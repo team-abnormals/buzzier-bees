@@ -17,10 +17,12 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SoulCandleBlock extends CandleBlock implements IWaterLoggable {
-	protected static final VoxelShape ONE_SHAPE 	= Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 10.0D, 10.0D);
-	protected static final VoxelShape TWO_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D);
-	protected static final VoxelShape THREE_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D);
-	protected static final VoxelShape FOUR_SHAPE 	= Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D);
+	
+	protected static final VoxelShape[] SHAPES 	= new VoxelShape[] { 
+			Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 10.0D, 10.0D),
+			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D),
+			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D),
+			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D)};
 	
 	public SoulCandleBlock(Properties properties) {
 		super(properties);
@@ -38,17 +40,7 @@ public class SoulCandleBlock extends CandleBlock implements IWaterLoggable {
 	
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		switch(state.get(CANDLES)) {
-		case 1:
-			default:
-			return ONE_SHAPE;	
-		case 2:
-			return TWO_SHAPE;	
-		case 3:
-			return THREE_SHAPE;	
-		case 4:
-			return FOUR_SHAPE;	
-		}	
+		return SHAPES[state.get(CANDLES) - 1];
 	}
 
 	@Override
