@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "buzzierbees:candle",
-    "buzzierbees:soul_candle",
-    "#buzzierbees:dyed_candles",
-    "#buzzierbees:scented_candles"
-  ]
-}

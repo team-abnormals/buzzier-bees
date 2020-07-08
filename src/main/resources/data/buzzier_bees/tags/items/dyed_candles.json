@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "buzzier_bees:white_candle",
+    "buzzier_bees:orange_candle",
+    "buzzier_bees:magenta_candle",
+    "buzzier_bees:light_blue_candle",
+    "buzzier_bees:yellow_candle",
+    "buzzier_bees:lime_candle",
+    "buzzier_bees:pink_candle",
+    "buzzier_bees:gray_candle",
+    "buzzier_bees:light_gray_candle",
+    "buzzier_bees:cyan_candle",
+    "buzzier_bees:purple_candle",
+    "buzzier_bees:blue_candle",
+    "buzzier_bees:brown_candle",
+    "buzzier_bees:green_candle",
+    "buzzier_bees:red_candle",
+    "buzzier_bees:black_candle"
+  ]
+}

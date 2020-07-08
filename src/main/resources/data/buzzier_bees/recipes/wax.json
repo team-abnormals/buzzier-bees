@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "buzzier_bees:wax_block"
+    }
+  ],
+  "result": {
+    "item": "buzzier_bees:wax",
+    "count": 9
+  }
+}

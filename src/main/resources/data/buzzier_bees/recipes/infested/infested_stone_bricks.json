@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "buzzier_bees:silverfish_bottle"
+        },
+        {
+            "item": "minecraft:stone_bricks"
+        }
+    ],
+    "result": {
+        "item": "minecraft:infested_stone_bricks",
+        "count": 1
+    }
+}

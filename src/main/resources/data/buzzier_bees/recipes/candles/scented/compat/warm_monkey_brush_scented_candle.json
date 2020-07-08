@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "buzzier_bees:candle"
+    },
+    {
+      "item": "atmospheric:warm_monkey_brush"
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit"
+    }
+  ],
+  "result": {
+    "item": "buzzier_bees:warm_monkey_brush_scented_candle",
+    "count": 1
+  },
+    "conditions": [
+     {
+      "type": "forge:mod_loaded",
+      "modid": "atmospheric"
+    }
+  ]
+}

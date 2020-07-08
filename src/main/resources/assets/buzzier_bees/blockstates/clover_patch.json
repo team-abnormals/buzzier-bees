@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "buzzier_bees:block/clover_patch" },
+            { "model": "buzzier_bees:block/clover_patch", "y": 90 },
+            { "model": "buzzier_bees:block/clover_patch", "y": 180 },
+            { "model": "buzzier_bees:block/clover_patch", "y": 270 }
+        ]
+    }
+}

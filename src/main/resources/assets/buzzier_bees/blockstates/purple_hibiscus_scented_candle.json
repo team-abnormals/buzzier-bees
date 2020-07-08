@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north,candles=1": { "model": "buzzier_bees:block/purple_hibiscus_scented_candle" },
+        "facing=south,candles=1": { "model": "buzzier_bees:block/purple_hibiscus_scented_candle", "y": 180 },
+        "facing=west,candles=1":  { "model": "buzzier_bees:block/purple_hibiscus_scented_candle", "y": 270 },
+        "facing=east,candles=1":  { "model": "buzzier_bees:block/purple_hibiscus_scented_candle", "y": 90 },
+        "facing=north,candles=2": { "model": "buzzier_bees:block/two_purple_hibiscus_scented_candles" },
+        "facing=south,candles=2": { "model": "buzzier_bees:block/two_purple_hibiscus_scented_candles", "y": 180 },
+        "facing=west,candles=2":  { "model": "buzzier_bees:block/two_purple_hibiscus_scented_candles", "y": 270 },
+        "facing=east,candles=2":  { "model": "buzzier_bees:block/two_purple_hibiscus_scented_candles", "y": 90 },
+        "facing=north,candles=3": { "model": "buzzier_bees:block/three_purple_hibiscus_scented_candles" },
+        "facing=south,candles=3": { "model": "buzzier_bees:block/three_purple_hibiscus_scented_candles", "y": 180 },
+        "facing=west,candles=3":  { "model": "buzzier_bees:block/three_purple_hibiscus_scented_candles", "y": 270 },
+        "facing=east,candles=3":  { "model": "buzzier_bees:block/three_purple_hibiscus_scented_candles", "y": 90 },
+        "facing=north,candles=4": { "model": "buzzier_bees:block/four_purple_hibiscus_scented_candles" },
+        "facing=south,candles=4": { "model": "buzzier_bees:block/four_purple_hibiscus_scented_candles", "y": 180 },
+        "facing=west,candles=4":  { "model": "buzzier_bees:block/four_purple_hibiscus_scented_candles", "y": 270 },
+        "facing=east,candles=4":  { "model": "buzzier_bees:block/four_purple_hibiscus_scented_candles", "y": 90 }
+  }
+}

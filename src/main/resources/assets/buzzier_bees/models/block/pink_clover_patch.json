@@ -1,0 +1,51 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/tinted_cross",
+	"ambientocclusion": false,
+	"textures": {
+		"cross": "buzzier_bees:block/clover_patch",
+		"particle": "buzzier_bees:block/pink_clover",
+		"flower": "buzzier_bees:block/pink_clover"
+	},
+	"elements": [
+		{
+			"from": [0, 1, 0],
+			"to": [16, 1, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"east": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"south": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"west": {"uv": [0, 0, 16, 0], "texture": "cross", "tintindex": 0 },
+				"up": {"uv": [0, 0, 16, 16], "texture": "cross", "tintindex": 0 },
+				"down": {"uv": [0, 0, 16, 16], "texture": "cross", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [0.8, 0, 8],
+			"to": [15.2, 16, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#flower"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#flower"}
+			}
+		},
+		{
+			"from": [8, 0, 0.8],
+			"to": [8, 16, 15.2],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#flower"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#flower"}
+			}
+		}
+	],
+	"groups": [0,
+		{
+			"name": "flower",
+			"origin": [8, 8, 8],
+			"children": [1, 2]
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "buzzier_bees:candle"
+    },
+    {
+      "item": "atmospheric:gilia"
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit"
+    }
+  ],
+  "result": {
+    "item": "buzzier_bees:gilia_scented_candle",
+    "count": 1
+  },
+    "conditions": [
+     {
+      "type": "forge:mod_loaded",
+      "modid": "atmospheric"
+    }
+  ]
+}

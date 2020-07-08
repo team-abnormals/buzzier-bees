@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "item": "minecraft:apple"
+        }
+    ],
+    "result": {
+        "item": "buzzier_bees:honey_apple",
+        "count": 1
+    }
+}

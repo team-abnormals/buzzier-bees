@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "display": {
+    "icon": {
+      "item": "buzzier_bees:honey_apple"
+    },
+    "title": {
+      "translate": "advancements.husbandry.honey_apple.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.honey_apple.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+	"criteria": {
+		"honey_apple": {
+			"trigger": "buzzier_bees:honey_apple_cure"
+		}
+	}
+}

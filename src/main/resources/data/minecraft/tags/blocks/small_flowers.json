@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "buzzierbees:white_clover",
-    "buzzierbees:pink_clover"
+    "buzzier_bees:white_clover",
+    "buzzier_bees:pink_clover"
   ]
 }

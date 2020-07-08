@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:nether/obtain_blaze_rod",
+  "display": {
+    "icon": {
+      "item": "buzzier_bees:dandelion_scented_candle"
+    },
+    "title": {
+      "translate": "advancements.nether.scented_candle.title"
+    },
+    "description": {
+      "translate": "advancements.nether.scented_candle.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "scented_candle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "buzzier_bees:scented_candles"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "#H#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:terracotta"
+        },
+        "H": {
+            "item": "buzzier_bees:wax"
+        }
+    },
+    "result": {
+        "item": "buzzier_bees:honey_pot",
+        "count": 1
+    }
+}

@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "buzzierbees:item/oxeye_daisy_scented_candle"
-    }
-}

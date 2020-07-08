@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "buzzier_bees:crystallized_honey"
+    }
+  },
+  "result": {
+    "item": "buzzier_bees:crystallized_honey_block"
+  }
+}

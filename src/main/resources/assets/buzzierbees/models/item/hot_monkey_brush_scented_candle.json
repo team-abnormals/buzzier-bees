@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "buzzierbees:item/hot_monkey_brush_scented_candle"
-    }
-}

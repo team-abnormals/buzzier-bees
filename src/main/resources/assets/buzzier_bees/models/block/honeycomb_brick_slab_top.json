@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "buzzier_bees:block/honeycomb_bricks",
+        "top": "buzzier_bees:block/honeycomb_bricks",
+        "side": "buzzier_bees:block/honeycomb_bricks"
+    }
+}

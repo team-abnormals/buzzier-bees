@@ -1,0 +1,7 @@
+{
+    "parent": "buzzier_bees:block/two_candles",
+    "textures": {
+        "particle": "buzzier_bees:block/scalding_monkey_brush_scented_candle",
+        "all": "buzzier_bees:block/scalding_monkey_brush_scented_candle"
+    }
+}

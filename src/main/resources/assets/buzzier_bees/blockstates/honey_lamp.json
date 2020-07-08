@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "buzzier_bees:block/honey_lamp" },
+        "facing=down": { "model": "buzzier_bees:block/honey_lamp", "x": 180 },
+        "facing=east": { "model": "buzzier_bees:block/honey_lamp", "y": 90, "x": 90 },
+        "facing=south": { "model": "buzzier_bees:block/honey_lamp", "y": 180, "x": 90 },
+        "facing=west": { "model": "buzzier_bees:block/honey_lamp", "y": 270, "x": 90 },
+        "facing=north": { "model": "buzzier_bees:block/honey_lamp", "y": 0, "x": 90 }
+    }
+}

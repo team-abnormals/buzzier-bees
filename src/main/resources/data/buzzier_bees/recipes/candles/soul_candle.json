@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "S",
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "buzzier_bees:wax"
+        },
+        "S": {
+            "tag": "minecraft:soul_fire_base_blocks"
+        }
+    },
+    "result": {
+        "item": "buzzier_bees:soul_candle",
+        "count": 2
+    }
+}

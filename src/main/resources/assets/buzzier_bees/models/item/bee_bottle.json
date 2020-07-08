@@ -1,0 +1,20 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "buzzier_bees:item/bee_bottle"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "angry": 1
+            },
+            "model": "buzzier_bees:item/bee_bottle"
+        },
+        {
+            "predicate": {
+                "angry": 2
+            },
+            "model": "buzzier_bees:item/bee_bottle_angry"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "honey_level=0": { "model": "buzzier_bees:block/honey_pot_level0" },
+        "honey_level=1": { "model": "buzzier_bees:block/honey_pot_level1" },
+        "honey_level=2": { "model": "buzzier_bees:block/honey_pot_level2" },
+        "honey_level=3": { "model": "buzzier_bees:block/honey_pot_level3" },
+        "honey_level=4": { "model": "buzzier_bees:block/honey_pot_level4" }
+    }
+}

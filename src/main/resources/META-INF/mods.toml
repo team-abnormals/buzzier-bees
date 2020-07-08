@@ -3,7 +3,7 @@ loaderVersion="[31,)" #mandatory
 issueTrackerURL="https://github.com/bageldotjpg/BuzzierBees/issues" #optional
 
 [[mods]] #mandatory
-modId="buzzierbees" #mandatory
+modId="buzzier_bees" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Buzzier Bees" #mandatory
 displayURL="https://discord.gg/zVBFsXp" #optional
@@ -17,21 +17,21 @@ Main features include wax, crystallized honey, and candles, and much more!
 Grizzly Bears, Black Bears, and Bumblebees will come soon!
 '''
 
-[[dependencies.buzzierbees]]
+[[dependencies.buzzier_bees]]
     modId="forge" #mandatory
     mandatory=true #mandatory
     versionRange="[32.0.47,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.buzzierbees]]
+[[dependencies.buzzier_bees]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.buzzierbees]]
+[[dependencies.buzzier_bees]]
     modId="abnormals_core"
     mandatory=true
     versionRange="[2.0.0,)"

@@ -20,7 +20,7 @@ apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
 version = '2.0.0'
-group = 'com.bagel.buzzierbees'
+group = 'com.bagel.buzzier_bees'
 archivesBaseName = 'Buzzier-Bees-1.16.1'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' 
@@ -35,7 +35,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             mods {
-                buzzierbees {
+                buzzier_bees {
                     source sourceSets.main
                 }
             }
@@ -46,7 +46,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             mods {
-                buzzierbees {
+                buzzier_bees {
                     source sourceSets.main
                 }
             }
@@ -56,9 +56,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'buzzierbees', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'buzzier_bees', '--all', '--output', file('src/generated/resources/')
             mods {
-                buzzierbees {
+                buzzier_bees {
                     source sourceSets.main
                 }
             }
@@ -74,7 +74,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "buzzierbees",
+            "Specification-Title": "buzzier_bees",
             "Specification-Vendor": "bageldotjpg",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,

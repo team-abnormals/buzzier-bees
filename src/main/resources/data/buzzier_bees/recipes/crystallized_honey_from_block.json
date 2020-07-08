@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "buzzier_bees:crystallized_honey_block"
+    }
+  ],
+  "result": {
+    "item": "buzzier_bees:crystallized_honey",
+    "count": 3
+  }
+}

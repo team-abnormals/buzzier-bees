@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "buzzier_bees:block/crystallized_honey_block"
+    }
+}

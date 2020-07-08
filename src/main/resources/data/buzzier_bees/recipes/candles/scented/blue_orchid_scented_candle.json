@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "scented_candles",
+    "ingredients": [
+        {
+            "item": "buzzier_bees:candle"
+        },
+        {
+            "item": "minecraft:blue_orchid"
+        },
+        {
+            "item": "minecraft:popped_chorus_fruit"
+        }
+    ],
+    "result": {
+        "item": "buzzier_bees:blue_orchid_scented_candle",
+        "count": 1
+    }
+}

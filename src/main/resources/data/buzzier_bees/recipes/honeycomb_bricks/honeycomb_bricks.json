@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#S",
+        "S#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:honeycomb"
+        },
+        "S": {
+            "item": "minecraft:brick"
+        }
+    },
+    "result": {
+        "item": "buzzier_bees:honeycomb_bricks",
+        "count": 1
+    }
+}

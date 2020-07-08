@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "buzzier_bees:block/honeycomb_brick_slab" },
+        "type=top": { "model": "buzzier_bees:block/honeycomb_brick_slab_top" },
+        "type=double": { "model": "buzzier_bees:block/honeycomb_bricks" }
+    }
+}

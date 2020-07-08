@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "group": "wax",
+    "ingredient": {
+        "item": "minecraft:honeycomb"
+    },
+    "result": "buzzier_bees:wax",
+    "experience": 0.5,
+    "cookingtime": 200
+}
