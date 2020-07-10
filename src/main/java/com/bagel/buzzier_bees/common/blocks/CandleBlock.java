@@ -42,10 +42,10 @@ public class CandleBlock extends Block implements IWaterLoggable {
 	public static final DirectionProperty FACING 	= HorizontalBlock.HORIZONTAL_FACING;
 	
 	protected static final VoxelShape[] SHAPES 	= new VoxelShape[] { 
-			Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 10.0D, 10.0D),
-			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D),
-			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D),
-			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D)};
+			Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D),
+			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D),
+			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D),
+			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D)};
 	
 	public CandleBlock(Properties properties) {
 		super(properties);
