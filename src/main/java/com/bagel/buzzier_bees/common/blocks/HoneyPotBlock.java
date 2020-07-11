@@ -53,12 +53,12 @@ public class HoneyPotBlock extends Block {
 		} else if (item == BBItems.HONEY_WAND.get() && honeyLevel > 0) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel - 1));
 	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-            player.setHeldItem(handIn, new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
+	        if (!player.abilities.isCreativeMode) player.setHeldItem(handIn, new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
 			return ActionResultType.SUCCESS;
 		} else if (item == BBItems.STICKY_HONEY_WAND.get() && honeyLevel < 4) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel + 1));
 	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-            player.setHeldItem(handIn, new ItemStack(BBItems.HONEY_WAND.get()));
+	        if (!player.abilities.isCreativeMode) player.setHeldItem(handIn, new ItemStack(BBItems.HONEY_WAND.get()));
 			return ActionResultType.SUCCESS;
 		}  else if (item == Items.HONEYCOMB && honeyLevel < 4) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel + 1));
@@ -68,16 +68,18 @@ public class HoneyPotBlock extends Block {
 		} else if (item == Items.HONEY_BLOCK && honeyLevel == 0) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, 4));
 			worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_PLACE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-			itemstack.shrink(1);
+			if (!player.abilities.isCreativeMode) itemstack.shrink(1);
 			return ActionResultType.SUCCESS;
 		} else if (honeyLevel == 4) {
 			worldIn.setBlockState(pos, state.with(HONEY_LEVEL, 0));
 	        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_HONEY_BLOCK_PLACE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-	        if (itemstack.isEmpty()) {
-	            player.setHeldItem(handIn, new ItemStack(Items.HONEY_BLOCK));
-	         } else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.HONEY_BLOCK))) {
-	            player.dropItem(new ItemStack(Items.HONEY_BLOCK), false);
-	         }
+	        if (!player.abilities.isCreativeMode) {
+	        	if (itemstack.isEmpty()) {
+	        		player.setHeldItem(handIn, new ItemStack(Items.HONEY_BLOCK));
+	        	} else if (!player.inventory.addItemStackToInventory(new ItemStack(Items.HONEY_BLOCK))) {
+	        		player.dropItem(new ItemStack(Items.HONEY_BLOCK), false);
+	        	}
+	        }
 			return ActionResultType.SUCCESS;
 		} 
 		
@@ -86,25 +88,31 @@ public class HoneyPotBlock extends Block {
 	
 	public ActionResultType decreaseHoney(Item output, int honeyLevel, ItemStack itemstack, BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, SoundEvent soundEvent) {
 		worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel - 1));
-		itemstack.shrink(1);
         worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), soundEvent, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-        if (itemstack.isEmpty()) {
-           player.setHeldItem(handIn, new ItemStack(output));
-        } else if (!player.inventory.addItemStackToInventory(new ItemStack(output))) {
-           player.dropItem(new ItemStack(output), false);
-        }
+
+		if (!player.abilities.isCreativeMode) {
+			itemstack.shrink(1);
+	        if (itemstack.isEmpty()) {
+	           player.setHeldItem(handIn, new ItemStack(output));
+	        } else if (!player.inventory.addItemStackToInventory(new ItemStack(output))) {
+	           player.dropItem(new ItemStack(output), false);
+	        }
+		}
 		return ActionResultType.SUCCESS;
 	}
 	
 	public ActionResultType increaseHoney(Item output, int honeyLevel, ItemStack itemstack, BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, SoundEvent soundEvent) {
 		worldIn.setBlockState(pos, state.with(HONEY_LEVEL, honeyLevel + 1));
-		itemstack.shrink(1);
-        worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), soundEvent, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-        if (itemstack.isEmpty()) {
-           player.setHeldItem(handIn, new ItemStack(output));
-        } else if (!player.inventory.addItemStackToInventory(new ItemStack(output))) {
-           player.dropItem(new ItemStack(output), false);
-        }
+		worldIn.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(), soundEvent, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+
+		if (!player.abilities.isCreativeMode) {
+			itemstack.shrink(1);
+			if (itemstack.isEmpty()) {
+				player.setHeldItem(handIn, new ItemStack(output));
+			} else if (!player.inventory.addItemStackToInventory(new ItemStack(output))) {
+				player.dropItem(new ItemStack(output), false);
+			}
+		}
 		return ActionResultType.SUCCESS;
 	}
 	
