@@ -9,7 +9,7 @@
             "item": "minecraft:honeycomb"
         },
         "S": {
-            "item": "minecraft:honey_bottle"
+            "item": "buzzier_bees:wax"
         }
     },
     "result": {
