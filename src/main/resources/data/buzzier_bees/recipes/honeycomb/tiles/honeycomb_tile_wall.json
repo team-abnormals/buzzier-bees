@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "buzzier_bees:honeycomb_tiles"
+    }
+  },
+  "result": {
+    "item": "buzzier_bees:honeycomb_tile_wall",
+    "count": 6
+  }
+}
