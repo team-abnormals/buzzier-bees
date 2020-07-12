@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "buzzier_bees:block/honeycomb_tiles"
-    }
-}

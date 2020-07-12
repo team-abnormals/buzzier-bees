@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "buzzier_bees:block/honeycomb_tiles",
-        "top": "buzzier_bees:block/honeycomb_tiles",
-        "side": "buzzier_bees:block/honeycomb_tiles"
-    }
-}

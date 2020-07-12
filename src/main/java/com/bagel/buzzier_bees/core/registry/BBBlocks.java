@@ -58,19 +58,13 @@ public class BBBlocks
 	public static final RegistryObject<Block> HONEY_LAMP 				= HELPER.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_POT 				= HELPER.createBlock("honey_pot", () -> new HoneyPotBlock(Block.Properties.from(Blocks.TERRACOTTA)), ItemGroup.DECORATIONS);
 
-	// Honeycomb Blocks //
+	// Honey Bricks //
 	
 	public static final RegistryObject<Block> HONEYCOMB_BRICKS              = HELPER.createBlock("honeycomb_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_STAIRS 	    = HELPER.createBlock("honeycomb_brick_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_SLAB 	        = HELPER.createBlock("honeycomb_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_WALL 	        = HELPER.createBlock("honeycomb_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
-	
-	public static final RegistryObject<Block> HONEYCOMB_TILES              = HELPER.createBlock("honeycomb_tiles", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_STAIRS 	    = HELPER.createBlock("honeycomb_tile_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_TILES.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_SLAB 	        = HELPER.createBlock("honeycomb_tile_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_WALL 	        = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_TILES.get())), ItemGroup.BUILDING_BLOCKS);
 	
 	// Flowers //
 	
