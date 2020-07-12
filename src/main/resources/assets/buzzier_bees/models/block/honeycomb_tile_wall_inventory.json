@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_inventory",
+    "textures": {
+        "wall": "buzzier_bees:block/honeycomb_tiles"
+    }
+}
