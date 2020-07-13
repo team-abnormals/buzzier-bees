@@ -3,7 +3,6 @@ package com.bagel.buzzier_bees.core.registry;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -36,9 +35,6 @@ public class BBFeatures {
     }
 
     public static void generate(Biome biome) {
-        if (biome.getCategory() == Biome.Category.SAVANNA) {
-        	addShortFlower(Blocks.ALLIUM.getDefaultState(), biome, 4);
-        }
         if (biome.getCategory() == Biome.Category.FOREST) {
             if (biome == Biomes.FLOWER_FOREST) {
             	addShortFlower(BBBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
