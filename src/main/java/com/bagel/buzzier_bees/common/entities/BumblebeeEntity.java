@@ -94,7 +94,7 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
    }
 
    public boolean attackEntityAsMob(Entity entityIn) {
-      boolean flag = entityIn.attackEntityFrom(DamageSource.func_226252_a_(this), (float)((int)this.getAttribute(Attributes.field_233823_f_).getValue()));
+      boolean flag = entityIn.attackEntityFrom(DamageSource.func_226252_a_(this), (float)((int)this.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
       if (flag) {
          this.applyEnchantments(this, entityIn);
          if (entityIn instanceof LivingEntity) {
@@ -140,11 +140,11 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
    
    public static AttributeModifierMap.MutableAttribute func_234182_eX_() {
 	   return MobEntity.func_233666_p_()
-			   .func_233815_a_(Attributes.field_233818_a_, 2.0D)
-			   .func_233815_a_(Attributes.field_233822_e_, (double)0.8F)
-			   .func_233815_a_(Attributes.field_233821_d_, (double)0.3F)
-			   .func_233815_a_(Attributes.field_233823_f_, 1.0D)
-			   .func_233815_a_(Attributes.field_233819_b_, 48.0D);
+			   .func_233815_a_(Attributes.MAX_HEALTH, 2.0D)
+			   .func_233815_a_(Attributes.FLYING_SPEED, (double)0.8F)
+			   .func_233815_a_(Attributes.MOVEMENT_SPEED, (double)0.3F)
+			   .func_233815_a_(Attributes.ATTACK_DAMAGE, 1.0D)
+			   .func_233815_a_(Attributes.FOLLOW_RANGE, 48.0D);
    }
 
    @SuppressWarnings("deprecation")

@@ -98,10 +98,10 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 
    public static AttributeModifierMap.MutableAttribute func_234182_eX_() {
 	   return MobEntity.func_233666_p_()
-			   .func_233815_a_(Attributes.field_233818_a_, 30.0D)
-			   .func_233815_a_(Attributes.field_233819_b_, 20.0D)
-			   .func_233815_a_(Attributes.field_233820_c_, 0.25D)
-			   .func_233815_a_(Attributes.field_233823_f_, 6.0D);
+			   .func_233815_a_(Attributes.MAX_HEALTH, 30.0D)
+			   .func_233815_a_(Attributes.FOLLOW_RANGE, 20.0D)
+			   .func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 0.25D)
+			   .func_233815_a_(Attributes.ATTACK_DAMAGE, 6.0D);
    }
    
    protected SoundEvent getAmbientSound() {
@@ -166,7 +166,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    }
 
    public boolean attackEntityAsMob(Entity entityIn) {
-      boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttribute(Attributes.field_233823_f_).getValue()));
+      boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
       if (flag) {
          this.applyEnchantments(this, entityIn);
       }

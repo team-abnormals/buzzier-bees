@@ -49,7 +49,6 @@ public class BBBlocks
 	public static final RegistryObject<Block> DARK_OAK_BEEHIVE	= HELPER.createBlock("dark_oak_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> CRIMSON_BEEHIVE	= HELPER.createBlock("crimson_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WARPED_BEEHIVE	= HELPER.createBlock("warped_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.BEEHIVE)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SNAKE_BLOCK_BEEHIVE = HELPER.createBlock("snake_block_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.DARK_PRISMARINE)), null);
 
 	// Misc //
 	
@@ -66,21 +65,24 @@ public class BBBlocks
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_WALL 	        = HELPER.createBlock("honeycomb_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
 	
-	public static final RegistryObject<Block> HONEYCOMB_TILES              = HELPER.createBlock("honeycomb_tiles", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_TILES              	= HELPER.createBlock("honeycomb_tiles", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_TILE_STAIRS 	    = HELPER.createBlock("honeycomb_tile_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_TILES.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_TILE_SLAB 	        = HELPER.createBlock("honeycomb_tile_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_TILE_WALL 	        = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_TILES.get())), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB 	= HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_TILES.get())), ItemGroup.BUILDING_BLOCKS);
 	
 	// Flowers //
 	
 	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
-
+	
+	public static final RegistryObject<Block> POTTED_WHITE_CLOVER 		= HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.POT));
+	public static final RegistryObject<Block> POTTED_PINK_CLOVER  		= HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBProperties.POT));
+	
 	// Candles //
 	
 	public static final RegistryObject<Block> CANDLE 			= HELPER.createBlock("candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SOUL_CANDLE 			= HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SOUL_CANDLE 		= HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	
 	public static final RegistryObject<Block> WHITE_CANDLE 		= HELPER.createBlock("white_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_CANDLE 	= HELPER.createBlock("orange_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -138,8 +140,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> WHITE_SEAROCKET_SCENTED_CANDLE    	= HELPER.createCompatBlock("upgrade_aquatic", "white_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> AUTUMN_CROCUS_SCENTED_CANDLE    		= HELPER.createCompatBlock("autumnity", "autumn_crocus_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded("autumnity") ? ForgeRegistries.POTIONS.getValue(new ResourceLocation("autumnity:life_stasis")) : null), 70, 0, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	
-	// Flower Pots //
-		
-	public static final RegistryObject<Block> POTTED_WHITE_CLOVER 		= HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_PINK_CLOVER  		= HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBProperties.POT));
+	// Shhhhh... //
+	
+	public static final RegistryObject<Block> SNAKE_BLOCK_BEEHIVE = HELPER.createBlock("snake_block_beehive", () -> new AbnormalsBeehiveBlock(Block.Properties.from(Blocks.DARK_PRISMARINE)), null);
 }
