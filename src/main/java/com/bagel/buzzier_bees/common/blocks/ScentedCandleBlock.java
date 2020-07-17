@@ -25,11 +25,11 @@ public class ScentedCandleBlock extends CandleBlock implements IWaterLoggable {
 	public int duration;
 	public int level;
 	
-	public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, int duration, int level, Block.Properties properties) {
+	public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, Block.Properties properties) {
 		super(properties);
 		this.candleEffectInstance = candleEffectInstance;	
-		this.duration = duration;
-		this.level = level;
+		this.duration = 70;
+		this.level = 0;
 	}
 
    @Override
