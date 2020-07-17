@@ -26,7 +26,6 @@
 	"block.buzzier_bees.dark_oak_beehive": "Apiario de roble oscuro",
 	"block.buzzier_bees.crimson_beehive": "Apiario carmesí",
 	"block.buzzier_bees.warped_beehive": "Apiario distorsionado",
-	"block.buzzier_bees.snake_block_beehive": "Apiario de bloque serpentino",
 	
 	"block.buzzier_bees.wax_block": "Bloque de cera",
 	"block.buzzier_bees.crystallized_honey_block": "Bloque de miel cristalizada",
@@ -48,6 +47,9 @@
 	
 	"block.buzzier_bees.pink_clover": "Trébol rosa",
 	"block.buzzier_bees.white_clover": "Trébol blanco",
+
+	"block.buzzier_bees.potted_pink_clover": "Maceta con trébol rosa",
+	"block.buzzier_bees.potted_white_clover": "Maceta con trébol blanco",
 	
 	"block.buzzier_bees.candle": "Vela",
 	"block.buzzier_bees.soul_candle": "Vela de almas",
@@ -109,6 +111,7 @@
 	"entity.buzzier_bees.grizzly_bear": "Oso pardo",
 	"entity.buzzier_bees.black_bear": "Oso negro",
 	"entity.buzzier_bees.bumblebee": "Abejorro",
+
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apicultor",
 	
 	"item.minecraft.potion.effect.long_luck": "Poción de suerte",
