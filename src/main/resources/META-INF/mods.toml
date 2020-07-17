@@ -27,7 +27,7 @@ Grizzly Bears, Black Bears, and Bumblebees will come soon!
 [[dependencies.buzzier_bees]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.,)"
+    versionRange="[1.16.1]"
     ordering="NONE"
     side="BOTH"
 
