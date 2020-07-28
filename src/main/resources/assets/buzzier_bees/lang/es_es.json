@@ -24,7 +24,7 @@
 	"block.buzzier_bees.jungle_beehive": "Apiario de jungla",
 	"block.buzzier_bees.acacia_beehive": "Apiario de acacia",
 	"block.buzzier_bees.dark_oak_beehive": "Apiario de roble oscuro",
-	"block.buzzier_bees.crimson_beehive": "Apiario carmesí",
+	"block.buzzier_bees.crimson_beehive": "Apiario de madera carmesí",
 	"block.buzzier_bees.warped_beehive": "Apiario distorsionado",
 
 	"block.buzzier_bees.wax_block": "Bloque de cera",
@@ -38,6 +38,7 @@
 	"block.buzzier_bees.honeycomb_brick_slab": "Losa de ladrillos de panal",
 	"block.buzzier_bees.honeycomb_brick_wall": "Muro de ladrillos de panal",
 	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Losa vertical de ladrillos de panal",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "Ladrillos de panal cincelados",
 
 	"block.buzzier_bees.honeycomb_tiles": "Azulejos de panal",
 	"block.buzzier_bees.honeycomb_tile_stairs": "Escaleras de azulejos de panal",
