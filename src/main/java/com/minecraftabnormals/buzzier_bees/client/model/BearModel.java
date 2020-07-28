@@ -3,8 +3,8 @@ package com.minecraftabnormals.buzzier_bees.client.model;
 import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.teamabnormals.abnormals_core.core.library.endimator.EndimatorEntityModel;
-import com.teamabnormals.abnormals_core.core.library.endimator.EndimatorModelRenderer;
+import com.minecraftabnormals.abnormals_core.core.library.endimator.EndimatorEntityModel;
+import com.minecraftabnormals.abnormals_core.core.library.endimator.EndimatorModelRenderer;
 
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;

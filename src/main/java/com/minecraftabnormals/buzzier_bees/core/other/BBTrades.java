@@ -7,9 +7,9 @@ import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.*;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBVillagers;
-import com.teamabnormals.abnormals_core.core.utils.TradeUtils.EmeraldsForItemsTrade;
-import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsAndItemsTrade;
-import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsTrade;
+import com.minecraftabnormals.abnormals_core.core.utils.TradeUtils.EmeraldsForItemsTrade;
+import com.minecraftabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsAndItemsTrade;
+import com.minecraftabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsTrade;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.merchant.villager.VillagerTrades.ITrade;

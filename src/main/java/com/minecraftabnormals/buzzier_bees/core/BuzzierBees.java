@@ -10,7 +10,7 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBFeatures;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBVillagers;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraftforge.api.distmarker.Dist;

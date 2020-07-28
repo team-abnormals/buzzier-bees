@@ -3,7 +3,7 @@ package com.minecraftabnormals.buzzier_bees.common.items;
 import com.google.common.collect.ImmutableList;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCriteriaTriggers;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-import com.teamabnormals.abnormals_core.common.advancement.EmptyTrigger;
+import com.minecraftabnormals.abnormals_core.common.advancement.EmptyTrigger;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;

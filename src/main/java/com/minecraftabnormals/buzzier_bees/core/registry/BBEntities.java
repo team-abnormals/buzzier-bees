@@ -7,7 +7,7 @@ import com.minecraftabnormals.buzzier_bees.common.entities.BlackBearEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.BumblebeeEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

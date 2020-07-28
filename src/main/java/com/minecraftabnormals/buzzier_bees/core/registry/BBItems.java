@@ -6,7 +6,7 @@ import com.minecraftabnormals.buzzier_bees.common.items.HoneyWandItem;
 import com.minecraftabnormals.buzzier_bees.common.items.StickyHoneyWandItem;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBFoods;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;

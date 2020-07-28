@@ -1,7 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
-import com.teamabnormals.abnormals_core.core.utils.DataUtils;
+import com.minecraftabnormals.abnormals_core.core.utils.DataUtils;
 
 public class BBCompostables {
 	

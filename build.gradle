@@ -19,7 +19,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
-version = '2.0.0'
+version = '2.0.1'
 group = 'com.bagel.buzzier_bees'
 archivesBaseName = 'Buzzier-Bees-1.16.1'
 
@@ -67,20 +67,20 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.66'
-    implementation fg.deobf("curse.maven:abnormals-core:2989106")
+    minecraft 'net.minecraftforge:forge:1.16.1-32.0.92'
+    implementation fg.deobf("curse.maven:abnormals-core:3016902")
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "buzzier_bees",
-            "Specification-Vendor": "bageldotjpg",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"bageldotjpg",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        	"Specification-Title": "Buzzier Bees",
+            	"Specification-Vendor": "Team Abnormals",
+            	"Specification-Version": "1",
+            	"Implementation-Title": project.name,
+            	"Implementation-Version": "${version}",
+            	"Implementation-Vendor": "Team Abnormals",
+            	"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
         ])
     }
 }

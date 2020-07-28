@@ -10,10 +10,10 @@ import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.EatBerries
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.HurtByTargetGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.PanicGoal;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
-import com.teamabnormals.abnormals_core.core.library.endimator.ControlledEndimation;
-import com.teamabnormals.abnormals_core.core.library.endimator.Endimation;
-import com.teamabnormals.abnormals_core.core.library.endimator.entity.IEndimatedEntity;
-import com.teamabnormals.abnormals_core.core.utils.NetworkUtil;
+import com.minecraftabnormals.abnormals_core.core.library.endimator.ControlledEndimation;
+import com.minecraftabnormals.abnormals_core.core.library.endimator.Endimation;
+import com.minecraftabnormals.abnormals_core.core.library.endimator.entity.IEndimatedEntity;
+import com.minecraftabnormals.abnormals_core.core.utils.NetworkUtil;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
