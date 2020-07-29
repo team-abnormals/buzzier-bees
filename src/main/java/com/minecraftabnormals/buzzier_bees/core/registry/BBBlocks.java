@@ -10,11 +10,11 @@ import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBProperties;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatEffects;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatMods;
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
-import com.minecraftabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsBeehiveBlock;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
+import com.teamabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -55,7 +55,7 @@ public class BBBlocks
 	
 	public static final RegistryObject<Block> WAX_BLOCK 				= HELPER.createBlock("wax_block", () -> new Block(Block.Properties.create(Material.CORAL).slipperiness(0.95F).hardnessAndResistance(0.3F).sound(SoundType.CORAL)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK  = HELPER.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(Block.Properties.create(Material.CAKE).notSolid().slipperiness(0.98F).hardnessAndResistance(0.3F).sound(SoundType.GLASS)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HONEY_LAMP 				= HELPER.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.field_226947_m_)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HONEY_LAMP 				= HELPER.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.HONEY)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_POT 				= HELPER.createBlock("honey_pot", () -> new HoneyPotBlock(Block.Properties.from(Blocks.TERRACOTTA)), ItemGroup.DECORATIONS);
 
 	// Honeycomb Blocks //

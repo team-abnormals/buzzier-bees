@@ -102,8 +102,8 @@ public class BBEvents {
     			CompoundNBT tag = bottleItem.getOrCreateTag();
         		tag.putBoolean("HasNectar", bee.hasNectar());
         		tag.putBoolean("HasStung", bee.hasStung());
-        		tag.putInt("AngerTime", bee.func_230256_F__());
-        		if(bee.func_230257_G__() != null) tag.putUniqueId("AngryAt", bee.func_230257_G__());
+        		tag.putInt("AngerTime", bee.getAngerTime());
+        		if(bee.getAngerTarget() != null) tag.putUniqueId("AngryAt", bee.getAngerTarget());
         		tag.putInt("Age", bee.getGrowingAge());
         		tag.putFloat("Health", bee.getHealth());
     		}

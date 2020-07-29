@@ -10,10 +10,10 @@ import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.EatBerries
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.HurtByTargetGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.PanicGoal;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
-import com.minecraftabnormals.abnormals_core.core.library.endimator.ControlledEndimation;
-import com.minecraftabnormals.abnormals_core.core.library.endimator.Endimation;
-import com.minecraftabnormals.abnormals_core.core.library.endimator.entity.IEndimatedEntity;
-import com.minecraftabnormals.abnormals_core.core.utils.NetworkUtil;
+import com.teamabnormals.abnormals_core.core.library.endimator.ControlledEndimation;
+import com.teamabnormals.abnormals_core.core.library.endimator.Endimation;
+import com.teamabnormals.abnormals_core.core.library.endimator.entity.IEndimatedEntity;
+import com.teamabnormals.abnormals_core.core.utils.NetworkUtil;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
@@ -22,7 +22,6 @@ import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -96,12 +95,12 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
       this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, FoxEntity.class, 10, true, true, (Predicate<LivingEntity>)null));
    }
 
-   public static AttributeModifierMap.MutableAttribute func_234182_eX_() {
-	   return MobEntity.func_233666_p_()
-			   .func_233815_a_(Attributes.MAX_HEALTH, 30.0D)
-			   .func_233815_a_(Attributes.FOLLOW_RANGE, 20.0D)
-			   .func_233815_a_(Attributes.KNOCKBACK_RESISTANCE, 0.25D)
-			   .func_233815_a_(Attributes.ATTACK_DAMAGE, 6.0D);
+   public static AttributeModifierMap.MutableAttribute registerAttributes() {
+	   return AnimalEntity.func_233666_p_()
+			   .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
+			   .createMutableAttribute(Attributes.FOLLOW_RANGE, 20.0D)
+			   .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.25D)
+			   .createMutableAttribute(Attributes.ATTACK_DAMAGE, 6.0D);
    }
    
    protected SoundEvent getAmbientSound() {
@@ -209,7 +208,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
       if (spawnDataIn == null) {
          spawnDataIn = new AgeableEntity.AgeableData();
-         ((AgeableEntity.AgeableData)spawnDataIn).func_226258_a_(1.0F);
+         ((AgeableEntity.AgeableData)spawnDataIn).setBabySpawnProbability(1.0F);
       }
 
       return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);

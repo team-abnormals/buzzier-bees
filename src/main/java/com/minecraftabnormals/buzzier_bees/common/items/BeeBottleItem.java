@@ -71,8 +71,8 @@ public class BeeBottleItem extends  Item {
                 bee.setGrowingAge(age);
                 bee.setHasNectar(nectar);
                 bee.setHasStung(stung);
-                bee.func_230260_a__(anger);
-                if (angryAt != null) bee.func_230259_a_(angryAt);
+                bee.setAngerTime(anger);
+                if (angryAt != null) bee.setAngerTarget(angryAt);
                 bee.setHealth(health);
             }
 			return ActionResultType.SUCCESS;
@@ -87,19 +87,19 @@ public class BeeBottleItem extends  Item {
 			TextFormatting[] atextformatting = new TextFormatting[] {TextFormatting.GRAY};
 			if (compoundnbt.contains("Age")) {
 				boolean baby = compoundnbt.getInt("Age") < 0;
-				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_baby").func_240701_a_(atextformatting)));
+				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_baby").mergeStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("Anger")) {
 				boolean angry = compoundnbt.getInt("AngerTime") > 0;
-				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_angry").func_240701_a_(atextformatting)));
+				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_angry").mergeStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("HasNectar")) {
 				boolean nectar = compoundnbt.getBoolean("HasNectar");
-				if (nectar) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_nectar").func_240701_a_(atextformatting)));
+				if (nectar) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_nectar").mergeStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("HasStung")) {
 				boolean stung = compoundnbt.getBoolean("HasStung");
-				if (stung) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_stung").func_240701_a_(atextformatting)));
+				if (stung) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_stung").mergeStyle(atextformatting)));
 			}
 		}
 	}

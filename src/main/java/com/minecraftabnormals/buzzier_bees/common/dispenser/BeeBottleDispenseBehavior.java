@@ -31,7 +31,7 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
             bee.setGrowingAge(age);
             bee.setHasNectar(nectar);
             bee.setHasStung(stung);
-            bee.func_230260_a__(anger);
+            bee.setAngerTime(anger);
         }
         return new ItemStack(Items.GLASS_BOTTLE);
      }

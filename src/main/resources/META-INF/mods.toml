@@ -1,27 +1,27 @@
-modLoader="javafml" #mandatory
-loaderVersion="[32,)" #mandatory
-issueTrackerURL="https://github.com/bageldotjpg/BuzzierBees/issues" #optional
+modLoader="javafml"
+loaderVersion="[32,)"
+issueTrackerURL="https://github.com/minecraftabnormals/Buzzier-Bees/issues"
 license="https://github.com/minecraftabnormals/Buzzier-Bees/blob/master/LICENSE.txt"
 
-[[mods]] #mandatory
-modId="buzzier_bees" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="Buzzier Bees" #mandatory
-displayURL="https://discord.gg/zVBFsXp" #optional
-logoFile="logo.png" #optional
-credits="Bratistolf" #optional
-authors="bageldotjpg, Five, and Farcr" #optional
+[[mods]]
+	modId="buzzier_bees"
+	version="${file.jarVersion}"
+	displayName="Buzzier Bees"
+	displayURL="https://discord.gg/zVBFsXp"
+	logoFile="logo.png"
+	credits="Bratistolf"
+	authors="bageldotjpg, Five, and Farcr
 
-description='''
-Buzzier Bees expands on the content introduced in 1.15. 
-Main features include wax, crystallized honey, and candles, and much more!
-Grizzly Bears, Black Bears, and Bumblebees will come soon!
-'''
+	description='''
+	Buzzier Bees expands on the content introduced in 1.15. 
+	Main features include wax, crystallized honey, and candles, and much more!
+	Grizzly Bears, Black Bears, and Bumblebees will come soon!
+	'''
 
 [[dependencies.buzzier_bees]]
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[32.0.88,)"
+    modId="forge"
+    mandatory=true
+    versionRange="[32.0.72,)"
     ordering="NONE"
     side="BOTH"
 
@@ -35,6 +35,6 @@ Grizzly Bears, Black Bears, and Bumblebees will come soon!
 [[dependencies.buzzier_bees]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[2.1.0,)"
+    versionRange="[2.0.1,)"
     ordering="AFTER"
     side="BOTH"

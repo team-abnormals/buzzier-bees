@@ -3,7 +3,7 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 import com.minecraftabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.tileentity.ScentedCandleTileEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntityType;

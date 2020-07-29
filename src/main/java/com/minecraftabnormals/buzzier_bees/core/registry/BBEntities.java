@@ -7,7 +7,7 @@ import com.minecraftabnormals.buzzier_bees.common.entities.BlackBearEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.BumblebeeEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -37,9 +37,9 @@ public class BBEntities
     }
     
     public static void registerAttributes() {
-    	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.func_234182_eX_().func_233813_a_());
-    	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), BlackBearEntity.func_234182_eX_().func_233813_a_());
-    	GlobalEntityTypeAttributes.put(BUMBLEBEE.get(), BumblebeeEntity.func_234182_eX_().func_233813_a_());
+    	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().create());
+    	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), BlackBearEntity.registerAttributes().create());
+    	GlobalEntityTypeAttributes.put(BUMBLEBEE.get(), BumblebeeEntity.registerAttributes().create());
     }
     
     public static void addEntitySpawns() {
