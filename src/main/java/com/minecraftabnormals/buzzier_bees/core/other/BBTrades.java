@@ -121,7 +121,6 @@ public class BBTrades {
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.YELLOW_HIBISCUS_SCENTED_CANDLE.get()));
 			}
 			
-
 			if (ModList.get().isLoaded(CompatMods.UPGRADE_AQUATIC))
 			{
 				journeyman.add(new EmeraldsForItemsTrade(CompatBlocks.FLOWERING_RUSH, 1, 1, 12, 15));
