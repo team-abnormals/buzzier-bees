@@ -12,6 +12,7 @@ import net.minecraft.block.IWaterLoggable;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.BooleanProperty;
@@ -52,11 +53,6 @@ public class CandleBlock extends Block implements IWaterLoggable {
     	this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true).with(LIT, true));
     }
 	
-	@Override
-	public int getLightValue(BlockState state, IBlockReader access, BlockPos pos) {
-		return this.isInBadEnvironment(state) ? 0 : super.getLightValue(state, access, pos) + (11 + (1 * state.get(CANDLES)));	
-	}
-	
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		BlockState blockstate = context.getWorld().getBlockState(context.getPos());
@@ -69,11 +65,6 @@ public class CandleBlock extends Block implements IWaterLoggable {
 			return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag);
 		}
 	}
-	
-	public boolean isInBadEnvironment(BlockState state) {
-		return state.get(WATERLOGGED);	
-	}
-	
 	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.with(FACING, rot.rotate(state.get(FACING)));
@@ -94,6 +85,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 		return (0.1F * state.get(CANDLES));	
 	}
 
+	@Override
 	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (!state.isValidPosition(worldIn, currentPos)) {
 			return Blocks.AIR.getDefaultState();
@@ -104,7 +96,8 @@ public class CandleBlock extends Block implements IWaterLoggable {
 			return super.updatePostPlacement(state, facing, facingState, worldIn, currentPos, facingPos);	
 		}	
 	}
-	
+
+	@Override
 	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
 		return useContext.getItem().getItem() == this.asItem() && state.get(CANDLES) < 4 ? true : super.isReplaceable(state, useContext);
 	}
@@ -113,21 +106,33 @@ public class CandleBlock extends Block implements IWaterLoggable {
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return SHAPES[state.get(CANDLES) - 1];
 	}
-	
+
+	@Override
 	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);	
 	}
-	
+
+	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(CANDLES, WATERLOGGED, LIT, FACING);	
 	}
-	
+
+	@Override
 	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
 		return true;
 	}
 	
+	@Override
 	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
 		return type == PathType.AIR && !this.canCollide ? true : super.allowsMovement(state, worldIn, pos, type);	
+	}
+	
+	public IParticleData getFlameParticle() {
+		return ParticleTypes.FLAME;	
+	}
+	
+	public IParticleData getSmokeParticle() {
+		return ParticleTypes.SMOKE;	
 	}
 	
 	@Override
@@ -139,104 +144,104 @@ public class CandleBlock extends Block implements IWaterLoggable {
 			double z = pos.getZ();
 			
 			if(state.get(CANDLES) == 1) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.5D, y+0.75D, z+0.5D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.5D, y+0.75D, z+0.5D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.5D, y+0.75D, z+0.5D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.5D, y+0.75D, z+0.5D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 2 && state.get(FACING) == Direction.NORTH) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.5625D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.5625D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.375D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.375D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.5625D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.5625D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.375D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.375D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 2 && state.get(FACING) == Direction.EAST) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.75D, z+0.5625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.75D, z+0.5625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.375D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.375D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.75D, z+0.5625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.75D, z+0.5625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.375D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.375D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 2 && state.get(FACING) == Direction.SOUTH) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.4375D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.4375D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.625D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.625D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.4375D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.4375D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.625D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.625D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 2 && state.get(FACING) == Direction.WEST) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.75D, z+0.4375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.75D, z+0.4375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.625D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.625D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.75D, z+0.4375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.75D, z+0.4375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.625D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.625D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 3 && state.get(FACING) == Direction.NORTH) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.75D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.75D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.5D, y+0.6875D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.5D, y+0.6875D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.75D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.75D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.5D, y+0.6875D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.5D, y+0.6875D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 3 && state.get(FACING) == Direction.EAST) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.625D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.625D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.625D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.625D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 3 && state.get(FACING) == Direction.SOUTH) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.75D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.75D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.5D, y+0.6875D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.5D, y+0.6875D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.75D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.75D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.5D, y+0.6875D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.5D, y+0.6875D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 3 && state.get(FACING) == Direction.WEST) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.375D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.375D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.375D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.375D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.6875D, z+0.5D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 4 && state.get(FACING) == Direction.NORTH) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.625D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.625D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.625D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.625D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.625D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 4 && state.get(FACING) == Direction.EAST) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.375D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.375D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.625D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.625D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.375D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.375D, y+0.6875D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.625D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.625D, y+0.625D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 4 && state.get(FACING) == Direction.SOUTH) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.375D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.375D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.75D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.375D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.375D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.625D, z+0.625D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.4375D, z+0.3125D, 0.002D, 0.01D, 0.002D);
 			}
 			if(state.get(CANDLES) == 4 && state.get(FACING) == Direction.WEST) {
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.3125D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.3125D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.625D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.625D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.375D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.375D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.SMOKE, x+0.6875D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
-				worldIn.addParticle(ParticleTypes.FLAME, x+0.6875D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.3125D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.3125D, y+0.75D, z+0.3125D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.625D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.625D, y+0.6875D, z+0.375D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.375D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.375D, y+0.625D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getSmokeParticle(), x+0.6875D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
+				worldIn.addParticle(this.getFlameParticle(), x+0.6875D, y+0.4375D, z+0.6875D, 0.002D, 0.01D, 0.002D);
 			}
 		}
 	}
