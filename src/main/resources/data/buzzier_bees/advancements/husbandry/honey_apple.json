@@ -15,9 +15,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
-	"criteria": {
-		"honey_apple": {
-			"trigger": "buzzier_bees:honey_apple_cure"
-		}
-	}
+  "criteria": {
+    "honey_apple": {
+      "trigger": "buzzier_bees:honey_apple_cure"
+    }
+  }
 }
