@@ -142,11 +142,11 @@
 	"advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encuentra un trébol de cuatro hojas",
 	
-	"advancements.nether.scented_candle.title": "Aromaterapia",
-	"advancements.nether.scented_candle.description": "Consigue una vela aromática",
+	"advancements.end.scented_candle.title": "Aromaterapia",
+	"advancements.end.scented_candle.description": "Consigue una vela aromática",
 	
-	"advancements.nether.all_scented_candles.title": "Fragancia completa",
-	"advancements.nether.all_scented_candles.description": "Consigue todas las velas aromáticas",
+	"advancements.end.all_scented_candles.title": "Fragancia completa",
+	"advancements.end.all_scented_candles.description": "Consigue todas las velas aromáticas",
 	
 	"advancements.husbandry.honey_apple.title": "Una manzana al día",
 	"advancements.husbandry.honey_apple.description": "Usa una manzana melosa para curar la levitación",
