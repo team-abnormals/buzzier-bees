@@ -1,0 +1,164 @@
+{
+	"item.buzzier_bees.wax": "Wachs",
+	"item.buzzier_bees.crystallized_honey": "Kristallisierter Honig",
+	"item.buzzier_bees.four_leaf_clover": "Glücksklee",
+	
+	"item.buzzier_bees.honey_wand": "Honigstab",
+	"item.buzzier_bees.sticky_honey_wand": "Klebriger Honigstab",
+	
+	"item.buzzier_bees.honey_apple": "Honigapfel",
+	"item.buzzier_bees.honey_bread": "Honigbrot",
+	"item.buzzier_bees.glazed_porkchop": "Glaciertes Schweinefleisch",
+	
+	"item.buzzier_bees.silverfish_bottle": "Silberfischchenflasche",
+	"item.buzzier_bees.endermite_bottle": "Endermiten-Flasche",
+	"item.buzzier_bees.bee_bottle": "Bienenflasche",
+		
+	"item.buzzier_bees.grizzly_bear_spawn_egg": "Grizzlybär-Spawn-Ei",
+	"item.buzzier_bees.black_bear_spawn_egg": "Schwarzbär-Spawn-Ei",
+	"item.buzzier_bees.bumblebee_spawn_egg": "Hummel-Spawn-Ei",
+	
+	"block.minecraft.beehive": "Eichenholzbienenstock",
+	"block.buzzier_bees.spruce_beehive": "Fichtenholzbienenstock",
+	"block.buzzier_bees.birch_beehive": "Birkenholzbienenstock",
+	"block.buzzier_bees.jungle_beehive": "Tropenholzbienenstock",
+	"block.buzzier_bees.acacia_beehive": "Akazienholzbienenstock",
+	"block.buzzier_bees.dark_oak_beehive": "Schwarzeichenholzbienenstock",
+	"block.buzzier_bees.crimson_beehive": "Karmesinbienenstock",
+	"block.buzzier_bees.warped_beehive": "Wirrbienenstock",
+	
+	"block.buzzier_bees.wax_block": "Wachsblock",
+	"block.buzzier_bees.crystallized_honey_block": "Kristallisierter Honigblock",
+	
+	"block.buzzier_bees.honey_lamp" : "Honiglaterne",
+	"block.buzzier_bees.honey_pot": "Honigtopf",
+	
+	"block.buzzier_bees.honeycomb_bricks": "Honigwabenziegel",
+	"block.buzzier_bees.honeycomb_brick_stairs": "Honigwabenziegeltreppe",
+	"block.buzzier_bees.honeycomb_brick_slab": "Honigwabenziegelstufe",
+	"block.buzzier_bees.honeycomb_brick_wall": "Honigwabenziegelmauer",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Vertikale Honigwabenziegelstufe",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "Gemeißelte Honigwabenziegel",
+	
+	"block.buzzier_bees.honeycomb_tiles": "Honigwabenfliesen",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Honigwabenfliesentreppe",
+	"block.buzzier_bees.honeycomb_tile_slab": "Honigwabenfliesenstufe",
+	"block.buzzier_bees.honeycomb_tile_wall": "Honigwabenfliesenmauer",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Vertikale Honigwabenfliesenstufe",
+	
+	"block.buzzier_bees.pink_clover": "Rosa Klee",
+	"block.buzzier_bees.white_clover": "Weißer Klee",
+	
+	"block.buzzier_bees.potted_pink_clover": "Eingetopfter rosa Klee",
+	"block.buzzier_bees.potted_white_clover": "Eingetopfter weißer Klee",
+	
+	"block.buzzier_bees.candle": "Kerze",
+	"block.buzzier_bees.soul_candle": "Seelenkerze",
+	
+	"block.buzzier_bees.white_candle": "Weiße Kerze",
+	"block.buzzier_bees.orange_candle": "Orange Kerze",
+	"block.buzzier_bees.magenta_candle": "Magenta Kerze",
+	"block.buzzier_bees.light_blue_candle": "Hellblaue Kerze",
+	"block.buzzier_bees.yellow_candle": "Gelbe Kerze",
+	"block.buzzier_bees.lime_candle": "Hellgrüne Kerze",
+	"block.buzzier_bees.pink_candle": "Rosa Kerze",
+	"block.buzzier_bees.gray_candle": "Graue Kerze",
+	"block.buzzier_bees.light_gray_candle": "Hellgraue Kerze",
+	"block.buzzier_bees.cyan_candle": "Türkise Kerze",
+	"block.buzzier_bees.purple_candle": "Violette Kerze",
+	"block.buzzier_bees.blue_candle": "Blaue Kerze",
+	"block.buzzier_bees.brown_candle": "Braune Kerze",
+	"block.buzzier_bees.green_candle": "Grüne Kerze",
+	"block.buzzier_bees.red_candle": "Rote Kerze",
+	"block.buzzier_bees.black_candle": "Schwarze Kerze",
+	
+	"block.buzzier_bees.allium_scented_candle": "Sternlauchkerze",
+	"block.buzzier_bees.azure_bluet_scented_candle": "Porzellansternchenkerze",
+	"block.buzzier_bees.blue_orchid_scented_candle": "Blaue-Orchideen-Kerze",
+	"block.buzzier_bees.dandelion_scented_candle": "Löwenzahnkerze",
+	"block.buzzier_bees.cornflower_scented_candle": "Kornblumenkerze",
+	"block.buzzier_bees.lily_of_the_valley_scented_candle": "Maiglöckchenkerze",
+	"block.buzzier_bees.oxeye_daisy_scented_candle": "Margeritenkerze",
+	"block.buzzier_bees.poppy_scented_candle": "Mohnkerze",
+	"block.buzzier_bees.white_tulip_scented_candle": "Weiße-Tulpen-Kerze",
+	"block.buzzier_bees.orange_tulip_scented_candle": "Orange-Tulpen-Kerze",
+	"block.buzzier_bees.pink_tulip_scented_candle": "Rosa-Tulpen-Kerze",
+	"block.buzzier_bees.red_tulip_scented_candle": "Rote-Tulpen-Kerze",
+	"block.buzzier_bees.wither_rose_scented_candle": "Witherrosenkerze",
+	
+	"block.buzzier_bees.pink_clover_scented_candle": "Rosa-Kleen-Kerze",
+	"block.buzzier_bees.white_clover_scented_candle": "Weißer-Kleen-Kerze",
+	
+	"block.buzzier_bees.cartwheel_scented_candle": "Riesenbärenklaukerze",
+	"block.buzzier_bees.bluebell_scented_candle": "Blauglöckchenkerze",
+	"block.buzzier_bees.violet_scented_candle": "Veilchenkerze",
+	"block.buzzier_bees.columbine_scented_candle": "Akeleikerze",
+	"block.buzzier_bees.dianthus_scented_candle": "Nelkenkerze",
+	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Gelber-Hibiskus-Kerze",
+	"block.buzzier_bees.orange_hibiscus_scented_candle": "Oranger-Hibiskus-Kerze",
+	"block.buzzier_bees.red_hibiscus_scented_candle": "Roter-Hibiskus-Kerze",
+	"block.buzzier_bees.pink_hibiscus_scented_candle": "Rosa-Hibiskus-Kerze",
+	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Magenta-Hibiskus-Kerze",
+	"block.buzzier_bees.purple_hibiscus_scented_candle": "Violetter-Hibiskus-Kerze",
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Warmes-Affenunterholz-Kerze",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Heißes-Affenunterholz-Kerze",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Brühheißes-Affenunterholz-Kerze",
+	"block.buzzier_bees.gilia_scented_candle": "Gilienkerze",
+	"block.buzzier_bees.yucca_flower_scented_candle": "Palmlilienblumenkerze",
+	"block.buzzier_bees.pink_searocket_scented_candle": "Rosa-Meerrauken-Kerze",
+	"block.buzzier_bees.white_searocket_scented_candle": "Weiße-Meerrauken-Kerze",
+	"block.buzzier_bees.autumn_crocus_scented_candle": "Herbstzeitlosenkerze",
+	
+	"entity.buzzier_bees.grizzly_bear": "Grizzlybär",
+	"entity.buzzier_bees.black_bear": "Schwarzbär",
+	"entity.buzzier_bees.bumblebee": "Hummel",
+	
+	"entity.minecraft.villager.buzzier_bees.apiarist": "Bienenzüchter",
+	
+	"item.minecraft.potion.effect.long_luck": "Trank des Glücks",
+	"item.minecraft.potion.effect.strong_luck": "Trank des Glücks",
+	"item.minecraft.potion.effect.unluck": "Trank des Pechs",
+	"item.minecraft.potion.effect.long_unluck": "Trank des Pechs",
+	"item.minecraft.potion.effect.strong_unluck": "Trank des Pechs",	
+
+	"item.minecraft.splash_potion.effect.long_luck": "Wurftrank des Glücks",
+	"item.minecraft.splash_potion.effect.strong_luck": "Wurftrank des Glücks",
+	"item.minecraft.splash_potion.effect.unluck": "Wurftrank des Pechs",
+	"item.minecraft.splash_potion.effect.long_unluck": "Wurftrank des Pechs",
+	"item.minecraft.splash_potion.effect.strong_unluck": "Wurftrank des Pechs",
+	
+	"item.minecraft.lingering_potion.effect.long_luck": "Verweiltrank des Glücks",
+	"item.minecraft.lingering_potion.effect.strong_luck": "Verweiltrank des Glücks",
+	"item.minecraft.lingering_potion.effect.unluck": "Verweiltrank des Pechs",
+	"item.minecraft.lingering_potion.effect.long_unluck": "Verweiltrank des Pechs",
+	"item.minecraft.lingering_potion.effect.strong_unluck": "Verweiltrank des Pechs",
+	
+	"item.minecraft.tipped_arrow.effect.long_luck": "Pfeil des Glücks",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "Pfeil des Glücks",
+	"item.minecraft.tipped_arrow.effect.unluck": "Pfeil des Pechs",
+	"item.minecraft.tipped_arrow.effect.long_unluck": "Pfeil des Pechs",
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "Pfeil des Pechs",
+	
+	"advancements.husbandry.four_leaf_clover.title": "Mehr Glück beim diesen Mal",
+	"advancements.husbandry.four_leaf_clover.description": "Finde eine Glücksklee",
+	
+	"advancements.end.scented_candle.title": "Aromatherapie",
+	"advancements.end.scented_candle.description": "Beschaffe eine Blumenkerze",
+	
+	"advancements.end.all_scented_candles.title": "Alle Kerzen!",
+	"advancements.end.all_scented_candles.description": "Beschaffe alle Blumenkerzen",
+	
+	"advancements.husbandry.honey_apple.title": "Täglich einen Apfel essen",
+	"advancements.husbandry.honey_apple.description": "Iss einen Honigapfel, um die Schwebekraft auszukurieren",
+	
+	"advancements.husbandry.honey_bread.title": "Gutes Omen",
+	"advancements.husbandry.honey_bread.description": "Iss einen Honigbrot, um böses Omen auszukurieren",
+	
+	"advancements.husbandry.glazed_porkchop.title": "Knie schwache, Ärme honigsüße",
+	"advancements.husbandry.glazed_porkchop.description": "Iss ein glaciertes Schweinefleisch, um die Abbaulähmung auszukurieren",
+	
+	"tooltip.buzzier_bees.is_baby": "Baby",
+	"tooltip.buzzier_bees.has_nectar": "Bestäubt",
+	"tooltip.buzzier_bees.is_angry": "Verärgert",
+	"tooltip.buzzier_bees.has_stung": "Keiner Stachel"
+}
