@@ -16,7 +16,7 @@
     "hidden": false
   },
   "criteria": {
-    "honey_apple": {
+    "honey_bread": {
       "trigger": "buzzier_bees:honey_bread_cure"
     }
   }

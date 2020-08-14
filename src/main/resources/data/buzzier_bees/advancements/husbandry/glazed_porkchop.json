@@ -16,7 +16,7 @@
     "hidden": false
   },
   "criteria": {
-    "honey_apple": {
+    "glazed_porkchop": {
       "trigger": "buzzier_bees:glazed_porkchop_cure"
     }
   }
