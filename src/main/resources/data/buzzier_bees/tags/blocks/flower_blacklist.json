@@ -2,5 +2,9 @@
   "replace": false,
   "values": [
     "minecraft:wither_rose"
+  ],
+  "optional": [
+    "botania:red_mystical_flower",
+    "botania:agricarnation"
   ]
 }
