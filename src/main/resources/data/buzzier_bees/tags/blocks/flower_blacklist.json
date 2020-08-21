@@ -4,7 +4,7 @@
     "minecraft:wither_rose"
   ],
   "optional": [
-    "botania:red_mystical_flower",
-    "botania:agricarnation"
+    "#botania:mystical_flowers",
+    "#botania:special_flowers"
   ]
 }
