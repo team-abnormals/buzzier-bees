@@ -22,7 +22,7 @@ public class BBProperties {
 
 	private static ToIntFunction<BlockState> getCandleLightLevel(int base) {
 		return (state) -> {
-			return !state.get(CandleBlock.WATERLOGGED) ? (base + state.get(CandleBlock.CANDLES)) : 0;
+			return state.get(CandleBlock.LIT) ? (base + state.get(CandleBlock.CANDLES)) : 0;
 		};
 	}
 }

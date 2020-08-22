@@ -16,25 +16,26 @@ import net.minecraft.util.math.AxisAlignedBB;
 public class ScentedCandleTileEntity extends TileEntity implements ITickableTileEntity {
 
     public ScentedCandleTileEntity() {
-		super(BBTileEntities.SCENTED_CANDLE.get());
-	}
+        super(BBTileEntities.SCENTED_CANDLE.get());
+    }
 
     @Override
     public void tick() {
         BlockState blockstate = this.world.getBlockState(this.pos);
-        double d0 = (double)(blockstate.get(ScentedCandleBlock.CANDLES));
-        boolean water = (blockstate.get(ScentedCandleBlock.WATERLOGGED));
-        ScentedCandleBlock candle = ((ScentedCandleBlock)blockstate.getBlock());
+        double d0 = (double) (blockstate.get(ScentedCandleBlock.CANDLES));
+        boolean lit = (blockstate.get(ScentedCandleBlock.LIT));
+        ScentedCandleBlock candle = ((ScentedCandleBlock) blockstate.getBlock());
         Supplier<Effect> effect = () -> candle.candleEffectInstance.get();
-        if (water != true && effect.get() != null) {
+        if (lit && effect.get() != null) {
             for (LivingEntity entity : world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(pos).grow(d0))) {
-         	   if (entity.getActivePotionEffect(effect.get()) == null || (entity.getActivePotionEffect(effect.get()).getDuration() <= 25))  {
-         		   if (effect.get().isInstant()) {
-         			   if (this.world.getGameTime() % 300 == 0) entity.addPotionEffect(new EffectInstance(effect.get(), 5, candle.level, true, true)); 
-         		   } else {
-         			  entity.addPotionEffect(new EffectInstance(effect.get(), candle.duration, candle.level, true, true));  
-         		   }
-         	   }
+                if (entity.getActivePotionEffect(effect.get()) == null || (entity.getActivePotionEffect(effect.get()).getDuration() <= 25)) {
+                    if (effect.get().isInstant()) {
+                        if (this.world.getGameTime() % 300 == 0)
+                            entity.addPotionEffect(new EffectInstance(effect.get(), 5, candle.level, true, true));
+                    } else {
+                        entity.addPotionEffect(new EffectInstance(effect.get(), candle.duration, candle.level, true, true));
+                    }
+                }
             }
         }
     }

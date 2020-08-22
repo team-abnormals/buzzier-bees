@@ -2,7 +2,6 @@ package com.minecraftabnormals.buzzier_bees.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
@@ -11,7 +10,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 
-public class SoulCandleBlock extends CandleBlock implements IWaterLoggable {
+public class SoulCandleBlock extends CandleBlock {
 	
 	protected static final VoxelShape[] SHAPES 	= new VoxelShape[] { 
 			Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 10.0D, 10.0D),
