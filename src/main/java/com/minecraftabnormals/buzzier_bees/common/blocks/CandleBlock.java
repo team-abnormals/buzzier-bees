@@ -13,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
@@ -76,7 +77,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (state.get(LIT) == false) {
+        if (state.get(LIT) == false && player.getHeldItem(handIn).getItem() instanceof FlintAndSteelItem) {
             worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, worldIn.getRandom().nextFloat() * 0.4F + 0.8F);
             worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
             if (player != null) {
@@ -176,7 +177,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World worldIn, BlockPos pos, Random rand) {
-        if (state.get(WATERLOGGED) == false && state.get(LIT)) {
+        if (state.get(LIT)) {
             double x = pos.getX();
             double y = pos.getY();
             double z = pos.getZ();
