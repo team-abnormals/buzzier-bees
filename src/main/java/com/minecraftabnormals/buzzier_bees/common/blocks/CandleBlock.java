@@ -71,13 +71,13 @@ public class CandleBlock extends Block implements IWaterLoggable {
         } else {
             FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
             boolean flag = ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8;
-            return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag);
+            return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag).with(LIT, !flag);
         }
     }
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (state.get(LIT) == false && player.getHeldItem(handIn).getItem() instanceof FlintAndSteelItem) {
+        if (!state.get(LIT) && player.getHeldItem(handIn).getItem() instanceof FlintAndSteelItem) {
             worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, worldIn.getRandom().nextFloat() * 0.4F + 0.8F);
             worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
             if (player != null) {
@@ -86,7 +86,7 @@ public class CandleBlock extends Block implements IWaterLoggable {
                 });
             }
             return ActionResultType.func_233537_a_(worldIn.isRemote());
-        } else if (player.getHeldItem(handIn).getItem() instanceof ShovelItem) {
+        } else if (state.get(LIT) && player.getHeldItem(handIn).getItem() instanceof ShovelItem) {
             if (!worldIn.isRemote()) {
                 worldIn.playEvent((PlayerEntity) null, 1009, pos, 0);
             }
