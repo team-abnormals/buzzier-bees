@@ -110,7 +110,8 @@ public class BBTrades {
 				
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.BLUEBELL_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.CARTWHEEL_SCENTED_CANDLE.get()));
-				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.COLUMBINE_SCENTED_CANDLE.get()));
+				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.RED_LOTUS_FLOWER_SCENTED_CANDLE.get()));
+				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.WHITE_LOTUS_FLOWER_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.DIANTHUS_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.MAGENTA_HIBISCUS_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.ORANGE_HIBISCUS_SCENTED_CANDLE.get()));
