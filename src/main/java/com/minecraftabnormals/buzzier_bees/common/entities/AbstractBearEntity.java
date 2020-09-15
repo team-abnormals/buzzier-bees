@@ -22,7 +22,6 @@ import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -97,7 +96,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    }
 
    public static AttributeModifierMap.MutableAttribute registerAttributes() {
-	   return MobEntity.func_233666_p_()
+	   return AnimalEntity.func_233666_p_()
 			   .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
 			   .createMutableAttribute(Attributes.FOLLOW_RANGE, 20.0D)
 			   .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
