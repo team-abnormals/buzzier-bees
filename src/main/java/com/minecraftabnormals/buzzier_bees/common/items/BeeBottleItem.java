@@ -74,6 +74,7 @@ public class BeeBottleItem extends  Item {
                 bee.setAngerTime(anger);
                 if (angryAt != null) bee.setAngerTarget(angryAt);
                 bee.setHealth(health);
+                bee.enablePersistence();
             }
 			return ActionResultType.SUCCESS;
 		}

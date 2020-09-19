@@ -86,7 +86,6 @@ public class BBEvents {
 			
 			ItemStack itemstack = event.getPlayer().getHeldItem(event.getHand());
 			Item item = itemstack.getItem();
-			Hand hand = Hand.MAIN_HAND;
 			
 			Item bottle = null;
 			boolean successful = false;
@@ -94,18 +93,11 @@ public class BBEvents {
 			Entity target = event.getTarget();
 			EntityType<?> targetType = target.getType();
 			PlayerEntity player = event.getPlayer();
-			if (player.getHeldItemMainhand().getItem() == Items.GLASS_BOTTLE) {
-				hand = Hand.MAIN_HAND;
-			} else if (player.getHeldItemOffhand().getItem() == Items.GLASS_BOTTLE) {
-				hand = Hand.OFF_HAND;
-			}
+			Hand hand = event.getHand();
 			
 			if (targetType == EntityType.SILVERFISH) { bottle = BBItems.BOTTLE_OF_SILVERFISH.get(); successful = true; }
     		if (targetType == EntityType.ENDERMITE) { bottle = BBItems.BOTTLE_OF_ENDERMITE.get(); successful = true; }
-    		if (targetType == EntityType.BEE) {   			
-    			bottle = BBItems.BOTTLE_OF_BEE.get(); 
-    			successful = true;     			
-    		}
+    		if (targetType == EntityType.BEE) { bottle = BBItems.BOTTLE_OF_BEE.get(); successful = true; }
     		ItemStack bottleItem = new ItemStack(bottle);
     		
     		if (targetType == EntityType.BEE) {
@@ -118,7 +110,6 @@ public class BBEvents {
         		tag.putInt("Age", bee.getGrowingAge());
         		tag.putFloat("Health", bee.getHealth());
     		}
-    		
     		
     		if (target.hasCustomName()) {
     			ITextComponent name = target.getCustomName();

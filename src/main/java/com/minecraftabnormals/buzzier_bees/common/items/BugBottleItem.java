@@ -5,7 +5,9 @@ import java.util.Objects;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -49,7 +51,10 @@ public class BugBottleItem extends Item {
             if (!context.getPlayer().abilities.isCreativeMode) {
 				context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
 			}
-			entitytype.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
+			Entity entity = entitytype.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
+			if (entity instanceof MobEntity) {
+				((MobEntity)entity).enablePersistence();
+			}
 			return ActionResultType.SUCCESS;
 		}
 	}
