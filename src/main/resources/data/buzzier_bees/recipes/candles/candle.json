@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:string"
+      "tag": "buzzier_bees:candle_wick"
     },
     "S": {
-      "tag": "forge:wax"
+      "tag": "buzzier_bees:candle_base"
     }
   },
   "result": {
