@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.minecraftabnormals.buzzier_bees.core.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "refmap": "buzzier_bees.refmap.json",
+  "mixins": [
+    "BeehiveBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
