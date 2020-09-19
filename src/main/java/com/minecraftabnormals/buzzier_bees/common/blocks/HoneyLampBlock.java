@@ -42,6 +42,7 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.UP).with(WATERLOGGED, true));
     }
 
+    @Override
     public VoxelShape getShape(BlockState blockState, IBlockReader blockReader, BlockPos blockPos, ISelectionContext selectionContext) {
         switch(((Direction)blockState.get(FACING)).getAxis()) {
             case X:
@@ -54,6 +55,7 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
         }
     }
 
+    @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState blockState, World worldIn, BlockPos blockPos, Random random) {
         Direction lvt_5_1_ = (Direction)blockState.get(FACING);
@@ -92,7 +94,8 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
 	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);	
 	}
-    
+
+    @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, WATERLOGGED);
      }

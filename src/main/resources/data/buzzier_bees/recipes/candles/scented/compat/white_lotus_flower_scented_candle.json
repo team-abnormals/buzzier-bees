@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "scented_candles",
+  "ingredients": [
+    {
+      "item": "buzzier_bees:candle"
+    },
+    {
+      "item": "environmental:white_lotus_flower"
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit"
+    }
+  ],
+  "result": {
+    "item": "buzzier_bees:white_lotus_flower_scented_candle",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "environmental"
+    }
+  ]
+}

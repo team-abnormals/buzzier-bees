@@ -92,7 +92,8 @@
 	"block.buzzier_bees.cartwheel_scented_candle": "Vela aromática de molinillo",
 	"block.buzzier_bees.bluebell_scented_candle": "Vela aromática de jacinto del bosque",
 	"block.buzzier_bees.violet_scented_candle": "Vela aromática de violeta",
-	"block.buzzier_bees.columbine_scented_candle": "Vela aromática de colombina",
+	"block.buzzier_bees.red_lotus_flower_scented_candle": "Vela aromática de loto rojo",
+	"block.buzzier_bees.white_lotus_flower_scented_candle": "Vela aromática de loto blanco",
 	"block.buzzier_bees.dianthus_scented_candle": "Vela aromática de clavel",
 	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Vela aromática de hibisco amarillo",
 	"block.buzzier_bees.orange_hibiscus_scented_candle": "Vela aromática de hibisco naranja",
@@ -142,11 +143,11 @@
 	"advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encuentra un trébol de cuatro hojas",
 	
-	"advancements.nether.scented_candle.title": "Aromaterapia",
-	"advancements.nether.scented_candle.description": "Consigue una vela aromática",
+	"advancements.end.scented_candle.title": "Aromaterapia",
+	"advancements.end.scented_candle.description": "Consigue una vela aromática",
 	
-	"advancements.nether.all_scented_candles.title": "Fragancia completa",
-	"advancements.nether.all_scented_candles.description": "Consigue todas las velas aromáticas",
+	"advancements.end.all_scented_candles.title": "Fragancia completa",
+	"advancements.end.all_scented_candles.description": "Consigue todas las velas aromáticas",
 	
 	"advancements.husbandry.honey_apple.title": "Una manzana al día",
 	"advancements.husbandry.honey_apple.description": "Usa una manzana melosa para curar la levitación",

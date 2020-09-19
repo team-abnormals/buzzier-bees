@@ -3,12 +3,14 @@ package com.minecraftabnormals.buzzier_bees.core.other;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
+import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -58,15 +60,24 @@ public class BBEvents {
         World world = event.getWorld();
         BlockPos pos = event.getPos();
         Block block = world.getBlockState(pos).getBlock();
-
         ItemStack stack = player.getHeldItem(event.getHand());
-        if (stack.getItem() != Items.BONE_MEAL) return;
+        if (stack.getItem() != Items.BONE_MEAL) 
+        	return;
         
-        if (!(block instanceof FlowerBlock) || block.isIn(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, world.getBlockState(pos)))) return;
-        if (!player.isCreative()) stack.shrink(1);
-        player.swingArm(event.getHand());
-        if (world.isRemote) BoneMealItem.spawnBonemealParticles(world, pos, world.rand.nextInt(12));
-        Block.spawnAsEntity(world, pos, new ItemStack(block, 1));
+		if (BBConfig.COMMON.shortFlowerDuplication.get()) {
+	        if (!(block instanceof FlowerBlock) || block.isIn(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, world.getBlockState(pos)))) 
+	        	return;
+	        if (!player.isCreative()) 
+	        	stack.shrink(1);
+	        player.swingArm(event.getHand());
+	        if (world.isRemote) BoneMealItem.spawnBonemealParticles(world, pos, world.rand.nextInt(12));
+	        Block.spawnAsEntity(world, pos, new ItemStack(block, 1));
+		}
+		
+		if (!BBConfig.COMMON.tallFlowerDuplication.get()) {
+	        if (block instanceof TallFlowerBlock) 
+	        	event.setCanceled(true);
+		}
     }
 	    
 	@SubscribeEvent

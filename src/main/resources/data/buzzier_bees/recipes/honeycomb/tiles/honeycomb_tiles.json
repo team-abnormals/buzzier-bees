@@ -1,19 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "#S",
-        "S#"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:honeycomb"
-        },
-        "S": {
-            "item": "buzzier_bees:wax"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S",
+    "S#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:honeycomb"
     },
-    "result": {
-        "item": "buzzier_bees:honeycomb_tiles",
-        "count": 1
+    "S": {
+      "tag": "forge:wax"
     }
+  },
+  "result": {
+    "item": "buzzier_bees:honeycomb_tiles",
+    "count": 1
+  }
 }

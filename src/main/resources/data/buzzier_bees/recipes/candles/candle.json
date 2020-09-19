@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "#",
-        "S",
-        "S"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:string"
-        },
-        "S": {
-            "item": "buzzier_bees:wax"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "S",
+    "S"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:string"
     },
-    "result": {
-        "item": "buzzier_bees:candle",
-        "count": 2
+    "S": {
+      "tag": "forge:wax"
     }
+  },
+  "result": {
+    "item": "buzzier_bees:candle",
+    "count": 2
+  }
 }

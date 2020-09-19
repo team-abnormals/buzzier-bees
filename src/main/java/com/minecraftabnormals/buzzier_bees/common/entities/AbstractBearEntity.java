@@ -99,7 +99,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 	   return AnimalEntity.func_233666_p_()
 			   .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
 			   .createMutableAttribute(Attributes.FOLLOW_RANGE, 20.0D)
-			   .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.25D)
+			   .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
 			   .createMutableAttribute(Attributes.ATTACK_DAMAGE, 6.0D);
    }
    

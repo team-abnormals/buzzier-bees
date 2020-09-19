@@ -50,7 +50,7 @@ public class BBTrades {
 		{
 			novice.add(new EmeraldsForItemsTrade(Items.CAMPFIRE, 1, 1, 6, 2));
 			novice.add(new EmeraldsForItemsTrade(Items.GLASS_BOTTLE, 3, 1, 6, 1));
-			novice.add(new EmeraldsForItemsTrade(Items.OAK_PLANKS, 6, 1, 6, 1));
+			novice.add(new ItemsForEmeraldsTrade(Items.SHEARS, 2, 1, 12, 1));
 			
 			apprentice.add(new ItemsForEmeraldsTrade(Items.HONEY_BOTTLE, 1, 3, 3, 10));
 			
@@ -78,7 +78,7 @@ public class BBTrades {
 			journeyman.add(new EmeraldsForItemsTrade(Blocks.SUNFLOWER, 1, 1, 12, 15));
 			
 			expert.add(new EmeraldsForItemsTrade(BBItems.WAX.get(), 1, 1, 12, 20));
-			expert.add(new EmeraldsForItemsTrade(BBItems.BOTTLE_OF_BEE.get(), 1, 6, 6, 20));
+			expert.add(new ItemsForEmeraldsTrade(BBItems.BOTTLE_OF_BEE.get(), 6, 1, 3, 20));
 			expert.add(new ItemsForEmeraldsTrade(Blocks.BEE_NEST, 15, 1, 3, 20));
 			expert.add(new ItemsForEmeraldsTrade(BBItems.HONEY_WAND.get(), 12, 1, 1, 20));
 
@@ -110,7 +110,8 @@ public class BBTrades {
 				
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.BLUEBELL_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.CARTWHEEL_SCENTED_CANDLE.get()));
-				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.COLUMBINE_SCENTED_CANDLE.get()));
+				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.RED_LOTUS_FLOWER_SCENTED_CANDLE.get()));
+				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.WHITE_LOTUS_FLOWER_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.DIANTHUS_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.MAGENTA_HIBISCUS_SCENTED_CANDLE.get()));
 				master.add(new ItemsForEmeraldsAndItemsTrade(BBBlocks.ORANGE_HIBISCUS_SCENTED_CANDLE.get()));

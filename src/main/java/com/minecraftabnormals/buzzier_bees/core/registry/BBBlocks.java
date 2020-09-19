@@ -60,31 +60,31 @@ public class BBBlocks
 
 	// Honeycomb Blocks //
 	
-	public static final RegistryObject<Block> HONEYCOMB_BRICKS              = HELPER.createBlock("honeycomb_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_BRICK_STAIRS 	    = HELPER.createBlock("honeycomb_brick_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_BRICKS.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_BRICK_SLAB 	        = HELPER.createBlock("honeycomb_brick_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_BRICK_WALL 	        = HELPER.createBlock("honeycomb_brick_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICKS              = HELPER.createBlock("honeycomb_bricks", () -> new Block(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_STAIRS 	    = HELPER.createBlock("honeycomb_brick_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_BRICKS.get().getDefaultState(), BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_SLAB 	        = HELPER.createBlock("honeycomb_brick_slab", () -> new SlabBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_BRICK_WALL 	        = HELPER.createBlock("honeycomb_brick_wall", () -> new WallBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_brick_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_BRICKS.get())), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> CHISELED_HONEYCOMB_BRICKS     = HELPER.createBlock("chiseled_honeycomb_bricks", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> CHISELED_HONEYCOMB_BRICKS     = HELPER.createBlock("chiseled_honeycomb_bricks", () -> new Block(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
 
-	public static final RegistryObject<Block> HONEYCOMB_TILES              	= HELPER.createBlock("honeycomb_tiles", () -> new Block(Block.Properties.from(Blocks.BRICKS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_STAIRS 	    = HELPER.createBlock("honeycomb_tile_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_TILES.get().getDefaultState(), Block.Properties.from(Blocks.BRICK_STAIRS)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_SLAB 	        = HELPER.createBlock("honeycomb_tile_slab", () -> new SlabBlock(Block.Properties.from(Blocks.BRICK_SLAB)), ItemGroup.BUILDING_BLOCKS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_WALL 	        = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(Block.Properties.from(Blocks.BRICK_WALL)), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB 	= HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(Block.Properties.from(HONEYCOMB_TILES.get())), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_TILES              	= HELPER.createBlock("honeycomb_tiles", () -> new Block(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_TILE_STAIRS 	    = HELPER.createBlock("honeycomb_tile_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_TILES.get().getDefaultState(), BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_TILE_SLAB 	        = HELPER.createBlock("honeycomb_tile_slab", () -> new SlabBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
+	public static final RegistryObject<Block> HONEYCOMB_TILE_WALL 	        = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB 	= HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
 	
 	// Flowers //
 	
 	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
 	
-	public static final RegistryObject<Block> POTTED_WHITE_CLOVER 		= HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.POT));
-	public static final RegistryObject<Block> POTTED_PINK_CLOVER  		= HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBProperties.POT));
+	public static final RegistryObject<Block> POTTED_WHITE_CLOVER 	= HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_PINK_CLOVER  	= HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBProperties.FLOWER_POT));
 	
 	// Candles //
 	
 	public static final RegistryObject<Block> CANDLE 			= HELPER.createBlock("candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SOUL_CANDLE 		= HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SOUL_CANDLE 		= HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(BBProperties.SOUL_CANDLE), ItemGroup.DECORATIONS);
 	
 	public static final RegistryObject<Block> WHITE_CANDLE 		= HELPER.createBlock("white_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_CANDLE 	= HELPER.createBlock("orange_candle", () -> new CandleBlock(BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -122,11 +122,12 @@ public class BBBlocks
 	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE 	= HELPER.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  	= HELPER.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	
-	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.LEVITATION, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.HUNGER, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE     			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "dianthus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> COLUMBINE_SCENTED_CANDLE    			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "columbine_scented_candle", () -> new ScentedCandleBlock(() -> Effects.MINING_FATIGUE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_LOTUS_FLOWER_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "red_lotus_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_LOTUS_FLOWER_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "white_lotus_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE		= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "yellow_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE     		= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -136,7 +137,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> WARM_MONKEY_BRUSH_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "warm_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded(CompatMods.ATMOSPHERIC) ? CompatEffects.RELIEF : null), BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HOT_MONKEY_BRUSH_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "hot_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded(CompatMods.ATMOSPHERIC) ? CompatEffects.RELIEF : null), BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> SCALDING_MONKEY_BRUSH_SCENTED_CANDLE  = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "scalding_monkey_brush_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded(CompatMods.ATMOSPHERIC) ? CompatEffects.RELIEF : null), BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> GILIA_SCENTED_CANDLE    				= HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "gilia_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> GILIA_SCENTED_CANDLE    				= HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "gilia_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> YUCCA_FLOWER_SCENTED_CANDLE    		= HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "yucca_flower_scented_candle", () -> new ScentedCandleBlock(() -> (ModList.get().isLoaded(CompatMods.ATMOSPHERIC) ? CompatEffects.PERSISTENCE : null), BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_SEAROCKET_SCENTED_CANDLE    		= HELPER.createCompatBlock(CompatMods.UPGRADE_AQUATIC, "pink_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_SEAROCKET_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.UPGRADE_AQUATIC, "white_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, BBProperties.CANDLE), ItemGroup.DECORATIONS);
