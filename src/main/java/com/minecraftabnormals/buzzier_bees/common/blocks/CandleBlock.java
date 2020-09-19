@@ -13,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.particles.IParticleData;
@@ -41,23 +42,26 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import vazkii.quark.api.IEnchantmentInfluencer;
 
 @SuppressWarnings("deprecation")
-public class CandleBlock extends Block implements IWaterLoggable {
+public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentInfluencer {
 
     public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-
+    private final DyeColor color;
+    
     protected static final VoxelShape[] SHAPES = new VoxelShape[] { 
             Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D), 
             Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D), 
             Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D), 
             Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D) };
 
-    public CandleBlock(Properties properties) {
+    public CandleBlock(DyeColor color, Properties properties) {
         super(properties);
+        this.color = color;
         this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true).with(LIT, true));
     }
 
@@ -173,6 +177,15 @@ public class CandleBlock extends Block implements IWaterLoggable {
     public IParticleData getSmokeParticle() {
         return ParticleTypes.SMOKE;
     }
+    
+    public DyeColor getColor() {
+    	return this.color;
+    }
+
+	@Nullable
+	public DyeColor getEnchantmentInfluenceColor(IBlockReader world, BlockPos pos, BlockState state) {
+		return this.getColor();
+	}
 
     @Override
     @OnlyIn(Dist.CLIENT)

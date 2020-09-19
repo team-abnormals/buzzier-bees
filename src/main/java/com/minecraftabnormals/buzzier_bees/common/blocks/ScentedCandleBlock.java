@@ -8,6 +8,7 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBTileEntities;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.item.DyeColor;
 import net.minecraft.potion.Effect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -19,8 +20,8 @@ public class ScentedCandleBlock extends CandleBlock {
     public int duration;
     public int level;
 
-    public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, Block.Properties properties) {
-        super(properties);
+    public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, DyeColor color, Block.Properties properties) {
+        super(color, properties);
         this.candleEffectInstance = candleEffectInstance;
         this.duration = 70;
         this.level = 0;

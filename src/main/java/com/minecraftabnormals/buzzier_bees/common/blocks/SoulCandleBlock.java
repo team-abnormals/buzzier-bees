@@ -2,6 +2,7 @@ package com.minecraftabnormals.buzzier_bees.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.item.DyeColor;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
@@ -18,8 +19,8 @@ public class SoulCandleBlock extends CandleBlock {
 			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D),
 			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D)};
 	
-	public SoulCandleBlock(Properties properties) {
-		super(properties);
+	public SoulCandleBlock(DyeColor color, Properties properties) {
+		super(color, properties);
 	}
 
 	@Override
