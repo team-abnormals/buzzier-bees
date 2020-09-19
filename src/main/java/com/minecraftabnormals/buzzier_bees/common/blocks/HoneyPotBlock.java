@@ -4,6 +4,7 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.IBlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -138,5 +139,15 @@ public class HoneyPotBlock extends Block {
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 	      return SHAPES[state.get(HONEY_LEVEL)];
+	}
+	
+	@Override
+	public boolean hasComparatorInputOverride(BlockState state) {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos) {
+		return blockState.get(HONEY_LEVEL);
 	}
 }
