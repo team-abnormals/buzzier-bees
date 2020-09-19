@@ -92,7 +92,8 @@
 	"block.buzzier_bees.cartwheel_scented_candle": "Vela perfumada de catavento",
 	"block.buzzier_bees.bluebell_scented_candle": "Vela perfumada de campainha",
 	"block.buzzier_bees.violet_scented_candle": "Vela perfumada de violeta",
-	"block.buzzier_bees.red_lotus_flower_scented_candle": "Vela perfumada de colombina",
+	"block.buzzier_bees.red_lotus_flower_scented_candle": "Vela perfumada de flor de lótus vermelha",
+	"block.buzzier_bees.white_lotus_flower_scented_candle": "Vela perfumada de flor de lótus branca",
 	"block.buzzier_bees.dianthus_scented_candle": "Vela perfumada de cravo",
 	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Vela perfumada de hibisco amarelo",
 	"block.buzzier_bees.orange_hibiscus_scented_candle": "Vela perfumada de hibisco laranja",
@@ -139,22 +140,22 @@
 	"item.minecraft.tipped_arrow.effect.long_unluck": "Flecha de azar",
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Flecha de azar",
 	
-	"advancements.husbandry.four_leaf_clover.title": "Better Luck This Time",
+	"advancements.husbandry.four_leaf_clover.title": "Mais sorte desta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encontre um trevo de quatro folhas",
 	
 	"advancements.end.scented_candle.title": "Aromaterapia",
 	"advancements.end.scented_candle.description": "Obtenha uma vela perfumada",
 	
-	"advancements.end.all_scented_candles.title": "Full Scent",
+	"advancements.end.all_scented_candles.title": "Conjunto completo",
 	"advancements.end.all_scented_candles.description": "Obtenha todas as velas perfumadas",
 	
-	"advancements.husbandry.honey_apple.title": "An Apple a Day",
+	"advancements.husbandry.honey_apple.title": "Uma maçã por dia",
 	"advancements.husbandry.honey_apple.description": "Use uma maçã com mel para curar levitação",
 	
-	"advancements.husbandry.honey_bread.title": "Good Omens",
+	"advancements.husbandry.honey_bread.title": "Belas maldições",
 	"advancements.husbandry.honey_bread.description": "Use pão com mel para curar mau presságio",
 	
-	"advancements.husbandry.glazed_porkchop.title": "Knees Weak, Arms Honey",
+	"advancements.husbandry.glazed_porkchop.title": "Joelhos fracos, braços melados",
 	"advancements.husbandry.glazed_porkchop.description": "Use uma costeleta de porco vitrificada para curar cansaço",
 	
 	"tooltip.buzzier_bees.is_baby": "Bebê",
