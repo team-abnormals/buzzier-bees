@@ -1,7 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.common.tileentity;
 
-import java.util.function.Supplier;
-
 import com.minecraftabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBTileEntities;
 
@@ -15,28 +13,31 @@ import net.minecraft.util.math.AxisAlignedBB;
 
 public class ScentedCandleTileEntity extends TileEntity implements ITickableTileEntity {
 
-    public ScentedCandleTileEntity() {
-        super(BBTileEntities.SCENTED_CANDLE.get());
-    }
+	public ScentedCandleTileEntity() {
+		super(BBTileEntities.SCENTED_CANDLE.get());
+	}
 
-    @Override
-    public void tick() {
-        BlockState blockstate = this.world.getBlockState(this.pos);
-        double d0 = (double) (blockstate.get(ScentedCandleBlock.CANDLES));
-        boolean lit = (blockstate.get(ScentedCandleBlock.LIT));
-        ScentedCandleBlock candle = ((ScentedCandleBlock) blockstate.getBlock());
-        Supplier<Effect> effect = () -> candle.candleEffectInstance.get();
-        if (lit && effect.get() != null) {
-            for (LivingEntity entity : world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(pos).grow(d0))) {
-                if (entity.getActivePotionEffect(effect.get()) == null || (entity.getActivePotionEffect(effect.get()).getDuration() <= 25)) {
-                    if (effect.get().isInstant()) {
-                        if (this.world.getGameTime() % 300 == 0)
-                            entity.addPotionEffect(new EffectInstance(effect.get(), 5, candle.level, true, true));
-                    } else {
-                        entity.addPotionEffect(new EffectInstance(effect.get(), candle.duration, candle.level, true, true));
-                    }
-                }
-            }
-        }
-    }
+	@Override
+	public void tick() {
+		BlockState state = this.world.getBlockState(this.pos);
+		if (state.get(ScentedCandleBlock.LIT)) {
+			ScentedCandleBlock candle = ((ScentedCandleBlock) state.getBlock());
+			Effect effect = candle.candleEffectInstance.get();
+			if (effect != null) {
+				int duration = candle.duration;
+				int level = candle.level;
+				for (LivingEntity entity : world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(this.pos).grow(state.get(ScentedCandleBlock.CANDLES)))) {
+					EffectInstance activeEffect = entity.getActivePotionEffect(effect);
+					if (activeEffect == null || activeEffect.getDuration() <= 25) {
+						boolean instant = effect.isInstant();
+						if (instant && this.world.getGameTime() % 300 == 0) {
+							entity.addPotionEffect(new EffectInstance(effect, 5, level, true, true));
+						} else if (!instant) {
+							entity.addPotionEffect(new EffectInstance(effect, duration, level, true, true));
+						}
+					}
+				}
+			}
+		}
+	}
 }
