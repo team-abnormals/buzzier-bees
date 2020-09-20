@@ -36,13 +36,18 @@ public class BBEntities
         RenderingRegistry.registerEntityRenderingHandler(BUMBLEBEE.get(), BumblebeeRenderer::new);
     }
     
-    public static void registerAttributes() {
+    public static void init() {
+    	registerAttributes();
+    	addEntitySpawns();
+    }
+    
+    private static void registerAttributes() {
     	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().create());
     	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), BlackBearEntity.registerAttributes().create());
     	GlobalEntityTypeAttributes.put(BUMBLEBEE.get(), BumblebeeEntity.registerAttributes().create());
     }
     
-    public static void addEntitySpawns() {
+    private static void addEntitySpawns() {
  	   ForgeRegistries.BIOMES.getValues().stream().forEach(BBEntities::processSpawning);
     }
  	

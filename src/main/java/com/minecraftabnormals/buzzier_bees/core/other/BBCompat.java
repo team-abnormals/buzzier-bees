@@ -1,5 +1,8 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
+import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
+import com.teamabnormals.abnormals_core.core.utils.DataUtils;
+
 import net.minecraft.block.Block;
 import net.minecraft.potion.Effect;
 import net.minecraft.util.ResourceLocation;
@@ -28,5 +31,10 @@ public class BBCompat {
 		public static final Effect RELIEF 		= ForgeRegistries.POTIONS.getValue(new ResourceLocation(CompatMods.ATMOSPHERIC, "relief"));
 		public static final Effect PERSISTENCE 	= ForgeRegistries.POTIONS.getValue(new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence"));
 		public static final Effect FOUL_TASTE 	= ForgeRegistries.POTIONS.getValue(new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste"));
+	}
+	
+	public static void init() {
+		DataUtils.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);		
+		DataUtils.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
 	}
 }

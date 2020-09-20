@@ -2,7 +2,7 @@ package com.minecraftabnormals.buzzier_bees.core;
 
 import com.minecraftabnormals.buzzier_bees.common.dispenser.BeeBottleDispenseBehavior;
 import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBehavior;
-import com.minecraftabnormals.buzzier_bees.core.other.BBCompostables;
+import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.other.BBRenderLayers;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
@@ -66,12 +66,12 @@ public class BuzzierBees
 	private void setupCommon(final FMLCommonSetupEvent event)
     {
 		DeferredWorkQueue.runLater(() -> {
-			BBCompostables.registerCompostables();
-			BBEffects.addBrewingRecipes();
-			BBFeatures.addFeatures();
-			BBEntities.addEntitySpawns();
-			BBEntities.registerAttributes();
-			BBVillagers.setupVillagers();
+			BBCompat.init();
+			BBEffects.init();
+			BBFeatures.init();
+			BBEntities.init();
+			BBEntities.init();
+			BBVillagers.init();
 
 			REGISTRY_HELPER.processSpawnEggDispenseBehaviors();
 			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
