@@ -25,7 +25,7 @@ mixin {
     add sourceSets.main, "buzzier_bees.refmap.json"
 }
 
-version = '2.0.2'
+version = '2.1.0'
 group = 'com.minecraftabnormals'
 archivesBaseName = 'Buzzier-Bees-1.16.1'
 
