@@ -49,7 +49,7 @@ public class BBTrades {
 		if(event.getType() == BBVillagers.APIARIST.get())
 		{
 			novice.add(new EmeraldsForItemsTrade(Items.CAMPFIRE, 1, 1, 6, 2));
-			novice.add(new EmeraldsForItemsTrade(Items.GLASS_BOTTLE, 3, 1, 6, 1));
+			novice.add(new EmeraldsForItemsTrade(Items.GLASS_BOTTLE, 3, 1, 12, 1));
 			novice.add(new ItemsForEmeraldsTrade(Items.SHEARS, 2, 1, 12, 1));
 			
 			apprentice.add(new ItemsForEmeraldsTrade(Items.HONEY_BOTTLE, 1, 3, 3, 10));

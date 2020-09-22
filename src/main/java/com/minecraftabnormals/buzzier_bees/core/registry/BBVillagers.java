@@ -69,7 +69,7 @@ public class BBVillagers {
 		TaigaVillagePools.init();
 
 		for (String biome : new String[] { "plains", "snowy", "savanna", "desert", "taiga" })
-			addToPool(new ResourceLocation("village/" + biome + "/houses"), new ResourceLocation(BuzzierBees.MODID, "village/apiarist_house_" + biome + "_1"), 5);
+			addToPool(new ResourceLocation("village/" + biome + "/houses"), new ResourceLocation(BuzzierBees.MODID, "village/apiarist_house_" + biome + "_1"), 1);
 	}
 
 	@SuppressWarnings("deprecation")
