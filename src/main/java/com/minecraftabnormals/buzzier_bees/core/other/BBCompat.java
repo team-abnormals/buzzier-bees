@@ -1,11 +1,14 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
+import com.minecraftabnormals.buzzier_bees.common.dispenser.BeeBottleDispenseBehavior;
+import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBehavior;
+import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -48,5 +51,12 @@ public class BBCompat {
 		DataUtils.registerFlammable(BBBlocks.JUNGLE_BEEHIVE.get(), 5, 20);
 		DataUtils.registerFlammable(BBBlocks.DARK_OAK_BEEHIVE.get(), 5, 20);
 		DataUtils.registerFlammable(BBBlocks.ACACIA_BEEHIVE.get(), 5, 20);
+	}
+	
+	public static void registerDispenserBehaviors() {
+		BuzzierBees.REGISTRY_HELPER.processSpawnEggDispenseBehaviors();
+		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
+		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
+		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
 	}
 }
