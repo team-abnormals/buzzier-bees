@@ -5,6 +5,7 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -39,5 +40,13 @@ public class BBCompat {
 		DataUtils.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);		
 		DataUtils.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
 		DataUtils.registerCompostable(BBItems.FOUR_LEAF_CLOVER.get(), 0.65F);
+	}
+	
+	public static void registerFlammables() {
+		DataUtils.registerFlammable(BBBlocks.SPRUCE_BEEHIVE.get(), 5, 20);
+		DataUtils.registerFlammable(BBBlocks.BIRCH_BEEHIVE.get(), 5, 20);
+		DataUtils.registerFlammable(BBBlocks.JUNGLE_BEEHIVE.get(), 5, 20);
+		DataUtils.registerFlammable(BBBlocks.DARK_OAK_BEEHIVE.get(), 5, 20);
+		DataUtils.registerFlammable(BBBlocks.ACACIA_BEEHIVE.get(), 5, 20);
 	}
 }
