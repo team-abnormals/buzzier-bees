@@ -66,12 +66,12 @@ public class BuzzierBees
 	private void setupCommon(final FMLCommonSetupEvent event)
     {
 		DeferredWorkQueue.runLater(() -> {
-			BBCompat.init();
-			BBEffects.init();
-			BBFeatures.init();
-			BBEntities.init();
-			BBEntities.init();
-			BBVillagers.init();
+			BBCompat.registerCompostables();
+			BBEffects.registerRecipes();
+			BBFeatures.registerFeatures();
+			BBEntities.registerEntitySpawns();
+			BBEntities.registerAttributes();
+			BBVillagers.registerVillagers();
 
 			REGISTRY_HELPER.processSpawnEggDispenseBehaviors();
 			DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());

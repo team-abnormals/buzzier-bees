@@ -24,7 +24,7 @@ public class BBEffects {
     public static final RegistryObject<Potion> STRONG_UNLUCK = POTIONS.register("strong_unluck", () -> new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600, 1)}));
     
 
-    public static void init() {
+    public static void registerRecipes() {
 		PotionBrewing.addMix(Potions.AWKWARD, BBItems.FOUR_LEAF_CLOVER.get(), Potions.LUCK);
 		PotionBrewing.addMix(Potions.LUCK, Items.REDSTONE, LONG_LUCK.get());
 		PotionBrewing.addMix(Potions.LUCK, Items.GLOWSTONE_DUST, STRONG_LUCK.get());

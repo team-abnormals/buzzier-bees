@@ -30,7 +30,7 @@ public class BBFeatures {
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.withConfiguration(new MultipleWithChanceRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.withConfiguration(config)), 0)).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(frequency))));
 	}
 	
-	public static void init() {
+	public static void registerFeatures() {
         ForgeRegistries.BIOMES.getValues().forEach(BBFeatures::generate);
     }
 

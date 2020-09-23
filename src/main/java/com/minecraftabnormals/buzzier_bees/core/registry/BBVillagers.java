@@ -40,17 +40,17 @@ public class BBVillagers {
 	public static final RegistryObject<PointOfInterestType> HONEY_POT = POI_TYPES.register("honey_pot", () -> new PointOfInterestType("apiarist", PointOfInterestType.getAllStates(BBBlocks.HONEY_POT.get()), 1, 1));
 	public static final RegistryObject<VillagerProfession> APIARIST = PROFESSIONS.register("apiarist", () -> new VillagerProfession("apiarist", HONEY_POT.get(), ImmutableSet.of(Items.HONEYCOMB, Items.HONEY_BOTTLE, BBItems.WAX.get()), ImmutableSet.of(), SoundEvents.ENTITY_VILLAGER_WORK_LEATHERWORKER));
 
-	public static void init() {
-		setupVillagers();
-		setupPointOfInterests();
-		setupVillagerHouses();
+	public static void registerVillagers() {
+		registerGifts();
+		registerPointOfInterests();
+		registerVillagerHouses();
 	}
 	
-	private static void setupVillagers() {
+	private static void registerGifts() {
 		GiveHeroGiftsTask.GIFTS.put(APIARIST.get(), new ResourceLocation(BuzzierBees.MODID, "gameplay/hero_of_the_village/apiarist_gift"));
 	}
 
-	private static void setupPointOfInterests() {
+	private static void registerPointOfInterests() {
 		try {
 			ObfuscationReflectionHelper.findMethod(PointOfInterestType.class, "func_221052_a", PointOfInterestType.class).invoke(null, HONEY_POT.get());
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
@@ -59,7 +59,7 @@ public class BBVillagers {
 	}
 
 	@SuppressWarnings("deprecation")
-	private static void setupVillagerHouses() {
+	private static void registerVillagerHouses() {
 		JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(BuzzierBees.MODID, "village/apiarist_bees"), new ResourceLocation("empty"), ImmutableList.of(new Pair<>(new SingleJigsawPiece(BuzzierBees.MODID + ":village/apiarist_bees/bees_1"), 1)), JigsawPattern.PlacementBehaviour.RIGID));
 
 		PlainsVillagePools.init();
