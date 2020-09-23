@@ -1,6 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
+import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.block.Block;
@@ -37,5 +38,6 @@ public class BBCompat {
 	public static void registerCompostables() {
 		DataUtils.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);		
 		DataUtils.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
+		DataUtils.registerCompostable(BBItems.FOUR_LEAF_CLOVER.get(), 0.65F);
 	}
 }
