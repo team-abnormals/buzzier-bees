@@ -4,7 +4,6 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.block.Block;
-import net.minecraft.potion.Effect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -17,6 +16,7 @@ public class BBCompat {
 		public static final String UPGRADE_AQUATIC 	= "upgrade_aquatic";
 	}
 	
+	// Uses Blocks since they are already registered when accessed (@link BBTrades.java)
 	public static class CompatBlocks {
 		public static final Block FLOWERING_RUSH 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.UPGRADE_AQUATIC, "flowering_rush"));
 		
@@ -27,13 +27,14 @@ public class BBCompat {
 		public static final Block BIRD_OF_PARADISE 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "bird_of_paradise"));
 	}
 	
+	// Uses ResourceLocations since these will not be registered at the time of obtaining
 	public static class CompatEffects {
-		public static final Effect RELIEF 		= ForgeRegistries.POTIONS.getValue(new ResourceLocation(CompatMods.ATMOSPHERIC, "relief"));
-		public static final Effect PERSISTENCE 	= ForgeRegistries.POTIONS.getValue(new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence"));
-		public static final Effect FOUL_TASTE 	= ForgeRegistries.POTIONS.getValue(new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste"));
+		public static final ResourceLocation RELIEF 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "relief");
+		public static final ResourceLocation PERSISTENCE 	= new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence");
+		public static final ResourceLocation FOUL_TASTE 	= new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste");
 	}
 	
-	public static void init() {
+	public static void registerCompostables() {
 		DataUtils.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);		
 		DataUtils.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
 	}

@@ -29,6 +29,7 @@ import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -146,7 +147,7 @@ public class BBBlocks
 	public static final RegistryObject<Block> WHITE_SEAROCKET_SCENTED_CANDLE    	= HELPER.createCompatBlock(CompatMods.UPGRADE_AQUATIC, "white_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, DyeColor.WHITE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> AUTUMN_CROCUS_SCENTED_CANDLE    		= HELPER.createCompatBlock(CompatMods.AUTUMNITY, "autumn_crocus_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.AUTUMNITY, CompatEffects.FOUL_TASTE), DyeColor.MAGENTA, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	
-	private static Supplier<Effect> getCompatEffect(String modid, Effect effect) {
-		return () -> (ModList.get().isLoaded(modid) ? effect : null);
+	private static Supplier<Effect> getCompatEffect(String modid, ResourceLocation effect) {
+		return (ModList.get().isLoaded(modid) ? () -> ForgeRegistries.POTIONS.getValue(effect) : () -> null);
 	}
 }
