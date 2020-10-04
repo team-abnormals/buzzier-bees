@@ -20,7 +20,6 @@ public class BeehiveBlockMixin extends Block{
 		return state.with(BeehiveBlock.FACING, rot.rotate(state.get(BeehiveBlock.FACING)));
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(BeehiveBlock.FACING)));

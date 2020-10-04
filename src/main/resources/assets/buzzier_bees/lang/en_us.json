@@ -17,6 +17,7 @@
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Grizzly Bear Spawn Egg",
 	"item.buzzier_bees.black_bear_spawn_egg": "Black Bear Spawn Egg",
 	"item.buzzier_bees.bumblebee_spawn_egg": "Bumblebee Spawn Egg",
+	"item.buzzier_bees.moobloom_spawn_egg": "Moobloom Spawn Egg",
 	
 	"block.minecraft.beehive": "Oak Beehive",
 	"block.buzzier_bees.spruce_beehive": "Spruce Beehive",
@@ -46,14 +47,20 @@
 	"block.buzzier_bees.honeycomb_tile_wall": "Honeycomb Tile Wall",
 	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Honeycomb Tile Vertical Slab",
 	
+	"block.buzzier_bees.honeycomb_door": "Honeycomb Door",
+	"block.buzzier_bees.honeycomb_trapdoor": "Honeycomb Trapdoor",
+	
 	"block.buzzier_bees.pink_clover": "Pink Clover",
 	"block.buzzier_bees.white_clover": "White Clover",
+	"block.buzzier_bees.buttercup": "Buttercup",
 	
 	"block.buzzier_bees.potted_pink_clover": "Potted Pink Clover",
 	"block.buzzier_bees.potted_white_clover": "Potted White Clover",
+	"block.buzzier_bees.potted_buttercup": "Potted Buttercup",
 	
 	"block.buzzier_bees.candle": "Candle",
 	"block.buzzier_bees.soul_candle": "Soul Candle",
+	"block.buzzier_bees.ender_candle": "Ender Candle",
 	
 	"block.buzzier_bees.white_candle": "White Candle",
 	"block.buzzier_bees.orange_candle": "Orange Candle",
@@ -88,6 +95,7 @@
 	
 	"block.buzzier_bees.pink_clover_scented_candle": "Pink Clover Scented Candle",
 	"block.buzzier_bees.white_clover_scented_candle": "White Clover Scented Candle",
+	"block.buzzier_bees.buttercup_scented_candle": "Buttercup Scented Candle",
 	
 	"block.buzzier_bees.cartwheel_scented_candle": "Cartwheel Scented Candle",
 	"block.buzzier_bees.bluebell_scented_candle": "Bluebell Scented Candle",
@@ -113,8 +121,11 @@
 	"entity.buzzier_bees.grizzly_bear": "Grizzly Bear",
 	"entity.buzzier_bees.black_bear": "Black Bear",
 	"entity.buzzier_bees.bumblebee": "Bumblebee",
+	"entity.buzzier_bees.moobloom": "Moobloom",
 	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apiarist",
+	
+	"effect.buzzier_bees.sunny": "Sunny",
 	
 	"item.minecraft.potion.effect.long_luck": "Potion of Luck",
 	"item.minecraft.potion.effect.strong_luck": "Potion of Luck",

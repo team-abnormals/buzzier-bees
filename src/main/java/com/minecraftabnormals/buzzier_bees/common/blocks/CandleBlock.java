@@ -44,7 +44,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import vazkii.quark.api.IEnchantmentInfluencer;
 
-@SuppressWarnings("deprecation")
 public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentInfluencer {
 
     public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);

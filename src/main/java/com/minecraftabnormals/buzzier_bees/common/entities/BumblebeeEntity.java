@@ -65,7 +65,6 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
       super.registerData();
    }
 
-   @SuppressWarnings("deprecation")
    public float getBlockPathWeight(BlockPos pos, IWorldReader worldIn) {
       return worldIn.getBlockState(pos).isAir() ? 10.0F : 0.0F;
    }
@@ -147,7 +146,6 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
 			   .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D);
    }
 
-   @SuppressWarnings("deprecation")
    protected PathNavigator createNavigator(World worldIn) {
       FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, worldIn) {
 		public boolean canEntityStandOnPos(BlockPos pos) {

@@ -3,9 +3,11 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 import com.minecraftabnormals.buzzier_bees.client.render.BlackBearRenderer;
 import com.minecraftabnormals.buzzier_bees.client.render.BumblebeeRenderer;
 import com.minecraftabnormals.buzzier_bees.client.render.GrizzlyBearRenderer;
+import com.minecraftabnormals.buzzier_bees.client.render.MoobloomRenderer;
 import com.minecraftabnormals.buzzier_bees.common.entities.BlackBearEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.BumblebeeEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
+import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
@@ -28,18 +30,21 @@ public class BBEntities
 	public static final RegistryObject<EntityType<GrizzlyBearEntity>> 	GRIZZLY_BEAR 	= HELPER.createLivingEntity("grizzly_bear", GrizzlyBearEntity::new, EntityClassification.CREATURE, 1.4F, 1.4F);
 	public static final RegistryObject<EntityType<BlackBearEntity>> 	BLACK_BEAR 		= HELPER.createLivingEntity("black_bear", BlackBearEntity::new, EntityClassification.CREATURE, 1.1F, 1.1F);
 	public static final RegistryObject<EntityType<BumblebeeEntity>> 	BUMBLEBEE 		= HELPER.createLivingEntity("bumblebee", BumblebeeEntity::new, EntityClassification.CREATURE, 0.5F, 0.5F);
+	public static final RegistryObject<EntityType<MoobloomEntity>> 		MOOBLOOM 		= HELPER.createLivingEntity("moobloom", MoobloomEntity::new, EntityClassification.CREATURE, 0.9F, 1.4F);
 
     @OnlyIn(Dist.CLIENT)
     public static void registerRendering() {
         RenderingRegistry.registerEntityRenderingHandler(GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BLACK_BEAR.get(), BlackBearRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BUMBLEBEE.get(), BumblebeeRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(MOOBLOOM.get(), MoobloomRenderer::new);
     }
     
     public static void registerAttributes() {
     	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().create());
     	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), BlackBearEntity.registerAttributes().create());
     	GlobalEntityTypeAttributes.put(BUMBLEBEE.get(), BumblebeeEntity.registerAttributes().create());
+    	GlobalEntityTypeAttributes.put(MOOBLOOM.get(), MoobloomEntity.func_234188_eI_().create());
     }
     
     public static void registerEntitySpawns() {

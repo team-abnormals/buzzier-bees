@@ -36,7 +36,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@SuppressWarnings("deprecation")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBBlocks
 {	
@@ -79,12 +78,14 @@ public class BBBlocks
 	
 	// Flowers //
 	
-	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, BBProperties.FLOWER.notSolid()), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP 		= HELPER.createBlock("buttercup", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 30, BBProperties.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, BBProperties.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, BBProperties.FLOWER), ItemGroup.DECORATIONS);
 	
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER 	= HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.FLOWER_POT));
 	public static final RegistryObject<Block> POTTED_PINK_CLOVER  	= HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBProperties.FLOWER_POT));
-	
+	public static final RegistryObject<Block> POTTED_BUTTERCUP		= HELPER.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), BBProperties.FLOWER_POT));
+
 	// Candles //
 	
 	public static final RegistryObject<Block> CANDLE 			= HELPER.createBlock("candle", () -> new CandleBlock(null, BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -125,7 +126,8 @@ public class BBBlocks
 	
 	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE 	= HELPER.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, DyeColor.WHITE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  	= HELPER.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, DyeColor.PINK, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	
+	public static final RegistryObject<Block> BUTTERCUP_SCENTED_CANDLE  	= HELPER.createBlock("buttercup_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.YELLOW, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+
 	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.LEVITATION, DyeColor.PINK, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.HUNGER, DyeColor.BLUE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE       			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY, DyeColor.PURPLE, BBProperties.CANDLE), ItemGroup.DECORATIONS);

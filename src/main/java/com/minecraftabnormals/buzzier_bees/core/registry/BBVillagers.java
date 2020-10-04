@@ -58,7 +58,6 @@ public class BBVillagers {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private static void registerVillagerHouses() {
 		JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation(BuzzierBees.MODID, "village/apiarist_bees"), new ResourceLocation("empty"), ImmutableList.of(new Pair<>(new SingleJigsawPiece(BuzzierBees.MODID + ":village/apiarist_bees/bees_1"), 1)), JigsawPattern.PlacementBehaviour.RIGID));
 
@@ -72,7 +71,6 @@ public class BBVillagers {
 			addToPool(new ResourceLocation("village/" + biome + "/houses"), new ResourceLocation(BuzzierBees.MODID, "village/apiarist_house_" + biome + "_1"), 1);
 	}
 
-	@SuppressWarnings("deprecation")
 	private static void addToPool(ResourceLocation pool, ResourceLocation toAdd, int weight) {
 		JigsawPattern old = JigsawManager.REGISTRY.get(pool);
 		List<JigsawPiece> shuffled = old.getShuffledPieces(new Random());

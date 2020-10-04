@@ -17,7 +17,6 @@ import net.minecraft.world.IBlockReader;
 public class PottedCartwheelBlock extends FlowerPotBlock {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
-	@SuppressWarnings("deprecation")
 	public PottedCartwheelBlock(Block flower, Properties properties) {
 		super(flower, properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
@@ -33,7 +32,6 @@ public class PottedCartwheelBlock extends FlowerPotBlock {
 		return SHAPE;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.toRotation(state.get(FACING)));

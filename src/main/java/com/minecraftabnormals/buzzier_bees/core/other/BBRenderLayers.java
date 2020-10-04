@@ -13,8 +13,10 @@ public class BBRenderLayers {
 
 		RenderTypeLookup.setRenderLayer(BBBlocks.WHITE_CLOVER.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.PINK_CLOVER.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.BUTTERCUP.get(), RenderType.getCutout());
 
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_CLOVER.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_CLOVER.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BUTTERCUP.get(), RenderType.getCutout());
 	}
 }
