@@ -42,9 +42,9 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import vazkii.quark.api.IEnchantmentInfluencer;
+import vazkii.quark.api.IVariableEnchantmentInfluencer;
 
-public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentInfluencer {
+public class CandleBlock extends Block implements IWaterLoggable, IVariableEnchantmentInfluencer {
 
     public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -187,6 +187,11 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 	@Nullable
 	public DyeColor getEnchantmentInfluenceColor(IBlockReader world, BlockPos pos, BlockState state) {
 		return this.getColor();
+	}
+
+	@Override
+	public int getInfluenceStack(IBlockReader world, BlockPos pos, BlockState state) {
+		return state.get(CANDLES);
 	}
 
 	@SuppressWarnings("incomplete-switch")
