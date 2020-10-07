@@ -17,6 +17,7 @@
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Grizzlybär-Spawn-Ei",
 	"item.buzzier_bees.black_bear_spawn_egg": "Schwarzbär-Spawn-Ei",
 	"item.buzzier_bees.bumblebee_spawn_egg": "Hummel-Spawn-Ei",
+	"item.buzzier_bees.moobloom_spawn_egg": "Moobloom-Spawn-Ei",
 	
 	"block.minecraft.beehive": "Eichenholzbienenstock",
 	"block.buzzier_bees.spruce_beehive": "Fichtenholzbienenstock",
@@ -46,14 +47,20 @@
 	"block.buzzier_bees.honeycomb_tile_wall": "Honigwabenfliesenmauer",
 	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Vertikale Honigwabenfliesenstufe",
 	
+	"block.buzzier_bees.honeycomb_door": "Honigwabentür",
+	"block.buzzier_bees.honeycomb_trapdoor": "Honigwabenfalltür",
+	
 	"block.buzzier_bees.pink_clover": "Rosa Klee",
 	"block.buzzier_bees.white_clover": "Weißer Klee",
+	"block.buzzier_bees.buttercup": "Hahnenfuß",
 	
 	"block.buzzier_bees.potted_pink_clover": "Eingetopfter rosa Klee",
 	"block.buzzier_bees.potted_white_clover": "Eingetopfter weißer Klee",
+	"block.buzzier_bees.potted_buttercup": "Eingetopfter Hahnenfuß",
 	
 	"block.buzzier_bees.candle": "Kerze",
 	"block.buzzier_bees.soul_candle": "Seelenkerze",
+	"block.buzzier_bees.ender_candle": "Enderkerze",
 	
 	"block.buzzier_bees.white_candle": "Weiße Kerze",
 	"block.buzzier_bees.orange_candle": "Orange Kerze",
@@ -88,6 +95,7 @@
 	
 	"block.buzzier_bees.pink_clover_scented_candle": "Rosa-Klee-Kerze",
 	"block.buzzier_bees.white_clover_scented_candle": "Weißer-Klee-Kerze",
+	"block.buzzier_bees.buttercup_scented_candle": "Hahnenfußkerze",
 	
 	"block.buzzier_bees.cartwheel_scented_candle": "Riesenbärenklaukerze",
 	"block.buzzier_bees.bluebell_scented_candle": "Blauglöckchenkerze",
@@ -112,8 +120,11 @@
 	"entity.buzzier_bees.grizzly_bear": "Grizzlybär",
 	"entity.buzzier_bees.black_bear": "Schwarzbär",
 	"entity.buzzier_bees.bumblebee": "Hummel",
+	"entity.buzzier_bees.moobloom": "Moobloom",
 	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Bienenzüchter",
+	
+	"effect.buzzier_bees.sunny": "Sonnig",
 	
 	"item.minecraft.potion.effect.long_luck": "Trank des Glücks",
 	"item.minecraft.potion.effect.strong_luck": "Trank des Glücks",
