@@ -17,6 +17,7 @@
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Generar oso pardo",
 	"item.buzzier_bees.black_bear_spawn_egg": "Generar oso negro",
 	"item.buzzier_bees.bumblebee_spawn_egg": "Generar abejorro",
+	"item.buzzier_bees.moobloom_spawn_egg": "Generar vaca moobloom",
 	
 	"block.minecraft.beehive": "Apiario de abejas de roble",
 	"block.buzzier_bees.spruce_beehive": "Apiario de abejas de abeto",
@@ -45,15 +46,21 @@
 	"block.buzzier_bees.honeycomb_tile_slab": "Losa de azulejos de panal",
 	"block.buzzier_bees.honeycomb_tile_wall": "Pared de azulejos de panal",
 	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Losa vertical de azulejos de panal",
+
+	"block.buzzier_bees.honeycomb_door": "Puerta de panal",
+	"block.buzzier_bees.honeycomb_trapdoor": "Trampilla de panal",
 	
 	"block.buzzier_bees.pink_clover": "Trébol rosa",
 	"block.buzzier_bees.white_clover": "Trébol blanco",
+	"block.buzzier_bees.buttercup": "Botón de oro",
 
 	"block.buzzier_bees.potted_pink_clover": "Maceta con trébol rosa",
 	"block.buzzier_bees.potted_white_clover": "Maceta con trébol blanco",
+	"block.buzzier_bees.potted_buttercup": "Maceta con botón de oro",
 	
 	"block.buzzier_bees.candle": "Vela",
 	"block.buzzier_bees.soul_candle": "Vela de almas",
+	"block.buzzier_bees.ender_candle": "Vela de ender",
 
 	"block.buzzier_bees.white_candle": "Vela blanca",
 	"block.buzzier_bees.orange_candle": "Vela naranja",
@@ -88,6 +95,7 @@
 	
 	"block.buzzier_bees.pink_clover_scented_candle": "Vela aromática de trébol rosa",
 	"block.buzzier_bees.white_clover_scented_candle": "Vela aromática de trébol blanco",
+	"block.buzzier_bees.buttercup_scented_candle": "Vela aromática de botón de oro",
 
 	"block.buzzier_bees.cartwheel_scented_candle": "Vela aromática de rehilete",
 	"block.buzzier_bees.bluebell_scented_candle": "Vela aromática de jacinto del bosque",
@@ -113,8 +121,11 @@
 	"entity.buzzier_bees.grizzly_bear": "Oso pardo",
 	"entity.buzzier_bees.black_bear": "Oso negro",
 	"entity.buzzier_bees.bumblebee": "Abejorro",
+	"entity.buzzier_bees.moobloom": "Vaca moobloom",
 
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apicultor",
+
+	"effect.buzzier_bees.sunny": "Soleado",
 	
 	"item.minecraft.potion.effect.long_luck": "Poción de suerte",
 	"item.minecraft.potion.effect.strong_luck": "Poción de suerte",
