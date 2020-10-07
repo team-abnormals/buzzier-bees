@@ -5,6 +5,8 @@ import com.minecraftabnormals.buzzier_bees.common.blocks.CandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.CrystallizedHoneyBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.HoneyLampBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.HoneyPotBlock;
+import com.minecraftabnormals.buzzier_bees.common.blocks.HoneycombDoorBlock;
+import com.minecraftabnormals.buzzier_bees.common.blocks.HoneycombTrapDoorBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.SoulCandleBlock;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
@@ -62,6 +64,9 @@ public class BBBlocks
 
 	// Honeycomb Blocks //
 	
+	public static final RegistryObject<Block> HONEYCOMB_DOOR		= HELPER.createBlock("honeycomb_door", () -> new HoneycombDoorBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.REDSTONE);
+	public static final RegistryObject<Block> HONEYCOMB_TRAPDOOR	= HELPER.createBlock("honeycomb_trapdoor", () -> new HoneycombTrapDoorBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.REDSTONE);
+
 	public static final RegistryObject<Block> HONEYCOMB_BRICKS              = HELPER.createBlock("honeycomb_bricks", () -> new Block(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_STAIRS 	    = HELPER.createBlock("honeycomb_brick_stairs", () -> new AbnormalsStairsBlock(HONEYCOMB_BRICKS.get().getDefaultState(), BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
 	public static final RegistryObject<Block> HONEYCOMB_BRICK_SLAB 	        = HELPER.createBlock("honeycomb_brick_slab", () -> new SlabBlock(BBProperties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
