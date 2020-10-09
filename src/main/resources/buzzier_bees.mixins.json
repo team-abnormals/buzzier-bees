@@ -5,7 +5,9 @@
   "minVersion": "0.8",
   "refmap": "buzzier_bees.refmap.json",
   "mixins": [
-    "BeehiveBlockMixin"
+    "BeehiveBlockMixin",
+    "MobEntityMixin",
+    "BeeEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

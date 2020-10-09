@@ -5,6 +5,7 @@ import java.util.Set;
 import com.google.common.collect.Sets;
 import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
+import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 
 import net.minecraft.block.Block;
@@ -13,9 +14,12 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,6 +37,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -79,6 +84,19 @@ public class BBEvents {
 	        	event.setCanceled(true);
 		}
     }
+	
+	@SubscribeEvent
+	public static void onEntityUpdate(LivingUpdateEvent event) {
+		LivingEntity entity = event.getEntityLiving();
+		if(entity instanceof PhantomEntity) {
+			if(((PhantomEntity) entity).getAttackTarget() instanceof ServerPlayerEntity) {
+				ServerPlayerEntity player = (ServerPlayerEntity) ((PhantomEntity) entity).getAttackTarget();
+				if(player.getActivePotionEffect(BBEffects.SUNNY.get()) != null) {
+					((PhantomEntity) entity).setAttackTarget(null);
+				}
+			}
+		}
+	}
 	    
 	@SubscribeEvent
 	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
