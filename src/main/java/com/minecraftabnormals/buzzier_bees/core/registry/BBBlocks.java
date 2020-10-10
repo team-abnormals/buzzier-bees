@@ -1,8 +1,10 @@
 package com.minecraftabnormals.buzzier_bees.core.registry;
 
 import com.google.common.base.Supplier;
+import com.minecraftabnormals.buzzier_bees.common.blocks.ButtercupBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.CandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.CrystallizedHoneyBlock;
+import com.minecraftabnormals.buzzier_bees.common.blocks.EnderCandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.HoneyLampBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.HoneyPotBlock;
 import com.minecraftabnormals.buzzier_bees.common.blocks.HoneycombDoorBlock;
@@ -82,7 +84,7 @@ public class BBBlocks
 	
 	// Flowers //
 	
-	public static final RegistryObject<Block> BUTTERCUP 		= HELPER.createBlock("buttercup", () -> new AbnormalsFlowerBlock(Effects.GLOWING, 30, BBProperties.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP 		= HELPER.createBlock("buttercup", () -> new ButtercupBlock(() -> BBEffects.SUNNY.get(), 12 * 20, BBProperties.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CLOVER 		= HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 30, BBProperties.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER 		= HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(Effects.UNLUCK, 60, BBProperties.FLOWER), ItemGroup.DECORATIONS);
 	
@@ -94,7 +96,8 @@ public class BBBlocks
 	
 	public static final RegistryObject<Block> CANDLE 			= HELPER.createBlock("candle", () -> new CandleBlock(null, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> SOUL_CANDLE 		= HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(null, BBProperties.SOUL_CANDLE), ItemGroup.DECORATIONS);
-	
+	public static final RegistryObject<Block> EMDER_CANDLE 		= HELPER.createCompatBlock("endergetic", "ender_candle", () -> new EnderCandleBlock(null, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+
 	public static final RegistryObject<Block> WHITE_CANDLE 		= HELPER.createBlock("white_candle", () -> new CandleBlock(DyeColor.WHITE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_CANDLE 	= HELPER.createBlock("orange_candle", () -> new CandleBlock(DyeColor.ORANGE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> MAGENTA_CANDLE 	= HELPER.createBlock("magenta_candle", () -> new CandleBlock(DyeColor.MAGENTA, BBProperties.CANDLE), ItemGroup.DECORATIONS);
@@ -130,7 +133,7 @@ public class BBBlocks
 	
 	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE 	= HELPER.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, DyeColor.WHITE, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE  	= HELPER.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, DyeColor.PINK, BBProperties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BUTTERCUP_SCENTED_CANDLE  	= HELPER.createBlock("buttercup_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.YELLOW, BBProperties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP_SCENTED_CANDLE  	= HELPER.createBlock("buttercup_scented_candle", () -> new ScentedCandleBlock(() -> BBEffects.SUNNY.get(), DyeColor.YELLOW, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 
 	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE    			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.LEVITATION, DyeColor.PINK, BBProperties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE     			= HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.HUNGER, DyeColor.BLUE, BBProperties.CANDLE), ItemGroup.DECORATIONS);

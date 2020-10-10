@@ -19,6 +19,7 @@ public class BBCompat {
 		public static final String AUTUMNITY 		= "autumnity";
 		public static final String ENVIRONMENTAL 	= "environmental";
 		public static final String UPGRADE_AQUATIC 	= "upgrade_aquatic";
+		public static final String ENDERGETIC 		= "endergetic";
 	}
 	
 	// Uses Blocks since they are already registered when accessed (@link BBTrades.java)

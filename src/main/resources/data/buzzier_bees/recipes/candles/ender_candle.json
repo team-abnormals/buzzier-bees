@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "tag": "buzzier_bees:candle_base"
+    },
+    "S": {
+      "tag": "endergetic:ender_fire_base_blocks"
+    }
+  },
+  "result": {
+    "item": "buzzier_bees:ender_candle",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "endergetic"
+    }
+  ]
+}

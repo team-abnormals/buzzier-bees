@@ -10,6 +10,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 
 public class SoulCandleBlock extends CandleBlock {
 	
@@ -36,5 +37,11 @@ public class SoulCandleBlock extends CandleBlock {
 	@Override
 	public IParticleData getFlameParticle() {
 		return ParticleTypes.SOUL_FIRE_FLAME;	
+	}
+	
+	@Override
+	public void addCandleParticleEffects(World world, IParticleData flameParticle, IParticleData smokePartice, double x, double y, double z) {
+		world.addParticle(flameParticle, x, y + 0.0625D, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
+		world.addParticle(smokePartice, x , y + 0.0625D, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
 	}
 }

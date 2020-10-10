@@ -52,8 +52,8 @@ public class CandleBlock extends Block implements IWaterLoggable, IVariableEncha
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
     private final DyeColor color;
     
-    private static final double XZ_PARTICLE_SPEED = 0.002F;
-	private static final double Y_PARTICLE_SPEED = 0.01F;
+    public static final double XZ_PARTICLE_SPEED = 0.002F;
+    public static final double Y_PARTICLE_SPEED = 0.01F;
     
     protected static final VoxelShape[] SHAPES = new VoxelShape[] { 
             Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D), 
@@ -286,7 +286,7 @@ public class CandleBlock extends Block implements IWaterLoggable, IVariableEncha
 		}
 	}
 
-	private void addCandleParticleEffects(World world, IParticleData flameParticle, IParticleData smokePartice, double x, double y, double z) {
+	public void addCandleParticleEffects(World world, IParticleData flameParticle, IParticleData smokePartice, double x, double y, double z) {
 		world.addParticle(flameParticle, x, y, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
 		world.addParticle(smokePartice, x , y, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
 	}

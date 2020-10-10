@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
+import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 
@@ -13,11 +14,14 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IShearable;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -36,7 +40,7 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	public MoobloomEntity createChild(AgeableEntity ageable) {
 		return BBEntities.MOOBLOOM.get().create(this.world);
 	}
-	
+
 	@Override
 	public ItemStack getPickedResult(RayTraceResult target) {
 		return new ItemStack(BBItems.MOOBLOOM_SPAWN_EGG.get());
@@ -49,6 +53,14 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 
 	public Block getFlower() {
 		return BBBlocks.BUTTERCUP.get();
+	}
+	
+	@Override
+	public void livingTick() {
+		super.livingTick();
+        for (LivingEntity living : this.world.getEntitiesWithinAABB(ServerPlayerEntity.class, this.getBoundingBox().grow(7.0D, 3.0D, 7.0D))) {
+        	living.addPotionEffect(new EffectInstance(BBEffects.SUNNY.get(), 15 * 20, 0, true, true));
+        }
 	}
 
 	@Override
