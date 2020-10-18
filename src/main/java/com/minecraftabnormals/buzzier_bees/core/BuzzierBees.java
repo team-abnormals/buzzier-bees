@@ -2,7 +2,7 @@ package com.minecraftabnormals.buzzier_bees.core;
 
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.other.BBRenderLayers;
-import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
+import com.minecraftabnormals.buzzier_bees.core.registry.BBBanners;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBFeatures;
@@ -37,7 +37,7 @@ public class BuzzierBees {
 		REGISTRY_HELPER.getDeferredEntityRegister().register(modEventBus);
 		REGISTRY_HELPER.getDeferredTileEntityRegister().register(modEventBus);
 
-		BBBlocks.PAINTINGS.register(modEventBus);
+		BBBanners.PAINTINGS.register(modEventBus);
 		BBEffects.POTIONS.register(modEventBus);
 		BBEffects.EFFECTS.register(modEventBus);
 		BBVillagers.PROFESSIONS.register(modEventBus);

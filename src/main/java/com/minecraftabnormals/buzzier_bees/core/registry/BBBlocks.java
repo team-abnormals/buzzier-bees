@@ -27,7 +27,6 @@ import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.WallBlock;
-import net.minecraft.entity.item.PaintingType;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effect;
@@ -36,16 +35,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBBlocks
 {	
 	public static final RegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER;
-	
-	public static final DeferredRegister<PaintingType> PAINTINGS = DeferredRegister.create(ForgeRegistries.PAINTING_TYPES, BuzzierBees.MODID);
-	public static final RegistryObject<PaintingType> CANDLE_PAINTING = PAINTINGS.register("candle", () -> new PaintingType(32, 48));
 	
 	// Beehives //
 	
