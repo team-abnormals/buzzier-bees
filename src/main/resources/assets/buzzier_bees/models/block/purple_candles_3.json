@@ -1,5 +1,5 @@
 {
-    "parent": "buzzier_bees:block/three_candles",
+    "parent": "buzzier_bees:block/candles_3",
     "textures": {
         "particle": "buzzier_bees:block/purple_candle",
         "all": "buzzier_bees:block/purple_candle"
