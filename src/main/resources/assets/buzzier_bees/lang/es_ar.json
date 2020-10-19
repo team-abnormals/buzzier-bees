@@ -13,6 +13,9 @@
 	"item.buzzier_bees.silverfish_bottle": "Botella con pez de plata",
 	"item.buzzier_bees.endermite_bottle": "Botella con endermite",
 	"item.buzzier_bees.bee_bottle": "Botella con abeja",
+
+	"item.buzzier_bees.honeycomb_banner_pattern": "Diseño de estandarte",
+	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Panal",
 	
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Generar oso pardo",
 	"item.buzzier_bees.black_bear_spawn_egg": "Generar oso negro",
@@ -109,9 +112,9 @@
 	"block.buzzier_bees.pink_hibiscus_scented_candle": "Vela aromática de hibisco rosa",
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Vela aromática de hibisco magenta",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Vela aromática de hibisco violeta",
-	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Vela aromática de cepillo de mono cálido",
-	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Vela aromática de cepillo de mono caliente",
-	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Vela aromática de cepillo de mono escaldado",
+	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal cálido",
+	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal caliente",
+	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal escaldado",
 	"block.buzzier_bees.gilia_scented_candle": "Vela aromática de gilia",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Vela aromática de flor de yuca",
 	"block.buzzier_bees.pink_searocket_scented_candle": "Vela aromática de roqueta de mar rosa",
@@ -172,5 +175,22 @@
 	"tooltip.buzzier_bees.is_baby": "Bebé",
 	"tooltip.buzzier_bees.has_nectar": "Polinizada",
 	"tooltip.buzzier_bees.is_angry": "Enojada",
-	"tooltip.buzzier_bees.has_stung": "Sin aguijón"
+	"tooltip.buzzier_bees.has_stung": "Sin aguijón",
+
+	"block.minecraft.banner.mca_honeycomb.black": "Panal negro",
+	"block.minecraft.banner.mca_honeycomb.red": "Panal rojo",
+	"block.minecraft.banner.mca_honeycomb.green": "Panal verde",
+	"block.minecraft.banner.mca_honeycomb.brown": "Panal marrón",
+	"block.minecraft.banner.mca_honeycomb.blue": "Panal azul",
+	"block.minecraft.banner.mca_honeycomb.purple": "Panal violeta",
+	"block.minecraft.banner.mca_honeycomb.cyan": "Panal cian",
+	"block.minecraft.banner.mca_honeycomb.silver": "Panal gris claro",
+	"block.minecraft.banner.mca_honeycomb.gray": "Panal gris",
+	"block.minecraft.banner.mca_honeycomb.pink": "Panal rosa",
+	"block.minecraft.banner.mca_honeycomb.lime": "Panal verde lima",
+	"block.minecraft.banner.mca_honeycomb.yellow": "Panal amarillo",
+	"block.minecraft.banner.mca_honeycomb.lightBlue": "Panal azul celeste",
+	"block.minecraft.banner.mca_honeycomb.magenta": "Panal magenta",
+	"block.minecraft.banner.mca_honeycomb.orange": "Panal naranja",
+	"block.minecraft.banner.mca_honeycomb.white": "Panal blanco"
 }
