@@ -36,6 +36,7 @@ public class BBCompat {
 	// Uses ResourceLocations since these will not be registered at the time of obtaining
 	public static class CompatEffects {
 		public static final ResourceLocation RELIEF 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "relief");
+		public static final ResourceLocation WORSENING 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "worsening");
 		public static final ResourceLocation PERSISTENCE 	= new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence");
 		public static final ResourceLocation FOUL_TASTE 	= new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste");
 	}

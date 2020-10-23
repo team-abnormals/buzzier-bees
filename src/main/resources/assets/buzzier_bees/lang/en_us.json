@@ -112,13 +112,17 @@
 	"block.buzzier_bees.pink_hibiscus_scented_candle": "Pink Hibiscus Scented Candle",
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Magenta Hibiscus Scented Candle",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Purple Hibiscus Scented Candle",
+	
 	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Warm Honeycomb Brush Scented Candle",
 	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Hot Honeycomb Brush Scented Candle",
 	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Scalding Honeycomb Brush Scented Candle",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "Water Hyacinth Scented Candle",
 	"block.buzzier_bees.gilia_scented_candle": "Gilia Scented Candle",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Yucca Flower Scented Candle",
+	
 	"block.buzzier_bees.pink_searocket_scented_candle": "Pink Searocket Scented Candle",
 	"block.buzzier_bees.white_searocket_scented_candle": "White Searocket Scented Candle",
+	
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Autumn Crocus Scented Candle",
 	
 	"entity.buzzier_bees.grizzly_bear": "Grizzly Bear",
