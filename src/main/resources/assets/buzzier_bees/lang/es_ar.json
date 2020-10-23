@@ -112,13 +112,17 @@
 	"block.buzzier_bees.pink_hibiscus_scented_candle": "Vela aromática de hibisco rosa",
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Vela aromática de hibisco magenta",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Vela aromática de hibisco violeta",
+
 	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal cálido",
 	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal caliente",
 	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal escaldado",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "Vela aromática de jacinto de agua",
 	"block.buzzier_bees.gilia_scented_candle": "Vela aromática de gilia",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Vela aromática de flor de yuca",
+
 	"block.buzzier_bees.pink_searocket_scented_candle": "Vela aromática de roqueta de mar rosa",
 	"block.buzzier_bees.white_searocket_scented_candle": "Vela aromática de roqueta de mar blanca",
+
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Vela aromática de narciso de otoño",
 
 	"entity.buzzier_bees.grizzly_bear": "Oso pardo",
