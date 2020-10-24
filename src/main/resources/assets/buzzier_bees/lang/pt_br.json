@@ -13,10 +13,14 @@
 	"item.buzzier_bees.silverfish_bottle": "Traça engarrafada",
 	"item.buzzier_bees.endermite_bottle": "Endermite engarrafado",
 	"item.buzzier_bees.bee_bottle": "Abelha engarrafada",
+	
+	"item.buzzier_bees.honeycomb_banner_pattern": "Desenho para estandarte",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Figura de favo de mel",
 		
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Ovo gerador de urso pardo",
 	"item.buzzier_bees.black_bear_spawn_egg": "Ovo gerador de urso-negro",
 	"item.buzzier_bees.bumblebee_spawn_egg": "Ovo gerador de mamangaba",
+	"item.buzzier_bees.moobloom_spawn_egg": "Ovo gerador de florivaca",
 	
 	"block.minecraft.beehive": "Colmeia artificial de carvalho",
 	"block.buzzier_bees.spruce_beehive": "Colmeia artificial de pinheiro",
@@ -48,12 +52,15 @@
 	
 	"block.buzzier_bees.pink_clover": "Trevo-rosa",
 	"block.buzzier_bees.white_clover": "Trevo-branco",
+	"block.buzzier_bees.buttercup": "Ranúnculo",
 	
 	"block.buzzier_bees.potted_pink_clover": "Trevo-rosa envasado",
 	"block.buzzier_bees.potted_white_clover": "Trevo-branco envasado",
+	"block.buzzier_bees.potted_buttercup": "Ranúnculo envasado",
 	
 	"block.buzzier_bees.candle": "Vela",
 	"block.buzzier_bees.soul_candle": "Vela das almas",
+	"block.buzzier_bees.ender_candle": "Vela de ender",
 	
 	"block.buzzier_bees.white_candle": "Vela branca",
 	"block.buzzier_bees.orange_candle": "Vela laranja",
@@ -88,6 +95,7 @@
 	
 	"block.buzzier_bees.pink_clover_scented_candle": "Vela perfumada de trevo-rosa",
 	"block.buzzier_bees.white_clover_scented_candle": "Vela perfumada de trevo-branco",
+	"block.buzzier_bees.buttercup_scented_candle": "Vela perfumada de ranúnculo",
 	
 	"block.buzzier_bees.cartwheel_scented_candle": "Vela perfumada de catavento",
 	"block.buzzier_bees.bluebell_scented_candle": "Vela perfumada de campainha",
@@ -101,13 +109,16 @@
 	"block.buzzier_bees.pink_hibiscus_scented_candle": "Vela perfumada de hibisco rosa",
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Vela perfumada de hibisco magenta",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Vela perfumada de hibisco roxo",
+	
 	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Vela perfumada de escova-de-macaco-morna",
 	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Vela perfumada de escova-de-macaco-quente",
 	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Vela perfumada de escova-de-macaco-escaldante",
 	"block.buzzier_bees.gilia_scented_candle": "Vela perfumada de gilia",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Vela perfumada de yucca",
+	
 	"block.buzzier_bees.pink_searocket_scented_candle": "Vela perfumada de eruca-marítima rosa",
 	"block.buzzier_bees.white_searocket_scented_candle": "Vela perfumada de eruca-marítima branca",
+	
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Vela perfumada de açafrão-do-prado",
 	
 	"entity.buzzier_bees.grizzly_bear": "Urso pardo",
@@ -115,6 +126,8 @@
 	"entity.buzzier_bees.bumblebee": "Mamangaba",
 	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apicultor",
+	
+	"effect.buzzier_bees.sunny": "Ensolarado",
 	
 	"item.minecraft.potion.effect.long_luck": "Poção de sorte",
 	"item.minecraft.potion.effect.strong_luck": "Poção de sorte",
@@ -161,5 +174,22 @@
 	"tooltip.buzzier_bees.is_baby": "Bebê",
 	"tooltip.buzzier_bees.has_nectar": "Polinizada",
 	"tooltip.buzzier_bees.is_angry": "Com raiva",
-	"tooltip.buzzier_bees.has_stung": "Sem ferrão"
+	"tooltip.buzzier_bees.has_stung": "Sem ferrão",
+	
+	"block.minecraft.banner.mca_honeycomb.black": "Favo de mel preto",
+  	"block.minecraft.banner.mca_honeycomb.red": "Favo de mel vermelho",
+  	"block.minecraft.banner.mca_honeycomb.green": "Favo de mel verde",
+  	"block.minecraft.banner.mca_honeycomb.brown": "Favo de mel marrom",
+  	"block.minecraft.banner.mca_honeycomb.blue": "Favo de mel azul",
+  	"block.minecraft.banner.mca_honeycomb.purple": "Favo de mel roxo",
+  	"block.minecraft.banner.mca_honeycomb.cyan": "Favo de mel ciano",
+  	"block.minecraft.banner.mca_honeycomb.silver": "Favo de mel cinza-claro",
+  	"block.minecraft.banner.mca_honeycomb.gray": "Favo de mel cinza",
+  	"block.minecraft.banner.mca_honeycomb.pink": "Favo de mel rosa",
+  	"block.minecraft.banner.mca_honeycomb.lime": "Favo de mel verde-limão",
+  	"block.minecraft.banner.mca_honeycomb.yellow": "Favo de mel amarelo",
+  	"block.minecraft.banner.mca_honeycomb.lightBlue": "Favo de mel azul-claro",
+  	"block.minecraft.banner.mca_honeycomb.magenta": "Favo de mel magenta",
+  	"block.minecraft.banner.mca_honeycomb.orange": "Favo de mel laranja",
+  	"block.minecraft.banner.mca_honeycomb.white": "Favo de mel branco"
 }
