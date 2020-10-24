@@ -1,8 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
-import java.util.Set;
-
-import com.google.common.collect.Sets;
 import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
@@ -24,19 +21,14 @@ import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTables;
-import net.minecraft.loot.TableLootEntry;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,20 +36,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBEvents {
-	private static final Set<ResourceLocation> DESERT_LOOT_INJECTIONS = Sets.newHashSet(LootTables.CHESTS_DESERT_PYRAMID);
-	private static final Set<ResourceLocation> JUNGLE_LOOT_INJECTIONS = Sets.newHashSet(LootTables.CHESTS_JUNGLE_TEMPLE);
-	
-	@SubscribeEvent
-	public static void onInjectLoot(LootTableLoadEvent event) {
-		if (DESERT_LOOT_INJECTIONS.contains(event.getName())) {
-			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/desert_pyramid")).weight(1).quality(0)).name("desert_pyramid").build();
-			event.getTable().addPool(pool);
-		}
-		if (JUNGLE_LOOT_INJECTIONS.contains(event.getName())) {
-			LootPool pool = LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation(BuzzierBees.MODID, "injections/jungle_temple")).weight(1).quality(0)).name("jungle_temple").build();
-			event.getTable().addPool(pool);
-		}
-	}
 	
 	@SubscribeEvent
     public static void renewableFlowers(PlayerInteractEvent.RightClickBlock event) {

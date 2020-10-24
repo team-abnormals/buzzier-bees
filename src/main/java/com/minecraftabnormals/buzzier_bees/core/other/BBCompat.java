@@ -5,10 +5,12 @@ import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBeh
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
+import com.teamabnormals.abnormals_core.core.registry.LootInjectionRegistry;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.loot.LootTables;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -22,7 +24,6 @@ public class BBCompat {
 		public static final String ENDERGETIC 		= "endergetic";
 	}
 	
-	// Uses Blocks since they are already registered when accessed (@link BBTrades.java)
 	public static class CompatBlocks {
 		public static final Block FLOWERING_RUSH 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.UPGRADE_AQUATIC, "flowering_rush"));
 		
@@ -33,12 +34,17 @@ public class BBCompat {
 		public static final Block BIRD_OF_PARADISE 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "bird_of_paradise"));
 	}
 	
-	// Uses ResourceLocations since these will not be registered at the time of obtaining
 	public static class CompatEffects {
 		public static final ResourceLocation RELIEF 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "relief");
 		public static final ResourceLocation WORSENING 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "worsening");
 		public static final ResourceLocation PERSISTENCE 	= new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence");
 		public static final ResourceLocation FOUL_TASTE 	= new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste");
+	}
+	
+	public static void registerLootInjectors() {
+		LootInjectionRegistry.LootInjector injector = new LootInjectionRegistry.LootInjector(BuzzierBees.MODID);
+		injector.registerLootInjection(injector.buildLootPool("desert_pyramid", 1, 0), LootTables.CHESTS_DESERT_PYRAMID);
+		injector.registerLootInjection(injector.buildLootPool("jungle_temple", 1, 0), LootTables.CHESTS_JUNGLE_TEMPLE);
 	}
 	
 	public static void registerCompostables() {
