@@ -13,6 +13,9 @@
 	"item.buzzier_bees.silverfish_bottle": "Silberfischchenflasche",
 	"item.buzzier_bees.endermite_bottle": "Endermiten-Flasche",
 	"item.buzzier_bees.bee_bottle": "Bienenflasche",
+	
+	"item.buzzier_bees.honeycomb_banner_pattern": "Bannervorlage",
+	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Honigwaben",
 		
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Grizzlybär-Spawn-Ei",
 	"item.buzzier_bees.black_bear_spawn_egg": "Schwarzbär-Spawn-Ei",
@@ -108,11 +111,14 @@
 	"block.buzzier_bees.pink_hibiscus_scented_candle": "Rosa-Hibiskus-Kerze",
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Magenta-Hibiskus-Kerze",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Violetter-Hibiskus-Kerze",
-	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Warme-Langfäden-Kerze",
-	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Heiße-Langfäden-Kerze",
-	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Brühheiße-Langfäden-Kerze",
+	
+	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Warme-Langfäden-Kerze",
+	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Heiße-Langfäden-Kerze",
+	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Brühheiße-Langfäden-Kerze",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "Wasserhyazinthenkerze",
 	"block.buzzier_bees.gilia_scented_candle": "Gilienkerze",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Yuccakerze",
+	
 	"block.buzzier_bees.pink_searocket_scented_candle": "Rosa-Meerrauken-Kerze",
 	"block.buzzier_bees.white_searocket_scented_candle": "Weiße-Meerrauken-Kerze",
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Herbstzeitlosenkerze",
@@ -171,5 +177,22 @@
 	"tooltip.buzzier_bees.is_baby": "Baby",
 	"tooltip.buzzier_bees.has_nectar": "Bestäubt",
 	"tooltip.buzzier_bees.is_angry": "Verärgert",
-	"tooltip.buzzier_bees.has_stung": "Keiner Stachel"
+	"tooltip.buzzier_bees.has_stung": "Keiner Stachel",
+	
+	"block.minecraft.banner.mca_honeycomb.black": "Schwarze Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.red": "Rote Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.green": "Grüne Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.brown": "Braune Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.blue": "Blaue Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.purple": "Violette Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.cyan": "Türkise Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.silver": "Hellgraue Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.gray": "Graue Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.pink": "Rosa Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.lime": "Hellgrüne Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.yellow": "Gelbe Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.lightBlue": "Hellblaue Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.magenta": "Magenta Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.orange": "Orange Honigwaben",
+	"block.minecraft.banner.mca_honeycomb.white": "Weiße Honigwaben"
 }
