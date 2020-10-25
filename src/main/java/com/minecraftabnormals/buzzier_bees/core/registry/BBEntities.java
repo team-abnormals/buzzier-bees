@@ -12,9 +12,13 @@ import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.RegistryObject;
@@ -48,9 +52,14 @@ public class BBEntities
     }
     
     public static void registerEntitySpawns() {
- 	   ForgeRegistries.BIOMES.getValues().stream().forEach(BBEntities::processSpawning);
-    }
- 	
-    private static void processSpawning(Biome biome) {
-    }
+		EntitySpawnPlacementRegistry.register(MOOBLOOM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
+		ForgeRegistries.BIOMES.getValues().forEach(BBEntities::addSpawns);
+	}
+
+	private static void addSpawns(Biome biome) {
+		if (biome == Biomes.FLOWER_FOREST)
+			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(MOOBLOOM.get(), 85, 1, 3));
+		if (biome == Biomes.SUNFLOWER_PLAINS)
+			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(MOOBLOOM.get(), 55, 3, 5));
+	}
 }

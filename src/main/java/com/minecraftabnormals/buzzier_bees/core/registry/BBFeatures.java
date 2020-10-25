@@ -31,6 +31,8 @@ public class BBFeatures {
             	addShortFlower(BBBlocks.WHITE_CLOVER.get().getDefaultState(), biome, 3);
             if (biome == Biomes.FLOWER_FOREST || biome == Biomes.BIRCH_FOREST || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS)
             	addShortFlower(BBBlocks.PINK_CLOVER.get().getDefaultState(), biome, 3);
+            if (biome == Biomes.FLOWER_FOREST || biome == Biomes.SUNFLOWER_PLAINS)
+            	addShortFlower(BBBlocks.BUTTERCUP.get().getDefaultState(), biome, 2);
         }
     }
 }
