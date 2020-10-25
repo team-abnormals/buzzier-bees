@@ -7,10 +7,10 @@ import com.minecraftabnormals.buzzier_bees.common.items.HoneyWandItem;
 import com.minecraftabnormals.buzzier_bees.common.items.StickyHoneyWandItem;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBFoods;
+import com.teamabnormals.abnormals_core.common.items.AbnormalsBannerPatternItem;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.BannerPatternItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemModelsProperties;
@@ -41,7 +41,7 @@ public class BBItems {
     public static final RegistryObject<Item> BOTTLE_OF_ENDERMITE    = HELPER.createItem("endermite_bottle", () -> new BugBottleItem(EntityType.ENDERMITE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
     public static final RegistryObject<Item> BOTTLE_OF_BEE          = HELPER.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 
-    public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN	= HELPER.createItem("honeycomb_banner_pattern", () -> new BannerPatternItem(BBBanners.HONEYCOMB, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN	= HELPER.createItem("honeycomb_banner_pattern", () -> new AbnormalsBannerPatternItem(BBBanners.HONEYCOMB, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
 	public static final RegistryObject<Item> MOOBLOOM_SPAWN_EGG 	= HELPER.createSpawnEggItem("moobloom", () -> BBEntities.MOOBLOOM.get(), 0xDBA436, 0xDCDCDC);
 //	public static final RegistryObject<Item> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", () -> BBEntities.GRIZZLY_BEAR.get(), 5122062, 4136462);
