@@ -14,9 +14,13 @@
 	"item.buzzier_bees.endermite_bottle": "Бутылочка с эндермитом",
 	"item.buzzier_bees.bee_bottle": "Бутылочка с пчелой",
 
+	"item.buzzier_bees.honeycomb_banner_pattern": "Узор флага",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Пчелиные соты",
+	
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Яйцо призыва гризли",
 	"item.buzzier_bees.black_bear_spawn_egg": "Яйцо призыва чёрного медведя",
 	"item.buzzier_bees.bumblebee_spawn_egg": "Яйцо призыва шмеля",
+	"item.buzzier_bees.moobloom_spawn_egg": "Яйцо призыва лютиковой коровы",
 
 	"block.minecraft.beehive": "Дубовый улей",
 	"block.buzzier_bees.spruce_beehive": "Еловый улей",
@@ -33,12 +37,12 @@
 	"block.buzzier_bees.honey_lamp": "Мёдо-лампа",
 	"block.buzzier_bees.honey_pot": "Медовый горшок",
 
-	"block.buzzier_bees.honeycomb_bricks": "Медовые кирпичи",
-	"block.buzzier_bees.honeycomb_brick_stairs": "Ступеньки из медовых кирпичей",
-	"block.buzzier_bees.honeycomb_brick_slab": "Плита из медовых кирпичей",
-	"block.buzzier_bees.honeycomb_brick_wall": "Ограда из медовых кирпичей",
-	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Вертикальная плита из медовых кирпичей",
-	"block.buzzier_bees.chiseled_honeycomb_bricks": "Резные медовые кирпичи",
+	"block.buzzier_bees.honeycomb_bricks": "Сотовые кирпичи",
+	"block.buzzier_bees.honeycomb_brick_stairs": "Ступеньки из сотовых кирпичей",
+	"block.buzzier_bees.honeycomb_brick_slab": "Плита из сотовых кирпичей",
+	"block.buzzier_bees.honeycomb_brick_wall": "Ограда из сотовых кирпичей",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Вертикальная плита из сотовых кирпичей",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "Резные сотовые кирпичи",
 
 	"block.buzzier_bees.honeycomb_tiles": "Сотовая плитка",
 	"block.buzzier_bees.honeycomb_tile_stairs": "Ступеньки из сотовой плитки",
@@ -46,14 +50,20 @@
 	"block.buzzier_bees.honeycomb_tile_wall": "Ограда из сотовой плитки ",
 	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Вертикальная плита из сотовой плитки",
 
+	"block.buzzier_bees.honeycomb_door": "Сотовые двери",
+	"block.buzzier_bees.honeycomb_trapdoor": "Сотовый люк",
+	
 	"block.buzzier_bees.pink_clover": "Розовый клевер",
 	"block.buzzier_bees.white_clover": "Белый клевер",
+	"block.buzzier_bees.buttercup": "Лютик",
 
 	"block.buzzier_bees.potted_pink_clover": "Розовый клевер в горшке",
 	"block.buzzier_bees.potted_white_clover": "Белый клевер в горшке",
+	"block.buzzier_bees.potted_buttercup": "Лютик в горшке",
 
 	"block.buzzier_bees.candle": "Свечка",
 	"block.buzzier_bees.soul_candle": "Свечка души",
+	"block.buzzier_bees.ender_candle": "Эндер-свечка",
 	
 	"block.buzzier_bees.white_candle": "Белая свечка",
 	"block.buzzier_bees.orange_candle": "Оранжевая свечка",
@@ -88,6 +98,7 @@
 
 	"block.buzzier_bees.pink_clover_scented_candle": "Розовая клеверная свечка",
 	"block.buzzier_bees.white_clover_scented_candle": "Белая клеверная свечка",
+	"block.buzzier_bees.buttercup_scented_candle": "Лютиковая свечка",
 
 	"block.buzzier_bees.cartwheel_scented_candle": "Свечка из меленки",
 	"block.buzzier_bees.bluebell_scented_candle": "Свечка из синего колокольчика",
@@ -101,21 +112,28 @@
 	"block.buzzier_bees.pink_hibiscus_scented_candle": "Свечка из розового гибискуса",
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Свечка из сиреневого красителя",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Свечка из фиолетовго красителя",
-	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Свечка из тёплой обезьяньей кисти",
-	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Свечка из жгучей обезьяньей кисти",
-	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Свечка из обезьяньей кисти",
+	
+	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Свечка из тёплой сотовой кисти",
+	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Свечка из жгучей сотовой кисти",
+	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Свечка из сотовой кисти",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "Свечка из водяного гиацинта",
 	"block.buzzier_bees.gilia_scented_candle": "Гилиевая свечка",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Юкковая свечка",
+	
 	"block.buzzier_bees.pink_searocket_scented_candle": "Свечка из розовой морской горчицы",
 	"block.buzzier_bees.white_searocket_scented_candle": "Свечка из белой морской горчицы",
+	
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Свечка из осеннего крокуса",
 
 	"entity.buzzier_bees.grizzly_bear": "Медведь гризли",
 	"entity.buzzier_bees.black_bear": "Чёрный медведь",
 	"entity.buzzier_bees.bumblebee": "Шершень",
-
+	"entity.buzzier_bees.moobloom": "Лютиковая корова",
+	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Пчеловод",
 
+	"effect.buzzier_bees.sunny": "Солнечно",
+	
 	"item.minecraft.potion.effect.long_luck": "Зелье удачи",
 	"item.minecraft.potion.effect.strong_luck": "Зелье удачи",
 	"item.minecraft.potion.effect.unluck": "Зелье невезения",
@@ -161,5 +179,22 @@
 	"tooltip.buzzier_bees.is_baby": "Детёныш",
 	"tooltip.buzzier_bees.has_nectar": "Опыляется",
 	"tooltip.buzzier_bees.is_angry": "Злой",
-	"tooltip.buzzier_bees.has_stung": "Без жала"
+	"tooltip.buzzier_bees.has_stung": "Без жала",
+	
+	"block.minecraft.banner.mca_honeycomb.black": "Чёрные пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.red": "Красные пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.green": "Зелёные пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.brown": "Коричневые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.blue": "Синие пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.purple": "Фиолетовые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.cyan": "Бирюзовые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.silver": "Светло-серые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.gray": "Серые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.pink": "Розовые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.lime": "Лаймовые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.yellow": "Жёлтые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.lightBlue": "Голубые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.magenta": "Пурпурные пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.orange": "Оранжевые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.white": "Белые пчелиные соты"
 }
