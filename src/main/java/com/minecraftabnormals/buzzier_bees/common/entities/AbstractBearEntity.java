@@ -16,13 +16,7 @@ import com.teamabnormals.abnormals_core.core.library.endimator.entity.IEndimated
 import com.teamabnormals.abnormals_core.core.utils.NetworkUtil;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityPredicate;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -96,7 +90,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
    }
 
    public static AttributeModifierMap.MutableAttribute registerAttributes() {
-	   return AnimalEntity.func_233666_p_()
+	   return MobEntity.func_233666_p_()
 			   .createMutableAttribute(Attributes.MAX_HEALTH, 30.0D)
 			   .createMutableAttribute(Attributes.FOLLOW_RANGE, 20.0D)
 			   .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D)
