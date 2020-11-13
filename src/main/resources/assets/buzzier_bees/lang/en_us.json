@@ -15,7 +15,7 @@
 	"item.buzzier_bees.bee_bottle": "Bottle of Bee",
 		
 	"item.buzzier_bees.honeycomb_banner_pattern": "Banner Pattern",
-  "item.buzzier_bees.honeycomb_banner_pattern.desc": "Honeycomb",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Honeycomb",
   
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Grizzly Bear Spawn Egg",
 	"item.buzzier_bees.black_bear_spawn_egg": "Black Bear Spawn Egg",
@@ -113,9 +113,9 @@
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Magenta Hibiscus Scented Candle",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Purple Hibiscus Scented Candle",
 	
-	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Warm Honeycomb Brush Scented Candle",
-	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Hot Honeycomb Brush Scented Candle",
-	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Scalding Honeycomb Brush Scented Candle",
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Warm Monkey Brush Scented Candle",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Hot Monkey Brush Scented Candle",
+	"block.buzzier_bees.scalding_monkey_scented_candle": "Scalding Monkey Brush Scented Candle",
 	"block.buzzier_bees.water_hyacinth_scented_candle": "Water Hyacinth Scented Candle",
 	"block.buzzier_bees.gilia_scented_candle": "Gilia Scented Candle",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Yucca Flower Scented Candle",
