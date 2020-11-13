@@ -4,10 +4,7 @@ import com.minecraftabnormals.buzzier_bees.client.render.BlackBearRenderer;
 import com.minecraftabnormals.buzzier_bees.client.render.BumblebeeRenderer;
 import com.minecraftabnormals.buzzier_bees.client.render.GrizzlyBearRenderer;
 import com.minecraftabnormals.buzzier_bees.client.render.MoobloomRenderer;
-import com.minecraftabnormals.buzzier_bees.common.entities.BlackBearEntity;
-import com.minecraftabnormals.buzzier_bees.common.entities.BumblebeeEntity;
-import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
-import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
+import com.minecraftabnormals.buzzier_bees.common.entities.*;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
@@ -45,8 +42,8 @@ public class BBEntities
     }
     
     public static void registerAttributes() {
-    	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().create());
-    	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), BlackBearEntity.registerAttributes().create());
+    	GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), AbstractBearEntity.registerAttributes().create());
+    	GlobalEntityTypeAttributes.put(BLACK_BEAR.get(), AbstractBearEntity.registerAttributes().create());
     	GlobalEntityTypeAttributes.put(BUMBLEBEE.get(), BumblebeeEntity.registerAttributes().create());
     	GlobalEntityTypeAttributes.put(MOOBLOOM.get(), MoobloomEntity.func_234188_eI_().create());
     }
