@@ -15,7 +15,7 @@
 	"item.buzzier_bees.bee_bottle": "Frasco con abeja",
 
 	"item.buzzier_bees.honeycomb_banner_pattern": "Diseño de estandarte",
-	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Panal",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Panal",
 
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Generar oso pardo",
 	"item.buzzier_bees.black_bear_spawn_egg": "Generar oso negro",
@@ -113,9 +113,9 @@
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Vela aromática de hibisco magenta",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Vela aromática de hibisco morado",
 
-	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal cálido",
-	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal caliente",
-	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Vela aromática de cepillo de panal escaldado",
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Vela aromática de cepillo de mono cálido",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Vela aromática de cepillo de mono caliente",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Vela aromática de cepillo de mono escaldado",
 	"block.buzzier_bees.water_hyacinth_scented_candle": "Vela aromática de jacinto de agua",
 	"block.buzzier_bees.gilia_scented_candle": "Vela aromática de gilia",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Vela aromática de flor de yuca",
