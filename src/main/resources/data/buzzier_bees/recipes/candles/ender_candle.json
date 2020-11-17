@@ -1,21 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "S",
     "#",
-    "#"
+    "S",
+    "B"
   ],
   "key": {
     "#": {
-      "tag": "buzzier_bees:candle_base"
+      "tag": "buzzier_bees:candle_wick"
     },
     "S": {
+      "tag": "buzzier_bees:candle_base"
+    },
+    "B": {
       "tag": "endergetic:ender_fire_base_blocks"
     }
   },
   "result": {
     "item": "buzzier_bees:ender_candle",
-    "count": 2
+    "count": 1
   },
   "conditions": [
     {

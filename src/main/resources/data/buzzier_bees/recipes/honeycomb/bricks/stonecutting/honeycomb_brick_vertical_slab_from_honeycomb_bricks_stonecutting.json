@@ -1,8 +1,13 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "buzzier_bees:honeycomb_bricks"
-  },
+  "ingredient": [
+    {
+      "item": "minecraft:honeycomb_block"
+    },
+    {
+      "item": "buzzier_bees:honeycomb_bricks"
+    }
+  ],
   "result": "buzzier_bees:honeycomb_brick_vertical_slab",
   "count": 1,
   "conditions": [

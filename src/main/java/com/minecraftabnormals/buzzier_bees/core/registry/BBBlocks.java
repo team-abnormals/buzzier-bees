@@ -54,7 +54,6 @@ public class BBBlocks
 
 	// Misc //
 	
-	public static final RegistryObject<Block> WAX_BLOCK 				= HELPER.createBlock("wax_block", () -> new Block(BBProperties.WAX_BLOCK), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> CRYSTALLIZED_HONEY_BLOCK  = HELPER.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(BBProperties.CRYSTALLIZED_HONEY), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_LAMP 				= HELPER.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.from(Blocks.END_ROD).sound(SoundType.HONEY)), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEY_POT 				= HELPER.createBlock("honey_pot", () -> new HoneyPotBlock(Block.Properties.from(Blocks.TERRACOTTA).notSolid()), ItemGroup.DECORATIONS);

@@ -57,7 +57,6 @@ public class BBTrades {
 				journeyman.add(new EmeraldsForItemsTrade(item, 1, 1, 12, 15));
 			}
 
-			expert.add(new EmeraldsForItemsTrade(BBItems.WAX.get(), 1, 1, 12, 20));
 			expert.add(new ItemsForEmeraldsTrade(BBItems.BOTTLE_OF_BEE.get(), 6, 1, 3, 20));
 			expert.add(new ItemsForEmeraldsTrade(Blocks.BEE_NEST, 15, 1, 3, 20));
 			expert.add(new ItemsForEmeraldsTrade(BBItems.HONEY_WAND.get(), 12, 1, 1, 20));

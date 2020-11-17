@@ -97,7 +97,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -108,7 +108,7 @@
               }
             }
           ],
-          "name": "buzzier_bees:wax"
+          "name": "buzzier_bees:honey_apple"
         }
       ]
     }

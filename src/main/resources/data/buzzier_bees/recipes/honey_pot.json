@@ -10,7 +10,7 @@
       "item": "minecraft:brick"
     },
     "H": {
-      "tag": "forge:wax"
+      "item": "minecraft:honeycomb"
     }
   },
   "result": {

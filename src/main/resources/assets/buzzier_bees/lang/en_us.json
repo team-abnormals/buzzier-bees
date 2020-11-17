@@ -1,6 +1,4 @@
 {
-	"item.buzzier_bees.wax": "Wax",
-	"item.buzzier_bees.crystallized_honey": "Crystallized Honey",
 	"item.buzzier_bees.four_leaf_clover": "Four Leaf Clover",
 	
 	"item.buzzier_bees.honey_wand": "Honey Wand",
@@ -30,8 +28,7 @@
 	"block.buzzier_bees.dark_oak_beehive": "Dark Oak Beehive",
 	"block.buzzier_bees.crimson_beehive": "Crimson Beehive",
 	"block.buzzier_bees.warped_beehive": "Warped Beehive",
-	
-	"block.buzzier_bees.wax_block": "Wax Block",
+
 	"block.buzzier_bees.crystallized_honey_block": "Crystallized Honey Block",
 	
 	"block.buzzier_bees.honey_lamp" : "Honey Lamp",
