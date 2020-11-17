@@ -20,13 +20,13 @@ public class BBEffects {
 	public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, BuzzierBees.MODID);
 	public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTION_TYPES, BuzzierBees.MODID);
    
-	public static final RegistryObject<Effect> SUNNY = EFFECTS.register("sunny", () -> new SunnyEffect());
+	public static final RegistryObject<Effect> SUNNY = EFFECTS.register("sunny", SunnyEffect::new);
 	
-	public static final RegistryObject<Potion> LONG_LUCK     = POTIONS.register("long_luck", () -> new Potion(new EffectInstance[] {new EffectInstance(Effects.LUCK, 9600)}));
-	public static final RegistryObject<Potion> STRONG_LUCK   = POTIONS.register("strong_luck", () -> new Potion(new EffectInstance[] {new EffectInstance(Effects.LUCK, 3600, 1)}));
-    public static final RegistryObject<Potion> UNLUCK        = POTIONS.register("unluck", () -> new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600)}));
-    public static final RegistryObject<Potion> LONG_UNLUCK   = POTIONS.register("long_unluck", () -> new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 9600)}));
-    public static final RegistryObject<Potion> STRONG_UNLUCK = POTIONS.register("strong_unluck", () -> new Potion(new EffectInstance[] {new EffectInstance(Effects.UNLUCK, 3600, 1)}));
+	public static final RegistryObject<Potion> LONG_LUCK     = POTIONS.register("long_luck", () -> new Potion(new EffectInstance(Effects.LUCK, 9600)));
+	public static final RegistryObject<Potion> STRONG_LUCK   = POTIONS.register("strong_luck", () -> new Potion(new EffectInstance(Effects.LUCK, 3600, 1)));
+    public static final RegistryObject<Potion> UNLUCK        = POTIONS.register("unluck", () -> new Potion(new EffectInstance(Effects.UNLUCK, 3600)));
+    public static final RegistryObject<Potion> LONG_UNLUCK   = POTIONS.register("long_unluck", () -> new Potion(new EffectInstance(Effects.UNLUCK, 9600)));
+    public static final RegistryObject<Potion> STRONG_UNLUCK = POTIONS.register("strong_unluck", () -> new Potion(new EffectInstance(Effects.UNLUCK, 3600, 1)));
     
 
     public static void registerRecipes() {
