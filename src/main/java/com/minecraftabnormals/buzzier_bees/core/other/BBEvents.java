@@ -14,6 +14,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.monster.PhantomEntity;
+import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -71,6 +72,15 @@ public class BBEvents {
 				ServerPlayerEntity player = (ServerPlayerEntity) ((PhantomEntity) entity).getAttackTarget();
 				if(player.getActivePotionEffect(BBEffects.SUNNY.get()) != null) {
 					((PhantomEntity) entity).setAttackTarget(null);
+				}
+			}
+		}
+
+		if(entity instanceof SpiderEntity) {
+			if(((SpiderEntity) entity).getAttackTarget() instanceof ServerPlayerEntity) {
+				ServerPlayerEntity player = (ServerPlayerEntity) ((SpiderEntity) entity).getAttackTarget();
+				if(player.getActivePotionEffect(BBEffects.SUNNY.get()) != null) {
+					((SpiderEntity) entity).setAttackTarget(null);
 				}
 			}
 		}
