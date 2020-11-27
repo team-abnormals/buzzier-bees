@@ -1,6 +1,4 @@
 {
-	"item.buzzier_bees.wax": "Vaha",
-	"item.buzzier_bees.crystallized_honey": "Kiteytynyt hunaja",
 	"item.buzzier_bees.four_leaf_clover": "Neliapila",
 	
 	"item.buzzier_bees.honey_wand": "Hunajasauva",
@@ -32,7 +30,6 @@
 	"block.buzzier_bees.crimson_beehive": "Karmiinimehiläispesä",
 	"block.buzzier_bees.warped_beehive": "Kummamehiläispesä",
 	
-	"block.buzzier_bees.wax_block": "Vahakuutio",
 	"block.buzzier_bees.crystallized_honey_block": "Kiteytynyt hunajakuutio",
 	
 	"block.buzzier_bees.honey_lamp" : "Hunajalamppu",
