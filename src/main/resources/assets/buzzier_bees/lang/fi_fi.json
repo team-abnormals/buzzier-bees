@@ -1,6 +1,4 @@
 {
-	"item.buzzier_bees.wax": "Vaha",
-	"item.buzzier_bees.crystallized_honey": "Kiteytynyt hunaja",
 	"item.buzzier_bees.four_leaf_clover": "Neliapila",
 	
 	"item.buzzier_bees.honey_wand": "Hunajasauva",
@@ -32,7 +30,6 @@
 	"block.buzzier_bees.crimson_beehive": "Karmiinimehiläispesä",
 	"block.buzzier_bees.warped_beehive": "Kummamehiläispesä",
 	
-	"block.buzzier_bees.wax_block": "Vahakuutio",
 	"block.buzzier_bees.crystallized_honey_block": "Kiteytynyt hunajakuutio",
 	
 	"block.buzzier_bees.honey_lamp" : "Hunajalamppu",
@@ -43,13 +40,13 @@
 	"block.buzzier_bees.honeycomb_brick_slab": "Hunajakennotiililaatta",
 	"block.buzzier_bees.honeycomb_brick_wall": "Hunajakennotiilimuuri",
 	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Pystysuora hunajakennotiililaatta",
-	"block.buzzier_bees.chiseled_honeycomb_bricks": "Kaiverrettu hunajatiili",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "Kaiverrettu hunajakennotiili",
 	
-	"block.buzzier_bees.honeycomb_tiles": "Hunajakennolaatat",
-	"block.buzzier_bees.honeycomb_tile_stairs": "Hunajakennolaattaportaat",
-	"block.buzzier_bees.honeycomb_tile_slab": "Hunajakennolaatta",
-	"block.buzzier_bees.honeycomb_tile_wall": "Hunajakennolaattamuuri",
-	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Pystysuora hunajakennolaatta",
+	"block.buzzier_bees.honeycomb_tiles": "Hunajakennokaakelit",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Hunajakennokaakeliportaat",
+	"block.buzzier_bees.honeycomb_tile_slab": "Hunajakennokaakelilaatta",
+	"block.buzzier_bees.honeycomb_tile_wall": "Hunajakennokaakelimuuri",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Pystysuora hunajakennokaakelilaatta",
 	
 	"block.buzzier_bees.honeycomb_door": "Hunajakenno-ovi",
 	"block.buzzier_bees.honeycomb_trapdoor": "Hunajakennoluukku",
