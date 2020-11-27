@@ -1,6 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.core.registry;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -10,10 +9,8 @@ import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBFeatures {
 	public static final BlockClusterFeatureConfig WHITE_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.WHITE_CLOVER.get().getDefaultState()), SimpleBlockPlacer.field_236447_c_)).tries(32).build();
 	public static final BlockClusterFeatureConfig PINK_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.PINK_CLOVER.get().getDefaultState()), SimpleBlockPlacer.field_236447_c_)).tries(32).build();
