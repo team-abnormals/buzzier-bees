@@ -42,11 +42,11 @@
 	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Pystysuora hunajakennotiililaatta",
 	"block.buzzier_bees.chiseled_honeycomb_bricks": "Kaiverrettu hunajakennotiili",
 	
-	"block.buzzier_bees.honeycomb_tiles": "Hunajakennokaakelit",
-	"block.buzzier_bees.honeycomb_tile_stairs": "Hunajakennokaakeliportaat",
-	"block.buzzier_bees.honeycomb_tile_slab": "Hunajakennokaakelilaatta",
-	"block.buzzier_bees.honeycomb_tile_wall": "Hunajakennokaakelimuuri",
-	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Pystysuora hunajakennokaakelilaatta",
+	"block.buzzier_bees.honeycomb_tiles": "Hunajakennolevyt",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Hunajakennolevyportaat",
+	"block.buzzier_bees.honeycomb_tile_slab": "Hunajakennolevylaatta",
+	"block.buzzier_bees.honeycomb_tile_wall": "Hunajakennolevymuuri",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Pystysuora hunajakennolevylaatta",
 	
 	"block.buzzier_bees.honeycomb_door": "Hunajakenno-ovi",
 	"block.buzzier_bees.honeycomb_trapdoor": "Hunajakennoluukku",
