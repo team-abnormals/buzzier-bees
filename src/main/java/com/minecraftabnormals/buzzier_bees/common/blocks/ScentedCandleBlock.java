@@ -1,11 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
-import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
-
 import com.minecraftabnormals.buzzier_bees.core.registry.BBTileEntities;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.DyeColor;
@@ -14,6 +9,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+
+import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class ScentedCandleBlock extends CandleBlock {
     public Supplier<Effect> candleEffectInstance;

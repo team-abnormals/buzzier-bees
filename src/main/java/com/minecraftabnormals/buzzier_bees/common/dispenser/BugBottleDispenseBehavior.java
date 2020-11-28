@@ -1,7 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.dispenser;
 
 import com.minecraftabnormals.buzzier_bees.common.items.BugBottleItem;
-
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.dispenser.OptionalDispenseBehavior;

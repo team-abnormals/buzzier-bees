@@ -7,7 +7,6 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.teamabnormals.abnormals_core.core.registry.LootInjectionRegistry;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.RenderType;

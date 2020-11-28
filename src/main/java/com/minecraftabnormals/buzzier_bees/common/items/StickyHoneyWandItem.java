@@ -1,7 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.items;
 
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

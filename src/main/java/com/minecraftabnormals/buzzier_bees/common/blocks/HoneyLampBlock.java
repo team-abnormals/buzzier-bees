@@ -1,14 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.EndRodBlock;
-import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -28,6 +20,9 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

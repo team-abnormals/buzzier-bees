@@ -1,7 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.entities.goals.bear;
 
 import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
-
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 

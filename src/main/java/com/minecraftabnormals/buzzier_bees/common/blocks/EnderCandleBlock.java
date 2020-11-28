@@ -1,7 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatMods;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.item.DyeColor;
 import net.minecraft.particles.IParticleData;

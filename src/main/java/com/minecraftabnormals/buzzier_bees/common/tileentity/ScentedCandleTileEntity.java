@@ -2,7 +2,6 @@ package com.minecraftabnormals.buzzier_bees.common.tileentity;
 
 import com.minecraftabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBTileEntities;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;

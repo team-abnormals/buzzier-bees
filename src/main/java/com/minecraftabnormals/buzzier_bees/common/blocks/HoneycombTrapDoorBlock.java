@@ -44,7 +44,7 @@ public class HoneycombTrapDoorBlock extends TrapDoorBlock {
 			blockstate = blockstate.with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite()).with(HALF, direction == Direction.UP ? Half.BOTTOM : Half.TOP);
 		}
 
-		return blockstate.with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
+		return blockstate.with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
 	}
 
 	@Override

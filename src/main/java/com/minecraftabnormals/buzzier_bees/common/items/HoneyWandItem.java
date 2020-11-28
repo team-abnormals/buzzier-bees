@@ -1,7 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.items;
 
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

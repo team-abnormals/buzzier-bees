@@ -35,7 +35,7 @@ public class BBItems {
 	public static final RegistryObject<Item> FOUR_LEAF_CLOVER = HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties().group(ItemGroup.BREWING)));
 	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new AbnormalsBannerPatternItem(BBBanners.HONEYCOMB, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 
-	public static final RegistryObject<Item> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", () -> BBEntities.MOOBLOOM.get(), 0xDBA436, 0xDCDCDC);
+	public static final RegistryObject<Item> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntities.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
 
 	public static void setupItemProperties() {
 		ItemModelsProperties.func_239418_a_(BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity) -> {

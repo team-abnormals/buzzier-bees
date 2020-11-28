@@ -7,7 +7,6 @@ import com.minecraftabnormals.buzzier_bees.client.render.MoobloomRenderer;
 import com.minecraftabnormals.buzzier_bees.common.entities.*;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
-
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;

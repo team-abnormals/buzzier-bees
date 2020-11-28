@@ -1,15 +1,9 @@
 package com.minecraftabnormals.buzzier_bees.common.entities;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
@@ -18,7 +12,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
@@ -29,6 +22,10 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IForgeShearable;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class MoobloomEntity extends CowEntity implements IShearable, IForgeShearable {
 

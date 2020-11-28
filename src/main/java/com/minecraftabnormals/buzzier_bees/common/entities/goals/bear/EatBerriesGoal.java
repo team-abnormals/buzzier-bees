@@ -1,9 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.entities.goals.bear;
 
-import java.util.Random;
-
 import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,6 +12,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
+
+import java.util.Random;
 
 public class EatBerriesGoal extends MoveToBlockGoal {
     protected int field_220731_g;

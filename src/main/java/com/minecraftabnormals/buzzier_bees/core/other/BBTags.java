@@ -1,7 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;

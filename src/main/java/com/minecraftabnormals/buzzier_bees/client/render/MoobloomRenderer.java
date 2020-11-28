@@ -3,7 +3,6 @@ package com.minecraftabnormals.buzzier_bees.client.render;
 import com.minecraftabnormals.buzzier_bees.client.render.layer.MoobloomButtercupLayer;
 import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.model.CowModel;

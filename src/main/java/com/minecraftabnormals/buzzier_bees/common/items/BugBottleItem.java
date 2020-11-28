@@ -1,9 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.common.items;
 
-import java.util.Objects;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -20,6 +16,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.Objects;
 
 public class BugBottleItem extends Item {
 	private final EntityType<?> typeIn;

@@ -1,10 +1,9 @@
 package com.minecraftabnormals.buzzier_bees.core;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import org.apache.commons.lang3.tuple.Pair;
 
 @EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBConfig {

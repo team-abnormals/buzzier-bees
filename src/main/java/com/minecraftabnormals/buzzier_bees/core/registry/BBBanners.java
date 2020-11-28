@@ -2,7 +2,6 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.library.api.BannerManager;
-
 import net.minecraft.entity.item.PaintingType;
 import net.minecraft.tileentity.BannerPattern;
 import net.minecraftforge.fml.RegistryObject;

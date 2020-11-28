@@ -1,7 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
-import java.util.List;
-
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatMods;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
@@ -10,7 +8,6 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBVillagers;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils.EmeraldsForItemsTrade;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsAndItemsTrade;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils.ItemsForEmeraldsTrade;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.merchant.villager.VillagerTrades.ITrade;
 import net.minecraft.item.Item;
@@ -21,6 +18,8 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBTrades {

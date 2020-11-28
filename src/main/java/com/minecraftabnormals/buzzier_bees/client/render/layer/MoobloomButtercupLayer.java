@@ -2,7 +2,6 @@ package com.minecraftabnormals.buzzier_bees.client.render.layer;
 
 import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;

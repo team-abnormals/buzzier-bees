@@ -1,15 +1,14 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
-import java.util.function.ToIntFunction;
-
 import com.minecraftabnormals.buzzier_bees.common.blocks.CandleBlock;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
+
+import java.util.function.ToIntFunction;
 
 public class BBProperties {
 	public static final Block.Properties FLOWER 	= Block.Properties.create(Material.PLANTS).notSolid().doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT);

@@ -4,7 +4,6 @@ import com.minecraftabnormals.buzzier_bees.client.model.BumblebeeModel;
 import com.minecraftabnormals.buzzier_bees.common.entities.BumblebeeEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.mojang.blaze3d.matrix.MatrixStack;
-
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

@@ -1,29 +1,13 @@
 package com.minecraftabnormals.buzzier_bees.common.entities;
 
-import java.util.EnumSet;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.Pose;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.ai.controller.LookController;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IFlyingAnimal;
 import net.minecraft.entity.player.PlayerEntity;
@@ -47,6 +31,9 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.EnumSet;
 
 public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
 	@Nullable

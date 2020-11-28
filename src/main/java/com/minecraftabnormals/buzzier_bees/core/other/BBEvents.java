@@ -4,7 +4,6 @@ import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;

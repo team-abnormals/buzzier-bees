@@ -1,12 +1,11 @@
 package com.minecraftabnormals.buzzier_bees.core.mixin;
 
-import org.spongepowered.asm.mixin.Mixin;
-
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(BeehiveBlock.class)
 public class BeehiveBlockMixin extends Block{

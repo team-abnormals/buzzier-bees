@@ -1,16 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core.registry;
 
 import com.google.common.base.Supplier;
-import com.minecraftabnormals.buzzier_bees.common.blocks.ButtercupBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.CandleBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.CrystallizedHoneyBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.EnderCandleBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.HoneyLampBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.HoneyPotBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.HoneycombDoorBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.HoneycombTrapDoorBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
-import com.minecraftabnormals.buzzier_bees.common.blocks.SoulCandleBlock;
+import com.minecraftabnormals.buzzier_bees.common.blocks.*;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatEffects;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatMods;
@@ -20,13 +11,7 @@ import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsStairsBlock;
 import com.teamabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effect;

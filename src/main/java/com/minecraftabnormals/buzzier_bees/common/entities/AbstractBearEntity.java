@@ -1,10 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.common.entities;
 
-import java.util.EnumSet;
-import java.util.function.Predicate;
-
-import javax.annotation.Nullable;
-
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.AttackPlayerGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.EatBerriesGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.HurtByTargetGoal;
@@ -14,24 +9,13 @@ import com.teamabnormals.abnormals_core.core.library.endimator.ControlledEndimat
 import com.teamabnormals.abnormals_core.core.library.endimator.Endimation;
 import com.teamabnormals.abnormals_core.core.library.endimator.entity.IEndimatedEntity;
 import com.teamabnormals.abnormals_core.core.utils.NetworkUtil;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.FollowParentGoal;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.FoxEntity;
-import net.minecraft.entity.passive.RabbitEntity;
-import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -39,16 +23,16 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.EnumSet;
+import java.util.function.Predicate;
 
 public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity {
    private static final DataParameter<Boolean> IS_STANDING = EntityDataManager.createKey(AbstractBearEntity.class, DataSerializers.BOOLEAN);

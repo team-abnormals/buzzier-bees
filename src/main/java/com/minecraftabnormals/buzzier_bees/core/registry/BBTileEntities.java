@@ -4,7 +4,6 @@ import com.minecraftabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.tileentity.ScentedCandleTileEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
-
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;

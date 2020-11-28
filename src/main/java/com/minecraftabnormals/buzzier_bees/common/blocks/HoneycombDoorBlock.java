@@ -1,7 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,6 +18,8 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class HoneycombDoorBlock extends DoorBlock {
 

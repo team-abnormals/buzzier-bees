@@ -3,7 +3,6 @@ package com.minecraftabnormals.buzzier_bees.core;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.registry.*;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
-
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
