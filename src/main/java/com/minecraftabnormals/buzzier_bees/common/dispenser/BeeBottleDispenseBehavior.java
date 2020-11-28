@@ -18,15 +18,15 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
 	public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
         Direction direction = source.getBlockState().get(DispenserBlock.FACING);
         CompoundNBT tag = stack.getOrCreateTag();
-        Entity entity = EntityType.BEE.spawn(source.getWorld(), stack, (PlayerEntity)null, source.getBlockPos().offset(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
+        Entity entity = EntityType.BEE.spawn(source.getWorld(), stack, null, source.getBlockPos().offset(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
         
         if(entity instanceof BeeEntity && tag != null) {
         	BeeEntity bee = (BeeEntity)entity;
         	
             int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
             int age = tag.contains("Age") ? tag.getInt("Age") : 0;
-            boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
-            boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
+            boolean nectar = tag.contains("HasNectar") && tag.getBoolean("HasNectar");
+            boolean stung = tag.contains("HasStung") && tag.getBoolean("HasStung");
             
             bee.setGrowingAge(age);
             bee.setHasNectar(nectar);
