@@ -1,6 +1,4 @@
 {
-	"item.buzzier_bees.wax": "Wachs",
-	"item.buzzier_bees.crystallized_honey": "Kristallisierter Honig",
 	"item.buzzier_bees.four_leaf_clover": "Glücksklee",
 	
 	"item.buzzier_bees.honey_wand": "Honigstab",
@@ -31,7 +29,6 @@
 	"block.buzzier_bees.crimson_beehive": "Karmesinbienenstock",
 	"block.buzzier_bees.warped_beehive": "Wirrbienenstock",
 	
-	"block.buzzier_bees.wax_block": "Wachsblock",
 	"block.buzzier_bees.crystallized_honey_block": "Kristallisierter Honigblock",
 	
 	"block.buzzier_bees.honey_lamp" : "Honiglaterne",
@@ -112,9 +109,9 @@
 	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Magenta-Hibiskus-Kerze",
 	"block.buzzier_bees.purple_hibiscus_scented_candle": "Violetter-Hibiskus-Kerze",
 	
-	"block.buzzier_bees.warm_honeycomb_brush_scented_candle": "Warme-Langfäden-Kerze",
-	"block.buzzier_bees.hot_honeycomb_brush_scented_candle": "Heiße-Langfäden-Kerze",
-	"block.buzzier_bees.scalding_honeycomb_brush_scented_candle": "Brühheiße-Langfäden-Kerze",
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Warme-Langfäden-Kerze",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Heiße-Langfäden-Kerze",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Brühheiße-Langfäden-Kerze",
 	"block.buzzier_bees.water_hyacinth_scented_candle": "Wasserhyazinthenkerze",
 	"block.buzzier_bees.gilia_scented_candle": "Gilienkerze",
 	"block.buzzier_bees.yucca_flower_scented_candle": "Yuccakerze",
