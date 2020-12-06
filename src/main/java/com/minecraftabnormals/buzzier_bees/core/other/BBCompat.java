@@ -1,12 +1,12 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
+import com.minecraftabnormals.abnormals_core.core.registry.LootInjectionRegistry;
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.buzzier_bees.common.dispenser.BeeBottleDispenseBehavior;
 import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBehavior;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-import com.teamabnormals.abnormals_core.core.registry.LootInjectionRegistry;
-import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.RenderType;
@@ -43,27 +43,26 @@ public class BBCompat {
 	}
 	
 	public static void registerLootInjectors() {
-		LootInjectionRegistry.LootInjector injector = new LootInjectionRegistry.LootInjector(BuzzierBees.MODID);
-		injector.registerLootInjection(injector.buildLootPool("desert_pyramid", 1, 0), LootTables.CHESTS_DESERT_PYRAMID);
-		injector.registerLootInjection(injector.buildLootPool("jungle_temple", 1, 0), LootTables.CHESTS_JUNGLE_TEMPLE);
+		LootInjectionRegistry.LootInjector injector = new LootInjectionRegistry.LootInjector(BuzzierBees.MOD_ID);
+		injector.addLootInjection(injector.buildLootPool("desert_pyramid", 1, 0), LootTables.CHESTS_DESERT_PYRAMID);
+		injector.addLootInjection(injector.buildLootPool("jungle_temple", 1, 0), LootTables.CHESTS_JUNGLE_TEMPLE);
 	}
 	
 	public static void registerCompostables() {
-		DataUtils.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);		
-		DataUtils.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
-		DataUtils.registerCompostable(BBItems.FOUR_LEAF_CLOVER.get(), 0.65F);
+		DataUtil.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);
+		DataUtil.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
+		DataUtil.registerCompostable(BBItems.FOUR_LEAF_CLOVER.get(), 0.65F);
 	}
 	
 	public static void registerFlammables() {
-		DataUtils.registerFlammable(BBBlocks.SPRUCE_BEEHIVE.get(), 5, 20);
-		DataUtils.registerFlammable(BBBlocks.BIRCH_BEEHIVE.get(), 5, 20);
-		DataUtils.registerFlammable(BBBlocks.JUNGLE_BEEHIVE.get(), 5, 20);
-		DataUtils.registerFlammable(BBBlocks.DARK_OAK_BEEHIVE.get(), 5, 20);
-		DataUtils.registerFlammable(BBBlocks.ACACIA_BEEHIVE.get(), 5, 20);
+		DataUtil.registerFlammable(BBBlocks.SPRUCE_BEEHIVE.get(), 5, 20);
+		DataUtil.registerFlammable(BBBlocks.BIRCH_BEEHIVE.get(), 5, 20);
+		DataUtil.registerFlammable(BBBlocks.JUNGLE_BEEHIVE.get(), 5, 20);
+		DataUtil.registerFlammable(BBBlocks.DARK_OAK_BEEHIVE.get(), 5, 20);
+		DataUtil.registerFlammable(BBBlocks.ACACIA_BEEHIVE.get(), 5, 20);
 	}
 	
 	public static void registerDispenserBehaviors() {
-		BuzzierBees.REGISTRY_HELPER.processSpawnEggDispenseBehaviors();
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());

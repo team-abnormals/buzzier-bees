@@ -1,24 +1,19 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
 import com.google.common.base.Supplier;
+import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBParticles;
-import com.teamabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.potion.Effect;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
 public class ButtercupBlock extends AbnormalsFlowerBlock {
-	private final Supplier<Effect> stewEffect;
-	private final int stewEffectDuration;
 
 	public ButtercupBlock(Supplier<Effect> stewEffect, int stewEffectDuration, Properties properties) {
-		super(Effects.BLINDNESS, stewEffectDuration, properties);
-		this.stewEffect = stewEffect;
-		this.stewEffectDuration = stewEffectDuration;
+		super(stewEffect, stewEffectDuration, properties);
 	}
 
 	@Override
@@ -37,15 +32,5 @@ public class ButtercupBlock extends AbnormalsFlowerBlock {
 		if (rand.nextBoolean())
 			return db * -1;
 		return db;
-	}
-
-	@Override
-	public Effect getStewEffect() {
-		return this.stewEffect.get();
-	}
-
-	@Override
-	public int getStewEffectDuration() {
-		return this.stewEffectDuration;
 	}
 }

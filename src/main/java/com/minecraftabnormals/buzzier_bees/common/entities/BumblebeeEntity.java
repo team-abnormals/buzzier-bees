@@ -21,6 +21,7 @@ import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -185,9 +186,7 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
       return true;
    }
 
-   /**
-    * Called when the entity is attacked.
-    */
+   @Override
    public boolean attackEntityFrom(DamageSource source, float amount) {
       if (this.isInvulnerableTo(source)) {
          return false;
@@ -201,11 +200,13 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
       }
    }
 
+   @Override
    public CreatureAttribute getCreatureAttribute() {
       return CreatureAttribute.ARTHROPOD;
    }
 
-   protected void handleFluidJump(Tag<Fluid> fluidTag) {
+   @Override
+   protected void handleFluidJump(ITag<Fluid> fluidTag) {
       this.setMotion(this.getMotion().add(0.0D, 0.01D, 0.0D));
    }
 
@@ -223,7 +224,7 @@ public class BumblebeeEntity extends CreatureEntity implements IFlyingAnimal {
       }
 
       public boolean shouldContinueExecuting() {
-         return BumblebeeEntity.this.navigator.func_226337_n_();
+         return BumblebeeEntity.this.navigator.hasPath();
       }
 
       public void startExecuting() {

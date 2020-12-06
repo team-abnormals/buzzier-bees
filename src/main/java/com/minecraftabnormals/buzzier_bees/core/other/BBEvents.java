@@ -36,7 +36,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber(modid = BuzzierBees.MODID)
+@EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBEvents {
 
 	@SubscribeEvent

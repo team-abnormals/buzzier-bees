@@ -20,6 +20,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -35,7 +36,7 @@ public class BeeBottleItem extends  Item {
 
 	public ActionResultType onItemUse(ItemUseContext context) {
 		World world = context.getWorld();
-		if (world.isRemote) {
+		if (world.isRemote()) {
 			return ActionResultType.SUCCESS;
 		} else {
 			ItemStack itemstack = context.getItem();
@@ -55,19 +56,18 @@ public class BeeBottleItem extends  Item {
             if (!context.getPlayer().abilities.isCreativeMode) {
             	context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
             }
-            Entity entity = EntityType.BEE.spawn(world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
+            Entity entity = EntityType.BEE.spawn((ServerWorld)world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
             
-            if(entity instanceof BeeEntity && tag != null) {
+            if(entity instanceof BeeEntity) {
             	BeeEntity bee = (BeeEntity)entity;
             	
                 int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
                 UUID angryAt = tag.contains("AngryAt") ? tag.getUniqueId("AngryAt") : null;
                 int age = tag.contains("Age") ? tag.getInt("Age") : 0;
-                boolean nectar = tag.contains("HasNectar") ? tag.getBoolean("HasNectar") : false;
-                boolean stung = tag.contains("HasStung") ? tag.getBoolean("HasStung") : false;
+                boolean nectar = tag.contains("HasNectar") && tag.getBoolean("HasNectar");
+                boolean stung = tag.contains("HasStung") && tag.getBoolean("HasStung");
                 float health = tag.contains("Health") ? tag.getFloat("Health") : 10.0F;
-                //String effects = tag.contains("Effects") ? tag.getString("Effects") : null;
-                
+
                 bee.setGrowingAge(age);
                 bee.setHasNectar(nectar);
                 bee.setHasStung(stung);

@@ -16,13 +16,13 @@ public class CrystallizedHoneyBlock extends Block {
 
 	public CrystallizedHoneyBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(POWERED, Boolean.valueOf(false)));
+		this.setDefaultState(this.stateContainer.getBaseState().with(POWERED, Boolean.FALSE));
 	}
 	
 	public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
 	      boolean flag = worldIn.isBlockPowered(pos);
 	      if (flag != state.get(POWERED)) {
-	         worldIn.setBlockState(pos, state.with(POWERED, Boolean.valueOf(flag)), 3);
+	         worldIn.setBlockState(pos, state.with(POWERED, flag), 3);
 	         worldIn.destroyBlock(pos, true);
 	      }
 

@@ -8,18 +8,14 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class BumblebeeRenderer extends MobRenderer<BumblebeeEntity, BumblebeeModel<BumblebeeEntity>> {	
-//	private static final Map<List<String>, String> NAMES = Util.make(Maps.newHashMap(), (skins) -> {
-//		skins.put(Arrays.asList("cameron", "cam", "cringe"), "cameron");
-//	});
-
+public class BumblebeeRenderer extends MobRenderer<BumblebeeEntity, BumblebeeModel<BumblebeeEntity>> {
 	public BumblebeeRenderer(EntityRendererManager renderManager) {
 		super(renderManager, new BumblebeeModel<>(), 0.3F);
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(BumblebeeEntity	 bee) {
-		return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bumblebee/bumblebee.png");
+		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bumblebee/bumblebee.png");
 	}
 	
 	@Override

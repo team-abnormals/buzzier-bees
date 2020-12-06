@@ -19,6 +19,6 @@ public class MoobloomRenderer extends MobRenderer<MoobloomEntity, CowModel<Moobl
 	}
 
 	public ResourceLocation getEntityTexture(MoobloomEntity entity) {
-		return new ResourceLocation(BuzzierBees.MODID, "textures/entity/cow/moobloom.png");
+		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/cow/moobloom.png");
 	}
 }

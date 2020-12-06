@@ -15,8 +15,8 @@ public class BlackBearRenderer extends MobRenderer<BlackBearEntity, BearModel<Bl
 
 	@Override
 	public ResourceLocation getEntityTexture(BlackBearEntity bear) {
-		if (bear.isSleeping()) return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bear/black_bear_sleeping.png");
-		return new ResourceLocation(BuzzierBees.MODID, "textures/entity/bear/black_bear.png");
+		if (bear.isSleeping()) return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bear/black_bear_sleeping.png");
+		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bear/black_bear.png");
 	}
 	
 	@Override

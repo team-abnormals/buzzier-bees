@@ -5,7 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import org.apache.commons.lang3.tuple.Pair;
 
-@EventBusSubscriber(modid = BuzzierBees.MODID)
+@EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBConfig {
 
     public static class Common {

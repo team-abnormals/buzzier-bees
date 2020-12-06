@@ -20,7 +20,7 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
         CompoundNBT tag = stack.getOrCreateTag();
         Entity entity = EntityType.BEE.spawn(source.getWorld(), stack, null, source.getBlockPos().offset(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
         
-        if(entity instanceof BeeEntity && tag != null) {
+        if(entity instanceof BeeEntity) {
         	BeeEntity bee = (BeeEntity)entity;
         	
             int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;

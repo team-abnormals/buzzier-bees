@@ -34,8 +34,8 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	}
 
 	@Override
-	public MoobloomEntity createChild(AgeableEntity ageable) {
-		return BBEntities.MOOBLOOM.get().create(this.world);
+	public MoobloomEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
+		return BBEntities.MOOBLOOM.get().create(world);
 	}
 
 	@Override

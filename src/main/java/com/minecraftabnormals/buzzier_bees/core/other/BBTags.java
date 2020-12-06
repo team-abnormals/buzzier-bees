@@ -10,11 +10,11 @@ import net.minecraft.tags.ItemTags;
 public class BBTags {
 
 	static class Blocks {
-		public static final INamedTag<Block> FLOWER_BLACKLIST = BlockTags.makeWrapperTag(BuzzierBees.MODID + ":flower_blacklist");
+		public static final INamedTag<Block> FLOWER_BLACKLIST = BlockTags.makeWrapperTag(BuzzierBees.MOD_ID + ":flower_blacklist");
 	}
 
 	static class Items {
-		public static final INamedTag<Item> DYED_CANDLES 	= ItemTags.makeWrapperTag(BuzzierBees.MODID + ":dyed_candles");
-		public static final INamedTag<Item> SCENTED_CANDLES = ItemTags.makeWrapperTag(BuzzierBees.MODID + ":scented_candles");
+		public static final INamedTag<Item> DYED_CANDLES 	= ItemTags.makeWrapperTag(BuzzierBees.MOD_ID + ":dyed_candles");
+		public static final INamedTag<Item> SCENTED_CANDLES = ItemTags.makeWrapperTag(BuzzierBees.MOD_ID + ":scented_candles");
 	}
 }

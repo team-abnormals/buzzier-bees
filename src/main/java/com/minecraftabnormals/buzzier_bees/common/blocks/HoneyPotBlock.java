@@ -167,7 +167,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 		if (i == 4) {
 			return new HoneyPotBlock.FullInventory(state, world, pos, new ItemStack(Items.HONEY_BLOCK));
 		} else {
-			return (ISidedInventory) (i < 7 ? new HoneyPotBlock.PartialInventory(state, world, pos) : new HoneyPotBlock.EmptyInventory());
+			return i < 7 ? new PartialInventory(state, world, pos) : new EmptyInventory();
 		}
 	}
 
@@ -258,7 +258,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			ItemStack itemstack = this.getStackInSlot(0);
 			if (!itemstack.isEmpty()) {
 				this.inserted = true;
-				attemptInteract(state, pos, world.getWorld(), itemstack);
+				attemptInteract(state, pos, (World) world, itemstack);
 				this.removeStackFromSlot(0);
 			}
 		}

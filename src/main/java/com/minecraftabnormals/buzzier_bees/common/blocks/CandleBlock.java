@@ -28,12 +28,12 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import vazkii.quark.api.IVariableEnchantmentInfluencer;
+import vazkii.quark.api.IEnchantmentInfluencer;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class CandleBlock extends Block implements IWaterLoggable, IVariableEnchantmentInfluencer {
+public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentInfluencer {
 
     public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

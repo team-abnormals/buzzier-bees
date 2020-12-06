@@ -14,10 +14,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BBParticles {
-	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, BuzzierBees.MODID);
+	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, BuzzierBees.MOD_ID);
 	public static final RegistryObject<BasicParticleType> BUTTERCUP_BLOOM = PARTICLES.register("buttercup_bloom", () -> new BasicParticleType(true));
 
-	@EventBusSubscriber(modid = BuzzierBees.MODID, bus = EventBusSubscriber.Bus.MOD)
+	@EventBusSubscriber(modid = BuzzierBees.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 	public static class RegisterParticleFactories {
 
 		@SubscribeEvent(priority = EventPriority.LOWEST)

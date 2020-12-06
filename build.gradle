@@ -10,9 +10,6 @@ buildscript {
         classpath group: "org.spongepowered", name: "mixingradle", version: "0.7-SNAPSHOT"
     }
 }
-plugins {
-    id "com.wynprice.cursemaven" version "2.1.1"
-}
 
 apply plugin: "net.minecraftforge.gradle"
 apply plugin: "eclipse"
@@ -23,14 +20,14 @@ mixin {
     add sourceSets.main, "buzzier_bees.refmap.json"
 }
 
-version = "2.2.0"
+version = "${project.minecraft}-${project.modVersion}"
 group = "com.minecraftabnormals"
-archivesBaseName = "Buzzier-Bees-1.16.1"
+archivesBaseName = project.modId
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = "1.8"
 
 minecraft {
-    mappings channel: "snapshot", version: "20200723-1.16.1"
+    mappings channel: project.mappingsChannel, version: project.mappings
     accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
     runs {
         client {
@@ -72,9 +69,15 @@ minecraft {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.16.1-32.0.72"
-    implementation fg.deobf("curse.maven:abnormals-core:3091840")
-    implementation fg.deobf("curse.maven:jei:3021104")
+    minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
+    implementation fg.deobf("curse.maven:abnormals-core-382216:${project.abnormalsCore}")
+    compile fg.deobf("curse.maven:jei-238222:3132197")
+}
+
+repositories {
+    maven {
+        url "https://www.cursemaven.com"
+    }
 }
 
 jar {
