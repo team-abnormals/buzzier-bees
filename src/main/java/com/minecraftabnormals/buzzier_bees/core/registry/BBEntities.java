@@ -53,9 +53,7 @@ public class BBEntities
 	}
 
 	private static void addSpawns(Biome biome) {
-		if (biome == Biomes.FLOWER_FOREST)
-			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(MOOBLOOM.get(), 60, 2, 4));
-		if (biome == Biomes.SUNFLOWER_PLAINS)
-			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(MOOBLOOM.get(), 40, 2, 4));
+		if (biome == Biomes.FLOWER_FOREST || biome == Biomes.SUNFLOWER_PLAINS)
+			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(MOOBLOOM.get(), 30, 2, 4));
 	}
 }
