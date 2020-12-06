@@ -32,7 +32,6 @@ public class BBEntities
 	public static final RegistryObject<EntityType<BumblebeeEntity>> 	BUMBLEBEE 		= HELPER.createLivingEntity("bumblebee", BumblebeeEntity::new, EntityClassification.CREATURE, 0.5F, 0.5F);
 	public static final RegistryObject<EntityType<MoobloomEntity>> 		MOOBLOOM 		= HELPER.createLivingEntity("moobloom", MoobloomEntity::new, EntityClassification.CREATURE, 0.9F, 1.4F);
 
-    @OnlyIn(Dist.CLIENT)
     public static void registerRendering() {
         RenderingRegistry.registerEntityRenderingHandler(GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(BLACK_BEAR.get(), BlackBearRenderer::new);

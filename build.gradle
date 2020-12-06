@@ -1,46 +1,43 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url = 'https://dist.creeper.host/Sponge/maven' }
+        maven { url = "https://files.minecraftforge.net/maven" }
+        maven { url = "https://dist.creeper.host/Sponge/maven" }
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
-        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
+        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "3.+", changing: true
+        classpath group: "org.spongepowered", name: "mixingradle", version: "0.7-SNAPSHOT"
     }
 }
 plugins {
-	id "com.wynprice.cursemaven" version "2.1.1"
+    id "com.wynprice.cursemaven" version "2.1.1"
 }
-	
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
+
+apply plugin: "net.minecraftforge.gradle"
+apply plugin: "eclipse"
+apply plugin: "maven-publish"
+apply plugin: "org.spongepowered.mixin"
 
 mixin {
     add sourceSets.main, "buzzier_bees.refmap.json"
 }
 
-version = '2.1.0'
-group = 'com.minecraftabnormals'
-archivesBaseName = 'Buzzier-Bees-1.16.1'
+version = "2.2.0"
+group = "com.minecraftabnormals"
+archivesBaseName = "Buzzier-Bees-1.16.1"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' 
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = "1.8"
 
 minecraft {
-	mappings channel: 'snapshot', version: '20200723-1.16.1'
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
+    mappings channel: "snapshot", version: "20200723-1.16.1"
+    accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
     runs {
         client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.disableRefMap', 'true'
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            property "mixin.env.disableRefMap", "true"
             arg "-mixin.config=buzzier_bees.mixins.json"
             mods {
                 buzzier_bees {
@@ -49,10 +46,10 @@ minecraft {
             }
         }
         server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.disableRefMap', 'true'
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            property "mixin.env.disableRefMap", "true"
             arg "-mixin.config=buzzier_bees.mixins.json"
             mods {
                 buzzier_bees {
@@ -61,10 +58,10 @@ minecraft {
             }
         }
         data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', 'buzzier_bees', '--all', '--output', file('src/generated/resources/')
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            args "--mod", "buzzier_bees", "--all", "--output", file("src/generated/resources/")
             mods {
                 buzzier_bees {
                     source sourceSets.main
@@ -74,23 +71,23 @@ minecraft {
     }
 }
 
+dependencies {
+    minecraft "net.minecraftforge:forge:1.16.1-32.0.72"
+    implementation fg.deobf("curse.maven:abnormals-core:3091840")
+    implementation fg.deobf("curse.maven:jei:3021104")
+}
+
 jar {
     manifest {
         attributes([
-          "Specification-Title": "Buzzier Bees",
-          "Specification-Vendor": "Team Abnormals",
-          "Specification-Version": "1",
-          "Implementation-Title": project.name,
-          "Implementation-Version": "${version}",
-          "Implementation-Vendor": "Team Abnormals",
-          "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-          "MixinConfigs": "buzzier_bees.mixins.json"
+                "Specification-Title"     : "Buzzier Bees",
+                "Specification-Vendor"    : "Team Abnormals",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "Team Abnormals",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "buzzier_bees.mixins.json"
         ])
     }
-}
-
-dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.72'
-    implementation fg.deobf("curse.maven:abnormals-core:3091840")
-    implementation fg.deobf("curse.maven:jei:3021104")
 }
