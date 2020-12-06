@@ -55,7 +55,7 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	@Override
 	public void livingTick() {
 		super.livingTick();
-		if (world.getGameTime() % 20 == 0) {
+		if (!world.isRemote && world.getGameTime() % 20 == 0) {
 			for (LivingEntity living : this.world.getEntitiesWithinAABB(LivingEntity.class, this.getBoundingBox().grow(7.0D, 3.0D, 7.0D))) {
 				if (!(living instanceof MoobloomEntity))
 					living.addPotionEffect(new EffectInstance(BBEffects.SUNNY.get(), 100, 0, false, false));
