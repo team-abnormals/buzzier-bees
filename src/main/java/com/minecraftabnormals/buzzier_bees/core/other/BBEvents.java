@@ -1,5 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
+import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
@@ -12,8 +13,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.monster.PhantomEntity;
-import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -29,6 +30,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -36,6 +38,17 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = BuzzierBees.MODID)
 public class BBEvents {
+
+	@SubscribeEvent
+	public static void onLivingSpawned(EntityJoinWorldEvent event) {
+		Entity entity = event.getEntity();
+
+		if (entity instanceof MobEntity) {
+			MobEntity mob = (MobEntity) entity;
+			if (!mob.isImmuneToFire() && mob.isEntityUndead())
+				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, MoobloomEntity.class, false));
+		}
+	}
 
 	@SubscribeEvent
 	public static void renewableFlowers(PlayerInteractEvent.RightClickBlock event) {
@@ -71,15 +84,6 @@ public class BBEvents {
 				ServerPlayerEntity player = (ServerPlayerEntity) ((PhantomEntity) entity).getAttackTarget();
 				if (player.getActivePotionEffect(BBEffects.SUNNY.get()) != null) {
 					((PhantomEntity) entity).setAttackTarget(null);
-				}
-			}
-		}
-
-		if (entity instanceof SpiderEntity) {
-			if (((SpiderEntity) entity).getAttackTarget() instanceof ServerPlayerEntity) {
-				ServerPlayerEntity player = (ServerPlayerEntity) ((SpiderEntity) entity).getAttackTarget();
-				if (player.getActivePotionEffect(BBEffects.SUNNY.get()) != null) {
-					((SpiderEntity) entity).setAttackTarget(null);
 				}
 			}
 		}
