@@ -17,9 +17,6 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.List;
-import java.util.function.Supplier;
-
 @Mod.EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBFeatures {
 
@@ -44,17 +41,23 @@ public class BBFeatures {
 		return false;
 	}
 
-	static class Configs {
+	public static final class Configs {
 		public static final BlockClusterFeatureConfig WHITE_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.WHITE_CLOVER.get().getDefaultState()), SimpleBlockPlacer.PLACER)).tries(32).build();
 		public static final BlockClusterFeatureConfig PINK_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.PINK_CLOVER.get().getDefaultState()), SimpleBlockPlacer.PLACER)).tries(32).build();
 		public static final BlockClusterFeatureConfig BUTTERCUP_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.BUTTERCUP.get().getDefaultState()), SimpleBlockPlacer.PLACER)).tries(32).build();
 
-		public static final ConfiguredFeature<?, ?> WHITE_CLOVER_PATCH = register("pink_clover_patch", Feature.FLOWER.withConfiguration(WHITE_CLOVER_CONFIG)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3);
-		public static final ConfiguredFeature<?, ?> PINK_CLOVER_PATCH = register("white_clover_patch", Feature.FLOWER.withConfiguration(PINK_CLOVER_CONFIG)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3);
-		public static final ConfiguredFeature<?, ?> BUTTERCUP_PATCH = register("buttercup_patch", Feature.FLOWER.withConfiguration(BUTTERCUP_CONFIG)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(4);
+		public static final ConfiguredFeature<?, ?> WHITE_CLOVER_PATCH = Feature.FLOWER.withConfiguration(WHITE_CLOVER_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3);
+		public static final ConfiguredFeature<?, ?> PINK_CLOVER_PATCH = Feature.FLOWER.withConfiguration(PINK_CLOVER_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3);
+		public static final ConfiguredFeature<?, ?> BUTTERCUP_PATCH = Feature.FLOWER.withConfiguration(BUTTERCUP_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(4);
 
 		private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
 			return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(BuzzierBees.MOD_ID, name), configuredFeature);
+		}
+
+		public static void registerConfiguredFeatures() {
+			register("white_clover_patch", WHITE_CLOVER_PATCH);
+			register("pink_clover_patch", PINK_CLOVER_PATCH);
+			register("buttercup_patch", BUTTERCUP_PATCH);
 		}
 	}
 }

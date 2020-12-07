@@ -7,13 +7,11 @@ import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBeh
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.loot.LootTables;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BBCompat {
 	
@@ -25,21 +23,18 @@ public class BBCompat {
 		public static final String ENDERGETIC 		= "endergetic";
 	}
 	
-	public static class CompatBlocks {
-		public static final Block FLOWERING_RUSH 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.UPGRADE_AQUATIC, "flowering_rush"));
-		
-		public static final Block BLUE_DELPHINIUM 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "blue_delphinium"));
-		public static final Block WHITE_DELPHINIUM 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "white_delphinium"));
-		public static final Block PINK_DELPHINIUM 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "pink_delphinium"));
-		public static final Block PURPLE_DELPHNIUM 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "purple_delphinium"));
-		public static final Block BIRD_OF_PARADISE 	= ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CompatMods.ENVIRONMENTAL, "bird_of_paradise"));
-	}
-	
 	public static class CompatEffects {
 		public static final ResourceLocation RELIEF 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "relief");
 		public static final ResourceLocation WORSENING 		= new ResourceLocation(CompatMods.ATMOSPHERIC, "worsening");
 		public static final ResourceLocation PERSISTENCE 	= new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence");
 		public static final ResourceLocation FOUL_TASTE 	= new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste");
+	}
+
+	public static void registerCompat() {
+		registerLootInjectors();
+		registerCompostables();
+		registerFlammables();
+		registerDispenserBehaviors();
 	}
 	
 	public static void registerLootInjectors() {

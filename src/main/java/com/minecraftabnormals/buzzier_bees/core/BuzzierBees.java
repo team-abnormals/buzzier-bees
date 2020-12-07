@@ -46,14 +46,13 @@ public class BuzzierBees {
 
 	private void setupCommon(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			BBCompat.registerCompostables();
-			BBCompat.registerFlammables();
-			BBCompat.registerDispenserBehaviors();
+			BBCompat.registerCompat();
 			BBBanners.registerBanners();
 			BBEffects.registerRecipes();
 			BBEntities.registerEntitySpawns();
 			BBEntities.registerAttributes();
 			BBVillagers.registerVillagers();
+			BBFeatures.Configs.registerConfiguredFeatures();
 		});
 	}
 
