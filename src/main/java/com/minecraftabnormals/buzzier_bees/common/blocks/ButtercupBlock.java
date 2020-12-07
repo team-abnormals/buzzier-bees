@@ -1,6 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
-import com.google.common.base.Supplier;
 import com.minecraftabnormals.abnormals_core.common.blocks.AbnormalsFlowerBlock;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBParticles;
 import net.minecraft.block.BlockState;
@@ -9,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class ButtercupBlock extends AbnormalsFlowerBlock {
 
