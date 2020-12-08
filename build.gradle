@@ -71,7 +71,7 @@ minecraft {
 dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
     implementation fg.deobf("curse.maven:abnormals-core-382216:${project.abnormalsCore}")
-    compile fg.deobf("curse.maven:jei-238222:3132197")
+    compile fg.deobf("curse.maven:jei-238222:3109181")
 }
 
 repositories {
