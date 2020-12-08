@@ -1,1 +1,1 @@
-mods.toml text eol=lf
+*.toml text eol=lf
