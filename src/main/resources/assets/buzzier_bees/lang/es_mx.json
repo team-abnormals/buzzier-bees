@@ -1,6 +1,4 @@
 {
-	"item.buzzier_bees.wax": "Cera",
-	"item.buzzier_bees.crystallized_honey": "Miel cristalizada",
 	"item.buzzier_bees.four_leaf_clover": "Trébol de cuatro hojas",
 
 	"item.buzzier_bees.honey_wand": "Palito mielero",
@@ -30,8 +28,7 @@
 	"block.buzzier_bees.dark_oak_beehive": "Apiario de abejas de roble oscuro",
 	"block.buzzier_bees.crimson_beehive": "Apiario de abejas carmesí",
 	"block.buzzier_bees.warped_beehive": "Apiario de abejas distorsionado",
-	
-	"block.buzzier_bees.wax_block": "Bloque de cera",
+
 	"block.buzzier_bees.crystallized_honey_block": "Bloque de miel cristalizada",
 
 	"block.buzzier_bees.honey_lamp" : "Lámpara de miel",
