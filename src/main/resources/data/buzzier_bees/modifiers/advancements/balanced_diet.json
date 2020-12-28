@@ -1,0 +1,59 @@
+{
+  "advancement": "minecraft:husbandry/balanced_diet",
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "mode": "modify",
+        "criteria": {
+          "buzzier_bees:honey_apple": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "buzzier_bees:honey_apple"
+              }
+            }
+          },
+          "buzzier_bees:honey_bread": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "buzzier_bees:honey_bread"
+              }
+            }
+          },
+          "buzzier_bees:glazed_porkchop": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "buzzier_bees:glazed_porkchop"
+              }
+            }
+          },
+          "buzzier_bees:sticky_honey_wand": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+              "item": {
+                "item": "buzzier_bees:sticky_honey_wand"
+              }
+            }
+          }
+        },
+        "requirements": [
+          [
+            "buzzier_bees:honey_apple"
+          ],
+          [
+            "buzzier_bees:honey_bread"
+          ],
+          [
+            "buzzier_bees:glazed_porkchop"
+          ],
+          [
+            "buzzier_bees:sticky_honey_wand"
+          ]
+        ]
+      }
+    }
+  ]
+}

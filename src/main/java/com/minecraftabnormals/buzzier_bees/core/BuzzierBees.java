@@ -52,7 +52,7 @@ public class BuzzierBees {
 			BBEntities.registerEntitySpawns();
 			BBEntities.registerAttributes();
 			BBVillagers.registerVillagers();
-			BBFeatures.Configs.registerConfiguredFeatures();
+			BBFeatures.Configured.registerConfiguredFeatures();
 		});
 	}
 
