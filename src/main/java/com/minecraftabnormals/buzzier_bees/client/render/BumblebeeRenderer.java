@@ -14,12 +14,12 @@ public class BumblebeeRenderer extends MobRenderer<BumblebeeEntity, BumblebeeMod
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(BumblebeeEntity	 bee) {
+	public ResourceLocation getEntityTexture(BumblebeeEntity bee) {
 		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bumblebee/bumblebee.png");
 	}
-	
+
 	@Override
 	protected void preRenderCallback(BumblebeeEntity fly, MatrixStack matrixStack, float partialTickTime) {
-	    matrixStack.scale(1.0F, 1.0F, 1.0F);
+		matrixStack.scale(1.0F, 1.0F, 1.0F);
 	}
 }

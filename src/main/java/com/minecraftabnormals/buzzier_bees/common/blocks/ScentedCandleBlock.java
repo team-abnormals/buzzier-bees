@@ -14,30 +14,30 @@ import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class ScentedCandleBlock extends CandleBlock {
-    public Supplier<Effect> candleEffectInstance;
-    public int duration;
-    public int level;
+	public Supplier<Effect> candleEffectInstance;
+	public int duration;
+	public int level;
 
-    public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, DyeColor color, Block.Properties properties) {
-        super(color, properties);
-        this.candleEffectInstance = candleEffectInstance;
-        this.duration = 70;
-        this.level = 0;
-    }
+	public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, DyeColor color, Block.Properties properties) {
+		super(color, properties);
+		this.candleEffectInstance = candleEffectInstance;
+		this.duration = 70;
+		this.level = 0;
+	}
 
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
-    }
+	@Override
+	public boolean hasTileEntity(BlockState state) {
+		return true;
+	}
 
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return BBTileEntities.SCENTED_CANDLE.get().create();
-    }
+	@Nullable
+	@Override
+	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+		return BBTileEntities.SCENTED_CANDLE.get().create();
+	}
 
-    @Override
-    public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-        return (0.25F * state.get(CANDLES));
-    }
+	@Override
+	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
+		return (0.25F * state.get(CANDLES));
+	}
 }

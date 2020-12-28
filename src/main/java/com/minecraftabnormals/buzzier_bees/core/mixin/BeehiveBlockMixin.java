@@ -8,8 +8,8 @@ import net.minecraft.util.Rotation;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(BeehiveBlock.class)
-public class BeehiveBlockMixin extends Block{
-	
+public class BeehiveBlockMixin extends Block {
+
 	public BeehiveBlockMixin(Properties properties) {
 		super(properties);
 	}

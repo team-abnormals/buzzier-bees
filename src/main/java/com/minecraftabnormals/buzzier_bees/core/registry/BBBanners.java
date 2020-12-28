@@ -11,9 +11,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BBBanners {
 	public static final DeferredRegister<PaintingType> PAINTINGS = DeferredRegister.create(ForgeRegistries.PAINTING_TYPES, BuzzierBees.MOD_ID);
 	public static final RegistryObject<PaintingType> CANDLE = PAINTINGS.register("candle", () -> new PaintingType(32, 48));
-	
+
 	public static final BannerPattern HONEYCOMB = BannerManager.createPattern("mca", "honeycomb", "hny");
-	
+
 	public static void registerBanners() {
 		BannerManager.addPattern(HONEYCOMB, BBItems.HONEYCOMB_BANNER_PATTERN.get());
 	}

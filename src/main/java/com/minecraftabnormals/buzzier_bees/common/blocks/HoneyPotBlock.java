@@ -42,7 +42,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 		ItemStack stack = player.getHeldItem(handIn);
 		Pair<ItemStack, Integer> output = getOutput(stack, state.get(HONEY_LEVEL));
 		ItemStack outputItem = output.getFirst();
-		
+
 		if (outputItem != ItemStack.EMPTY) {
 			player.swingArm(handIn);
 			if (outputItem.getItem() == Items.HONEY_BLOCK) {
@@ -77,7 +77,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			itementity.setDefaultPickupDelay();
 			world.addEntity(itementity);
 		}
-		
+
 		return state;
 	}
 
@@ -207,7 +207,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 		}
 
 		public int[] getSlotsForFace(Direction side) {
-			return side == Direction.DOWN ? new int[] { 0 } : new int[0];
+			return side == Direction.DOWN ? new int[]{0} : new int[0];
 		}
 
 		public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
@@ -242,7 +242,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 		}
 
 		public int[] getSlotsForFace(Direction side) {
-			return side == Direction.UP ? new int[] { 0 } : new int[0];
+			return side == Direction.UP ? new int[]{0} : new int[0];
 		}
 
 		public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {

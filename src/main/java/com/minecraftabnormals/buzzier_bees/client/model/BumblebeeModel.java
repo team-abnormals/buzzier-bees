@@ -85,7 +85,7 @@ public class BumblebeeModel<T extends BumblebeeEntity> extends EntityModel<Bumbl
 	}
 
 	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		head.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 
@@ -109,8 +109,7 @@ public class BumblebeeModel<T extends BumblebeeEntity> extends EntityModel<Bumbl
 			this.frontLegs.rotateAngleX = 0.0f;
 			this.middleLegs.rotateAngleX = 0.0f;
 			this.backLegs.rotateAngleX = 0.0f;
-		}
-		else {
+		} else {
 			this.rightWing.rotateAngleY = 0.0f;
 			this.rightWing.rotateAngleZ = MathHelper.cos(ageInTicks * 2.1f) * 3.1415927f * 0.15f;
 			this.leftWing.rotateAngleX = this.rightWing.rotateAngleX;

@@ -14,7 +14,7 @@ public class BBTags {
 	}
 
 	static class Items {
-		public static final INamedTag<Item> DYED_CANDLES 	= ItemTags.makeWrapperTag(BuzzierBees.MOD_ID + ":dyed_candles");
+		public static final INamedTag<Item> DYED_CANDLES = ItemTags.makeWrapperTag(BuzzierBees.MOD_ID + ":dyed_candles");
 		public static final INamedTag<Item> SCENTED_CANDLES = ItemTags.makeWrapperTag(BuzzierBees.MOD_ID + ":scented_candles");
 	}
 }

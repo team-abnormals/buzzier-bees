@@ -28,8 +28,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class BeeBottleItem extends  Item {	
-	
+public class BeeBottleItem extends Item {
+
 	public BeeBottleItem(EntityType<?> typeIn, Item.Properties properties) {
 		super(properties);
 	}
@@ -51,56 +51,60 @@ public class BeeBottleItem extends  Item {
 				blockpos1 = blockpos.offset(direction);
 			}
 
-            world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            CompoundNBT tag = itemstack.getOrCreateTag();
-            if (!context.getPlayer().abilities.isCreativeMode) {
-            	context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
-            }
-            Entity entity = EntityType.BEE.spawn((ServerWorld)world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
-            
-            if(entity instanceof BeeEntity) {
-            	BeeEntity bee = (BeeEntity)entity;
-            	
-                int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
-                UUID angryAt = tag.contains("AngryAt") ? tag.getUniqueId("AngryAt") : null;
-                int age = tag.contains("Age") ? tag.getInt("Age") : 0;
-                boolean nectar = tag.contains("HasNectar") && tag.getBoolean("HasNectar");
-                boolean stung = tag.contains("HasStung") && tag.getBoolean("HasStung");
-                float health = tag.contains("Health") ? tag.getFloat("Health") : 10.0F;
+			world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			CompoundNBT tag = itemstack.getOrCreateTag();
+			if (!context.getPlayer().abilities.isCreativeMode) {
+				context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
+			}
+			Entity entity = EntityType.BEE.spawn((ServerWorld) world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true, !Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
 
-                bee.setGrowingAge(age);
-                bee.setHasNectar(nectar);
-                bee.setHasStung(stung);
-                bee.setAngerTime(anger);
-                if (angryAt != null) bee.setAngerTarget(angryAt);
-                bee.setHealth(health);
-                bee.enablePersistence();
-            }
+			if (entity instanceof BeeEntity) {
+				BeeEntity bee = (BeeEntity) entity;
+
+				int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
+				UUID angryAt = tag.contains("AngryAt") ? tag.getUniqueId("AngryAt") : null;
+				int age = tag.contains("Age") ? tag.getInt("Age") : 0;
+				boolean nectar = tag.contains("HasNectar") && tag.getBoolean("HasNectar");
+				boolean stung = tag.contains("HasStung") && tag.getBoolean("HasStung");
+				float health = tag.contains("Health") ? tag.getFloat("Health") : 10.0F;
+
+				bee.setGrowingAge(age);
+				bee.setHasNectar(nectar);
+				bee.setHasStung(stung);
+				bee.setAngerTime(anger);
+				if (angryAt != null) bee.setAngerTarget(angryAt);
+				bee.setHealth(health);
+				bee.enablePersistence();
+			}
 			return ActionResultType.SUCCESS;
 		}
 	}
-	
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		CompoundNBT compoundnbt = stack.getTag();
 		if (compoundnbt != null) {
-			TextFormatting[] atextformatting = new TextFormatting[] {TextFormatting.GRAY};
+			TextFormatting[] atextformatting = new TextFormatting[]{TextFormatting.GRAY};
 			if (compoundnbt.contains("Age")) {
 				boolean baby = compoundnbt.getInt("Age") < 0;
-				if (baby) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_baby").mergeStyle(atextformatting)));
+				if (baby)
+					tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_baby").mergeStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("Anger")) {
 				boolean angry = compoundnbt.getInt("AngerTime") > 0;
-				if (angry) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_angry").mergeStyle(atextformatting)));
+				if (angry)
+					tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.is_angry").mergeStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("HasNectar")) {
 				boolean nectar = compoundnbt.getBoolean("HasNectar");
-				if (nectar) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_nectar").mergeStyle(atextformatting)));
+				if (nectar)
+					tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_nectar").mergeStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("HasStung")) {
 				boolean stung = compoundnbt.getBoolean("HasStung");
-				if (stung) tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_stung").mergeStyle(atextformatting)));
+				if (stung)
+					tooltip.add((new TranslationTextComponent("tooltip.buzzier_bees.has_stung").mergeStyle(atextformatting)));
 			}
 		}
 	}

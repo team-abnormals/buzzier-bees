@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin extends LivingEntity {
-	
+
 	protected MobEntityMixin(EntityType<? extends LivingEntity> type, World worldIn) {
 		super(type, worldIn);
 	}

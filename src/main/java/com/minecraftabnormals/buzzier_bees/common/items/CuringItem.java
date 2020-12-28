@@ -1,9 +1,9 @@
 package com.minecraftabnormals.buzzier_bees.common.items;
 
 import com.google.common.collect.ImmutableList;
+import com.minecraftabnormals.abnormals_core.common.advancement.EmptyTrigger;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCriteriaTriggers;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
-import com.minecraftabnormals.abnormals_core.common.advancement.EmptyTrigger;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -16,12 +16,12 @@ import net.minecraft.world.World;
 
 public class CuringItem extends Item {
 	private final ImmutableList<EffectInstance> counteredEffects;
-	
+
 	public CuringItem(Properties properties, EffectInstance... counteredEffectsIn) {
 		super(properties);
-		counteredEffects = ImmutableList.copyOf(counteredEffectsIn);		
+		counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
 	}
-	
+
 	public EmptyTrigger getTrigger() {
 		Item item = this.getItem();
 		if (item == BBItems.HONEY_APPLE.get()) {
@@ -40,8 +40,8 @@ public class CuringItem extends Item {
 			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entityLiving;
 			CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
 			serverplayerentity.addStat(Stats.ITEM_USED.get(this));
-			if(!worldIn.isRemote() && entityLiving.isPotionActive(counteredEffects.get(0).getPotion())) {
-				this.getTrigger().trigger(serverplayerentity); 
+			if (!worldIn.isRemote() && entityLiving.isPotionActive(counteredEffects.get(0).getPotion())) {
+				this.getTrigger().trigger(serverplayerentity);
 			}
 		}
 
@@ -50,7 +50,7 @@ public class CuringItem extends Item {
 				Effect effect = counteredEffects.get(i).getPotion();
 				entityLiving.removePotionEffect(effect);
 			}
-	    }
+		}
 
 		return stack;
 	}

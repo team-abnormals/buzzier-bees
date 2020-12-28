@@ -51,7 +51,7 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	public Block getFlower() {
 		return BBBlocks.BUTTERCUP.get();
 	}
-	
+
 	@Override
 	public void livingTick() {
 		super.livingTick();

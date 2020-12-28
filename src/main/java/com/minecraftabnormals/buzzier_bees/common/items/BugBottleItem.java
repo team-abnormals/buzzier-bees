@@ -23,7 +23,7 @@ import java.util.Objects;
 
 public class BugBottleItem extends Item {
 	private final EntityType<?> typeIn;
-	
+
 	public BugBottleItem(EntityType<?> typeIn, Item.Properties properties) {
 		super(properties);
 		this.typeIn = typeIn;
@@ -47,13 +47,13 @@ public class BugBottleItem extends Item {
 			}
 
 			EntityType<?> entitytype = this.getType(itemstack.getTag());
-            world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (!context.getPlayer().abilities.isCreativeMode) {
+			world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (!context.getPlayer().abilities.isCreativeMode) {
 				context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
 			}
-			Entity entity = entitytype.spawn((ServerWorld)world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true,!Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
+			Entity entity = entitytype.spawn((ServerWorld) world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true, !Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
 			if (entity instanceof MobEntity) {
-				((MobEntity)entity).enablePersistence();
+				((MobEntity) entity).enablePersistence();
 			}
 			return ActionResultType.SUCCESS;
 		}
@@ -66,7 +66,7 @@ public class BugBottleItem extends Item {
 				return EntityType.byKey(compoundnbt.getString("id")).orElse(this.typeIn);
 			}
 		}
-		
+
 		return this.typeIn;
 	}
 }

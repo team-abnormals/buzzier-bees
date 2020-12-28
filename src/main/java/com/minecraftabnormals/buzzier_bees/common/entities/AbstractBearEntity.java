@@ -121,6 +121,7 @@ public class AbstractBearEntity extends AnimalEntity implements IEndimatedEntity
 	public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
 		return BBEntities.GRIZZLY_BEAR.get().create(world);
 	}
+
 	@Override
 	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
 //		ItemStack itemstack = player.getHeldItem(hand);

@@ -20,10 +20,10 @@ public abstract class BeeEntityMixin extends AnimalEntity {
 
 	@Shadow
 	public abstract boolean failedPollinatingTooLong();
-	
+
 	@Shadow
 	public abstract boolean hasNectar();
-	
+
 	@Shadow
 	public abstract boolean isHiveNearFire();
 
@@ -31,6 +31,6 @@ public abstract class BeeEntityMixin extends AnimalEntity {
 	private void canEnterHive(CallbackInfoReturnable<Boolean> cir) {
 		boolean sunny = this.getActivePotionEffect(BBEffects.SUNNY.get()) != null;
 		boolean flag = this.failedPollinatingTooLong() || this.world.isRaining() || (this.world.isNightTime() && !sunny) || this.hasNectar();
-        cir.setReturnValue(flag && !this.isHiveNearFire());
+		cir.setReturnValue(flag && !this.isHiveNearFire());
 	}
 }

@@ -18,9 +18,9 @@ import net.minecraftforge.fml.common.Mod;
 public class BBItems {
 	public static final ItemSubRegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER.getItemSubHelper();
 
-	public static final RegistryObject<Item> HONEY_APPLE = HELPER.createItem("honey_apple", () -> new CuringItem(new Item.Properties().food(Foods.HONEY_APPLE).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.LEVITATION), new EffectInstance(Effects.POISON)}));
-	public static final RegistryObject<Item> HONEY_BREAD = HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(Foods.HONEY_BREAD).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.BAD_OMEN), new EffectInstance(Effects.POISON)}));
-	public static final RegistryObject<Item> GLAZED_PORKCHOP = HELPER.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(Foods.GLAZED_PORKCHOP).group(ItemGroup.FOOD), new EffectInstance[]{new EffectInstance(Effects.MINING_FATIGUE), new EffectInstance(Effects.POISON)}));
+	public static final RegistryObject<Item> HONEY_APPLE = HELPER.createItem("honey_apple", () -> new CuringItem(new Item.Properties().food(Foods.HONEY_APPLE).group(ItemGroup.FOOD), new EffectInstance(Effects.LEVITATION), new EffectInstance(Effects.POISON)));
+	public static final RegistryObject<Item> HONEY_BREAD = HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(Foods.HONEY_BREAD).group(ItemGroup.FOOD), new EffectInstance(Effects.BAD_OMEN), new EffectInstance(Effects.POISON)));
+	public static final RegistryObject<Item> GLAZED_PORKCHOP = HELPER.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(Foods.GLAZED_PORKCHOP).group(ItemGroup.FOOD), new EffectInstance(Effects.MINING_FATIGUE), new EffectInstance(Effects.POISON)));
 
 	public static final RegistryObject<Item> HONEY_WAND = HELPER.createItem("honey_wand", () -> new HoneyWandItem(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)));
 	public static final RegistryObject<Item> STICKY_HONEY_WAND = HELPER.createItem("sticky_honey_wand", () -> new StickyHoneyWandItem(new Item.Properties().containerItem(BBItems.HONEY_WAND.get()).food(Foods.STICKY_HONEY_WAND).maxStackSize(1).group(ItemGroup.TOOLS)));
@@ -43,9 +43,8 @@ public class BBItems {
 			return 1;
 		});
 	}
-	
+
 	public static class Foods {
-		public static final Food CRYSTALLIZED_HONEY = new Food.Builder().hunger(1).saturation(1.5F).fastToEat().setAlwaysEdible().effect(() -> new EffectInstance(Effects.SPEED, 160, 1), 0.8F).build();
 		public static final Food STICKY_HONEY_WAND = new Food.Builder().hunger(6).saturation(0.1F).setAlwaysEdible().build();
 		public static final Food HONEY_APPLE = new Food.Builder().hunger(5).saturation(0.4F).build();
 		public static final Food HONEY_BREAD = new Food.Builder().hunger(6).saturation(0.8F).build();

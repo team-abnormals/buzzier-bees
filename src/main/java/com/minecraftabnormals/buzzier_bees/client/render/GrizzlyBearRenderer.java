@@ -8,22 +8,23 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, BearModel<GrizzlyBearEntity>> {	
+public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, BearModel<GrizzlyBearEntity>> {
 	public GrizzlyBearRenderer(EntityRendererManager renderManager) {
 		super(renderManager, new BearModel<>(), 0.9F);
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(GrizzlyBearEntity bear) {
-		if (bear.isSleeping()) return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bear/grizzly_bear_sleeping.png");
+		if (bear.isSleeping())
+			return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bear/grizzly_bear_sleeping.png");
 		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/bear/grizzly_bear.png");
 	}
-	
+
 	@Override
 	protected void preRenderCallback(GrizzlyBearEntity bear, MatrixStack matrixStack, float partialTickTime) {
 		matrixStack.scale(1.3f, 1.3f, 1.3f);
-		if(bear.isChild()) {
-	        matrixStack.scale(0.65F, 0.65F, 0.65F);
-	    }	
+		if (bear.isChild()) {
+			matrixStack.scale(0.65F, 0.65F, 0.65F);
+		}
 	}
 }
