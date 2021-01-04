@@ -2,23 +2,23 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.ai.brain.task.GiveHeroGiftsTask;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPatternRegistry;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
-import net.minecraft.world.gen.feature.jigsaw.LegacySingleJigsawPiece;
-import net.minecraft.world.gen.feature.structure.*;
-import net.minecraft.world.gen.feature.template.ProcessorLists;
+import net.minecraft.world.gen.feature.structure.DesertVillagePools;
+import net.minecraft.world.gen.feature.structure.PlainsVillagePools;
+import net.minecraft.world.gen.feature.structure.SavannaVillagePools;
+import net.minecraft.world.gen.feature.structure.SnowyVillagePools;
+import net.minecraft.world.gen.feature.structure.TaigaVillagePools;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -26,9 +26,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBVillagers {
@@ -66,16 +63,6 @@ public class BBVillagers {
 		TaigaVillagePools.init();
 
 		for (String biome : new String[]{"plains", "snowy", "savanna", "desert", "taiga"})
-			addToPool(new ResourceLocation("village/" + biome + "/houses"), new ResourceLocation(BuzzierBees.MOD_ID, "village/apiarist_house_" + biome + "_1"), 1);
-	}
-
-	private static void addToPool(ResourceLocation pool, ResourceLocation toAdd, int weight) {
-		JigsawPattern old = WorldGenRegistries.JIGSAW_POOL.getOrDefault(pool);
-		List<JigsawPiece> shuffled = old.getShuffledPieces(new Random());
-		List<Pair<JigsawPiece, Integer>> newPieces = new ArrayList<>();
-		for (JigsawPiece p : shuffled) newPieces.add(new Pair<>(p, 1));
-		newPieces.add(Pair.of(new LegacySingleJigsawPiece(Either.left(toAdd), () -> ProcessorLists.field_244101_a, JigsawPattern.PlacementBehaviour.RIGID), weight));
-		ResourceLocation name = old.getName();
-		Registry.register(WorldGenRegistries.JIGSAW_POOL, pool, new JigsawPattern(pool, name, newPieces));
+			DataUtil.addToJigsawPattern(new ResourceLocation("village/" + biome + "/houses"), JigsawPiece.func_242849_a(BuzzierBees.MOD_ID + ":village/apiarist_house_" + biome + "_1").apply(JigsawPattern.PlacementBehaviour.RIGID), 1);
 	}
 }
