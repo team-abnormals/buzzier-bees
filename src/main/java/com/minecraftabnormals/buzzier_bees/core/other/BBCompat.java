@@ -64,7 +64,7 @@ public class BBCompat {
 				return null;
 			},
 			EntityType.ENDERMITE, (Entity entity) -> {
-				if (entity instanceof SilverfishEntity) {
+				if (entity instanceof EndermiteEntity) {
 					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_ENDERMITE.get());
 					if (entity.hasCustomName()) {
 						bottle.setDisplayName(entity.getCustomName());
@@ -124,7 +124,7 @@ public class BBCompat {
 		DataUtil.registerAlternativeDispenseBehavior(Items.GLASS_BOTTLE, (source, stack) -> !BlockUtil.getEntitiesAtOffsetPos(source, CreatureEntity.class, e -> ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(e.getType())).isEmpty(), new DefaultDispenseItemBehavior() {
 			@Override
 			protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-				Entity entity = BlockUtil.getEntitiesAtOffsetPos(source, CreatureEntity.class, e -> ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(e.getType())).get(0);
+				Entity entity = BlockUtil.getEntitiesAtOffsetPos(source, Entity.class, e -> ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(e.getType())).get(0);
 				ItemStack bottled = ENTITY_TYPE_TO_BOTTLE_MAP.get(entity.getType()).apply(entity);
 				stack.shrink(1);
 				if (stack.isEmpty()) {
