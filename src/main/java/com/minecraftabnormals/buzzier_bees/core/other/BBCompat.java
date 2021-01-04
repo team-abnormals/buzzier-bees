@@ -1,7 +1,10 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
+import com.google.common.collect.ImmutableMap;
 import com.minecraftabnormals.abnormals_core.core.registry.LootInjectionRegistry;
+import com.minecraftabnormals.abnormals_core.core.util.BlockUtil;
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
+import com.minecraftabnormals.buzzier_bees.common.blocks.CandleBlock;
 import com.minecraftabnormals.buzzier_bees.common.dispenser.BeeBottleDispenseBehavior;
 import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBehavior;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
@@ -10,10 +13,66 @@ import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.entity.CreatureEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.EndermiteEntity;
+import net.minecraft.entity.monster.SilverfishEntity;
+import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootTables;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.DispenserTileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+
+import java.util.function.Function;
 
 public class BBCompat {
+	public static final ImmutableMap<EntityType<?>, Function<Entity, ItemStack>> ENTITY_TYPE_TO_BOTTLE_MAP = ImmutableMap.of(
+			EntityType.BEE, (Entity entity) -> {
+				if (entity instanceof BeeEntity) {
+					BeeEntity bee = (BeeEntity) entity;
+					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_BEE.get());
+					CompoundNBT tag = bottle.getOrCreateTag();
+					tag.putBoolean("HasNectar", bee.hasNectar());
+					tag.putBoolean("HasStung", bee.hasStung());
+					tag.putInt("AngerTime", bee.getAngerTime());
+					if (bee.getAngerTarget() != null) tag.putUniqueId("AngryAt", bee.getAngerTarget());
+					tag.putInt("Age", bee.getGrowingAge());
+					tag.putFloat("Health", bee.getHealth());
+					if (bee.hasCustomName()) {
+						bottle.setDisplayName(bee.getCustomName());
+					}
+				return bottle;
+				}
+				return null;
+			},
+			EntityType.SILVERFISH, (Entity entity) -> {
+				if (entity instanceof SilverfishEntity) {
+					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_SILVERFISH.get());
+					if (entity.hasCustomName()) {
+						bottle.setDisplayName(entity.getCustomName());
+					}
+					return bottle;
+				}
+				return null;
+			},
+			EntityType.ENDERMITE, (Entity entity) -> {
+				if (entity instanceof SilverfishEntity) {
+					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_ENDERMITE.get());
+					if (entity.hasCustomName()) {
+						bottle.setDisplayName(entity.getCustomName());
+					}
+					return bottle;
+				}
+				return null;
+			});
 
 	public static class CompatMods {
 		public static final String ATMOSPHERIC = "atmospheric";
@@ -61,6 +120,33 @@ public class BBCompat {
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
+
+		DataUtil.registerAlternativeDispenseBehavior(Items.GLASS_BOTTLE, (source, stack) -> !BlockUtil.getEntitiesAtOffsetPos(source, CreatureEntity.class, e -> ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(e.getType())).isEmpty(), new DefaultDispenseItemBehavior() {
+			@Override
+			protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+				Entity entity = BlockUtil.getEntitiesAtOffsetPos(source, CreatureEntity.class, e -> ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(e.getType())).get(0);
+				ItemStack bottled = ENTITY_TYPE_TO_BOTTLE_MAP.get(entity.getType()).apply(entity);
+				stack.shrink(1);
+				if (stack.isEmpty()) {
+					stack = bottled.copy();
+				} else if (source.<DispenserTileEntity>getBlockTileEntity().addItemStack(bottled.copy()) < 0) {
+					new DefaultDispenseItemBehavior().dispense(source, bottled.copy());
+				}
+				source.getWorld().playSound(null, source.getBlockPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+				source.getWorld().removeEntity(entity);
+				return stack;
+			}
+		});
+		DataUtil.registerAlternativeDispenseBehavior(Items.FLINT_AND_STEEL, (source, stack) -> BlockUtil.getStateAtOffsetPos(source).getBlock() instanceof CandleBlock && !BlockUtil.getStateAtOffsetPos(source).get(BlockStateProperties.LIT), new DefaultDispenseItemBehavior() {
+			@Override
+			protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+				source.getWorld().setBlockState(BlockUtil.offsetPos(source), BlockUtil.getStateAtOffsetPos(source).with(BlockStateProperties.LIT, true));
+				if (stack.attemptDamageItem(1, source.getWorld().rand, null)) {
+					stack.setCount(0);
+				}
+				return stack;
+			}
+		});
 	}
 
 	public static void setupRenderLayer() {
