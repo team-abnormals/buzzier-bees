@@ -1,0 +1,197 @@
+{
+	"item.buzzier_bees.four_leaf_clover": "네잎 클로버",
+	
+	"item.buzzier_bees.honey_wand": "꿀뜨개",
+	"item.buzzier_bees.sticky_honey_wand": "끈적한 꿀뜨개",
+	
+	"item.buzzier_bees.honey_apple": "꿀 바른 사과",
+	"item.buzzier_bees.honey_bread": "꿀 바른 빵",
+	"item.buzzier_bees.glazed_porkchop": "꿀 바른 돼지고기",
+	
+	"item.buzzier_bees.silverfish_bottle": "좀벌레가 든 병",
+	"item.buzzier_bees.endermite_bottle": "엔더마이트가 든 병",
+	"item.buzzier_bees.bee_bottle": "꿀벌이 든 병",
+		
+	"item.buzzier_bees.honeycomb_banner_pattern": "현수막 무늬",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "벌집 조각",
+  
+	"item.buzzier_bees.grizzly_bear_spawn_egg": "회색곰 생성 알",
+	"item.buzzier_bees.black_bear_spawn_egg": "흑곰 생성 알",
+	"item.buzzier_bees.bumblebee_spawn_egg": "호박벌 생성 알",
+	"item.buzzier_bees.moobloom_spawn_egg": "무블룸 생성 알",
+	
+	"block.minecraft.beehive": "참나무 벌통",
+	"block.buzzier_bees.spruce_beehive": "가문비나무 벌통",
+	"block.buzzier_bees.birch_beehive": "자작나무 벌통",
+	"block.buzzier_bees.jungle_beehive": "정글 나무 벌통",
+	"block.buzzier_bees.acacia_beehive": "아카시아나무 벌통",
+	"block.buzzier_bees.dark_oak_beehive": "짙은 참나무 벌통",
+	"block.buzzier_bees.crimson_beehive": "진홍빛 벌통",
+	"block.buzzier_bees.warped_beehive": "뒤틀린 벌통",
+
+	"block.buzzier_bees.crystallized_honey_block": "결정화된 꿀 블록",
+	
+	"block.buzzier_bees.honey_lamp" : "꿀 램프",
+	"block.buzzier_bees.honey_pot": "꿀단지",
+	
+	"block.buzzier_bees.honeycomb_bricks": "벌집 조각 벽돌",
+	"block.buzzier_bees.honeycomb_brick_stairs": "벌집 조각 벽돌 계단",
+	"block.buzzier_bees.honeycomb_brick_slab": "벌집 조각 벽돌 반 블록",
+	"block.buzzier_bees.honeycomb_brick_wall": "벌집 조각 벽돌 담장",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "벌집 조각 벽돌 세로 반 블록",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "조각된 벌집 조각 벽돌",
+	
+	"block.buzzier_bees.honeycomb_tiles": "벌집 조각 타일",
+	"block.buzzier_bees.honeycomb_tile_stairs": "벌집 조각 타일 계단",
+	"block.buzzier_bees.honeycomb_tile_slab": "벌집 조각 타일 반 블록",
+	"block.buzzier_bees.honeycomb_tile_wall": "벌집 조각 타일 담장",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "벌집 조각 타일 세로 반 블록",
+	
+	"block.buzzier_bees.honeycomb_door": "벌집 조각 문",
+	"block.buzzier_bees.honeycomb_trapdoor": "벌집 조각 다락문",
+	
+	"block.buzzier_bees.pink_clover": "분홍색 클로버",
+	"block.buzzier_bees.white_clover": "하얀색 클로버",
+	"block.buzzier_bees.buttercup": "미나리아재비",
+	
+	"block.buzzier_bees.potted_pink_clover": "화분에 심은 분홍색 클로버",
+	"block.buzzier_bees.potted_white_clover": "화분에 심은 하얀색 클로버",
+	"block.buzzier_bees.potted_buttercup": "화분에 심은 미나리아재비",
+	
+	"block.buzzier_bees.candle": "양초",
+	"block.buzzier_bees.soul_candle": "영혼 양초",
+	"block.buzzier_bees.ender_candle": "엔더 양초",
+	
+	"block.buzzier_bees.white_candle": "하얀색 양초",
+	"block.buzzier_bees.orange_candle": "주황색 양초",
+	"block.buzzier_bees.magenta_candle": "자홍색 양초",
+	"block.buzzier_bees.light_blue_candle": "하늘색 양초",
+	"block.buzzier_bees.yellow_candle": "노란색 양초",
+	"block.buzzier_bees.lime_candle": "연두색 양초",
+	"block.buzzier_bees.pink_candle": "분홍색 양초",
+	"block.buzzier_bees.gray_candle": "회색 양초",
+	"block.buzzier_bees.light_gray_candle": "회백색 양초",
+	"block.buzzier_bees.cyan_candle": "청록색 양초",
+	"block.buzzier_bees.purple_candle": "보라색 양초",
+	"block.buzzier_bees.blue_candle": "파란색 양초",
+	"block.buzzier_bees.brown_candle": "갈색 양초",
+	"block.buzzier_bees.green_candle": "초록색 양초",
+	"block.buzzier_bees.red_candle": "빨간색 양초",
+	"block.buzzier_bees.black_candle": "검은색 양초",
+	
+	"block.buzzier_bees.allium_scented_candle": "파꽃 향이 나는 양초",
+	"block.buzzier_bees.azure_bluet_scented_candle": "선애기별꽃 향이 나는 양초",
+	"block.buzzier_bees.blue_orchid_scented_candle": "파란색 난초 향이 나는 양초",
+	"block.buzzier_bees.dandelion_scented_candle": "민들레 향이 나는 양초",
+	"block.buzzier_bees.cornflower_scented_candle": "수레국화 향이 나는 양초",
+	"block.buzzier_bees.lily_of_the_valley_scented_candle": "은방울꽃 향이 나는 양초",
+	"block.buzzier_bees.oxeye_daisy_scented_candle": "데이지 향이 나는 양초",
+	"block.buzzier_bees.poppy_scented_candle": "양귀비 향이 나는 양초",
+	"block.buzzier_bees.white_tulip_scented_candle": "하얀색 튤립 향이 나는 양초",
+	"block.buzzier_bees.orange_tulip_scented_candle": "주황색 튤립 향이 나는 양초",
+	"block.buzzier_bees.pink_tulip_scented_candle": "분홍색 튤립 향이 나는 양초",
+	"block.buzzier_bees.red_tulip_scented_candle": "빨간색 튤립 향이 나는 양초",
+	"block.buzzier_bees.wither_rose_scented_candle": "위더 장미 향이 나는 양초",
+	
+	"block.buzzier_bees.pink_clover_scented_candle": "분홍색 클로버 향이 나는 양초",
+	"block.buzzier_bees.white_clover_scented_candle": "하얀색 클로버 향이 나는 양초",
+	"block.buzzier_bees.buttercup_scented_candle": "미나리아재비 향이 나는 양초",
+	
+	"block.buzzier_bees.cartwheel_scented_candle": "큰멧돼지풀 향이 나는 양초",
+	"block.buzzier_bees.bluebell_scented_candle": "블루벨 향이 나는 양초",
+	"block.buzzier_bees.violet_scented_candle": "제비꽃 향이 나는 양초",
+	"block.buzzier_bees.red_lotus_flower_scented_candle": "빨간색 연꽃 향이 나는 양초",
+	"block.buzzier_bees.white_lotus_flower_scented_candle": "하얀색 연꽃 향이 나는 양초",
+	"block.buzzier_bees.dianthus_scented_candle": "패랭이꽃 향이 나는 양초",
+	"block.buzzier_bees.yellow_hibiscus_scented_candle": "노란색 무궁화 향이 나는 양초",
+	"block.buzzier_bees.orange_hibiscus_scented_candle": "주황색 무궁화 향이 나는 양초",
+	"block.buzzier_bees.red_hibiscus_scented_candle": "빨간색 무궁화 향이 나는 양초",
+	"block.buzzier_bees.pink_hibiscus_scented_candle": "분홍색 무궁화 향이 나는 양초",
+	"block.buzzier_bees.magenta_hibiscus_scented_candle": "자홍색 무궁화 향이 나는 양초",
+	"block.buzzier_bees.purple_hibiscus_scented_candle": "보라색 무궁화 향이 나는 양초",
+	
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "따뜻한 몽키브러시 향이 나는 양초",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "뜨거운 몽키브러시 향이 나는 양초",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "불타는 몽키브러시 향이 나는 양초",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "부레옥잠 향이 나는 양초",
+	"block.buzzier_bees.gilia_scented_candle": "꽃고비 향이 나는 양초",
+	"block.buzzier_bees.yucca_flower_scented_candle": "유카꽃 향이 나는 양초",
+	
+	"block.buzzier_bees.pink_searocket_scented_candle": "분홍색 서양갯냉이 향이 나는 양초",
+	"block.buzzier_bees.white_searocket_scented_candle": "하얀색 서양갯냉이 향이 나는 양초",
+	
+	"block.buzzier_bees.autumn_crocus_scented_candle": "가을 크로커스 향이 나는 양초",
+	
+	"entity.buzzier_bees.grizzly_bear": "회색곰",
+	"entity.buzzier_bees.black_bear": "흑곰",
+	"entity.buzzier_bees.bumblebee": "호박벌",
+	"entity.buzzier_bees.moobloom": "무블룸",
+	
+	"entity.minecraft.villager.buzzier_bees.apiarist": "양봉가",
+	
+	"effect.buzzier_bees.sunny": "화창함",
+	
+	"item.minecraft.potion.effect.long_luck": "행운의 물약",
+	"item.minecraft.potion.effect.strong_luck": "행운의 물약",
+	"item.minecraft.potion.effect.unluck": "불운의 물약",
+	"item.minecraft.potion.effect.long_unluck": "불운의 물약",
+	"item.minecraft.potion.effect.strong_unluck": "불운의 물약",	
+
+	"item.minecraft.splash_potion.effect.long_luck": "투척용 행운의 물약",
+	"item.minecraft.splash_potion.effect.strong_luck": "투척용 행운의 물약",
+	"item.minecraft.splash_potion.effect.unluck": "투척용 불운의 물약",
+	"item.minecraft.splash_potion.effect.long_unluck": "투척용 불운의 물약",
+	"item.minecraft.splash_potion.effect.strong_unluck": "투척용 불운의 물약",
+	
+	"item.minecraft.lingering_potion.effect.long_luck": "잔류형 행운의 물약",
+	"item.minecraft.lingering_potion.effect.strong_luck": "잔류형 행운의 물약",
+	"item.minecraft.lingering_potion.effect.unluck": "잔류형 불운의 물약",
+	"item.minecraft.lingering_potion.effect.long_unluck": "잔류형 불운의 물약",
+	"item.minecraft.lingering_potion.effect.strong_unluck": "잔류형 불운의 물약",
+	
+	"item.minecraft.tipped_arrow.effect.long_luck": "행운의 화살",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "행운의 화살",
+	"item.minecraft.tipped_arrow.effect.unluck": "불운의 화살",
+	"item.minecraft.tipped_arrow.effect.long_unluck": "불운의 화살",
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "불운의 화살",
+	
+	"advancements.husbandry.four_leaf_clover.title": "잘 풀리는 날",
+	"advancements.husbandry.four_leaf_clover.description": "네잎 클로버를 찾으세요",
+	
+	"advancements.end.scented_candle.title": "아로마테라피",
+	"advancements.end.scented_candle.description": "향이 나는 양초를 얻으세요",
+	
+	"advancements.end.all_scented_candles.title": "그윽한 향기",
+	"advancements.end.all_scented_candles.description": "모든 종류의 향이 나는 양초를 얻으세요",
+	
+	"advancements.husbandry.honey_apple.title": "하루에 사과 한 알이면",
+	"advancements.husbandry.honey_apple.description": "꿀 바른 사과를 먹어 공중 부양에서 벗어나세요",
+	
+	"advancements.husbandry.honey_bread.title": "길조",
+	"advancements.husbandry.honey_bread.description": "꿀 바른 빵을 먹어 흉조를 지우세요",
+	
+	"advancements.husbandry.glazed_porkchop.title": "기분이 영 꿀꿀한걸",
+	"advancements.husbandry.glazed_porkchop.description": "꿀 바른 돼지고기를 먹어 채굴 피로를 푸세요",
+	
+	"tooltip.buzzier_bees.is_baby": "새끼",
+	"tooltip.buzzier_bees.has_nectar": "꽃가루를 묻힘",
+	"tooltip.buzzier_bees.is_angry": "화남",
+	"tooltip.buzzier_bees.has_stung": "침이 빠짐",
+	
+	"block.minecraft.banner.mca_honeycomb.black": "검은색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.red": "빨간색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.green": "초록색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.brown": "갈색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.blue": "파란색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.purple": "보라색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.cyan": "청록색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.silver": "회백색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.gray": "회색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.pink": "분홍색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.lime": "연두색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.yellow": "노란색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.lightBlue": "하늘색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.magenta": "자홍색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.orange": "주황색 벌집 조각",
+  "block.minecraft.banner.mca_honeycomb.white": "하얀색 벌집 조각"
+}
