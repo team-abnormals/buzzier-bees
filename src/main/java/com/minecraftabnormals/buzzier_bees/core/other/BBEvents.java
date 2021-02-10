@@ -99,7 +99,6 @@ public class BBEvents {
 
 			if (BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(targetType)) {
 				ItemStack bottle = BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.get(targetType).apply(target);
-
 				if (bottle != null && target.isAlive()) {
 					if (item == Items.GLASS_BOTTLE) {
 						itemstack.shrink(1);
