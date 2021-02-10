@@ -97,24 +97,21 @@ public class BBEvents {
 			PlayerEntity player = event.getPlayer();
 			Hand hand = event.getHand();
 
-			if (BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(targetType)) {
+			if (item == Items.GLASS_BOTTLE && target.isAlive() && BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(targetType)) {
 				ItemStack bottle = BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.get(targetType).apply(target);
-				if (bottle != null && target.isAlive()) {
-					if (item == Items.GLASS_BOTTLE) {
-						itemstack.shrink(1);
-						event.getWorld().playSound(null, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-						player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
-						event.getTarget().remove();
-						if (itemstack.isEmpty()) {
-							player.setHeldItem(hand, bottle);
-						} else if (!player.inventory.addItemStackToInventory(bottle)) {
-							player.dropItem(bottle, false);
-						}
-						player.swingArm(hand);
+				if (bottle != null) {
+					itemstack.shrink(1);
+					event.getWorld().playSound(null, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+					player.addStat(Stats.ITEM_USED.get(item));
+					event.getTarget().remove();
+					if (itemstack.isEmpty()) {
+						player.setHeldItem(hand, bottle);
+					} else if (!player.inventory.addItemStackToInventory(bottle)) {
+						player.dropItem(bottle, false);
 					}
+					player.swingArm(hand);
 				}
 			}
 		}
 	}
-
 }

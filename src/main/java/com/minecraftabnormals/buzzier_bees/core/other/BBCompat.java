@@ -1,6 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 import com.minecraftabnormals.abnormals_core.core.registry.LootInjectionRegistry;
 import com.minecraftabnormals.abnormals_core.core.util.BlockUtil;
 import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
@@ -10,6 +11,7 @@ import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBeh
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -30,49 +32,13 @@ import net.minecraft.tileentity.DispenserTileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.world.World;
 
+import java.util.Hashtable;
 import java.util.function.Function;
 
 public class BBCompat {
-	public static final ImmutableMap<EntityType<?>, Function<Entity, ItemStack>> ENTITY_TYPE_TO_BOTTLE_MAP = ImmutableMap.of(
-			EntityType.BEE, (Entity entity) -> {
-				if (entity instanceof BeeEntity) {
-					BeeEntity bee = (BeeEntity) entity;
-					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_BEE.get());
-					CompoundNBT tag = bottle.getOrCreateTag();
-					tag.putBoolean("HasNectar", bee.hasNectar());
-					tag.putBoolean("HasStung", bee.hasStung());
-					tag.putInt("AngerTime", bee.getAngerTime());
-					if (bee.getAngerTarget() != null) tag.putUniqueId("AngryAt", bee.getAngerTarget());
-					tag.putInt("Age", bee.getGrowingAge());
-					tag.putFloat("Health", bee.getHealth());
-					if (bee.hasCustomName()) {
-						bottle.setDisplayName(bee.getCustomName());
-					}
-				return bottle;
-				}
-				return null;
-			},
-			EntityType.SILVERFISH, (Entity entity) -> {
-				if (entity instanceof SilverfishEntity) {
-					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_SILVERFISH.get());
-					if (entity.hasCustomName()) {
-						bottle.setDisplayName(entity.getCustomName());
-					}
-					return bottle;
-				}
-				return null;
-			},
-			EntityType.ENDERMITE, (Entity entity) -> {
-				if (entity instanceof EndermiteEntity) {
-					ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_ENDERMITE.get());
-					if (entity.hasCustomName()) {
-						bottle.setDisplayName(entity.getCustomName());
-					}
-					return bottle;
-				}
-				return null;
-			});
+	public static final Hashtable<EntityType<?>, Function<Entity, ItemStack>> ENTITY_TYPE_TO_BOTTLE_MAP = new Hashtable<>();
 
 	public static class CompatMods {
 		public static final String ATMOSPHERIC = "atmospheric";
@@ -93,6 +59,7 @@ public class BBCompat {
 		registerLootInjectors();
 		registerCompostables();
 		registerFlammables();
+		registerBottleEntityTypes();
 		registerDispenserBehaviors();
 	}
 
@@ -116,6 +83,42 @@ public class BBCompat {
 		DataUtil.registerFlammable(BBBlocks.ACACIA_BEEHIVE.get(), 5, 20);
 	}
 
+	public static void registerBottleEntityTypes() {
+		ENTITY_TYPE_TO_BOTTLE_MAP.put(EntityType.BEE, (Entity entity) -> {
+			if (entity instanceof BeeEntity) {
+				BeeEntity bee = (BeeEntity) entity;
+				ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_BEE.get());
+				CompoundNBT tag = bottle.getOrCreateTag();
+				tag.putBoolean("HasNectar", bee.hasNectar());
+				tag.putBoolean("HasStung", bee.hasStung());
+				tag.putInt("AngerTime", bee.getAngerTime());
+				if (bee.getAngerTarget() != null) tag.putUniqueId("AngryAt", bee.getAngerTarget());
+				tag.putInt("Age", bee.getGrowingAge());
+				tag.putFloat("Health", bee.getHealth());
+				if (bee.hasCustomName()) {
+					bottle.setDisplayName(bee.getCustomName());
+				}
+				return bottle;
+			}
+			return null;
+		});
+		ENTITY_TYPE_TO_BOTTLE_MAP.put(EntityType.SILVERFISH, (Entity entity) -> {
+			ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_SILVERFISH.get());
+			if (entity.hasCustomName()) {
+				bottle.setDisplayName(entity.getCustomName());
+			}
+			return bottle;
+		});
+		ENTITY_TYPE_TO_BOTTLE_MAP.put(EntityType.ENDERMITE, (Entity entity) -> {
+			ItemStack bottle = new ItemStack(BBItems.BOTTLE_OF_ENDERMITE.get());
+			if (entity.hasCustomName()) {
+				bottle.setDisplayName(entity.getCustomName());
+			}
+			return bottle;
+		});
+
+	}
+
 	public static void registerDispenserBehaviors() {
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
 		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
@@ -137,11 +140,15 @@ public class BBCompat {
 				return stack;
 			}
 		});
-		DataUtil.registerAlternativeDispenseBehavior(Items.FLINT_AND_STEEL, (source, stack) -> BlockUtil.getStateAtOffsetPos(source).getBlock() instanceof CandleBlock && !BlockUtil.getStateAtOffsetPos(source).get(BlockStateProperties.LIT), new DefaultDispenseItemBehavior() {
+		DataUtil.registerAlternativeDispenseBehavior(Items.FLINT_AND_STEEL, (source, stack) -> {
+			BlockState state = BlockUtil.getStateAtOffsetPos(source);
+			return state.getBlock() instanceof CandleBlock && !state.get(BlockStateProperties.LIT);
+		}, new DefaultDispenseItemBehavior() {
 			@Override
 			protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-				source.getWorld().setBlockState(BlockUtil.offsetPos(source), BlockUtil.getStateAtOffsetPos(source).with(BlockStateProperties.LIT, true));
-				if (stack.attemptDamageItem(1, source.getWorld().rand, null)) {
+				World world = source.getWorld();
+				world.setBlockState(BlockUtil.offsetPos(source), BlockUtil.getStateAtOffsetPos(source).with(BlockStateProperties.LIT, true));
+				if (stack.attemptDamageItem(1, world.rand, null)) {
 					stack.setCount(0);
 				}
 				return stack;
