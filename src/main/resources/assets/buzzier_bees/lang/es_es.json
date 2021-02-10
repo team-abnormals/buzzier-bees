@@ -5,7 +5,7 @@
 	"item.buzzier_bees.sticky_honey_wand": "Palito mielero pegajoso",
 
 	"item.buzzier_bees.honey_apple": "Manzana melosa",
-	"item.buzzier_bees.honey_bread": "Pan meloso",
+	"item.buzzier_bees.honey_bread": "Pan de miel",
 	"item.buzzier_bees.glazed_porkchop": "Chuleta de cerdo caramelizada",
 	
 	"item.buzzier_bees.silverfish_bottle": "Frasco con lepisma",
@@ -18,7 +18,7 @@
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Generar oso pardo",
 	"item.buzzier_bees.black_bear_spawn_egg": "Generar oso negro",
 	"item.buzzier_bees.bumblebee_spawn_egg": "Generar abejorro",
-	"item.buzzier_bees.moobloom_spawn_egg": "Generar florvaca",
+	"item.buzzier_bees.moobloom_spawn_egg": "Generar floravaca",
 	
 	"block.minecraft.beehive": "Apiario de roble",
 	"block.buzzier_bees.spruce_beehive": "Apiario de abeto",
@@ -125,7 +125,7 @@
 	"entity.buzzier_bees.grizzly_bear": "Oso pardo",
 	"entity.buzzier_bees.black_bear": "Oso negro",
 	"entity.buzzier_bees.bumblebee": "Abejorro",
-	"entity.buzzier_bees.moobloom": "Florvaca",
+	"entity.buzzier_bees.moobloom": "Floravaca",
 
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apicultor",
 
