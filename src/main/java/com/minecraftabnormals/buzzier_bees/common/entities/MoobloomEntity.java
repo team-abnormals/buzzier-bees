@@ -48,6 +48,11 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 		return this.isAlive() && !this.isChild();
 	}
 
+	@Override
+	public boolean isShearable(@Nonnull ItemStack item, World world, BlockPos pos) {
+		return this.isAlive() && !this.isChild();
+	}
+
 	public Block getFlower() {
 		return BBBlocks.BUTTERCUP.get();
 	}
@@ -65,7 +70,7 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 
 	@Override
 	public void shear(SoundCategory category) {
-		this.world.playMovingSound((PlayerEntity) null, this, SoundEvents.ENTITY_MOOSHROOM_SHEAR, category, 1.0F, 1.0F);
+		this.world.playMovingSound(null, this, SoundEvents.ENTITY_MOOSHROOM_SHEAR, category, 1.0F, 1.0F);
 		if (!this.world.isRemote()) {
 			((ServerWorld) this.world).spawnParticle(ParticleTypes.EXPLOSION, this.getPosX(), this.getPosYHeight(0.5D), this.getPosZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 			this.remove();
