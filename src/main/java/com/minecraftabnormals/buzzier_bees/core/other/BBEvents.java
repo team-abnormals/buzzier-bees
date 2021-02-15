@@ -3,6 +3,7 @@ package com.minecraftabnormals.buzzier_bees.core.other;
 import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
+import com.minecraftabnormals.buzzier_bees.core.other.BBTags.EntityTypes;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.block.Block;
@@ -42,10 +43,9 @@ public class BBEvents {
 	@SubscribeEvent
 	public static void onLivingSpawned(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
-
 		if (entity instanceof MobEntity) {
 			MobEntity mob = (MobEntity) entity;
-			if (!mob.isImmuneToFire() && mob.isEntityUndead())
+			if (mob.getType().isContained(EntityTypes.MOOBLOOM_HOSTILES))
 				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, MoobloomEntity.class, false));
 		}
 	}
