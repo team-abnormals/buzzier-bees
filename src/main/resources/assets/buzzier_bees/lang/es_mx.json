@@ -41,11 +41,11 @@
 	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Losa vertical de ladrillos de panal",
 	"block.buzzier_bees.chiseled_honeycomb_bricks": "Ladrillos de panal grabados",
 
-	"block.buzzier_bees.honeycomb_tiles": "Azulejos de panal",
-	"block.buzzier_bees.honeycomb_tile_stairs": "Escaleras de azulejos de panal",
-	"block.buzzier_bees.honeycomb_tile_slab": "Losa de azulejos de panal",
-	"block.buzzier_bees.honeycomb_tile_wall": "Pared de azulejos de panal",
-	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Losa vertical de azulejos de panal",
+	"block.buzzier_bees.honeycomb_tiles": "Azulejo de panal",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Escaleras de azulejo de panal",
+	"block.buzzier_bees.honeycomb_tile_slab": "Losa de azulejo de panal",
+	"block.buzzier_bees.honeycomb_tile_wall": "Pared de azulejo de panal",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Losa vertical de azulejo de panal",
 
 	"block.buzzier_bees.honeycomb_door": "Puerta de panal",
 	"block.buzzier_bees.honeycomb_trapdoor": "Trampilla de panal",
@@ -61,6 +61,7 @@
 	"block.buzzier_bees.candle": "Vela",
 	"block.buzzier_bees.soul_candle": "Vela de almas",
 	"block.buzzier_bees.ender_candle": "Vela de ender",
+	"block.buzzier_bees.cursed_candle": "Vela maldita",
 
 	"block.buzzier_bees.white_candle": "Vela blanca",
 	"block.buzzier_bees.orange_candle": "Vela naranja",
@@ -168,7 +169,7 @@
 	"advancements.husbandry.honey_apple.description": "Usa una manzana melosa para curar la levitación",
 	
 	"advancements.husbandry.honey_bread.title": "Buenos presagios",
-	"advancements.husbandry.honey_bread.description": "Usa pan meloso para curar el mal presagio",
+	"advancements.husbandry.honey_bread.description": "Usa un pan de miel para curar el mal presagio",
 	
 	"advancements.husbandry.glazed_porkchop.title": "Rodillas débiles, brazos melosos",
 	"advancements.husbandry.glazed_porkchop.description": "Usa una chuleta caramelizada para curar la fatiga minera",
