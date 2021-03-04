@@ -7,8 +7,7 @@ import com.minecraftabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
 import com.minecraftabnormals.abnormals_core.core.util.registry.BlockSubRegistryHelper;
 import com.minecraftabnormals.buzzier_bees.common.blocks.*;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatEffects;
-import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatMods;
+import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -56,7 +55,7 @@ public class BBBlocks {
 	public static final RegistryObject<Block> HONEYCOMB_TILE_WALL = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(Properties.HONEYCOMB_BRICKS), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(Properties.HONEYCOMB_BRICKS), ItemGroup.BUILDING_BLOCKS);
 
-	public static final RegistryObject<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBEffects.SUNNY::get, 12 * 20, Properties.FLOWER), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBEffects.SUNNY, 12 * 20, Properties.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CLOVER = HELPER.createBlock("white_clover", () -> new AbnormalsFlowerBlock(() -> Effects.UNLUCK, 30, Properties.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER = HELPER.createBlock("pink_clover", () -> new AbnormalsFlowerBlock(() -> Effects.UNLUCK, 60, Properties.FLOWER), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER = HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), Properties.FLOWER_POT));
@@ -64,8 +63,9 @@ public class BBBlocks {
 	public static final RegistryObject<Block> POTTED_BUTTERCUP = HELPER.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), Properties.FLOWER_POT));
 
 	public static final RegistryObject<Block> CANDLE = HELPER.createBlock("candle", () -> new CandleBlock(null, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SOUL_CANDLE = HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(null, Properties.SOUL_CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ENDER_CANDLE = HELPER.createCompatBlock("endergetic", "ender_candle", () -> new EnderCandleBlock(null, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SOUL_CANDLE = HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(Properties.SOUL_CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ENDER_CANDLE = HELPER.createCompatBlock("endergetic", "ender_candle", () -> new CompatCandleBlock(0.3F, BBCompat.ENDER_FLAME, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CURSED_CANDLE = HELPER.createCompatBlock("caverns_and_chasms", "cursed_candle", () -> new CompatCandleBlock(0.4F, BBCompat.CURSED_FLAME, Properties.CANDLE), ItemGroup.DECORATIONS);
 
 	public static final RegistryObject<Block> WHITE_CANDLE = HELPER.createBlock("white_candle", () -> new CandleBlock(DyeColor.WHITE, Properties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> ORANGE_CANDLE = HELPER.createBlock("orange_candle", () -> new CandleBlock(DyeColor.ORANGE, Properties.CANDLE), ItemGroup.DECORATIONS);
@@ -100,32 +100,32 @@ public class BBBlocks {
 
 	public static final RegistryObject<Block> WHITE_CLOVER_SCENTED_CANDLE = HELPER.createBlock("white_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, DyeColor.WHITE, Properties.CANDLE), ItemGroup.DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER_SCENTED_CANDLE = HELPER.createBlock("pink_clover_scented_candle", () -> new ScentedCandleBlock(() -> Effects.UNLUCK, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BUTTERCUP_SCENTED_CANDLE = HELPER.createBlock("buttercup_scented_candle", () -> new ScentedCandleBlock(() -> BBEffects.SUNNY.get(), DyeColor.YELLOW, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP_SCENTED_CANDLE = HELPER.createBlock("buttercup_scented_candle", () -> new ScentedCandleBlock(BBEffects.SUNNY, DyeColor.YELLOW, Properties.CANDLE), ItemGroup.DECORATIONS);
 
-	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.LEVITATION, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.HUNGER, DyeColor.BLUE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY, DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "dianthus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH, DyeColor.GREEN, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_LOTUS_FLOWER_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "red_lotus_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, DyeColor.RED, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WHITE_LOTUS_FLOWER_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "white_lotus_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, DyeColor.WHITE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "yellow_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.YELLOW, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.ORANGE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.RED, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PINK_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "pink_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> MAGENTA_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "magenta_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.MAGENTA, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> PURPLE_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ENVIRONMENTAL, "purple_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> CARTWHEEL_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "cartwheel_scented_candle", () -> new ScentedCandleBlock(() -> Effects.LEVITATION, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> BLUEBELL_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "bluebell_scented_candle", () -> new ScentedCandleBlock(() -> Effects.HUNGER, DyeColor.BLUE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> VIOLET_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "violet_scented_candle", () -> new ScentedCandleBlock(() -> Effects.INVISIBILITY, DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> DIANTHUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "dianthus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.STRENGTH, DyeColor.GREEN, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_LOTUS_FLOWER_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "red_lotus_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, DyeColor.RED, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_LOTUS_FLOWER_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "white_lotus_flower_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SLOW_FALLING, DyeColor.WHITE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YELLOW_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "yellow_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.YELLOW, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> ORANGE_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "orange_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.ORANGE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> RED_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "red_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.RED, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "pink_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> MAGENTA_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "magenta_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.MAGENTA, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PURPLE_HIBISCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ENVIRONMENTAL, "purple_hibiscus_scented_candle", () -> new ScentedCandleBlock(() -> Effects.GLOWING, DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
 
-	public static final RegistryObject<Block> WARM_MONKEY_BRUSH_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "warm_monkey_brush_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.ATMOSPHERIC, CompatEffects.RELIEF), DyeColor.YELLOW, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> HOT_MONKEY_BRUSH_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "hot_monkey_brush_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.ATMOSPHERIC, CompatEffects.RELIEF), DyeColor.ORANGE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> SCALDING_MONKEY_BRUSH_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "scalding_monkey_brush_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.ATMOSPHERIC, CompatEffects.RELIEF), DyeColor.RED, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WATER_HYACINTH_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "water_hyacinth_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.ATMOSPHERIC, CompatEffects.WORSENING), DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> GILIA_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "gilia_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> YUCCA_FLOWER_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.ATMOSPHERIC, "yucca_flower_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.ATMOSPHERIC, CompatEffects.PERSISTENCE), DyeColor.LIGHT_GRAY, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WARM_MONKEY_BRUSH_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ATMOSPHERIC, "warm_monkey_brush_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(BBCompat.ATMOSPHERIC, BBCompat.RELIEF), DyeColor.YELLOW, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> HOT_MONKEY_BRUSH_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ATMOSPHERIC, "hot_monkey_brush_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(BBCompat.ATMOSPHERIC, BBCompat.RELIEF), DyeColor.ORANGE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> SCALDING_MONKEY_BRUSH_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ATMOSPHERIC, "scalding_monkey_brush_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(BBCompat.ATMOSPHERIC, BBCompat.RELIEF), DyeColor.RED, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WATER_HYACINTH_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ATMOSPHERIC, "water_hyacinth_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(BBCompat.ATMOSPHERIC, BBCompat.WORSENING), DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> GILIA_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ATMOSPHERIC, "gilia_scented_candle", () -> new ScentedCandleBlock(() -> Effects.SPEED, DyeColor.PURPLE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> YUCCA_FLOWER_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.ATMOSPHERIC, "yucca_flower_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(BBCompat.ATMOSPHERIC, BBCompat.PERSISTENCE), DyeColor.LIGHT_GRAY, Properties.CANDLE), ItemGroup.DECORATIONS);
 
-	public static final RegistryObject<Block> PINK_SEAROCKET_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.UPGRADE_AQUATIC, "pink_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
-	public static final RegistryObject<Block> WHITE_SEAROCKET_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.UPGRADE_AQUATIC, "white_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, DyeColor.WHITE, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> PINK_SEAROCKET_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.UPGRADE_AQUATIC, "pink_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, DyeColor.PINK, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> WHITE_SEAROCKET_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.UPGRADE_AQUATIC, "white_searocket_scented_candle", () -> new ScentedCandleBlock(() -> Effects.WATER_BREATHING, DyeColor.WHITE, Properties.CANDLE), ItemGroup.DECORATIONS);
 
-	public static final RegistryObject<Block> AUTUMN_CROCUS_SCENTED_CANDLE = HELPER.createCompatBlock(CompatMods.AUTUMNITY, "autumn_crocus_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(CompatMods.AUTUMNITY, CompatEffects.FOUL_TASTE), DyeColor.MAGENTA, Properties.CANDLE), ItemGroup.DECORATIONS);
+	public static final RegistryObject<Block> AUTUMN_CROCUS_SCENTED_CANDLE = HELPER.createCompatBlock(BBCompat.AUTUMNITY, "autumn_crocus_scented_candle", () -> new ScentedCandleBlock(getCompatEffect(BBCompat.AUTUMNITY, BBCompat.FOUL_TASTE), DyeColor.MAGENTA, Properties.CANDLE), ItemGroup.DECORATIONS);
 
 	private static Supplier<Effect> getCompatEffect(String modid, ResourceLocation effect) {
 		return (ModList.get().isLoaded(modid) ? () -> ForgeRegistries.POTIONS.getValue(effect) : () -> null);
@@ -145,5 +145,4 @@ public class BBBlocks {
 			return (state) -> state.get(CandleBlock.LIT) ? (base + state.get(CandleBlock.CANDLES)) : 0;
 		}
 	}
-
 }

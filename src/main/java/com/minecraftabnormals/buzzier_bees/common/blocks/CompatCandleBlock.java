@@ -1,8 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
-import com.minecraftabnormals.buzzier_bees.core.other.BBCompat.CompatMods;
 import net.minecraft.block.BlockState;
-import net.minecraft.item.DyeColor;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleType;
 import net.minecraft.util.ResourceLocation;
@@ -10,20 +8,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class EnderCandleBlock extends SoulCandleBlock {
+public class CompatCandleBlock extends SoulCandleBlock {
+	private final float enchantPowerBonus;
+	private final ResourceLocation particle;
 
-	public EnderCandleBlock(DyeColor color, Properties properties) {
-		super(color, properties);
+	public CompatCandleBlock(float enchantBonus, ResourceLocation particle, Properties properties) {
+		super(properties);
+		this.enchantPowerBonus = enchantBonus;
+		this.particle = particle;
 	}
 
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-		return (0.3F * state.get(CANDLES));
+		return enchantPowerBonus * state.get(CANDLES);
 	}
 
 	@Override
 	public IParticleData getFlameParticle() {
-		ParticleType<?> enderFlame = ForgeRegistries.PARTICLE_TYPES.getValue(new ResourceLocation(CompatMods.ENDERGETIC, "ender_flame"));
+		ParticleType<?> enderFlame = ForgeRegistries.PARTICLE_TYPES.getValue(particle);
 		return enderFlame != null ? (IParticleData) enderFlame : super.getFlameParticle();
 	}
 }

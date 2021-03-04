@@ -21,6 +21,6 @@ public class BBTags {
 	}
 
 	public static class EntityTypes {
-		public static final INamedTag<EntityType<?>> MOOBLOOM_HOSTILES = EntityTypeTags.createOptional(new ResourceLocation(BuzzierBees.MOD_ID, "moobloom_hostiles"));
+		public static final INamedTag<EntityType<?>> MOOBLOOM_HOSTILES = EntityTypeTags.getTagById(BuzzierBees.MOD_ID + ":moobloom_hostiles");
 	}
 }

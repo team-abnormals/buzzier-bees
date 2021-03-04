@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "S",
+    "B"
+  ],
+  "key": {
+    "#": {
+      "tag": "buzzier_bees:candle_wick"
+    },
+    "S": {
+      "tag": "buzzier_bees:candle_base"
+    },
+    "B": {
+      "tag": "caverns_and_chasms:cursed_fire_base_blocks"
+    }
+  },
+  "result": {
+    "item": "buzzier_bees:cursed_candle",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "caverns_and_chasms"
+    }
+  ]
+}

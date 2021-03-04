@@ -1,0 +1,7 @@
+{
+	"parent": "buzzier_bees:block/soul_candles_2",
+	"textures": {
+		"particle": "buzzier_bees:block/cursed_candle",
+		"all": "buzzier_bees:block/cursed_candle"
+	}
+}

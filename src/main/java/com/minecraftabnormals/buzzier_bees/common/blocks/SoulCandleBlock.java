@@ -20,8 +20,8 @@ public class SoulCandleBlock extends CandleBlock {
 			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D),
 			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 10.0D, 13.0D)};
 
-	public SoulCandleBlock(DyeColor color, Properties properties) {
-		super(color, properties);
+	public SoulCandleBlock(Properties properties) {
+		super(null, properties);
 	}
 
 	@Override
@@ -40,8 +40,8 @@ public class SoulCandleBlock extends CandleBlock {
 	}
 
 	@Override
-	public void addCandleParticleEffects(World world, IParticleData flameParticle, IParticleData smokePartice, double x, double y, double z) {
+	public void addCandleParticleEffects(World world, IParticleData flameParticle, IParticleData smokeParticle, double x, double y, double z) {
 		world.addParticle(flameParticle, x, y + 0.0625D, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
-		world.addParticle(smokePartice, x, y + 0.0625D, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
+		world.addParticle(smokeParticle, x, y + 0.0625D, z, XZ_PARTICLE_SPEED, Y_PARTICLE_SPEED, XZ_PARTICLE_SPEED);
 	}
 }

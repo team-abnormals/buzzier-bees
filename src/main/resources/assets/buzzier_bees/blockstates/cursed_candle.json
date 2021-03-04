@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north,candles=1": { "model": "buzzier_bees:block/cursed_candle" },
+    "facing=south,candles=1": { "model": "buzzier_bees:block/cursed_candle", "y": 180 },
+    "facing=west,candles=1":  { "model": "buzzier_bees:block/cursed_candle", "y": 270 },
+    "facing=east,candles=1":  { "model": "buzzier_bees:block/cursed_candle", "y": 90 },
+    "facing=north,candles=2": { "model": "buzzier_bees:block/cursed_candles_2" },
+    "facing=south,candles=2": { "model": "buzzier_bees:block/cursed_candles_2", "y": 180 },
+    "facing=west,candles=2":  { "model": "buzzier_bees:block/cursed_candles_2", "y": 270 },
+    "facing=east,candles=2":  { "model": "buzzier_bees:block/cursed_candles_2", "y": 90 },
+    "facing=north,candles=3": { "model": "buzzier_bees:block/cursed_candles_3" },
+    "facing=south,candles=3": { "model": "buzzier_bees:block/cursed_candles_3", "y": 180 },
+    "facing=west,candles=3":  { "model": "buzzier_bees:block/cursed_candles_3", "y": 270 },
+    "facing=east,candles=3":  { "model": "buzzier_bees:block/cursed_candles_3", "y": 90 },
+    "facing=north,candles=4": { "model": "buzzier_bees:block/cursed_candles_4" },
+    "facing=south,candles=4": { "model": "buzzier_bees:block/cursed_candles_4", "y": 180 },
+    "facing=west,candles=4":  { "model": "buzzier_bees:block/cursed_candles_4", "y": 270 },
+    "facing=east,candles=4":  { "model": "buzzier_bees:block/cursed_candles_4", "y": 90 }
+  }
+}

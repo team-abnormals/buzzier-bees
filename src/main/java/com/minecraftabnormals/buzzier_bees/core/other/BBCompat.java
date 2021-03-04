@@ -15,20 +15,19 @@ import net.minecraft.util.ResourceLocation;
 
 public class BBCompat {
 
-	public static class CompatMods {
-		public static final String ATMOSPHERIC = "atmospheric";
-		public static final String AUTUMNITY = "autumnity";
-		public static final String ENVIRONMENTAL = "environmental";
-		public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
-		public static final String ENDERGETIC = "endergetic";
-	}
+	public static final String ATMOSPHERIC = "atmospheric";
+	public static final String AUTUMNITY = "autumnity";
+	public static final String ENVIRONMENTAL = "environmental";
+	public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
+	public static final String ENDERGETIC = "endergetic";
+	public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
 
-	public static class CompatEffects {
-		public static final ResourceLocation RELIEF = new ResourceLocation(CompatMods.ATMOSPHERIC, "relief");
-		public static final ResourceLocation WORSENING = new ResourceLocation(CompatMods.ATMOSPHERIC, "worsening");
-		public static final ResourceLocation PERSISTENCE = new ResourceLocation(CompatMods.ATMOSPHERIC, "persistence");
-		public static final ResourceLocation FOUL_TASTE = new ResourceLocation(CompatMods.AUTUMNITY, "foul_taste");
-	}
+	public static final ResourceLocation RELIEF = new ResourceLocation(ATMOSPHERIC, "relief");
+	public static final ResourceLocation WORSENING = new ResourceLocation(ATMOSPHERIC, "worsening");
+	public static final ResourceLocation PERSISTENCE = new ResourceLocation(ATMOSPHERIC, "persistence");
+	public static final ResourceLocation FOUL_TASTE = new ResourceLocation(AUTUMNITY, "foul_taste");
+	public static final ResourceLocation ENDER_FLAME = new ResourceLocation(ENDERGETIC, "ender_flame");
+	public static final ResourceLocation CURSED_FLAME = new ResourceLocation(CAVERNS_AND_CHASMS, "cursed_flame");
 
 	public static void registerCompat() {
 		registerLootInjectors();

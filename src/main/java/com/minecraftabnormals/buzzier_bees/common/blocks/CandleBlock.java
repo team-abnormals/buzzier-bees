@@ -62,7 +62,7 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 		BlockState blockstate = context.getWorld().getBlockState(context.getPos());
 		Direction direction = context.getPlacementHorizontalFacing();
 		if (blockstate.getBlock() == this) {
-			return blockstate.with(FACING, direction).with(CANDLES, Integer.valueOf(Math.min(4, blockstate.get(CANDLES) + 1)));
+			return blockstate.with(FACING, direction).with(CANDLES, Math.min(4, blockstate.get(CANDLES) + 1));
 		} else {
 			FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 			boolean flag = ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8;
@@ -74,23 +74,19 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		if (!state.get(LIT) && player.getHeldItem(handIn).getItem() instanceof FlintAndSteelItem) {
 			worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, worldIn.getRandom().nextFloat() * 0.4F + 0.8F);
-			worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
-			if (player != null) {
-				player.getHeldItem(handIn).damageItem(1, player, (p_219999_1_) -> {
-					p_219999_1_.sendBreakAnimation(handIn);
-				});
-			}
+			worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.TRUE), 11);
+			player.getHeldItem(handIn).damageItem(1, player, (p_219999_1_) -> {
+				p_219999_1_.sendBreakAnimation(handIn);
+			});
 			return ActionResultType.func_233537_a_(worldIn.isRemote());
 		} else if (state.get(LIT) && player.getHeldItem(handIn).getItem() instanceof ShovelItem) {
 			if (!worldIn.isRemote()) {
-				worldIn.playEvent((PlayerEntity) null, 1009, pos, 0);
+				worldIn.playEvent(null, 1009, pos, 0);
 			}
-			if (player != null) {
-				player.getHeldItem(handIn).damageItem(1, player, (p_219999_1_) -> {
-					p_219999_1_.sendBreakAnimation(handIn);
-				});
-			}
-			worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.valueOf(false)));
+			player.getHeldItem(handIn).damageItem(1, player, (p_219999_1_) -> {
+				p_219999_1_.sendBreakAnimation(handIn);
+			});
+			worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.FALSE));
 			return ActionResultType.func_233537_a_(worldIn.isRemote());
 		} else {
 			return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
@@ -133,7 +129,7 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 
 	@Override
 	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
-		return useContext.getItem().getItem() == this.asItem() && state.get(CANDLES) < 4 ? true : super.isReplaceable(state, useContext);
+		return useContext.getItem().getItem() == this.asItem() && state.get(CANDLES) < 4 || super.isReplaceable(state, useContext);
 	}
 
 	@Override
@@ -158,7 +154,7 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 
 	@Override
 	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-		return type == PathType.AIR && !this.canCollide ? true : super.allowsMovement(state, worldIn, pos, type);
+		return type == PathType.AIR && !this.canCollide || super.allowsMovement(state, worldIn, pos, type);
 	}
 
 	public IParticleData getFlameParticle() {
