@@ -1,8 +1,6 @@
 {
-	"item.buzzier_bees.wax": "Воск",
-	"item.buzzier_bees.crystallized_honey": "Кристаллизованный мёд",
 	"item.buzzier_bees.four_leaf_clover": "Четырёхлистный клевер",
-
+	
 	"item.buzzier_bees.honey_wand": "Медовая палочка",
 	"item.buzzier_bees.sticky_honey_wand": "Липкая медовая палочка",
 
@@ -31,7 +29,6 @@
 	"block.buzzier_bees.crimson_beehive": "Багровый улей",
 	"block.buzzier_bees.warped_beehive": "Искажённый улей",
 
-	"block.buzzier_bees.wax_block": "Восковый блок",
 	"block.buzzier_bees.crystallized_honey_block": "Блок кристаллизованного мёда",
 
 	"block.buzzier_bees.honey_lamp": "Мёдо-лампа",
@@ -64,6 +61,7 @@
 	"block.buzzier_bees.candle": "Свечка",
 	"block.buzzier_bees.soul_candle": "Свечка души",
 	"block.buzzier_bees.ender_candle": "Эндер-свечка",
+	"block.buzzier_bees.cursed_candle": "Проклятая свеча",
 	
 	"block.buzzier_bees.white_candle": "Белая свечка",
 	"block.buzzier_bees.orange_candle": "Оранжевая свечка",
