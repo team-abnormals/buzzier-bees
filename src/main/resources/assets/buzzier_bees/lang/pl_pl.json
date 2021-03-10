@@ -1,0 +1,198 @@
+{
+	"item.buzzier_bees.four_leaf_clover": "Czterolistna koniczyna",
+	
+	"item.buzzier_bees.honey_wand": "Czerpak do miodu",
+	"item.buzzier_bees.sticky_honey_wand": "Lepki czerpak do miodu",
+	
+	"item.buzzier_bees.honey_apple": "Jabłko w miodzie",
+	"item.buzzier_bees.honey_bread": "Chleb w miodzie",
+	"item.buzzier_bees.glazed_porkchop": "Wieprzowina w miodzie",
+	
+	"item.buzzier_bees.silverfish_bottle": "Butelka z rybikiem cukrowym",
+	"item.buzzier_bees.endermite_bottle": "Butelka z endermitem",
+	"item.buzzier_bees.bee_bottle": "Butelka z pszczołą",
+		
+	"item.buzzier_bees.honeycomb_banner_pattern": "Wzór sztandaru",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Plaster miodu",
+  
+	"item.buzzier_bees.grizzly_bear_spawn_egg": "Jajo przyzywające niedźwiedzia grizli",
+	"item.buzzier_bees.black_bear_spawn_egg": "Jajo przyzywające czarnego niedźwiedzia",
+	"item.buzzier_bees.bumblebee_spawn_egg": "Jajo przyzywające trzmiela",
+	"item.buzzier_bees.moobloom_spawn_egg": "Jajo przyzywające mooblooma",
+	
+	"block.minecraft.beehive": "Dębowy ul",
+	"block.buzzier_bees.spruce_beehive": "Świerkowy ul",
+	"block.buzzier_bees.birch_beehive": "Brzozowy ul",
+	"block.buzzier_bees.jungle_beehive": "Tropikalny ul",
+	"block.buzzier_bees.acacia_beehive": "Akacjowy ul",
+	"block.buzzier_bees.dark_oak_beehive": "Ciemnodębowy ul",
+	"block.buzzier_bees.crimson_beehive": "Szkarłatny ul",
+	"block.buzzier_bees.warped_beehive": "Spaczony ul",
+
+	"block.buzzier_bees.crystallized_honey_block": "Blok skrystalizowanego miodu",
+	
+	"block.buzzier_bees.honey_lamp" : "Miodowa lampa",
+	"block.buzzier_bees.honey_pot": "Garnek na miód",
+	
+	"block.buzzier_bees.honeycomb_bricks": "Miodowe cegły",
+	"block.buzzier_bees.honeycomb_brick_stairs": "Miodowe ceglane schody",
+	"block.buzzier_bees.honeycomb_brick_slab": "Miodowa ceglana płyta",
+	"block.buzzier_bees.honeycomb_brick_wall": "Miodowy ceglany murek",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Pionowa miodowa ceglana płyta",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "Rzeźbione miodowe cegły",
+	
+	"block.buzzier_bees.honeycomb_tiles": "Miodowe kafelki",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Miodowe kafelkowe schody",
+	"block.buzzier_bees.honeycomb_tile_slab": "Miodowa kafelkowa płyta",
+	"block.buzzier_bees.honeycomb_tile_wall": "Miodowy kafelkowy murek",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Pionowa miodowa kafelkowa płyta",
+	
+	"block.buzzier_bees.honeycomb_door": "Miodowe drzwi",
+	"block.buzzier_bees.honeycomb_trapdoor": "Miodowa klapa",
+	
+	"block.buzzier_bees.pink_clover": "Różowa koniczyna",
+	"block.buzzier_bees.white_clover": "Biała koniczyna",
+	"block.buzzier_bees.buttercup": "Jaskier",
+	
+	"block.buzzier_bees.potted_pink_clover": "Różowa koniczyna w doniczce",
+	"block.buzzier_bees.potted_white_clover": "Biała koniczyna w doniczce",
+	"block.buzzier_bees.potted_buttercup": "Jaskier w doniczce",
+	
+	"block.buzzier_bees.candle": "Świeca",
+	"block.buzzier_bees.soul_candle": "Eteryczna świeca",
+	"block.buzzier_bees.ender_candle": "Endowa świeca",
+	"block.buzzier_bees.cursed_candle": "Przeklęta świeca",
+	
+	"block.buzzier_bees.white_candle": "Biała świeca",
+	"block.buzzier_bees.orange_candle": "Pomarańczowa świeca",
+	"block.buzzier_bees.magenta_candle": "Karmazynowa świeca",
+	"block.buzzier_bees.light_blue_candle": "Jasnoniebieska świeca",
+	"block.buzzier_bees.yellow_candle": "Żółta świeca",
+	"block.buzzier_bees.lime_candle": "Jasnozielona świeca",
+	"block.buzzier_bees.pink_candle": "Różowa świeca",
+	"block.buzzier_bees.gray_candle": "Szara świeca",
+	"block.buzzier_bees.light_gray_candle": "Jasnoszara świeca",
+	"block.buzzier_bees.cyan_candle": "Błękitna świeca",
+	"block.buzzier_bees.purple_candle": "Fioletowa świeca",
+	"block.buzzier_bees.blue_candle": "Niebieska świeca",
+	"block.buzzier_bees.brown_candle": "Brązowa świeca",
+	"block.buzzier_bees.green_candle": "Zielona świeca",
+	"block.buzzier_bees.red_candle": "Czerwona świeca",
+	"block.buzzier_bees.black_candle": "Czarna świeca",
+	
+	"block.buzzier_bees.allium_scented_candle": "Świeca o zapachu czosnku",
+	"block.buzzier_bees.azure_bluet_scented_candle": "Świeca o zapachu houstoni błękitnej",
+	"block.buzzier_bees.blue_orchid_scented_candle": "Świeca o zapachu niebieskiej orchidei",
+	"block.buzzier_bees.dandelion_scented_candle": "Świeca o zapachu mlecza",
+	"block.buzzier_bees.cornflower_scented_candle": "Świeca o zapachu chabra",
+	"block.buzzier_bees.lily_of_the_valley_scented_candle": "Świeca o zapachu konwalii",
+	"block.buzzier_bees.oxeye_daisy_scented_candle": "Świeca o zapachu margaretki",
+	"block.buzzier_bees.poppy_scented_candle": "Świeca o zapachu maku",
+	"block.buzzier_bees.white_tulip_scented_candle": "Świeca o zapachu białego tulipana",
+	"block.buzzier_bees.orange_tulip_scented_candle": "Świeca o zapachu pomarańczowego tulipana",
+	"block.buzzier_bees.pink_tulip_scented_candle": "Świeca o zapachu różowego tulipana",
+	"block.buzzier_bees.red_tulip_scented_candle": "Świeca o zapachu czerwonego tulipana",
+	"block.buzzier_bees.wither_rose_scented_candle": "Świeca o zapachu witherowej róży",
+	
+	"block.buzzier_bees.pink_clover_scented_candle": "Świeca o zapachu różowej koniczyny",
+	"block.buzzier_bees.white_clover_scented_candle": "Świeca o zapachu białej koniczyny",
+	"block.buzzier_bees.buttercup_scented_candle": "Świeca o zapachu jaskra",
+	
+	"block.buzzier_bees.cartwheel_scented_candle": "Świeca o zapachu wiaterka",
+	"block.buzzier_bees.bluebell_scented_candle": "Świeca o zapachu dzwonka",
+	"block.buzzier_bees.violet_scented_candle": "Świeca o zapachu fiołka",
+	"block.buzzier_bees.red_lotus_flower_scented_candle": "Świeca o zapachu czerwonego kwiatu lotosu",
+	"block.buzzier_bees.white_lotus_flower_scented_candle": "Świeca o zapachu białego kwiatu lotosu",
+	"block.buzzier_bees.dianthus_scented_candle": "Świeca o zapachu goździka",
+	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Świeca o zapachu żółtej ketmii",
+	"block.buzzier_bees.orange_hibiscus_scented_candle": "Świeca o zapachu pomarańczowej ketmii",
+	"block.buzzier_bees.red_hibiscus_scented_candle": "Świeca o zapachu czerwonej ketmii",
+	"block.buzzier_bees.pink_hibiscus_scented_candle": "Świeca o zapachu różowej ketmii",
+	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Świeca o zapachu karmazynowej ketmii",
+	"block.buzzier_bees.purple_hibiscus_scented_candle": "Świeca o zapachu fioletowej ketmii",
+	
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Świeca o zapachu ciepłej małposzczotki",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Świeca o zapachu gorącej małposzczotki",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Świeca o zapachu wrzącej małposzczotki",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "Świeca o zapachu wodnego hiacynta",
+	"block.buzzier_bees.gilia_scented_candle": "Świeca o zapachu gilii",
+	"block.buzzier_bees.yucca_flower_scented_candle": "Świeca o zapachu kwiatu jukki",
+	
+	"block.buzzier_bees.pink_searocket_scented_candle": "Świeca o zapachu różowej rukwieli nadmorskiej",
+	"block.buzzier_bees.white_searocket_scented_candle": "Świeca o zapachu białej rukwieli nadmorskiej",
+	
+	"block.buzzier_bees.autumn_crocus_scented_candle": "Świeca o zapachu zimowita jesiennego",
+	
+	"entity.buzzier_bees.grizzly_bear": "Niedźwiedź grizli",
+	"entity.buzzier_bees.black_bear": "Czarny niedźwiedź",
+	"entity.buzzier_bees.bumblebee": "Trzmiel",
+	"entity.buzzier_bees.moobloom": "Moobloom",
+	
+	"entity.minecraft.villager.buzzier_bees.apiarist": "Pszczelarz",
+	
+	"effect.buzzier_bees.sunny": "Nasłonecznienie",
+	
+	"item.minecraft.potion.effect.long_luck": "Mikstura szczęścia",
+	"item.minecraft.potion.effect.strong_luck": "Mikstura szczęścia",
+	"item.minecraft.potion.effect.unluck": "Mikstura pechas",
+	"item.minecraft.potion.effect.long_unluck": "Mikstura pecha",
+	"item.minecraft.potion.effect.strong_unluck": "Mikstura pecha",	
+
+	"item.minecraft.splash_potion.effect.long_luck": "Miotana mikstura szczęścia",
+	"item.minecraft.splash_potion.effect.strong_luck": "Miotana mikstura szczęścia",
+	"item.minecraft.splash_potion.effect.unluck": "Miotana mikstura pecha",
+	"item.minecraft.splash_potion.effect.long_unluck": "Miotana mikstura pecha",
+	"item.minecraft.splash_potion.effect.strong_unluck": "Miotana mikstura pecha",
+	
+	"item.minecraft.lingering_potion.effect.long_luck": "Trwała mikstura szczęścia",
+	"item.minecraft.lingering_potion.effect.strong_luck": "Trwała mikstura szczęścia",
+	"item.minecraft.lingering_potion.effect.unluck": "Trwała mikstura pecha",
+	"item.minecraft.lingering_potion.effect.long_unluck": "Trwała mikstura pecha",
+	"item.minecraft.lingering_potion.effect.strong_unluck": "Trwała mikstura pecha",
+	
+	"item.minecraft.tipped_arrow.effect.long_luck": "Strzała szczęścia",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "Strzała szczęścia",
+	"item.minecraft.tipped_arrow.effect.unluck": "Strzała pecha",
+	"item.minecraft.tipped_arrow.effect.long_unluck": "Strzała pecha",
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "Strzała pecha",
+	
+	"advancements.husbandry.four_leaf_clover.title": "Szczęście mi sprzyja",
+	"advancements.husbandry.four_leaf_clover.description": "Znajdź czterolistną koniczynę",
+	
+	"advancements.end.scented_candle.title": "Aromaterapia",
+	"advancements.end.scented_candle.description": "Zdobądź świecę zapachową",
+	
+	"advancements.end.all_scented_candles.title": "Perfumy mi nie potrzebne",
+	"advancements.end.all_scented_candles.description": "Zdobądź wszystkie świece zapachowe",
+	
+	"advancements.husbandry.honey_apple.title": "Niedaleko padam",
+	"advancements.husbandry.honey_apple.description": "Użyj jabłka w miodzie aby wyleczyć się z lewitacji",
+	
+	"advancements.husbandry.honey_bread.title": "Dobry omen",
+	"advancements.husbandry.honey_bread.description": "Użyj chleba w miodzie aby pozbyć się złego omenu",
+	
+	"advancements.husbandry.glazed_porkchop.title": "Miód na moje.. ręce?",
+	"advancements.husbandry.glazed_porkchop.description": "Użyj wieprzowiny w miodzie aby wyleczyć się z wyczerpania",
+	
+	"tooltip.buzzier_bees.is_baby": "Mała",
+	"tooltip.buzzier_bees.has_nectar": "Posiada pyłek",
+	"tooltip.buzzier_bees.is_angry": "Wściekła",
+	"tooltip.buzzier_bees.has_stung": "Bez żądła",
+	
+	"block.minecraft.banner.mca_honeycomb.black": "Czarny plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.red": "Czerwony plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.green": "Zielony plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.brown": "Brązowy plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.blue": "Niebieski plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.purple": "Fioletowy plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.cyan": "Błękitny plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.silver": "Jasnoszary plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.gray": "Szary plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.pink": "Różowy plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.lime": "Jasnozielony plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.yellow": "Żółty plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.lightBlue": "Jasnoniebieski plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.magenta": "Karmazynowy plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.orange": "Pomarańczowy plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.white": "Biały plaster miodu"
+}
