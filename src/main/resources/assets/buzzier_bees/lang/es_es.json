@@ -1,12 +1,12 @@
 {
 	"item.buzzier_bees.four_leaf_clover": "Trébol de cuatro hojas",
 
-	"item.buzzier_bees.honey_wand": "Palito mielero",
-	"item.buzzier_bees.sticky_honey_wand": "Palito mielero pegajoso",
+	"item.buzzier_bees.honey_wand": "Rodillo de miel",
+	"item.buzzier_bees.sticky_honey_wand": "Rodillo de miel pegajoso",
 
 	"item.buzzier_bees.honey_apple": "Manzana melosa",
 	"item.buzzier_bees.honey_bread": "Pan de miel",
-	"item.buzzier_bees.glazed_porkchop": "Chuleta de cerdo caramelizada",
+	"item.buzzier_bees.glazed_porkchop": "Chuleta de cerdo glaseada",
 	
 	"item.buzzier_bees.silverfish_bottle": "Frasco con lepisma",
 	"item.buzzier_bees.endermite_bottle": "Frasco con endermite",
@@ -26,7 +26,7 @@
 	"block.buzzier_bees.jungle_beehive": "Apiario de jungla",
 	"block.buzzier_bees.acacia_beehive": "Apiario de acacia",
 	"block.buzzier_bees.dark_oak_beehive": "Apiario de roble oscuro",
-	"block.buzzier_bees.crimson_beehive": "Apiario de madera carmesí",
+	"block.buzzier_bees.crimson_beehive": "Apiario carmesí",
 	"block.buzzier_bees.warped_beehive": "Apiario distorsionado",
 
 	"block.buzzier_bees.crystallized_honey_block": "Bloque de miel cristalizada",
