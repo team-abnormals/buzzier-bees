@@ -1,0 +1,198 @@
+{
+	"item.buzzier_bees.four_leaf_clover": "四葉のクローバー",
+	
+	"item.buzzier_bees.honey_wand": "ハニーディッパー",
+	"item.buzzier_bees.sticky_honey_wand": "ねばねばのハニーディッパー",
+	
+	"item.buzzier_bees.honey_apple": "はちみつリンゴ",
+	"item.buzzier_bees.honey_bread": "はちみつパン",
+	"item.buzzier_bees.glazed_porkchop": "はちみつをかけた焼き豚",
+	
+	"item.buzzier_bees.silverfish_bottle": "シルバーフィッシュ入り瓶",
+	"item.buzzier_bees.endermite_bottle": "エンダーマイト入り瓶",
+	"item.buzzier_bees.bee_bottle": "ミツバチ入り瓶",
+		
+	"item.buzzier_bees.honeycomb_banner_pattern": "旗の模様",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "ハニカム",
+  
+	"item.buzzier_bees.grizzly_bear_spawn_egg": "ハイイログマのスポーンエッグ",
+	"item.buzzier_bees.black_bear_spawn_egg": "アメリカグマのスポーンエッグ",
+	"item.buzzier_bees.bumblebee_spawn_egg": "マルハナバチのスポーンエッグ",
+	"item.buzzier_bees.moobloom_spawn_egg": "ムーブルームのスポーンエッグ",
+	
+	"block.minecraft.beehive": "オークの養蜂箱",
+	"block.buzzier_bees.spruce_beehive": "マツの養蜂箱",
+	"block.buzzier_bees.birch_beehive": "シラカバの養蜂箱",
+	"block.buzzier_bees.jungle_beehive": "ジャングルの養蜂箱",
+	"block.buzzier_bees.acacia_beehive": "アカシアの養蜂箱",
+	"block.buzzier_bees.dark_oak_beehive": "ダークオークの養蜂箱",
+	"block.buzzier_bees.crimson_beehive": "真紅の養蜂箱",
+	"block.buzzier_bees.warped_beehive": "歪んだ養蜂箱",
+
+	"block.buzzier_bees.crystallized_honey_block": "結晶化したハチミツブロック",
+	
+	"block.buzzier_bees.honey_lamp" : "ハチミツランプ",
+	"block.buzzier_bees.honey_pot": "ハチミツポット",
+	
+	"block.buzzier_bees.honeycomb_bricks": "ハニカムレンガ",
+	"block.buzzier_bees.honeycomb_brick_stairs": "ハニカムレンガの階段",
+	"block.buzzier_bees.honeycomb_brick_slab": "ハニカムレンガのハーフブロック",
+	"block.buzzier_bees.honeycomb_brick_wall": "ハニカムレンガの塀",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "ハニカムレンガの縦ハーフブロック",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "模様入りのハニカムレンガ",
+	
+	"block.buzzier_bees.honeycomb_tiles": "ハニカムタイル",
+	"block.buzzier_bees.honeycomb_tile_stairs": "ハニカムタイルの階段",
+	"block.buzzier_bees.honeycomb_tile_slab": "ハニカムタイルのハーフブロック",
+	"block.buzzier_bees.honeycomb_tile_wall": "ハニカムタイルの塀",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "ハニカムタイルの縦ハーフブロック",
+	
+	"block.buzzier_bees.honeycomb_door": "ハニカムのドア",
+	"block.buzzier_bees.honeycomb_trapdoor": "ハニカムのトラップドア",
+	
+	"block.buzzier_bees.pink_clover": "桃色のクローバー",
+	"block.buzzier_bees.white_clover": "白色のクローバー",
+	"block.buzzier_bees.buttercup": "キンポウゲ",
+	
+	"block.buzzier_bees.potted_pink_clover": "植えられた桃色のクローバー",
+	"block.buzzier_bees.potted_white_clover": "植えられた白色のクローバー",
+	"block.buzzier_bees.potted_buttercup": "植えられたキンポウゲ",
+	
+	"block.buzzier_bees.candle": "ろうそく",
+	"block.buzzier_bees.soul_candle": "魂のろうそく",
+	"block.buzzier_bees.ender_candle": "エンダーのろうそく",
+	"block.buzzier_bees.cursed_candle": "呪われたろうそく",
+	
+	"block.buzzier_bees.white_candle": "白色のろうそく",
+	"block.buzzier_bees.orange_candle": "橙色のろうそく",
+	"block.buzzier_bees.magenta_candle": "赤紫色のろうそく",
+	"block.buzzier_bees.light_blue_candle": "空色のろうそく",
+	"block.buzzier_bees.yellow_candle": "黄色のろうそく",
+	"block.buzzier_bees.lime_candle": "黄緑色のろうそく",
+	"block.buzzier_bees.pink_candle": "桃色のろうそく",
+	"block.buzzier_bees.gray_candle": "灰色のろうそく",
+	"block.buzzier_bees.light_gray_candle": "薄灰色のろうそく",
+	"block.buzzier_bees.cyan_candle": "青緑色のろうそく",
+	"block.buzzier_bees.purple_candle": "紫色のろうそく",
+	"block.buzzier_bees.blue_candle": "青色のろうそく",
+	"block.buzzier_bees.brown_candle": "茶色のろうそく",
+	"block.buzzier_bees.green_candle": "緑色のろうそく",
+	"block.buzzier_bees.red_candle": "赤色のろうそく",
+	"block.buzzier_bees.black_candle": "黒色のろうそく",
+	
+	"block.buzzier_bees.allium_scented_candle": "アリウム香水のろうそく",
+	"block.buzzier_bees.azure_bluet_scented_candle": "ヒナソウ香水のろうそく",
+	"block.buzzier_bees.blue_orchid_scented_candle": "ヒスイラン香水のろうそく",
+	"block.buzzier_bees.dandelion_scented_candle": "タンポポ香水のろうそく",
+	"block.buzzier_bees.cornflower_scented_candle": "ヤグルマギク香水のろうそく",
+	"block.buzzier_bees.lily_of_the_valley_scented_candle": "スズラン香水のろうそく",
+	"block.buzzier_bees.oxeye_daisy_scented_candle": "フランスギク香水のろうそく",
+	"block.buzzier_bees.poppy_scented_candle": "ポピー香水のろうそく",
+	"block.buzzier_bees.white_tulip_scented_candle": "白色のチューリップ香水のろうそく",
+	"block.buzzier_bees.orange_tulip_scented_candle": "橙色のチューリップ香水のろうそく",
+	"block.buzzier_bees.pink_tulip_scented_candle": "桃色のチューリップ香水のろうそく",
+	"block.buzzier_bees.red_tulip_scented_candle": "赤色のチューリップ香水のろうそく",
+	"block.buzzier_bees.wither_rose_scented_candle": "ウィザーローズ香水のろうそく",
+	
+	"block.buzzier_bees.pink_clover_scented_candle": "桃色のクローバー香水のろうそく",
+	"block.buzzier_bees.white_clover_scented_candle": "白色のクローバー香水のろうそく",
+	"block.buzzier_bees.buttercup_scented_candle": "キンポウゲ香水のろうそく",
+	
+	"block.buzzier_bees.cartwheel_scented_candle": "カートウィール香水のろうそく",
+	"block.buzzier_bees.bluebell_scented_candle": "ブルーベル香水のろうそく",
+	"block.buzzier_bees.violet_scented_candle": "スミレ香水のろうそく",
+	"block.buzzier_bees.red_lotus_flower_scented_candle": "赤色のハスの花の香水のろうそく",
+	"block.buzzier_bees.white_lotus_flower_scented_candle": "白色のハスの花の香水のろうそく",
+	"block.buzzier_bees.dianthus_scented_candle": "ナデシコ香水のろうそく",
+	"block.buzzier_bees.yellow_hibiscus_scented_candle": "黄色のハイビスカス香水のろうそく",
+	"block.buzzier_bees.orange_hibiscus_scented_candle": "橙色のハイビスカス香水のろうそく",
+	"block.buzzier_bees.red_hibiscus_scented_candle": "赤色のハイビスカス香水のろうそく",
+	"block.buzzier_bees.pink_hibiscus_scented_candle": "桃色のハイビスカス香水のろうそく",
+	"block.buzzier_bees.magenta_hibiscus_scented_candle": "赤紫色のハイビスカス香水のろうそく",
+	"block.buzzier_bees.purple_hibiscus_scented_candle": "紫色のハイビスカス香水のろうそく",
+	
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "暖かいサルブラシ香水のろうそく",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "熱いサルブラシ香水のろうそく",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "灼熱のサルブラシ香水のろうそく",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "ホテイアオイ香水のろうそく",
+	"block.buzzier_bees.gilia_scented_candle": "ギリア香水のろうそく",
+	"block.buzzier_bees.yucca_flower_scented_candle": "ユッカの花の香水のろうそく",
+	
+	"block.buzzier_bees.pink_searocket_scented_candle": "桃色のオニハマダイコン香水のろうそく",
+	"block.buzzier_bees.white_searocket_scented_candle": "白色のオニハマダイコン香水のろうそく",
+	
+	"block.buzzier_bees.autumn_crocus_scented_candle": "オータムクロッカスのろうそく",
+	
+	"entity.buzzier_bees.grizzly_bear": "ハイイログマ",
+	"entity.buzzier_bees.black_bear": "アメリカグマ",
+	"entity.buzzier_bees.bumblebee": "マルハナバチ",
+	"entity.buzzier_bees.moobloom": "ムーブルーム",
+	
+	"entity.minecraft.villager.buzzier_bees.apiarist": "養蜂家",
+	
+	"effect.buzzier_bees.sunny": "日照り",
+	
+	"item.minecraft.potion.effect.long_luck": "幸運のポーション",
+	"item.minecraft.potion.effect.strong_luck": "幸運のポーション",
+	"item.minecraft.potion.effect.unluck": "不運のポーション",
+	"item.minecraft.potion.effect.long_unluck": "不運のポーション",
+	"item.minecraft.potion.effect.strong_unluck": "不運のポーション",
+
+	"item.minecraft.splash_potion.effect.long_luck": "幸運のスプラッシュポーション",
+	"item.minecraft.splash_potion.effect.strong_luck": "幸運のスプラッシュポーション",
+	"item.minecraft.splash_potion.effect.unluck": "不運のスプラッシュポーション",
+	"item.minecraft.splash_potion.effect.long_unluck": "不運のスプラッシュポーション",
+	"item.minecraft.splash_potion.effect.strong_unluck": "不運のスプラッシュポーション",
+	
+	"item.minecraft.lingering_potion.effect.long_luck": "幸運の残留ポーション",
+	"item.minecraft.lingering_potion.effect.strong_luck": "幸運の残留ポーション",
+	"item.minecraft.lingering_potion.effect.unluck": "不運の残留ポーション",
+	"item.minecraft.lingering_potion.effect.long_unluck": "不運の残留ポーション",
+	"item.minecraft.lingering_potion.effect.strong_unluck": "不運の残留ポーション",
+	
+	"item.minecraft.tipped_arrow.effect.long_luck": "幸運の矢",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "幸運の矢",
+	"item.minecraft.tipped_arrow.effect.unluck": "不運の矢",
+	"item.minecraft.tipped_arrow.effect.long_unluck": "不運の矢",
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "不運の矢",
+	
+	"advancements.husbandry.four_leaf_clover.title": "今回は頑張った！",
+	"advancements.husbandry.four_leaf_clover.description": "四葉のクローバーを見つける",
+	
+	"advancements.end.scented_candle.title": "アロマセラピー",
+	"advancements.end.scented_candle.description": "香水のろうそくを手に入れる",
+	
+	"advancements.end.all_scented_candles.title": "香水がいっぱい",
+	"advancements.end.all_scented_candles.description": "すべての香水のろうそくを手に入れる",
+	
+	"advancements.husbandry.honey_apple.title": "一日一個のりんご",
+	"advancements.husbandry.honey_apple.description": "浮遊を取り除くために、はちみつリンゴを使う",
+	
+	"advancements.husbandry.honey_bread.title": "吉兆な予感",
+	"advancements.husbandry.honey_bread.description": "不吉な予感を取り除くために、はちみつパンを使う",
+	
+	"advancements.husbandry.glazed_porkchop.title": "膝が弱くて、腕にははちみつ",
+	"advancements.husbandry.glazed_porkchop.description": "採掘速度低下を取り除くために、はちみつをかけた焼き豚を使う",
+	
+	"tooltip.buzzier_bees.is_baby": "子ども",
+	"tooltip.buzzier_bees.has_nectar": "受粉済み",
+	"tooltip.buzzier_bees.is_angry": "怒り状態",
+	"tooltip.buzzier_bees.has_stung": "毒針なし",
+	
+	"block.minecraft.banner.mca_honeycomb.black": "黒色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.red": "赤色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.green": "緑色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.brown": "茶色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.blue": "青色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.purple": "紫色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.cyan": "青緑色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.silver": "薄灰色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.gray": "灰色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.pink": "桃色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.lime": "黄緑色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.yellow": "黄色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.lightBlue": "空色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.magenta": "赤紫色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.orange": "橙色のハニカム",
+  "block.minecraft.banner.mca_honeycomb.white": "白色のハニカム"
+}
