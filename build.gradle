@@ -1,8 +1,7 @@
 buildscript {
     repositories {
         maven { url = "https://files.minecraftforge.net/maven" }
-        maven { url = "https://dist.creeper.host/Sponge/maven" }
-        jcenter()
+        maven { url = "https://repo.spongepowered.org/repository/maven-public/" }
         mavenCentral()
     }
     dependencies {
@@ -17,7 +16,7 @@ apply plugin: "maven-publish"
 apply plugin: "org.spongepowered.mixin"
 
 mixin {
-    add sourceSets.main, "buzzier_bees.refmap.json"
+    add sourceSets.main, project.modId + ".refmap.json"
 }
 
 version = "${project.minecraft}-${project.modVersion}"
@@ -70,13 +69,21 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
-    implementation fg.deobf("curse.maven:abnormals_core-382216:${project.abnormalsCore}")
-    compile fg.deobf("curse.maven:jei-238222:3109181")
+    implementation fg.deobf("com.minecraftabnormals:abnormals-core:${project.minecraft}-${project.abnormalsCore}")
+
+    compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}:${project.jei}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}:${project.jei}")
 }
 
 repositories {
     maven {
-        url "https://www.cursemaven.com"
+        url "https://maven.jaackson.me"
+    }
+    maven {
+        url "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        url "https://modmaven.k-4u.nl"
     }
 }
 
