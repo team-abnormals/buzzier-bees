@@ -2,6 +2,7 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsBannerPatternItem;
 import com.minecraftabnormals.abnormals_core.common.items.AbnormalsSpawnEggItem;
+import com.minecraftabnormals.abnormals_core.core.api.banner.BannerManager;
 import com.minecraftabnormals.abnormals_core.core.util.registry.ItemSubRegistryHelper;
 import com.minecraftabnormals.buzzier_bees.common.items.*;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
@@ -10,6 +11,7 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.tileentity.BannerPattern;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -30,9 +32,20 @@ public class BBItems {
 	public static final RegistryObject<Item> BOTTLE_OF_BEE = HELPER.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().containerItem(Items.GLASS_BOTTLE).maxStackSize(1).group(ItemGroup.MISC)));
 
 	public static final RegistryObject<Item> FOUR_LEAF_CLOVER = HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties().group(ItemGroup.BREWING)));
-	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new AbnormalsBannerPatternItem(BBBanners.HONEYCOMB, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new AbnormalsBannerPatternItem(Banners.HONEYCOMB, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 
 	public static final RegistryObject<AbnormalsSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntities.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
+
+	public static class Foods {
+		public static final Food STICKY_HONEY_WAND = new Food.Builder().hunger(6).saturation(0.1F).setAlwaysEdible().build();
+		public static final Food HONEY_APPLE = new Food.Builder().hunger(5).saturation(0.4F).build();
+		public static final Food HONEY_BREAD = new Food.Builder().hunger(6).saturation(0.8F).build();
+		public static final Food GLAZED_PORKCHOP = new Food.Builder().hunger(9).saturation(0.8F).build();
+	}
+
+	public static class Banners {
+		public static final BannerPattern HONEYCOMB = BannerManager.createPattern("mca", "honeycomb", "hny");
+	}
 
 	public static void registerItemProperties() {
 		ItemModelsProperties.registerProperty(BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity) -> {
@@ -42,12 +55,5 @@ public class BBItems {
 			}
 			return 1;
 		});
-	}
-
-	public static class Foods {
-		public static final Food STICKY_HONEY_WAND = new Food.Builder().hunger(6).saturation(0.1F).setAlwaysEdible().build();
-		public static final Food HONEY_APPLE = new Food.Builder().hunger(5).saturation(0.4F).build();
-		public static final Food HONEY_BREAD = new Food.Builder().hunger(6).saturation(0.8F).build();
-		public static final Food GLAZED_PORKCHOP = new Food.Builder().hunger(9).saturation(0.8F).build();
 	}
 }
