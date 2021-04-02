@@ -34,7 +34,7 @@ public class BBItems {
 
 	public static final RegistryObject<AbnormalsSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntities.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
 
-	public static void setupItemProperties() {
+	public static void registerItemProperties() {
 		ItemModelsProperties.registerProperty(BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity) -> {
 			CompoundNBT compoundnbt = stack.getTag();
 			if (compoundnbt != null && compoundnbt.contains("AngerTime")) {

@@ -57,7 +57,7 @@ public class BuzzierBees {
 		BBEntities.registerRendering();
 		event.enqueueWork(() -> {
 			BBCompat.setupRenderLayer();
-			BBItems.setupItemProperties();
+			BBItems.registerItemProperties();
 		});
 	}
 }
