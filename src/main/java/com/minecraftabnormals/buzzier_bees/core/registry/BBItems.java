@@ -34,6 +34,7 @@ public class BBItems {
 	public static final RegistryObject<Item> FOUR_LEAF_CLOVER = HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties().group(ItemGroup.BREWING)));
 	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new AbnormalsBannerPatternItem(Banners.HONEYCOMB, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
 
+	public static final RegistryObject<AbnormalsSpawnEggItem> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", BBEntities.GRIZZLY_BEAR::get, 0x523021, 0x926A4B);
 	public static final RegistryObject<AbnormalsSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntities.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
 
 	public static class Foods {

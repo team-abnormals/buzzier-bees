@@ -1,13 +1,13 @@
 package com.minecraftabnormals.buzzier_bees.common.entities.goals.bear;
 
-import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
+import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 
 public class HurtByTargetGoal extends net.minecraft.entity.ai.goal.HurtByTargetGoal {
-	protected final AbstractBearEntity bear;
+	protected final GrizzlyBearEntity bear;
 
-	public HurtByTargetGoal(AbstractBearEntity bear) {
+	public HurtByTargetGoal(GrizzlyBearEntity bear) {
 		super(bear);
 		this.bear = bear;
 	}
@@ -25,7 +25,7 @@ public class HurtByTargetGoal extends net.minecraft.entity.ai.goal.HurtByTargetG
 	}
 
 	protected void setAttackTarget(MobEntity mobIn, LivingEntity targetIn) {
-		if (mobIn instanceof AbstractBearEntity && !mobIn.isChild()) {
+		if (mobIn instanceof GrizzlyBearEntity && !mobIn.isChild()) {
 			super.setAttackTarget(mobIn, targetIn);
 		}
 

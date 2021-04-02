@@ -1,6 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.common.entities.goals.bear;
 
-import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
+import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -17,9 +17,9 @@ import java.util.Random;
 
 public class EatBerriesGoal extends MoveToBlockGoal {
 	protected int field_220731_g;
-	protected final AbstractBearEntity bear;
+	protected final GrizzlyBearEntity bear;
 
-	public EatBerriesGoal(AbstractBearEntity bear, double p_i50737_2_, int p_i50737_4_, int p_i50737_5_) {
+	public EatBerriesGoal(GrizzlyBearEntity bear, double p_i50737_2_, int p_i50737_4_, int p_i50737_5_) {
 		super(bear, p_i50737_2_, p_i50737_4_, p_i50737_5_);
 		this.bear = bear;
 	}

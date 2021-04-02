@@ -1,11 +1,11 @@
 package com.minecraftabnormals.buzzier_bees.common.entities.goals.bear;
 
-import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
+import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
 
 public class PanicGoal extends net.minecraft.entity.ai.goal.PanicGoal {
-	protected final AbstractBearEntity bear;
+	protected final GrizzlyBearEntity bear;
 
-	public PanicGoal(AbstractBearEntity bear) {
+	public PanicGoal(GrizzlyBearEntity bear) {
 		super(bear, 2.0D);
 		this.bear = bear;
 	}

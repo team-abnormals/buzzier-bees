@@ -3,7 +3,6 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 import com.minecraftabnormals.abnormals_core.core.util.registry.EntitySubRegistryHelper;
 import com.minecraftabnormals.buzzier_bees.client.render.GrizzlyBearRenderer;
 import com.minecraftabnormals.buzzier_bees.client.render.MoobloomRenderer;
-import com.minecraftabnormals.buzzier_bees.common.entities.AbstractBearEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
 import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
@@ -30,7 +29,7 @@ public class BBEntities {
 	}
 
 	public static void registerAttributes() {
-		GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), AbstractBearEntity.registerAttributes().create());
+		GlobalEntityTypeAttributes.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().create());
 		GlobalEntityTypeAttributes.put(MOOBLOOM.get(), MoobloomEntity.func_234188_eI_().create());
 	}
 
