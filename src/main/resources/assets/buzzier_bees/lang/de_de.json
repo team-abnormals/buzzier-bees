@@ -61,6 +61,7 @@
 	"block.buzzier_bees.candle": "Kerze",
 	"block.buzzier_bees.soul_candle": "Seelenkerze",
 	"block.buzzier_bees.ender_candle": "Enderkerze",
+	"block.buzzier_bees.cursed_candle": "Fluchkerze",
 	
 	"block.buzzier_bees.white_candle": "Weiße Kerze",
 	"block.buzzier_bees.orange_candle": "Orange Kerze",
@@ -155,12 +156,6 @@
 	
 	"advancements.husbandry.four_leaf_clover.title": "Mehr Glück beim diesen Mal",
 	"advancements.husbandry.four_leaf_clover.description": "Finde eine Glücksklee",
-	
-	"advancements.end.scented_candle.title": "Aromatherapie",
-	"advancements.end.scented_candle.description": "Beschaffe eine Blumenkerze",
-	
-	"advancements.end.all_scented_candles.title": "Alle Kerzen!",
-	"advancements.end.all_scented_candles.description": "Beschaffe alle Blumenkerzen",
 	
 	"advancements.husbandry.honey_apple.title": "Täglich einen Apfel essen",
 	"advancements.husbandry.honey_apple.description": "Iss einen Honigapfel, um die Schwebekraft auszukurieren",
