@@ -46,7 +46,6 @@ public class BuzzierBees {
 			BBCompat.registerCompat();
 			BBEffects.registerRecipes();
 			BBEntities.registerEntitySpawns();
-			BBEntities.registerAttributes();
 			BBVillagers.registerVillagers();
 			BBFeatures.Configured.registerConfiguredFeatures();
 		});

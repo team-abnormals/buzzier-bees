@@ -2,10 +2,10 @@ package com.minecraftabnormals.buzzier_bees.core.registry;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.entity.ai.brain.task.GiveHeroGiftsTask;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
@@ -45,7 +45,7 @@ public class BBVillagers {
 	}
 
 	private static void registerGifts() {
-		GiveHeroGiftsTask.GIFTS.put(APIARIST.get(), new ResourceLocation(BuzzierBees.MOD_ID, "gameplay/hero_of_the_village/apiarist_gift"));
+		DataUtil.registerVillagerGift(APIARIST.get());
 	}
 
 	private static void registerPointOfInterests() {
