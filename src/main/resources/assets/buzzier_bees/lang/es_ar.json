@@ -7,17 +7,15 @@
 	"item.buzzier_bees.honey_apple": "Manzana melosa",
 	"item.buzzier_bees.honey_bread": "Pan de miel",
 	"item.buzzier_bees.glazed_porkchop": "Chuleta glaseada",
-	
+
 	"item.buzzier_bees.silverfish_bottle": "Botella con pez de plata",
 	"item.buzzier_bees.endermite_bottle": "Botella con endermite",
 	"item.buzzier_bees.bee_bottle": "Botella con abeja",
 
 	"item.buzzier_bees.honeycomb_banner_pattern": "Diseño de estandarte",
-  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Panal",
+  "item.buzzier_bees.honeycomb_banner_pattern.desc": "Panal",
 	
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Generar oso pardo",
-	"item.buzzier_bees.black_bear_spawn_egg": "Generar oso negro",
-	"item.buzzier_bees.bumblebee_spawn_egg": "Generar abejorro",
 	"item.buzzier_bees.moobloom_spawn_egg": "Generar vaca moobloom",
 	
 	"block.minecraft.beehive": "Apiario de roble",
@@ -33,7 +31,7 @@
 
 	"block.buzzier_bees.honey_lamp" : "Lámpara de miel",
 	"block.buzzier_bees.honey_pot": "Tarro de miel",
-	
+
 	"block.buzzier_bees.honeycomb_bricks": "Ladrillos de panal",
 	"block.buzzier_bees.honeycomb_brick_stairs": "Escaleras de ladrillos de panal",
 	"block.buzzier_bees.honeycomb_brick_slab": "Baldosa de ladrillos de panal",
@@ -49,7 +47,7 @@
 
 	"block.buzzier_bees.honeycomb_door": "Puerta de panal",
 	"block.buzzier_bees.honeycomb_trapdoor": "Escotilla de panal",
-	
+
 	"block.buzzier_bees.pink_clover": "Trébol rosa",
 	"block.buzzier_bees.white_clover": "Trébol blanco",
 	"block.buzzier_bees.buttercup": "Botón de oro",
@@ -57,7 +55,7 @@
 	"block.buzzier_bees.potted_pink_clover": "Maceta con trébol rosa",
 	"block.buzzier_bees.potted_white_clover": "Maceta con trébol blanco",
 	"block.buzzier_bees.potted_buttercup": "Maceta con botón de oro",
-	
+
 	"block.buzzier_bees.candle": "Vela",
 	"block.buzzier_bees.soul_candle": "Vela de almas",
 	"block.buzzier_bees.ender_candle": "Vela de ender",
@@ -79,7 +77,7 @@
 	"block.buzzier_bees.green_candle": "Vela verde",
 	"block.buzzier_bees.red_candle": "Vela roja",
 	"block.buzzier_bees.black_candle": "Vela negra",
-	
+
 	"block.buzzier_bees.allium_scented_candle": "Vela aromática de allium",
 	"block.buzzier_bees.azure_bluet_scented_candle": "Vela aromática de rubiácea",
 	"block.buzzier_bees.blue_orchid_scented_candle": "Vela aromática de orquídea azul",
@@ -97,7 +95,7 @@
 	"block.buzzier_bees.pink_clover_scented_candle": "Vela aromática de trébol rosa",
 	"block.buzzier_bees.white_clover_scented_candle": "Vela aromática de trébol blanco",
 	"block.buzzier_bees.buttercup_scented_candle": "Vela aromática de botón de oro",
-	
+
 	"block.buzzier_bees.cartwheel_scented_candle": "Vela aromática de remolino",
 	"block.buzzier_bees.bluebell_scented_candle": "Vela aromática de jacinto del bosque",
 	"block.buzzier_bees.violet_scented_candle": "Vela aromática de violeta",
@@ -124,56 +122,48 @@
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Vela aromática de narciso de otoño",
 
 	"entity.buzzier_bees.grizzly_bear": "Oso pardo",
-	"entity.buzzier_bees.black_bear": "Oso negro",
-	"entity.buzzier_bees.bumblebee": "Abejorro",
 	"entity.buzzier_bees.moobloom": "Vaca moobloom",
 
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apicultor",
 
 	"effect.buzzier_bees.sunny": "Soleado",
-	
+
 	"item.minecraft.potion.effect.long_luck": "Poción de suerte",
 	"item.minecraft.potion.effect.strong_luck": "Poción de suerte",
 	"item.minecraft.potion.effect.unluck": "Poción de mala suerte",
 	"item.minecraft.potion.effect.long_unluck": "Poción de mala suerte",
 	"item.minecraft.potion.effect.strong_unluck": "Poción de mala suerte",	
-	
+
 	"item.minecraft.splash_potion.effect.long_luck": "Poción arrojadiza de suerte",
 	"item.minecraft.splash_potion.effect.strong_luck": "Poción arrojadiza de suerte",
 	"item.minecraft.splash_potion.effect.unluck": "Poción arrojadiza de mala suerte",
 	"item.minecraft.splash_potion.effect.long_unluck": "Poción arrojadiza de mala suerte",
 	"item.minecraft.splash_potion.effect.strong_unluck": "Poción arrojadiza de mala suerte",
-	
+
 	"item.minecraft.lingering_potion.effect.long_luck": "Poción persistente de suerte",
 	"item.minecraft.lingering_potion.effect.strong_luck": "Poción persistente de suerte",
 	"item.minecraft.lingering_potion.effect.unluck": "Poción persistente de mala suerte",
 	"item.minecraft.lingering_potion.effect.long_unluck": "Poción persistente de mala suerte",
 	"item.minecraft.lingering_potion.effect.strong_unluck": "Poción persistente de mala suerte",
-	
+
 	"item.minecraft.tipped_arrow.effect.long_luck": "Flecha de suerte",
 	"item.minecraft.tipped_arrow.effect.strong_luck": "Flecha de suerte",
 	"item.minecraft.tipped_arrow.effect.unluck": "Flecha de mala suerte",
 	"item.minecraft.tipped_arrow.effect.long_unluck": "Flecha de mala suerte",
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Flecha de mala suerte",
-	
+
 	"advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encontrá un trébol de cuatro hojas",
-	
-	"advancements.end.scented_candle.title": "Aromaterapia",
-	"advancements.end.scented_candle.description": "Conseguí una vela aromática",
-	
-	"advancements.end.all_scented_candles.title": "Fragancia completa",
-	"advancements.end.all_scented_candles.description": "Conseguí todas las velas aromáticas",
-	
+
 	"advancements.husbandry.honey_apple.title": "Una manzana al día",
 	"advancements.husbandry.honey_apple.description": "Usá una manzana melosa para curar la levitación",
-	
+
 	"advancements.husbandry.honey_bread.title": "Buenos presagios",
 	"advancements.husbandry.honey_bread.description": "Usá un pan de miel para curar el mal presagio",
-	
+
 	"advancements.husbandry.glazed_porkchop.title": "Rodillas débiles, brazos melosos",
 	"advancements.husbandry.glazed_porkchop.description": "Usá una chuleta caramelizada para curar el cansancio",
-	
+
 	"tooltip.buzzier_bees.is_baby": "Bebé",
 	"tooltip.buzzier_bees.has_nectar": "Polinizada",
 	"tooltip.buzzier_bees.is_angry": "Enojada",
