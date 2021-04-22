@@ -16,8 +16,6 @@
   	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Plaster miodu",
   
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Jajo przyzywające niedźwiedzia grizli",
-	"item.buzzier_bees.black_bear_spawn_egg": "Jajo przyzywające czarnego niedźwiedzia",
-	"item.buzzier_bees.bumblebee_spawn_egg": "Jajo przyzywające trzmiela",
 	"item.buzzier_bees.moobloom_spawn_egg": "Jajo przyzywające mooblooma",
 	
 	"block.minecraft.beehive": "Dębowy ul",
@@ -124,8 +122,6 @@
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Świeca o zapachu zimowita jesiennego",
 	
 	"entity.buzzier_bees.grizzly_bear": "Niedźwiedź grizli",
-	"entity.buzzier_bees.black_bear": "Czarny niedźwiedź",
-	"entity.buzzier_bees.bumblebee": "Trzmiel",
 	"entity.buzzier_bees.moobloom": "Moobloom",
 	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Pszczelarz",
@@ -159,12 +155,6 @@
 	"advancements.husbandry.four_leaf_clover.title": "Szczęście mi sprzyja",
 	"advancements.husbandry.four_leaf_clover.description": "Znajdź czterolistną koniczynę",
 	
-	"advancements.end.scented_candle.title": "Aromaterapia",
-	"advancements.end.scented_candle.description": "Zdobądź świecę zapachową",
-	
-	"advancements.end.all_scented_candles.title": "Perfumy mi nie potrzebne",
-	"advancements.end.all_scented_candles.description": "Zdobądź wszystkie świece zapachowe",
-	
 	"advancements.husbandry.honey_apple.title": "Niedaleko padam",
 	"advancements.husbandry.honey_apple.description": "Użyj jabłka w miodzie aby wyleczyć się z lewitacji",
 	
@@ -179,7 +169,7 @@
 	"tooltip.buzzier_bees.is_angry": "Wściekła",
 	"tooltip.buzzier_bees.has_stung": "Bez żądła",
 	
-	"block.minecraft.banner.mca_honeycomb.black": "Czarny plaster miodu",
+  "block.minecraft.banner.mca_honeycomb.black": "Czarny plaster miodu",
   "block.minecraft.banner.mca_honeycomb.red": "Czerwony plaster miodu",
   "block.minecraft.banner.mca_honeycomb.green": "Zielony plaster miodu",
   "block.minecraft.banner.mca_honeycomb.brown": "Brązowy plaster miodu",
