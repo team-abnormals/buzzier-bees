@@ -52,9 +52,9 @@
   "block.buzzier_bees.white_clover": "Trifoglio bianco",
   "block.buzzier_bees.buttercup": "Ranuncolo",
 
-  "block.buzzier_bees.potted_pink_clover": "Trifoglio rosa invasato",
-  "block.buzzier_bees.potted_white_clover": "Trifoglio bianco invasato",
-  "block.buzzier_bees.potted_buttercup": "Ranuncolo invasato",
+  "block.buzzier_bees.potted_pink_clover": "Trifoglio rosa in vaso",
+  "block.buzzier_bees.potted_white_clover": "Trifoglio bianco in vaso",
+  "block.buzzier_bees.potted_buttercup": "Ranuncolo in vaso",
 
   "block.buzzier_bees.candle": "Candela",
   "block.buzzier_bees.soul_candle": "Candela delle anime",
@@ -96,8 +96,8 @@
   "block.buzzier_bees.white_clover_scented_candle": "Candela profumata di trifoglio bianco",
   "block.buzzier_bees.buttercup_scented_candle": "Candela profumata di ranuncolo",
 
-  "block.buzzier_bees.cartwheel_scented_candle": "Candela profumata di Cartwheel",
-  "block.buzzier_bees.bluebell_scented_candle": "Candela profumata di Bluebell",
+  "block.buzzier_bees.cartwheel_scented_candle": "Candela profumata di cartwheel",
+  "block.buzzier_bees.bluebell_scented_candle": "Candela profumata di bluebell",
   "block.buzzier_bees.violet_scented_candle": "Candela profumata di viola",
   "block.buzzier_bees.red_lotus_flower_scented_candle": "Candela profumata di fiore di loto rosso",
   "block.buzzier_bees.white_lotus_flower_scented_candle": "Candela profumata di fiore di loto bianco",
@@ -116,8 +116,8 @@
   "block.buzzier_bees.gilia_scented_candle": "Candela profumata di gilia",
   "block.buzzier_bees.yucca_flower_scented_candle": "Candela profumata di fiore di yucca",
 
-  "block.buzzier_bees.pink_searocket_scented_candle": "Candela profumata di cakile maritima rosa",
-  "block.buzzier_bees.white_searocket_scented_candle": "Candela profumata di cakile maritima bianco",
+  "block.buzzier_bees.pink_searocket_scented_candle": "Candela profumata di razzo marino rosa",
+  "block.buzzier_bees.white_searocket_scented_candle": "Candela profumata di razzo marino bianco",
 
   "block.buzzier_bees.autumn_crocus_scented_candle": "Candela profumata di croco autunnale",
 
