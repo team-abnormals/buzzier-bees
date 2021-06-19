@@ -1,0 +1,188 @@
+{
+  "item.buzzier_bees.four_leaf_clover": "Quadrifoglio",
+
+  "item.buzzier_bees.honey_wand": "Bacchetta di miele",
+  "item.buzzier_bees.sticky_honey_wand": "Bacchetta di miele appiccicosa",
+
+  "item.buzzier_bees.honey_apple": "Mela di miele",
+  "item.buzzier_bees.honey_bread": "Pane al miele",
+  "item.buzzier_bees.glazed_porkchop": "Costoletta di maiale glassata",
+
+  "item.buzzier_bees.silverfish_bottle": "Ampolla di pesciolino d'argento",
+  "item.buzzier_bees.endermite_bottle": "Ampolla di endermite",
+  "item.buzzier_bees.bee_bottle": "Ampolla di ape",
+
+  "item.buzzier_bees.honeycomb_banner_pattern": "Motivo stendardo",
+    "item.buzzier_bees.honeycomb_banner_pattern.desc": "Favo",
+
+  "item.buzzier_bees.grizzly_bear_spawn_egg": "Uovo generatore di orso grizzly",
+  "item.buzzier_bees.moobloom_spawn_egg": "Uovo generatore di moobloom",
+
+  "block.minecraft.beehive": "Arnia di quercia",
+  "block.buzzier_bees.spruce_beehive": "Arnia di abete",
+  "block.buzzier_bees.birch_beehive": "Arnia di betulla",
+  "block.buzzier_bees.jungle_beehive": "Arnia della giungla",
+  "block.buzzier_bees.acacia_beehive": "Arnia di acacia",
+  "block.buzzier_bees.dark_oak_beehive": "Arnia di quercia scura",
+  "block.buzzier_bees.crimson_beehive": "Arnia cremisi",
+  "block.buzzier_bees.warped_beehive": "Arnia distorta",
+
+  "block.buzzier_bees.crystallized_honey_block": "Blocco di miele cristallizzato",
+
+  "block.buzzier_bees.honey_lamp" : "Lampada di miele",
+  "block.buzzier_bees.honey_pot": "Vaso di miele",
+
+  "block.buzzier_bees.honeycomb_bricks": "Mattoni di favi",
+  "block.buzzier_bees.honeycomb_brick_stairs": "Scalini di mattoni di favi",
+  "block.buzzier_bees.honeycomb_brick_slab": "Lastra di mattoni di favi",
+  "block.buzzier_bees.honeycomb_brick_wall": "Muretto di mattoni di favi",
+  "block.buzzier_bees.honeycomb_brick_vertical_slab": "Lastra verticale di mattoni di favi",
+  "block.buzzier_bees.chiseled_honeycomb_bricks": "Mattoni di favi cesellati",
+
+  "block.buzzier_bees.honeycomb_tiles": "Piastrelle di favi",
+  "block.buzzier_bees.honeycomb_tile_stairs": "Scalini di piastrelle di favi",
+  "block.buzzier_bees.honeycomb_tile_slab": "Lastra di piastrelle di favi",
+  "block.buzzier_bees.honeycomb_tile_wall": "Muretto di piastrelle di favi",
+  "block.buzzier_bees.honeycomb_tile_vertical_slab": "Lastra verticale di piastrelle di favi",
+
+  "block.buzzier_bees.honeycomb_door": "Porta di favi",
+  "block.buzzier_bees.honeycomb_trapdoor": "Botola di favi",
+
+  "block.buzzier_bees.pink_clover": "Trifoglio rosa",
+  "block.buzzier_bees.white_clover": "Trifoglio bianco",
+  "block.buzzier_bees.buttercup": "Ranuncolo",
+
+  "block.buzzier_bees.potted_pink_clover": "Vaso con trifoglio rosa",
+  "block.buzzier_bees.potted_white_clover": "Vaso con Trifoglio bianco",
+  "block.buzzier_bees.potted_buttercup": "Vaso con ranuncolo",
+
+  "block.buzzier_bees.candle": "Candela",
+  "block.buzzier_bees.soul_candle": "Candela delle anime",
+  "block.buzzier_bees.ender_candle": "Candela di Ender",
+  "block.buzzier_bees.cursed_candle": "Candela maledetta",
+
+  "block.buzzier_bees.white_candle": "Candela bianca",
+  "block.buzzier_bees.orange_candle": "Candela arancione",
+  "block.buzzier_bees.magenta_candle": "Candela magenta",
+  "block.buzzier_bees.light_blue_candle": "Candela azzurra",
+  "block.buzzier_bees.yellow_candle": "Candela gialla",
+  "block.buzzier_bees.lime_candle": "Candela lime",
+  "block.buzzier_bees.pink_candle": "Candela rosa",
+  "block.buzzier_bees.gray_candle": "Candela grigia",
+  "block.buzzier_bees.light_gray_candle": "Candela grigio chiaro",
+  "block.buzzier_bees.cyan_candle": "Candela ciano",
+  "block.buzzier_bees.purple_candle": "Candela viola",
+  "block.buzzier_bees.blue_candle": "Candela blu",
+  "block.buzzier_bees.brown_candle": "Candela marrone",
+  "block.buzzier_bees.green_candle": "Candela verde",
+  "block.buzzier_bees.red_candle": "Candela rossa",
+  "block.buzzier_bees.black_candle": "Candela nera",
+
+  "block.buzzier_bees.allium_scented_candle": "Candela profumata di allium",
+  "block.buzzier_bees.azure_bluet_scented_candle": "Candela profumata di houstonia",
+  "block.buzzier_bees.blue_orchid_scented_candle": "Candela profumata di orchidea blu",
+  "block.buzzier_bees.dandelion_scented_candle": "Candela profumata di dente di leone",
+  "block.buzzier_bees.cornflower_scented_candle": "Candela profumata di fiordaliso",
+  "block.buzzier_bees.lily_of_the_valley_scented_candle": "Candela profumata di mughetto",
+  "block.buzzier_bees.oxeye_daisy_scented_candle": "Candela profumata di margherita",
+  "block.buzzier_bees.poppy_scented_candle": "Candela profumata di papavero",
+  "block.buzzier_bees.white_tulip_scented_candle": "Candela profumata di tulipano bianco",
+  "block.buzzier_bees.orange_tulip_scented_candle": "Candela profumata di tulipano arancione",
+  "block.buzzier_bees.pink_tulip_scented_candle": "Candela profumata di tulipano rosa",
+  "block.buzzier_bees.red_tulip_scented_candle": "Candela profumata di tulipano rosso",
+  "block.buzzier_bees.wither_rose_scented_candle": "Candela profumata di rosa di Wither",
+
+  "block.buzzier_bees.pink_clover_scented_candle": "Candela profumata di trifoglio rosa",
+  "block.buzzier_bees.white_clover_scented_candle": "Candela profumata di trifoglio bianco",
+  "block.buzzier_bees.buttercup_scented_candle": "Candela profumata di ranuncolo",
+
+  "block.buzzier_bees.cartwheel_scented_candle": "Candela profumata di cartwheel",
+  "block.buzzier_bees.bluebell_scented_candle": "Candela profumata di bluebell",
+  "block.buzzier_bees.violet_scented_candle": "Candela profumata di viola",
+  "block.buzzier_bees.red_lotus_flower_scented_candle": "Candela profumata di fiore di loto rosso",
+  "block.buzzier_bees.white_lotus_flower_scented_candle": "Candela profumata di fiore di loto bianco",
+  "block.buzzier_bees.dianthus_scented_candle": "Candela profumata di dianthus",
+  "block.buzzier_bees.yellow_hibiscus_scented_candle": "Candela profumata di ibisco giallo",
+  "block.buzzier_bees.orange_hibiscus_scented_candle": "Candela profumata di ibisco arancione",
+  "block.buzzier_bees.red_hibiscus_scented_candle": "Candela profumata di ibisco rosso",
+  "block.buzzier_bees.pink_hibiscus_scented_candle": "Candela profumata di ibisco rosa",
+  "block.buzzier_bees.magenta_hibiscus_scented_candle": "Candela profumata di ibisco magenta",
+  "block.buzzier_bees.purple_hibiscus_scented_candle": "Candela profumata di ibisco viola",
+
+  "block.buzzier_bees.warm_monkey_brush_scented_candle": "Candela profumata di spazzola della scimmia calda",
+  "block.buzzier_bees.hot_monkey_brush_scented_candle": "Candela profumata di spazzola della scimmia scottante",
+  "block.buzzier_bees.scalding_monkey_brush_scented_candle": "Candela profumata di spazzola della scimmia cocente",
+  "block.buzzier_bees.water_hyacinth_scented_candle": "Candela profumata di giacinto d'acqua",
+  "block.buzzier_bees.gilia_scented_candle": "Candela profumata di gilia",
+  "block.buzzier_bees.yucca_flower_scented_candle": "Candela profumata di fiore di yucca",
+
+  "block.buzzier_bees.pink_searocket_scented_candle": "Candela profumata di razzo marino rosa",
+  "block.buzzier_bees.white_searocket_scented_candle": "Candela profumata di razzo marino bianco",
+
+  "block.buzzier_bees.autumn_crocus_scented_candle": "Candela profumata di croco autunnale",
+
+  "entity.buzzier_bees.grizzly_bear": "Orso grizzly,
+  "entity.buzzier_bees.moobloom": "Moobloom",
+
+  "entity.minecraft.villager.buzzier_bees.apiarist": "Apicoltore",
+
+  "effect.buzzier_bees.sunny": "Assolato",
+
+  "item.minecraft.potion.effect.long_luck": "Pozione di fortuna",
+  "item.minecraft.potion.effect.strong_luck": "Pozione di fortuna",
+  "item.minecraft.potion.effect.unluck": "Pozione di sfortuna",
+  "item.minecraft.potion.effect.long_unluck": "Pozione di sfortuna",
+  "item.minecraft.potion.effect.strong_unluck": "Pozione di sfortuna",
+
+  "item.minecraft.splash_potion.effect.long_luck": "Pozione da lancio di fortuna",
+  "item.minecraft.splash_potion.effect.strong_luck": "Pozione da lancio di fortuna",
+  "item.minecraft.splash_potion.effect.unluck": "Pozione da lancio di sfortuna",
+  "item.minecraft.splash_potion.effect.long_unluck": "Pozione da lancio di sfortuna",
+  "item.minecraft.splash_potion.effect.strong_unluck": "Pozione da lancio di sfortuna",
+
+  "item.minecraft.lingering_potion.effect.long_luck": "Pozione persistente di fortuna",
+  "item.minecraft.lingering_potion.effect.strong_luck": "Pozione persistente di fortuna",
+  "item.minecraft.lingering_potion.effect.unluck": "Pozione persistente di sfortuna",
+  "item.minecraft.lingering_potion.effect.long_unluck": "Pozione persistente di sfortuna",
+  "item.minecraft.lingering_potion.effect.strong_unluck": "Pozione persistente di sfortuna",
+
+  "item.minecraft.tipped_arrow.effect.long_luck": "Freccia di fortuna",
+  "item.minecraft.tipped_arrow.effect.strong_luck": "Freccia di fortuna",
+  "item.minecraft.tipped_arrow.effect.unluck": "Freccia di sfortuna",
+  "item.minecraft.tipped_arrow.effect.long_unluck": "Freccia di sfortuna",
+  "item.minecraft.tipped_arrow.effect.strong_unluck": "Freccia di sfortuna",
+
+  "advancements.husbandry.four_leaf_clover.title": "Miglior fortuna questa volta",
+  "advancements.husbandry.four_leaf_clover.description": "Trova un quadrifoglio",
+
+  "advancements.husbandry.honey_apple.title": "Una mela al giorno",
+  "advancements.husbandry.honey_apple.description": "Usa una mela di miele per curare la levitazione",
+
+  "advancements.husbandry.honey_bread.title": "Buon auspicio",
+  "advancements.husbandry.honey_bread.description": "Usa il pane al miele per curare il malaugurio",
+
+  "advancements.husbandry.glazed_porkchop.title": "Ginocchia deboli, braccia mielate",
+  "advancements.husbandry.glazed_porkchop.description": "Usa una costoletta di maiale lustrata per curare l'affaticamento",
+
+  "tooltip.buzzier_bees.is_baby": "Neonato",
+  "tooltip.buzzier_bees.has_nectar": "Impollinato",
+  "tooltip.buzzier_bees.is_angry": "Arrabbiato",
+  "tooltip.buzzier_bees.has_stung": "Senza pungiglione",
+
+  "block.minecraft.banner.mca_honeycomb.black": "Favo nero",
+    "block.minecraft.banner.mca_honeycomb.red": "Favo rosso",
+    "block.minecraft.banner.mca_honeycomb.green": "Favo verde",
+    "block.minecraft.banner.mca_honeycomb.brown": "Favo marrone",
+    "block.minecraft.banner.mca_honeycomb.blue": "Favo blu",
+    "block.minecraft.banner.mca_honeycomb.purple": "Favo viola",
+    "block.minecraft.banner.mca_honeycomb.cyan": "Favo ciano",
+    "block.minecraft.banner.mca_honeycomb.light_gray": "Favo grigio chiaro",
+    "block.minecraft.banner.mca_honeycomb.gray": "Favo grigio",
+    "block.minecraft.banner.mca_honeycomb.pink": "Favo rosa",
+    "block.minecraft.banner.mca_honeycomb.lime": "Favo lime",
+    "block.minecraft.banner.mca_honeycomb.yellow": "Favo giallo",
+    "block.minecraft.banner.mca_honeycomb.light_blue": "Favo azzurro",
+    "block.minecraft.banner.mca_honeycomb.magenta": "Favo magenta",
+    "block.minecraft.banner.mca_honeycomb.orange": "Favo arancione",
+    "block.minecraft.banner.mca_honeycomb.white": "Favo bianco"
+}
