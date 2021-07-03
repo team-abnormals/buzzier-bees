@@ -1,0 +1,10 @@
+{
+  "input": {
+    "item": "minecraft:air"
+  },
+  "output": {
+    "item": "minecraft:honey_block"
+  },
+  "level": -4,
+  "chance": 1
+}

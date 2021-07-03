@@ -1,10 +1,12 @@
 package com.minecraftabnormals.buzzier_bees.common.blocks;
 
-import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
+import javax.annotation.Nullable;
+
+import com.minecraftabnormals.buzzier_bees.core.other.HoneyPotManager;
 import com.mojang.datafixers.util.Pair;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ISidedInventoryProvider;
@@ -14,7 +16,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.IBooleanFunction;
@@ -24,9 +31,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 	public static final IntegerProperty HONEY_LEVEL = IntegerProperty.create("honey_level", 0, 4);
@@ -39,93 +44,28 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		if (worldIn.isRemote)
+			return ActionResultType.SUCCESS;
+		
 		ItemStack stack = player.getHeldItem(handIn);
-		Pair<ItemStack, Integer> output = getOutput(stack, state.get(HONEY_LEVEL));
-		ItemStack outputItem = output.getFirst();
+		Pair<ItemStack, Integer> output = HoneyPotManager.getUsage(stack, state, worldIn.getRandom());
 
-		if (outputItem != ItemStack.EMPTY) {
+		if (output != null) {
+			ItemStack outputItem = output.getFirst();
 			player.swingArm(handIn);
-			if (outputItem.getItem() == Items.HONEY_BLOCK) {
-				attemptEmpty(state, worldIn, pos, output);
-			} else {
-				if (!player.abilities.isCreativeMode) {
-					stack.shrink(1);
-					if (stack.isEmpty()) {
-						player.setHeldItem(handIn, outputItem);
-					} else if (!player.inventory.addItemStackToInventory(outputItem)) {
-						player.dropItem(outputItem, false);
-					}
-				}
-			}
+			
+			ItemHandlerHelper.giveItemToPlayer(player, outputItem);
 
 			if (!worldIn.isRemote) {
+				if (!player.abilities.isCreativeMode)
+					stack.shrink(1);
 				worldIn.setBlockState(pos, state.with(HONEY_LEVEL, output.getSecond()));
+				worldIn.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			}
-			worldIn.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			return ActionResultType.func_233537_a_(worldIn.isRemote());
+			return ActionResultType.CONSUME;
 		}
 
 		return ActionResultType.PASS;
-	}
-
-	private static BlockState attemptEmpty(BlockState state, World world, BlockPos pos, Pair<ItemStack, Integer> output) {
-		if (!world.isRemote) {
-			double d0 = (double) (world.rand.nextFloat() * 0.7F) + (double) 0.15F;
-			double d1 = (double) (world.rand.nextFloat() * 0.7F) + (double) 0.060000002F + 0.6D;
-			double d2 = (double) (world.rand.nextFloat() * 0.7F) + (double) 0.15F;
-			ItemEntity itementity = new ItemEntity(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, output.getFirst());
-			itementity.setDefaultPickupDelay();
-			world.addEntity(itementity);
-		}
-
-		return state;
-	}
-
-	private static Pair<ItemStack, Integer> getOutput(ItemStack input, int level) {
-		Item item = input.getItem();
-		Pair<ItemStack, Integer> output = Pair.of(ItemStack.EMPTY, level);
-
-		boolean notEmpty = level > 0;
-		boolean notFull = level < 4;
-
-		if (item == Items.GLASS_BOTTLE && notEmpty)
-			output = createItemStack(Items.HONEY_BOTTLE, level - 1);
-
-		else if (item == Items.BREAD && notEmpty)
-			output = createItemStack(BBItems.HONEY_BREAD.get(), level - 1);
-
-		else if (item == Items.APPLE && notEmpty)
-			output = createItemStack(BBItems.HONEY_APPLE.get(), level - 1);
-
-		else if (item == Items.COOKED_PORKCHOP && notEmpty)
-			output = createItemStack(BBItems.GLAZED_PORKCHOP.get(), level - 1);
-
-		else if (item == BBItems.HONEY_WAND.get() && notEmpty)
-			output = createItemStack(BBItems.STICKY_HONEY_WAND.get(), level - 1);
-
-		else if (item == Items.AIR && level == 4)
-			output = createItemStack(Items.HONEY_BLOCK, level - 4);
-
-		else if (item == Items.HONEY_BOTTLE && notFull)
-			output = createItemStack(Items.GLASS_BOTTLE, level + 1);
-
-		else if (item == BBItems.STICKY_HONEY_WAND.get() && notFull)
-			output = createItemStack(BBItems.HONEY_WAND.get(), level + 1);
-
-		else if (item == Items.HONEY_BLOCK && level == 0)
-			output = createItemStack(Items.AIR, level + 4);
-
-		else if (item == Items.HONEYCOMB && notFull) {
-			Random rand = new Random();
-			int amount = rand.nextInt(3) == 0 ? 1 : 0;
-			output = createItemStack(Items.AIR, level + amount);
-		}
-
-		return output;
-	}
-
-	private static Pair<ItemStack, Integer> createItemStack(Item item, int level) {
-		return Pair.of(new ItemStack(item), level);
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

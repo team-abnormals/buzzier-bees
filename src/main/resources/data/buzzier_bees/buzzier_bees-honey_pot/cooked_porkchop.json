@@ -1,0 +1,10 @@
+{
+  "input": {
+    "item": "minecraft:cooked_porkchop"
+  },
+  "output": {
+    "item": "buzzier_bees:glazed_porkchop"
+  },
+  "level": -1,
+  "chance": 1
+}

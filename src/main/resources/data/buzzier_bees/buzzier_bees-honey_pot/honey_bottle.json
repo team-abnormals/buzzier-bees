@@ -1,0 +1,10 @@
+{
+  "input": {
+    "item": "minecraft:honey_bottle"
+  },
+  "output": {
+    "item": "minecraft:glass_bottle"
+  },
+  "level": 1,
+  "chance": 1
+}

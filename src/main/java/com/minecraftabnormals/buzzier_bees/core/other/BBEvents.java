@@ -31,6 +31,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -39,6 +40,11 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBEvents {
+	
+	@SubscribeEvent
+	public static void addHoneyPotReloadListener(AddReloadListenerEvent event) {
+		event.addListener(HoneyPotManager.getInstance());
+	}
 
 	@SubscribeEvent
 	public static void onLivingSpawned(EntityJoinWorldEvent event) {

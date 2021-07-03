@@ -1,0 +1,10 @@
+{
+  "input": {
+    "item": "minecraft:bread"
+  },
+  "output": {
+    "item": "buzzier_bees:honey_bread"
+  },
+  "level": -1,
+  "chance": 1
+}

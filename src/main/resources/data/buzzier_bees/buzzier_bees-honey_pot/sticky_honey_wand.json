@@ -1,0 +1,10 @@
+{
+  "input": {
+    "item": "buzzier_bees:sticky_honey_wand"
+  },
+  "output": {
+    "item": "buzzier_bees:honey_wand"
+  },
+  "level": 1,
+  "chance": 1
+}
