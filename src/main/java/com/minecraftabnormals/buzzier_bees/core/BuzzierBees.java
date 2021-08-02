@@ -1,5 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.core;
 
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.registry.*;
@@ -39,6 +40,7 @@ public class BuzzierBees {
 		});
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BBConfig.COMMON_SPEC);
+		DataUtil.registerConfigCondition(BuzzierBees.MOD_ID, BBConfig.COMMON);
 	}
 
 	private void setupCommon(final FMLCommonSetupEvent event) {

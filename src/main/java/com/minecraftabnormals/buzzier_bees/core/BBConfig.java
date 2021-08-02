@@ -1,5 +1,6 @@
 package com.minecraftabnormals.buzzier_bees.core;
 
+import com.minecraftabnormals.abnormals_core.core.annotations.ConfigKey;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -9,7 +10,11 @@ import org.apache.commons.lang3.tuple.Pair;
 public class BBConfig {
 
 	public static class Common {
+
+		@ConfigKey("tall_flower_duplication")
 		public final ConfigValue<Boolean> tallFlowerDuplication;
+
+		@ConfigKey("short_flower_duplication")
 		public final ConfigValue<Boolean> shortFlowerDuplication;
 
 		Common(ForgeConfigSpec.Builder builder) {
