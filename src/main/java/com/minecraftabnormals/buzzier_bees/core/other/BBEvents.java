@@ -5,7 +5,6 @@ import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBTags.EntityTypes;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
-import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.IGrowable;
@@ -16,20 +15,17 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.monster.PhantomEntity;
-import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -96,54 +92,22 @@ public class BBEvents {
 			ItemStack itemstack = event.getPlayer().getHeldItem(event.getHand());
 			Item item = itemstack.getItem();
 
-			Item bottle = null;
-			boolean successful = false;
-
 			Entity target = event.getTarget();
 			EntityType<?> targetType = target.getType();
 			PlayerEntity player = event.getPlayer();
 			Hand hand = event.getHand();
 
-			if (targetType == EntityType.SILVERFISH) {
-				bottle = BBItems.BOTTLE_OF_SILVERFISH.get();
-				successful = true;
-			}
-			if (targetType == EntityType.ENDERMITE) {
-				bottle = BBItems.BOTTLE_OF_ENDERMITE.get();
-				successful = true;
-			}
-			if (targetType == EntityType.BEE) {
-				bottle = BBItems.BOTTLE_OF_BEE.get();
-				successful = true;
-			}
-			ItemStack bottleItem = new ItemStack(bottle);
-
-			if (targetType == EntityType.BEE) {
-				BeeEntity bee = (BeeEntity) target;
-				CompoundNBT tag = bottleItem.getOrCreateTag();
-				tag.putBoolean("HasNectar", bee.hasNectar());
-				tag.putBoolean("HasStung", bee.hasStung());
-				tag.putInt("AngerTime", bee.getAngerTime());
-				if (bee.getAngerTarget() != null) tag.putUniqueId("AngryAt", bee.getAngerTarget());
-				tag.putInt("Age", bee.getGrowingAge());
-				tag.putFloat("Health", bee.getHealth());
-			}
-
-			if (target.hasCustomName()) {
-				ITextComponent name = target.getCustomName();
-				bottleItem = bottleItem.setDisplayName(name);
-			}
-
-			if (successful && ((MobEntity) target).isAlive()) {
-				if (item == Items.GLASS_BOTTLE) {
+			if (item == Items.GLASS_BOTTLE && target.isAlive() && BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.containsKey(targetType)) {
+				ItemStack bottle = BBCompat.ENTITY_TYPE_TO_BOTTLE_MAP.get(targetType).apply(target);
+				if (bottle != null) {
 					itemstack.shrink(1);
-					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-					player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
+					event.getWorld().playSound(null, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+					player.addStat(Stats.ITEM_USED.get(item));
 					event.getTarget().remove();
 					if (itemstack.isEmpty()) {
-						player.setHeldItem(hand, bottleItem);
-					} else if (!player.inventory.addItemStackToInventory(bottleItem)) {
-						player.dropItem(bottleItem, false);
+						player.setHeldItem(hand, bottle);
+					} else if (!player.inventory.addItemStackToInventory(bottle)) {
+						player.dropItem(bottle, false);
 					}
 					player.swingArm(hand);
 				}
