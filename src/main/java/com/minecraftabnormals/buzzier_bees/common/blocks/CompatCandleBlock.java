@@ -20,7 +20,7 @@ public class CompatCandleBlock extends SoulCandleBlock {
 
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-		return enchantPowerBonus * state.get(CANDLES);
+		return enchantPowerBonus * state.getValue(CANDLES);
 	}
 
 	@Override

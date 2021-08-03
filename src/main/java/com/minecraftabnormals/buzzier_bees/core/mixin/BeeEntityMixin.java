@@ -19,7 +19,7 @@ public abstract class BeeEntityMixin extends AnimalEntity {
 	}
 
 	@Shadow
-	public abstract boolean failedPollinatingTooLong();
+	public abstract boolean isTiredOfLookingForNectar();
 
 	@Shadow
 	public abstract boolean hasNectar();
@@ -27,10 +27,10 @@ public abstract class BeeEntityMixin extends AnimalEntity {
 	@Shadow
 	public abstract boolean isHiveNearFire();
 
-	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/BeeEntity;getAttackTarget()Lnet/minecraft/entity/LivingEntity;", shift = At.Shift.AFTER), method = "canEnterHive", cancellable = true)
+	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/BeeEntity;getTarget()Lnet/minecraft/entity/LivingEntity;", shift = At.Shift.AFTER), method = "wantsToEnterHive", cancellable = true)
 	private void canEnterHive(CallbackInfoReturnable<Boolean> cir) {
-		boolean sunny = this.getActivePotionEffect(BBEffects.SUNNY.get()) != null;
-		boolean flag = this.failedPollinatingTooLong() || this.world.isRaining() || (this.world.isNightTime() && !sunny) || this.hasNectar();
+		boolean sunny = this.getEffect(BBEffects.SUNNY.get()) != null;
+		boolean flag = this.isTiredOfLookingForNectar() || this.level.isRaining() || (this.level.isNight() && !sunny) || this.hasNectar();
 		cir.setReturnValue(flag && !this.isHiveNearFire());
 	}
 }

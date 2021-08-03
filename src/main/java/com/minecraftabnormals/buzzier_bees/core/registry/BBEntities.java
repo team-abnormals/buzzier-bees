@@ -25,7 +25,7 @@ public class BBEntities {
 	public static final RegistryObject<EntityType<MoobloomEntity>> MOOBLOOM = HELPER.createLivingEntity("moobloom", MoobloomEntity::new, EntityClassification.CREATURE, 0.9F, 1.4F);
 
 	public static void registerEntitySpawns() {
-		EntitySpawnPlacementRegistry.register(MOOBLOOM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
+		EntitySpawnPlacementRegistry.register(MOOBLOOM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::checkAnimalSpawnRules);
 	}
 
 	public static void registerRendering() {
@@ -35,7 +35,7 @@ public class BBEntities {
 
 	@SubscribeEvent
 	public static void onEntityAttributes(EntityAttributeCreationEvent event) {
-		event.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().create());
-		event.put(MOOBLOOM.get(), MoobloomEntity.func_234188_eI_().create());
+		event.put(GRIZZLY_BEAR.get(), GrizzlyBearEntity.registerAttributes().build());
+		event.put(MOOBLOOM.get(), MoobloomEntity.createAttributes().build());
 	}
 }

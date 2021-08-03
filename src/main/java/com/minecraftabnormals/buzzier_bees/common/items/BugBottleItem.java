@@ -29,31 +29,31 @@ public class BugBottleItem extends Item {
 		this.typeIn = typeIn;
 	}
 
-	public ActionResultType onItemUse(ItemUseContext context) {
-		World world = context.getWorld();
-		if (world.isRemote) {
+	public ActionResultType useOn(ItemUseContext context) {
+		World world = context.getLevel();
+		if (world.isClientSide) {
 			return ActionResultType.SUCCESS;
 		} else {
-			ItemStack itemstack = context.getItem();
-			BlockPos blockpos = context.getPos();
-			Direction direction = context.getFace();
+			ItemStack itemstack = context.getItemInHand();
+			BlockPos blockpos = context.getClickedPos();
+			Direction direction = context.getClickedFace();
 			BlockState blockstate = world.getBlockState(blockpos);
 
 			BlockPos blockpos1;
 			if (blockstate.getCollisionShape(world, blockpos).isEmpty()) {
 				blockpos1 = blockpos;
 			} else {
-				blockpos1 = blockpos.offset(direction);
+				blockpos1 = blockpos.relative(direction);
 			}
 
 			EntityType<?> entitytype = this.getType(itemstack.getTag());
-			world.playSound(context.getPlayer(), context.getPos(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			if (!context.getPlayer().abilities.isCreativeMode) {
-				context.getPlayer().setHeldItem(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
+			world.playSound(context.getPlayer(), context.getClickedPos(), SoundEvents.BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			if (!context.getPlayer().abilities.instabuild) {
+				context.getPlayer().setItemInHand(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
 			}
 			Entity entity = entitytype.spawn((ServerWorld) world, itemstack, context.getPlayer(), blockpos1, SpawnReason.BUCKET, true, !Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
 			if (entity instanceof MobEntity) {
-				((MobEntity) entity).enablePersistence();
+				((MobEntity) entity).setPersistenceRequired();
 			}
 			return ActionResultType.SUCCESS;
 		}
@@ -63,7 +63,7 @@ public class BugBottleItem extends Item {
 		if (p_208076_1_ != null && p_208076_1_.contains("EntityTag", 10)) {
 			CompoundNBT compoundnbt = p_208076_1_.getCompound("EntityTag");
 			if (compoundnbt.contains("id", 8)) {
-				return EntityType.byKey(compoundnbt.getString("id")).orElse(this.typeIn);
+				return EntityType.byString(compoundnbt.getString("id")).orElse(this.typeIn);
 			}
 		}
 

@@ -16,13 +16,13 @@ import java.util.function.Supplier;
 public class ScentedCandleBlock extends CandleBlock {
 	public Supplier<Effect> candleEffectInstance;
 	public int duration;
-	public int level;
+	public int amplifier;
 
 	public ScentedCandleBlock(Supplier<Effect> candleEffectInstance, DyeColor color, Block.Properties properties) {
 		super(color, properties);
 		this.candleEffectInstance = candleEffectInstance;
 		this.duration = 70;
-		this.level = 0;
+		this.amplifier = 0;
 	}
 
 	@Override
@@ -38,6 +38,6 @@ public class ScentedCandleBlock extends CandleBlock {
 
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-		return (0.25F * state.get(CANDLES));
+		return (0.25F * state.getValue(CANDLES));
 	}
 }

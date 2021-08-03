@@ -19,20 +19,20 @@ public class HoneyWandItem extends Item {
 		super(properties);
 	}
 
-	public ActionResultType onItemUse(ItemUseContext context) {
-		World world = context.getWorld();
-		BlockPos blockpos = context.getPos();
+	public ActionResultType useOn(ItemUseContext context) {
+		World world = context.getLevel();
+		BlockPos blockpos = context.getClickedPos();
 		BlockState blockstate = world.getBlockState(blockpos);
 
-		if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.get(BeehiveBlock.HONEY_LEVEL) == 5 && !context.getPlayer().isCrouching()) {
+		if (blockstate.getBlock() instanceof BeehiveBlock && blockstate.getValue(BeehiveBlock.HONEY_LEVEL) == 5 && !context.getPlayer().isCrouching()) {
 			PlayerEntity player = context.getPlayer();
 			BlockState blockstate2 = null;
-			world.playSound(null, blockpos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-			blockstate2 = blockstate.with(BeehiveBlock.HONEY_LEVEL, 0);
-			if (!world.isRemote) {
-				world.setBlockState(blockpos, blockstate2, 11);
-				if (player != null && !((PlayerEntity) player).abilities.isCreativeMode) {
-					context.getPlayer().setHeldItem(context.getHand(), new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
+			world.playSound(null, blockpos, SoundEvents.HONEY_BLOCK_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+			blockstate2 = blockstate.setValue(BeehiveBlock.HONEY_LEVEL, 0);
+			if (!world.isClientSide) {
+				world.setBlock(blockpos, blockstate2, 11);
+				if (player != null && !((PlayerEntity) player).abilities.instabuild) {
+					context.getPlayer().setItemInHand(context.getHand(), new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
 				}
 			}
 			return ActionResultType.SUCCESS;

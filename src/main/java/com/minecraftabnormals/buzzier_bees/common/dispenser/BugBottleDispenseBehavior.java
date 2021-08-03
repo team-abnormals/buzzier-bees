@@ -12,10 +12,10 @@ import net.minecraft.util.Direction;
 
 public class BugBottleDispenseBehavior extends OptionalDispenseBehavior {
 
-	public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-		Direction direction = source.getBlockState().get(DispenserBlock.FACING);
+	public ItemStack execute(IBlockSource source, ItemStack stack) {
+		Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
 		EntityType<?> entitytype = ((BugBottleItem) stack.getItem()).getType(stack.getTag());
-		entitytype.spawn(source.getWorld(), stack, null, source.getBlockPos().offset(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
+		entitytype.spawn(source.getLevel(), stack, null, source.getPos().relative(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
 		return new ItemStack(Items.GLASS_BOTTLE);
 	}
 }

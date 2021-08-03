@@ -33,49 +33,49 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 	private static final VoxelShape[] SHAPES = Util.make(new VoxelShape[5], (levels) -> {
 		for (int i = 0; i < 5; i++) {
 			int level = i >= 1 ? i + 1 : i;
-			levels[i] = VoxelShapes.combineAndSimplify(VoxelShapes.fullCube(), Block.makeCuboidShape(3.0D, Math.max(2, level * 3), 3.0D, 13.0D, 16.0D, 13.0D), IBooleanFunction.ONLY_FIRST);
+			levels[i] = VoxelShapes.join(VoxelShapes.block(), Block.box(3.0D, Math.max(2, level * 3), 3.0D, 13.0D, 16.0D, 13.0D), IBooleanFunction.ONLY_FIRST);
 		}
 	});
 
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		ItemStack stack = player.getHeldItem(handIn);
-		Pair<ItemStack, Integer> output = getOutput(stack, state.get(HONEY_LEVEL));
+	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		ItemStack stack = player.getItemInHand(handIn);
+		Pair<ItemStack, Integer> output = getOutput(stack, state.getValue(HONEY_LEVEL));
 		ItemStack outputItem = output.getFirst();
 
 		if (outputItem != ItemStack.EMPTY) {
-			player.swingArm(handIn);
+			player.swing(handIn);
 			if (outputItem.getItem() == Items.HONEY_BLOCK) {
 				attemptEmpty(state, worldIn, pos, output);
 			} else {
-				if (!player.abilities.isCreativeMode) {
+				if (!player.abilities.instabuild) {
 					stack.shrink(1);
 					if (stack.isEmpty()) {
-						player.setHeldItem(handIn, outputItem);
-					} else if (!player.inventory.addItemStackToInventory(outputItem)) {
-						player.dropItem(outputItem, false);
+						player.setItemInHand(handIn, outputItem);
+					} else if (!player.inventory.add(outputItem)) {
+						player.drop(outputItem, false);
 					}
 				}
 			}
 
-			if (!worldIn.isRemote) {
-				worldIn.setBlockState(pos, state.with(HONEY_LEVEL, output.getSecond()));
+			if (!worldIn.isClientSide) {
+				worldIn.setBlockAndUpdate(pos, state.setValue(HONEY_LEVEL, output.getSecond()));
 			}
-			worldIn.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			return ActionResultType.func_233537_a_(worldIn.isRemote());
+			worldIn.playSound((PlayerEntity) null, pos, SoundEvents.HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			return ActionResultType.sidedSuccess(worldIn.isClientSide());
 		}
 
 		return ActionResultType.PASS;
 	}
 
 	private static BlockState attemptEmpty(BlockState state, World world, BlockPos pos, Pair<ItemStack, Integer> output) {
-		if (!world.isRemote) {
-			double d0 = (double) (world.rand.nextFloat() * 0.7F) + (double) 0.15F;
-			double d1 = (double) (world.rand.nextFloat() * 0.7F) + (double) 0.060000002F + 0.6D;
-			double d2 = (double) (world.rand.nextFloat() * 0.7F) + (double) 0.15F;
+		if (!world.isClientSide) {
+			double d0 = (double) (world.random.nextFloat() * 0.7F) + (double) 0.15F;
+			double d1 = (double) (world.random.nextFloat() * 0.7F) + (double) 0.060000002F + 0.6D;
+			double d2 = (double) (world.random.nextFloat() * 0.7F) + (double) 0.15F;
 			ItemEntity itementity = new ItemEntity(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, output.getFirst());
-			itementity.setDefaultPickupDelay();
-			world.addEntity(itementity);
+			itementity.setDefaultPickUpDelay();
+			world.addFreshEntity(itementity);
 		}
 
 		return state;
@@ -128,42 +128,42 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 		return Pair.of(new ItemStack(item), level);
 	}
 
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(HONEY_LEVEL);
 	}
 
 	public HoneyPotBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(HONEY_LEVEL, 0));
+		this.registerDefaultState(this.defaultBlockState().setValue(HONEY_LEVEL, 0));
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		return SHAPES[state.get(HONEY_LEVEL)];
+		return SHAPES[state.getValue(HONEY_LEVEL)];
 	}
 
 	@Override
-	public VoxelShape getRaytraceShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return VoxelShapes.fullCube();
+	public VoxelShape getInteractionShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
+		return VoxelShapes.block();
 	}
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		return SHAPES[state.get(HONEY_LEVEL)];
+		return SHAPES[state.getValue(HONEY_LEVEL)];
 	}
 
 	@Override
-	public boolean hasComparatorInputOverride(BlockState state) {
+	public boolean hasAnalogOutputSignal(BlockState state) {
 		return true;
 	}
 
 	@Override
-	public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos) {
-		return blockState.get(HONEY_LEVEL);
+	public int getAnalogOutputSignal(BlockState blockState, World worldIn, BlockPos pos) {
+		return blockState.getValue(HONEY_LEVEL);
 	}
 
-	public ISidedInventory createInventory(BlockState state, IWorld world, BlockPos pos) {
-		int i = state.get(HONEY_LEVEL);
+	public ISidedInventory getContainer(BlockState state, IWorld world, BlockPos pos) {
+		int i = state.getValue(HONEY_LEVEL);
 		if (i == 4) {
 			return new HoneyPotBlock.FullInventory(state, world, pos, new ItemStack(Items.HONEY_BLOCK));
 		} else {
@@ -180,11 +180,11 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			return new int[0];
 		}
 
-		public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
+		public boolean canPlaceItemThroughFace(int index, ItemStack itemStackIn, @Nullable Direction direction) {
 			return false;
 		}
 
-		public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
+		public boolean canTakeItemThroughFace(int index, ItemStack stack, Direction direction) {
 			return false;
 		}
 	}
@@ -202,7 +202,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			this.pos = pos;
 		}
 
-		public int getInventoryStackLimit() {
+		public int getMaxStackSize() {
 			return 1;
 		}
 
@@ -210,16 +210,16 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			return side == Direction.DOWN ? new int[]{0} : new int[0];
 		}
 
-		public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
+		public boolean canPlaceItemThroughFace(int index, ItemStack itemStackIn, @Nullable Direction direction) {
 			return false;
 		}
 
-		public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
+		public boolean canTakeItemThroughFace(int index, ItemStack stack, Direction direction) {
 			return !this.extracted && direction == Direction.DOWN && stack.getItem() == Items.HONEY_BLOCK;
 		}
 
-		public void markDirty() {
-			world.setBlockState(pos, state.with(HONEY_LEVEL, Integer.valueOf(0)), 3);
+		public void setChanged() {
+			world.setBlock(pos, state.setValue(HONEY_LEVEL, Integer.valueOf(0)), 3);
 			this.extracted = true;
 		}
 	}
@@ -237,7 +237,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			this.pos = pos;
 		}
 
-		public int getInventoryStackLimit() {
+		public int getMaxStackSize() {
 			return 1;
 		}
 
@@ -245,33 +245,33 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			return side == Direction.UP ? new int[]{0} : new int[0];
 		}
 
-		public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
+		public boolean canPlaceItemThroughFace(int index, ItemStack itemStackIn, @Nullable Direction direction) {
 			Item item = itemStackIn.getItem();
 			return !this.inserted && direction == Direction.UP && (item == Items.HONEYCOMB || item == Items.HONEY_BLOCK);
 		}
 
-		public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
+		public boolean canTakeItemThroughFace(int index, ItemStack stack, Direction direction) {
 			return false;
 		}
 
-		public void markDirty() {
-			ItemStack itemstack = this.getStackInSlot(0);
+		public void setChanged() {
+			ItemStack itemstack = this.getItem(0);
 			if (!itemstack.isEmpty()) {
 				this.inserted = true;
 				attemptInteract(state, pos, (World) world, itemstack);
-				this.removeStackFromSlot(0);
+				this.removeItemNoUpdate(0);
 			}
 		}
 
 		private boolean attemptInteract(BlockState state, BlockPos pos, World world, ItemStack stack) {
-			int level = state.get(HONEY_LEVEL);
+			int level = state.getValue(HONEY_LEVEL);
 			if (stack.getItem() == Items.HONEYCOMB && level < 4) {
-				if (world.rand.nextInt(3) == 0) {
-					world.setBlockState(pos, state.with(HONEY_LEVEL, level + 1));
+				if (world.random.nextInt(3) == 0) {
+					world.setBlockAndUpdate(pos, state.setValue(HONEY_LEVEL, level + 1));
 					return true;
 				}
 			} else if (stack.getItem() == Items.HONEY_BLOCK && level == 0) {
-				world.setBlockState(pos, state.with(HONEY_LEVEL, level + 4));
+				world.setBlockAndUpdate(pos, state.setValue(HONEY_LEVEL, level + 4));
 				return true;
 			}
 			return false;

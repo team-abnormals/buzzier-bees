@@ -18,21 +18,21 @@ public class ScentedCandleTileEntity extends TileEntity implements ITickableTile
 
 	@Override
 	public void tick() {
-		BlockState state = this.world.getBlockState(this.pos);
-		if (state.get(ScentedCandleBlock.LIT)) {
+		BlockState state = this.level.getBlockState(this.worldPosition);
+		if (state.getValue(ScentedCandleBlock.LIT)) {
 			ScentedCandleBlock candle = ((ScentedCandleBlock) state.getBlock());
 			Effect effect = candle.candleEffectInstance.get();
 			if (effect != null) {
 				int duration = candle.duration;
-				int level = candle.level;
-				for (LivingEntity entity : world.getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(this.pos).grow(state.get(ScentedCandleBlock.CANDLES)))) {
-					EffectInstance activeEffect = entity.getActivePotionEffect(effect);
+				int amplifier = candle.amplifier;
+				for (LivingEntity entity : level.getEntitiesOfClass(LivingEntity.class, new AxisAlignedBB(this.worldPosition).inflate(state.getValue(ScentedCandleBlock.CANDLES)))) {
+					EffectInstance activeEffect = entity.getEffect(effect);
 					if (activeEffect == null || activeEffect.getDuration() <= 25) {
-						boolean instant = effect.isInstant();
-						if (instant && this.world.getGameTime() % 300 == 0) {
-							entity.addPotionEffect(new EffectInstance(effect, 5, level, true, true));
+						boolean instant = effect.isInstantenous();
+						if (instant && this.level.getGameTime() % 300 == 0) {
+							entity.addEffect(new EffectInstance(effect, 5, amplifier, true, true));
 						} else if (!instant) {
-							entity.addPotionEffect(new EffectInstance(effect, duration, level, true, true));
+							entity.addEffect(new EffectInstance(effect, duration, amplifier, true, true));
 						}
 					}
 				}

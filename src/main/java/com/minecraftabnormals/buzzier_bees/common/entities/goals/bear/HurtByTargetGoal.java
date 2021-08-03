@@ -15,18 +15,18 @@ public class HurtByTargetGoal extends net.minecraft.entity.ai.goal.HurtByTargetG
 	/**
 	 * Execute a one shot task or start executing a continuous task
 	 */
-	public void startExecuting() {
-		super.startExecuting();
-		if (bear.isChild()) {
+	public void start() {
+		super.start();
+		if (bear.isBaby()) {
 			this.alertOthers();
-			this.resetTask();
+			this.stop();
 		}
 
 	}
 
-	protected void setAttackTarget(MobEntity mobIn, LivingEntity targetIn) {
-		if (mobIn instanceof GrizzlyBearEntity && !mobIn.isChild()) {
-			super.setAttackTarget(mobIn, targetIn);
+	protected void alertOther(MobEntity mobIn, LivingEntity targetIn) {
+		if (mobIn instanceof GrizzlyBearEntity && !mobIn.isBaby()) {
+			super.alertOther(mobIn, targetIn);
 		}
 
 	}

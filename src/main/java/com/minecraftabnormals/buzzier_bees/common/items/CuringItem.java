@@ -34,21 +34,21 @@ public class CuringItem extends Item {
 		return null;
 	}
 
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-		super.onItemUseFinish(stack, worldIn, entityLiving);
+	public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+		super.finishUsingItem(stack, worldIn, entityLiving);
 		if (entityLiving instanceof ServerPlayerEntity) {
 			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entityLiving;
 			CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-			serverplayerentity.addStat(Stats.ITEM_USED.get(this));
-			if (!worldIn.isRemote() && entityLiving.isPotionActive(counteredEffects.get(0).getPotion())) {
+			serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
+			if (!worldIn.isClientSide() && entityLiving.hasEffect(counteredEffects.get(0).getEffect())) {
 				this.getTrigger().trigger(serverplayerentity);
 			}
 		}
 
-		if (!worldIn.isRemote) {
+		if (!worldIn.isClientSide) {
 			for (int i = 0; i < counteredEffects.size(); ++i) {
-				Effect effect = counteredEffects.get(i).getPotion();
-				entityLiving.removePotionEffect(effect);
+				Effect effect = counteredEffects.get(i).getEffect();
+				entityLiving.removeEffect(effect);
 			}
 		}
 

@@ -38,112 +38,112 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 	public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 4);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final BooleanProperty LIT = BlockStateProperties.LIT;
-	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+	public static final DirectionProperty FACING = HorizontalBlock.FACING;
 	private final DyeColor color;
 
 	public static final double XZ_PARTICLE_SPEED = 0.002F;
 	public static final double Y_PARTICLE_SPEED = 0.01F;
 
 	protected static final VoxelShape[] SHAPES = new VoxelShape[]{
-			Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D),
-			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D),
-			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D),
-			Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D)};
+			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 9.0D, 10.0D),
+			Block.box(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D),
+			Block.box(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D),
+			Block.box(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D)};
 
 	public CandleBlock(DyeColor color, Properties properties) {
 		super(properties);
 		this.color = color;
-		this.setDefaultState(this.getDefaultState().with(CANDLES, 1).with(WATERLOGGED, true).with(LIT, true));
+		this.registerDefaultState(this.defaultBlockState().setValue(CANDLES, 1).setValue(WATERLOGGED, true).setValue(LIT, true));
 	}
 
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		BlockState blockstate = context.getWorld().getBlockState(context.getPos());
-		Direction direction = context.getPlacementHorizontalFacing();
+		BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos());
+		Direction direction = context.getHorizontalDirection();
 		if (blockstate.getBlock() == this) {
-			return blockstate.with(FACING, direction).with(CANDLES, Math.min(4, blockstate.get(CANDLES) + 1));
+			return blockstate.setValue(FACING, direction).setValue(CANDLES, Math.min(4, blockstate.getValue(CANDLES) + 1));
 		} else {
-			FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-			boolean flag = ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8;
-			return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, flag).with(LIT, !flag);
+			FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
+			boolean flag = ifluidstate.is(FluidTags.WATER) && ifluidstate.getAmount() == 8;
+			return this.defaultBlockState().setValue(FACING, direction).setValue(WATERLOGGED, flag).setValue(LIT, !flag);
 		}
 	}
 
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		if (!state.get(LIT) && player.getHeldItem(handIn).getItem() instanceof FlintAndSteelItem) {
-			worldIn.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, worldIn.getRandom().nextFloat() * 0.4F + 0.8F);
-			worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.TRUE), 11);
-			player.getHeldItem(handIn).damageItem(1, player, (p_219999_1_) -> {
-				p_219999_1_.sendBreakAnimation(handIn);
+	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		if (!state.getValue(LIT) && player.getItemInHand(handIn).getItem() instanceof FlintAndSteelItem) {
+			worldIn.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, worldIn.getRandom().nextFloat() * 0.4F + 0.8F);
+			worldIn.setBlock(pos, state.setValue(BlockStateProperties.LIT, Boolean.TRUE), 11);
+			player.getItemInHand(handIn).hurtAndBreak(1, player, (p_219999_1_) -> {
+				p_219999_1_.broadcastBreakEvent(handIn);
 			});
-			return ActionResultType.func_233537_a_(worldIn.isRemote());
-		} else if (state.get(LIT) && player.getHeldItem(handIn).getItem() instanceof ShovelItem) {
-			if (!worldIn.isRemote()) {
-				worldIn.playEvent(null, 1009, pos, 0);
+			return ActionResultType.sidedSuccess(worldIn.isClientSide());
+		} else if (state.getValue(LIT) && player.getItemInHand(handIn).getItem() instanceof ShovelItem) {
+			if (!worldIn.isClientSide()) {
+				worldIn.levelEvent(null, 1009, pos, 0);
 			}
-			player.getHeldItem(handIn).damageItem(1, player, (p_219999_1_) -> {
-				p_219999_1_.sendBreakAnimation(handIn);
+			player.getItemInHand(handIn).hurtAndBreak(1, player, (p_219999_1_) -> {
+				p_219999_1_.broadcastBreakEvent(handIn);
 			});
-			worldIn.setBlockState(pos, state.with(BlockStateProperties.LIT, Boolean.FALSE));
-			return ActionResultType.func_233537_a_(worldIn.isRemote());
+			worldIn.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.LIT, Boolean.FALSE));
+			return ActionResultType.sidedSuccess(worldIn.isClientSide());
 		} else {
-			return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+			return super.use(state, worldIn, pos, player, handIn, hit);
 		}
 	}
 
 	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
-		return state.with(FACING, rot.rotate(state.get(FACING)));
+		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
 	}
 
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(FACING)));
+		return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		return hasEnoughSolidSide(worldIn, pos.down(), Direction.UP);
+	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+		return canSupportCenter(worldIn, pos.below(), Direction.UP);
 	}
 
 	@Override
 	public float getEnchantPowerBonus(BlockState state, IWorldReader world, BlockPos pos) {
-		return (0.1F * state.get(CANDLES));
+		return (0.1F * state.getValue(CANDLES));
 	}
 
 	@Override
-	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-		if (!state.isValidPosition(worldIn, currentPos)) {
-			return Blocks.AIR.getDefaultState();
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		if (!state.canSurvive(worldIn, currentPos)) {
+			return Blocks.AIR.defaultBlockState();
 		} else {
-			if (state.get(WATERLOGGED)) {
-				if (state.get(LIT))
-					worldIn.setBlockState(currentPos, state.with(LIT, false), 2);
-				worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+			if (state.getValue(WATERLOGGED)) {
+				if (state.getValue(LIT))
+					worldIn.setBlock(currentPos, state.setValue(LIT, false), 2);
+				worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
 			}
-			return super.updatePostPlacement(state, facing, facingState, worldIn, currentPos, facingPos);
+			return super.updateShape(state, facing, facingState, worldIn, currentPos, facingPos);
 		}
 	}
 
 	@Override
-	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
-		return useContext.getItem().getItem() == this.asItem() && state.get(CANDLES) < 4 || super.isReplaceable(state, useContext);
+	public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
+		return useContext.getItemInHand().getItem() == this.asItem() && state.getValue(CANDLES) < 4 || super.canBeReplaced(state, useContext);
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		return SHAPES[state.get(CANDLES) - 1];
+		return SHAPES[state.getValue(CANDLES) - 1];
 	}
 
 	@Override
 	public FluidState getFluidState(BlockState state) {
-		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(CANDLES, WATERLOGGED, LIT, FACING);
 	}
 
@@ -153,8 +153,8 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 	}
 
 	@Override
-	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-		return type == PathType.AIR && !this.canCollide || super.allowsMovement(state, worldIn, pos, type);
+	public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+		return type == PathType.AIR && !this.hasCollision || super.isPathfindable(state, worldIn, pos, type);
 	}
 
 	public IParticleData getFlameParticle() {
@@ -176,26 +176,26 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 
 	@Override
 	public int getInfluenceStack(IBlockReader world, BlockPos pos, BlockState state) {
-		return state.get(CANDLES);
+		return state.getValue(CANDLES);
 	}
 
 	@SuppressWarnings("incomplete-switch")
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState state, World world, BlockPos pos, Random rand) {
-		if (state.get(LIT)) {
+		if (state.getValue(LIT)) {
 			double x = pos.getX();
 			double y = pos.getY();
 			double z = pos.getZ();
 			IParticleData smokeParticle = this.getSmokeParticle();
 			IParticleData flameParticle = this.getFlameParticle();
 
-			switch (state.get(CANDLES)) {
+			switch (state.getValue(CANDLES)) {
 				case 1:
 					this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.5D, y + 0.75D, z + 0.5D);
 					break;
 				case 2:
-					switch (state.get(FACING)) {
+					switch (state.getValue(FACING)) {
 						case NORTH:
 							this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.5625D, y + 0.75D, z + 0.3125D);
 							this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.375D, y + 0.625D, z + 0.625D);
@@ -215,7 +215,7 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 					}
 					break;
 				case 3:
-					switch (state.get(FACING)) {
+					switch (state.getValue(FACING)) {
 						case NORTH:
 							this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.6875D, y + 0.75D, z + 0.375D);
 							this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.5D, y + 0.6875D, z + 0.6875D);
@@ -240,7 +240,7 @@ public class CandleBlock extends Block implements IWaterLoggable, IEnchantmentIn
 					break;
 				default:
 				case 4:
-					switch (state.get(FACING)) {
+					switch (state.getValue(FACING)) {
 						case NORTH:
 							this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.6875D, y + 0.75D, z + 0.3125D);
 							this.addCandleParticleEffects(world, flameParticle, smokeParticle, x + 0.625D, y + 0.6875D, z + 0.625D);

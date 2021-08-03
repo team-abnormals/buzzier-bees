@@ -34,7 +34,7 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	}
 
 	@Override
-	public MoobloomEntity func_241840_a(ServerWorld world, AgeableEntity ageable) {
+	public MoobloomEntity getBreedOffspring(ServerWorld world, AgeableEntity ageable) {
 		return BBEntities.MOOBLOOM.get().create(world);
 	}
 
@@ -44,13 +44,13 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	}
 
 	@Override
-	public boolean isShearable() {
-		return this.isAlive() && !this.isChild();
+	public boolean readyForShearing() {
+		return this.isAlive() && !this.isBaby();
 	}
 
 	@Override
 	public boolean isShearable(@Nonnull ItemStack item, World world, BlockPos pos) {
-		return this.isAlive() && !this.isChild();
+		return this.isAlive() && !this.isBaby();
 	}
 
 	public Block getFlower() {
@@ -58,65 +58,65 @@ public class MoobloomEntity extends CowEntity implements IShearable, IForgeShear
 	}
 
 	@Override
-	public void livingTick() {
-		super.livingTick();
-		if (!world.isRemote && world.getGameTime() % 20 == 0) {
-			for (LivingEntity living : this.world.getEntitiesWithinAABB(LivingEntity.class, this.getBoundingBox().grow(7.0D, 3.0D, 7.0D))) {
+	public void aiStep() {
+		super.aiStep();
+		if (!level.isClientSide && level.getGameTime() % 20 == 0) {
+			for (LivingEntity living : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(7.0D, 3.0D, 7.0D))) {
 				if (!(living instanceof MoobloomEntity))
-					living.addPotionEffect(new EffectInstance(BBEffects.SUNNY.get(), 100, 0, false, false));
+					living.addEffect(new EffectInstance(BBEffects.SUNNY.get(), 100, 0, false, false));
 			}
 		}
 	}
 
 	@Override
 	public void shear(SoundCategory category) {
-		this.world.playMovingSound(null, this, SoundEvents.ENTITY_MOOSHROOM_SHEAR, category, 1.0F, 1.0F);
-		if (!this.world.isRemote()) {
-			((ServerWorld) this.world).spawnParticle(ParticleTypes.EXPLOSION, this.getPosX(), this.getPosYHeight(0.5D), this.getPosZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
+		this.level.playSound(null, this, SoundEvents.MOOSHROOM_SHEAR, category, 1.0F, 1.0F);
+		if (!this.level.isClientSide()) {
+			((ServerWorld) this.level).sendParticles(ParticleTypes.EXPLOSION, this.getX(), this.getY(0.5D), this.getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 			this.remove();
-			CowEntity cowentity = EntityType.COW.create(this.world);
-			cowentity.setLocationAndAngles(this.getPosX(), this.getPosY(), this.getPosZ(), this.rotationYaw, this.rotationPitch);
+			CowEntity cowentity = EntityType.COW.create(this.level);
+			cowentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, this.xRot);
 			cowentity.setHealth(this.getHealth());
-			cowentity.renderYawOffset = this.renderYawOffset;
+			cowentity.yBodyRot = this.yBodyRot;
 			if (this.hasCustomName()) {
 				cowentity.setCustomName(this.getCustomName());
 				cowentity.setCustomNameVisible(this.isCustomNameVisible());
 			}
 
-			if (this.isNoDespawnRequired()) {
-				cowentity.enablePersistence();
+			if (this.isPersistenceRequired()) {
+				cowentity.setPersistenceRequired();
 			}
 
 			cowentity.setInvulnerable(this.isInvulnerable());
-			this.world.addEntity(cowentity);
+			this.level.addFreshEntity(cowentity);
 
 			for (int i = 0; i < 5; ++i) {
-				this.world.addEntity(new ItemEntity(this.world, this.getPosX(), this.getPosYHeight(1.0D), this.getPosZ(), new ItemStack(this.getFlower())));
+				this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(1.0D), this.getZ(), new ItemStack(this.getFlower())));
 			}
 		}
 	}
 
 	@Override
 	public List<ItemStack> onSheared(@Nullable PlayerEntity player, @Nonnull ItemStack item, World world, BlockPos pos, int fortune) {
-		world.playMovingSound(null, this, SoundEvents.ENTITY_MOOSHROOM_SHEAR, player == null ? SoundCategory.BLOCKS : SoundCategory.PLAYERS, 1.0F, 1.0F);
-		if (!world.isRemote()) {
-			((ServerWorld) this.world).spawnParticle(ParticleTypes.EXPLOSION, this.getPosX(), this.getPosYHeight(0.5D), this.getPosZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
+		world.playSound(null, this, SoundEvents.MOOSHROOM_SHEAR, player == null ? SoundCategory.BLOCKS : SoundCategory.PLAYERS, 1.0F, 1.0F);
+		if (!world.isClientSide()) {
+			((ServerWorld) this.level).sendParticles(ParticleTypes.EXPLOSION, this.getX(), this.getY(0.5D), this.getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
 			this.remove();
-			CowEntity cowentity = EntityType.COW.create(this.world);
-			cowentity.setLocationAndAngles(this.getPosX(), this.getPosY(), this.getPosZ(), this.rotationYaw, this.rotationPitch);
+			CowEntity cowentity = EntityType.COW.create(this.level);
+			cowentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, this.xRot);
 			cowentity.setHealth(this.getHealth());
-			cowentity.renderYawOffset = this.renderYawOffset;
+			cowentity.yBodyRot = this.yBodyRot;
 			if (this.hasCustomName()) {
 				cowentity.setCustomName(this.getCustomName());
 				cowentity.setCustomNameVisible(this.isCustomNameVisible());
 			}
 
-			if (this.isNoDespawnRequired()) {
-				cowentity.enablePersistence();
+			if (this.isPersistenceRequired()) {
+				cowentity.setPersistenceRequired();
 			}
 
 			cowentity.setInvulnerable(this.isInvulnerable());
-			this.world.addEntity(cowentity);
+			this.level.addFreshEntity(cowentity);
 
 			java.util.List<ItemStack> items = new java.util.ArrayList<>();
 			for (int i = 0; i < 3; ++i) {

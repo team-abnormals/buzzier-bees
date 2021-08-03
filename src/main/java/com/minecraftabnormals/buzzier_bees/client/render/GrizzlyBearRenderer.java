@@ -13,7 +13,7 @@ public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBearEntity, GrizzlyB
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(GrizzlyBearEntity bear) {
+	public ResourceLocation getTextureLocation(GrizzlyBearEntity bear) {
 		if (bear.isSleeping())
 			return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/grizzly_bear/grizzly_bear_sleeping.png");
 		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/grizzly_bear/grizzly_bear.png");

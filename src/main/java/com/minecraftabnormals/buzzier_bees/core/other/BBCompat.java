@@ -38,8 +38,8 @@ public class BBCompat {
 
 	public static void registerLootInjectors() {
 		LootInjectionRegistry.LootInjector injector = new LootInjectionRegistry.LootInjector(BuzzierBees.MOD_ID);
-		injector.addLootInjection(injector.buildLootPool("desert_pyramid", 1, 0), LootTables.CHESTS_DESERT_PYRAMID);
-		injector.addLootInjection(injector.buildLootPool("jungle_temple", 1, 0), LootTables.CHESTS_JUNGLE_TEMPLE);
+		injector.addLootInjection(injector.buildLootPool("desert_pyramid", 1, 0), LootTables.DESERT_PYRAMID);
+		injector.addLootInjection(injector.buildLootPool("jungle_temple", 1, 0), LootTables.JUNGLE_TEMPLE);
 	}
 
 	public static void registerCompostables() {
@@ -57,21 +57,21 @@ public class BBCompat {
 	}
 
 	public static void registerDispenserBehaviors() {
-		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
-		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
-		DispenserBlock.registerDispenseBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
+		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
+		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
+		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
 	}
 
 	public static void setupRenderLayer() {
-		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_LAMP.get(), RenderType.getTranslucent());
-		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_POT.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_LAMP.get(), RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_POT.get(), RenderType.translucent());
 
-		RenderTypeLookup.setRenderLayer(BBBlocks.WHITE_CLOVER.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.PINK_CLOVER.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.BUTTERCUP.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.WHITE_CLOVER.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.PINK_CLOVER.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.BUTTERCUP.get(), RenderType.cutout());
 
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_CLOVER.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_CLOVER.get(), RenderType.getCutout());
-		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BUTTERCUP.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_WHITE_CLOVER.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_PINK_CLOVER.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BBBlocks.POTTED_BUTTERCUP.get(), RenderType.cutout());
 	}
 }

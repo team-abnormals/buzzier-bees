@@ -18,7 +18,7 @@ public class MoobloomRenderer extends MobRenderer<MoobloomEntity, CowModel<Moobl
 		this.addLayer(new MoobloomButtercupLayer<>(this));
 	}
 
-	public ResourceLocation getEntityTexture(MoobloomEntity entity) {
+	public ResourceLocation getTextureLocation(MoobloomEntity entity) {
 		return new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/cow/moobloom.png");
 	}
 }

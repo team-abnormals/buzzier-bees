@@ -15,13 +15,13 @@ public class AttackPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> 
 		this.bear = bear;
 	}
 
-	public boolean shouldExecute() {
-		if (bear.isChild()) {
+	public boolean canUse() {
+		if (bear.isBaby()) {
 			return false;
 		} else {
-			if (super.shouldExecute()) {
-				for (GrizzlyBearEntity polarbearentity : bear.world.getEntitiesWithinAABB(GrizzlyBearEntity.class, bear.getBoundingBox().grow(8.0D, 4.0D, 8.0D))) {
-					if (polarbearentity.isChild()) {
+			if (super.canUse()) {
+				for (GrizzlyBearEntity polarbearentity : bear.level.getEntitiesOfClass(GrizzlyBearEntity.class, bear.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
+					if (polarbearentity.isBaby()) {
 						return true;
 					}
 				}
@@ -31,7 +31,7 @@ public class AttackPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> 
 		}
 	}
 
-	protected double getTargetDistance() {
-		return super.getTargetDistance() * 0.5D;
+	protected double getFollowDistance() {
+		return super.getFollowDistance() * 0.5D;
 	}
 }

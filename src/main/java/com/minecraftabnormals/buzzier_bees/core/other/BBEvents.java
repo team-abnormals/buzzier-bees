@@ -45,7 +45,7 @@ public class BBEvents {
 		Entity entity = event.getEntity();
 		if (entity instanceof MobEntity) {
 			MobEntity mob = (MobEntity) entity;
-			if (mob.getType().isContained(EntityTypes.MOOBLOOM_HOSTILES))
+			if (mob.getType().is(EntityTypes.MOOBLOOM_HOSTILES))
 				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, MoobloomEntity.class, false));
 		}
 	}
@@ -56,18 +56,18 @@ public class BBEvents {
 		World world = event.getWorld();
 		BlockPos pos = event.getPos();
 		Block block = world.getBlockState(pos).getBlock();
-		ItemStack stack = player.getHeldItem(event.getHand());
+		ItemStack stack = player.getItemInHand(event.getHand());
 		if (stack.getItem() != Items.BONE_MEAL)
 			return;
 
 		if (BBConfig.COMMON.shortFlowerDuplication.get()) {
-			if (!(block instanceof FlowerBlock) || block.isIn(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).canUseBonemeal(world, world.rand, pos, world.getBlockState(pos))))
+			if (!(block instanceof FlowerBlock) || block.is(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).isBonemealSuccess(world, world.random, pos, world.getBlockState(pos))))
 				return;
 			if (!player.isCreative())
 				stack.shrink(1);
-			player.swingArm(event.getHand());
-			if (world.isRemote) BoneMealItem.spawnBonemealParticles(world, pos, world.rand.nextInt(12));
-			Block.spawnAsEntity(world, pos, new ItemStack(block, 1));
+			player.swing(event.getHand());
+			if (world.isClientSide) BoneMealItem.addGrowthParticles(world, pos, world.random.nextInt(12));
+			Block.popResource(world, pos, new ItemStack(block, 1));
 		}
 
 		if (!BBConfig.COMMON.tallFlowerDuplication.get()) {
@@ -80,10 +80,10 @@ public class BBEvents {
 	public static void onEntityUpdate(LivingUpdateEvent event) {
 		LivingEntity entity = event.getEntityLiving();
 		if (entity instanceof PhantomEntity) {
-			if (((PhantomEntity) entity).getAttackTarget() instanceof ServerPlayerEntity) {
-				ServerPlayerEntity player = (ServerPlayerEntity) ((PhantomEntity) entity).getAttackTarget();
-				if (player.getActivePotionEffect(BBEffects.SUNNY.get()) != null) {
-					((PhantomEntity) entity).setAttackTarget(null);
+			if (((PhantomEntity) entity).getTarget() instanceof ServerPlayerEntity) {
+				ServerPlayerEntity player = (ServerPlayerEntity) ((PhantomEntity) entity).getTarget();
+				if (player.getEffect(BBEffects.SUNNY.get()) != null) {
+					((PhantomEntity) entity).setTarget(null);
 				}
 			}
 		}
@@ -91,9 +91,9 @@ public class BBEvents {
 
 	@SubscribeEvent
 	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
-		if (event.getTarget() != null && !event.getWorld().isRemote) {
+		if (event.getTarget() != null && !event.getWorld().isClientSide) {
 
-			ItemStack itemstack = event.getPlayer().getHeldItem(event.getHand());
+			ItemStack itemstack = event.getPlayer().getItemInHand(event.getHand());
 			Item item = itemstack.getItem();
 
 			Item bottle = null;
@@ -123,29 +123,29 @@ public class BBEvents {
 				CompoundNBT tag = bottleItem.getOrCreateTag();
 				tag.putBoolean("HasNectar", bee.hasNectar());
 				tag.putBoolean("HasStung", bee.hasStung());
-				tag.putInt("AngerTime", bee.getAngerTime());
-				if (bee.getAngerTarget() != null) tag.putUniqueId("AngryAt", bee.getAngerTarget());
-				tag.putInt("Age", bee.getGrowingAge());
+				tag.putInt("AngerTime", bee.getRemainingPersistentAngerTime());
+				if (bee.getPersistentAngerTarget() != null) tag.putUUID("AngryAt", bee.getPersistentAngerTarget());
+				tag.putInt("Age", bee.getAge());
 				tag.putFloat("Health", bee.getHealth());
 			}
 
 			if (target.hasCustomName()) {
 				ITextComponent name = target.getCustomName();
-				bottleItem = bottleItem.setDisplayName(name);
+				bottleItem = bottleItem.setHoverName(name);
 			}
 
 			if (successful && ((MobEntity) target).isAlive()) {
 				if (item == Items.GLASS_BOTTLE) {
 					itemstack.shrink(1);
-					event.getWorld().playSound(player, event.getPos(), SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-					player.addStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
+					event.getWorld().playSound(player, event.getPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+					player.awardStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
 					event.getTarget().remove();
 					if (itemstack.isEmpty()) {
-						player.setHeldItem(hand, bottleItem);
-					} else if (!player.inventory.addItemStackToInventory(bottleItem)) {
-						player.dropItem(bottleItem, false);
+						player.setItemInHand(hand, bottleItem);
+					} else if (!player.inventory.add(bottleItem)) {
+						player.drop(bottleItem, false);
 					}
-					player.swingArm(hand);
+					player.swing(hand);
 				}
 			}
 		}

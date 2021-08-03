@@ -22,7 +22,7 @@ public class BBParticles {
 
 		@SubscribeEvent(priority = EventPriority.LOWEST)
 		public static void registerParticleTypes(ParticleFactoryRegisterEvent event) {
-			Minecraft.getInstance().particles.registerFactory(BUTTERCUP_BLOOM.get(), ButtercupBloomParticle.Factory::new);
+			Minecraft.getInstance().particleEngine.register(BUTTERCUP_BLOOM.get(), ButtercupBloomParticle.Factory::new);
 		}
 	}
 }

@@ -35,8 +35,8 @@ public class BBVillagers {
 	public static final DeferredRegister<VillagerProfession> PROFESSIONS = DeferredRegister.create(ForgeRegistries.PROFESSIONS, BuzzierBees.MOD_ID);
 	public static final DeferredRegister<PointOfInterestType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, BuzzierBees.MOD_ID);
 
-	public static final RegistryObject<PointOfInterestType> HONEY_POT = POI_TYPES.register("honey_pot", () -> new PointOfInterestType("apiarist", PointOfInterestType.getAllStates(BBBlocks.HONEY_POT.get()), 1, 1));
-	public static final RegistryObject<VillagerProfession> APIARIST = PROFESSIONS.register("apiarist", () -> new VillagerProfession("apiarist", HONEY_POT.get(), ImmutableSet.of(Items.HONEYCOMB, Items.HONEY_BOTTLE), ImmutableSet.of(), SoundEvents.ENTITY_VILLAGER_WORK_LEATHERWORKER));
+	public static final RegistryObject<PointOfInterestType> HONEY_POT = POI_TYPES.register("honey_pot", () -> new PointOfInterestType("apiarist", PointOfInterestType.getBlockStates(BBBlocks.HONEY_POT.get()), 1, 1));
+	public static final RegistryObject<VillagerProfession> APIARIST = PROFESSIONS.register("apiarist", () -> new VillagerProfession("apiarist", HONEY_POT.get(), ImmutableSet.of(Items.HONEYCOMB, Items.HONEY_BOTTLE), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_LEATHERWORKER));
 
 	public static void registerVillagers() {
 		registerGifts();
@@ -57,25 +57,25 @@ public class BBVillagers {
 	}
 
 	private static void registerVillagerHouses() {
-		JigsawPatternRegistry.func_244094_a(new JigsawPattern(new ResourceLocation(BuzzierBees.MOD_ID, "village/apiarist_bees"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(JigsawPiece.func_242849_a(BuzzierBees.MOD_ID + ":village/apiarist_bees/bees_1"), 1)), JigsawPattern.PlacementBehaviour.RIGID));
+		JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation(BuzzierBees.MOD_ID, "village/apiarist_bees"), new ResourceLocation("empty"), ImmutableList.of(Pair.of(JigsawPiece.legacy(BuzzierBees.MOD_ID + ":village/apiarist_bees/bees_1"), 1)), JigsawPattern.PlacementBehaviour.RIGID));
 
-		PlainsVillagePools.init();
-		SnowyVillagePools.init();
-		SavannaVillagePools.init();
-		DesertVillagePools.init();
-		TaigaVillagePools.init();
+		PlainsVillagePools.bootstrap();
+		SnowyVillagePools.bootstrap();
+		SavannaVillagePools.bootstrap();
+		DesertVillagePools.bootstrap();
+		TaigaVillagePools.bootstrap();
 
 		for (String biome : new String[]{"plains", "snowy", "savanna", "desert", "taiga"})
 			addToPool(new ResourceLocation("village/" + biome + "/houses"), new ResourceLocation(BuzzierBees.MOD_ID, "village/apiarist_house_" + biome + "_1"), 1);
 	}
 
 	private static void addToPool(ResourceLocation pool, ResourceLocation toAdd, int weight) {
-		JigsawPattern old = WorldGenRegistries.JIGSAW_POOL.getOrDefault(pool);
-		List<JigsawPiece> shuffled = old.getShuffledPieces(new Random());
+		JigsawPattern old = WorldGenRegistries.TEMPLATE_POOL.get(pool);
+		List<JigsawPiece> shuffled = old.getShuffledTemplates(new Random());
 		List<Pair<JigsawPiece, Integer>> newPieces = new ArrayList<>();
 		for (JigsawPiece p : shuffled) newPieces.add(new Pair<>(p, 1));
-		newPieces.add(Pair.of(new LegacySingleJigsawPiece(Either.left(toAdd), () -> ProcessorLists.field_244101_a, JigsawPattern.PlacementBehaviour.RIGID), weight));
+		newPieces.add(Pair.of(new LegacySingleJigsawPiece(Either.left(toAdd), () -> ProcessorLists.EMPTY, JigsawPattern.PlacementBehaviour.RIGID), weight));
 		ResourceLocation name = old.getName();
-		Registry.register(WorldGenRegistries.JIGSAW_POOL, pool, new JigsawPattern(pool, name, newPieces));
+		Registry.register(WorldGenRegistries.TEMPLATE_POOL, pool, new JigsawPattern(pool, name, newPieces));
 	}
 }

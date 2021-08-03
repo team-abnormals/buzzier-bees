@@ -10,7 +10,7 @@ public class PanicGoal extends net.minecraft.entity.ai.goal.PanicGoal {
 		this.bear = bear;
 	}
 
-	public boolean shouldExecute() {
-		return (bear.isChild() || bear.isBurning()) && super.shouldExecute();
+	public boolean canUse() {
+		return (bear.isBaby() || bear.isOnFire()) && super.canUse();
 	}
 }

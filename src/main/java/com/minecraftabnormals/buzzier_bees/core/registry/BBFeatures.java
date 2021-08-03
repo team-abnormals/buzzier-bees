@@ -24,27 +24,27 @@ public class BBFeatures {
 		ResourceLocation biome = event.getName();
 
 		if (DataUtil.matchesKeys(biome, Biomes.FOREST, Biomes.WOODED_HILLS, Biomes.FLOWER_FOREST))
-			event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.WHITE_CLOVER_PATCH);
+			event.getGeneration().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.WHITE_CLOVER_PATCH);
 
 		if (DataUtil.matchesKeys(biome, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_HILLS))
-			event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.PINK_CLOVER_PATCH);
+			event.getGeneration().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.PINK_CLOVER_PATCH);
 
 		if (DataUtil.matchesKeys(biome, Biomes.FLOWER_FOREST, Biomes.SUNFLOWER_PLAINS)) {
-			event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.BUTTERCUP_PATCH);
-			event.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(BBEntities.MOOBLOOM.get(), 30, 2, 4));
+			event.getGeneration().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.BUTTERCUP_PATCH);
+			event.getSpawns().addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(BBEntities.MOOBLOOM.get(), 30, 2, 4));
 		}
 	}
 
 	public static final class Configs {
-		public static final BlockClusterFeatureConfig WHITE_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.WHITE_CLOVER.get().getDefaultState()), SimpleBlockPlacer.PLACER)).tries(32).build();
-		public static final BlockClusterFeatureConfig PINK_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.PINK_CLOVER.get().getDefaultState()), SimpleBlockPlacer.PLACER)).tries(32).build();
-		public static final BlockClusterFeatureConfig BUTTERCUP_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.BUTTERCUP.get().getDefaultState()), SimpleBlockPlacer.PLACER)).tries(32).build();
+		public static final BlockClusterFeatureConfig WHITE_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.WHITE_CLOVER.get().defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(32).build();
+		public static final BlockClusterFeatureConfig PINK_CLOVER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.PINK_CLOVER.get().defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(32).build();
+		public static final BlockClusterFeatureConfig BUTTERCUP_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BBBlocks.BUTTERCUP.get().defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(32).build();
 	}
 
 	public static final class Configured {
-		public static final ConfiguredFeature<?, ?> WHITE_CLOVER_PATCH = Feature.FLOWER.withConfiguration(Configs.WHITE_CLOVER_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3);
-		public static final ConfiguredFeature<?, ?> PINK_CLOVER_PATCH = Feature.FLOWER.withConfiguration(Configs.PINK_CLOVER_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3);
-		public static final ConfiguredFeature<?, ?> BUTTERCUP_PATCH = Feature.FLOWER.withConfiguration(Configs.BUTTERCUP_CONFIG).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(4);
+		public static final ConfiguredFeature<?, ?> WHITE_CLOVER_PATCH = Feature.FLOWER.configured(Configs.WHITE_CLOVER_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3);
+		public static final ConfiguredFeature<?, ?> PINK_CLOVER_PATCH = Feature.FLOWER.configured(Configs.PINK_CLOVER_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3);
+		public static final ConfiguredFeature<?, ?> BUTTERCUP_PATCH = Feature.FLOWER.configured(Configs.BUTTERCUP_CONFIG).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4);
 
 		private static <FC extends IFeatureConfig> void register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(BuzzierBees.MOD_ID, name), configuredFeature);

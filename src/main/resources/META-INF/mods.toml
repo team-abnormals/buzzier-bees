@@ -8,8 +8,10 @@ license = "https://github.com/team-abnormals/buzzier-bees/blob/main/LICENSE.txt"
     version = "${file.jarVersion}"
     logoFile = "logo.png"
     itemIcon = "buzzier_bees:candle"
+    configBackground = "buzzier_bees:textures/block/honeycomb_tiles.png"
     authors = "Team Abnormals"
-    credits = "bageldotjpg, five, hatsondogs, and Farcr"
+    credits = "bageldotjpg, five, hatsondogs, Farcr"
+    displayURL = "https://www.teamabnormals.com/mods/buzzier-bees"
     displayName = "Buzzier Bees"
     description = '''
     Buzzier Bees expands on the content introduced in 1.15, introducing candles, new building blocks, and more!
@@ -25,13 +27,13 @@ license = "https://github.com/team-abnormals/buzzier-bees/blob/main/LICENSE.txt"
 [[dependencies.buzzier_bees]]
     modId = "forge"
     mandatory = true
-    versionRange = "[36.1.0,)"
+    versionRange = "[36.2.0,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.buzzier_bees]]
     modId = "abnormals_core"
     mandatory = true
-    versionRange = "[3.1.1,)"
+    versionRange = "[3.2.0,)"
     ordering = "AFTER"
     side = "BOTH"

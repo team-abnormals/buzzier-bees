@@ -14,10 +14,10 @@ import net.minecraft.util.Direction;
 
 public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
 
-	public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-		Direction direction = source.getBlockState().get(DispenserBlock.FACING);
+	public ItemStack execute(IBlockSource source, ItemStack stack) {
+		Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
 		CompoundNBT tag = stack.getOrCreateTag();
-		Entity entity = EntityType.BEE.spawn(source.getWorld(), stack, null, source.getBlockPos().offset(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
+		Entity entity = EntityType.BEE.spawn(source.getLevel(), stack, null, source.getPos().relative(direction), SpawnReason.DISPENSER, direction != Direction.UP, false);
 
 		if (entity instanceof BeeEntity) {
 			BeeEntity bee = (BeeEntity) entity;
@@ -27,10 +27,10 @@ public class BeeBottleDispenseBehavior extends OptionalDispenseBehavior {
 			boolean nectar = tag.contains("HasNectar") && tag.getBoolean("HasNectar");
 			boolean stung = tag.contains("HasStung") && tag.getBoolean("HasStung");
 
-			bee.setGrowingAge(age);
+			bee.setAge(age);
 			bee.setHasNectar(nectar);
 			bee.setHasStung(stung);
-			bee.setAngerTime(anger);
+			bee.setRemainingPersistentAngerTime(anger);
 		}
 		return new ItemStack(Items.GLASS_BOTTLE);
 	}

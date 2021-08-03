@@ -28,37 +28,37 @@ public class HoneycombDoorBlock extends DoorBlock {
 	}
 
 	@Override
-	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-		DoubleBlockHalf doubleblockhalf = stateIn.get(HALF);
+	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+		DoubleBlockHalf doubleblockhalf = stateIn.getValue(HALF);
 		if (facing.getAxis() == Direction.Axis.Y && doubleblockhalf == DoubleBlockHalf.LOWER == (facing == Direction.UP)) {
-			return facingState.isIn(this) && facingState.get(HALF) != doubleblockhalf ? stateIn.with(FACING, facingState.get(FACING)).with(OPEN, facingState.get(OPEN)).with(HINGE, facingState.get(HINGE)) : Blocks.AIR.getDefaultState();
+			return facingState.is(this) && facingState.getValue(HALF) != doubleblockhalf ? stateIn.setValue(FACING, facingState.getValue(FACING)).setValue(OPEN, facingState.getValue(OPEN)).setValue(HINGE, facingState.getValue(HINGE)) : Blocks.AIR.defaultBlockState();
 		} else {
-			return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+			return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		}
 	}
 
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		state = state.func_235896_a_(OPEN);
-		worldIn.setBlockState(pos, state, 10);
-		worldIn.playEvent(player, state.get(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-		return ActionResultType.func_233537_a_(worldIn.isRemote);
+	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		state = state.cycle(OPEN);
+		worldIn.setBlock(pos, state, 10);
+		worldIn.levelEvent(player, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
+		return ActionResultType.sidedSuccess(worldIn.isClientSide);
 	}
 
 	private int getCloseSound() {
-		return this.material == Material.IRON ? 1011 : 1012;
+		return this.material == Material.METAL ? 1011 : 1012;
 	}
 
 	private int getOpenSound() {
-		return this.material == Material.IRON ? 1005 : 1006;
+		return this.material == Material.METAL ? 1005 : 1006;
 	}
 
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		BlockPos blockpos = context.getPos();
-		if (blockpos.getY() < 255 && context.getWorld().getBlockState(blockpos.up()).isReplaceable(context)) {
-			return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing()).with(HINGE, this.getHingeSide(context)).with(HALF, DoubleBlockHalf.LOWER);
+		BlockPos blockpos = context.getClickedPos();
+		if (blockpos.getY() < 255 && context.getLevel().getBlockState(blockpos.above()).canBeReplaced(context)) {
+			return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection()).setValue(HINGE, this.getHingeSide(context)).setValue(HALF, DoubleBlockHalf.LOWER);
 		} else {
 			return null;
 		}
@@ -69,28 +69,28 @@ public class HoneycombDoorBlock extends DoorBlock {
 	}
 
 	private DoorHingeSide getHingeSide(BlockItemUseContext context) {
-		IBlockReader iblockreader = context.getWorld();
-		BlockPos blockpos = context.getPos();
-		Direction direction = context.getPlacementHorizontalFacing();
-		BlockPos blockpos1 = blockpos.up();
-		Direction direction1 = direction.rotateYCCW();
-		BlockPos blockpos2 = blockpos.offset(direction1);
+		IBlockReader iblockreader = context.getLevel();
+		BlockPos blockpos = context.getClickedPos();
+		Direction direction = context.getHorizontalDirection();
+		BlockPos blockpos1 = blockpos.above();
+		Direction direction1 = direction.getCounterClockWise();
+		BlockPos blockpos2 = blockpos.relative(direction1);
 		BlockState blockstate = iblockreader.getBlockState(blockpos2);
-		BlockPos blockpos3 = blockpos1.offset(direction1);
+		BlockPos blockpos3 = blockpos1.relative(direction1);
 		BlockState blockstate1 = iblockreader.getBlockState(blockpos3);
-		Direction direction2 = direction.rotateY();
-		BlockPos blockpos4 = blockpos.offset(direction2);
+		Direction direction2 = direction.getClockWise();
+		BlockPos blockpos4 = blockpos.relative(direction2);
 		BlockState blockstate2 = iblockreader.getBlockState(blockpos4);
-		BlockPos blockpos5 = blockpos1.offset(direction2);
+		BlockPos blockpos5 = blockpos1.relative(direction2);
 		BlockState blockstate3 = iblockreader.getBlockState(blockpos5);
-		int i = (blockstate.hasOpaqueCollisionShape(iblockreader, blockpos2) ? -1 : 0) + (blockstate1.hasOpaqueCollisionShape(iblockreader, blockpos3) ? -1 : 0) + (blockstate2.hasOpaqueCollisionShape(iblockreader, blockpos4) ? 1 : 0) + (blockstate3.hasOpaqueCollisionShape(iblockreader, blockpos5) ? 1 : 0);
-		boolean flag = blockstate.isIn(this) && blockstate.get(HALF) == DoubleBlockHalf.LOWER;
-		boolean flag1 = blockstate2.isIn(this) && blockstate2.get(HALF) == DoubleBlockHalf.LOWER;
+		int i = (blockstate.isCollisionShapeFullBlock(iblockreader, blockpos2) ? -1 : 0) + (blockstate1.isCollisionShapeFullBlock(iblockreader, blockpos3) ? -1 : 0) + (blockstate2.isCollisionShapeFullBlock(iblockreader, blockpos4) ? 1 : 0) + (blockstate3.isCollisionShapeFullBlock(iblockreader, blockpos5) ? 1 : 0);
+		boolean flag = blockstate.is(this) && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
+		boolean flag1 = blockstate2.is(this) && blockstate2.getValue(HALF) == DoubleBlockHalf.LOWER;
 		if ((!flag || flag1) && i <= 0) {
 			if ((!flag1 || flag) && i >= 0) {
-				int j = direction.getXOffset();
-				int k = direction.getZOffset();
-				Vector3d vector3d = context.getHitVec();
+				int j = direction.getStepX();
+				int k = direction.getStepZ();
+				Vector3d vector3d = context.getClickLocation();
 				double d0 = vector3d.x - (double) blockpos.getX();
 				double d1 = vector3d.z - (double) blockpos.getZ();
 				return (j >= 0 || !(d1 < 0.5D)) && (j <= 0 || !(d1 > 0.5D)) && (k >= 0 || !(d0 > 0.5D)) && (k <= 0 || !(d0 < 0.5D)) ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT;
