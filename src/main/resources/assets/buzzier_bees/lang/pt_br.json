@@ -1,6 +1,4 @@
 {
-	"item.buzzier_bees.wax": "Cera",
-	"item.buzzier_bees.crystallized_honey": "Mel cristalizado",
 	"item.buzzier_bees.four_leaf_clover": "Trevo de quatro folhas",
 	
 	"item.buzzier_bees.honey_wand": "Varinha de mel",
@@ -8,18 +6,16 @@
 	
 	"item.buzzier_bees.honey_apple": "Maçã com mel",
 	"item.buzzier_bees.honey_bread": "Pão com mel",
-	"item.buzzier_bees.glazed_porkchop": "Costeleta de porco vitrificada",
+	"item.buzzier_bees.glazed_porkchop": "Costeleta de porco com mel",
 	
 	"item.buzzier_bees.silverfish_bottle": "Traça engarrafada",
 	"item.buzzier_bees.endermite_bottle": "Endermite engarrafado",
 	"item.buzzier_bees.bee_bottle": "Abelha engarrafada",
 	
 	"item.buzzier_bees.honeycomb_banner_pattern": "Desenho para estandarte",
-  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Figura de favo de mel",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Favo de mel",
 		
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Ovo gerador de urso pardo",
-	"item.buzzier_bees.black_bear_spawn_egg": "Ovo gerador de urso-negro",
-	"item.buzzier_bees.bumblebee_spawn_egg": "Ovo gerador de mamangaba",
 	"item.buzzier_bees.moobloom_spawn_egg": "Ovo gerador de florivaca",
 	
 	"block.minecraft.beehive": "Colmeia artificial de carvalho",
@@ -31,7 +27,6 @@
 	"block.buzzier_bees.crimson_beehive": "Colmeia artificial carmesim",
 	"block.buzzier_bees.warped_beehive": "Colmeia artificial distorcida",
 	
-	"block.buzzier_bees.wax_block": "Bloco de cera",
 	"block.buzzier_bees.crystallized_honey_block": "Bloco de mel cristalizado",
 	
 	"block.buzzier_bees.honey_lamp" : "Lâmpada de mel",
@@ -41,14 +36,18 @@
 	"block.buzzier_bees.honeycomb_brick_stairs": "Escadas de tijolos de favo de mel",
 	"block.buzzier_bees.honeycomb_brick_slab": "Lade de tijolos de favo de mel",
 	"block.buzzier_bees.honeycomb_brick_wall": "Muro de tijolos de favo de mel",
-	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Laje de tijolos de favo de mel vertical",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Laje vertical de tijolos de favo de mel",
 	"block.buzzier_bees.chiseled_honeycomb_bricks": "Tijolos de favo de mel talhados",
 	
-	"block.buzzier_bees.honeycomb_tiles": "Azulejos de favo de mel",
-	"block.buzzier_bees.honeycomb_tile_stairs": "Escadas de azulejos de favo de mel",
-	"block.buzzier_bees.honeycomb_tile_slab": "Laje de azulejos de favo de mel",
-	"block.buzzier_bees.honeycomb_tile_wall": "Muro de azulejos de favo de mel",
-	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Laje de azulejos de favo de mel vertical",
+	"block.buzzier_bees.honeycomb_tiles": "Ladrilhos de favo de mel",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Escadas de ladrilhos de favo de mel",
+	"block.buzzier_bees.honeycomb_tile_slab": "Laje de ladrilhos de favo de mel",
+	"block.buzzier_bees.honeycomb_tile_wall": "Muro de ladrilhos de favo de mel",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Laje vertical de ladrilhos de favo de mel",
+	
+	"block.buzzier_bees.honeycomb_door": "Porta de favo de mel",
+        "block.buzzier_bees.honeycomb_trapdoor": "Alçapão de favo de mel",
+
 	
 	"block.buzzier_bees.pink_clover": "Trevo-rosa",
 	"block.buzzier_bees.white_clover": "Trevo-branco",
@@ -61,6 +60,7 @@
 	"block.buzzier_bees.candle": "Vela",
 	"block.buzzier_bees.soul_candle": "Vela das almas",
 	"block.buzzier_bees.ender_candle": "Vela de ender",
+	"block.buzzier_bees.cursed_candle": "Vela amaldiçoada",
 	
 	"block.buzzier_bees.white_candle": "Vela branca",
 	"block.buzzier_bees.orange_candle": "Vela laranja",
@@ -79,51 +79,51 @@
 	"block.buzzier_bees.red_candle": "Vela vermelha",
 	"block.buzzier_bees.black_candle": "Vela preta",
 	
-	"block.buzzier_bees.allium_scented_candle": "Vela perfumada de alho-silvestre",
-	"block.buzzier_bees.azure_bluet_scented_candle": "Vela perfumada de flor-silvestre-azul",
-	"block.buzzier_bees.blue_orchid_scented_candle": "Vela perfumada de orquídea-azul",
-	"block.buzzier_bees.dandelion_scented_candle": "Vela perfumada de dente-de-leão",
-	"block.buzzier_bees.cornflower_scented_candle": "Vela perfumada de centáurea",
-	"block.buzzier_bees.lily_of_the_valley_scented_candle": "Vela perfumada de lírio-do-vale",
-	"block.buzzier_bees.oxeye_daisy_scented_candle": "Vela perfumada de margarida",
-	"block.buzzier_bees.poppy_scented_candle": "Vela perfumada de papoula",
-	"block.buzzier_bees.white_tulip_scented_candle": "Vela perfumada de tulipa branca",
-	"block.buzzier_bees.orange_tulip_scented_candle": "Vela perfumada de tulipa laranja",
-	"block.buzzier_bees.pink_tulip_scented_candle": "Vela perfumada de tulipa rosa",
-	"block.buzzier_bees.red_tulip_scented_candle": "Vela perfumada de tulipa vermelha",
-	"block.buzzier_bees.wither_rose_scented_candle": "Vela perfumada de rosa do wither",
+	"block.buzzier_bees.allium_scented_candle": "Vela com aroma de alho-silvestre",
+	"block.buzzier_bees.azure_bluet_scented_candle": "Vela com aroma de flor-silvestre-azul",
+	"block.buzzier_bees.blue_orchid_scented_candle": "Vela com aroma de orquídea-azul",
+	"block.buzzier_bees.dandelion_scented_candle": "Vela com aroma de dente-de-leão",
+	"block.buzzier_bees.cornflower_scented_candle": "Vela com aroma de centáurea",
+	"block.buzzier_bees.lily_of_the_valley_scented_candle": "Vela com aroma de lírio-do-vale",
+	"block.buzzier_bees.oxeye_daisy_scented_candle": "Vela com aroma de margarida",
+	"block.buzzier_bees.poppy_scented_candle": "Vela com aroma de papoula",
+	"block.buzzier_bees.white_tulip_scented_candle": "Vela com aroma de tulipa branca",
+	"block.buzzier_bees.orange_tulip_scented_candle": "Vela com aroma de tulipa laranja",
+	"block.buzzier_bees.pink_tulip_scented_candle": "Vela com aroma de tulipa rosa",
+	"block.buzzier_bees.red_tulip_scented_candle": "Vela com aroma de tulipa vermelha",
+	"block.buzzier_bees.wither_rose_scented_candle": "Vela com aroma de rosa do wither",
 	
-	"block.buzzier_bees.pink_clover_scented_candle": "Vela perfumada de trevo-rosa",
-	"block.buzzier_bees.white_clover_scented_candle": "Vela perfumada de trevo-branco",
-	"block.buzzier_bees.buttercup_scented_candle": "Vela perfumada de ranúnculo",
+	"block.buzzier_bees.pink_clover_scented_candle": "Vela com aroma de trevo-rosa",
+	"block.buzzier_bees.white_clover_scented_candle": "Vela com aroma de trevo-branco",
+	"block.buzzier_bees.buttercup_scented_candle": "Vela com aroma de ranúnculo",
 	
-	"block.buzzier_bees.cartwheel_scented_candle": "Vela perfumada de catavento",
-	"block.buzzier_bees.bluebell_scented_candle": "Vela perfumada de campainha",
-	"block.buzzier_bees.violet_scented_candle": "Vela perfumada de violeta",
-	"block.buzzier_bees.red_lotus_flower_scented_candle": "Vela perfumada de flor de lótus vermelha",
-	"block.buzzier_bees.white_lotus_flower_scented_candle": "Vela perfumada de flor de lótus branca",
-	"block.buzzier_bees.dianthus_scented_candle": "Vela perfumada de cravo",
-	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Vela perfumada de hibisco amarelo",
-	"block.buzzier_bees.orange_hibiscus_scented_candle": "Vela perfumada de hibisco laranja",
-	"block.buzzier_bees.red_hibiscus_scented_candle": "Vela perfumada de hibisco vermelho",
-	"block.buzzier_bees.pink_hibiscus_scented_candle": "Vela perfumada de hibisco rosa",
-	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Vela perfumada de hibisco magenta",
-	"block.buzzier_bees.purple_hibiscus_scented_candle": "Vela perfumada de hibisco roxo",
+	"block.buzzier_bees.cartwheel_scented_candle": "Vela com aroma de catavento",
+	"block.buzzier_bees.bluebell_scented_candle": "Vela com aroma de jacinto-silvestre",
+	"block.buzzier_bees.violet_scented_candle": "Vela com aroma de violeta",
+	"block.buzzier_bees.red_lotus_flower_scented_candle": "Vela com aroma de flor de lótus vermelha",
+	"block.buzzier_bees.white_lotus_flower_scented_candle": "Vela com aroma de flor de lótus branca",
+	"block.buzzier_bees.dianthus_scented_candle": "Vela com aroma de dianthus",
+	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Vela com aroma de hibisco amarelo",
+	"block.buzzier_bees.orange_hibiscus_scented_candle": "Vela com aroma de hibisco laranja",
+	"block.buzzier_bees.red_hibiscus_scented_candle": "Vela com aroma de hibisco vermelho",
+	"block.buzzier_bees.pink_hibiscus_scented_candle": "Vela com aroma de hibisco rosa",
+	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Vela com aroma de hibisco magenta",
+	"block.buzzier_bees.purple_hibiscus_scented_candle": "Vela com aroma de hibisco roxo",
 	
-	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Vela perfumada de escova-de-macaco-morna",
-	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Vela perfumada de escova-de-macaco-quente",
-	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Vela perfumada de escova-de-macaco-escaldante",
-	"block.buzzier_bees.gilia_scented_candle": "Vela perfumada de gilia",
-	"block.buzzier_bees.yucca_flower_scented_candle": "Vela perfumada de yucca",
+	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Vela com aroma de escova-de-macaco-morna",
+	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Vela com aroma de escova-de-macaco-quente",
+	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Vela com aroma de escova-de-macaco-escaldante",
+	"block.buzzier_bees.water_hyacinth_scented_candle": "Vela com aroma de aguapé",
+	"block.buzzier_bees.gilia_scented_candle": "Vela com aroma de gilia",
+	"block.buzzier_bees.yucca_flower_scented_candle": "Vela com aroma de flor de yucca",
 	
-	"block.buzzier_bees.pink_searocket_scented_candle": "Vela perfumada de eruca-marítima rosa",
-	"block.buzzier_bees.white_searocket_scented_candle": "Vela perfumada de eruca-marítima branca",
+	"block.buzzier_bees.pink_searocket_scented_candle": "Vela com aroma de eruca-marítima rosa",
+	"block.buzzier_bees.white_searocket_scented_candle": "Vela com aroma de eruca-marítima branca",
 	
-	"block.buzzier_bees.autumn_crocus_scented_candle": "Vela perfumada de açafrão-do-prado",
+	"block.buzzier_bees.autumn_crocus_scented_candle": "Vela com aroma de açafrão-do-prado",
 	
 	"entity.buzzier_bees.grizzly_bear": "Urso pardo",
-	"entity.buzzier_bees.black_bear": "Urso-negro",
-	"entity.buzzier_bees.bumblebee": "Mamangaba",
+        "entity.buzzier_bees.moobloom": "Florivaca",
 	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Apicultor",
 	
@@ -156,12 +156,6 @@
 	"advancements.husbandry.four_leaf_clover.title": "Mais sorte desta vez",
 	"advancements.husbandry.four_leaf_clover.description": "Encontre um trevo de quatro folhas",
 	
-	"advancements.end.scented_candle.title": "Aromaterapia",
-	"advancements.end.scented_candle.description": "Obtenha uma vela perfumada",
-	
-	"advancements.end.all_scented_candles.title": "Conjunto completo",
-	"advancements.end.all_scented_candles.description": "Obtenha todas as velas perfumadas",
-	
 	"advancements.husbandry.honey_apple.title": "Uma maçã por dia",
 	"advancements.husbandry.honey_apple.description": "Use uma maçã com mel para curar levitação",
 	
@@ -169,7 +163,7 @@
 	"advancements.husbandry.honey_bread.description": "Use pão com mel para curar mau presságio",
 	
 	"advancements.husbandry.glazed_porkchop.title": "Joelhos fracos, braços melados",
-	"advancements.husbandry.glazed_porkchop.description": "Use uma costeleta de porco vitrificada para curar cansaço",
+	"advancements.husbandry.glazed_porkchop.description": "Use uma costeleta de porco com mel para curar cansaço",
 	
 	"tooltip.buzzier_bees.is_baby": "Bebê",
 	"tooltip.buzzier_bees.has_nectar": "Polinizada",
