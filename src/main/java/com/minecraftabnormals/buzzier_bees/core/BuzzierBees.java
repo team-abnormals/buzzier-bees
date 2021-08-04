@@ -3,10 +3,8 @@ package com.minecraftabnormals.buzzier_bees.core;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.registry.*;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -33,15 +31,13 @@ public class BuzzierBees {
 		BBVillagers.PROFESSIONS.register(modEventBus);
 		BBVillagers.POI_TYPES.register(modEventBus);
 
-		modEventBus.addListener(this::setupCommon);
-		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
-			modEventBus.addListener(this::setupClient);
-		});
+		modEventBus.addListener(this::commonSetup);
+		modEventBus.addListener(this::clientSetup);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BBConfig.COMMON_SPEC);
 	}
 
-	private void setupCommon(final FMLCommonSetupEvent event) {
+	private void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			BBCompat.registerCompat();
 			BBEffects.registerRecipes();
@@ -51,7 +47,7 @@ public class BuzzierBees {
 		});
 	}
 
-	private void setupClient(final FMLClientSetupEvent event) {
+	private void clientSetup(FMLClientSetupEvent event) {
 		BBEntities.registerRendering();
 		event.enqueueWork(() -> {
 			BBCompat.setupRenderLayer();
