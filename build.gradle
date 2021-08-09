@@ -70,6 +70,10 @@ minecraft {
     }
 }
 
+sourceSets.main.resources {
+    srcDir "src/generated/resources"
+}
+
 dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
     implementation fg.deobf("com.minecraftabnormals:abnormals-core:${project.minecraft}-${project.abnormalsCore}")

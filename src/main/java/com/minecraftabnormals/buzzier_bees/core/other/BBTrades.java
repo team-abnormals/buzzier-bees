@@ -41,7 +41,7 @@ public class BBTrades {
 					new AbnormalsTrade(1, BBBlocks.CANDLE.get().asItem(), 4, 5, 10)
 			);
 
-			for (Item item : BBTags.Items.DYED_CANDLES.getValues())
+			for (Item item : BBItemTags.DYED_CANDLES.getValues())
 				TradeUtil.addVillagerTrades(event, TradeUtil.APPRENTICE, new AbnormalsTrade(1, item, 4, 5, 10));
 			for (Item item : ItemTags.TALL_FLOWERS.getValues())
 				TradeUtil.addVillagerTrades(event, TradeUtil.JOURNEYMAN, new AbnormalsTrade(item, 1, 1, 12, 15));

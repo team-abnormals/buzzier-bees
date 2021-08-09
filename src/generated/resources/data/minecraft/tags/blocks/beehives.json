@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "buzzier_bees:spruce_beehive",
     "buzzier_bees:birch_beehive",
+    "buzzier_bees:spruce_beehive",
     "buzzier_bees:jungle_beehive",
     "buzzier_bees:acacia_beehive",
     "buzzier_bees:dark_oak_beehive",

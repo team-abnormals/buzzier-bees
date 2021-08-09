@@ -3,7 +3,6 @@ package com.minecraftabnormals.buzzier_bees.core.other;
 import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.minecraftabnormals.buzzier_bees.core.other.BBTags.EntityTypes;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.block.Block;
@@ -45,7 +44,7 @@ public class BBEvents {
 		Entity entity = event.getEntity();
 		if (entity instanceof MobEntity) {
 			MobEntity mob = (MobEntity) entity;
-			if (mob.getType().is(EntityTypes.MOOBLOOM_HOSTILES))
+			if (mob.getType().is(BBEntityTags.MOOBLOOM_HOSTILES))
 				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, MoobloomEntity.class, false));
 		}
 	}
@@ -61,7 +60,7 @@ public class BBEvents {
 			return;
 
 		if (BBConfig.COMMON.shortFlowerDuplication.get()) {
-			if (!(block instanceof FlowerBlock) || block.is(BBTags.Blocks.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).isBonemealSuccess(world, world.random, pos, world.getBlockState(pos))))
+			if (!(block instanceof FlowerBlock) || block.is(BBBlockTags.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).isBonemealSuccess(world, world.random, pos, world.getBlockState(pos))))
 				return;
 			if (!player.isCreative())
 				stack.shrink(1);
