@@ -5,10 +5,10 @@
       "item": "buzzier_bees:honey_apple"
     },
     "title": {
-      "translate": "advancements.husbandry.honey_apple.title"
+      "translate": "advancements.buzzier_bees.husbandry.use_honey_apple.title"
     },
     "description": {
-      "translate": "advancements.husbandry.honey_apple.description"
+      "translate": "advancements.buzzier_bees.husbandry.use_honey_apple.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,8 +16,13 @@
     "hidden": false
   },
   "criteria": {
-    "honey_apple": {
+    "use_honey_apple": {
       "trigger": "buzzier_bees:honey_apple_cure"
     }
-  }
+  },
+  "requirements": [
+    [
+      "use_honey_apple"
+    ]
+  ]
 }

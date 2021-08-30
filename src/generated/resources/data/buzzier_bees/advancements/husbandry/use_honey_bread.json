@@ -5,10 +5,10 @@
       "item": "buzzier_bees:honey_bread"
     },
     "title": {
-      "translate": "advancements.husbandry.honey_bread.title"
+      "translate": "advancements.buzzier_bees.husbandry.use_honey_bread.title"
     },
     "description": {
-      "translate": "advancements.husbandry.honey_bread.description"
+      "translate": "advancements.buzzier_bees.husbandry.use_honey_bread.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,8 +16,13 @@
     "hidden": false
   },
   "criteria": {
-    "honey_bread": {
+    "use_honey_bread": {
       "trigger": "buzzier_bees:honey_bread_cure"
     }
-  }
+  },
+  "requirements": [
+    [
+      "use_honey_bread"
+    ]
+  ]
 }

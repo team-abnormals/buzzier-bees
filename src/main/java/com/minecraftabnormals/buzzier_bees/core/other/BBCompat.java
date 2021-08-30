@@ -7,6 +7,7 @@ import com.minecraftabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBeh
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -34,6 +35,11 @@ public class BBCompat {
 		registerCompostables();
 		registerFlammables();
 		registerDispenserBehaviors();
+		changeLocalizationKeys();
+	}
+
+	public static void changeLocalizationKeys() {
+		DataUtil.changeBlockLocalization(Blocks.BEEHIVE, BuzzierBees.MOD_ID, "oak_beehive");
 	}
 
 	public static void registerLootInjectors() {
@@ -62,7 +68,7 @@ public class BBCompat {
 		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
 	}
 
-	public static void setupRenderLayer() {
+	public static void registerRenderLayers() {
 		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_LAMP.get(), RenderType.translucent());
 		RenderTypeLookup.setRenderLayer(BBBlocks.HONEY_POT.get(), RenderType.translucent());
 

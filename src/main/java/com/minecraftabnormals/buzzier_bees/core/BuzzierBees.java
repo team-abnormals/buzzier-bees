@@ -1,9 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core;
 
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
-import com.minecraftabnormals.buzzier_bees.core.data.BlockTagGenerator;
-import com.minecraftabnormals.buzzier_bees.core.data.EntityTagGenerator;
-import com.minecraftabnormals.buzzier_bees.core.data.ItemTagGenerator;
+import com.minecraftabnormals.buzzier_bees.core.data.*;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.registry.*;
 import net.minecraft.data.DataGenerator;
@@ -56,9 +54,9 @@ public class BuzzierBees {
 	}
 
 	private void clientSetup(FMLClientSetupEvent event) {
-		BBEntities.registerRendering();
+		BBEntities.registerRenderers();
 		event.enqueueWork(() -> {
-			BBCompat.setupRenderLayer();
+			BBCompat.registerRenderLayers();
 			BBItems.registerItemProperties();
 		});
 	}
@@ -72,6 +70,7 @@ public class BuzzierBees {
 			dataGenerator.addProvider(blockTagGen);
 			dataGenerator.addProvider(new ItemTagGenerator(dataGenerator, blockTagGen, existingFileHelper));
 			dataGenerator.addProvider(new EntityTagGenerator(dataGenerator, existingFileHelper));
+			dataGenerator.addProvider(new AdvancementGenerator(dataGenerator));
 		}
 	}
 }

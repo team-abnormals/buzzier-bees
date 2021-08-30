@@ -5,10 +5,10 @@
       "item": "buzzier_bees:glazed_porkchop"
     },
     "title": {
-      "translate": "advancements.husbandry.glazed_porkchop.title"
+      "translate": "advancements.buzzier_bees.husbandry.use_glazed_porkchop.title"
     },
     "description": {
-      "translate": "advancements.husbandry.glazed_porkchop.description"
+      "translate": "advancements.buzzier_bees.husbandry.use_glazed_porkchop.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,8 +16,13 @@
     "hidden": false
   },
   "criteria": {
-    "glazed_porkchop": {
+    "use_glazed_porkchop": {
       "trigger": "buzzier_bees:glazed_porkchop_cure"
     }
-  }
+  },
+  "requirements": [
+    [
+      "use_glazed_porkchop"
+    ]
+  ]
 }

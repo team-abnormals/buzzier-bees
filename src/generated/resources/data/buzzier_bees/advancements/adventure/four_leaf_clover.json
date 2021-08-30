@@ -5,10 +5,10 @@
       "item": "buzzier_bees:four_leaf_clover"
     },
     "title": {
-      "translate": "advancements.husbandry.four_leaf_clover.title"
+      "translate": "advancements.buzzier_bees.adventure.four_leaf_clover.title"
     },
     "description": {
-      "translate": "advancements.husbandry.four_leaf_clover.description"
+      "translate": "advancements.buzzier_bees.adventure.four_leaf_clover.description"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -26,5 +26,10 @@
         ]
       }
     }
-  }
+  },
+  "requirements": [
+    [
+      "four_leaf_clover"
+    ]
+  ]
 }

@@ -28,7 +28,7 @@ public class BBEntities {
 		EntitySpawnPlacementRegistry.register(MOOBLOOM.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::checkAnimalSpawnRules);
 	}
 
-	public static void registerRendering() {
+	public static void registerRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(GRIZZLY_BEAR.get(), GrizzlyBearRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(MOOBLOOM.get(), MoobloomRenderer::new);
 	}
