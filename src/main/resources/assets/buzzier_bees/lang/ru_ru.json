@@ -16,8 +16,6 @@
   	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Пчелиные соты",
 	
 	"item.buzzier_bees.grizzly_bear_spawn_egg": "Яйцо призыва гризли",
-	"item.buzzier_bees.black_bear_spawn_egg": "Яйцо призыва чёрного медведя",
-	"item.buzzier_bees.bumblebee_spawn_egg": "Яйцо призыва шмеля",
 	"item.buzzier_bees.moobloom_spawn_egg": "Яйцо призыва лютиковой коровы",
 
 	"block.minecraft.beehive": "Дубовый улей",
@@ -124,8 +122,6 @@
 	"block.buzzier_bees.autumn_crocus_scented_candle": "Свечка из осеннего крокуса",
 
 	"entity.buzzier_bees.grizzly_bear": "Медведь гризли",
-	"entity.buzzier_bees.black_bear": "Чёрный медведь",
-	"entity.buzzier_bees.bumblebee": "Шершень",
 	"entity.buzzier_bees.moobloom": "Лютиковая корова",
 	
 	"entity.minecraft.villager.buzzier_bees.apiarist": "Пчеловод",
@@ -159,12 +155,6 @@
 	"advancements.husbandry.four_leaf_clover.title": "Сегодня повезло тебе...",
 	"advancements.husbandry.four_leaf_clover.description": "Найдите четырехлистный клевер",
 
-	"advancements.end.scented_candle.title": "Ароматерапия",
-	"advancements.end.scented_candle.description": "Приобретите ароматическую свечку",
-
-	"advancements.end.all_scented_candles.title": "Полный аромат",
-	"advancements.end.all_scented_candles.description": "Получите все ароматические свечки",
-
 	"advancements.husbandry.honey_apple.title": "По яблоку в день",
 	"advancements.husbandry.honey_apple.description": "Сьешьте яблоко в меду, чтобы избавится от эффекта «левитация»",
 
@@ -186,12 +176,12 @@
   	"block.minecraft.banner.mca_honeycomb.blue": "Синие пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.purple": "Фиолетовые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.cyan": "Бирюзовые пчелиные соты",
-  	"block.minecraft.banner.mca_honeycomb.silver": "Светло-серые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.light_gray": "Светло-серые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.gray": "Серые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.pink": "Розовые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.lime": "Лаймовые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.yellow": "Жёлтые пчелиные соты",
-  	"block.minecraft.banner.mca_honeycomb.lightBlue": "Голубые пчелиные соты",
+  	"block.minecraft.banner.mca_honeycomb.light_blue": "Голубые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.magenta": "Пурпурные пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.orange": "Оранжевые пчелиные соты",
   	"block.minecraft.banner.mca_honeycomb.white": "Белые пчелиные соты"
