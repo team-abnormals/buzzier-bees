@@ -47,17 +47,17 @@
   "block.buzzier_bees.honeycomb_door": "Gate t' nest o' bee",
   "block.buzzier_bees.honeycomb_trapdoor": "Hatch t' nest o' bee",
 
-  "block.buzzier_bees.pink_clover": "Bee's pink feast",
-  "block.buzzier_bees.white_clover": "Bee's white feast",
-  "block.buzzier_bees.buttercup": "Fl'er o' Helios",
+  "block.buzzier_bees.pink_clover": "Pink Feast o' Bees",
+  "block.buzzier_bees.white_clover": "White Feast o' Bees",
+  "block.buzzier_bees.buttercup": "Flower o' Helios",
 
-  "block.buzzier_bees.potted_pink_clover": "Dirt vase o' bee's pink delight",
-  "block.buzzier_bees.potted_white_clover": "Dirt vase o' bee's white delight",
-  "block.buzzier_bees.potted_buttercup": "Dirt vase o' Helio's fl'er",
+  "block.buzzier_bees.potted_pink_clover": "Captive pink feast o' bees",
+  "block.buzzier_bees.potted_white_clover": "Captive white feast o' bees",
+  "block.buzzier_bees.potted_buttercup": "Captive Flower o' Helios",
 
   "block.buzzier_bees.candle": "Candle",
   "block.buzzier_bees.soul_candle": "Haunt'd candle",
-  "block.buzzier_bees.ender_candle": "Foreign candle",
+  "block.buzzier_bees.ender_candle": "Candle o' Wyvern's Flame",
   "block.buzzier_bees.cursed_candle": "Dutchman's torch o' wax",
 
   "block.buzzier_bees.white_candle": "White candle",
@@ -90,21 +90,21 @@
 
   "item.minecraft.splash_potion.effect.long_luck": "Grenade w' Lady Luck's Favor",
   "item.minecraft.splash_potion.effect.strong_luck": "Grenade w' Lady Luck's Favor",
-  "item.minecraft.splash_potion.effect.unluck": "Grenade w' Barbary's Curse",
-  "item.minecraft.splash_potion.effect.long_unluck": "Grenade w' Barbary's Curse",
-  "item.minecraft.splash_potion.effect.strong_unluck": "Grenade w' Barbary's Curse",
+  "item.minecraft.splash_potion.effect.unluck": "Grenade w' Blackbeard's Curse",
+  "item.minecraft.splash_potion.effect.long_unluck": "Grenade w' Blackbeard's Curse",
+  "item.minecraft.splash_potion.effect.strong_unluck": "Grenade w' Blackbeard's Curse",
 
   "item.minecraft.lingering_potion.effect.long_luck": "Bottled Fog o' Lady Luck's Favor",
   "item.minecraft.lingering_potion.effect.strong_luck": "Bottled Fog o' Lady Luck's Favor",
-  "item.minecraft.lingering_potion.effect.unluck": "Bottled Fog o' Barbary's Curse",
-  "item.minecraft.lingering_potion.effect.long_unluck": "Bottled Fog o' Barbary's Curse",
-  "item.minecraft.lingering_potion.effect.strong_unluck": "Bottled Fog o' Barbary's Curse",
+  "item.minecraft.lingering_potion.effect.unluck": "Bottled Fog o' Blackbeard's Curse",
+  "item.minecraft.lingering_potion.effect.long_unluck": "Bottled Fog o' Blackbeard's Curse",
+  "item.minecraft.lingering_potion.effect.strong_unluck": "Bottled Fog o' Blackbeard's Curse",
 
   "item.minecraft.tipped_arrow.effect.long_luck": "Bolt w' Lady Luck's Favor",
   "item.minecraft.tipped_arrow.effect.strong_luck": "Bolt w' Lady Luck's Favor",
-  "item.minecraft.tipped_arrow.effect.unluck": "Bolt w' Barbary's Curse",
-  "item.minecraft.tipped_arrow.effect.long_unluck": "Bolt w' Barbary's Curse",
-  "item.minecraft.tipped_arrow.effect.strong_unluck": "Bolt w' Barbary's Curse",
+  "item.minecraft.tipped_arrow.effect.unluck": "Bolt w' Blackbeard's Curse",
+  "item.minecraft.tipped_arrow.effect.long_unluck": "Bolt w' Blackbeard's Curse",
+  "item.minecraft.tipped_arrow.effect.strong_unluck": "Bolt w' Blackbeard's Curse",
 
   "advancements.husbandry.four_leaf_clover.title": "Lady Luck's Champion",
   "advancements.husbandry.four_leaf_clover.description": "Loot a coffer to find her leaf",
@@ -113,9 +113,9 @@
   "advancements.husbandry.honey_apple.description": "Use an heaven glaz'd apple t' stop yeself from floatin' about",
 
   "advancements.husbandry.honey_bread.title": "Leavin' Barbary Coast",
-  "advancements.husbandry.honey_bread.description": "Eat ye a bun o' nectar to paint ye black spot white",
+  "advancements.husbandry.honey_bread.description": "Eat ye a bun o' nectar scare away tharr raiders",
 
-  "advancements.husbandry.glazed_porkchop.title": "No need for fruits, eh maties?",
+  "advancements.husbandry.glazed_porkchop.title": "Er, Fruits? Neverrrr 'eard o' em",
   "advancements.husbandry.glazed_porkchop.description": "Feast on a sugar roasted hog t' cure yeself o' Scurvey",
 
   "tooltip.buzzier_bees.is_baby": "Tiny",
