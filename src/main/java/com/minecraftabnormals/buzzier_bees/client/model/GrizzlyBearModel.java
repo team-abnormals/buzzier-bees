@@ -53,7 +53,12 @@ public class GrizzlyBearModel<T extends GrizzlyBearEntity> extends QuadrupedMode
 
 	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		super.setupAnim(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-		this.body.xRot = 0.0F;
+
+		if (entityIn.isEating()) {
+			this.body.xRot = 270.0F;
+		} else {
+			this.body.xRot = 0.0F;
+		}
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

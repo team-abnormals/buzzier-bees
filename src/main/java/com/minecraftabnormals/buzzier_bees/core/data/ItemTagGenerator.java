@@ -30,6 +30,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
 		this.copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
 		this.copy(BlockTags.PIGLIN_REPELLENTS, ItemTags.PIGLIN_REPELLENTS);
 
+		this.tag(BBItemTags.GRIZZLY_BEAR_FOOD).add(Items.SALMON, Items.COOKED_SALMON, Items.SALMON_BUCKET);
 		this.tag(BBItemTags.CANDLE_BASE).add(Items.HONEYCOMB);
 		this.tag(BBItemTags.CANDLE_WICK).add(Items.STRING);
 		this.copy(BBBlockTags.CANDLES, BBItemTags.CANDLES);

@@ -7,14 +7,15 @@ import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.function.Predicate;
 
-public class AttackPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> {
+public class BearAttackPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> {
 	protected final GrizzlyBearEntity bear;
 
-	public AttackPlayerGoal(GrizzlyBearEntity bear) {
-		super(bear, PlayerEntity.class, 20, true, true, (Predicate<LivingEntity>) null);
+	public BearAttackPlayerGoal(GrizzlyBearEntity bear) {
+		super(bear, PlayerEntity.class, 20, true, true, null);
 		this.bear = bear;
 	}
 
+	@Override
 	public boolean canUse() {
 		if (bear.isBaby()) {
 			return false;
@@ -26,11 +27,11 @@ public class AttackPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> 
 					}
 				}
 			}
-
 			return false;
 		}
 	}
 
+	@Override
 	protected double getFollowDistance() {
 		return super.getFollowDistance() * 0.5D;
 	}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:salmon",
+    "minecraft:cooked_salmon",
+    "minecraft:salmon_bucket"
+  ]
+}

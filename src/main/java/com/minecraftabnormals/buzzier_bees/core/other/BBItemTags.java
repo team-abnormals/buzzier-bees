@@ -6,6 +6,8 @@ import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.tags.ItemTags;
 
 public class BBItemTags {
+	public static final INamedTag<Item> GRIZZLY_BEAR_FOOD = tag("grizzly_bear_food");
+
 	public static final INamedTag<Item> CANDLE_BASE = tag("candle_base");
 	public static final INamedTag<Item> CANDLE_WICK = tag("candle_wick");
 	public static final INamedTag<Item> CANDLES = tag("candles");
