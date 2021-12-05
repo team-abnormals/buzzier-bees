@@ -1,4 +1,4 @@
-package com.minecraftabnormals.buzzier_bees.core.data;
+package com.minecraftabnormals.buzzier_bees.core.data.server;
 
 import com.google.common.collect.Sets;
 import com.google.gson.GsonBuilder;
@@ -24,11 +24,11 @@ import java.nio.file.Path;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class AdvancementGenerator extends AdvancementProvider {
+public class BBAdvancementProvider extends AdvancementProvider {
 	private final Path PATH;
 	public static final Logger LOGGER = LogManager.getLogger();
 
-	public AdvancementGenerator(DataGenerator generator) {
+	public BBAdvancementProvider(DataGenerator generator) {
 		super(generator);
 		PATH = generator.getOutputFolder();
 	}

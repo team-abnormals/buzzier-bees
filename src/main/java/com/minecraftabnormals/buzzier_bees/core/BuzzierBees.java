@@ -1,7 +1,10 @@
 package com.minecraftabnormals.buzzier_bees.core;
 
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
-import com.minecraftabnormals.buzzier_bees.core.data.*;
+import com.minecraftabnormals.buzzier_bees.core.data.server.BBAdvancementProvider;
+import com.minecraftabnormals.buzzier_bees.core.data.server.tags.BBBlockTagsProvider;
+import com.minecraftabnormals.buzzier_bees.core.data.server.tags.BBEntityTypeTagsProvider;
+import com.minecraftabnormals.buzzier_bees.core.data.server.tags.BBItemTagsGenerator;
 import com.minecraftabnormals.buzzier_bees.core.other.BBCompat;
 import com.minecraftabnormals.buzzier_bees.core.registry.*;
 import net.minecraft.data.DataGenerator;
@@ -66,11 +69,11 @@ public class BuzzierBees {
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
 		if (event.includeServer()) {
-			BlockTagGenerator blockTagGen = new BlockTagGenerator(dataGenerator, existingFileHelper);
+			BBBlockTagsProvider blockTagGen = new BBBlockTagsProvider(dataGenerator, existingFileHelper);
 			dataGenerator.addProvider(blockTagGen);
-			dataGenerator.addProvider(new ItemTagGenerator(dataGenerator, blockTagGen, existingFileHelper));
-			dataGenerator.addProvider(new EntityTagGenerator(dataGenerator, existingFileHelper));
-			dataGenerator.addProvider(new AdvancementGenerator(dataGenerator));
+			dataGenerator.addProvider(new BBItemTagsGenerator(dataGenerator, blockTagGen, existingFileHelper));
+			dataGenerator.addProvider(new BBEntityTypeTagsProvider(dataGenerator, existingFileHelper));
+			dataGenerator.addProvider(new BBAdvancementProvider(dataGenerator));
 		}
 	}
 }

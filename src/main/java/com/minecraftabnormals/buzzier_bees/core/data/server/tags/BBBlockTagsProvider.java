@@ -1,4 +1,4 @@
-package com.minecraftabnormals.buzzier_bees.core.data;
+package com.minecraftabnormals.buzzier_bees.core.data.server.tags;
 
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBBlockTags;
@@ -11,9 +11,9 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class BlockTagGenerator extends BlockTagsProvider {
+public class BBBlockTagsProvider extends BlockTagsProvider {
 
-	public BlockTagGenerator(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public BBBlockTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, BuzzierBees.MOD_ID, existingFileHelper);
 	}
 

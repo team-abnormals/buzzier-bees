@@ -1,4 +1,4 @@
-package com.minecraftabnormals.buzzier_bees.core.data;
+package com.minecraftabnormals.buzzier_bees.core.data.server.tags;
 
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBBlockTags;
@@ -12,9 +12,9 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class ItemTagGenerator extends ItemTagsProvider {
+public class BBItemTagsGenerator extends ItemTagsProvider {
 
-	public ItemTagGenerator(DataGenerator generator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
+	public BBItemTagsGenerator(DataGenerator generator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
 		super(generator, blockTagsProvider, BuzzierBees.MOD_ID, existingFileHelper);
 	}
 
