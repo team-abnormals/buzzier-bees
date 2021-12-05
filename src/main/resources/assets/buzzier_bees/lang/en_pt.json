@@ -1,0 +1,142 @@
+{
+  "item.buzzier_bees.four_leaf_clover": "Leaf o' Lady Luck",
+
+  "item.buzzier_bees.honey_wand": "Bee Plunderin' Stick",
+  "item.buzzier_bees.sticky_honey_wand": "Bee Plunderin' Stick w' Loot",
+
+  "item.buzzier_bees.honey_apple": "Apple w' Heaven's Glaze",
+  "item.buzzier_bees.honey_bread": "Bun o' Sweet Nectar",
+  "item.buzzier_bees.glazed_porkchop": "Sugar Roasted Hog",
+
+  "item.buzzier_bees.silverfish_bottle": "Bottle o' Bilge Rat",
+  "item.buzzier_bees.endermite_bottle": "Bottle o' Endermite",
+  "item.buzzier_bees.bee_bottle": "Bottle o' Bee",
+
+  "item.buzzier_bees.honeycomb_banner_pattern": "Flag Pattern",
+    "item.buzzier_bees.honeycomb_banner_pattern.desc": "Bee's Vessel",
+
+  "item.buzzier_bees.grizzly_bear_spawn_egg": "Bee pillager Cackle Fruit",
+  "item.buzzier_bees.moobloom_spawn_egg": "Bovine o' Helios Cackle Fruit",
+
+  "block.minecraft.beehive": "Oaken Vessel o' Bee",
+  "block.buzzier_bees.spruce_beehive": "Spruce Vessel of Bee",
+  "block.buzzier_bees.birch_beehive": "Birch Vessel of Bee",
+  "block.buzzier_bees.jungle_beehive": "Jungle Vessel of Bee",
+  "block.buzzier_bees.acacia_beehive": "Acacia Vessel of Bee",
+  "block.buzzier_bees.dark_oak_beehive": "Vessel of Bee w' Dusken Oak",
+  "block.buzzier_bees.crimson_beehive": "Bleedin' Vessel of Bee",
+  "block.buzzier_bees.warped_beehive": "Twist'd Vessel of Bee",
+
+  "block.buzzier_bees.crystallized_honey_block": "Cube o' fragile nectar",
+
+  "block.buzzier_bees.honey_lamp" : "Glowin' stick o' nectar",
+
+  "block.buzzier_bees.honeycomb_bricks": "Bricks o' Bee Treasure",
+  "block.buzzier_bees.honeycomb_brick_stairs": "Stairs o' Bee Treasure bricks",
+  "block.buzzier_bees.honeycomb_brick_slab": "Slab o' Bee Treasure bricks",
+  "block.buzzier_bees.honeycomb_brick_wall": "Wall o' Bee Treasure bricks",
+  "block.buzzier_bees.honeycomb_brick_vertical_slab": "Standin' Slab o' Bee Treasure bricks",
+  "block.buzzier_bees.chiseled_honeycomb_bricks": "Carv'd Bricks o' Bee Treasure",
+
+  "block.buzzier_bees.honeycomb_tiles": "Tiles o' Bee Treasure",
+  "block.buzzier_bees.honeycomb_tile_stairs": "Stairs o' Bee Treasure Tiles",
+  "block.buzzier_bees.honeycomb_tile_slab": "Slab o' Bee Treasure Tiles",
+  "block.buzzier_bees.honeycomb_tile_wall": "Wall o' Bee Treasure Tiles",
+  "block.buzzier_bees.honeycomb_tile_vertical_slab": "Standin' slab o' Bee Treasure Tiles",
+
+  "block.buzzier_bees.honeycomb_door": "Gate t' nest o' bee",
+  "block.buzzier_bees.honeycomb_trapdoor": "Hatch t' nest o' bee",
+
+  "block.buzzier_bees.pink_clover": "Pink Feast o' Bees",
+  "block.buzzier_bees.white_clover": "White Feast o' Bees",
+  "block.buzzier_bees.buttercup": "Flower o' Helios",
+
+  "block.buzzier_bees.potted_pink_clover": "Captive pink feast o' bees",
+  "block.buzzier_bees.potted_white_clover": "Captive white feast o' bees",
+  "block.buzzier_bees.potted_buttercup": "Captive Flower o' Helios",
+
+  "block.buzzier_bees.candle": "Candle",
+  "block.buzzier_bees.soul_candle": "Haunt'd candle",
+  "block.buzzier_bees.ender_candle": "Candle o' Wyvern's Flame",
+  "block.buzzier_bees.cursed_candle": "Dutchman's torch o' wax",
+
+  "block.buzzier_bees.white_candle": "White candle",
+  "block.buzzier_bees.orange_candle": "Orange candle",
+  "block.buzzier_bees.magenta_candle": "Magenta candle",
+  "block.buzzier_bees.light_blue_candle": "Light Blue candle",
+  "block.buzzier_bees.yellow_candle": "Yellow candle",
+  "block.buzzier_bees.lime_candle": "Lime candle",
+  "block.buzzier_bees.pink_candle": "Pink candle",
+  "block.buzzier_bees.gray_candle": "Gray candle",
+  "block.buzzier_bees.light_gray_candle": "Light Gray candle",
+  "block.buzzier_bees.cyan_candle": "Cyan candle",
+  "block.buzzier_bees.purple_candle": "Purple candle",
+  "block.buzzier_bees.blue_candle": "Blue candle",
+  "block.buzzier_bees.brown_candle": "Brown candle",
+  "block.buzzier_bees.green_candle": "Green candle",
+  "block.buzzier_bees.red_candle": "Red candle",
+  "block.buzzier_bees.black_candle": "Black candle",
+
+  "entity.buzzier_bees.grizzly_bear": "Fur'd Bee Pillager",
+  "entity.buzzier_bees.moobloom": "Bovine o' Helios",
+
+  "effect.buzzier_bees.sunny": "Icarus's Bane",
+
+  "item.minecraft.potion.effect.long_luck": "Grog o' Lady Luck's Favor",
+  "item.minecraft.potion.effect.strong_luck": "Grog o' Lady Luck's Favor",
+  "item.minecraft.potion.effect.unluck": "Grog o' Barbary's Curse",
+  "item.minecraft.potion.effect.long_unluck": "Grog o' Barbary's Curse",
+  "item.minecraft.potion.effect.strong_unluck": "Grog o' Barbary's Curse",
+
+  "item.minecraft.splash_potion.effect.long_luck": "Grenade w' Lady Luck's Favor",
+  "item.minecraft.splash_potion.effect.strong_luck": "Grenade w' Lady Luck's Favor",
+  "item.minecraft.splash_potion.effect.unluck": "Grenade w' Blackbeard's Curse",
+  "item.minecraft.splash_potion.effect.long_unluck": "Grenade w' Blackbeard's Curse",
+  "item.minecraft.splash_potion.effect.strong_unluck": "Grenade w' Blackbeard's Curse",
+
+  "item.minecraft.lingering_potion.effect.long_luck": "Bottled Fog o' Lady Luck's Favor",
+  "item.minecraft.lingering_potion.effect.strong_luck": "Bottled Fog o' Lady Luck's Favor",
+  "item.minecraft.lingering_potion.effect.unluck": "Bottled Fog o' Blackbeard's Curse",
+  "item.minecraft.lingering_potion.effect.long_unluck": "Bottled Fog o' Blackbeard's Curse",
+  "item.minecraft.lingering_potion.effect.strong_unluck": "Bottled Fog o' Blackbeard's Curse",
+
+  "item.minecraft.tipped_arrow.effect.long_luck": "Bolt w' Lady Luck's Favor",
+  "item.minecraft.tipped_arrow.effect.strong_luck": "Bolt w' Lady Luck's Favor",
+  "item.minecraft.tipped_arrow.effect.unluck": "Bolt w' Blackbeard's Curse",
+  "item.minecraft.tipped_arrow.effect.long_unluck": "Bolt w' Blackbeard's Curse",
+  "item.minecraft.tipped_arrow.effect.strong_unluck": "Bolt w' Blackbeard's Curse",
+
+  "advancements.husbandry.four_leaf_clover.title": "Lady Luck's Champion",
+  "advancements.husbandry.four_leaf_clover.description": "Loot a coffer to find her leaf",
+
+  "advancements.husbandry.honey_apple.title": "Back t' the sea",
+  "advancements.husbandry.honey_apple.description": "Use an heaven glaz'd apple t' stop yeself from floatin' about",
+
+  "advancements.husbandry.honey_bread.title": "Leavin' Barbary Coast",
+  "advancements.husbandry.honey_bread.description": "Eat ye a bun o' nectar scare away tharr raiders",
+
+  "advancements.husbandry.glazed_porkchop.title": "Er, Fruits? Neverrrr 'eard o' em",
+  "advancements.husbandry.glazed_porkchop.description": "Feast on a sugar roasted hog t' cure yeself o' Scurvey",
+
+  "tooltip.buzzier_bees.is_baby": "Tiny",
+  "tooltip.buzzier_bees.has_nectar": "Fill'd w' fl'er dust",
+  "tooltip.buzzier_bees.is_angry": "In foul spirits",
+  "tooltip.buzzier_bees.has_stung": "Defenseless",
+
+  "block.minecraft.banner.mca_honeycomb.black": "Black bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.red": "Red bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.green": "Green bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.brown": "Brown bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.blue": "Blue bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.purple": "Purple bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.cyan": "Cyan bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.light_gray": "Light gray bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.gray": "Gray bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.pink": "Pink bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.lime": "Lime bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.yellow": "Yellow bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.light_blue": "Light blue bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.magenta": "Magenta bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.orange": "Orange bee's vessel",
+    "block.minecraft.banner.mca_honeycomb.white": "White bee's vessel"
+}
