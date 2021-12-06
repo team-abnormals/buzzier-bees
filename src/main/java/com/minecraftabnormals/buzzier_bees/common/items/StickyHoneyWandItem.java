@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class StickyHoneyWandItem extends Item {
@@ -34,10 +35,11 @@ public class StickyHoneyWandItem extends Item {
 	}
 
 
+	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		target.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 160, 4, true, true));
 		if (attacker instanceof PlayerEntity && !((PlayerEntity) attacker).abilities.instabuild) {
-			attacker.setItemInHand(attacker.getUsedItemHand(), new ItemStack(BBItems.HONEY_WAND.get()));
+			attacker.setItemInHand(Hand.MAIN_HAND, new ItemStack(BBItems.HONEY_WAND.get()));
 		}
 		return true;
 	}
