@@ -3,6 +3,7 @@ package com.minecraftabnormals.buzzier_bees.core.other;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil;
 import com.minecraftabnormals.abnormals_core.core.util.TradeUtil.AbnormalsTrade;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
+import com.minecraftabnormals.buzzier_bees.core.other.tags.BBItemTags;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBVillagers;

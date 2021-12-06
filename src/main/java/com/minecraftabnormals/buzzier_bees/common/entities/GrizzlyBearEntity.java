@@ -4,7 +4,7 @@ import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearAttack
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearHurtByTargetGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearMeleeAttackGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearPanicGoal;
-import com.minecraftabnormals.buzzier_bees.core.other.BBItemTags;
+import com.minecraftabnormals.buzzier_bees.core.other.tags.BBItemTags;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;

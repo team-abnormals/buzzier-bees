@@ -1,4 +1,4 @@
-package com.minecraftabnormals.buzzier_bees.core.other;
+package com.minecraftabnormals.buzzier_bees.core.other.tags;
 
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.entity.EntityType;

@@ -31,7 +31,7 @@ public class BuzzierBees {
 		ModLoadingContext context = ModLoadingContext.get();
 
 		REGISTRY_HELPER.register(modEventBus);
-		BBBanners.PAINTINGS.register(modEventBus);
+		BBPaintings.PAINTINGS.register(modEventBus);
 		BBParticles.PARTICLES.register(modEventBus);
 		BBEffects.POTIONS.register(modEventBus);
 		BBEffects.EFFECTS.register(modEventBus);

@@ -1,7 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core.data.server.tags;
 
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
-import com.minecraftabnormals.buzzier_bees.core.other.BBEntityTags;
+import com.minecraftabnormals.buzzier_bees.core.other.tags.BBEntityTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.EntityTypeTagsProvider;
 import net.minecraft.entity.EntityType;

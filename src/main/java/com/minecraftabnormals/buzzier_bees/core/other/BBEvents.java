@@ -3,6 +3,8 @@ package com.minecraftabnormals.buzzier_bees.core.other;
 import com.minecraftabnormals.buzzier_bees.common.entities.MoobloomEntity;
 import com.minecraftabnormals.buzzier_bees.core.BBConfig;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
+import com.minecraftabnormals.buzzier_bees.core.other.tags.BBBlockTags;
+import com.minecraftabnormals.buzzier_bees.core.other.tags.BBEntityTags;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBEffects;
 import com.minecraftabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.block.Block;
