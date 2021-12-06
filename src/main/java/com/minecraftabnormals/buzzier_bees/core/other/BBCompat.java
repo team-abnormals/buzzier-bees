@@ -50,8 +50,11 @@ public class BBCompat {
 
 	public static void registerCompostables() {
 		DataUtil.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);
-		DataUtil.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
+		DataUtil.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);;
+		DataUtil.registerCompostable(BBBlocks.BUTTERCUP.get(), 0.65F);
 		DataUtil.registerCompostable(BBItems.FOUR_LEAF_CLOVER.get(), 0.65F);
+		DataUtil.registerCompostable(BBItems.HONEY_BREAD.get(), 0.65F);
+		DataUtil.registerCompostable(BBItems.HONEY_APPLE.get(), 0.85F);
 	}
 
 	public static void registerFlammables() {
