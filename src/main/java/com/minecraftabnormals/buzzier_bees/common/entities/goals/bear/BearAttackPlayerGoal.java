@@ -1,11 +1,8 @@
 package com.minecraftabnormals.buzzier_bees.common.entities.goals.bear;
 
 import com.minecraftabnormals.buzzier_bees.common.entities.GrizzlyBearEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.player.PlayerEntity;
-
-import java.util.function.Predicate;
 
 public class BearAttackPlayerGoal extends NearestAttackableTargetGoal<PlayerEntity> {
 	protected final GrizzlyBearEntity bear;

@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
  */
 public interface IEnchantmentInfluencer {
 
-	@Nullable DyeColor getEnchantmentInfluenceColor(IBlockReader world, BlockPos pos, BlockState state);
+	@Nullable
+	DyeColor getEnchantmentInfluenceColor(IBlockReader world, BlockPos pos, BlockState state);
 
 	default int getInfluenceStack(IBlockReader world, BlockPos pos, BlockState state) {
 		return 1;

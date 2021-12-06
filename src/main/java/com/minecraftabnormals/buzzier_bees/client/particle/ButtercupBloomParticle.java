@@ -64,7 +64,7 @@ public class ButtercupBloomParticle extends SpriteTexturedParticle {
 	}
 
 	public static class Factory implements IParticleFactory<BasicParticleType> {
-		private IAnimatedSprite animatedSprite;
+		private final IAnimatedSprite animatedSprite;
 
 		public Factory(IAnimatedSprite animatedSprite) {
 			this.animatedSprite = animatedSprite;

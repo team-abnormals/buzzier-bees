@@ -3,7 +3,6 @@ package com.minecraftabnormals.buzzier_bees.core.data.server.tags;
 import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.core.other.BBBlockTags;
 import com.minecraftabnormals.buzzier_bees.core.other.BBItemTags;
-import com.minecraftabnormals.buzzier_bees.core.registry.BBBlocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;

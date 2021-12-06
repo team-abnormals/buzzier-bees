@@ -61,7 +61,7 @@ public class HoneyPotBlock extends Block implements ISidedInventoryProvider {
 			if (!worldIn.isClientSide) {
 				worldIn.setBlockAndUpdate(pos, state.setValue(HONEY_LEVEL, output.getSecond()));
 			}
-			worldIn.playSound((PlayerEntity) null, pos, SoundEvents.HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			worldIn.playSound(null, pos, SoundEvents.HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			return ActionResultType.sidedSuccess(worldIn.isClientSide());
 		}
 

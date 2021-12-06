@@ -33,6 +33,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
@@ -50,7 +52,7 @@ public class BBEvents {
 	}
 
 	@SubscribeEvent
-	public static void renewableFlowers(PlayerInteractEvent.RightClickBlock event) {
+	public static void renewableFlowers(RightClickBlock event) {
 		PlayerEntity player = event.getPlayer();
 		World world = event.getWorld();
 		BlockPos pos = event.getPos();
@@ -59,19 +61,22 @@ public class BBEvents {
 		if (stack.getItem() != Items.BONE_MEAL)
 			return;
 
-		if (BBConfig.COMMON.shortFlowerDuplication.get()) {
-			if (!(block instanceof FlowerBlock) || block.is(BBBlockTags.FLOWER_BLACKLIST) || (block instanceof IGrowable && ((IGrowable) block).isBonemealSuccess(world, world.random, pos, world.getBlockState(pos))))
-				return;
+		if (BBConfig.COMMON.shortFlowerDuplication.get() && block instanceof FlowerBlock && !block.hasTileEntity(world.getBlockState(pos)) && !block.is(BBBlockTags.FLOWER_BLACKLIST) && !(block instanceof IGrowable && ((IGrowable) block).isBonemealSuccess(world, world.random, pos, world.getBlockState(pos)))) {
 			if (!player.isCreative())
 				stack.shrink(1);
 			player.swing(event.getHand());
-			if (world.isClientSide) BoneMealItem.addGrowthParticles(world, pos, world.random.nextInt(12));
+			if (world.isClientSide())
+				BoneMealItem.addGrowthParticles(world, pos, world.random.nextInt(12));
 			Block.popResource(world, pos, new ItemStack(block, 1));
+			event.setCanceled(true);
+			event.setResult(Event.Result.ALLOW);
 		}
 
 		if (!BBConfig.COMMON.tallFlowerDuplication.get()) {
-			if (block instanceof TallFlowerBlock)
+			if (block instanceof TallFlowerBlock) {
 				event.setCanceled(true);
+				event.setResult(Event.Result.DENY);
+			}
 		}
 	}
 
@@ -133,7 +138,7 @@ public class BBEvents {
 				bottleItem = bottleItem.setHoverName(name);
 			}
 
-			if (successful && ((MobEntity) target).isAlive()) {
+			if (successful && target.isAlive()) {
 				if (item == Items.GLASS_BOTTLE) {
 					itemstack.shrink(1);
 					event.getWorld().playSound(player, event.getPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundCategory.NEUTRAL, 1.0F, 1.0F);

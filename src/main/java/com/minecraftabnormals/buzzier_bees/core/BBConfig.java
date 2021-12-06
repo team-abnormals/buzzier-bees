@@ -13,9 +13,11 @@ public class BBConfig {
 		public final ConfigValue<Boolean> shortFlowerDuplication;
 
 		Common(ForgeConfigSpec.Builder builder) {
-			builder.push("flowers");
-			tallFlowerDuplication = builder.define("Allow bonemealing tall flowers to duplicate them", true);
-			shortFlowerDuplication = builder.define("Allow bonemealing short flowers to duplicate them", true);
+			builder.push("items");
+			builder.push("bone_meal");
+			tallFlowerDuplication = builder.comment("If tall flowers can be fertilized with Bone Meal to duplicate").define("Tall flower fertilizing", true);
+			shortFlowerDuplication = builder.comment("If short flowers can be fertilized with Bone Meal to duplicate").define("Short flower fertilizing", true);
+			builder.pop();
 			builder.pop();
 		}
 	}

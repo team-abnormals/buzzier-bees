@@ -1,7 +1,7 @@
 package com.minecraftabnormals.buzzier_bees.core.other;
 
-import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import com.minecraftabnormals.buzzier_bees.common.advancement.ImprovedEmptyTrigger;
+import com.minecraftabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;

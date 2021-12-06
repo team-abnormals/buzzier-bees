@@ -43,6 +43,6 @@ public class BearMeleeAttackGoal extends MeleeAttackGoal {
 
 	@Override
 	protected double getAttackReachSqr(LivingEntity attackTarget) {
-		return (double) (4.0F + attackTarget.getBbWidth());
+		return 4.0F + attackTarget.getBbWidth();
 	}
 }

@@ -1,8 +1,5 @@
 package com.minecraftabnormals.buzzier_bees.common.entities;
 
-import com.minecraftabnormals.abnormals_core.core.endimator.Endimation;
-import com.minecraftabnormals.abnormals_core.core.endimator.entity.IEndimatedEntity;
-import com.minecraftabnormals.abnormals_core.core.util.NetworkUtil;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearAttackPlayerGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearHurtByTargetGoal;
 import com.minecraftabnormals.buzzier_bees.common.entities.goals.bear.BearMeleeAttackGoal;
@@ -15,8 +12,8 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;

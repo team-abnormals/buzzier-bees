@@ -31,7 +31,7 @@ public class HoneyWandItem extends Item {
 			blockstate2 = blockstate.setValue(BeehiveBlock.HONEY_LEVEL, 0);
 			if (!world.isClientSide) {
 				world.setBlock(blockpos, blockstate2, 11);
-				if (player != null && !((PlayerEntity) player).abilities.instabuild) {
+				if (player != null && !player.abilities.instabuild) {
 					context.getPlayer().setItemInHand(context.getHand(), new ItemStack(BBItems.STICKY_HONEY_WAND.get()));
 				}
 			}

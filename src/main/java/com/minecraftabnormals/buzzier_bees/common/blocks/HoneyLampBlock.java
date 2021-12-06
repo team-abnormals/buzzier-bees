@@ -38,7 +38,7 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
 
 	@Override
 	public VoxelShape getShape(BlockState blockState, IBlockReader blockReader, BlockPos blockPos, ISelectionContext selectionContext) {
-		switch (((Direction) blockState.getValue(FACING)).getAxis()) {
+		switch (blockState.getValue(FACING).getAxis()) {
 			case X:
 			default:
 				return HONEY_LAMP_EW_AABB;
@@ -52,11 +52,11 @@ public class HoneyLampBlock extends EndRodBlock implements IWaterLoggable {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState blockState, World worldIn, BlockPos blockPos, Random random) {
-		Direction lvt_5_1_ = (Direction) blockState.getValue(FACING);
+		Direction lvt_5_1_ = blockState.getValue(FACING);
 		double lvt_6_1_ = (double) blockPos.getX() + 0.55D - (double) (random.nextFloat() * 0.1F);
 		double lvt_8_1_ = (double) blockPos.getY() + 0.55D - (double) (random.nextFloat() * 0.1F);
 		double lvt_10_1_ = (double) blockPos.getZ() + 0.55D - (double) (random.nextFloat() * 0.1F);
-		double lvt_12_1_ = (double) (0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F);
+		double lvt_12_1_ = 0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F;
 		if (random.nextInt(5) == 0) {
 			worldIn.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(Blocks.HONEY_BLOCK)), lvt_6_1_ + (double) lvt_5_1_.getStepX() * lvt_12_1_, lvt_8_1_ + (double) lvt_5_1_.getStepY() * lvt_12_1_, lvt_10_1_ + (double) lvt_5_1_.getStepZ() * lvt_12_1_, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D);
 		}
