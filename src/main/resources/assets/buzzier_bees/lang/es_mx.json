@@ -152,17 +152,17 @@
   "item.minecraft.tipped_arrow.effect.long_unluck": "Flecha de mala suerte",
   "item.minecraft.tipped_arrow.effect.strong_unluck": "Flecha de mala suerte",
 
-  "advancements.husbandry.four_leaf_clover.title": "Mejor suerte esta vez",
-  "advancements.husbandry.four_leaf_clover.description": "Encuentra un trébol de cuatro hojas",
+  "advancements.adventure.four_leaf_clover.title": "Mejor suerte esta vez",
+  "advancements.adventure.four_leaf_clover.description": "Encuentra un trébol de cuatro hojas",
 
-  "advancements.husbandry.honey_apple.title": "Una manzana al día",
-  "advancements.husbandry.honey_apple.description": "Usa una manzana melosa para curar la levitación",
+  "advancements.husbandry.use_honey_apple.title": "Una manzana al día",
+  "advancements.husbandry.use_honey_apple.description": "Usa una manzana melosa para curar la levitación",
 
-  "advancements.husbandry.honey_bread.title": "Buenos presagios",
-  "advancements.husbandry.honey_bread.description": "Usa un pan de miel para curar el mal presagio",
+  "advancements.husbandry.use_honey_bread.title": "Buenos presagios",
+  "advancements.husbandry.use_honey_bread.description": "Usa un pan de miel para curar el mal presagio",
 
-  "advancements.husbandry.glazed_porkchop.title": "Rodillas débiles, brazos melosos",
-  "advancements.husbandry.glazed_porkchop.description": "Usa una chuleta caramelizada para curar la fatiga minera",
+  "advancements.husbandry.use_glazed_porkchop.title": "Rodillas débiles, brazos melosos",
+  "advancements.husbandry.use_glazed_porkchop.description": "Usa una chuleta caramelizada para curar la fatiga minera",
 
   "tooltip.buzzier_bees.is_baby": "Bebé",
   "tooltip.buzzier_bees.has_nectar": "Polinizada",
