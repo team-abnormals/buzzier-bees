@@ -1,0 +1,51 @@
+{
+  "target": {
+    "type": "names",
+    "config": [
+      "minecraft:chests/desert_pyramid"
+    ],
+    "conditions": []
+  },
+  "priority": "normal",
+  "modifiers": [
+    {
+      "type": "entries",
+      "config": {
+        "replace": false,
+        "index": 0,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "weight": 5,
+            "name": "buzzier_bees:four_leaf_clover"
+          }
+        ]
+      }
+    },
+    {
+      "type": "entries",
+      "config": {
+        "replace": false,
+        "index": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "weight": 20,
+            "functions": [
+              {
+                "function": "minecraft:set_count",
+                "count": {
+                  "type": "minecraft:uniform",
+                  "min": 1.0,
+                  "max": 3.0
+                },
+                "add": false
+              }
+            ],
+            "name": "minecraft:honey_bottle"
+          }
+        ]
+      }
+    }
+  ]
+}

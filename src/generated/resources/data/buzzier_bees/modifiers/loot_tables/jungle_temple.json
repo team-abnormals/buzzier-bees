@@ -1,0 +1,26 @@
+{
+  "target": {
+    "type": "names",
+    "config": [
+      "minecraft:chests/jungle_temple"
+    ],
+    "conditions": []
+  },
+  "priority": "normal",
+  "modifiers": [
+    {
+      "type": "entries",
+      "config": {
+        "replace": false,
+        "index": 0,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "weight": 5,
+            "name": "buzzier_bees:four_leaf_clover"
+          }
+        ]
+      }
+    }
+  ]
+}
