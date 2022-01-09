@@ -6,7 +6,7 @@ import com.teamabnormals.buzzier_bees.common.blocks.ScentedCandleBlock;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = BuzzierBees.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBBlockEntities {

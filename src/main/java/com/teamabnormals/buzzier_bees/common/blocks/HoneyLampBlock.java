@@ -82,7 +82,7 @@ public class HoneyLampBlock extends EndRodBlock implements SimpleWaterloggedBloc
 			return Blocks.AIR.defaultBlockState();
 		} else {
 			if (state.getValue(WATERLOGGED)) {
-				worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
+				worldIn.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
 			}
 			return super.updateShape(state, facing, facingState, worldIn, currentPos, facingPos);
 		}

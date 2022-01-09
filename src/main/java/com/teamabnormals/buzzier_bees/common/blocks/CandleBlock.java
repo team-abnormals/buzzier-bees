@@ -126,7 +126,7 @@ public class CandleBlock extends Block implements SimpleWaterloggedBlock, IEncha
 			if (state.getValue(WATERLOGGED)) {
 				if (state.getValue(LIT))
 					worldIn.setBlock(currentPos, state.setValue(LIT, false), 2);
-				worldIn.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
+				worldIn.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
 			}
 			return super.updateShape(state, facing, facingState, worldIn, currentPos, facingPos);
 		}
