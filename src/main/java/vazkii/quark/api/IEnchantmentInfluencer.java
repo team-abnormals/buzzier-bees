@@ -1,9 +1,9 @@
 package vazkii.quark.api;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.item.DyeColor;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
@@ -13,9 +13,9 @@ import javax.annotation.Nullable;
 public interface IEnchantmentInfluencer {
 
 	@Nullable
-	DyeColor getEnchantmentInfluenceColor(IBlockReader world, BlockPos pos, BlockState state);
+	DyeColor getEnchantmentInfluenceColor(BlockGetter world, BlockPos pos, BlockState state);
 
-	default int getInfluenceStack(IBlockReader world, BlockPos pos, BlockState state) {
+	default int getInfluenceStack(BlockGetter world, BlockPos pos, BlockState state) {
 		return 1;
 	}
 }

@@ -1,7 +1,7 @@
 {
   "required": true,
-  "package": "com.minecraftabnormals.buzzier_bees.core.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "package": "com.teamabnormals.buzzier_bees.core.mixin",
+  "compatibilityLevel": "JAVA_16",
   "minVersion": "0.8",
   "refmap": "buzzier_bees.refmap.json",
   "mixins": [

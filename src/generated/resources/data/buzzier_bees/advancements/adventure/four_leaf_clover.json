@@ -21,7 +21,9 @@
       "conditions": {
         "items": [
           {
-            "item": "buzzier_bees:four_leaf_clover"
+            "items": [
+              "buzzier_bees:four_leaf_clover"
+            ]
           }
         ]
       }

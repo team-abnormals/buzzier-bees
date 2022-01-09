@@ -20,20 +20,20 @@ license = "https://github.com/team-abnormals/buzzier-bees/blob/main/LICENSE.txt"
 [[dependencies.buzzier_bees]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.16.5,1.17)"
+    versionRange = "[1.17.1,1.18)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.buzzier_bees]]
     modId = "forge"
     mandatory = true
-    versionRange = "[36.2.20,)"
+    versionRange = "[37.1.1,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.buzzier_bees]]
-    modId = "abnormals_core"
+    modId = "blueprint"
     mandatory = true
-    versionRange = "[3.2.0,)"
+    versionRange = "[4.1.1,)"
     ordering = "AFTER"
     side = "BOTH"
