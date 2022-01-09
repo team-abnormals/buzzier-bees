@@ -27,7 +27,7 @@ license = "https://github.com/team-abnormals/buzzier-bees/blob/main/LICENSE.txt"
 [[dependencies.buzzier_bees]]
     modId = "forge"
     mandatory = true
-    versionRange = "[36.2.0,)"
+    versionRange = "[36.2.20,)"
     ordering = "NONE"
     side = "BOTH"
 
