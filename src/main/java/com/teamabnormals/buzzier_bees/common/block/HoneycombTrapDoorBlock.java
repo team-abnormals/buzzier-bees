@@ -1,4 +1,4 @@
-package com.teamabnormals.buzzier_bees.common.blocks;
+package com.teamabnormals.buzzier_bees.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

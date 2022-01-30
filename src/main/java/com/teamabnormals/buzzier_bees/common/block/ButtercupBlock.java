@@ -1,4 +1,4 @@
-package com.teamabnormals.buzzier_bees.common.blocks;
+package com.teamabnormals.buzzier_bees.common.block;
 
 import com.teamabnormals.blueprint.common.block.BlueprintFlowerBlock;
 import com.teamabnormals.buzzier_bees.core.registry.BBParticles;

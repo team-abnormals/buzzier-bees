@@ -1,8 +1,8 @@
 package com.teamabnormals.buzzier_bees.core.registry;
 
 import com.teamabnormals.blueprint.core.util.registry.EntitySubRegistryHelper;
-import com.teamabnormals.buzzier_bees.common.entity.GrizzlyBearEntity;
-import com.teamabnormals.buzzier_bees.common.entity.MoobloomEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.MoobloomEntity;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class BBEntities {
+public class BBEntityTypes {
 	public static final EntitySubRegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER.getEntitySubHelper();
 
 	public static final RegistryObject<EntityType<GrizzlyBearEntity>> GRIZZLY_BEAR = HELPER.createLivingEntity("grizzly_bear", GrizzlyBearEntity::new, MobCategory.CREATURE, 1.4F, 1.4F);

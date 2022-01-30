@@ -1,6 +1,6 @@
-package com.teamabnormals.buzzier_bees.common.entity.goals.bear;
+package com.teamabnormals.buzzier_bees.common.entity.ai.goal;
 
-import com.teamabnormals.buzzier_bees.common.entity.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 

@@ -1,6 +1,6 @@
 package com.teamabnormals.buzzier_bees.core.mixin;
 
-import com.teamabnormals.buzzier_bees.core.registry.BBEffects;
+import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Bee;
@@ -29,7 +29,7 @@ public abstract class BeeEntityMixin extends Animal {
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/Bee;getTarget()Lnet/minecraft/world/entity/LivingEntity;", shift = At.Shift.AFTER), method = "wantsToEnterHive", cancellable = true)
 	private void canEnterHive(CallbackInfoReturnable<Boolean> cir) {
-		boolean sunny = this.getEffect(BBEffects.SUNNY.get()) != null;
+		boolean sunny = this.getEffect(BBMobEffects.SUNNY.get()) != null;
 		boolean flag = this.isTiredOfLookingForNectar() || this.level.isRaining() || (this.level.isNight() && !sunny) || this.hasNectar();
 		cir.setReturnValue(flag && !this.isHiveNearFire());
 	}

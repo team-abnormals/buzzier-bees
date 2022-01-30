@@ -18,8 +18,8 @@ import java.util.function.Consumer;
 
 public class BBAdvancementProvider extends AdvancementProvider {
 
-	public BBAdvancementProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, existingFileHelper);
+	public BBAdvancementProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
+		super(generator, fileHelper);
 	}
 
 	@Override

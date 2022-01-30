@@ -1,8 +1,8 @@
-package com.teamabnormals.buzzier_bees.client.render.layer;
+package com.teamabnormals.buzzier_bees.client.render.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import com.teamabnormals.buzzier_bees.common.entity.MoobloomEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.MoobloomEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.renderer.MultiBufferSource;

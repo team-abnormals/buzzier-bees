@@ -1,6 +1,6 @@
 package com.teamabnormals.buzzier_bees.client.model;
 
-import com.teamabnormals.buzzier_bees.common.entity.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
 import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

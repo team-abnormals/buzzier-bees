@@ -1,42 +1,22 @@
 package com.teamabnormals.buzzier_bees.core.registry;
 
-import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.placement.*;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
-@Mod.EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBFeatures {
-
-	@SubscribeEvent
-	public static void addFeatures(BiomeLoadingEvent event) {
-		ResourceLocation biome = event.getName();
-
-		if (DataUtil.matchesKeys(biome, Biomes.FOREST, Biomes.WINDSWEPT_FOREST))
-			event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BBPlacedFeatures.FLOWER_WHITE_CLOVER);
-
-		if (DataUtil.matchesKeys(biome, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST))
-			event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BBPlacedFeatures.FLOWER_PINK_CLOVER);
-
-		if (DataUtil.matchesKeys(biome, Biomes.SUNFLOWER_PLAINS)) {
-			event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BBPlacedFeatures.FLOWER_BUTTERCUP);
-			event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BBEntities.MOOBLOOM.get(), 40, 2, 4));
-		}
-	}
 
 	public static final class BBConfiguredFeatures {
 		public static final ConfiguredFeature<RandomPatchConfiguration, ?> FLOWER_WHITE_CLOVER = register("flower_white_clover", Feature.FLOWER.configured(new RandomPatchConfiguration(32, 6, 2, () -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BBBlocks.WHITE_CLOVER.get()))).onlyWhenEmpty())));

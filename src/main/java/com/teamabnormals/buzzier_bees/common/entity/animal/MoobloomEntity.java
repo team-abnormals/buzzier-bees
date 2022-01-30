@@ -1,4 +1,4 @@
-package com.teamabnormals.buzzier_bees.common.entity;
+package com.teamabnormals.buzzier_bees.common.entity.animal;
 
 import com.teamabnormals.buzzier_bees.core.registry.*;
 import net.minecraft.core.BlockPos;
@@ -29,7 +29,7 @@ public class MoobloomEntity extends Cow implements Shearable, IForgeShearable {
 
 	@Override
 	public MoobloomEntity getBreedOffspring(ServerLevel world, AgeableMob ageable) {
-		return BBEntities.MOOBLOOM.get().create(world);
+		return BBEntityTypes.MOOBLOOM.get().create(world);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class MoobloomEntity extends Cow implements Shearable, IForgeShearable {
 		if (!level.isClientSide && level.getGameTime() % 20 == 0) {
 			for (LivingEntity living : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(7.0D, 3.0D, 7.0D))) {
 				if (!(living instanceof MoobloomEntity))
-					living.addEffect(new MobEffectInstance(BBEffects.SUNNY.get(), 100, 0, false, false));
+					living.addEffect(new MobEffectInstance(BBMobEffects.SUNNY.get(), 100, 0, false, false));
 			}
 		}
 	}

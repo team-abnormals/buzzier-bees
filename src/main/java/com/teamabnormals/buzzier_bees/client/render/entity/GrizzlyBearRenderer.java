@@ -1,7 +1,7 @@
-package com.teamabnormals.buzzier_bees.client.render;
+package com.teamabnormals.buzzier_bees.client.render.entity;
 
 import com.teamabnormals.buzzier_bees.client.model.GrizzlyBearModel;
-import com.teamabnormals.buzzier_bees.common.entity.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

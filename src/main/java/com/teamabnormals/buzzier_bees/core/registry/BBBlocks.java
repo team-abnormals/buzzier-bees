@@ -2,7 +2,7 @@ package com.teamabnormals.buzzier_bees.core.registry;
 
 import com.teamabnormals.blueprint.common.block.*;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import com.teamabnormals.buzzier_bees.common.blocks.*;
+import com.teamabnormals.buzzier_bees.common.block.*;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.CreativeModeTab;
@@ -41,7 +41,7 @@ public class BBBlocks {
 	public static final RegistryObject<Block> HONEYCOMB_TILE_WALL = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(BBProperties.HONEYCOMB_BRICKS), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> HONEYCOMB_TILE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "honeycomb_tile_vertical_slab", () -> new VerticalSlabBlock(BBProperties.HONEYCOMB_BRICKS), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
-	public static final RegistryObject<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBEffects.SUNNY, 12 * 20, BBProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBMobEffects.SUNNY, 12 * 20, BBProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> WHITE_CLOVER = HELPER.createBlock("white_clover", () -> new BlueprintFlowerBlock(() -> MobEffects.UNLUCK, 30, BBProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> PINK_CLOVER = HELPER.createBlock("pink_clover", () -> new BlueprintFlowerBlock(() -> MobEffects.UNLUCK, 60, BBProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER = HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBProperties.FLOWER_POT));

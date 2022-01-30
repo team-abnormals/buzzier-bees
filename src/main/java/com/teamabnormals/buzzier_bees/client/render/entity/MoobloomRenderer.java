@@ -1,7 +1,7 @@
-package com.teamabnormals.buzzier_bees.client.render;
+package com.teamabnormals.buzzier_bees.client.render.entity;
 
-import com.teamabnormals.buzzier_bees.client.render.layer.MoobloomButtercupLayer;
-import com.teamabnormals.buzzier_bees.common.entity.MoobloomEntity;
+import com.teamabnormals.buzzier_bees.client.render.entity.layers.MoobloomButtercupLayer;
+import com.teamabnormals.buzzier_bees.common.entity.animal.MoobloomEntity;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;

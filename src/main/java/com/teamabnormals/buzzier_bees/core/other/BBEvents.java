@@ -1,11 +1,11 @@
 package com.teamabnormals.buzzier_bees.core.other;
 
-import com.teamabnormals.buzzier_bees.common.entity.MoobloomEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.MoobloomEntity;
 import com.teamabnormals.buzzier_bees.core.BBConfig;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBBlockTags;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBEntityTags;
-import com.teamabnormals.buzzier_bees.core.registry.BBEffects;
+import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -15,14 +15,23 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BoneMealItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -79,7 +88,7 @@ public class BBEvents {
 		LivingEntity entity = event.getEntityLiving();
 		if (entity instanceof Phantom) {
 			if (((Phantom) entity).getTarget() instanceof ServerPlayer player) {
-				if (player.getEffect(BBEffects.SUNNY.get()) != null) {
+				if (player.getEffect(BBMobEffects.SUNNY.get()) != null) {
 					((Phantom) entity).setTarget(null);
 				}
 			}

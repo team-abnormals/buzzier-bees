@@ -1,6 +1,6 @@
 package com.teamabnormals.buzzier_bees.core.mixin;
 
-import com.teamabnormals.buzzier_bees.core.registry.BBEffects;
+import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,6 +17,6 @@ public abstract class MobEntityMixin extends LivingEntity {
 
 	@Inject(at = @At("TAIL"), method = "isSunBurnTick", cancellable = true)
 	private void isInDaylight(CallbackInfoReturnable<Boolean> cir) {
-		cir.setReturnValue(this.getEffect(BBEffects.SUNNY.get()) != null && !this.isInWaterRainOrBubble() && !this.level.isClientSide);
+		cir.setReturnValue(this.getEffect(BBMobEffects.SUNNY.get()) != null && !this.isInWaterRainOrBubble() && !this.level.isClientSide);
 	}
 }

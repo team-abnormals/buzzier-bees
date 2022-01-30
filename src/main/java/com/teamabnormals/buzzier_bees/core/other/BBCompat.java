@@ -6,25 +6,23 @@ import com.teamabnormals.buzzier_bees.common.dispenser.BugBottleDispenseBehavior
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 
 public class BBCompat {
 
-	public static void registerCompat() {
+	public static void register() {
 		registerCompostables();
 		registerFlammables();
-		registerDispenserBehaviors();
+		registerDispenseBehaviors();
 		changeLocalizationKeys();
 	}
 
-	public static void changeLocalizationKeys() {
+	private static void changeLocalizationKeys() {
 		DataUtil.changeBlockLocalization(Blocks.BEEHIVE, BuzzierBees.MOD_ID, "oak_beehive");
 	}
 
-	public static void registerCompostables() {
+	private static void registerCompostables() {
 		DataUtil.registerCompostable(BBBlocks.PINK_CLOVER.get(), 0.65F);
 		DataUtil.registerCompostable(BBBlocks.WHITE_CLOVER.get(), 0.65F);
 		DataUtil.registerCompostable(BBBlocks.BUTTERCUP.get(), 0.65F);
@@ -33,7 +31,7 @@ public class BBCompat {
 		DataUtil.registerCompostable(BBItems.HONEY_APPLE.get(), 0.85F);
 	}
 
-	public static void registerFlammables() {
+	private static void registerFlammables() {
 		DataUtil.registerFlammable(BBBlocks.SPRUCE_BEEHIVE.get(), 5, 20);
 		DataUtil.registerFlammable(BBBlocks.BIRCH_BEEHIVE.get(), 5, 20);
 		DataUtil.registerFlammable(BBBlocks.JUNGLE_BEEHIVE.get(), 5, 20);
@@ -41,21 +39,9 @@ public class BBCompat {
 		DataUtil.registerFlammable(BBBlocks.ACACIA_BEEHIVE.get(), 5, 20);
 	}
 
-	public static void registerDispenserBehaviors() {
+	private static void registerDispenseBehaviors() {
 		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_BEE.get(), new BeeBottleDispenseBehavior());
 		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_SILVERFISH.get(), new BugBottleDispenseBehavior());
 		DispenserBlock.registerBehavior(BBItems.BOTTLE_OF_ENDERMITE.get(), new BugBottleDispenseBehavior());
-	}
-
-	public static void registerRenderLayers() {
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.HONEY_LAMP.get(), RenderType.translucent());
-
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.WHITE_CLOVER.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.PINK_CLOVER.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.BUTTERCUP.get(), RenderType.cutout());
-
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.POTTED_WHITE_CLOVER.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.POTTED_PINK_CLOVER.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(BBBlocks.POTTED_BUTTERCUP.get(), RenderType.cutout());
 	}
 }
