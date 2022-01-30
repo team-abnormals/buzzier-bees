@@ -1,5 +1,5 @@
 {
-  "advancement": "minecraft:nether/all_effects",
+  "advancement": "minecraft:nether/all_potions",
   "modifiers": [
     {
       "type": "effects_changed",
@@ -7,7 +7,6 @@
         "criteria": "all_effects",
         "removes": false,
         "effects": {
-          "buzzier_bees:sunny": {},
           "minecraft:luck": {},
           "minecraft:unluck": {}
         }
