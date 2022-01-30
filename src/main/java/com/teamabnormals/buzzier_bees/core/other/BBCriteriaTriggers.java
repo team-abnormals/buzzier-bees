@@ -4,7 +4,9 @@ import com.teamabnormals.buzzier_bees.common.advancement.BBEmptyTrigger;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
+@EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBCriteriaTriggers {
 	public static final BBEmptyTrigger HONEY_APPLE_CURE = registerEmptyTrigger("honey_apple_cure");
 	public static final BBEmptyTrigger HONEY_BREAD_CURE = registerEmptyTrigger("honey_bread_cure");
