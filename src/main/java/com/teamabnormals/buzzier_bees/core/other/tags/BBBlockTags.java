@@ -1,19 +1,14 @@
 package com.teamabnormals.buzzier_bees.core.other.tags;
 
+import com.teamabnormals.blueprint.core.util.TagUtil;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 public class BBBlockTags {
-	public static final Named<Block> FLOWER_BLACKLIST = tag("flower_blacklist");
-	public static final Named<Block> VERTICAL_SLABS = quarkTag("vertical_slabs");
+	public static final TagKey<Block> FLOWER_BLACKLIST = blockTag("flower_blacklist");
 
-	private static Named<Block> tag(String name) {
-		return BlockTags.bind(BuzzierBees.MOD_ID + ":" + name);
-	}
-
-	private static Named<Block> quarkTag(String name) {
-		return BlockTags.bind("quark:" + name);
+	private static TagKey<Block> blockTag(String name) {
+		return TagUtil.blockTag(BuzzierBees.MOD_ID, name);
 	}
 }

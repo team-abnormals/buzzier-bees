@@ -3,6 +3,7 @@ package com.teamabnormals.buzzier_bees.core.registry;
 import com.teamabnormals.buzzier_bees.client.particle.ButtercupBloomParticle;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -19,10 +20,13 @@ public class BBParticles {
 	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, BuzzierBees.MOD_ID);
 
 	public static final RegistryObject<SimpleParticleType> BUTTERCUP_BLOOM = PARTICLES.register("buttercup_bloom", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> SMALL_SOUL_FIRE_FLAME = PARTICLES.register("small_soul_fire_flame", () -> new SimpleParticleType(false));
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void registerParticleFactories(ParticleFactoryRegisterEvent event) {
 		ParticleEngine engine = Minecraft.getInstance().particleEngine;
+
 		engine.register(BUTTERCUP_BLOOM.get(), ButtercupBloomParticle.Factory::new);
+		engine.register(SMALL_SOUL_FIRE_FLAME.get(), FlameParticle.SmallFlameProvider::new);
 	}
 }

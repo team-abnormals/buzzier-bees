@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_candle",
+  "textures": {
+    "all": "buzzier_bees:block/soul_candle",
+    "particle": "buzzier_bees:block/soul_candle"
+  }
+}

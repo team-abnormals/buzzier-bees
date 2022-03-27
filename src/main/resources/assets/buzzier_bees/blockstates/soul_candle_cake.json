@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "buzzier_bees:block/soul_candle_cake"
+    },
+    "lit=true": {
+      "model": "buzzier_bees:block/soul_candle_cake_lit"
+    }
+  }
+}

@@ -4,7 +4,7 @@ import com.teamabnormals.buzzier_bees.common.entity.animal.MoobloomEntity;
 import com.teamabnormals.buzzier_bees.core.BBConfig;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBBlockTags;
-import com.teamabnormals.buzzier_bees.core.other.tags.BBEntityTags;
+import com.teamabnormals.buzzier_bees.core.other.tags.BBEntityTypeTags;
 import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.core.BlockPos;
@@ -48,7 +48,7 @@ public class BBEvents {
 	public static void onLivingSpawned(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Mob mob) {
-			if (mob.getType().is(BBEntityTags.MOOBLOOM_HOSTILES))
+			if (mob.getType().is(BBEntityTypeTags.MOOBLOOM_HOSTILES))
 				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, MoobloomEntity.class, false));
 		}
 	}

@@ -8,7 +8,7 @@
       "item": "minecraft:honey_bottle"
     },
     {
-      "item": "minecraft:gold_ingot"
+      "tag": "forge:nuggets/gold"
     }
   ],
   "result": {

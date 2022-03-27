@@ -1,7 +1,6 @@
 package com.teamabnormals.buzzier_bees.core.registry;
 
 import com.teamabnormals.blueprint.common.item.BlueprintBannerPatternItem;
-import com.teamabnormals.blueprint.common.item.BlueprintSpawnEggItem;
 import com.teamabnormals.blueprint.core.api.banner.BannerManager;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import com.teamabnormals.buzzier_bees.common.item.BeeBottleItem;
@@ -16,6 +15,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BannerPattern;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -34,8 +34,8 @@ public class BBItems {
 	public static final RegistryObject<Item> FOUR_LEAF_CLOVER = HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_BREWING)));
 	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new BlueprintBannerPatternItem(BBBanners.HONEYCOMB, new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 
-	public static final RegistryObject<BlueprintSpawnEggItem> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", BBEntityTypes.GRIZZLY_BEAR::get, 0x523021, 0x926A4B);
-	public static final RegistryObject<BlueprintSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntityTypes.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
+	public static final RegistryObject<ForgeSpawnEggItem> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", BBEntityTypes.GRIZZLY_BEAR::get, 0x523021, 0x926A4B);
+	public static final RegistryObject<ForgeSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntityTypes.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
 
 	public static class BBFoods {
 		public static final FoodProperties HONEY_APPLE = new FoodProperties.Builder().nutrition(5).saturationMod(0.4F).build();

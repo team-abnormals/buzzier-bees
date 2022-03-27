@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "buzzier_bees:honeycomb_bricks",
+    "buzzier_bees:honeycomb_brick_slab",
+    "buzzier_bees:honeycomb_brick_stairs",
+    "buzzier_bees:honeycomb_brick_wall",
+    "buzzier_bees:honeycomb_brick_vertical_slab",
+    "buzzier_bees:chiseled_honeycomb_bricks",
+    "buzzier_bees:honeycomb_tiles",
+    "buzzier_bees:honeycomb_tile_slab",
+    "buzzier_bees:honeycomb_tile_stairs",
+    "buzzier_bees:honeycomb_tile_wall",
+    "buzzier_bees:honeycomb_tile_vertical_slab",
+    "buzzier_bees:honeycomb_door",
+    "buzzier_bees:honeycomb_trapdoor"
+  ]
+}

@@ -37,15 +37,11 @@ public class HoneyLampBlock extends EndRodBlock implements SimpleWaterloggedBloc
 
 	@Override
 	public VoxelShape getShape(BlockState blockState, BlockGetter blockReader, BlockPos blockPos, CollisionContext selectionContext) {
-		switch (blockState.getValue(FACING).getAxis()) {
-			case X:
-			default:
-				return HONEY_LAMP_EW_AABB;
-			case Z:
-				return HONEY_LAMP_NS_AABB;
-			case Y:
-				return HONEY_LAMP_VERTICAL_AABB;
-		}
+		return switch (blockState.getValue(FACING).getAxis()) {
+			default -> HONEY_LAMP_EW_AABB;
+			case Z -> HONEY_LAMP_NS_AABB;
+			case Y -> HONEY_LAMP_VERTICAL_AABB;
+		};
 	}
 
 	@Override
