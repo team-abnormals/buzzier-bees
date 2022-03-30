@@ -5,6 +5,7 @@ import com.teamabnormals.buzzier_bees.client.model.GrizzlyBearModel;
 import com.teamabnormals.buzzier_bees.client.render.entity.GrizzlyBearRenderer;
 import com.teamabnormals.buzzier_bees.client.render.entity.MoobloomRenderer;
 import com.teamabnormals.buzzier_bees.core.data.server.BBAdvancementProvider;
+import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBAdvancementModifierProvider;
 import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBLootModifiersProvider;
 import com.teamabnormals.buzzier_bees.core.data.server.tags.BBBlockTagsProvider;
 import com.teamabnormals.buzzier_bees.core.data.server.tags.BBEntityTypeTagsProvider;
@@ -74,15 +75,16 @@ public class BuzzierBees {
 
 	private void dataSetup(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper fileHelpers = event.getExistingFileHelper();
+		ExistingFileHelper fileHelper = event.getExistingFileHelper();
 
 		if (event.includeServer()) {
-			BBBlockTagsProvider blockTags = new BBBlockTagsProvider(generator, fileHelpers);
+			BBBlockTagsProvider blockTags = new BBBlockTagsProvider(generator, fileHelper);
 			generator.addProvider(blockTags);
-			generator.addProvider(new BBItemTagsProvider(generator, blockTags, fileHelpers));
-			generator.addProvider(new BBEntityTypeTagsProvider(generator, fileHelpers));
-			generator.addProvider(new BBAdvancementProvider(generator, fileHelpers));
+			generator.addProvider(new BBItemTagsProvider(generator, blockTags, fileHelper));
+			generator.addProvider(new BBEntityTypeTagsProvider(generator, fileHelper));
+			generator.addProvider(new BBAdvancementProvider(generator, fileHelper));
 			generator.addProvider(new BBLootModifiersProvider(generator));
+			generator.addProvider(new BBAdvancementModifierProvider(generator));
 		}
 	}
 

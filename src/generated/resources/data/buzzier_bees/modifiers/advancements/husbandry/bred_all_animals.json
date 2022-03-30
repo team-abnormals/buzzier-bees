@@ -1,10 +1,10 @@
 {
-  "advancement": "minecraft:husbandry/bred_all_animals",
+  "selector": "minecraft:husbandry/bred_all_animals",
+  "priority": "normal",
   "modifiers": [
     {
       "type": "criteria",
       "config": {
-        "mode": "modify",
         "criteria": {
           "buzzier_bees:moobloom": {
             "trigger": "minecraft:bred_animals",
@@ -25,7 +25,8 @@
           [
             "buzzier_bees:moobloom"
           ]
-        ]
+        ],
+        "should_replace_requirements": false
       }
     }
   ]

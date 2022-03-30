@@ -1,11 +1,5 @@
 {
-  "selector": {
-    "type": "names",
-    "config": [
-      "minecraft:chests/desert_pyramid"
-    ],
-    "conditions": []
-  },
+  "selector": "minecraft:chests/desert_pyramid",
   "priority": "normal",
   "modifiers": [
     {

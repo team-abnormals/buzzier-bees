@@ -1,5 +1,6 @@
 {
-  "advancement": "minecraft:nether/all_potions",
+  "selector": "minecraft:nether/all_effects",
+  "priority": "normal",
   "modifiers": [
     {
       "type": "effects_changed",
@@ -8,7 +9,8 @@
         "removes": false,
         "effects": {
           "minecraft:luck": {},
-          "minecraft:unluck": {}
+          "minecraft:unluck": {},
+          "buzzier_bees:sunny": {}
         }
       }
     }
