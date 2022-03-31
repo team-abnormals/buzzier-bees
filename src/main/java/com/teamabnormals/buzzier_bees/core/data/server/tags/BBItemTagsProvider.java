@@ -31,7 +31,6 @@ public class BBItemTagsProvider extends ItemTagsProvider {
 
 		this.copy(BlockTags.DOORS, ItemTags.DOORS);
 		this.copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
-		this.copy(BlockTags.PIGLIN_REPELLENTS, ItemTags.PIGLIN_REPELLENTS);
 
 		this.tag(BBItemTags.GRIZZLY_BEAR_FOOD).add(Items.SALMON, Items.COOKED_SALMON, Items.SALMON_BUCKET);
 	}
