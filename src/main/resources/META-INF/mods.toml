@@ -27,13 +27,13 @@ license = "https://github.com/team-abnormals/buzzier-bees/blob/main/LICENSE.txt"
 [[dependencies.buzzier_bees]]
     modId = "forge"
     mandatory = true
-    versionRange = "[40.0.18,)"
+    versionRange = "[40.1.0,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.buzzier_bees]]
     modId = "blueprint"
     mandatory = true
-    versionRange = "[5.3.0,)"
+    versionRange = "[5.4.0,)"
     ordering = "AFTER"
     side = "BOTH"

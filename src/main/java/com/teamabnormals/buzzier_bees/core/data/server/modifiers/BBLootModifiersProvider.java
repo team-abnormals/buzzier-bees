@@ -25,6 +25,6 @@ public class BBLootModifiersProvider extends LootModifierProvider {
 		this.entry("desert_pyramid").selects(BuiltInLootTables.DESERT_PYRAMID)
 				.addModifier(new LootPoolEntriesModifier(false, 0, Collections.singletonList(LootItem.lootTableItem(BBItems.FOUR_LEAF_CLOVER.get()).setWeight(5).build())))
 				.addModifier(new LootPoolEntriesModifier(false, 1, Collections.singletonList(LootItem.lootTableItem(Items.HONEY_BOTTLE).setWeight(20).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))).build()))
-		);
+				);
 	}
 }

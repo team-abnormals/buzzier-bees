@@ -1,7 +1,6 @@
 package com.teamabnormals.buzzier_bees.core.registry;
 
 import com.teamabnormals.blueprint.common.item.BlueprintBannerPatternItem;
-import com.teamabnormals.blueprint.core.api.banner.BannerManager;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import com.teamabnormals.buzzier_bees.common.item.BeeBottleItem;
 import com.teamabnormals.buzzier_bees.common.item.BugBottleItem;
@@ -44,6 +43,6 @@ public class BBItems {
 	}
 
 	public static class BBBanners {
-		public static final BannerPattern HONEYCOMB = BannerManager.createPattern("mca", "honeycomb", "hny");
+		public static final BannerPattern HONEYCOMB = BannerPattern.create("MCA_HONEYCOMB", "mca_honeycomb", "mca_hny", true);
 	}
 }

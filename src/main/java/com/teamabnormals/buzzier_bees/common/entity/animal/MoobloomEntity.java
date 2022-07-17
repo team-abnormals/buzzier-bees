@@ -1,13 +1,19 @@
 package com.teamabnormals.buzzier_bees.common.entity.animal;
 
-import com.teamabnormals.buzzier_bees.core.registry.*;
+import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
+import com.teamabnormals.buzzier_bees.core.registry.BBEntityTypes;
+import com.teamabnormals.buzzier_bees.core.registry.BBItems;
+import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Shearable;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -19,7 +25,9 @@ import net.minecraftforge.common.IForgeShearable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MoobloomEntity extends Cow implements Shearable, IForgeShearable {
 
