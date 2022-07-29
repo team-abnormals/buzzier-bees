@@ -6,9 +6,9 @@ import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@Mod.EventBusSubscriber(modid = BuzzierBees.MOD_ID)
+@EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBTrades {
 
 	@SubscribeEvent

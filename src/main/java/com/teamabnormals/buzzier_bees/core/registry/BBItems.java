@@ -6,6 +6,7 @@ import com.teamabnormals.buzzier_bees.common.item.BeeBottleItem;
 import com.teamabnormals.buzzier_bees.common.item.BugBottleItem;
 import com.teamabnormals.buzzier_bees.common.item.CuringItem;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
+import com.teamabnormals.buzzier_bees.core.other.tags.BBBannerPatternTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -13,7 +14,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
@@ -31,7 +31,7 @@ public class BBItems {
 	public static final RegistryObject<Item> BOTTLE_OF_BEE = HELPER.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1).tab(CreativeModeTab.TAB_MISC)));
 
 	public static final RegistryObject<Item> FOUR_LEAF_CLOVER = HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_BREWING)));
-	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new BlueprintBannerPatternItem(BBBanners.HONEYCOMB, new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
+	public static final RegistryObject<Item> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new BlueprintBannerPatternItem(BBBannerPatternTags.PATTERN_ITEM_HONEYCOMB, new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 
 	public static final RegistryObject<ForgeSpawnEggItem> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", BBEntityTypes.GRIZZLY_BEAR::get, 0x523021, 0x926A4B);
 	public static final RegistryObject<ForgeSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntityTypes.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
@@ -40,9 +40,5 @@ public class BBItems {
 		public static final FoodProperties HONEY_APPLE = new FoodProperties.Builder().nutrition(5).saturationMod(0.4F).build();
 		public static final FoodProperties HONEY_BREAD = new FoodProperties.Builder().nutrition(6).saturationMod(0.8F).build();
 		public static final FoodProperties GLAZED_PORKCHOP = new FoodProperties.Builder().nutrition(9).saturationMod(0.8F).build();
-	}
-
-	public static class BBBanners {
-		public static final BannerPattern HONEYCOMB = BannerPattern.create("MCA_HONEYCOMB", "mca_honeycomb", "mca_hny", true);
 	}
 }

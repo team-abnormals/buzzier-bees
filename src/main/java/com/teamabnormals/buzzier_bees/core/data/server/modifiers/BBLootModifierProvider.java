@@ -13,10 +13,10 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Collections;
 
-public class BBLootModifiersProvider extends LootModifierProvider {
+public class BBLootModifierProvider extends LootModifierProvider {
 
-	public BBLootModifiersProvider(DataGenerator dataGenerator) {
-		super(dataGenerator, BuzzierBees.MOD_ID);
+	public BBLootModifierProvider(DataGenerator generator) {
+		super(generator, BuzzierBees.MOD_ID);
 	}
 
 	@Override
@@ -24,7 +24,6 @@ public class BBLootModifiersProvider extends LootModifierProvider {
 		this.entry("jungle_temple").selects(BuiltInLootTables.JUNGLE_TEMPLE).addModifier(new LootPoolEntriesModifier(false, 0, Collections.singletonList(LootItem.lootTableItem(BBItems.FOUR_LEAF_CLOVER.get()).setWeight(5).build())));
 		this.entry("desert_pyramid").selects(BuiltInLootTables.DESERT_PYRAMID)
 				.addModifier(new LootPoolEntriesModifier(false, 0, Collections.singletonList(LootItem.lootTableItem(BBItems.FOUR_LEAF_CLOVER.get()).setWeight(5).build())))
-				.addModifier(new LootPoolEntriesModifier(false, 1, Collections.singletonList(LootItem.lootTableItem(Items.HONEY_BOTTLE).setWeight(20).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))).build()))
-				);
+				.addModifier(new LootPoolEntriesModifier(false, 1, Collections.singletonList(LootItem.lootTableItem(Items.HONEY_BOTTLE).setWeight(20).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))).build())));
 	}
 }

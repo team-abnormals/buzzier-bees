@@ -16,6 +16,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collection;
@@ -23,8 +24,8 @@ import java.util.Collection;
 public class BBAdvancementModifierProvider extends AdvancementModifierProvider {
 	private static final EntityType<?>[] BREEDABLE_ANIMALS = new EntityType[]{BBEntityTypes.MOOBLOOM.get()};
 
-	public BBAdvancementModifierProvider(DataGenerator dataGenerator) {
-		super(dataGenerator, BuzzierBees.MOD_ID);
+	public BBAdvancementModifierProvider(DataGenerator generator) {
+		super(generator, BuzzierBees.MOD_ID);
 	}
 
 	@Override
@@ -36,14 +37,14 @@ public class BBAdvancementModifierProvider extends AdvancementModifierProvider {
 		Collection<RegistryObject<Item>> items = BBItems.HELPER.getDeferredRegister().getEntries();
 		items.forEach(item -> {
 			if (item.get().isEdible()) {
-				balancedDiet.addCriterion(item.get().getRegistryName().getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(item.get()));
+				balancedDiet.addCriterion(ForgeRegistries.ITEMS.getKey(item.get()).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(item.get()));
 			}
 		});
 		this.entry("husbandry/balanced_diet").selects("husbandry/balanced_diet").addModifier(balancedDiet.requirements(RequirementsStrategy.AND).build());
 
 		CriteriaModifier.Builder breedAllAnimals = CriteriaModifier.builder(this.modId);
 		for (EntityType<?> entityType : BREEDABLE_ANIMALS) {
-			breedAllAnimals.addCriterion(entityType.getRegistryName().getPath(), BredAnimalsTrigger.TriggerInstance.bredAnimals(EntityPredicate.Builder.entity().of(entityType)));
+			breedAllAnimals.addCriterion(ForgeRegistries.ENTITY_TYPES.getKey(entityType).getPath(), BredAnimalsTrigger.TriggerInstance.bredAnimals(EntityPredicate.Builder.entity().of(entityType)));
 		}
 		this.entry("husbandry/bred_all_animals").selects("husbandry/bred_all_animals").addModifier(breedAllAnimals.requirements(RequirementsStrategy.AND).build());
 

@@ -1,24 +1,22 @@
 {
-  "selector": "minecraft:husbandry/bred_all_animals",
-  "priority": "normal",
   "modifiers": [
     {
       "type": "criteria",
       "config": {
         "criteria": {
           "buzzier_bees:moobloom": {
-            "trigger": "minecraft:bred_animals",
             "conditions": {
               "child": [
                 {
                   "condition": "minecraft:entity_properties",
+                  "entity": "this",
                   "predicate": {
                     "type": "buzzier_bees:moobloom"
-                  },
-                  "entity": "this"
+                  }
                 }
               ]
-            }
+            },
+            "trigger": "minecraft:bred_animals"
           }
         },
         "requirements": [
@@ -29,5 +27,7 @@
         "should_replace_requirements": false
       }
     }
-  ]
+  ],
+  "priority": "normal",
+  "selector": "minecraft:husbandry/bred_all_animals"
 }

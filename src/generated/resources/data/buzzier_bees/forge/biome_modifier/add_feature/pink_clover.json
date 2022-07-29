@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#buzzier_bees:has_feature/pink_clover",
+  "features": "buzzier_bees:flower_pink_clover",
+  "step": "vegetal_decoration"
+}

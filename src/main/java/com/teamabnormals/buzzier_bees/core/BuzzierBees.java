@@ -6,16 +6,14 @@ import com.teamabnormals.buzzier_bees.client.render.entity.GrizzlyBearRenderer;
 import com.teamabnormals.buzzier_bees.client.render.entity.MoobloomRenderer;
 import com.teamabnormals.buzzier_bees.core.data.server.BBAdvancementProvider;
 import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBAdvancementModifierProvider;
-import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBLootModifiersProvider;
-import com.teamabnormals.buzzier_bees.core.data.server.tags.BBBlockTagsProvider;
-import com.teamabnormals.buzzier_bees.core.data.server.tags.BBEntityTypeTagsProvider;
-import com.teamabnormals.buzzier_bees.core.data.server.tags.BBItemTagsProvider;
+import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBBiomeModifierProvider;
+import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBLootModifierProvider;
+import com.teamabnormals.buzzier_bees.core.data.server.tags.*;
 import com.teamabnormals.buzzier_bees.core.other.BBClientCompat;
 import com.teamabnormals.buzzier_bees.core.other.BBCompat;
-import com.teamabnormals.buzzier_bees.core.registry.BBEntityTypes;
-import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
-import com.teamabnormals.buzzier_bees.core.registry.BBPaintings;
-import com.teamabnormals.buzzier_bees.core.registry.BBParticles;
+import com.teamabnormals.buzzier_bees.core.registry.*;
+import com.teamabnormals.buzzier_bees.core.registry.BBFeatures.BBConfiguredFeatures;
+import com.teamabnormals.buzzier_bees.core.registry.BBFeatures.BBPlacedFeatures;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,6 +21,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -31,7 +30,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod(BuzzierBees.MOD_ID)
 public class BuzzierBees {
@@ -44,10 +42,13 @@ public class BuzzierBees {
 		MinecraftForge.EVENT_BUS.register(this);
 
 		REGISTRY_HELPER.register(bus);
-		BBPaintings.PAINTINGS.register(bus);
-		BBParticles.PARTICLES.register(bus);
+		BBPaintingVariants.PAINTING_VARIANTS.register(bus);
+		BBParticleTypes.PARTICLE_TYPES.register(bus);
 		BBMobEffects.POTIONS.register(bus);
 		BBMobEffects.MOB_EFFECTS.register(bus);
+		BBBannerPatterns.BANNER_PATTERNS.register(bus);
+		BBPlacedFeatures.PLACED_FEATURES.register(bus);
+		BBConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
 
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);
@@ -75,17 +76,20 @@ public class BuzzierBees {
 
 	private void dataSetup(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper fileHelper = event.getExistingFileHelper();
+		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-		if (event.includeServer()) {
-			BBBlockTagsProvider blockTags = new BBBlockTagsProvider(generator, fileHelper);
-			generator.addProvider(blockTags);
-			generator.addProvider(new BBItemTagsProvider(generator, blockTags, fileHelper));
-			generator.addProvider(new BBEntityTypeTagsProvider(generator, fileHelper));
-			generator.addProvider(new BBAdvancementProvider(generator, fileHelper));
-			generator.addProvider(new BBLootModifiersProvider(generator));
-			generator.addProvider(new BBAdvancementModifierProvider(generator));
-		}
+		boolean includeServer = event.includeServer();
+		BBBlockTagsProvider blockTags = new BBBlockTagsProvider(generator, existingFileHelper);
+		generator.addProvider(includeServer, blockTags);
+		generator.addProvider(includeServer, new BBItemTagsProvider(generator, blockTags, existingFileHelper));
+		generator.addProvider(includeServer, new BBEntityTypeTagsProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new BBBiomeTagsProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new BBBannerPatternTagsProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new BBPaintingVariantTagsProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new BBAdvancementProvider(generator, existingFileHelper));
+		generator.addProvider(includeServer, new BBLootModifierProvider(generator));
+		generator.addProvider(includeServer, new BBAdvancementModifierProvider(generator));
+		generator.addProvider(includeServer, BBBiomeModifierProvider.create(generator, existingFileHelper));
 	}
 
 	@OnlyIn(Dist.CLIENT)

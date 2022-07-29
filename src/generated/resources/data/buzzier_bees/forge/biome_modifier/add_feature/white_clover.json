@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#buzzier_bees:has_feature/white_clover",
+  "features": "buzzier_bees:flower_white_clover",
+  "step": "vegetal_decoration"
+}

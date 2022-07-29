@@ -33,8 +33,8 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.Event;
@@ -45,7 +45,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class BBEvents {
 
 	@SubscribeEvent
-	public static void onLivingSpawned(EntityJoinWorldEvent event) {
+	public static void onLivingSpawned(EntityJoinLevelEvent event) {
 		Entity entity = event.getEntity();
 		if (entity instanceof Mob mob) {
 			if (mob.getType().is(BBEntityTypeTags.MOOBLOOM_HOSTILES))
@@ -55,22 +55,22 @@ public class BBEvents {
 
 	@SubscribeEvent
 	public static void renewableFlowers(RightClickBlock event) {
-		Player player = event.getPlayer();
-		Level world = event.getWorld();
+		Player player = event.getEntity();
+		Level level = event.getLevel();
 		BlockPos pos = event.getPos();
-		BlockState state = world.getBlockState(pos);
-		Block block = world.getBlockState(pos).getBlock();
+		BlockState state = level.getBlockState(pos);
+		Block block = level.getBlockState(pos).getBlock();
 		ItemStack stack = player.getItemInHand(event.getHand());
 		if (stack.getItem() != Items.BONE_MEAL)
 			return;
 
-		if (BBConfig.COMMON.shortFlowerDuplication.get() && block instanceof FlowerBlock && !state.hasBlockEntity() && !state.is(BBBlockTags.FLOWER_BLACKLIST) && !(block instanceof BonemealableBlock && ((BonemealableBlock) block).isBonemealSuccess(world, world.random, pos, world.getBlockState(pos)))) {
+		if (BBConfig.COMMON.shortFlowerDuplication.get() && block instanceof FlowerBlock && !state.hasBlockEntity() && !state.is(BBBlockTags.FLOWER_BLACKLIST) && !(block instanceof BonemealableBlock && ((BonemealableBlock) block).isBonemealSuccess(level, level.random, pos, level.getBlockState(pos)))) {
 			if (!player.isCreative())
 				stack.shrink(1);
 			player.swing(event.getHand());
-			if (world.isClientSide())
-				BoneMealItem.addGrowthParticles(world, pos, world.random.nextInt(12));
-			Block.popResource(world, pos, new ItemStack(block, 1));
+			if (level.isClientSide())
+				BoneMealItem.addGrowthParticles(level, pos, level.random.nextInt(12));
+			Block.popResource(level, pos, new ItemStack(block, 1));
 			event.setCanceled(true);
 			event.setResult(Event.Result.ALLOW);
 		}
@@ -84,8 +84,8 @@ public class BBEvents {
 	}
 
 	@SubscribeEvent
-	public static void onEntityUpdate(LivingUpdateEvent event) {
-		LivingEntity entity = event.getEntityLiving();
+	public static void onEntityUpdate(LivingTickEvent event) {
+		LivingEntity entity = event.getEntity();
 		if (entity instanceof Phantom) {
 			if (((Phantom) entity).getTarget() instanceof ServerPlayer player) {
 				if (player.getEffect(BBMobEffects.SUNNY.get()) != null) {
@@ -97,9 +97,12 @@ public class BBEvents {
 
 	@SubscribeEvent
 	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
-		if (event.getTarget() != null && !event.getWorld().isClientSide) {
+		if (event.getTarget() != null && !event.getLevel().isClientSide) {
 
-			ItemStack itemstack = event.getPlayer().getItemInHand(event.getHand());
+			Player player = event.getEntity();
+			InteractionHand hand = event.getHand();
+
+			ItemStack itemstack = player.getItemInHand(hand);
 			Item item = itemstack.getItem();
 
 			Item bottle = null;
@@ -107,8 +110,6 @@ public class BBEvents {
 
 			Entity target = event.getTarget();
 			EntityType<?> targetType = target.getType();
-			Player player = event.getPlayer();
-			InteractionHand hand = event.getHand();
 
 			if (targetType == EntityType.SILVERFISH) {
 				bottle = BBItems.BOTTLE_OF_SILVERFISH.get();
@@ -143,7 +144,7 @@ public class BBEvents {
 			if (successful && target.isAlive()) {
 				if (item == Items.GLASS_BOTTLE) {
 					itemstack.shrink(1);
-					event.getWorld().playSound(player, event.getPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundSource.NEUTRAL, 1.0F, 1.0F);
+					event.getLevel().playSound(player, event.getPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundSource.NEUTRAL, 1.0F, 1.0F);
 					player.awardStat(Stats.ITEM_USED.get(event.getItemStack().getItem()));
 					event.getTarget().discard();
 					if (itemstack.isEmpty()) {

@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_top",
-    "textures": {
-        "bottom": "buzzier_bees:block/honeycomb_door_bottom",
-        "top": "buzzier_bees:block/honeycomb_door_top"
-    }
-}

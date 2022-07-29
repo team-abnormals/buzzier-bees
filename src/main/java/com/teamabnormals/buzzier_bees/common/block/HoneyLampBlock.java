@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -26,7 +27,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class HoneyLampBlock extends EndRodBlock implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -51,7 +51,7 @@ public class HoneyLampBlock extends EndRodBlock implements SimpleWaterloggedBloc
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void animateTick(BlockState blockState, Level worldIn, BlockPos blockPos, Random random) {
+	public void animateTick(BlockState blockState, Level worldIn, BlockPos blockPos, RandomSource random) {
 		Direction lvt_5_1_ = blockState.getValue(FACING);
 		double lvt_6_1_ = (double) blockPos.getX() + 0.55D - (double) (random.nextFloat() * 0.1F);
 		double lvt_8_1_ = (double) blockPos.getY() + 0.55D - (double) (random.nextFloat() * 0.1F);

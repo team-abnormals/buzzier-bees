@@ -1,7 +1,7 @@
 package com.teamabnormals.buzzier_bees.common.item;
 
 import com.google.common.collect.ImmutableList;
-import com.teamabnormals.buzzier_bees.common.advancement.BBEmptyTrigger;
+import com.teamabnormals.blueprint.common.advancement.EmptyTrigger;
 import com.teamabnormals.buzzier_bees.core.other.BBCriteriaTriggers;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -22,7 +22,7 @@ public class CuringItem extends Item {
 		counteredEffects = ImmutableList.copyOf(counteredEffectsIn);
 	}
 
-	public BBEmptyTrigger getTrigger() {
+	public EmptyTrigger getTrigger() {
 		if (this == BBItems.HONEY_APPLE.get()) {
 			return BBCriteriaTriggers.HONEY_APPLE_CURE;
 		} else if (this == BBItems.HONEY_BREAD.get()) {

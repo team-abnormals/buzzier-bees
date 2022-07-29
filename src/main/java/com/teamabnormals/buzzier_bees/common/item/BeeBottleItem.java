@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -87,22 +86,22 @@ public class BeeBottleItem extends Item {
 			if (compoundnbt.contains("Age")) {
 				boolean baby = compoundnbt.getInt("Age") < 0;
 				if (baby)
-					tooltip.add((new TranslatableComponent("tooltip.buzzier_bees.is_baby").withStyle(atextformatting)));
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.is_baby").withStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("Anger")) {
 				boolean angry = compoundnbt.getInt("AngerTime") > 0;
 				if (angry)
-					tooltip.add((new TranslatableComponent("tooltip.buzzier_bees.is_angry").withStyle(atextformatting)));
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.is_angry").withStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("HasNectar")) {
 				boolean nectar = compoundnbt.getBoolean("HasNectar");
 				if (nectar)
-					tooltip.add((new TranslatableComponent("tooltip.buzzier_bees.has_nectar").withStyle(atextformatting)));
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.has_nectar").withStyle(atextformatting)));
 			}
 			if (compoundnbt.contains("HasStung")) {
 				boolean stung = compoundnbt.getBoolean("HasStung");
 				if (stung)
-					tooltip.add((new TranslatableComponent("tooltip.buzzier_bees.has_stung").withStyle(atextformatting)));
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.has_stung").withStyle(atextformatting)));
 			}
 		}
 	}

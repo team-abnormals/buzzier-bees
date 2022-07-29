@@ -15,7 +15,7 @@ public class BBClientCompat {
 		registerItemProperties();
 	}
 
-	public static void registerRenderLayers() {
+	private static void registerRenderLayers() {
 		ItemBlockRenderTypes.setRenderLayer(BBBlocks.HONEY_LAMP.get(), RenderType.translucent());
 
 		ItemBlockRenderTypes.setRenderLayer(BBBlocks.WHITE_CLOVER.get(), RenderType.cutout());
@@ -27,7 +27,7 @@ public class BBClientCompat {
 		ItemBlockRenderTypes.setRenderLayer(BBBlocks.POTTED_BUTTERCUP.get(), RenderType.cutout());
 	}
 
-	public static void registerItemProperties() {
+	private static void registerItemProperties() {
 		ItemProperties.register(BBItems.BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity, num) -> {
 			CompoundTag tag = stack.getTag();
 			if (tag != null && tag.contains("AngerTime") && tag.getInt("AngerTime") > 0) {

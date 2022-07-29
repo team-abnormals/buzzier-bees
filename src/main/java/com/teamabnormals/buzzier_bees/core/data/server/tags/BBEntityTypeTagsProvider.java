@@ -9,8 +9,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BBEntityTypeTagsProvider extends EntityTypeTagsProvider {
 
-	public BBEntityTypeTagsProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
-		super(generator, BuzzierBees.MOD_ID, fileHelper);
+	public BBEntityTypeTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+		super(generator, BuzzierBees.MOD_ID, existingFileHelper);
 	}
 
 	@Override

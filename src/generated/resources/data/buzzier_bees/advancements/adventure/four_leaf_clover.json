@@ -1,23 +1,7 @@
 {
   "parent": "minecraft:adventure/sleep_in_bed",
-  "display": {
-    "icon": {
-      "item": "buzzier_bees:four_leaf_clover"
-    },
-    "title": {
-      "translate": "advancements.buzzier_bees.adventure.four_leaf_clover.title"
-    },
-    "description": {
-      "translate": "advancements.buzzier_bees.adventure.four_leaf_clover.description"
-    },
-    "frame": "challenge",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "four_leaf_clover": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.buzzier_bees.adventure.four_leaf_clover.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "buzzier_bees:four_leaf_clover"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.buzzier_bees.adventure.four_leaf_clover.title"
     }
   },
   "requirements": [

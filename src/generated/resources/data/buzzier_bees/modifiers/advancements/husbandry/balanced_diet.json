@@ -1,40 +1,38 @@
 {
-  "selector": "minecraft:husbandry/balanced_diet",
-  "priority": "normal",
   "modifiers": [
     {
       "type": "criteria",
       "config": {
         "criteria": {
-          "buzzier_bees:honey_apple": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "buzzier_bees:honey_apple"
-                ]
-              }
-            }
-          },
-          "buzzier_bees:honey_bread": {
-            "trigger": "minecraft:consume_item",
-            "conditions": {
-              "item": {
-                "items": [
-                  "buzzier_bees:honey_bread"
-                ]
-              }
-            }
-          },
           "buzzier_bees:glazed_porkchop": {
-            "trigger": "minecraft:consume_item",
             "conditions": {
               "item": {
                 "items": [
                   "buzzier_bees:glazed_porkchop"
                 ]
               }
-            }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "buzzier_bees:honey_apple": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "buzzier_bees:honey_apple"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "buzzier_bees:honey_bread": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "buzzier_bees:honey_bread"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
           }
         },
         "requirements": [
@@ -51,5 +49,7 @@
         "should_replace_requirements": false
       }
     }
-  ]
+  ],
+  "priority": "normal",
+  "selector": "minecraft:husbandry/balanced_diet"
 }

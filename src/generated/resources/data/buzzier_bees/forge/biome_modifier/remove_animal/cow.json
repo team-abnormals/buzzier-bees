@@ -1,0 +1,5 @@
+{
+  "type": "forge:remove_spawns",
+  "biomes": "#buzzier_bees:has_animal/moobloom",
+  "entity_types": "minecraft:cow"
+}

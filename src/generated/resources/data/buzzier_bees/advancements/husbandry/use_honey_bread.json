@@ -1,23 +1,23 @@
 {
   "parent": "minecraft:husbandry/safely_harvest_honey",
+  "criteria": {
+    "use_honey_bread": {
+      "trigger": "buzzier_bees:honey_bread_cure"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "buzzier_bees:honey_bread"
-    },
-    "title": {
-      "translate": "advancements.buzzier_bees.husbandry.use_honey_bread.title"
-    },
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.buzzier_bees.husbandry.use_honey_bread.description"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "buzzier_bees:honey_bread"
+    },
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "use_honey_bread": {
-      "trigger": "buzzier_bees:honey_bread_cure"
+    "title": {
+      "translate": "advancements.buzzier_bees.husbandry.use_honey_bread.title"
     }
   },
   "requirements": [

@@ -15,8 +15,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BBItemTagsProvider extends ItemTagsProvider {
 
-	public BBItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTags, ExistingFileHelper fileHelper) {
-		super(generator, blockTags, BuzzierBees.MOD_ID, fileHelper);
+	public BBItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTags, ExistingFileHelper existingFileHelper) {
+		super(generator, blockTags, BuzzierBees.MOD_ID, existingFileHelper);
 	}
 
 	@Override

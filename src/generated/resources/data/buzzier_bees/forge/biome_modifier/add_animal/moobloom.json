@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#buzzier_bees:has_animal/moobloom",
+  "spawners": {
+    "type": "buzzier_bees:moobloom",
+    "maxCount": 4,
+    "minCount": 4,
+    "weight": 12
+  }
+}
