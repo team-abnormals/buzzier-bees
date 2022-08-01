@@ -1,9 +1,6 @@
 {
 	"item.buzzier_bees.four_leaf_clover": "Czterolistna koniczyna",
-	
-	"item.buzzier_bees.honey_wand": "Czerpak do miodu",
-	"item.buzzier_bees.sticky_honey_wand": "Lepki czerpak do miodu",
-	
+
 	"item.buzzier_bees.honey_apple": "Jabłko w miodzie",
 	"item.buzzier_bees.honey_bread": "Chleb w miodzie",
 	"item.buzzier_bees.glazed_porkchop": "Wieprzowina w miodzie",
@@ -30,7 +27,6 @@
 	"block.buzzier_bees.crystallized_honey_block": "Blok skrystalizowanego miodu",
 	
 	"block.buzzier_bees.honey_lamp" : "Miodowa lampa",
-	"block.buzzier_bees.honey_pot": "Garnek na miód",
 	
 	"block.buzzier_bees.honeycomb_bricks": "Miodowe cegły",
 	"block.buzzier_bees.honeycomb_brick_stairs": "Miodowe ceglane schody",
@@ -47,6 +43,9 @@
 	
 	"block.buzzier_bees.honeycomb_door": "Miodowe drzwi",
 	"block.buzzier_bees.honeycomb_trapdoor": "Miodowa klapa",
+
+	"block.buzzier_bees.soul_candle": "Świeca dusz",
+  "block.buzzier_bees.soul_candle_cake": "Ciasto ze świecą dusz",
 	
 	"block.buzzier_bees.pink_clover": "Różowa koniczyna",
 	"block.buzzier_bees.white_clover": "Biała koniczyna",
@@ -56,75 +55,8 @@
 	"block.buzzier_bees.potted_white_clover": "Biała koniczyna w doniczce",
 	"block.buzzier_bees.potted_buttercup": "Jaskier w doniczce",
 	
-	"block.buzzier_bees.candle": "Świeca",
-	"block.buzzier_bees.soul_candle": "Eteryczna świeca",
-	"block.buzzier_bees.ender_candle": "Endowa świeca",
-	"block.buzzier_bees.cursed_candle": "Przeklęta świeca",
-	
-	"block.buzzier_bees.white_candle": "Biała świeca",
-	"block.buzzier_bees.orange_candle": "Pomarańczowa świeca",
-	"block.buzzier_bees.magenta_candle": "Karmazynowa świeca",
-	"block.buzzier_bees.light_blue_candle": "Jasnoniebieska świeca",
-	"block.buzzier_bees.yellow_candle": "Żółta świeca",
-	"block.buzzier_bees.lime_candle": "Jasnozielona świeca",
-	"block.buzzier_bees.pink_candle": "Różowa świeca",
-	"block.buzzier_bees.gray_candle": "Szara świeca",
-	"block.buzzier_bees.light_gray_candle": "Jasnoszara świeca",
-	"block.buzzier_bees.cyan_candle": "Błękitna świeca",
-	"block.buzzier_bees.purple_candle": "Fioletowa świeca",
-	"block.buzzier_bees.blue_candle": "Niebieska świeca",
-	"block.buzzier_bees.brown_candle": "Brązowa świeca",
-	"block.buzzier_bees.green_candle": "Zielona świeca",
-	"block.buzzier_bees.red_candle": "Czerwona świeca",
-	"block.buzzier_bees.black_candle": "Czarna świeca",
-	
-	"block.buzzier_bees.allium_scented_candle": "Świeca o zapachu czosnku",
-	"block.buzzier_bees.azure_bluet_scented_candle": "Świeca o zapachu houstoni błękitnej",
-	"block.buzzier_bees.blue_orchid_scented_candle": "Świeca o zapachu niebieskiej orchidei",
-	"block.buzzier_bees.dandelion_scented_candle": "Świeca o zapachu mlecza",
-	"block.buzzier_bees.cornflower_scented_candle": "Świeca o zapachu chabra",
-	"block.buzzier_bees.lily_of_the_valley_scented_candle": "Świeca o zapachu konwalii",
-	"block.buzzier_bees.oxeye_daisy_scented_candle": "Świeca o zapachu margaretki",
-	"block.buzzier_bees.poppy_scented_candle": "Świeca o zapachu maku",
-	"block.buzzier_bees.white_tulip_scented_candle": "Świeca o zapachu białego tulipana",
-	"block.buzzier_bees.orange_tulip_scented_candle": "Świeca o zapachu pomarańczowego tulipana",
-	"block.buzzier_bees.pink_tulip_scented_candle": "Świeca o zapachu różowego tulipana",
-	"block.buzzier_bees.red_tulip_scented_candle": "Świeca o zapachu czerwonego tulipana",
-	"block.buzzier_bees.wither_rose_scented_candle": "Świeca o zapachu witherowej róży",
-	
-	"block.buzzier_bees.pink_clover_scented_candle": "Świeca o zapachu różowej koniczyny",
-	"block.buzzier_bees.white_clover_scented_candle": "Świeca o zapachu białej koniczyny",
-	"block.buzzier_bees.buttercup_scented_candle": "Świeca o zapachu jaskra",
-	
-	"block.buzzier_bees.cartwheel_scented_candle": "Świeca o zapachu wiaterka",
-	"block.buzzier_bees.bluebell_scented_candle": "Świeca o zapachu dzwonka",
-	"block.buzzier_bees.violet_scented_candle": "Świeca o zapachu fiołka",
-	"block.buzzier_bees.red_lotus_flower_scented_candle": "Świeca o zapachu czerwonego kwiatu lotosu",
-	"block.buzzier_bees.white_lotus_flower_scented_candle": "Świeca o zapachu białego kwiatu lotosu",
-	"block.buzzier_bees.dianthus_scented_candle": "Świeca o zapachu goździka",
-	"block.buzzier_bees.yellow_hibiscus_scented_candle": "Świeca o zapachu żółtej ketmii",
-	"block.buzzier_bees.orange_hibiscus_scented_candle": "Świeca o zapachu pomarańczowej ketmii",
-	"block.buzzier_bees.red_hibiscus_scented_candle": "Świeca o zapachu czerwonej ketmii",
-	"block.buzzier_bees.pink_hibiscus_scented_candle": "Świeca o zapachu różowej ketmii",
-	"block.buzzier_bees.magenta_hibiscus_scented_candle": "Świeca o zapachu karmazynowej ketmii",
-	"block.buzzier_bees.purple_hibiscus_scented_candle": "Świeca o zapachu fioletowej ketmii",
-	
-	"block.buzzier_bees.warm_monkey_brush_scented_candle": "Świeca o zapachu ciepłej małposzczotki",
-	"block.buzzier_bees.hot_monkey_brush_scented_candle": "Świeca o zapachu gorącej małposzczotki",
-	"block.buzzier_bees.scalding_monkey_brush_scented_candle": "Świeca o zapachu wrzącej małposzczotki",
-	"block.buzzier_bees.water_hyacinth_scented_candle": "Świeca o zapachu wodnego hiacynta",
-	"block.buzzier_bees.gilia_scented_candle": "Świeca o zapachu gilii",
-	"block.buzzier_bees.yucca_flower_scented_candle": "Świeca o zapachu kwiatu jukki",
-	
-	"block.buzzier_bees.pink_searocket_scented_candle": "Świeca o zapachu różowej rukwieli nadmorskiej",
-	"block.buzzier_bees.white_searocket_scented_candle": "Świeca o zapachu białej rukwieli nadmorskiej",
-	
-	"block.buzzier_bees.autumn_crocus_scented_candle": "Świeca o zapachu zimowita jesiennego",
-	
 	"entity.buzzier_bees.grizzly_bear": "Niedźwiedź grizli",
 	"entity.buzzier_bees.moobloom": "Moobloom",
-	
-	"entity.minecraft.villager.buzzier_bees.apiarist": "Pszczelarz",
 	
 	"effect.buzzier_bees.sunny": "Nasłonecznienie",
 	
