@@ -64,14 +64,14 @@ public class BuzzierBees {
 
 	private void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			BBCompat.register();
+			BBCompat.registerCompat();
 			BBMobEffects.registerRecipes();
 			BBEntityTypes.registerEntitySpawns();
 		});
 	}
 
 	private void clientSetup(FMLClientSetupEvent event) {
-		event.enqueueWork(BBClientCompat::register);
+		event.enqueueWork(BBClientCompat::registerClientCompat);
 	}
 
 	private void dataSetup(GatherDataEvent event) {

@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 
 public class BBCompat {
 
-	public static void register() {
+	public static void registerCompat() {
 		registerCompostables();
 		registerDispenseBehaviors();
 	}

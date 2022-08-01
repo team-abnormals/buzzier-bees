@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class BBClientCompat {
 
-	public static void register() {
+	public static void registerClientCompat() {
 		registerRenderLayers();
 		registerItemProperties();
 	}
