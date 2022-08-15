@@ -1,0 +1,120 @@
+{
+	"item.buzzier_bees.four_leaf_clover": "Чотирьохлистна конюшина",
+	
+	"item.buzzier_bees.honey_apple": "Яблуко в меді",
+	"item.buzzier_bees.honey_bread": "Хліб з медом",
+	"item.buzzier_bees.glazed_porkchop": "Глазурована свинина",
+
+	"item.buzzier_bees.silverfish_bottle": "Лусківниця в пляшечці",
+	"item.buzzier_bees.endermite_bottle": "Ендерміт в пляшечці",
+	"item.buzzier_bees.bee_bottle": "Бджола в пляшечці",
+
+	"item.buzzier_bees.honeycomb_banner_pattern": "Візерунок стяга",
+  	"item.buzzier_bees.honeycomb_banner_pattern.desc": "Бджолині стільники",
+	
+	"item.buzzier_bees.grizzly_bear_spawn_egg": "Яйце виклику грізлі",
+	"item.buzzier_bees.moobloom_spawn_egg": "Яйце виклику жовтецевої корови",
+
+	"block.minecraft.beehive": "Дубовий вулик",
+	"block.buzzier_bees.spruce_beehive": "Смерековий вулик",
+	"block.buzzier_bees.birch_beehive": "Березовий вулик",
+	"block.buzzier_bees.jungle_beehive": "Тропічний вулик",
+	"block.buzzier_bees.acacia_beehive": "Акацієвий вулик",
+	"block.buzzier_bees.dark_oak_beehive": "Темно-дубовий вулик",
+	"block.buzzier_bees.crimson_beehive": "Багряний вулик",
+	"block.buzzier_bees.warped_beehive": "Химерний вулик",
+
+	"block.buzzier_bees.crystallized_honey_block": "Блок кристалізованого меду",
+
+	"block.buzzier_bees.honey_lamp": "Медовий ліхтар",
+
+	"block.buzzier_bees.honeycomb_bricks": "Стільникова цегла",
+	"block.buzzier_bees.honeycomb_brick_stairs": "Сходи з стільникової цегли",
+	"block.buzzier_bees.honeycomb_brick_slab": "Плита з стільникової цегли",
+	"block.buzzier_bees.honeycomb_brick_wall": "Стіна з стільникової цегли",
+	"block.buzzier_bees.honeycomb_brick_vertical_slab": "Вертикальна плита з стільникової цегли",
+	"block.buzzier_bees.chiseled_honeycomb_bricks": "Точена стільникова цегла",
+
+	"block.buzzier_bees.honeycomb_tiles": "Стільникова плитка",
+	"block.buzzier_bees.honeycomb_tile_stairs": "Сходи з стільникової плитки",
+	"block.buzzier_bees.honeycomb_tile_slab": "Плита з стільникової плитки",
+	"block.buzzier_bees.honeycomb_tile_wall": "Стіна з стільникової плитки",
+	"block.buzzier_bees.honeycomb_tile_vertical_slab": "Вертикальна плита з стільникової плитки",
+
+	"block.buzzier_bees.honeycomb_door": "Стільникові двері",
+	"block.buzzier_bees.honeycomb_trapdoor": "Стільниковий люк",
+	
+	"block.buzzier_bees.soul_candle": "Свічка душ",
+        "block.buzzier_bees.soul_candle_cake": "Торт «Свічка душ»",
+	
+	"block.buzzier_bees.pink_clover": "Рожева конюшина",
+	"block.buzzier_bees.white_clover": "Біла конюшина",
+	"block.buzzier_bees.buttercup": "Жовтець",
+
+	"block.buzzier_bees.potted_pink_clover": "Рожева конюшина в горщику",
+	"block.buzzier_bees.potted_white_clover": "Біла конюшина в горщику",
+	"block.buzzier_bees.potted_buttercup": "Жовтець в горщику",
+
+	"entity.buzzier_bees.grizzly_bear": "Ведмідь грізлі",
+	"entity.buzzier_bees.moobloom": "Жовтецева корова",
+	
+	"effect.buzzier_bees.sunny": "Сонячно",
+	
+	"item.minecraft.potion.effect.long_luck": "Зілля вдачі",
+	"item.minecraft.potion.effect.strong_luck": "Зілля вдачі",
+	"item.minecraft.potion.effect.unluck": "Зілля невдачі",
+	"item.minecraft.potion.effect.long_unluck": "Зілля невдачі",
+	"item.minecraft.potion.effect.strong_unluck": "Зілля невдачі",
+
+	"item.minecraft.splash_potion.effect.long_luck": "Вибухове зілля вдачі",
+	"item.minecraft.splash_potion.effect.strong_luck": "Вибухове зілля вдачі",
+	"item.minecraft.splash_potion.effect.unluck": "Вибухове зілля невдачі",
+	"item.minecraft.splash_potion.effect.long_unluck": "Вибухове зілля невдачі",
+	"item.minecraft.splash_potion.effect.strong_unluck": "Вибухове зілля невдачі",
+
+	"item.minecraft.lingering_potion.effect.long_luck": "Осідаюче зілля вдачі",
+	"item.minecraft.lingering_potion.effect.strong_luck": "Осідаюче зілля вдачі",
+	"item.minecraft.lingering_potion.effect.unluck": "Осідаюче зілля невдачі",
+	"item.minecraft.lingering_potion.effect.long_unluck": "Осідаюче зілля невдачі",
+	"item.minecraft.lingering_potion.effect.strong_unluck": "Осідаюче зілля невдачі",
+
+	"item.minecraft.tipped_arrow.effect.long_luck": "Стріла вдачі",
+	"item.minecraft.tipped_arrow.effect.strong_luck": "Стріла вдачі",
+	"item.minecraft.tipped_arrow.effect.unluck": "Стріла невдачі",
+	"item.minecraft.tipped_arrow.effect.long_unluck": "Стріла невдачі",
+	"item.minecraft.tipped_arrow.effect.strong_unluck": "Стріла невдачі",
+
+	"advancements.buzzier_bees.adventure.four_leaf_clover.title": "О, о, мені повезло!",
+	"advancements.buzzier_bees.adventure.four_leaf_clover.description": "Знайдіть чотирьохлистну конюшину",
+
+	"advancements.buzzier_bees.husbandry.use_honey_apple.title": "Це бєлий налив!",
+	"advancements.buzzier_bees.husbandry.use_honey_apple.description": "З'їжте яблуко в меді, щоб позбутися ефекту «левітація»",
+
+	"advancements.buzzier_bees.husbandry.use_honey_bread.title": "Жест доброї волі",
+	"advancements.buzzier_bees.husbandry.use_honey_bread.description": "З'їжте хліб з медом, щоб позбутися ефекту «погана прикмета»",
+
+	"advancements.buzzier_bees.husbandry.use_glazed_porkchop.title": "Негальмуй!...",
+	"advancements.buzzier_bees.husbandry.use_glazed_porkchop.description": "З'їжте гласуровану свинину, щоб позбутися ефекту «втома»",
+
+	"tooltip.buzzier_bees.is_baby": "Малюк",
+	"tooltip.buzzier_bees.has_nectar": "Запилюється",
+	"tooltip.buzzier_bees.is_angry": "Злий",
+	"tooltip.buzzier_bees.has_stung": "Без жала",
+	
+	"block.minecraft.banner.buzzier_bees.honeycomb.black": "Чорні бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.red": "Червоні бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.green": "Зелені бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.brown": "Коричневі бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.blue": "Сині бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.purple": "Фіолетові бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.cyan": "Бірюзові бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.light_gray": "Світло-сірі бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.gray": "Сірі бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.pink": "Рожеві бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.lime": "Лаймові бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.yellow": "Жовті бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.light_blue": "Блакитні бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.magenta": "Пурпурні бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.orange": "Помаранчеві бджолині стільники",
+  	"block.minecraft.banner.buzzier_bees.honeycomb.white": "Білі бджолині стільники"
+}
