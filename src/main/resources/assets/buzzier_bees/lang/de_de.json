@@ -6,7 +6,7 @@
 	
 	"item.buzzier_bees.honey_apple": "Honigapfel",
 	"item.buzzier_bees.honey_bread": "Honigbrot",
-	"item.buzzier_bees.glazed_porkchop": "Glaciertes Schweinefleisch",
+	"item.buzzier_bees.glazed_porkchop": "Glasiertes Schweinefleisch",
 	
 	"item.buzzier_bees.silverfish_bottle": "Silberfischchenflasche",
 	"item.buzzier_bees.endermite_bottle": "Endermiten-Flasche",
@@ -126,7 +126,7 @@
 	"entity.buzzier_bees.bumblebee": "Hummel",
 	"entity.buzzier_bees.moobloom": "Moobloom",
 	
-	"entity.minecraft.villager.buzzier_bees.apiarist": "Bienenzüchter",
+	"entity.minecraft.villager.buzzier_bees.apiarist": "Imker",
 	
 	"effect.buzzier_bees.sunny": "Sonnig",
 	
@@ -154,17 +154,17 @@
 	"item.minecraft.tipped_arrow.effect.long_unluck": "Pfeil des Pechs",
 	"item.minecraft.tipped_arrow.effect.strong_unluck": "Pfeil des Pechs",
 	
-	"advancements.husbandry.four_leaf_clover.title": "Mehr Glück beim diesen Mal",
-	"advancements.husbandry.four_leaf_clover.description": "Finde eine Glücksklee",
+	"advancements.husbandry.four_leaf_clover.title": "Mehr Glück dieses Mal",
+	"advancements.husbandry.four_leaf_clover.description": "Finde einen Glücksklee",
 	
 	"advancements.husbandry.honey_apple.title": "Täglich einen Apfel essen",
-	"advancements.husbandry.honey_apple.description": "Iss einen Honigapfel, um die Schwebekraft auszukurieren",
+	"advancements.husbandry.honey_apple.description": "Iss einen Honigapfel, um Schwebekraft auszukurieren",
 	
 	"advancements.husbandry.honey_bread.title": "Gutes Omen",
-	"advancements.husbandry.honey_bread.description": "Iss einen Honigbrot, um böses Omen auszukurieren",
+	"advancements.husbandry.honey_bread.description": "Iss ein Honigbrot, um böses Omen auszukurieren",
 	
 	"advancements.husbandry.glazed_porkchop.title": "Honig um den Mund schmieren",
-	"advancements.husbandry.glazed_porkchop.description": "Iss ein glaciertes Schweinefleisch, um die Abbaulähmung auszukurieren",
+	"advancements.husbandry.glazed_porkchop.description": "Iss ein Stück glasiertes Schweinefleisch, um Abbaulähmung auszukurieren",
 	
 	"tooltip.buzzier_bees.is_baby": "Baby",
 	"tooltip.buzzier_bees.has_nectar": "Bestäubt",
