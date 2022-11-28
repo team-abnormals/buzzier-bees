@@ -12,7 +12,7 @@
     }
   ],
   "result": "buzzier_bees:honeycomb_tile_vertical_slab",
-  "count": 1,
+  "count": 2,
   "conditions": [
     {
       "type": "blueprint:quark_flag",
