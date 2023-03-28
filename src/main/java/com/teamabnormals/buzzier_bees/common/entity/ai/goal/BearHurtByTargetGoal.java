@@ -6,27 +6,24 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 
 public class BearHurtByTargetGoal extends HurtByTargetGoal {
-	protected final GrizzlyBear bear;
 
 	public BearHurtByTargetGoal(GrizzlyBear bear) {
 		super(bear);
-		this.bear = bear;
 	}
 
 	@Override
 	public void start() {
 		super.start();
-		if (bear.isBaby()) {
+		if (this.mob.isBaby()) {
 			this.alertOthers();
 			this.stop();
 		}
-
 	}
 
 	@Override
-	protected void alertOther(Mob mobIn, LivingEntity targetIn) {
-		if (mobIn instanceof GrizzlyBear && !mobIn.isBaby()) {
-			super.alertOther(mobIn, targetIn);
+	protected void alertOther(Mob mob, LivingEntity target) {
+		if (mob instanceof GrizzlyBear && !mob.isBaby()) {
+			super.alertOther(mob, target);
 		}
 	}
 }

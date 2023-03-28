@@ -1,6 +1,8 @@
 package com.teamabnormals.buzzier_bees.client.render.entity;
 
 import com.teamabnormals.buzzier_bees.client.model.GrizzlyBearModel;
+import com.teamabnormals.buzzier_bees.client.render.entity.layers.GrizzlyBearHeldItemLayer;
+import com.teamabnormals.buzzier_bees.client.render.entity.layers.GrizzlyBearHoneyLayer;
 import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBear;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.BBModelLayers;
@@ -14,6 +16,8 @@ public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBear, GrizzlyBearMod
 
 	public GrizzlyBearRenderer(EntityRendererProvider.Context context) {
 		super(context, new GrizzlyBearModel<>(context.bakeLayer(BBModelLayers.GRIZZLY_BEAR)), 0.9F);
+		this.addLayer(new GrizzlyBearHoneyLayer(this));
+		this.addLayer(new GrizzlyBearHeldItemLayer(this, context.getItemInHandRenderer()));
 	}
 
 	@Override
