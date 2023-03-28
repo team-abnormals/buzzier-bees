@@ -1,6 +1,6 @@
 package com.teamabnormals.buzzier_bees.client.model;
 
-import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBear;
 import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -9,7 +9,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 
-public class GrizzlyBearModel<T extends GrizzlyBearEntity> extends QuadrupedModel<T> {
+public class GrizzlyBearModel<T extends GrizzlyBear> extends QuadrupedModel<T> {
 	public ModelPart right_ear;
 	public ModelPart left_ear;
 

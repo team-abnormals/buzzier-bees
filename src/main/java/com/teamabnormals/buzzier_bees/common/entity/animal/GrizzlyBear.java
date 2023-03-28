@@ -39,14 +39,14 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class GrizzlyBearEntity extends Animal {
-	private static final EntityDataAccessor<Boolean> EATING = SynchedEntityData.defineId(GrizzlyBearEntity.class, EntityDataSerializers.BOOLEAN);
+public class GrizzlyBear extends Animal {
+	private static final EntityDataAccessor<Boolean> EATING = SynchedEntityData.defineId(GrizzlyBear.class, EntityDataSerializers.BOOLEAN);
 	private static final Predicate<ItemEntity> TRUSTED_TARGET_SELECTOR = (entity) -> !entity.hasPickUpDelay() && entity.isAlive();
 
 	private int warningSoundTicks;
 	public int eatTicks;
 
-	public GrizzlyBearEntity(EntityType<? extends GrizzlyBearEntity> type, Level worldIn) {
+	public GrizzlyBear(EntityType<? extends GrizzlyBear> type, Level worldIn) {
 		super(type, worldIn);
 		this.setCanPickUpLoot(true);
 	}
@@ -59,7 +59,7 @@ public class GrizzlyBearEntity extends Animal {
 		this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
 		this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
-		this.goalSelector.addGoal(7, new GrizzlyBearEntity.FindItemsGoal());
+		this.goalSelector.addGoal(7, new GrizzlyBear.FindItemsGoal());
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
 		this.targetSelector.addGoal(1, new BearHurtByTargetGoal(this));
@@ -245,14 +245,14 @@ public class GrizzlyBearEntity extends Animal {
 		}
 
 		public boolean canUse() {
-			if (!GrizzlyBearEntity.this.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty()) {
+			if (!GrizzlyBear.this.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty()) {
 				return false;
-			} else if (GrizzlyBearEntity.this.getTarget() == null && GrizzlyBearEntity.this.getLastHurtByMob() == null) {
-				if (GrizzlyBearEntity.this.getRandom().nextInt(10) != 0) {
+			} else if (GrizzlyBear.this.getTarget() == null && GrizzlyBear.this.getLastHurtByMob() == null) {
+				if (GrizzlyBear.this.getRandom().nextInt(10) != 0) {
 					return false;
 				} else {
-					List<ItemEntity> list = GrizzlyBearEntity.this.level.getEntitiesOfClass(ItemEntity.class, GrizzlyBearEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBearEntity.TRUSTED_TARGET_SELECTOR);
-					return !list.isEmpty() && GrizzlyBearEntity.this.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty();
+					List<ItemEntity> list = GrizzlyBear.this.level.getEntitiesOfClass(ItemEntity.class, GrizzlyBear.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.TRUSTED_TARGET_SELECTOR);
+					return !list.isEmpty() && GrizzlyBear.this.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty();
 				}
 			} else {
 				return false;
@@ -260,18 +260,18 @@ public class GrizzlyBearEntity extends Animal {
 		}
 
 		public void tick() {
-			List<ItemEntity> list = GrizzlyBearEntity.this.level.getEntitiesOfClass(ItemEntity.class, GrizzlyBearEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBearEntity.TRUSTED_TARGET_SELECTOR);
-			ItemStack itemstack = GrizzlyBearEntity.this.getItemBySlot(EquipmentSlot.MAINHAND);
+			List<ItemEntity> list = GrizzlyBear.this.level.getEntitiesOfClass(ItemEntity.class, GrizzlyBear.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.TRUSTED_TARGET_SELECTOR);
+			ItemStack itemstack = GrizzlyBear.this.getItemBySlot(EquipmentSlot.MAINHAND);
 			if (itemstack.isEmpty() && !list.isEmpty()) {
-				GrizzlyBearEntity.this.getNavigation().moveTo(list.get(0), 1.2F);
+				GrizzlyBear.this.getNavigation().moveTo(list.get(0), 1.2F);
 			}
 
 		}
 
 		public void start() {
-			List<ItemEntity> list = GrizzlyBearEntity.this.level.getEntitiesOfClass(ItemEntity.class, GrizzlyBearEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBearEntity.TRUSTED_TARGET_SELECTOR);
+			List<ItemEntity> list = GrizzlyBear.this.level.getEntitiesOfClass(ItemEntity.class, GrizzlyBear.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.TRUSTED_TARGET_SELECTOR);
 			if (!list.isEmpty()) {
-				GrizzlyBearEntity.this.getNavigation().moveTo(list.get(0), 1.2F);
+				GrizzlyBear.this.getNavigation().moveTo(list.get(0), 1.2F);
 			}
 
 		}

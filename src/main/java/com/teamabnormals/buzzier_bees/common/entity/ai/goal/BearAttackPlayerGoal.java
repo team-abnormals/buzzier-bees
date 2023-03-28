@@ -1,13 +1,13 @@
 package com.teamabnormals.buzzier_bees.common.entity.ai.goal;
 
-import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBear;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 
 public class BearAttackPlayerGoal extends NearestAttackableTargetGoal<Player> {
-	protected final GrizzlyBearEntity bear;
+	protected final GrizzlyBear bear;
 
-	public BearAttackPlayerGoal(GrizzlyBearEntity bear) {
+	public BearAttackPlayerGoal(GrizzlyBear bear) {
 		super(bear, Player.class, 20, true, true, null);
 		this.bear = bear;
 	}
@@ -18,7 +18,7 @@ public class BearAttackPlayerGoal extends NearestAttackableTargetGoal<Player> {
 			return false;
 		} else {
 			if (super.canUse()) {
-				for (GrizzlyBearEntity polarbearentity : bear.level.getEntitiesOfClass(GrizzlyBearEntity.class, bear.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
+				for (GrizzlyBear polarbearentity : bear.level.getEntitiesOfClass(GrizzlyBear.class, bear.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
 					if (polarbearentity.isBaby()) {
 						return true;
 					}

@@ -11,6 +11,7 @@ import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBLootModifierP
 import com.teamabnormals.buzzier_bees.core.data.server.tags.*;
 import com.teamabnormals.buzzier_bees.core.other.BBClientCompat;
 import com.teamabnormals.buzzier_bees.core.other.BBCompat;
+import com.teamabnormals.buzzier_bees.core.other.BBModelLayers;
 import com.teamabnormals.buzzier_bees.core.registry.*;
 import com.teamabnormals.buzzier_bees.core.registry.BBFeatures.BBConfiguredFeatures;
 import com.teamabnormals.buzzier_bees.core.registry.BBFeatures.BBPlacedFeatures;
@@ -94,8 +95,8 @@ public class BuzzierBees {
 
 	@OnlyIn(Dist.CLIENT)
 	private void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(GrizzlyBearRenderer.MODEL_LAYER_LOCATION, GrizzlyBearModel::createLayerDefinition);
-		event.registerLayerDefinition(MoobloomRenderer.MODEL_LAYER_LOCATION, CowModel::createBodyLayer);
+		event.registerLayerDefinition(BBModelLayers.GRIZZLY_BEAR, GrizzlyBearModel::createLayerDefinition);
+		event.registerLayerDefinition(BBModelLayers.MOOBLOOM, CowModel::createBodyLayer);
 	}
 
 	@OnlyIn(Dist.CLIENT)

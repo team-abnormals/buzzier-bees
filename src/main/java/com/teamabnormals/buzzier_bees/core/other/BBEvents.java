@@ -1,6 +1,6 @@
 package com.teamabnormals.buzzier_bees.core.other;
 
-import com.teamabnormals.buzzier_bees.common.entity.animal.MoobloomEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.Moobloom;
 import com.teamabnormals.buzzier_bees.core.BBConfig;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBBlockTags;
@@ -49,7 +49,7 @@ public class BBEvents {
 		Entity entity = event.getEntity();
 		if (entity instanceof Mob mob) {
 			if (mob.getType().is(BBEntityTypeTags.MOOBLOOM_HOSTILES))
-				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, MoobloomEntity.class, false));
+				mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, Moobloom.class, false));
 		}
 	}
 

@@ -1,13 +1,13 @@
 package com.teamabnormals.buzzier_bees.common.entity.ai.goal;
 
-import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBearEntity;
+import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBear;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class BearMeleeAttackGoal extends MeleeAttackGoal {
-	protected final GrizzlyBearEntity bear;
+	protected final GrizzlyBear bear;
 
-	public BearMeleeAttackGoal(GrizzlyBearEntity bear) {
+	public BearMeleeAttackGoal(GrizzlyBear bear) {
 		super(bear, 1.25D, true);
 		this.bear = bear;
 	}
