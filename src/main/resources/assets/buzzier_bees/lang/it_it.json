@@ -96,9 +96,9 @@
   "advancements.husbandry.glazed_porkchop.title": "Deboli ginocchia, mielate braccia",
   "advancements.husbandry.glazed_porkchop.description": "Usa una costoletta di maiale lustrata per curare l'affaticamento",
 
-  "tooltip.buzzier_bees.is_baby": "Neonato",
-  "tooltip.buzzier_bees.has_nectar": "Impollinato",
-  "tooltip.buzzier_bees.is_angry": "Arrabbiato",
+  "tooltip.buzzier_bees.is_baby": "Neonata",
+  "tooltip.buzzier_bees.has_nectar": "Impollinata",
+  "tooltip.buzzier_bees.is_angry": "Arrabbiata",
   "tooltip.buzzier_bees.has_stung": "Senza pungiglione",
 
   "block.minecraft.banner.buzzier_bees.honeycomb.black": "Favo nero",
