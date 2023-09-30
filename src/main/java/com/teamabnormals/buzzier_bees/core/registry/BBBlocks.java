@@ -39,9 +39,9 @@ public class BBBlocks {
 	public static final RegistryObject<Block> SOUL_CANDLE = HELPER.createBlock("soul_candle", () -> new SoulCandleBlock(BBBlockProperties.SOUL_CANDLE), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> SOUL_CANDLE_CAKE = HELPER.createBlockNoItem("soul_candle_cake", () -> new SoulCandleCakeBlock(SOUL_CANDLE.get(), BBBlockProperties.SOUL_CANDLE_CAKE));
 
-	public static final RegistryObject<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBMobEffects.SUNNY, 12 * 20, BBBlockProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
-	public static final RegistryObject<Block> WHITE_CLOVER = HELPER.createBlock("white_clover", () -> new BlueprintFlowerBlock(() -> MobEffects.UNLUCK, 30, BBBlockProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
-	public static final RegistryObject<Block> PINK_CLOVER = HELPER.createBlock("pink_clover", () -> new BlueprintFlowerBlock(() -> MobEffects.UNLUCK, 60, BBBlockProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBMobEffects.SUNNY, 12, BBBlockProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> WHITE_CLOVER = HELPER.createBlock("white_clover", () -> new BlueprintFlowerBlock(() -> MobEffects.UNLUCK, 6, BBBlockProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
+	public static final RegistryObject<Block> PINK_CLOVER = HELPER.createBlock("pink_clover", () -> new BlueprintFlowerBlock(() -> MobEffects.UNLUCK, 12, BBBlockProperties.FLOWER), CreativeModeTab.TAB_DECORATIONS);
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER = HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBBlockProperties.FLOWER_POT));
 	public static final RegistryObject<Block> POTTED_PINK_CLOVER = HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBBlockProperties.FLOWER_POT));
 	public static final RegistryObject<Block> POTTED_BUTTERCUP = HELPER.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), BBBlockProperties.FLOWER_POT));
