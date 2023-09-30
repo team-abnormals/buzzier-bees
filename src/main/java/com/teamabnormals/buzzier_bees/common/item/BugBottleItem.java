@@ -31,6 +31,7 @@ public class BugBottleItem extends Item {
 
 	public InteractionResult useOn(UseOnContext context) {
 		Level world = context.getLevel();
+		world.playSound(context.getPlayer(), context.getClickedPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundSource.BLOCKS, 1.0F, 1.0F);
 		if (world.isClientSide) {
 			return InteractionResult.SUCCESS;
 		} else {
@@ -47,7 +48,6 @@ public class BugBottleItem extends Item {
 			}
 
 			EntityType<?> entitytype = this.getType(itemstack.getTag());
-			world.playSound(context.getPlayer(), context.getClickedPos(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
 			if (!context.getPlayer().getAbilities().instabuild) {
 				context.getPlayer().setItemInHand(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
 			}
@@ -55,7 +55,7 @@ public class BugBottleItem extends Item {
 			if (entity instanceof Mob) {
 				((Mob) entity).setPersistenceRequired();
 			}
-			return InteractionResult.SUCCESS;
+			return InteractionResult.CONSUME;
 		}
 	}
 
