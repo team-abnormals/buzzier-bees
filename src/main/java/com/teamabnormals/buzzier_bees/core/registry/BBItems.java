@@ -23,7 +23,7 @@ public class BBItems {
 	public static final ItemSubRegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER.getItemSubHelper();
 
 	public static final RegistryObject<Item> HONEY_APPLE = HELPER.createItem("honey_apple", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_APPLE).tab(CreativeModeTab.TAB_FOOD), new MobEffectInstance(MobEffects.LEVITATION), new MobEffectInstance(MobEffects.POISON)));
-	public static final RegistryObject<Item> HONEY_BREAD = HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD).tab(CreativeModeTab.TAB_FOOD), new MobEffectInstance(MobEffects.BAD_OMEN), new MobEffectInstance(MobEffects.POISON)));
+	public static final RegistryObject<Item> HONEY_BREAD = HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD).tab(CreativeModeTab.TAB_FOOD), new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN), new MobEffectInstance(MobEffects.POISON)));
 	public static final RegistryObject<Item> GLAZED_PORKCHOP = HELPER.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(BBFoods.GLAZED_PORKCHOP).tab(CreativeModeTab.TAB_FOOD), new MobEffectInstance(MobEffects.DIG_SLOWDOWN), new MobEffectInstance(MobEffects.POISON)));
 
 	public static final RegistryObject<Item> BOTTLE_OF_SILVERFISH = HELPER.createItem("silverfish_bottle", () -> new BugBottleItem(EntityType.SILVERFISH, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1).tab(CreativeModeTab.TAB_MISC)));
