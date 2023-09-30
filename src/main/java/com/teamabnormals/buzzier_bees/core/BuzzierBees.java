@@ -95,7 +95,7 @@ public class BuzzierBees {
 
 	@OnlyIn(Dist.CLIENT)
 	private void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(BBModelLayers.GRIZZLY_BEAR, GrizzlyBearModel::createLayerDefinition);
+		event.registerLayerDefinition(BBModelLayers.GRIZZLY_BEAR, GrizzlyBearModel::createBodyLayer);
 		event.registerLayerDefinition(BBModelLayers.MOOBLOOM, CowModel::createBodyLayer);
 	}
 
