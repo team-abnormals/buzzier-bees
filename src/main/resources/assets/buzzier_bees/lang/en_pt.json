@@ -106,17 +106,17 @@
   "item.minecraft.tipped_arrow.effect.long_unluck": "Bolt w' Blackbeard's Curse",
   "item.minecraft.tipped_arrow.effect.strong_unluck": "Bolt w' Blackbeard's Curse",
 
-  "advancements.husbandry.four_leaf_clover.title": "Lady Luck's Champion",
-  "advancements.husbandry.four_leaf_clover.description": "Loot a coffer to find her leaf",
+  "advancements.buzzier_bees.adventure.four_leaf_clover.title": "Lady Luck's Champion",
+  "advancements.buzzier_bees.adventure.four_leaf_clover.description": "Loot a coffer to find her leaf",
 
-  "advancements.husbandry.honey_apple.title": "Back t' the sea",
-  "advancements.husbandry.honey_apple.description": "Use an heaven glaz'd apple t' stop yeself from floatin' about",
+  "advancements.buzzier_bees.husbandry.use_honey_apple.title": "Back t' the sea",
+  "advancements.buzzier_bees.husbandry.use_honey_apple.description": "Use an heaven glaz'd apple t' stop yeself from floatin' about",
 
-  "advancements.husbandry.honey_bread.title": "Leavin' Barbary Coast",
-  "advancements.husbandry.honey_bread.description": "Eat ye a bun o' nectar scare away tharr raiders",
+  "advancements.buzzier_bees.husbandry.use_honey_bread.title": "Leavin' Barbary Coast",
+  "advancements.buzzier_bees.husbandry.use_honey_bread.description": "Eat ye a bun o' nectar t' cure yeself o' peg leg",
 
-  "advancements.husbandry.glazed_porkchop.title": "Er, Fruits? Neverrrr 'eard o' em",
-  "advancements.husbandry.glazed_porkchop.description": "Feast on a sugar roasted hog t' cure yeself o' Scurvey",
+  "advancements.buzzier_bees.husbandry.use_glazed_porkchop.title": "Er, Fruits? Neverrrr 'eard o' em",
+  "advancements.buzzier_bees.husbandry.use_glazed_porkchop.description": "Feast on a sugar roasted hog t' cure yeself o' Scurvey",
 
   "tooltip.buzzier_bees.is_baby": "Tiny",
   "tooltip.buzzier_bees.has_nectar": "Fill'd w' fl'er dust",
