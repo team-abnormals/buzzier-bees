@@ -78,6 +78,8 @@
   "item.minecraft.tipped_arrow.effect.strong_luck": "Arrow of Luck",
   "item.minecraft.tipped_arrow.effect.strong_unluck": "Arrow of Bad Luck",
   "item.minecraft.tipped_arrow.effect.unluck": "Arrow of Bad Luck",
+  "painting.buzzier_bees.candle.author": "five",
+  "painting.buzzier_bees.candle.title": "Candle",
   "tooltip.buzzier_bees.has_nectar": "Pollinated",
   "tooltip.buzzier_bees.has_stung": "Stingerless",
   "tooltip.buzzier_bees.is_angry": "Angry",
