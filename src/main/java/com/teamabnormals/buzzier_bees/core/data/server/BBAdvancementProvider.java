@@ -7,23 +7,27 @@ import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.advancements.AdvancementProvider;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
+import net.minecraftforge.common.data.ForgeAdvancementProvider.AdvancementGenerator;
 
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class BBAdvancementProvider extends AdvancementProvider {
+public class BBAdvancementProvider implements AdvancementGenerator {
 
-	public BBAdvancementProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, existingFileHelper);
+	public static ForgeAdvancementProvider create(PackOutput output, CompletableFuture<Provider> provider, ExistingFileHelper helper) {
+		return new ForgeAdvancementProvider(output, provider, helper, List.of(new BBAdvancementProvider()));
 	}
 
 	@Override
-	protected void registerAdvancements(Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
+	public void generate(Provider provider, Consumer<Advancement> consumer, ExistingFileHelper helper) {
 		createAdvancement("four_leaf_clover", "adventure", new ResourceLocation("adventure/sleep_in_bed"), BBItems.FOUR_LEAF_CLOVER.get(), FrameType.CHALLENGE, true, true, false)
 				.addCriterion("four_leaf_clover", InventoryChangeTrigger.TriggerInstance.hasItems(BBItems.FOUR_LEAF_CLOVER.get()))
 				.save(consumer, BuzzierBees.MOD_ID + ":adventure/four_leaf_clover");

@@ -24,7 +24,7 @@ public class BearFindItemsGoal extends Goal {
 			if (this.bear.getRandom().nextInt(10) != 0) {
 				return false;
 			} else {
-				List<ItemEntity> list = this.bear.level.getEntitiesOfClass(ItemEntity.class, this.bear.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.ALLOWED_ITEMS);
+				List<ItemEntity> list = this.bear.level().getEntitiesOfClass(ItemEntity.class, this.bear.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.ALLOWED_ITEMS);
 				return !list.isEmpty() && this.bear.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty();
 			}
 		} else {
@@ -33,7 +33,7 @@ public class BearFindItemsGoal extends Goal {
 	}
 
 	public void tick() {
-		List<ItemEntity> list = this.bear.level.getEntitiesOfClass(ItemEntity.class, this.bear.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.ALLOWED_ITEMS);
+		List<ItemEntity> list = this.bear.level().getEntitiesOfClass(ItemEntity.class, this.bear.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.ALLOWED_ITEMS);
 		ItemStack itemstack = this.bear.getItemBySlot(EquipmentSlot.MAINHAND);
 		if (itemstack.isEmpty() && !list.isEmpty()) {
 			this.bear.getNavigation().moveTo(list.get(0), 1.2F);
@@ -42,7 +42,7 @@ public class BearFindItemsGoal extends Goal {
 	}
 
 	public void start() {
-		List<ItemEntity> list = this.bear.level.getEntitiesOfClass(ItemEntity.class, this.bear.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.ALLOWED_ITEMS);
+		List<ItemEntity> list = this.bear.level().getEntitiesOfClass(ItemEntity.class, this.bear.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), GrizzlyBear.ALLOWED_ITEMS);
 		if (!list.isEmpty()) {
 			this.bear.getNavigation().moveTo(list.get(0), 1.2F);
 		}

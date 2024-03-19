@@ -12,7 +12,8 @@ import net.minecraft.advancements.critereon.BredAnimalsTrigger;
 import net.minecraft.advancements.critereon.ConsumeItemTrigger;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.MobEffectsPredicate;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -20,16 +21,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collection;
+import java.util.concurrent.CompletableFuture;
 
 public class BBAdvancementModifierProvider extends AdvancementModifierProvider {
 	private static final EntityType<?>[] BREEDABLE_ANIMALS = new EntityType[]{BBEntityTypes.MOOBLOOM.get()};
 
-	public BBAdvancementModifierProvider(DataGenerator generator) {
-		super(generator, BuzzierBees.MOD_ID);
+	public BBAdvancementModifierProvider(PackOutput output, CompletableFuture<Provider> provider) {
+		super(BuzzierBees.MOD_ID, output, provider);
 	}
 
 	@Override
-	protected void registerEntries() {
+	protected void registerEntries(Provider provider) {
 		this.entry("nether/all_effects").selects("nether/all_effects").addModifier(new EffectsChangedModifier("all_effects", false, MobEffectsPredicate.effects().and(MobEffects.LUCK).and(MobEffects.UNLUCK).and(BBMobEffects.SUNNY.get())));
 		this.entry("nether/all_potions").selects("nether/all_potions").addModifier(new EffectsChangedModifier("all_effects", false, MobEffectsPredicate.effects().and(MobEffects.LUCK).and(MobEffects.UNLUCK)));
 

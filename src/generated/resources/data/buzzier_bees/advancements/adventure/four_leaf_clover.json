@@ -33,5 +33,6 @@
     [
       "four_leaf_clover"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

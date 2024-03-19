@@ -1,5 +1,6 @@
 package com.teamabnormals.buzzier_bees.common.block;
 
+import com.teamabnormals.buzzier_bees.core.registry.BBBlocks.BBBlockProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -17,8 +18,9 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class HoneycombTrapDoorBlock extends TrapDoorBlock {
+
 	public HoneycombTrapDoorBlock(BlockBehaviour.Properties properties) {
-		super(properties);
+		super(properties, BBBlockProperties.HONEYCOMB);
 	}
 
 	@Override

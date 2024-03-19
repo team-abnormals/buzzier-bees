@@ -23,7 +23,7 @@ public class BBParticleTypes {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-		event.register(BUTTERCUP_BLOOM.get(), ButtercupBloomParticle.Factory::new);
-		event.register(SMALL_SOUL_FIRE_FLAME.get(), FlameParticle.SmallFlameProvider::new);
+		event.registerSpriteSet(BUTTERCUP_BLOOM.get(), ButtercupBloomParticle.Factory::new);
+		event.registerSpriteSet(SMALL_SOUL_FIRE_FLAME.get(), FlameParticle.SmallFlameProvider::new);
 	}
 }

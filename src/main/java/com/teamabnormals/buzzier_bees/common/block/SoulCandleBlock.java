@@ -14,7 +14,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.function.ToIntFunction;
 
 public class SoulCandleBlock extends CandleBlock {
-	public static final ToIntFunction<BlockState> DIM_LIGHT_EMISSION = (state) -> state.getValue(LIT) ? 2 * state.getValue(CANDLES) : 0;
+	public static final ToIntFunction<BlockState> DIM_LIGHT_EMISSION = state -> state.getValue(LIT) ? 2 * state.getValue(CANDLES) : 0;
 
 	public SoulCandleBlock(Properties properties) {
 		super(properties);

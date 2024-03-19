@@ -2,12 +2,13 @@ package com.teamabnormals.buzzier_bees.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
 import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBear;
 import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import org.joml.Vector3f;
 
 public class GrizzlyBearModel<T extends GrizzlyBear> extends QuadrupedModel<T> {
 	public final ModelPart rightEar;
@@ -49,6 +50,8 @@ public class GrizzlyBearModel<T extends GrizzlyBear> extends QuadrupedModel<T> {
 	@Override
 	public void setupAnim(T bear, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		super.setupAnim(bear, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+
+		this.body.zRot = Mth.cos(limbSwing * 0.6662F) * 0.125F * limbSwingAmount;
 
 		this.body.xScale = 1.0F;
 		this.body.yScale = 1.0F;

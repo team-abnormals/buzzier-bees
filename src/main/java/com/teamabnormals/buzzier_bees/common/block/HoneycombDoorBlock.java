@@ -1,10 +1,8 @@
 package com.teamabnormals.buzzier_bees.common.block;
 
+import com.teamabnormals.buzzier_bees.core.registry.BBBlocks.BBBlockProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,8 +13,6 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -24,7 +20,7 @@ import javax.annotation.Nullable;
 public class HoneycombDoorBlock extends DoorBlock {
 
 	public HoneycombDoorBlock(Properties builder) {
-		super(builder);
+		super(builder, BBBlockProperties.HONEYCOMB);
 	}
 
 	@Override
@@ -35,22 +31,6 @@ public class HoneycombDoorBlock extends DoorBlock {
 		} else {
 			return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		}
-	}
-
-	@Override
-	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		state = state.cycle(OPEN);
-		worldIn.setBlock(pos, state, 10);
-		worldIn.levelEvent(player, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-		return InteractionResult.sidedSuccess(worldIn.isClientSide);
-	}
-
-	private int getCloseSound() {
-		return this.material == Material.METAL ? 1011 : 1012;
-	}
-
-	private int getOpenSound() {
-		return this.material == Material.METAL ? 1005 : 1006;
 	}
 
 	@Nullable

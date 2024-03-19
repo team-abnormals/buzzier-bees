@@ -24,5 +24,6 @@
     [
       "use_glazed_porkchop"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

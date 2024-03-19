@@ -1,16 +1,16 @@
 package com.teamabnormals.buzzier_bees.common.block;
 
-import com.teamabnormals.blueprint.common.block.BlueprintFlowerBlock;
 import com.teamabnormals.buzzier_bees.core.registry.BBParticleTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
-public class ButtercupBlock extends BlueprintFlowerBlock {
+public class ButtercupBlock extends FlowerBlock {
 
 	public ButtercupBlock(Supplier<MobEffect> stewEffect, int stewEffectDuration, Properties properties) {
 		super(stewEffect, stewEffectDuration, properties);

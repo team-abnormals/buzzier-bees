@@ -19,6 +19,6 @@ public abstract class MobEntityMixin extends LivingEntity {
 
 	@Inject(at = @At("TAIL"), method = "isSunBurnTick", cancellable = true)
 	private void isInDaylight(CallbackInfoReturnable<Boolean> cir) {
-		cir.setReturnValue(this.getEffect(BBMobEffects.SUNNY.get()) != null && !this.isInWaterRainOrBubble() && !this.level.isClientSide);
+		cir.setReturnValue(this.getEffect(BBMobEffects.SUNNY.get()) != null && !this.isInWaterRainOrBubble() && !this.level().isClientSide);
 	}
 }

@@ -1,7 +1,6 @@
 package com.teamabnormals.buzzier_bees.common.entity.animal;
 
 import com.teamabnormals.buzzier_bees.common.entity.ai.goal.BearAttackPlayerGoal;
-import com.teamabnormals.buzzier_bees.common.entity.ai.goal.BearFindItemsGoal;
 import com.teamabnormals.buzzier_bees.common.entity.ai.goal.BearHurtByTargetGoal;
 import com.teamabnormals.buzzier_bees.common.entity.ai.goal.BearPanicGoal;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBItemTags;
@@ -22,10 +21,15 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.LookControl;
+import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.animal.Fox;
+import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -38,9 +42,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 import java.util.function.Predicate;
 
 public class GrizzlyBear extends Animal {
+	private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(GrizzlyBear.class, EntityDataSerializers.BYTE);
+
 	private static final EntityDataAccessor<Boolean> HONEY = SynchedEntityData.defineId(GrizzlyBear.class, EntityDataSerializers.BOOLEAN);
 	public static final Predicate<ItemEntity> ALLOWED_ITEMS = (itemEntity) -> !itemEntity.hasPickUpDelay() && itemEntity.isAlive();
 
@@ -48,19 +55,22 @@ public class GrizzlyBear extends Animal {
 
 	public GrizzlyBear(EntityType<? extends GrizzlyBear> type, Level worldIn) {
 		super(type, worldIn);
+		this.lookControl = new GrizzlyBearLookControl();
+		this.moveControl = new GrizzlyMoveControl();
 		this.setCanPickUpLoot(true);
 	}
 
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(1, new BearPanicGoal(this));
-		this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
-		this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
-		this.goalSelector.addGoal(7, new BearFindItemsGoal(this));
-		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(2, new SeekShelterGoal(1.25D));
+		this.goalSelector.addGoal(3, new GrizzlyMeleeAttackGoal(1.0D, false));
+		this.goalSelector.addGoal(4, new SleepGoal());
+		this.goalSelector.addGoal(5, new FollowParentGoal(this, 1.25D));
+		this.goalSelector.addGoal(6, new RandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
+		// this.goalSelector.addGoal(8, new BearFindItemsGoal(this));
 
 		this.targetSelector.addGoal(1, new BearHurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new BearAttackPlayerGoal<>(this, LivingEntity.class, 10, true, true, living -> living instanceof Player || living instanceof Monster));
@@ -94,12 +104,14 @@ public class GrizzlyBear extends Animal {
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(HONEY, false);
+		this.entityData.define(DATA_FLAGS_ID, (byte) 0);
 	}
 
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		tag.putBoolean("Honey", this.isHoney());
+		tag.putBoolean("Sleeping", this.isSleeping());
 
 	}
 
@@ -107,6 +119,7 @@ public class GrizzlyBear extends Animal {
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
 		this.setHoney(tag.getBoolean("Honey"));
+		this.setSleeping(tag.getBoolean("Sleeping"));
 	}
 
 	@Override
@@ -120,21 +133,21 @@ public class GrizzlyBear extends Animal {
 
 		if (this.isHoney() && stack.is(Items.GLASS_BOTTLE)) {
 			stack.shrink(1);
-			this.level.playSound(player, this.getX(), this.getY(), this.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
+			this.level().playSound(player, this.getX(), this.getY(), this.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
 			if (stack.isEmpty()) {
 				player.setItemInHand(hand, new ItemStack(Items.HONEY_BOTTLE));
 			} else if (!player.getInventory().add(new ItemStack(Items.HONEY_BOTTLE))) {
 				player.drop(new ItemStack(Items.HONEY_BOTTLE), false);
 			}
 
-			level.gameEvent(player, GameEvent.FLUID_PICKUP, this.position());
+			this.level().gameEvent(player, GameEvent.FLUID_PICKUP, this.position());
 		}
 
 		return super.mobInteract(player, hand);
 	}
 
 	private boolean canEatItem(ItemStack stack) {
-		return stack.isEdible() && this.getTarget() == null && this.onGround;
+		return stack.isEdible() && this.getTarget() == null && this.onGround();
 	}
 
 	@Override
@@ -155,18 +168,18 @@ public class GrizzlyBear extends Animal {
 	}
 
 	private void spitOutItem(ItemStack stack) {
-		if (!stack.isEmpty() && !this.level.isClientSide) {
-			ItemEntity entity = new ItemEntity(this.level, this.getX() + this.getLookAngle().x, this.getY() + 1.0D, this.getZ() + this.getLookAngle().z, stack);
+		if (!stack.isEmpty() && !this.level().isClientSide) {
+			ItemEntity entity = new ItemEntity(this.level(), this.getX() + this.getLookAngle().x, this.getY() + 1.0D, this.getZ() + this.getLookAngle().z, stack);
 			entity.setPickUpDelay(40);
 			entity.setThrower(this.getUUID());
 			this.playSound(SoundEvents.FOX_SPIT, 1.0F, 1.0F);
-			this.level.addFreshEntity(entity);
+			this.level().addFreshEntity(entity);
 		}
 	}
 
 	private void spawnItem(ItemStack stack) {
-		ItemEntity entity = new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), stack);
-		this.level.addFreshEntity(entity);
+		ItemEntity entity = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), stack);
+		this.level().addFreshEntity(entity);
 	}
 
 	@Override
@@ -190,12 +203,12 @@ public class GrizzlyBear extends Animal {
 	}
 
 	public void aiStep() {
-		if (!this.level.isClientSide && this.isAlive() && this.isEffectiveAi()) {
+		if (!this.level().isClientSide && this.isAlive() && this.isEffectiveAi()) {
 			++this.eatTicks;
 			ItemStack stack = this.getItemBySlot(EquipmentSlot.MAINHAND);
 			if (this.canEatItem(stack)) {
 				if (this.eatTicks > 600) {
-					ItemStack returnStack = stack.finishUsingItem(this.level, this);
+					ItemStack returnStack = stack.finishUsingItem(this.level(), this);
 					if (!returnStack.isEmpty()) {
 						this.setItemSlot(EquipmentSlot.MAINHAND, returnStack);
 					}
@@ -203,7 +216,7 @@ public class GrizzlyBear extends Animal {
 					this.eatTicks = 0;
 				} else if (this.eatTicks > 500 && this.random.nextFloat() < 0.1F) {
 					this.playSound(this.getEatingSound(stack), 1.0F, 1.0F);
-					this.level.broadcastEntityEvent(this, (byte) 45);
+					this.level().broadcastEntityEvent(this, (byte) 45);
 				}
 			}
 		}
@@ -219,17 +232,52 @@ public class GrizzlyBear extends Animal {
 		this.entityData.set(HONEY, honey);
 	}
 
+	public boolean isSleeping() {
+		return this.getFlag(32);
+	}
+
+	public void setSleeping(boolean sleeping) {
+		this.setFlag(32, sleeping);
+	}
+
+	private void setFlag(int flag, boolean value) {
+		if (value) {
+			this.entityData.set(DATA_FLAGS_ID, (byte) (this.entityData.get(DATA_FLAGS_ID) | flag));
+		} else {
+			this.entityData.set(DATA_FLAGS_ID, (byte) (this.entityData.get(DATA_FLAGS_ID) & ~flag));
+		}
+
+	}
+
+	private boolean getFlag(int p_28609_) {
+		return (this.entityData.get(DATA_FLAGS_ID) & p_28609_) != 0;
+	}
+
+	public void clearStates() {
+		this.setSleeping(false);
+	}
+
 	public void tick() {
 		super.tick();
+		if (this.isEffectiveAi()) {
+			boolean flag = this.isInWater();
+			if (flag || this.getTarget() != null || this.level().isThundering()) {
+				this.setSleeping(false);
+			}
+		}
 	}
 
 	public boolean doHurtTarget(Entity target) {
-		boolean flag = target.hurt(DamageSource.mobAttack(this), (float) ((int) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
+		boolean flag = target.hurt(this.level().damageSources().mobAttack(this), (float) ((int) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
 		if (flag) {
 			this.doEnchantDamageEffects(this, target);
 		}
 
 		return flag;
+	}
+
+	boolean canMove() {
+		return !this.isSleeping();
 	}
 
 	protected float getWaterSlowDown() {
@@ -245,5 +293,157 @@ public class GrizzlyBear extends Animal {
 		return super.finalizeSpawn(level, difficulty, spawnType, spawnData, tag);
 	}
 
+	abstract class GrizzlyBehaviorGoal extends Goal {
+		private final TargetingConditions alertableTargeting = TargetingConditions.forCombat().range(16.0D).ignoreLineOfSight().selector(new GrizzlyBearAlertableEntitiesSelector());
 
+		protected boolean hasShelter() {
+			BlockPos blockpos = BlockPos.containing(GrizzlyBear.this.getX(), GrizzlyBear.this.getBoundingBox().maxY, GrizzlyBear.this.getZ());
+			return !GrizzlyBear.this.level().canSeeSky(blockpos) && GrizzlyBear.this.getWalkTargetValue(blockpos) >= 0.0F;
+		}
+
+		protected boolean alertable() {
+			return !GrizzlyBear.this.level().getNearbyEntities(LivingEntity.class, this.alertableTargeting, GrizzlyBear.this, GrizzlyBear.this.getBoundingBox().inflate(12.0D, 6.0D, 12.0D)).isEmpty();
+		}
+	}
+
+
+	public static class GrizzlyBearAlertableEntitiesSelector implements Predicate<LivingEntity> {
+		public boolean test(LivingEntity entity) {
+			if (entity instanceof GrizzlyBear) {
+				return false;
+			} else if (!(entity instanceof Chicken) && !(entity instanceof Rabbit)) {
+				if (entity instanceof TamableAnimal) {
+					return !((TamableAnimal) entity).isTame();
+				} else if (!(entity instanceof Player) || !entity.isSpectator() && !((Player) entity).isCreative()) {
+					return !entity.isSleeping() && !entity.isDiscrete();
+				} else {
+					return false;
+				}
+			} else {
+				return true;
+			}
+		}
+	}
+
+	public class GrizzlyBearLookControl extends LookControl {
+		public GrizzlyBearLookControl() {
+			super(GrizzlyBear.this);
+		}
+
+		public void tick() {
+			if (!GrizzlyBear.this.isSleeping()) {
+				super.tick();
+			}
+		}
+	}
+
+	class GrizzlyMeleeAttackGoal extends MeleeAttackGoal {
+		public GrizzlyMeleeAttackGoal(double p_28720_, boolean p_28721_) {
+			super(GrizzlyBear.this, p_28720_, p_28721_);
+		}
+
+		public boolean canUse() {
+			return !GrizzlyBear.this.isSleeping() && super.canUse();
+		}
+	}
+
+	class GrizzlyMoveControl extends MoveControl {
+		public GrizzlyMoveControl() {
+			super(GrizzlyBear.this);
+		}
+
+		public void tick() {
+			if (GrizzlyBear.this.canMove()) {
+				super.tick();
+			}
+
+		}
+	}
+
+	class GrizzlyLookAtPlayerGoal extends LookAtPlayerGoal {
+
+		public GrizzlyLookAtPlayerGoal(Mob p_25520_, Class<? extends LivingEntity> p_25521_, float p_25522_) {
+			super(p_25520_, p_25521_, p_25522_);
+		}
+
+		public boolean canContinueToUse() {
+			if (!GrizzlyBear.this.canMove()) {
+				return false;
+			}
+
+			return super.canContinueToUse();
+		}
+	}
+
+	class SeekShelterGoal extends FleeSunGoal {
+		private int interval = reducedTickDelay(100);
+
+		public SeekShelterGoal(double p_28777_) {
+			super(GrizzlyBear.this, p_28777_);
+		}
+
+		public boolean canUse() {
+			if (!GrizzlyBear.this.isSleeping() && this.mob.getTarget() == null) {
+				if (GrizzlyBear.this.level().isThundering() && GrizzlyBear.this.level().canSeeSky(this.mob.blockPosition())) {
+					return this.setWantedPos();
+				} else if (this.interval > 0) {
+					--this.interval;
+					return false;
+				} else {
+					this.interval = 100;
+					BlockPos blockpos = this.mob.blockPosition();
+					return GrizzlyBear.this.level().isDay() && GrizzlyBear.this.level().canSeeSky(blockpos) && !((ServerLevel) GrizzlyBear.this.level()).isVillage(blockpos) && this.setWantedPos();
+				}
+			} else {
+				return false;
+			}
+		}
+
+		public void start() {
+			GrizzlyBear.this.clearStates();
+			super.start();
+		}
+	}
+
+	class SleepGoal extends GrizzlyBehaviorGoal {
+		private static final int WAIT_TIME_BEFORE_SLEEP = reducedTickDelay(140);
+		private int countdown = GrizzlyBear.this.random.nextInt(WAIT_TIME_BEFORE_SLEEP);
+
+		public SleepGoal() {
+			this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
+		}
+
+		public boolean canUse() {
+			if (GrizzlyBear.this.xxa == 0.0F && GrizzlyBear.this.yya == 0.0F && GrizzlyBear.this.zza == 0.0F) {
+				return this.canSleep() || GrizzlyBear.this.isSleeping();
+			} else {
+				return false;
+			}
+		}
+
+		public boolean canContinueToUse() {
+			return this.canSleep();
+		}
+
+		private boolean canSleep() {
+			if (this.countdown > 0) {
+				--this.countdown;
+				return false;
+			} else {
+				return GrizzlyBear.this.level().isDay() && this.hasShelter() && !this.alertable() && !GrizzlyBear.this.isInPowderSnow;
+			}
+		}
+
+		public void stop() {
+			this.countdown = GrizzlyBear.this.random.nextInt(WAIT_TIME_BEFORE_SLEEP);
+			GrizzlyBear.this.clearStates();
+		}
+
+		public void start() {
+			GrizzlyBear.this.setJumping(false);
+			GrizzlyBear.this.setSleeping(true);
+			GrizzlyBear.this.getNavigation().stop();
+			GrizzlyBear.this.getMoveControl().setWantedPosition(GrizzlyBear.this.getX(), GrizzlyBear.this.getY(), GrizzlyBear.this.getZ(), 0.0D);
+		}
+	}
 }

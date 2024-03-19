@@ -20,7 +20,7 @@ public class BearAttackPlayerGoal<T extends LivingEntity> extends NearestAttacka
 			return false;
 		} else {
 			if (super.canUse()) {
-				for (GrizzlyBear bear : this.mob.level.getEntitiesOfClass(GrizzlyBear.class, this.mob.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
+				for (GrizzlyBear bear : this.mob.level().getEntitiesOfClass(GrizzlyBear.class, this.mob.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
 					if (bear.isBaby()) {
 						return true;
 					}

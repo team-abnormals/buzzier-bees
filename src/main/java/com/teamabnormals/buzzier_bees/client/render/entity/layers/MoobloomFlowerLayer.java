@@ -1,7 +1,7 @@
 package com.teamabnormals.buzzier_bees.client.render.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.teamabnormals.buzzier_bees.common.entity.animal.Moobloom;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.CowModel;
@@ -28,16 +28,16 @@ public class MoobloomFlowerLayer<T extends Moobloom> extends RenderLayer<T, CowM
 			int i = LivingEntityRenderer.getOverlayCoords(moobloom, 0.0F);
 			poseStack.pushPose();
 			poseStack.translate(0.2F, -0.35F, 0.5D);
-			poseStack.mulPose(Vector3f.YP.rotationDegrees(-48.0F));
+			poseStack.mulPose(Axis.YP.rotationDegrees(-48.0F));
 			poseStack.scale(-1.0F, -1.0F, 1.0F);
 			poseStack.translate(-0.5D, -0.5D, -0.5D);
 			dispatcher.renderSingleBlock(blockstate, poseStack, buffer, packedLightIn, i);
 			poseStack.popPose();
 			poseStack.pushPose();
 			poseStack.translate(0.2F, -0.35F, 0.5D);
-			poseStack.mulPose(Vector3f.YP.rotationDegrees(42.0F));
+			poseStack.mulPose(Axis.YP.rotationDegrees(42.0F));
 			poseStack.translate(0.1F, 0.0D, -0.6F);
-			poseStack.mulPose(Vector3f.YP.rotationDegrees(-48.0F));
+			poseStack.mulPose(Axis.YP.rotationDegrees(-48.0F));
 			poseStack.scale(-1.0F, -1.0F, 1.0F);
 			poseStack.translate(-0.5D, -0.5D, -0.5D);
 			dispatcher.renderSingleBlock(blockstate, poseStack, buffer, packedLightIn, i);
@@ -45,7 +45,7 @@ public class MoobloomFlowerLayer<T extends Moobloom> extends RenderLayer<T, CowM
 			poseStack.pushPose();
 			this.getParentModel().getHead().translateAndRotate(poseStack);
 			poseStack.translate(0.0D, -0.7F, -0.2F);
-			poseStack.mulPose(Vector3f.YP.rotationDegrees(-78.0F));
+			poseStack.mulPose(Axis.YP.rotationDegrees(-78.0F));
 			poseStack.scale(-1.0F, -1.0F, 1.0F);
 			poseStack.translate(-0.5D, -0.5D, -0.5D);
 			dispatcher.renderSingleBlock(blockstate, poseStack, buffer, packedLightIn, i);
