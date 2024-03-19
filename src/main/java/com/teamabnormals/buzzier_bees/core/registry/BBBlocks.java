@@ -1,11 +1,13 @@
 package com.teamabnormals.buzzier_bees.core.registry;
 
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
+import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.buzzier_bees.common.block.*;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -14,6 +16,9 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
+
+import static net.minecraft.world.item.CreativeModeTabs.*;
+import static net.minecraft.world.item.crafting.Ingredient.of;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class BBBlocks {
@@ -44,6 +49,21 @@ public class BBBlocks {
 	public static final RegistryObject<Block> POTTED_WHITE_CLOVER = HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), BBBlockProperties.FLOWER_POT));
 	public static final RegistryObject<Block> POTTED_PINK_CLOVER = HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), BBBlockProperties.FLOWER_POT));
 	public static final RegistryObject<Block> POTTED_BUTTERCUP = HELPER.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), BBBlockProperties.FLOWER_POT));
+
+	public static void setupTabEditors() {
+		CreativeModeTabContentsPopulator.mod(BuzzierBees.MOD_ID)
+				.tab(BUILDING_BLOCKS)
+				.addItems(() -> Blocks.HONEYCOMB_BLOCK,
+						HONEYCOMB_BRICKS, HONEYCOMB_BRICK_STAIRS, HONEYCOMB_BRICK_SLAB, HONEYCOMB_BRICK_WALL, CHISELED_HONEYCOMB_BRICKS,
+						HONEYCOMB_TILES, HONEYCOMB_TILE_STAIRS, HONEYCOMB_TILE_SLAB, HONEYCOMB_TILE_WALL,
+						HONEYCOMB_DOOR, HONEYCOMB_TRAPDOOR)
+				.tab(NATURAL_BLOCKS)
+				.addItemsAfter(of(Blocks.HONEY_BLOCK), CRYSTALLIZED_HONEY_BLOCK)
+				.addItemsAfter(of(Blocks.LILY_OF_THE_VALLEY), WHITE_CLOVER, PINK_CLOVER, BUTTERCUP)
+				.tab(FUNCTIONAL_BLOCKS)
+				.addItemsAfter(of(Blocks.PINK_CANDLE), SOUL_CANDLE)
+				.addItemsAfter(of(Blocks.END_ROD), HONEY_LAMP);
+	}
 
 	public static class BBBlockProperties {
 		public static final BlockSetType HONEYCOMB = BlockSetType.register(new BlockSetType(BuzzierBees.MOD_ID + ":honeycomb", true, SoundType.CORAL_BLOCK, SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN, SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.WOODEN_BUTTON_CLICK_OFF, SoundEvents.WOODEN_BUTTON_CLICK_ON));

@@ -17,9 +17,6 @@ import net.minecraft.client.model.CowModel;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -59,6 +56,8 @@ public class BuzzierBees {
 		bus.addListener(this::dataSetup);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+			BBBlocks.setupTabEditors();
+			BBItems.setupTabEditors();
 			bus.addListener(this::registerLayerDefinitions);
 			bus.addListener(this::registerRenderers);
 		});
