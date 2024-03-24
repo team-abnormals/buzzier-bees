@@ -24,18 +24,6 @@ public class HoneycombTrapDoorBlock extends TrapDoorBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-		state = state.cycle(OPEN);
-		worldIn.setBlock(pos, state, 2);
-		if (state.getValue(WATERLOGGED)) {
-			worldIn.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
-		}
-
-		this.playSound(player, worldIn, pos, state.getValue(OPEN));
-		return InteractionResult.sidedSuccess(worldIn.isClientSide);
-	}
-
-	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		BlockState blockstate = this.defaultBlockState();
 		FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
