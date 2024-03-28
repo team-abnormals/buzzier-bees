@@ -1,7 +1,9 @@
 package com.teamabnormals.buzzier_bees.core.data.server.tags;
 
+import com.teamabnormals.blueprint.core.other.tags.BlueprintEntityTypeTags;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBEntityTypeTags;
+import com.teamabnormals.buzzier_bees.core.registry.BBEntityTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -19,6 +21,7 @@ public class BBEntityTypeTagsProvider extends EntityTypeTagsProvider {
 
 	@Override
 	protected void addTags(HolderLookup.Provider provider) {
+		this.tag(BlueprintEntityTypeTags.MILKABLE).add(BBEntityTypes.MOOBLOOM.get());
 		this.tag(BBEntityTypeTags.MOOBLOOM_HOSTILES).add(EntityType.ZOMBIE, EntityType.ZOMBIE_VILLAGER, EntityType.STRAY, EntityType.DROWNED);
 	}
 }
