@@ -10,14 +10,14 @@
   "item.buzzier_bees.bee_bottle": "Бутылочка с пчелой",
 
   "item.buzzier_bees.honeycomb_banner_pattern": "Узор флага",
-  "item.buzzier_bees.honeycomb_banner_pattern.desc": "Пчелиные соты",
+  "item.buzzier_bees.honeycomb_banner_pattern.desc": "Соты",
 	
   "item.buzzier_bees.grizzly_bear_spawn_egg": "Яйцо призыва гризли",
   "item.buzzier_bees.moobloom_spawn_egg": "Яйцо призыва лютиковой коровы",
 
   "block.buzzier_bees.crystallized_honey_block": "Блок кристаллизованного мёда",
 
-  "block.buzzier_bees.honey_lamp": "Мёдо-лампа",
+  "block.buzzier_bees.honey_lamp": "Медовая лампа",
 
   "block.buzzier_bees.honeycomb_bricks": "Сотовые кирпичи",
   "block.buzzier_bees.honeycomb_brick_stairs": "Ступеньки из сотовых кирпичей",
@@ -52,6 +52,7 @@
   "entity.buzzier_bees.moobloom": "Лютиковая корова",
 
   "effect.buzzier_bees.sunny": "Солнечно",
+  "effect.buzzier_bees.sunny.desc": "Эффект-индикатор области воздействия лютиковой коровы, в пределах которой пчёлы не будут отдыхать, а нежить будет сгорать, как при ясной погоде",
   
   "item.minecraft.potion.effect.long_luck": "Зелье удачи",
   "item.minecraft.potion.effect.strong_luck": "Зелье удачи",
