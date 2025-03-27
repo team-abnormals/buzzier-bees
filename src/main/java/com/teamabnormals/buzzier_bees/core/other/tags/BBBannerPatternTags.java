@@ -10,6 +10,6 @@ public class BBBannerPatternTags {
 	public static final TagKey<BannerPattern> PATTERN_ITEM_HONEYCOMB = bannerPatternTag("pattern_item/honeycomb");
 
 	private static TagKey<BannerPattern> bannerPatternTag(String name) {
-		return TagKey.create(Registries.BANNER_PATTERN, new ResourceLocation(BuzzierBees.MOD_ID, name));
+		return TagKey.create(Registries.BANNER_PATTERN, BuzzierBees.location(name));
 	}
 }

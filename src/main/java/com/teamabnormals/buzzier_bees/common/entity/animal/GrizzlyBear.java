@@ -101,10 +101,11 @@ public class GrizzlyBear extends Animal {
 		this.playSound(SoundEvents.POLAR_BEAR_STEP, 0.15F, 1.0F);
 	}
 
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(HONEY, false);
-		this.entityData.define(DATA_FLAGS_ID, (byte) 0);
+	@Override
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(HONEY, false);
+		builder.define(DATA_FLAGS_ID, (byte) 0);
 	}
 
 	@Override
@@ -147,12 +148,12 @@ public class GrizzlyBear extends Animal {
 	}
 
 	private boolean canEatItem(ItemStack stack) {
-		return stack.isEdible() && this.getTarget() == null && this.onGround();
+		return stack.getFoodProperties(null) != null && this.getTarget() == null && this.onGround();
 	}
 
 	@Override
 	public boolean canTakeItem(ItemStack stack) {
-		EquipmentSlot slot = Mob.getEquipmentSlotForItem(stack);
+		EquipmentSlot slot = stack.getEquipmentSlot();
 		if (!this.getItemBySlot(slot).isEmpty()) {
 			return false;
 		} else {
@@ -164,14 +165,14 @@ public class GrizzlyBear extends Animal {
 	public boolean canHoldItem(ItemStack stack) {
 		Item item = stack.getItem();
 		ItemStack heldItem = this.getItemBySlot(EquipmentSlot.MAINHAND);
-		return heldItem.isEmpty() || this.eatTicks > 0 && item.isEdible() && !heldItem.getItem().isEdible();
+		return heldItem.isEmpty() || this.eatTicks > 0 && item.getDefaultInstance().getFoodProperties(null) != null && heldItem.getItem().getDefaultInstance().getFoodProperties(null) == null;
 	}
 
 	private void spitOutItem(ItemStack stack) {
 		if (!stack.isEmpty() && !this.level().isClientSide) {
 			ItemEntity entity = new ItemEntity(this.level(), this.getX() + this.getLookAngle().x, this.getY() + 1.0D, this.getZ() + this.getLookAngle().z, stack);
 			entity.setPickUpDelay(40);
-			entity.setThrower(this.getUUID());
+			entity.setThrower(this);
 			this.playSound(SoundEvents.FOX_SPIT, 1.0F, 1.0F);
 			this.level().addFreshEntity(entity);
 		}
@@ -270,7 +271,7 @@ public class GrizzlyBear extends Animal {
 	public boolean doHurtTarget(Entity target) {
 		boolean flag = target.hurt(this.level().damageSources().mobAttack(this), (float) ((int) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue()));
 		if (flag) {
-			this.doEnchantDamageEffects(this, target);
+//			this.doEnchantDamageEffects(this, target);
 		}
 
 		return flag;
@@ -285,12 +286,11 @@ public class GrizzlyBear extends Animal {
 	}
 
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
-		if (spawnData == null) {
-			spawnData = new AgeableMob.AgeableMobGroupData(1.0F);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+		if (spawnGroupData == null) {
+			spawnGroupData = new AgeableMob.AgeableMobGroupData(1.0F);
 		}
-
-		return super.finalizeSpawn(level, difficulty, spawnType, spawnData, tag);
+		return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
 	}
 
 	abstract class GrizzlyBehaviorGoal extends Goal {

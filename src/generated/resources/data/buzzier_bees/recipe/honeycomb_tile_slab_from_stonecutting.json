@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+    {
+      "item": "minecraft:honeycomb_block"
+    },
+    {
+      "item": "buzzier_bees:honeycomb_bricks"
+    },
+    {
+      "item": "buzzier_bees:honeycomb_tiles"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "buzzier_bees:honeycomb_tile_slab"
+  }
+}

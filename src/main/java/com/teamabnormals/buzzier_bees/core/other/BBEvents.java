@@ -5,9 +5,11 @@ import com.teamabnormals.buzzier_bees.core.BBConfig;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBBlockTags;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBEntityTypeTags;
+import com.teamabnormals.buzzier_bees.core.registry.BBDataComponents;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import com.teamabnormals.buzzier_bees.core.registry.BBMobEffects;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,7 +20,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Bee;
@@ -27,19 +28,19 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
-import net.minecraftforge.event.entity.player.BonemealEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
-import net.minecraftforge.eventbus.api.Event.Result;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.player.BonemealEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBEvents {
@@ -63,22 +64,22 @@ public class BBEvents {
 			if (!level.isClientSide()) {
 				Block.popResource(level, pos, new ItemStack(block));
 			}
-			event.setResult(Result.ALLOW);
+			event.setSuccessful(true);
 		}
 
 		if (!BBConfig.COMMON.tallFlowerDuplication.get()) {
 			if (block instanceof TallFlowerBlock) {
 				event.setCanceled(true);
-				event.setResult(Result.DENY);
+				event.setCanceled(true);
 			}
 		}
 	}
 
 	@SubscribeEvent
-	public static void onEntityUpdate(LivingTickEvent event) {
+	public static void onEntityUpdate(EntityTickEvent.Pre event) {
 		if (event.getEntity() instanceof Phantom phantom) {
 			if (phantom.getTarget() instanceof ServerPlayer player) {
-				if (player.getEffect(BBMobEffects.SUNNY.get()) != null) {
+				if (player.getEffect(BBMobEffects.SUNNY) != null) {
 					phantom.setTarget(null);
 				}
 			}
@@ -86,7 +87,7 @@ public class BBEvents {
 	}
 
 	@SubscribeEvent
-	public static void bottleBug(EntityInteractSpecific event) {
+	public static void bottleBug(PlayerInteractEvent.EntityInteractSpecific event) {
 		ItemStack stack = event.getItemStack();
 		Entity target = event.getTarget();
 		if (stack.is(Items.GLASS_BOTTLE) && target != null && target.isAlive()) {
@@ -108,19 +109,21 @@ public class BBEvents {
 				ItemStack bottleItem = new ItemStack(bottle);
 				if (targetType == EntityType.BEE) {
 					Bee bee = (Bee) target;
-					CompoundTag tag = bottleItem.getOrCreateTag();
+					CompoundTag tag = new CompoundTag();
 					tag.putBoolean("HasNectar", bee.hasNectar());
 					tag.putBoolean("HasStung", bee.hasStung());
 					tag.putInt("AngerTime", bee.getRemainingPersistentAngerTime());
 					tag.putInt("Age", bee.getAge());
 					tag.putFloat("Health", bee.getHealth());
-					if (bee.getPersistentAngerTarget() != null)
+					if (bee.getPersistentAngerTarget() != null) {
 						tag.putUUID("AngryAt", bee.getPersistentAngerTarget());
+					}
+					bottleItem.set(BBDataComponents.BOTTLE_BEE_DATA.get(), CustomData.of(tag));
 				}
 
 				if (target.hasCustomName()) {
 					Component name = target.getCustomName();
-					bottleItem.setHoverName(name);
+					bottleItem.set(DataComponents.CUSTOM_NAME, name);
 				}
 
 				level.playSound(player, event.getPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundSource.NEUTRAL, 1.0F, 1.0F);

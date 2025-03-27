@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pink_clover": {
+      "conditions": {
+        "items": [
+          {
+            "items": "buzzier_bees:pink_clover"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "buzzier_bees:pink_dye_from_pink_clover"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pink_clover"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "buzzier_bees:pink_dye_from_pink_clover"
+    ]
+  }
+}

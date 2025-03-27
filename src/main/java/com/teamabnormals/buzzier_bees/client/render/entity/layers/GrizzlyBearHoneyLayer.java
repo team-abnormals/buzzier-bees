@@ -11,12 +11,12 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class GrizzlyBearHoneyLayer extends RenderLayer<GrizzlyBear, GrizzlyBearModel<GrizzlyBear>> {
-	public static final ResourceLocation HONEY = new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/grizzly_bear/bear_overlay_honey.png");
+	public static final ResourceLocation HONEY = BuzzierBees.location("textures/entity/grizzly_bear/bear_overlay_honey.png");
 
 	public GrizzlyBearHoneyLayer(RenderLayerParent<GrizzlyBear, GrizzlyBearModel<GrizzlyBear>> parent) {
 		super(parent);
@@ -27,7 +27,7 @@ public class GrizzlyBearHoneyLayer extends RenderLayer<GrizzlyBear, GrizzlyBearM
 		if (entity.isHoney()) {
 			VertexConsumer builder = bufferIn.getBuffer(RenderType.entityCutoutNoCull(HONEY));
 			this.getParentModel().setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-			this.getParentModel().renderToBuffer(matrixStackIn, builder, packedLightIn, LivingEntityRenderer.getOverlayCoords(entity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+			this.getParentModel().renderToBuffer(matrixStackIn, builder, packedLightIn, LivingEntityRenderer.getOverlayCoords(entity, 0.0F));
 		}
 	}
 }

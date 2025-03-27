@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public class HoneycombDoorBlock extends DoorBlock {
 
 	public HoneycombDoorBlock(Properties builder) {
-		super(builder, BBBlockProperties.HONEYCOMB);
+		super(BBBlockProperties.HONEYCOMB, builder);
 	}
 
 	@Override

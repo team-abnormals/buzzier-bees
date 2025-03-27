@@ -20,13 +20,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.IForgeShearable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Moobloom extends Cow implements Shearable, IForgeShearable {
+public class Moobloom extends Cow implements Shearable {
 
 	public Moobloom(EntityType<? extends Moobloom> type, Level worldIn) {
 		super(type, worldIn);
@@ -43,7 +43,7 @@ public class Moobloom extends Cow implements Shearable, IForgeShearable {
 	}
 
 	@Override
-	public boolean isShearable(ItemStack stack, Level level, BlockPos pos) {
+	public boolean isShearable(@Nullable Player player, ItemStack item, Level level, BlockPos pos) {
 		return this.readyForShearing();
 	}
 
@@ -57,13 +57,13 @@ public class Moobloom extends Cow implements Shearable, IForgeShearable {
 		if (!this.level().isClientSide && this.level().getGameTime() % 20 == 0) {
 			for (LivingEntity living : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(7.0D, 3.0D, 7.0D))) {
 				if (!(living instanceof Moobloom))
-					living.addEffect(new MobEffectInstance(BBMobEffects.SUNNY.get(), 100, 0, false, false));
+					living.addEffect(new MobEffectInstance(BBMobEffects.SUNNY, 100, 0, false, false));
 			}
 		}
 	}
 
 	@Override
-	public List<ItemStack> onSheared(Player player, ItemStack item, Level world, BlockPos pos, int fortune) {
+	public List<ItemStack> onSheared(@Nullable Player player, ItemStack item, Level level, BlockPos pos) {
 		this.gameEvent(GameEvent.SHEAR, player);
 		return shearInternal(player == null ? SoundSource.BLOCKS : SoundSource.PLAYERS);
 	}

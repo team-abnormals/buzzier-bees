@@ -29,7 +29,7 @@ public abstract class BeeEntityMixin extends Animal {
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/Bee;getTarget()Lnet/minecraft/world/entity/LivingEntity;", shift = At.Shift.AFTER), method = "wantsToEnterHive", cancellable = true)
 	private void canEnterHive(CallbackInfoReturnable<Boolean> cir) {
-		boolean sunny = this.getEffect(BBMobEffects.SUNNY.get()) != null;
+		boolean sunny = this.getEffect(BBMobEffects.SUNNY) != null;
 		boolean flag = this.isTiredOfLookingForNectar() || this.level().isRaining() || (this.level().isNight() && !sunny) || this.hasNectar();
 		cir.setReturnValue(flag && !this.isHiveNearFire());
 	}

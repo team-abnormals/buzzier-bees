@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -12,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.ToIntFunction;
 
@@ -41,7 +41,7 @@ public class SpecialCandleBlock extends CandleBlock {
 			}
 		}
 
-		ParticleType<?> options = ForgeRegistries.PARTICLE_TYPES.getValue(particleName);
+		ParticleType<?> options = BuiltInRegistries.PARTICLE_TYPE.get(particleName);
 		if (options != null) {
 			level.addParticle((ParticleOptions) options, vec3.x, vec3.y, vec3.z, 0.0D, 0.0D, 0.0D);
 		}

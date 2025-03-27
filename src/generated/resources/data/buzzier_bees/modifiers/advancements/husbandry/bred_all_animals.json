@@ -19,6 +19,7 @@
             "trigger": "minecraft:bred_animals"
           }
         },
+        "indexed_requirements": [],
         "requirements": [
           [
             "buzzier_bees:moobloom"

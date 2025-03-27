@@ -3,9 +3,6 @@ package com.teamabnormals.buzzier_bees.common.block;
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks.BBBlockProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -15,12 +12,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.BlockHitResult;
 
 public class HoneycombTrapDoorBlock extends TrapDoorBlock {
 
 	public HoneycombTrapDoorBlock(BlockBehaviour.Properties properties) {
-		super(properties, BBBlockProperties.HONEYCOMB);
+		super(BBBlockProperties.HONEYCOMB, properties);
 	}
 
 	@Override

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_end_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:end_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "buzzier_bees:honey_lamp"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_end_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "buzzier_bees:honey_lamp"
+    ]
+  }
+}

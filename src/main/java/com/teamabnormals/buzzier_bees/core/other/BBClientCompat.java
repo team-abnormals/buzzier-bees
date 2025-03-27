@@ -1,12 +1,14 @@
 package com.teamabnormals.buzzier_bees.core.other;
 
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
+import com.teamabnormals.buzzier_bees.core.registry.BBDataComponents;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.component.CustomData;
 
 public class BBClientCompat {
 
@@ -28,8 +30,8 @@ public class BBClientCompat {
 	}
 
 	private static void registerItemProperties() {
-		ItemProperties.register(BBItems.BOTTLE_OF_BEE.get(), new ResourceLocation("angry"), (stack, world, entity, num) -> {
-			CompoundTag tag = stack.getTag();
+		ItemProperties.register(BBItems.BOTTLE_OF_BEE.get(), ResourceLocation.parse("angry"), (stack, world, entity, num) -> {
+			CompoundTag tag = stack.getOrDefault(BBDataComponents.BOTTLE_BEE_DATA.get(), CustomData.EMPTY).copyTag();
 			if (tag != null && tag.contains("AngerTime") && tag.getInt("AngerTime") > 0) {
 				return 2;
 			}

@@ -7,9 +7,7 @@
           "buzzier_bees:glazed_porkchop": {
             "conditions": {
               "item": {
-                "items": [
-                  "buzzier_bees:glazed_porkchop"
-                ]
+                "items": "buzzier_bees:glazed_porkchop"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -17,9 +15,7 @@
           "buzzier_bees:honey_apple": {
             "conditions": {
               "item": {
-                "items": [
-                  "buzzier_bees:honey_apple"
-                ]
+                "items": "buzzier_bees:honey_apple"
               }
             },
             "trigger": "minecraft:consume_item"
@@ -27,14 +23,13 @@
           "buzzier_bees:honey_bread": {
             "conditions": {
               "item": {
-                "items": [
-                  "buzzier_bees:honey_bread"
-                ]
+                "items": "buzzier_bees:honey_bread"
               }
             },
             "trigger": "minecraft:consume_item"
           }
         },
+        "indexed_requirements": [],
         "requirements": [
           [
             "buzzier_bees:honey_apple"

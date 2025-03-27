@@ -13,8 +13,8 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBear, GrizzlyBearModel<GrizzlyBear>> {
-	public static final ResourceLocation GRIZZLY_BEAR_LOCATION = new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/grizzly_bear/grizzly_bear.png");
-	public static final ResourceLocation GRIZZLY_BEAR_SLEEPING_LOCATION = new ResourceLocation(BuzzierBees.MOD_ID, "textures/entity/grizzly_bear/grizzly_bear_sleeping.png");
+	public static final ResourceLocation GRIZZLY_BEAR_LOCATION = BuzzierBees.location("textures/entity/grizzly_bear/grizzly_bear.png");
+	public static final ResourceLocation GRIZZLY_BEAR_SLEEPING_LOCATION = BuzzierBees.location("textures/entity/grizzly_bear/grizzly_bear_sleeping.png");
 
 	public GrizzlyBearRenderer(EntityRendererProvider.Context context) {
 		super(context, new GrizzlyBearModel<>(context.bakeLayer(BBModelLayers.GRIZZLY_BEAR)), 0.9F);
@@ -28,9 +28,9 @@ public class GrizzlyBearRenderer extends MobRenderer<GrizzlyBear, GrizzlyBearMod
 	}
 
 	@Override
-	protected void setupRotations(GrizzlyBear bear, PoseStack poseStack, float p_114019_, float p_114020_, float p_114021_) {
-		super.setupRotations(bear, poseStack, p_114019_, p_114020_, p_114021_);
-		if (bear.isSleeping()) {
+	protected void setupRotations(GrizzlyBear entity, PoseStack poseStack, float bob, float yBodyRot, float partialTick, float scale) {
+		super.setupRotations(entity, poseStack, bob, yBodyRot, partialTick, scale);
+		if (entity.isSleeping()) {
 			poseStack.translate(0.75F, 0.575F, 0.3F);
 			poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
 		} else {

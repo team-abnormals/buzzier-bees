@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_honeycomb_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "buzzier_bees:honeycomb_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "buzzier_bees:honeycomb_tile_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_honeycomb_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "buzzier_bees:honeycomb_tile_stairs"
+    ]
+  }
+}

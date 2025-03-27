@@ -1,0 +1,13 @@
+{
+  "molding": "json",
+  "remolder": {
+    "type": "add",
+    "target": "pools[0].entries[]",
+    "value": {
+      "type": "minecraft:item",
+      "name": "buzzier_bees:four_leaf_clover",
+      "weight": 5
+    }
+  },
+  "selector": "minecraft:loot_table/chests/jungle_temple"
+}

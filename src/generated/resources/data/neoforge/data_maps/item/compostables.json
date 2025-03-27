@@ -1,0 +1,22 @@
+{
+  "values": {
+    "buzzier_bees:buttercup": {
+      "chance": 0.65
+    },
+    "buzzier_bees:four_leaf_clover": {
+      "chance": 0.65
+    },
+    "buzzier_bees:honey_apple": {
+      "chance": 0.85
+    },
+    "buzzier_bees:honey_bread": {
+      "chance": 0.65
+    },
+    "buzzier_bees:pink_clover": {
+      "chance": 0.65
+    },
+    "buzzier_bees:white_clover": {
+      "chance": 0.65
+    }
+  }
+}

@@ -1,0 +1,42 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://github.com/team-abnormals/buzzier-bees/issues"
+license = "https://github.com/team-abnormals/buzzier-bees/blob/main/LICENSE.txt"
+
+[[mods]]
+    modId = "buzzier_bees"
+    version = "${mod_version}"
+    logoFile = "logo.png"
+    itemIcon = "buzzier_bees:honey_apple"
+    configBackground = "buzzier_bees:textures/block/honeycomb_tiles.png"
+    authors = "Team Abnormals"
+    credits = "bageldotjpg, five, hatsondogs, Farcr"
+    displayURL = "https://www.teamabnormals.com/mods/buzzier-bees"
+    displayName = "Buzzier Bees"
+    description = '''
+    Buzzier Bees expands on the content introduced in 1.15, introducing new building blocks and other honey-related features!
+    '''
+
+[[mixins]]
+    config="buzzier_bees.mixins.json"
+
+[[dependencies.buzzier_bees]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[${mc_version}]"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.buzzier_bees]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[${neoforge},)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.buzzier_bees]]
+    modId = "blueprint"
+    type = "required"
+    versionRange = "[${blueprint},)"
+    ordering = "AFTER"
+    side = "BOTH"

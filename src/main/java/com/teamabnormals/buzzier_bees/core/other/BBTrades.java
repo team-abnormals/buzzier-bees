@@ -4,9 +4,9 @@ import com.teamabnormals.blueprint.core.util.TradeUtil;
 import com.teamabnormals.blueprint.core.util.TradeUtil.BlueprintTrade;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
-import net.minecraftforge.event.village.WandererTradesEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 
 @EventBusSubscriber(modid = BuzzierBees.MOD_ID)
 public class BBTrades {

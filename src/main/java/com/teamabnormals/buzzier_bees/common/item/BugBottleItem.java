@@ -1,5 +1,6 @@
 package com.teamabnormals.buzzier_bees.common.item;
 
+import com.teamabnormals.buzzier_bees.core.registry.BBDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -47,7 +49,7 @@ public class BugBottleItem extends Item {
 				blockpos1 = blockpos.relative(direction);
 			}
 
-			EntityType<?> entitytype = this.getType(itemstack.getTag());
+			EntityType<?> entitytype = this.getType(itemstack.getOrDefault(BBDataComponents.BOTTLE_BUG_DATA, CustomData.EMPTY).copyTag());
 			if (!context.getPlayer().getAbilities().instabuild) {
 				context.getPlayer().setItemInHand(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
 			}
@@ -66,7 +68,6 @@ public class BugBottleItem extends Item {
 				return EntityType.byString(compoundnbt.getString("id")).orElse(this.typeIn);
 			}
 		}
-
 		return this.typeIn;
 	}
 }

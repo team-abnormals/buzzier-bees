@@ -1,7 +1,8 @@
 package com.teamabnormals.buzzier_bees.common.dispenser;
 
-import net.minecraft.core.BlockSource;
+import com.teamabnormals.buzzier_bees.core.registry.BBDataComponents;
 import net.minecraft.core.Direction;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
@@ -15,9 +16,9 @@ import net.minecraft.world.level.block.DispenserBlock;
 public class BeeBottleDispenseBehavior extends OptionalDispenseItemBehavior {
 
 	public ItemStack execute(BlockSource source, ItemStack stack) {
-		Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
-		CompoundTag tag = stack.getOrCreateTag();
-		Entity entity = EntityType.BEE.spawn(source.getLevel(), stack, null, source.getPos().relative(direction), MobSpawnType.DISPENSER, direction != Direction.UP, false);
+		Direction direction = source.state().getValue(DispenserBlock.FACING);
+		CompoundTag tag = stack.get(BBDataComponents.BOTTLE_BEE_DATA).copyTag();
+		Entity entity = EntityType.BEE.spawn(source.level(), stack, null, source.pos().relative(direction), MobSpawnType.DISPENSER, direction != Direction.UP, false);
 
 		if (entity instanceof Bee bee) {
 			int anger = tag.contains("AngerTime") ? tag.getInt("AngerTime") : 0;
