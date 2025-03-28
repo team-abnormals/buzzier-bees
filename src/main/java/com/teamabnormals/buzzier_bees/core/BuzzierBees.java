@@ -89,6 +89,7 @@ public class BuzzierBees {
 		generator.addProvider(server, new BBBannerPatternTagsProvider(output, datapack.getRegistryProvider(), helper));
 		generator.addProvider(server, new BBPaintingVariantTagsProvider(output, datapack.getRegistryProvider(), helper));
 		generator.addProvider(server, new BBRecipeProvider(output, provider));
+		generator.addProvider(server, new BBLootTableProvider(output, provider));
 
 		boolean client = event.includeClient();
 		generator.addProvider(client, new GalleryItemModelProvider(MOD_ID, output, helper, provider));
