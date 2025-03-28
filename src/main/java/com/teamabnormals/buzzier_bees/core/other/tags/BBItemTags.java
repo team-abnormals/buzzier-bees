@@ -7,8 +7,14 @@ import net.minecraft.world.item.Item;
 
 public class BBItemTags {
 	public static final TagKey<Item> GRIZZLY_BEAR_FOOD = itemTag("grizzly_bear_food");
+	public static final TagKey<Item> ENDER_FIRE_BASE_BLOCKS = itemTag("endergetic", "ender_fire_base_blocks");
+	public static final TagKey<Item> CUPRIC_FIRE_BASE_BLOCKS = itemTag("caverns_and_chasms", "cupric_fire_base_blocks");
 
 	private static TagKey<Item> itemTag(String name) {
 		return TagUtil.itemTag(BuzzierBees.MOD_ID, name);
+	}
+
+	private static TagKey<Item> itemTag(String mod, String name) {
+		return TagUtil.itemTag(mod, name);
 	}
 }

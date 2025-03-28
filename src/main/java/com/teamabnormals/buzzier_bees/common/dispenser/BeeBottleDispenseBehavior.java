@@ -11,13 +11,14 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.block.DispenserBlock;
 
 public class BeeBottleDispenseBehavior extends OptionalDispenseItemBehavior {
 
 	public ItemStack execute(BlockSource source, ItemStack stack) {
 		Direction direction = source.state().getValue(DispenserBlock.FACING);
-		CompoundTag tag = stack.get(BBDataComponents.BOTTLE_BEE_DATA).copyTag();
+		CompoundTag tag = stack.getOrDefault(BBDataComponents.BOTTLE_BEE_DATA, CustomData.EMPTY).copyTag();
 		Entity entity = EntityType.BEE.spawn(source.level(), stack, null, source.pos().relative(direction), MobSpawnType.DISPENSER, direction != Direction.UP, false);
 
 		if (entity instanceof Bee bee) {

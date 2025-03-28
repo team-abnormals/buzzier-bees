@@ -30,8 +30,8 @@ public class BBRecipeProvider extends BlueprintRecipeProvider {
 	@Override
 	public void buildRecipes(RecipeOutput output) {
 		candleRecipe(output, SOUL_CANDLE, ItemTags.SOUL_FIRE_BASE_BLOCKS);
-		candleRecipe(output.withConditions(new ModLoadedCondition("endergetic")), ENDER_CANDLE, BBItemTags.GRIZZLY_BEAR_FOOD);
-		candleRecipe(output.withConditions(new ModLoadedCondition("caverns_and_chasms")), CUPRIC_CANDLE, BBItemTags.GRIZZLY_BEAR_FOOD);
+		candleRecipe(output.withConditions(new ModLoadedCondition("endergetic")), ENDER_CANDLE, BBItemTags.ENDER_FIRE_BASE_BLOCKS);
+		candleRecipe(output.withConditions(new ModLoadedCondition("caverns_and_chasms")), CUPRIC_CANDLE, BBItemTags.CUPRIC_FIRE_BASE_BLOCKS);
 		dyeRecipe(output, PINK_DYE, PINK_CLOVER);
 		dyeRecipe(output, WHITE_DYE, WHITE_CLOVER);
 		dyeRecipe(output, YELLOW_DYE, BUTTERCUP);
