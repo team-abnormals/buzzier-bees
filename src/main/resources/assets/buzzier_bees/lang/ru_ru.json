@@ -10,42 +10,35 @@
   "item.buzzier_bees.bee_bottle": "Бутылочка с пчелой",
 
   "item.buzzier_bees.honeycomb_banner_pattern": "Узор флага",
-  "item.buzzier_bees.honeycomb_banner_pattern.desc": "Пчелиные соты",
+  "item.buzzier_bees.honeycomb_banner_pattern.desc": "Соты",
 	
   "item.buzzier_bees.grizzly_bear_spawn_egg": "Яйцо призыва гризли",
   "item.buzzier_bees.moobloom_spawn_egg": "Яйцо призыва лютиковой коровы",
 
-  "block.buzzier_bees.oak_beehive": "Дубовый улей",
-  "block.buzzier_bees.spruce_beehive": "Еловый улей",
-  "block.buzzier_bees.birch_beehive": "Берёзовый улей",
-  "block.buzzier_bees.jungle_beehive": "Улей из тропического дерева",
-  "block.buzzier_bees.acacia_beehive": "Акациевый улей",
-  "block.buzzier_bees.dark_oak_beehive": "Улей из тёмного дуба",
-  "block.buzzier_bees.crimson_beehive": "Багровый улей",
-  "block.buzzier_bees.warped_beehive": "Искажённый улей",
-
   "block.buzzier_bees.crystallized_honey_block": "Блок кристаллизованного мёда",
 
-  "block.buzzier_bees.honey_lamp": "Мёдо-лампа",
+  "block.buzzier_bees.honey_lamp": "Медовая лампа",
 
   "block.buzzier_bees.honeycomb_bricks": "Сотовые кирпичи",
-  "block.buzzier_bees.honeycomb_brick_stairs": "Ступеньки из сотовых кирпичей",
-  "block.buzzier_bees.honeycomb_brick_slab": "Плита из сотовых кирпичей",
-  "block.buzzier_bees.honeycomb_brick_wall": "Ограда из сотовых кирпичей",
-  "block.buzzier_bees.honeycomb_brick_vertical_slab": "Вертикальная плита из сотовых кирпичей",
+  "block.buzzier_bees.honeycomb_brick_stairs": "Ступеньки из сотового кирпича",
+  "block.buzzier_bees.honeycomb_brick_slab": "Плита из сотового кирпича",
+  "block.buzzier_bees.honeycomb_brick_wall": "Ограда из сотового кирпича",
   "block.buzzier_bees.chiseled_honeycomb_bricks": "Резные сотовые кирпичи",
 
   "block.buzzier_bees.honeycomb_tiles": "Сотовая плитка",
   "block.buzzier_bees.honeycomb_tile_stairs": "Ступеньки из сотовой плитки",
   "block.buzzier_bees.honeycomb_tile_slab": "Плита из сотовой плитки",
   "block.buzzier_bees.honeycomb_tile_wall": "Ограда из сотовой плитки ",
-  "block.buzzier_bees.honeycomb_tile_vertical_slab": "Вертикальная плита из сотовой плитки",
 
   "block.buzzier_bees.honeycomb_door": "Сотовая дверь",
   "block.buzzier_bees.honeycomb_trapdoor": "Сотовый люк",
 	
-  "block.buzzier_bees.soul_candle": "Свечка душ",
-  "block.buzzier_bees.soul_candle_cake": "Торт со свечкой душ",
+  "block.buzzier_bees.soul_candle": "Свеча душ",
+  "block.buzzier_bees.soul_candle_cake": "Торт со свечой душ",
+  "block.buzzier_bees.cupric_candle": "Свеча купороса",
+  "block.buzzier_bees.cupric_candle_cake": "Торт со свечой купороса",
+  "block.buzzier_bees.ender_candle": "Эндер-свеча",
+  "block.buzzier_bees.ender_candle_cake": "Торт с эндер-свечой",
 	
   "block.buzzier_bees.pink_clover": "Розовый клевер",
   "block.buzzier_bees.white_clover": "Белый клевер",
@@ -59,6 +52,7 @@
   "entity.buzzier_bees.moobloom": "Лютиковая корова",
 
   "effect.buzzier_bees.sunny": "Солнечно",
+  "effect.buzzier_bees.sunny.desc": "Эффект-индикатор области воздействия лютиковой коровы, в пределах которой пчёлы не будут отдыхать, а нежить будет сгорать, как при ясной погоде",
   
   "item.minecraft.potion.effect.long_luck": "Зелье удачи",
   "item.minecraft.potion.effect.strong_luck": "Зелье удачи",
@@ -88,33 +82,35 @@
   "advancements.buzzier_bees.adventure.four_leaf_clover.description": "Найдите четырехлистный клевер",
 
   "advancements.buzzier_bees.husbandry.use_honey_apple.title": "По яблоку в день",
-  "advancements.buzzier_bees.husbandry.use_honey_apple.description": "Сьешьте яблоко в меду, чтобы избавится от эффекта «левитация»",
+  "advancements.buzzier_bees.husbandry.use_honey_apple.description": "Съешьте яблоко в меду, чтобы избавиться от эффекта «левитация»",
 
   "advancements.buzzier_bees.husbandry.use_honey_bread.title": "Доброе знамение",
-  "advancements.buzzier_bees.husbandry.use_honey_bread.description": "Съешьте хлеб с мёдом, чтобы избавится от эффекта «дурное знамение»",
+  "advancements.buzzier_bees.husbandry.use_honey_bread.description": "Съешьте хлеб с мёдом, чтобы избавиться от эффекта «дурное знамение»",
 
   "advancements.buzzier_bees.husbandry.use_glazed_porkchop.title": "Тягок труд, да сладок мёд",
-  "advancements.buzzier_bees.husbandry.use_glazed_porkchop.description": "Сьешьте глазированную свинину, чтобы избавится от эффекта «утомление»",
+  "advancements.buzzier_bees.husbandry.use_glazed_porkchop.description": "Сьешьте глазированную свинину, чтобы избавиться от эффекта «утомление»",
 
   "tooltip.buzzier_bees.is_baby": "Детёныш",
   "tooltip.buzzier_bees.has_nectar": "Опылён",
   "tooltip.buzzier_bees.is_angry": "Злой",
   "tooltip.buzzier_bees.has_stung": "Без жала",
 	
-  "block.minecraft.banner.buzzier_bees.honeycomb.black": "Чёрные пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.red": "Красные пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.green": "Зелёные пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.brown": "Коричневые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.blue": "Синие пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.purple": "Фиолетовые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.cyan": "Бирюзовые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.light_gray": "Светло-серые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.gray": "Серые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.pink": "Розовые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.lime": "Лаймовые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.yellow": "Жёлтые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.light_blue": "Голубые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.magenta": "Пурпурные пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.orange": "Оранжевые пчелиные соты",
-  "block.minecraft.banner.buzzier_bees.honeycomb.white": "Белые пчелиные соты"
+  "block.minecraft.banner.buzzier_bees.honeycomb.black": "Чёрные соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.red": "Красные соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.green": "Зелёные соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.brown": "Коричневые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.blue": "Синие соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.purple": "Фиолетовые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.cyan": "Бирюзовые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.light_gray": "Светло-серые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.gray": "Серые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.pink": "Розовые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.lime": "Лаймовые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.yellow": "Жёлтые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.light_blue": "Голубые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.magenta": "Пурпурные соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.orange": "Оранжевые соты",
+  "block.minecraft.banner.buzzier_bees.honeycomb.white": "Белые соты",
+
+  "painting.buzzier_bees.candle.title": "Свечка"
 }
