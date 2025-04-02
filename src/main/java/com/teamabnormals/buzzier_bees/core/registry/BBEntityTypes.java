@@ -20,8 +20,10 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class BBEntityTypes {
 	public static final EntitySubRegistryHelper ENTITY_TYPES = BuzzierBees.REGISTRY_HELPER.getEntitySubHelper();
 
-	public static final DeferredHolder<EntityType<?>, EntityType<GrizzlyBear>> GRIZZLY_BEAR = ENTITY_TYPES.createEntity("grizzly_bear", GrizzlyBear::new, MobCategory.CREATURE, 1.4F, 1.4F);
-	public static final DeferredHolder<EntityType<?>, EntityType<Moobloom>> MOOBLOOM = ENTITY_TYPES.createEntity("moobloom", Moobloom::new, MobCategory.CREATURE, 0.9F, 1.4F);
+	public static final DeferredHolder<EntityType<?>, EntityType<GrizzlyBear>> GRIZZLY_BEAR = ENTITY_TYPES.createEntity("grizzly_bear", GrizzlyBear::new, MobCategory.CREATURE, builder ->
+			builder.sized(1.4F, 1.4F).clientTrackingRange(10));
+	public static final DeferredHolder<EntityType<?>, EntityType<Moobloom>> MOOBLOOM = ENTITY_TYPES.createEntity("moobloom", Moobloom::new, MobCategory.CREATURE, builder ->
+			builder.sized(0.9F, 1.4F).eyeHeight(1.3F).passengerAttachments(1.36875F).clientTrackingRange(10));
 
 	@SubscribeEvent
 	public static void registerEntityAttributes(RegisterSpawnPlacementsEvent event) {
