@@ -1,7 +1,7 @@
 package com.teamabnormals.buzzier_bees.core.data.server;
 
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
-import com.teamabnormals.buzzier_bees.core.data.server.modifiers.BBBiomeModifierProvider;
+import com.teamabnormals.buzzier_bees.core.registry.datapack.BBBiomeModifiers;
 import com.teamabnormals.buzzier_bees.core.registry.BBFeatures.BBConfiguredFeatures;
 import com.teamabnormals.buzzier_bees.core.registry.BBFeatures.BBPlacedFeatures;
 import com.teamabnormals.buzzier_bees.core.registry.datapack.BBBannerPatterns;
@@ -23,7 +23,7 @@ public class BBDatapackBuiltinEntriesProvider extends DatapackBuiltinEntriesProv
 			.add(Registries.PAINTING_VARIANT, BBPaintingVariants::bootstrap)
 			.add(Registries.CONFIGURED_FEATURE, BBConfiguredFeatures::bootstrap)
 			.add(Registries.PLACED_FEATURE, BBPlacedFeatures::bootstrap)
-			.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, BBBiomeModifierProvider::bootstrap);
+			.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, BBBiomeModifiers::bootstrap);
 
 	public BBDatapackBuiltinEntriesProvider(PackOutput output, CompletableFuture<Provider> provider) {
 		super(output, provider, BUILDER, Set.of(BuzzierBees.MOD_ID));

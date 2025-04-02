@@ -7,11 +7,13 @@ import com.teamabnormals.buzzier_bees.common.item.BugBottleItem;
 import com.teamabnormals.buzzier_bees.common.item.CuringItem;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBBannerPatternTags;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BannerPatternItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -20,21 +22,21 @@ import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
 public class BBItems {
-	public static final ItemSubRegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER.getItemSubHelper();
+	public static final ItemSubRegistryHelper ITEMS = BuzzierBees.REGISTRY_HELPER.getItemSubHelper();
 
-	public static final DeferredItem<CuringItem> HONEY_APPLE = HELPER.createItem("honey_apple", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_APPLE), new MobEffectInstance(MobEffects.LEVITATION), new MobEffectInstance(MobEffects.POISON)));
-	public static final DeferredItem<CuringItem> HONEY_BREAD = HELPER.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD), new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN), new MobEffectInstance(MobEffects.POISON)));
-	public static final DeferredItem<CuringItem> GLAZED_PORKCHOP = HELPER.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(BBFoods.GLAZED_PORKCHOP), new MobEffectInstance(MobEffects.DIG_SLOWDOWN), new MobEffectInstance(MobEffects.POISON)));
+	public static final DeferredItem<CuringItem> HONEY_APPLE = ITEMS.createItem("honey_apple", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_APPLE), MobEffects.LEVITATION, MobEffects.POISON));
+	public static final DeferredItem<CuringItem> HONEY_BREAD = ITEMS.createItem("honey_bread", () -> new CuringItem(new Item.Properties().food(BBFoods.HONEY_BREAD), MobEffects.MOVEMENT_SLOWDOWN, MobEffects.POISON));
+	public static final DeferredItem<CuringItem> GLAZED_PORKCHOP = ITEMS.createItem("glazed_porkchop", () -> new CuringItem(new Item.Properties().food(BBFoods.GLAZED_PORKCHOP), MobEffects.DIG_SLOWDOWN, MobEffects.POISON));
 
-	public static final DeferredItem<BugBottleItem> BOTTLE_OF_SILVERFISH = HELPER.createItem("silverfish_bottle", () -> new BugBottleItem(EntityType.SILVERFISH, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
-	public static final DeferredItem<BugBottleItem> BOTTLE_OF_ENDERMITE = HELPER.createItem("endermite_bottle", () -> new BugBottleItem(EntityType.ENDERMITE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
-	public static final DeferredItem<BeeBottleItem> BOTTLE_OF_BEE = HELPER.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
+	public static final DeferredItem<BugBottleItem> BOTTLE_OF_SILVERFISH = ITEMS.createItem("silverfish_bottle", () -> new BugBottleItem(EntityType.SILVERFISH, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
+	public static final DeferredItem<BugBottleItem> BOTTLE_OF_ENDERMITE = ITEMS.createItem("endermite_bottle", () -> new BugBottleItem(EntityType.ENDERMITE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
+	public static final DeferredItem<BeeBottleItem> BOTTLE_OF_BEE = ITEMS.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
 
-	public static final DeferredItem<Item> FOUR_LEAF_CLOVER = HELPER.createItem("four_leaf_clover", () -> new Item(new Item.Properties()));
-	public static final DeferredItem<BannerPatternItem> HONEYCOMB_BANNER_PATTERN = HELPER.createItem("honeycomb_banner_pattern", () -> new BannerPatternItem(BBBannerPatternTags.PATTERN_ITEM_HONEYCOMB, new Item.Properties().stacksTo(1)));
+	public static final DeferredItem<Item> FOUR_LEAF_CLOVER = ITEMS.createItem("four_leaf_clover", () -> new Item(new Item.Properties()));
+	public static final DeferredItem<BannerPatternItem> HONEYCOMB_BANNER_PATTERN = ITEMS.createItem("honeycomb_banner_pattern", () -> new BannerPatternItem(BBBannerPatternTags.PATTERN_ITEM_HONEYCOMB, new Item.Properties().stacksTo(1)));
 
-	public static final DeferredItem<DeferredSpawnEggItem> GRIZZLY_BEAR_SPAWN_EGG = HELPER.createSpawnEggItem("grizzly_bear", BBEntityTypes.GRIZZLY_BEAR::get, 0x523021, 0x926A4B);
-	public static final DeferredItem<DeferredSpawnEggItem> MOOBLOOM_SPAWN_EGG = HELPER.createSpawnEggItem("moobloom", BBEntityTypes.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
+	public static final DeferredItem<DeferredSpawnEggItem> GRIZZLY_BEAR_SPAWN_EGG = ITEMS.createSpawnEggItem("grizzly_bear", BBEntityTypes.GRIZZLY_BEAR::get, 0x523021, 0x926A4B);
+	public static final DeferredItem<DeferredSpawnEggItem> MOOBLOOM_SPAWN_EGG = ITEMS.createSpawnEggItem("moobloom", BBEntityTypes.MOOBLOOM::get, 0xDBA436, 0xDCDCDC);
 
 	public static void setupTabEditors() {
 		CreativeModeTabContentsPopulator.mod(BuzzierBees.MOD_ID)

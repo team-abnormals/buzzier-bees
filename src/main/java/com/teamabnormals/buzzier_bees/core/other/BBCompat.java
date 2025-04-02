@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 
 public class BBCompat {
 
-	public static void registerCompat() {
+	public static void register() {
 		registerDispenseBehaviors();
 	}
 

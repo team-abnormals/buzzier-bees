@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "criteria": {
+    "use_glazed_porkchop": {
+      "conditions": {
+        "item": {
+          "items": "buzzier_bees:glazed_porkchop"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "effects": {
+                "minecraft:mining_fatigue": {}
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.buzzier_bees.husbandry.use_glazed_porkchop.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "buzzier_bees:glazed_porkchop"
+    },
+    "title": {
+      "translate": "advancements.buzzier_bees.husbandry.use_glazed_porkchop.title"
+    }
+  },
+  "requirements": [
+    [
+      "use_glazed_porkchop"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

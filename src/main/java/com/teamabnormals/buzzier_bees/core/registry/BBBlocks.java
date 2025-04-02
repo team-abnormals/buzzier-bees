@@ -27,39 +27,39 @@ import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
 public class BBBlocks {
-	public static final BlockSubRegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER.getBlockSubHelper();
+	public static final BlockSubRegistryHelper BLOCKS = BuzzierBees.REGISTRY_HELPER.getBlockSubHelper();
 
-	public static final DeferredBlock<Block> CRYSTALLIZED_HONEY_BLOCK = HELPER.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(BBBlockProperties.CRYSTALLIZED_HONEY));
-	public static final DeferredBlock<Block> HONEY_LAMP = HELPER.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.ofFullCopy(Blocks.END_ROD).sound(SoundType.HONEY_BLOCK)));
+	public static final DeferredBlock<Block> CRYSTALLIZED_HONEY_BLOCK = BLOCKS.createBlock("crystallized_honey_block", () -> new CrystallizedHoneyBlock(BBBlockProperties.CRYSTALLIZED_HONEY));
+	public static final DeferredBlock<Block> HONEY_LAMP = BLOCKS.createBlock("honey_lamp", () -> new HoneyLampBlock(Block.Properties.ofFullCopy(Blocks.END_ROD).sound(SoundType.HONEY_BLOCK)));
 
-	public static final DeferredBlock<Block> HONEYCOMB_BRICKS = HELPER.createBlock("honeycomb_bricks", () -> new Block(BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_BRICK_STAIRS = HELPER.createBlock("honeycomb_brick_stairs", () -> new StairBlock(HONEYCOMB_BRICKS.get().defaultBlockState(), BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_BRICK_SLAB = HELPER.createBlock("honeycomb_brick_slab", () -> new SlabBlock(BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_BRICK_WALL = HELPER.createBlock("honeycomb_brick_wall", () -> new WallBlock(BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> CHISELED_HONEYCOMB_BRICKS = HELPER.createBlock("chiseled_honeycomb_bricks", () -> new Block(BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_TILES = HELPER.createBlock("honeycomb_tiles", () -> new Block(BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_TILE_STAIRS = HELPER.createBlock("honeycomb_tile_stairs", () -> new StairBlock(HONEYCOMB_TILES.get().defaultBlockState(), BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_TILE_SLAB = HELPER.createBlock("honeycomb_tile_slab", () -> new SlabBlock(BBBlockProperties.HONEYCOMB_BRICKS));
-	public static final DeferredBlock<Block> HONEYCOMB_TILE_WALL = HELPER.createBlock("honeycomb_tile_wall", () -> new WallBlock(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_BRICKS = BLOCKS.createBlock("honeycomb_bricks", () -> new Block(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_BRICK_STAIRS = BLOCKS.createBlock("honeycomb_brick_stairs", () -> new StairBlock(HONEYCOMB_BRICKS.get().defaultBlockState(), BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_BRICK_SLAB = BLOCKS.createBlock("honeycomb_brick_slab", () -> new SlabBlock(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_BRICK_WALL = BLOCKS.createBlock("honeycomb_brick_wall", () -> new WallBlock(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> CHISELED_HONEYCOMB_BRICKS = BLOCKS.createBlock("chiseled_honeycomb_bricks", () -> new Block(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_TILES = BLOCKS.createBlock("honeycomb_tiles", () -> new Block(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_TILE_STAIRS = BLOCKS.createBlock("honeycomb_tile_stairs", () -> new StairBlock(HONEYCOMB_TILES.get().defaultBlockState(), BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_TILE_SLAB = BLOCKS.createBlock("honeycomb_tile_slab", () -> new SlabBlock(BBBlockProperties.HONEYCOMB_BRICKS));
+	public static final DeferredBlock<Block> HONEYCOMB_TILE_WALL = BLOCKS.createBlock("honeycomb_tile_wall", () -> new WallBlock(BBBlockProperties.HONEYCOMB_BRICKS));
 
-	public static final DeferredBlock<Block> HONEYCOMB_DOOR = HELPER.createBlock("honeycomb_door", () -> new HoneycombDoorBlock(BBBlockProperties.HONEYCOMB_DOOR));
-	public static final DeferredBlock<Block> HONEYCOMB_TRAPDOOR = HELPER.createBlock("honeycomb_trapdoor", () -> new HoneycombTrapDoorBlock(BBBlockProperties.HONEYCOMB_TRAPDOOR));
+	public static final DeferredBlock<Block> HONEYCOMB_DOOR = BLOCKS.createBlock("honeycomb_door", () -> new HoneycombDoorBlock(BBBlockProperties.HONEYCOMB_DOOR));
+	public static final DeferredBlock<Block> HONEYCOMB_TRAPDOOR = BLOCKS.createBlock("honeycomb_trapdoor", () -> new HoneycombTrapDoorBlock(BBBlockProperties.HONEYCOMB_TRAPDOOR));
 
-	public static final DeferredBlock<Block> SOUL_CANDLE = HELPER.createBlock("soul_candle", () -> new SpecialCandleBlock(BBConstants.SMALL_SOUL_FIRE_FLAME, BBBlockProperties.SOUL_CANDLE));
-	public static final DeferredBlock<Block> SOUL_CANDLE_CAKE = HELPER.createBlockNoItem("soul_candle_cake", () -> new SpecialCandleCakeBlock(SOUL_CANDLE.get(), BBConstants.SMALL_SOUL_FIRE_FLAME, BBBlockProperties.SOUL_CANDLE_CAKE));
+	public static final DeferredBlock<Block> SOUL_CANDLE = BLOCKS.createBlock("soul_candle", () -> new SpecialCandleBlock(BBConstants.SMALL_SOUL_FIRE_FLAME, BBBlockProperties.SOUL_CANDLE));
+	public static final DeferredBlock<Block> SOUL_CANDLE_CAKE = BLOCKS.createBlockNoItem("soul_candle_cake", () -> new SpecialCandleCakeBlock(SOUL_CANDLE.get(), BBConstants.SMALL_SOUL_FIRE_FLAME, BBBlockProperties.SOUL_CANDLE_CAKE));
 
-	public static final DeferredBlock<Block> ENDER_CANDLE = HELPER.createBlock("ender_candle", () -> new SpecialCandleBlock(BBConstants.SMALL_ENDER_FIRE_FLAME, BBBlockProperties.ENDER_CANDLE));
-	public static final DeferredBlock<Block> ENDER_CANDLE_CAKE = HELPER.createBlockNoItem("ender_candle_cake", () -> new SpecialCandleCakeBlock(ENDER_CANDLE.get(), BBConstants.SMALL_ENDER_FIRE_FLAME, BBBlockProperties.ENDER_CANDLE_CAKE));
+	public static final DeferredBlock<Block> ENDER_CANDLE = BLOCKS.createBlock("ender_candle", () -> new SpecialCandleBlock(BBConstants.SMALL_ENDER_FIRE_FLAME, BBBlockProperties.ENDER_CANDLE));
+	public static final DeferredBlock<Block> ENDER_CANDLE_CAKE = BLOCKS.createBlockNoItem("ender_candle_cake", () -> new SpecialCandleCakeBlock(ENDER_CANDLE.get(), BBConstants.SMALL_ENDER_FIRE_FLAME, BBBlockProperties.ENDER_CANDLE_CAKE));
 
-	public static final DeferredBlock<Block> CUPRIC_CANDLE = HELPER.createBlock("cupric_candle", () -> new SpecialCandleBlock(BBConstants.SMALL_CUPRIC_FIRE_FLAME, BBBlockProperties.CUPRIC_CANDLE));
-	public static final DeferredBlock<Block> CUPRIC_CANDLE_CAKE = HELPER.createBlockNoItem("cupric_candle_cake", () -> new SpecialCandleCakeBlock(CUPRIC_CANDLE.get(), BBConstants.SMALL_CUPRIC_FIRE_FLAME, BBBlockProperties.CUPRIC_CANDLE_CAKE));
+	public static final DeferredBlock<Block> CUPRIC_CANDLE = BLOCKS.createBlock("cupric_candle", () -> new SpecialCandleBlock(BBConstants.SMALL_CUPRIC_FIRE_FLAME, BBBlockProperties.CUPRIC_CANDLE));
+	public static final DeferredBlock<Block> CUPRIC_CANDLE_CAKE = BLOCKS.createBlockNoItem("cupric_candle_cake", () -> new SpecialCandleCakeBlock(CUPRIC_CANDLE.get(), BBConstants.SMALL_CUPRIC_FIRE_FLAME, BBBlockProperties.CUPRIC_CANDLE_CAKE));
 
-	public static final DeferredBlock<Block> BUTTERCUP = HELPER.createBlock("buttercup", () -> new ButtercupBlock(BBMobEffects.SUNNY, 12, PropertyUtil.flower()));
-	public static final DeferredBlock<Block> WHITE_CLOVER = HELPER.createBlock("white_clover", () -> new FlowerBlock(MobEffects.UNLUCK, 6, PropertyUtil.flower()));
-	public static final DeferredBlock<Block> PINK_CLOVER = HELPER.createBlock("pink_clover", () -> new FlowerBlock(MobEffects.UNLUCK, 12, PropertyUtil.flower()));
-	public static final DeferredBlock<Block> POTTED_WHITE_CLOVER = HELPER.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), PropertyUtil.flowerPot()));
-	public static final DeferredBlock<Block> POTTED_PINK_CLOVER = HELPER.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), PropertyUtil.flowerPot()));
-	public static final DeferredBlock<Block> POTTED_BUTTERCUP = HELPER.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), PropertyUtil.flowerPot()));
+	public static final DeferredBlock<Block> BUTTERCUP = BLOCKS.createBlock("buttercup", () -> new ButtercupBlock(BBMobEffects.SUNNY, 12, PropertyUtil.flower()));
+	public static final DeferredBlock<Block> WHITE_CLOVER = BLOCKS.createBlock("white_clover", () -> new FlowerBlock(MobEffects.UNLUCK, 6, PropertyUtil.flower()));
+	public static final DeferredBlock<Block> PINK_CLOVER = BLOCKS.createBlock("pink_clover", () -> new FlowerBlock(MobEffects.UNLUCK, 12, PropertyUtil.flower()));
+	public static final DeferredBlock<Block> POTTED_WHITE_CLOVER = BLOCKS.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), PropertyUtil.flowerPot()));
+	public static final DeferredBlock<Block> POTTED_PINK_CLOVER = BLOCKS.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), PropertyUtil.flowerPot()));
+	public static final DeferredBlock<Block> POTTED_BUTTERCUP = BLOCKS.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), PropertyUtil.flowerPot()));
 
 	public static void setupTabEditors() {
 		CreativeModeTabContentsPopulator.mod(BuzzierBees.MOD_ID)

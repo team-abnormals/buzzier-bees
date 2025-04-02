@@ -1,4 +1,4 @@
-package com.teamabnormals.buzzier_bees.core.data.server.modifiers;
+package com.teamabnormals.buzzier_bees.core.registry.datapack;
 
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.other.tags.BBBiomeTags;
@@ -27,7 +27,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BBBiomeModifierProvider {
+public class BBBiomeModifiers {
 
 	public static void bootstrap(BootstrapContext<BiomeModifier> context) {
 		removeSpawn(context, "remove_animal/cow", BBBiomeTags.HAS_MOOBLOOM, EntityType.COW);

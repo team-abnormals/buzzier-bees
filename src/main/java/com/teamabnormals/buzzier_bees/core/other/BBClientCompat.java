@@ -12,7 +12,9 @@ import net.minecraft.world.item.component.CustomData;
 
 public class BBClientCompat {
 
-	public static void registerClientCompat() {
+	public static void register() {
+		BBBlocks.setupTabEditors();
+		BBItems.setupTabEditors();
 		registerRenderLayers();
 		registerItemProperties();
 	}
@@ -32,7 +34,7 @@ public class BBClientCompat {
 	private static void registerItemProperties() {
 		ItemProperties.register(BBItems.BOTTLE_OF_BEE.get(), ResourceLocation.parse("angry"), (stack, world, entity, num) -> {
 			CompoundTag tag = stack.getOrDefault(BBDataComponents.BOTTLE_BEE_DATA.get(), CustomData.EMPTY).copyTag();
-			if (tag != null && tag.contains("AngerTime") && tag.getInt("AngerTime") > 0) {
+			if (tag.contains("AngerTime") && tag.getInt("AngerTime") > 0) {
 				return 2;
 			}
 			return 1;

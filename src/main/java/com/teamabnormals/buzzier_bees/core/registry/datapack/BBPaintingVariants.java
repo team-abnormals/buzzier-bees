@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 
 public class BBPaintingVariants {
-
 	public static final ResourceKey<PaintingVariant> CANDLE = create("candle");
 
 	public static void bootstrap(BootstrapContext<PaintingVariant> context) {

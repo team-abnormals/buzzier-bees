@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.BannerPattern;
 
 public class BBBannerPatterns {
-
 	public static final ResourceKey<BannerPattern> HONEYCOMB = create("honeycomb");
 
 	public static void bootstrap(BootstrapContext<BannerPattern> context) {

@@ -4,26 +4,29 @@ import com.teamabnormals.blueprint.core.util.registry.EntitySubRegistryHelper;
 import com.teamabnormals.buzzier_bees.common.entity.animal.GrizzlyBear;
 import com.teamabnormals.buzzier_bees.common.entity.animal.Moobloom;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent.Operation;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class BBEntityTypes {
-	public static final EntitySubRegistryHelper HELPER = BuzzierBees.REGISTRY_HELPER.getEntitySubHelper();
+	public static final EntitySubRegistryHelper ENTITY_TYPES = BuzzierBees.REGISTRY_HELPER.getEntitySubHelper();
 
-	public static final DeferredHolder<EntityType<?>, EntityType<GrizzlyBear>> GRIZZLY_BEAR = HELPER.createEntity("grizzly_bear", GrizzlyBear::new, MobCategory.CREATURE, 1.4F, 1.4F);
-	public static final DeferredHolder<EntityType<?>, EntityType<Moobloom>> MOOBLOOM = HELPER.createEntity("moobloom", Moobloom::new, MobCategory.CREATURE, 0.9F, 1.4F);
+	public static final DeferredHolder<EntityType<?>, EntityType<GrizzlyBear>> GRIZZLY_BEAR = ENTITY_TYPES.createEntity("grizzly_bear", GrizzlyBear::new, MobCategory.CREATURE, 1.4F, 1.4F);
+	public static final DeferredHolder<EntityType<?>, EntityType<Moobloom>> MOOBLOOM = ENTITY_TYPES.createEntity("moobloom", Moobloom::new, MobCategory.CREATURE, 0.9F, 1.4F);
 
 	@SubscribeEvent
 	public static void registerEntityAttributes(RegisterSpawnPlacementsEvent event) {
-		event.register(GRIZZLY_BEAR.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
-		event.register(MOOBLOOM.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
+		event.register(GRIZZLY_BEAR.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, Operation.AND);
+		event.register(MOOBLOOM.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, Operation.AND);
 	}
 
 	@SubscribeEvent

@@ -1,4 +1,4 @@
-package com.teamabnormals.buzzier_bees.core.data.server.modifiers;
+package com.teamabnormals.buzzier_bees.core.data.server;
 
 import com.teamabnormals.blueprint.common.advancement.modification.AdvancementModifierProvider;
 import com.teamabnormals.blueprint.common.advancement.modification.modifiers.CriteriaModifier;
@@ -36,11 +36,9 @@ public class BBAdvancementModifierProvider extends AdvancementModifierProvider {
 		this.entry("nether/all_potions").selects("nether/all_potions").addModifier(new EffectsChangedModifier("all_effects", false, MobEffectsPredicate.Builder.effects().and(MobEffects.LUCK).and(MobEffects.UNLUCK).build().get()));
 
 		CriteriaModifier.Builder balancedDiet = CriteriaModifier.builder(this.modId);
-		Collection<DeferredHolder<Item, ? extends Item>> items = BBItems.HELPER.getDeferredRegister().getEntries();
+		Collection<DeferredHolder<Item, ? extends Item>> items = BBItems.ITEMS.getDeferredRegister().getEntries().stream().filter(i -> i.get().getDefaultInstance().getFoodProperties(null) != null).toList();
 		items.forEach(item -> {
-			if (item.get().getDefaultInstance().getFoodProperties(null) != null) {
-				balancedDiet.addCriterion(BuiltInRegistries.ITEM.getKey(item.get()).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(item.get()));
-			}
+			balancedDiet.addCriterion(BuiltInRegistries.ITEM.getKey(item.get()).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(item.get()));
 		});
 		this.entry("husbandry/balanced_diet").selects("husbandry/balanced_diet").addModifier(balancedDiet.requirements(AdvancementRequirements.Strategy.AND).build());
 

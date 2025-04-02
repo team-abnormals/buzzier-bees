@@ -4,8 +4,9 @@ import com.teamabnormals.blueprint.common.remolder.RemolderTypes;
 import com.teamabnormals.blueprint.common.remolder.data.RemolderProvider;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
 import com.teamabnormals.buzzier_bees.core.registry.BBItems;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.PackOutput.Target;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
@@ -13,15 +14,16 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.teamabnormals.blueprint.common.remolder.util.LootRemolders.*;
+import static com.teamabnormals.blueprint.common.remolder.util.LootRemolders.addEntry;
 
 public class BBRemolderProvider extends RemolderProvider {
-	public BBRemolderProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-		super(BuzzierBees.MOD_ID, PackOutput.Target.DATA_PACK, packOutput, lookupProvider);
+
+	public BBRemolderProvider(PackOutput output, CompletableFuture<Provider> provider) {
+		super(BuzzierBees.MOD_ID, Target.DATA_PACK, output, provider);
 	}
 
 	@Override
-	protected void registerEntries(HolderLookup.Provider provider) {
+	protected void registerEntries(Provider provider) {
 		this.entry("jungle_temple")
 				.path("minecraft:loot_table/chests/jungle_temple")
 				.remolder(addEntry(0, LootItem.lootTableItem(BBItems.FOUR_LEAF_CLOVER.get()).setWeight(5).build()));
