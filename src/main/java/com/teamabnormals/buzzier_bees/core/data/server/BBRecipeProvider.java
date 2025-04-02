@@ -65,7 +65,7 @@ public class BBRecipeProvider extends BlueprintRecipeProvider {
 		infestedBlockRecipe(output, DEEPSLATE, INFESTED_DEEPSLATE);
 		infestedBlockRecipe(output, MOSSY_STONE_BRICKS, INFESTED_MOSSY_STONE_BRICKS);
 		infestedBlockRecipe(output, STONE_BRICKS, INFESTED_STONE_BRICKS);
-		
+
 		chiseled(output, RecipeCategory.BUILDING_BLOCKS, CHISELED_HONEYCOMB_BRICKS, HONEYCOMB_BRICK_SLAB);
 		slab(output, RecipeCategory.BUILDING_BLOCKS, HONEYCOMB_BRICK_SLAB, HONEYCOMB_BRICKS);
 		stairBuilder(HONEYCOMB_BRICK_STAIRS, Ingredient.of(HONEYCOMB_BRICKS)).unlockedBy(getHasName(HONEYCOMB_BRICKS), has(HONEYCOMB_BRICKS)).save(output);
@@ -95,16 +95,18 @@ public class BBRecipeProvider extends BlueprintRecipeProvider {
 				.group(getItemName(dye))
 				.requires(flower)
 				.unlockedBy(getHasName(flower), has(flower))
-				.save(output, BuzzierBees.location(getItemName(dye)+ "_from_" + getItemName(flower)));
+				.save(output, BuzzierBees.location(getItemName(dye) + "_from_" + getItemName(flower)));
 	}
 
 	public static void infestedBlockRecipe(RecipeOutput output, ItemLike block, ItemLike infestedBlock) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, infestedBlock).requires(block).requires(BOTTLE_OF_SILVERFISH).unlockedBy(getHasName(BOTTLE_OF_SILVERFISH), has(BOTTLE_OF_SILVERFISH)).save(output);
 	}
+
 	public static void stonecutterRecipe(RecipeOutput output, RecipeCategory category, ItemLike result, ItemLike... inputs) {
 		stonecutterRecipe(output, category, 1, result, inputs);
 	}
+
 	public static void stonecutterRecipe(RecipeOutput output, RecipeCategory category, int count, ItemLike result, ItemLike... inputs) {
-		SingleItemRecipeBuilder.stonecutting(Ingredient.of(inputs), category, result, count).unlockedBy(getHasName(Arrays.stream(inputs).findFirst().get()) , has(Arrays.stream(inputs).findFirst().get())).save(output, BuzzierBees.location(getItemName(result) + "_from_stonecutting"));
+		SingleItemRecipeBuilder.stonecutting(Ingredient.of(inputs), category, result, count).unlockedBy(getHasName(Arrays.stream(inputs).findFirst().get()), has(Arrays.stream(inputs).findFirst().get())).save(output, BuzzierBees.location(getItemName(result) + "_from_stonecutting"));
 	}
 }

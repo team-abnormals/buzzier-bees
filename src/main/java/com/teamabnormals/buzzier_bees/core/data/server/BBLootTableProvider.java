@@ -1,7 +1,6 @@
 package com.teamabnormals.buzzier_bees.core.data.server;
 
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
-import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.teamabnormals.buzzier_bees.core.registry.BBEntityTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.WritableRegistry;
@@ -10,10 +9,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

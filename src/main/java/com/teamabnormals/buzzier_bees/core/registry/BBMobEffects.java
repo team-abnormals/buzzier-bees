@@ -28,8 +28,8 @@ public class BBMobEffects {
 	public static final DeferredHolder<Potion, Potion> UNLUCK = POTIONS.register("unluck", () -> new Potion(new MobEffectInstance(MobEffects.UNLUCK, 3600)));
 	public static final DeferredHolder<Potion, Potion> LONG_UNLUCK = POTIONS.register("long_unluck", () -> new Potion(new MobEffectInstance(MobEffects.UNLUCK, 9600)));
 	public static final DeferredHolder<Potion, Potion> STRONG_UNLUCK = POTIONS.register("strong_unluck", () -> new Potion(new MobEffectInstance(MobEffects.UNLUCK, 3600, 1)));
-	
-	@SubscribeEvent 
+
+	@SubscribeEvent
 	public static void registerBrewingRecipes(RegisterBrewingRecipesEvent event) {
 		event.getBuilder().addMix(Potions.AWKWARD, BBItems.FOUR_LEAF_CLOVER.get(), Potions.LUCK);
 		event.getBuilder().addMix(Potions.LUCK, Items.REDSTONE, LONG_LUCK);
