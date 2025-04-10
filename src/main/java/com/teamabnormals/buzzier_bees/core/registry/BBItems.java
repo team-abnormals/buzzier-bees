@@ -13,11 +13,9 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BannerPatternItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-import static com.teamabnormals.blueprint.core.util.item.ItemStackUtil.is;
 import static net.minecraft.world.item.CreativeModeTabs.*;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
@@ -50,7 +48,7 @@ public class BBItems {
 				.tab(TOOLS_AND_UTILITIES)
 				.addItemsBefore(of(Items.FISHING_ROD), () -> Items.GLASS_BOTTLE, BOTTLE_OF_BEE, BOTTLE_OF_SILVERFISH, BOTTLE_OF_ENDERMITE)
 				.tab(SPAWN_EGGS)
-				.addItemsAlphabetically(is(SpawnEggItem.class), MOOBLOOM_SPAWN_EGG);
+				.addSpawnEggsAlphabetically(MOOBLOOM_SPAWN_EGG);
 	}
 
 	public static class BBFoods {
