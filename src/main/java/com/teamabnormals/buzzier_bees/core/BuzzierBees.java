@@ -58,6 +58,11 @@ public class BuzzierBees {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 
 		boolean server = event.includeServer();
+
+		BBDatapackProvider datapack = new BBDatapackProvider(output, provider);
+		generator.addProvider(server, datapack);
+		provider = datapack.getRegistryProvider();
+
 		BBBlockTagsProvider blockTags = new BBBlockTagsProvider(output, provider, helper);
 		generator.addProvider(server, blockTags);
 		generator.addProvider(server, new BBItemTagsProvider(output, provider, blockTags.contentsGetter(), helper));
@@ -66,11 +71,9 @@ public class BuzzierBees {
 		generator.addProvider(server, BBAdvancementProvider.create(output, provider, helper));
 		generator.addProvider(server, new BBRemolderProvider(output, provider));
 		generator.addProvider(server, new BBAdvancementModifierProvider(output, provider));
-		var datapack = new BBDatapackBuiltinEntriesProvider(output, provider);
-		generator.addProvider(server, datapack);
 		generator.addProvider(server, new BBDataMapProvider(output, provider));
-		generator.addProvider(server, new BBBannerPatternTagsProvider(output, datapack.getRegistryProvider(), helper));
-		generator.addProvider(server, new BBPaintingVariantTagsProvider(output, datapack.getRegistryProvider(), helper));
+		generator.addProvider(server, new BBBannerPatternTagsProvider(output, provider, helper));
+		generator.addProvider(server, new BBPaintingVariantTagsProvider(output, provider, helper));
 		generator.addProvider(server, new BBRecipeProvider(output, provider));
 		generator.addProvider(server, new BBLootTableProvider(output, provider));
 

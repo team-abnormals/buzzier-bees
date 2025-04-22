@@ -16,7 +16,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-public class BBDatapackBuiltinEntriesProvider extends DatapackBuiltinEntriesProvider {
+public class BBDatapackProvider extends DatapackBuiltinEntriesProvider {
 
 	public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
 			.add(Registries.BANNER_PATTERN, BBBannerPatterns::bootstrap)
@@ -25,7 +25,7 @@ public class BBDatapackBuiltinEntriesProvider extends DatapackBuiltinEntriesProv
 			.add(Registries.PLACED_FEATURE, BBPlacedFeatures::bootstrap)
 			.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, BBBiomeModifiers::bootstrap);
 
-	public BBDatapackBuiltinEntriesProvider(PackOutput output, CompletableFuture<Provider> provider) {
+	public BBDatapackProvider(PackOutput output, CompletableFuture<Provider> provider) {
 		super(output, provider, BUILDER, Set.of(BuzzierBees.MOD_ID));
 	}
 }
