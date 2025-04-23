@@ -34,6 +34,6 @@ public class BBBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.STAIRS).add(HONEYCOMB_BRICK_STAIRS.get(), HONEYCOMB_TILE_STAIRS.get());
 		this.tag(BlockTags.WALLS).add(HONEYCOMB_BRICK_WALL.get(), HONEYCOMB_TILE_WALL.get());
 
-		this.tag(BBBlockTags.FLOWER_BLACKLIST).add(Blocks.WITHER_ROSE);
+		this.tag(BBBlockTags.FLOWER_BLACKLIST).add(Blocks.WITHER_ROSE, Blocks.TORCHFLOWER);
 	}
 }
