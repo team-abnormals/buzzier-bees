@@ -59,7 +59,7 @@ public class BBBlocks {
 	public static final DeferredBlock<Block> PINK_CLOVER = BLOCKS.createBlock("pink_clover", () -> new FlowerBlock(MobEffects.UNLUCK, 12, PropertyUtil.flower()));
 	public static final DeferredBlock<Block> POTTED_WHITE_CLOVER = BLOCKS.createBlockNoItem("potted_white_clover", () -> new FlowerPotBlock(WHITE_CLOVER.get(), PropertyUtil.flowerPot()));
 	public static final DeferredBlock<Block> POTTED_PINK_CLOVER = BLOCKS.createBlockNoItem("potted_pink_clover", () -> new FlowerPotBlock(PINK_CLOVER.get(), PropertyUtil.flowerPot()));
-	public static final DeferredBlock<Block> POTTED_BUTTERCUP = BLOCKS.createBlockNoItem("potted_buttercup", () -> new FlowerPotBlock(BUTTERCUP.get(), PropertyUtil.flowerPot()));
+	public static final DeferredBlock<Block> POTTED_BUTTERCUP = BLOCKS.createBlockNoItem("potted_buttercup", () -> new PottedButtercupBlock(BUTTERCUP.get(), PropertyUtil.flowerPot()));
 
 	public static void setupTabEditors() {
 		CreativeModeTabContentsPopulator.mod(BuzzierBees.MOD_ID)
