@@ -12,9 +12,12 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
+
+import static com.teamabnormals.buzzier_bees.core.registry.BBItems.*;
 
 public class BBItemTagsProvider extends ItemTagsProvider {
 
@@ -35,5 +38,9 @@ public class BBItemTagsProvider extends ItemTagsProvider {
 		this.copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
 
 		this.tag(BBItemTags.GRIZZLY_BEAR_FOOD).add(Items.SALMON, Items.COOKED_SALMON, Items.SALMON_BUCKET);
+
+		this.tag(Tags.Items.FOODS_FRUIT).add(HONEY_APPLE.get());
+		this.tag(Tags.Items.FOODS_BREAD).add(HONEY_BREAD.get());
+		this.tag(Tags.Items.FOODS_COOKED_MEAT).add(GLAZED_PORKCHOP.get());
 	}
 }
