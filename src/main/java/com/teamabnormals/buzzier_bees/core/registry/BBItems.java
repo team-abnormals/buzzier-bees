@@ -2,7 +2,6 @@ package com.teamabnormals.buzzier_bees.core.registry;
 
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
-import com.teamabnormals.buzzier_bees.common.item.BeeBottleItem;
 import com.teamabnormals.buzzier_bees.common.item.BugBottleItem;
 import com.teamabnormals.buzzier_bees.common.item.CuringItem;
 import com.teamabnormals.buzzier_bees.core.BuzzierBees;
@@ -28,7 +27,7 @@ public class BBItems {
 
 	public static final DeferredItem<BugBottleItem> BOTTLE_OF_SILVERFISH = ITEMS.createItem("silverfish_bottle", () -> new BugBottleItem(EntityType.SILVERFISH, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
 	public static final DeferredItem<BugBottleItem> BOTTLE_OF_ENDERMITE = ITEMS.createItem("endermite_bottle", () -> new BugBottleItem(EntityType.ENDERMITE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
-	public static final DeferredItem<BeeBottleItem> BOTTLE_OF_BEE = ITEMS.createItem("bee_bottle", () -> new BeeBottleItem(EntityType.BEE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
+	public static final DeferredItem<BugBottleItem> BOTTLE_OF_BEE = ITEMS.createItem("bee_bottle", () -> new BugBottleItem(EntityType.BEE, new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(1)));
 
 	public static final DeferredItem<Item> FOUR_LEAF_CLOVER = ITEMS.createItem("four_leaf_clover", () -> new Item(new Item.Properties()));
 	public static final DeferredItem<BannerPatternItem> HONEYCOMB_BANNER_PATTERN = ITEMS.createItem("honeycomb_banner_pattern", () -> new BannerPatternItem(BBBannerPatternTags.PATTERN_ITEM_HONEYCOMB, new Item.Properties().stacksTo(1)));

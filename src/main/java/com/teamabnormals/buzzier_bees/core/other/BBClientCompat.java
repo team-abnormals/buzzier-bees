@@ -33,7 +33,7 @@ public class BBClientCompat {
 
 	private static void registerItemProperties() {
 		ItemProperties.register(BBItems.BOTTLE_OF_BEE.get(), ResourceLocation.parse("angry"), (stack, world, entity, num) -> {
-			CompoundTag tag = stack.getOrDefault(BBDataComponents.BOTTLE_BEE_DATA.get(), CustomData.EMPTY).copyTag();
+			CompoundTag tag = stack.getOrDefault(BBDataComponents.BOTTLE_ENTITY_DATA.get(), CustomData.EMPTY).copyTag();
 			if (tag.contains("AngerTime") && tag.getInt("AngerTime") > 0) {
 				return 2;
 			}

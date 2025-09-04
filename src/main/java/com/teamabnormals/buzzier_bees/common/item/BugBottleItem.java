@@ -1,73 +1,111 @@
 package com.teamabnormals.buzzier_bees.common.item;
 
+import com.teamabnormals.buzzier_bees.common.entity.Bottleable;
 import com.teamabnormals.buzzier_bees.core.registry.BBDataComponents;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
-import java.util.Objects;
+import java.util.List;
 
-public class BugBottleItem extends Item {
-	private final EntityType<?> typeIn;
+public class BugBottleItem extends Item implements DispensibleContainerItem {
+	private final EntityType<?> type;
 
-	public BugBottleItem(EntityType<?> typeIn, Item.Properties properties) {
+	public BugBottleItem(EntityType<?> type, Item.Properties properties) {
 		super(properties);
-		this.typeIn = typeIn;
+		this.type = type;
 	}
 
+	@Override
 	public InteractionResult useOn(UseOnContext context) {
-		Level world = context.getLevel();
-		world.playSound(context.getPlayer(), context.getClickedPos(), SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundSource.BLOCKS, 1.0F, 1.0F);
-		if (world.isClientSide) {
+		Level level = context.getLevel();
+		Player player = context.getPlayer();
+		ItemStack stack = context.getItemInHand();
+
+		this.playEmptySound(player, level, context.getClickedPos());
+		if (level.isClientSide()) {
 			return InteractionResult.SUCCESS;
 		} else {
-			ItemStack itemstack = context.getItemInHand();
-			BlockPos blockpos = context.getClickedPos();
-			Direction direction = context.getClickedFace();
-			BlockState blockstate = world.getBlockState(blockpos);
+			BlockPos pos = context.getClickedPos();
+			BlockState state = level.getBlockState(pos);
+			BlockPos relativePos = state.getCollisionShape(level, pos).isEmpty() ? pos : pos.relative(context.getClickedFace());
+			if (this.emptyContents(player, level, relativePos, null, stack)) {
+				this.checkExtraContent(player, level, stack, relativePos);
 
-			BlockPos blockpos1;
-			if (blockstate.getCollisionShape(world, blockpos).isEmpty()) {
-				blockpos1 = blockpos;
+				if (!player.getAbilities().instabuild) {
+					player.setItemInHand(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
+				}
+
+				return InteractionResult.CONSUME;
 			} else {
-				blockpos1 = blockpos.relative(direction);
+				return InteractionResult.FAIL;
 			}
-
-			EntityType<?> entitytype = this.getType(itemstack.getOrDefault(BBDataComponents.BOTTLE_BUG_DATA, CustomData.EMPTY).copyTag());
-			if (!context.getPlayer().getAbilities().instabuild) {
-				context.getPlayer().setItemInHand(context.getHand(), new ItemStack(Items.GLASS_BOTTLE));
-			}
-			Entity entity = entitytype.spawn((ServerLevel) world, itemstack, context.getPlayer(), blockpos1, MobSpawnType.BUCKET, true, !Objects.equals(blockpos, blockpos1) && direction == Direction.UP);
-			if (entity instanceof Mob) {
-				((Mob) entity).setPersistenceRequired();
-			}
-			return InteractionResult.CONSUME;
 		}
 	}
 
-	public EntityType<?> getType(@Nullable CompoundTag p_208076_1_) {
-		if (p_208076_1_ != null && p_208076_1_.contains("EntityTag", 10)) {
-			CompoundTag compoundnbt = p_208076_1_.getCompound("EntityTag");
-			if (compoundnbt.contains("id", 8)) {
-				return EntityType.byString(compoundnbt.getString("id")).orElse(this.typeIn);
+	public void checkExtraContent(@Nullable Player player, Level level, ItemStack containerStack, BlockPos pos) {
+		if (level instanceof ServerLevel) {
+			this.spawn((ServerLevel) level, containerStack, pos);
+			level.gameEvent(player, GameEvent.ENTITY_PLACE, pos);
+		}
+	}
+
+	@Override
+	public boolean emptyContents(@Nullable Player player, Level level, BlockPos pos, @Nullable BlockHitResult result) {
+		return level.getBlockState(pos).getCollisionShape(level, pos).isEmpty();
+	}
+
+	protected void playEmptySound(@Nullable Player player, LevelAccessor level, BlockPos pos) {
+		level.playSound(player, pos, SoundEvents.BOTTLE_FILL_DRAGONBREATH, SoundSource.NEUTRAL, 1.0F, 1.0F);
+	}
+
+	private void spawn(ServerLevel serverLevel, ItemStack bottleedMobStack, BlockPos pos) {
+		if (this.type.spawn(serverLevel, bottleedMobStack, null, pos, MobSpawnType.BUCKET, true, false) instanceof Bottleable bottleable) {
+			CustomData customdata = bottleedMobStack.getOrDefault(BBDataComponents.BOTTLE_ENTITY_DATA, CustomData.EMPTY);
+			bottleable.loadFromBottleTag(customdata.copyTag());
+			bottleable.setFromBottle(true);
+		}
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+		if (this.type == EntityType.BEE) {
+			CustomData beeData = stack.getOrDefault(BBDataComponents.BOTTLE_ENTITY_DATA, CustomData.EMPTY);
+			CompoundTag tag = beeData.copyTag();
+			if (tag != null) {
+				if (tag.contains("Age") && tag.getInt("Age") < 0) {
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.is_baby").withStyle(ChatFormatting.GRAY)));
+				}
+
+				if (tag.contains("AngerTime") && tag.getInt("AngerTime") > 0) {
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.is_angry").withStyle(ChatFormatting.GRAY)));
+				}
+
+				if (tag.contains("HasNectar") && tag.getBoolean("HasNectar")) {
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.has_nectar").withStyle(ChatFormatting.GRAY)));
+				}
+
+				if (tag.contains("HasStung") && tag.getBoolean("HasStung")) {
+					tooltip.add((Component.translatable("tooltip.buzzier_bees.has_stung").withStyle(ChatFormatting.GRAY)));
+				}
 			}
 		}
-		return this.typeIn;
 	}
 }
